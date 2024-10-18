@@ -28,7 +28,7 @@ const SealedButton = React.memo(({ icon: Icon, onClick }) => {
       transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
-      <PiSealFill size={size} color="white" />
+      <PiSealFill size={size} color="#b3ebf2" />
       <Box
         as={PiSeal}
         size={size}
