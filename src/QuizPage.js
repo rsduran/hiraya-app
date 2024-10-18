@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { ChakraProvider, extendTheme, Flex, Box } from '@chakra-ui/react';
 import '@fontsource-variable/karla/wght.css';
+import QuestionBox from './components/QuestionBox';
+import OptionsBox from './components/OptionsBox';
+import AnswerBox from './components/AnswerBox';
+import TabList from './components/TabList';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import QuestionPanel from './components/QuestionPanel';
-import TopicBox from './components/TopicBox';
+import SearchBar from './components/SearchBar';
 
 const theme = extendTheme({
   fonts: {
@@ -54,8 +57,8 @@ const MainPage = () => {
   const totalQuestions = 10;
   const questionText = "A company is planning to run a global marketing application in the AWS Cloud. The application will feature videos that can be viewed by users. The company must ensure that all users can view these videos with low latency. Which AWS service should the company use to meet this requirement?";
 
-  const toggleStar = (event) => {
-    event.stopPropagation();
+  const toggleStar = (e) => {
+    e.stopPropagation();
     setIsStarFilled(!isStarFilled);
   };
 
@@ -99,48 +102,37 @@ const MainPage = () => {
     // Implement your reset logic here
   };
 
-  // Fixed width for TopicBox
-  const topicBoxWidth = "450px";
-
-  // You can adjust this value to change the QuestionPanel width
-  const questionPanelWidth = "900px"; // Adjust this value as needed
-
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh">
         <Sidebar activeItem={activeItem} onItemClick={setActiveItem} />
         <Flex direction="column" flex={1} overflow="hidden">
           <Navbar activeItem={activeItem} />
-          <Flex flex={1} overflow="auto" p={8}>
-            <Flex flex={1} justifyContent="center">
-              <Box width={questionPanelWidth}>
-                <QuestionPanel
-                  width="100%"
-                  onSearch={handleSearch}
-                  onShuffle={handleShuffle}
+          <Box flex={1} overflow="auto" p={8}>
+            <Flex direction="column" alignItems="center">
+              <Box w="95%" maxW="800px">
+                <SearchBar 
+                  onSearch={handleSearch} 
+                  onShuffle={handleShuffle} 
                   onReset={handleReset}
-                  tabs={tabs}
-                  onTabChange={handleTabChange}
+                />
+                <TabList tabs={tabs} onTabChange={handleTabChange} />
+                <QuestionBox
                   questionNumber={questionNumber}
                   totalQuestions={totalQuestions}
                   questionText={questionText}
                   isStarFilled={isStarFilled}
                   toggleStar={toggleStar}
-                  options={options}
+                />
+                <OptionsBox options={options} />
+                <AnswerBox
                   answer={answerData.answer}
                   answerDescription={answerData.answerDescription}
                   votes={answerData.votes}
                 />
               </Box>
             </Flex>
-            <Box width={topicBoxWidth} ml={8}>
-              <TopicBox
-                topicNumber={1}
-                courseName="CLF-C02"
-                courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
-              />
-            </Box>
-          </Flex>
+          </Box>
         </Flex>
       </Flex>
     </ChakraProvider>
