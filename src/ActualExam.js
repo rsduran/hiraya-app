@@ -7,7 +7,6 @@ import QuestionPanel from './components/QuestionPanel';
 import TopicBox from './components/TopicBox';
 import DownloadBox from './components/DownloadBox';
 import Breadcrumbs from './components/Breadcrumbs';
-import ProviderExamsCard from './components/ProviderExamsCard';
 
 const theme = extendTheme({
   fonts: {
@@ -19,8 +18,7 @@ const theme = extendTheme({
         referral: {
           height: '48px',
           fontSize: '16px',
-          paddingLeft: '24px',
-          paddingRight: '24px',
+          px: '24px',
           borderRadius: 'full',
           border: '2px solid black',
           fontWeight: 700,
@@ -101,8 +99,10 @@ const MainPage = () => {
 
   const handleSubmit = () => {
     console.log('Submitting answer');
+    // Add your submit logic here
   };
 
+  // Breadcrumbs data
   const breadcrumbsData = [
     { label: 'Providers', href: '/providers' },
     { label: 'Amazon', href: '/providers/amazon' },
@@ -117,7 +117,7 @@ const MainPage = () => {
           <Navbar activeItem={activeItem}>
             {activeItem === 'Actual Exam' && <Breadcrumbs items={breadcrumbsData} />}
           </Navbar>
-          <Flex flex={1} overflow="auto" padding={8}>
+          <Flex flex={1} overflow="auto" p={8}>
             {activeItem === 'Actual Exam' ? (
               <>
                 <Flex flex={3} minWidth="300px" marginRight={8}>
@@ -148,15 +148,11 @@ const MainPage = () => {
                     courseName="CLF-C02"
                     courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
                   />
-                  <Box width="100%" paddingTop={6}>
+                  <Box width="100%" pt={6}>
                     <DownloadBox />
                   </Box>
                 </VStack>
               </>
-            ) : activeItem === 'Exams' ? (
-              <Box width="100%">
-                <ProviderExamsCard />
-              </Box>
             ) : (
               <Box>Content for {activeItem}</Box>
             )}

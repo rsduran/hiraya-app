@@ -11,7 +11,7 @@ import SubmitButton from './SubmitButton';
 const SealedButton = React.memo(({ icon: Icon, onClick }) => {
   const [isPressed, setIsPressed] = useState(false);
   const size = '48px';
-  const iconScale = 0.5;
+  const iconScale = 0.4;
   const iconSize = `${parseInt(size) * iconScale}px`;
   const borderThickness = 3;
 
