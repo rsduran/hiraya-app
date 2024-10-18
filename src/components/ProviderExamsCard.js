@@ -31,6 +31,7 @@ const ProviderExamsCard = () => {
   ];
 
   const [selectedProvider, setSelectedProvider] = useState("All Providers");
+  const [view, setView] = useState('grid'); // New state for view
   const [providers, setProviders] = useState([
     {
       name: "Amazon Web Services (AWS)",
@@ -106,16 +107,16 @@ const ProviderExamsCard = () => {
               size="40px" 
               iconScale={0.4} 
               borderThickness={3}
-              bgColor="#b3ebf2"
-              onClick={() => console.log('Grid view clicked')}
+              bgColor={view === 'grid' ? '#b3ebf2' : 'white'} // Change background color based on selected view
+              onClick={() => setView('grid')}
             />
             <IconBox 
               icon={LuList} 
               size="40px" 
               iconScale={0.4} 
               borderThickness={3}
-              bgColor="#b3ebf2"
-              onClick={() => console.log('List view clicked')}
+              bgColor={view === 'list' ? '#b3ebf2' : 'white'} // Change background color based on selected view
+              onClick={() => setView('list')}
             />
           </Flex>
         </Flex>
@@ -123,7 +124,8 @@ const ProviderExamsCard = () => {
           <ProviderCard 
             key={index} 
             providerName={provider.name} 
-            exams={provider.exams} 
+            exams={provider.exams}
+            view={view} // Pass the view prop to ProviderCard
           />
         ))}
       </VStack>
