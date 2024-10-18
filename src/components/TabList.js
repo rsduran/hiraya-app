@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Button, ButtonGroup, Flex, Text } from '@chakra-ui/react';
-import { PiArrowLeftBold, PiArrowRightBold, PiSealFill, PiSeal } from "react-icons/pi";
+import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
 
 const TabButton = ({ children, isSelected, ...props }) => (
   <Button

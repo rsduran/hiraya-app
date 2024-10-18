@@ -6,6 +6,7 @@ import { RxReset } from "react-icons/rx";
 import { PiSealFill, PiSeal } from "react-icons/pi";
 import { MdFormatListNumbered } from "react-icons/md";
 import QuestionListDropdown from './QuestionListDropdown';
+import SubmitButton from './SubmitButton';
 
 const SealedButton = React.memo(({ icon: Icon, onClick }) => {
   const [isPressed, setIsPressed] = useState(false);
@@ -73,7 +74,8 @@ const SearchBar = ({
   onShuffle, 
   onReset, 
   currentQuestion, 
-  onQuestionSelect 
+  onQuestionSelect,
+  onSubmit
 }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -166,6 +168,8 @@ const SearchBar = ({
         <SealedButton icon={PiShuffle} onClick={onShuffle} />
         <Box width="8px" />
         <SealedButton icon={RxReset} onClick={onReset} />
+        <Box width="8px" />
+        <SubmitButton onClick={onSubmit} />
       </Flex>
     </Flex>
   );

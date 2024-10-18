@@ -13,7 +13,7 @@ const theme = extendTheme({
           height: '48px',
           fontSize: '16px',
           px: '24px',
-          bg: '#abf701',
+          bg: '#00bfff',
           color: 'black',
           borderRadius: 'full',
           border: '1px solid black',

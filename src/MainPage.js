@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { ChakraProvider, extendTheme, Flex, Box } from '@chakra-ui/react';
+import { ChakraProvider, extendTheme, Flex, Box, VStack } from '@chakra-ui/react';
 import '@fontsource-variable/karla/wght.css';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
 import QuestionPanel from './components/QuestionPanel';
 import TopicBox from './components/TopicBox';
+import DownloadBox from './components/DownloadBox';
+import Breadcrumbs from './components/Breadcrumbs';
 
 const theme = extendTheme({
   fonts: {
@@ -81,59 +83,79 @@ const MainPage = () => {
 
   const handleTabChange = (tab) => {
     console.log(`Tab changed to: ${tab}`);
-    // Here you can add logic to filter questions based on the selected tab
   };
 
   const handleSearch = (searchTerm) => {
     console.log('Searching for:', searchTerm);
-    // Implement your search logic here
   };
 
   const handleShuffle = () => {
     console.log('Shuffling questions');
-    // Implement your shuffle logic here
   };
 
   const handleReset = () => {
     console.log('Resetting questions');
-    // Implement your reset logic here
   };
+
+  const handleSubmit = () => {
+    console.log('Submitting answer');
+    // Add your submit logic here
+  };
+
+  // Breadcrumbs data
+  const breadcrumbsData = [
+    { label: 'Providers', href: '/providers' },
+    { label: 'Amazon', href: '/providers/amazon' },
+    { label: 'AWS Certified Cloud Practitioner (CLF-C02)', href: '/providers/amazon/aws-certified-cloud-practitioner-clf-c02', isCurrentPage: true },
+  ];
 
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh">
         <Sidebar activeItem={activeItem} onItemClick={setActiveItem} />
         <Flex direction="column" flex={1} overflow="hidden">
-          <Navbar activeItem={activeItem} />
+          <Navbar activeItem={activeItem}>
+            {activeItem === 'Actual Exam' && <Breadcrumbs items={breadcrumbsData} />}
+          </Navbar>
           <Flex flex={1} overflow="auto" p={8}>
-            <Flex flex={3} minWidth="300px" mr={8}>
-              <Box width="100%" maxWidth="1200px">
-                <QuestionPanel
-                  width="100%"
-                  onSearch={handleSearch}
-                  onShuffle={handleShuffle}
-                  onReset={handleReset}
-                  tabs={tabs}
-                  onTabChange={handleTabChange}
-                  questionNumber={questionNumber}
-                  totalQuestions={totalQuestions}
-                  questionText={questionText}
-                  isStarFilled={isStarFilled}
-                  toggleStar={toggleStar}
-                  options={options}
-                  answer={answerData.answer}
-                  answerDescription={answerData.answerDescription}
-                  votes={answerData.votes}
-                />
-              </Box>
-            </Flex>
-            <Box flex={1} minWidth="200px">
-              <TopicBox
-                topicNumber={1}
-                courseName="CLF-C02"
-                courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
-              />
-            </Box>
+            {activeItem === 'Actual Exam' ? (
+              <>
+                <Flex flex={3} minWidth="300px" marginRight={8}>
+                  <Box width="100%" maxWidth="1200px">
+                    <QuestionPanel
+                      width="100%"
+                      onSearch={handleSearch}
+                      onShuffle={handleShuffle}
+                      onReset={handleReset}
+                      onSubmit={handleSubmit}
+                      tabs={tabs}
+                      onTabChange={handleTabChange}
+                      questionNumber={questionNumber}
+                      totalQuestions={totalQuestions}
+                      questionText={questionText}
+                      isStarFilled={isStarFilled}
+                      toggleStar={toggleStar}
+                      options={options}
+                      answer={answerData.answer}
+                      answerDescription={answerData.answerDescription}
+                      votes={answerData.votes}
+                    />
+                  </Box>
+                </Flex>
+                <VStack flex={1} minWidth="200px" spacing={8}>
+                  <TopicBox
+                    topicNumber={1}
+                    courseName="CLF-C02"
+                    courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
+                  />
+                  <Box width="100%" pt={6}>
+                    <DownloadBox />
+                  </Box>
+                </VStack>
+              </>
+            ) : (
+              <Box>Content for {activeItem}</Box>
+            )}
           </Flex>
         </Flex>
       </Flex>

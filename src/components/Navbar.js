@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Box, Flex, Text, Avatar } from '@chakra-ui/react';
+import { Box, Text, Flex, Avatar } from '@chakra-ui/react';
 
-const Navbar = ({ activeItem }) => {
+const Navbar = ({ activeItem, children }) => {
   const [isLightTheme, setIsLightTheme] = useState(true);
 
   return (
@@ -13,25 +13,28 @@ const Navbar = ({ activeItem }) => {
       borderBottom="1px solid" 
       borderColor="gray.200"
     >
-      <Box ml={4}>
-        <Text
-          fontFamily='"Karla Variable", sans-serif'
-          fontWeight={700}
-          fontSize="24px"
-          lineHeight="29px"
-          color="rgb(0, 0, 0)"
-        >
-          <Box
-            as="span"
-            bg="#b3ebf2"
-            px="1"
-            py="0"
-            borderRadius="8px"
+      <Flex align="center">
+        <Box ml={4}>
+          <Text
+            fontFamily='"Karla Variable", sans-serif'
+            fontWeight={700}
+            fontSize="24px"
+            lineHeight="29px"
+            color="rgb(0, 0, 0)"
           >
-            {activeItem}
-          </Box>
-        </Text>
-      </Box>
+            <Box
+              as="span"
+              bg="#b3ebf2"
+              px="1"
+              py="0"
+              borderRadius="8px"
+            >
+              {activeItem}
+            </Box>
+          </Text>
+        </Box>
+        {children} {/* This will render the Breadcrumbs component */}
+      </Flex>
       <Flex align="center" mr={4}>
         <Box
           width="52px"
@@ -53,7 +56,7 @@ const Navbar = ({ activeItem }) => {
             borderRadius="full"
             transform={isLightTheme ? "translateX(3px)" : "translateX(27px)"}
             transition="transform 0.2s"
-            border="1px solid black"  // Added border to the circle
+            border="1px solid black"
           />
         </Box>
         <Text
