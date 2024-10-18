@@ -99,12 +99,6 @@ const MainPage = () => {
     // Implement your reset logic here
   };
 
-  // Fixed width for TopicBox
-  const topicBoxWidth = "450px";
-
-  // You can adjust this value to change the QuestionPanel width
-  const questionPanelWidth = "900px"; // Adjust this value as needed
-
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh">
@@ -112,8 +106,8 @@ const MainPage = () => {
         <Flex direction="column" flex={1} overflow="hidden">
           <Navbar activeItem={activeItem} />
           <Flex flex={1} overflow="auto" p={8}>
-            <Flex flex={1} justifyContent="center">
-              <Box width={questionPanelWidth}>
+            <Flex flex={3} minWidth="300px" mr={8}>
+              <Box width="100%" maxWidth="1200px">
                 <QuestionPanel
                   width="100%"
                   onSearch={handleSearch}
@@ -133,7 +127,7 @@ const MainPage = () => {
                 />
               </Box>
             </Flex>
-            <Box width={topicBoxWidth} ml={8}>
+            <Box flex={1} minWidth="200px">
               <TopicBox
                 topicNumber={1}
                 courseName="CLF-C02"

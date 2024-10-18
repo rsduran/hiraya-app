@@ -1,9 +1,10 @@
 import React from 'react';
-import { Box, Text, VStack } from '@chakra-ui/react';
+import { Box, Text, VStack, Flex } from '@chakra-ui/react';
 
 const TopicBox = ({ topicNumber, courseName, courseFullName }) => {
   return (
-    <Box
+    <Flex
+      direction="column"
       w="100%"
       bgGradient="linear(to top left, #F7941E, #72C6EF, #00A651)"
       borderRadius="20px"
@@ -12,9 +13,8 @@ const TopicBox = ({ topicNumber, courseName, courseFullName }) => {
       position="relative"
       overflow="hidden"
       p={6}
-      mb={4}
     >
-      <VStack spacing={2} align="stretch">
+      <VStack spacing={4} align="stretch">
         <Box
           px={2}
           py={0}
@@ -28,14 +28,14 @@ const TopicBox = ({ topicNumber, courseName, courseFullName }) => {
             TOPIC {topicNumber}
           </Text>
         </Box>
-        <Text fontSize="20px" fontWeight="700" color="black" lineHeight="1.2">
+        <Text fontSize="24px" fontWeight="700" color="black" lineHeight="1.2">
           {courseName}
         </Text>
-        <Text fontSize="20px" fontWeight="700" color="black" lineHeight="1.2" mt="0 !important">
+        <Text fontSize="20px" fontWeight="700" color="black" lineHeight="1.2">
           {courseFullName}
         </Text>
       </VStack>
-    </Box>
+    </Flex>
   );
 };
 

@@ -15,13 +15,19 @@ const TabButton = ({ children, isSelected, ...props }) => (
 
 const NavIconBox = ({ icon: Icon, onClick }) => {
   const [isPressed, setIsPressed] = useState(false);
-  const size = '48px';
+  const [isHovered, setIsHovered] = useState(false);
+  const size = '40px';
   const iconScale = 0.5;
   const iconSize = `${parseInt(size) * iconScale}px`;
-  const borderThickness = 3;
+  const borderThickness = '0.5px';
 
   const handleMouseDown = () => setIsPressed(true);
   const handleMouseUp = () => setIsPressed(false);
+  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setIsPressed(false);
+  };
 
   return (
     <Box
@@ -31,36 +37,22 @@ const NavIconBox = ({ icon: Icon, onClick }) => {
       onClick={onClick}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
       cursor="pointer"
       transition="all 0.1s ease"
       transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
-      <PiSealFill size={size} color="white" />
       <Box
-        as={PiSeal}
-        size={size}
-        color="black"
         position="absolute"
         top="0"
         left="0"
-        style={{
-          width: size,
-          height: size,
-        }}
-        sx={{
-          svg: {
-            strokeWidth: borderThickness,
-            stroke: 'black',
-            fill: 'none',
-          },
-          path: {
-            strokeWidth: borderThickness,
-            stroke: 'black',
-            fill: 'none',
-          },
-        }}
+        width="100%"
+        height="100%"
+        borderRadius="50%"
+        border={borderThickness + " solid black"}
+        backgroundColor="transparent"
       />
       <Flex
         position="absolute"
@@ -69,8 +61,14 @@ const NavIconBox = ({ icon: Icon, onClick }) => {
         transform="translate(-50%, -50%)"
         alignItems="center"
         justifyContent="center"
+        width="100%"
+        height="100%"
       >
-        <Icon size={iconSize} color="black" />
+        <Icon 
+          size={iconSize} 
+          color={isHovered ? "#00bfff" : "black"} 
+          transition="color 0.2s ease"
+        />
       </Flex>
     </Box>
   );
