@@ -18,6 +18,7 @@ const ProvidersPage = lazy(() => import("./components/ProvidersPage"));
 const QuestionPanel = lazy(() => import("./components/QuestionPanel"));
 const TopicBox = lazy(() => import("./components/TopicBox"));
 const DownloadBox = lazy(() => import("./components/DownloadBox"));
+const CustomDashboardTable = lazy(() => import("./components/CustomDashboardTable"));
 
 const theme = extendTheme({
   fonts: {
@@ -156,7 +157,11 @@ const MainPage = () => {
           </Navbar>
           <Box flex={1} overflow="auto" padding={8}>
             <Suspense fallback={<LoadingSpinner />}>
-              {activeItem === "Actual Exam" ? (
+              {activeItem === "Dashboard" ? (
+                <Box width="100%">
+                  <CustomDashboardTable />
+                </Box>
+              ) : activeItem === "Actual Exam" ? (
                 <Flex>
                   <Box flex={3} minWidth="300px" marginRight={8}>
                     <Box
