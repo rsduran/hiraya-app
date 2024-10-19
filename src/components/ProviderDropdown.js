@@ -17,7 +17,7 @@ const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
   };
 
   const sortedProviders = useMemo(() => {
-    return ["All Providers", ...providers.sort((a, b) => a.localeCompare(b))];
+    return ["All Providers", "Popular", "Top Picks", ...providers.sort((a, b) => a.localeCompare(b))];
   }, [providers]);
 
   return (

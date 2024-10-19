@@ -385,7 +385,7 @@ const ProviderExamsCard = () => {
           <Flex gap={2}>
             <IconBox
               icon={LuGrid}
-              size="40px"
+              size="48px"
               iconScale={0.4}
               borderThickness={3}
               bgColor={view === "grid" ? "#b3ebf2" : "white"}
@@ -393,7 +393,7 @@ const ProviderExamsCard = () => {
             />
             <IconBox
               icon={LuList}
-              size="40px"
+              size="48px"
               iconScale={0.4}
               borderThickness={3}
               bgColor={view === "list" ? "#b3ebf2" : "white"}

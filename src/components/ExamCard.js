@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Box, Text, Progress, Flex, Tooltip, Image } from "@chakra-ui/react";
 
 const badgeUrls = {
@@ -59,6 +59,7 @@ const badgeUrls = {
     "https://images.credly.com/images/33f08b7e-fa6a-41cd-810a-21cc1c336f6d/twitter_thumb_201604_image.png",
 };
 
+
 const ExamCard = React.memo(({ title, progress, totalQuestions, view }) => {
   const progressPercentage = (progress / totalQuestions) * 100;
 
@@ -71,6 +72,31 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view }) => {
       objectFit="contain"
     />
   );
+
+  // Hooks must be called at the top level
+  const [isTruncatedGrid, setIsTruncatedGrid] = useState(false);
+  const textRefGrid = useRef(null);
+
+  const [isTruncatedList, setIsTruncatedList] = useState(false);
+  const textRefList = useRef(null);
+
+  useEffect(() => {
+    if (view === "grid") {
+      const textElement = textRefGrid.current;
+      if (textElement) {
+        const isOverflowing =
+          textElement.scrollHeight > textElement.clientHeight;
+        setIsTruncatedGrid(isOverflowing);
+      }
+    } else {
+      const textElement = textRefList.current;
+      if (textElement) {
+        const isOverflowing =
+          textElement.scrollWidth > textElement.clientWidth;
+        setIsTruncatedList(isOverflowing);
+      }
+    }
+  }, [title, view]);
 
   if (view === "grid") {
     return (
@@ -86,8 +112,9 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view }) => {
         display="flex"
         flexDirection="column"
       >
-        <Tooltip label={title} isDisabled={title.length <= 50}>
+        <Tooltip label={title} isDisabled={!isTruncatedGrid}>
           <Text
+            ref={textRefGrid}
             fontSize={{ base: "14px", md: "16px", lg: "18px" }}
             fontWeight="bold"
             marginBottom={2}
@@ -160,8 +187,9 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view }) => {
           <BadgeImage size={80} />
         </Box>
         <Box flex="1" minWidth="200px">
-          <Tooltip label={title} isDisabled={title.length <= 50}>
+          <Tooltip label={title} isDisabled={!isTruncatedList}>
             <Text
+              ref={textRefList}
               fontSize={{ base: "14px", md: "16px", lg: "18px" }}
               fontWeight="bold"
               isTruncated
