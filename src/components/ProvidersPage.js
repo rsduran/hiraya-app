@@ -878,7 +878,7 @@ const ProvidersPage = () => {
         {
           name: "Sitecore",
           description: "Digital experience platform certifications.",
-          image: "https://digitalaccountants.org/wp-content/uploads/2022/10/fullpurple.png",
+          image: "https://iconape.com/wp-content/files/io/350719/png/350719.png",
           totalExams: 20,
           totalQuestions: 2500,
           isPopular: false,
@@ -1038,7 +1038,7 @@ const ProvidersPage = () => {
         {
           name: "ABA",
           description: "Banking industry certifications and training.",
-          image: "https://iconape.com/wp-content/files/io/350719/png/350719.png",
+          image: "https://www.theaba.org/wp-content/themes/useful-group/assets/images/brand/favicon.png",
           totalExams: 30,
           totalQuestions: 3800,
           isPopular: false,
