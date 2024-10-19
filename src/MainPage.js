@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import Breadcrumbs from "./components/Breadcrumbs";
 
 const ProviderExamsCard = lazy(() => import("./components/ProviderExamsCard"));
+const ProvidersPage = lazy(() => import("./components/ProvidersPage"));
 const QuestionPanel = lazy(() => import("./components/QuestionPanel"));
 const TopicBox = lazy(() => import("./components/TopicBox"));
 const DownloadBox = lazy(() => import("./components/DownloadBox"));
@@ -61,7 +62,15 @@ const theme = extendTheme({
 });
 
 const LoadingSpinner = () => (
-  <Center position="fixed" top="0" left="0" right="0" bottom="0" bg="rgba(255, 255, 255, 0.8)" zIndex="9999">
+  <Center
+    position="fixed"
+    top="0"
+    left="0"
+    right="0"
+    bottom="0"
+    bg="rgba(255, 255, 255, 0.8)"
+    zIndex="9999"
+  >
     <Spinner size="xl" color="#00bfff" thickness="4px" />
   </Center>
 );
@@ -141,7 +150,7 @@ const MainPage = () => {
         <Sidebar activeItem={activeItem} onItemClick={setActiveItem} />
         <Flex direction="column" flex={1} overflow="hidden">
           <Navbar activeItem={activeItem}>
-            {activeItem === "Actual Exam" && (
+            {(activeItem === "Actual Exam") && (
               <Breadcrumbs items={breadcrumbsData} />
             )}
           </Navbar>
@@ -150,7 +159,11 @@ const MainPage = () => {
               {activeItem === "Actual Exam" ? (
                 <Flex>
                   <Box flex={3} minWidth="300px" marginRight={8}>
-                    <Box width="100%" maxWidth="1200px" pb={4}> {/* Add padding-bottom here */}
+                    <Box
+                      width="100%"
+                      maxWidth="1200px"
+                      pb={4}
+                    >
                       <QuestionPanel
                         width="100%"
                         onSearch={handleSearch}
@@ -185,6 +198,10 @@ const MainPage = () => {
               ) : activeItem === "Exams" ? (
                 <Box width="100%">
                   <ProviderExamsCard />
+                </Box>
+              ) : activeItem === "Providers" ? (
+                <Box width="100%">
+                  <ProvidersPage />
                 </Box>
               ) : (
                 <Box>Content for {activeItem}</Box>

@@ -146,7 +146,6 @@ const ProviderExamsCard = () => {
     "A10 Networks",
     "Apple",
     "Riverbed",
-    "AAFM India",
     "McAfee",
     "DMI",
     "Meta",
@@ -237,8 +236,7 @@ const ProviderExamsCard = () => {
           totalQuestions: 100,
         },
         {
-          title:
-            "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
+          title: "AZ-400: Designing and Implementing Microsoft DevOps Solutions",
           progress: 15,
           totalQuestions: 100,
         },
@@ -325,22 +323,28 @@ const ProviderExamsCard = () => {
     }
     return filtered;
   }, [providers, selectedProvider, searchTerm]);
+
   const paginatedProviders = useMemo(() => {
     const startIndex = (currentPage - 1) * providersPerPage;
     const endIndex = startIndex + providersPerPage;
     return filteredProviders.slice(startIndex, endIndex);
   }, [filteredProviders, currentPage, providersPerPage]);
+
   const totalPages = Math.ceil(filteredProviders.length / providersPerPage);
+
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
   };
+
   const debouncedSearch = useMemo(
     () => debounce((value) => setSearchTerm(value), 300),
     []
   );
+
   const handleSearch = (event) => {
     debouncedSearch(event.target.value);
   };
+
   const renderContent = () => {
     if (paginatedProviders.length === 0) {
       return (
@@ -364,41 +368,43 @@ const ProviderExamsCard = () => {
       );
     }
   };
+
   return (
     <Container maxWidth="100%" paddingLeft={4} paddingRight={4}>
       <VStack spacing={8} align="stretch" width="100%">
-        <Flex alignItems="center" gap={4} flexWrap="wrap">
+        <Flex alignItems="center" justifyContent="space-between" gap={4} flexWrap="wrap">
           <Input
             placeholder="Search exams..."
             size="lg"
-            flex={1}
+            width={{ base: "100%", md: "400px" }}
             onChange={handleSearch}
-            minWidth="200px"
           />
-          <Box width="250px" flexShrink={0}>
-            <ProviderDropdown
-              providers={allProviders}
-              selectedProvider={selectedProvider}
-              onSelect={setSelectedProvider}
-            />
-          </Box>
-          <Flex gap={2}>
-            <IconBox
-              icon={LuGrid}
-              size="48px"
-              iconScale={0.4}
-              borderThickness={3}
-              bgColor={view === "grid" ? "#b3ebf2" : "white"}
-              onClick={() => setView("grid")}
-            />
-            <IconBox
-              icon={LuList}
-              size="48px"
-              iconScale={0.4}
-              borderThickness={3}
-              bgColor={view === "list" ? "#b3ebf2" : "white"}
-              onClick={() => setView("list")}
-            />
+          <Flex alignItems="center" gap={4}>
+            <Box width="250px">
+              <ProviderDropdown
+                providers={allProviders}
+                selectedProvider={selectedProvider}
+                onSelect={setSelectedProvider}
+              />
+            </Box>
+            <Flex gap={2}>
+              <IconBox
+                icon={LuGrid}
+                size="48px"
+                iconScale={0.4}
+                borderThickness={3}
+                bgColor={view === "grid" ? "#b3ebf2" : "white"}
+                onClick={() => setView("grid")}
+              />
+              <IconBox
+                icon={LuList}
+                size="48px"
+                iconScale={0.4}
+                borderThickness={3}
+                bgColor={view === "list" ? "#b3ebf2" : "white"}
+                onClick={() => setView("list")}
+              />
+            </Flex>
           </Flex>
         </Flex>
         {renderContent()}
