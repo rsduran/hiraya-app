@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Flex } from '@chakra-ui/react';
 import { PiSealFill, PiSeal, PiStar, PiStarFill } from 'react-icons/pi';
 import { BsQuestionLg } from 'react-icons/bs';
@@ -13,6 +13,7 @@ const IconBox = ({
   borderThickness = 3,
   bgColor = 'white'
 }) => {
+  const [isPressed, setIsPressed] = useState(false);
   const iconSize = `${parseInt(size) * iconScale}px`;
 
   return (
@@ -21,13 +22,12 @@ const IconBox = ({
       width={size} 
       height={size} 
       onClick={onClick}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
       cursor="pointer"
-      transition="all 0.3s ease"
-      _hover={{
-        '& > svg:first-of-type': {
-          color: '#b3ebf2',
-        }
-      }}
+      transition="all 0.1s ease"
+      transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
       <PiSealFill size={size} color={bgColor} />
@@ -77,6 +77,7 @@ const IconBox = ({
 
 // Specialized StarIconBox component
 const StarIconBox = ({ size = '48px', iconScale = 0.5, onClick, isStarFilled }) => {
+  const [isPressed, setIsPressed] = useState(false);
   const iconSize = `${parseInt(size) * iconScale}px`;
 
   return (
@@ -85,13 +86,12 @@ const StarIconBox = ({ size = '48px', iconScale = 0.5, onClick, isStarFilled }) 
       width={size} 
       height={size} 
       onClick={onClick}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
       cursor="pointer"
-      transition="all 0.3s ease"
-      _hover={{
-        '& > svg:first-of-type': {
-          color: '#b3ebf2',
-        }
-      }}
+      transition="all 0.1s ease"
+      transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
       <PiSealFill size={size} color="white" />
