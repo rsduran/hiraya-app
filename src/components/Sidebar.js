@@ -43,7 +43,7 @@ const SidebarText = chakra(Text, {
 });
 
 const Sidebar = ({ activeItem, onItemClick }) => {
-  const menuItems = ['Dashboard', 'Providers', 'Exams', 'Practice Exam', 'Actual Exam'];
+  const menuItems = ['Dashboard', 'Providers', 'Exams', 'Custom Exam', 'Actual Exam'];
 
   return (
     <Box bg="#f2f2f3" width="300px" height="100vh" padding="20px 0" position="relative">

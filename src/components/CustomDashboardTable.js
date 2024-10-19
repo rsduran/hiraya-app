@@ -27,7 +27,7 @@ const mockData = [
     progress: 75,
     latestGrade: { score: 85, total: 100 },
     status: "Passed",
-    updated: "just now",
+    updated: "Just now",
   },
   {
     id: 2,
