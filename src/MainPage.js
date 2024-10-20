@@ -18,6 +18,7 @@ const ProvidersPage = lazy(() => import("./components/ProvidersPage"));
 const QuestionPanel = lazy(() => import("./components/QuestionPanel"));
 const TopicBox = lazy(() => import("./components/TopicBox"));
 const DownloadBox = lazy(() => import("./components/DownloadBox"));
+const TopicSelector = lazy(() => import("./components/TopicSelector"));
 const Dashboard = lazy(() => import("./components/Dashboard"));
 
 const theme = extendTheme({
@@ -79,6 +80,7 @@ const LoadingSpinner = () => (
 const MainPage = () => {
   const [isStarFilled, setIsStarFilled] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
+  const [currentTopic, setCurrentTopic] = useState(1);
   const questionNumber = 1;
   const totalQuestions = 10;
   const questionText =
@@ -145,13 +147,19 @@ const MainPage = () => {
     },
   ];
 
+  const topics = Array.from({ length: 20 }, (_, i) => i + 1);
+
+  const handleTopicChange = (topic) => {
+    setCurrentTopic(topic);
+  };
+
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh">
         <Sidebar activeItem={activeItem} onItemClick={setActiveItem} />
         <Flex direction="column" flex={1} overflow="hidden">
           <Navbar activeItem={activeItem}>
-            {(activeItem === "Actual Exam") && (
+            {activeItem === "Actual Exam" && (
               <Breadcrumbs items={breadcrumbsData} />
             )}
           </Navbar>
@@ -164,11 +172,7 @@ const MainPage = () => {
               ) : activeItem === "Actual Exam" ? (
                 <Flex>
                   <Box flex={3} minWidth="300px" marginRight={8}>
-                    <Box
-                      width="100%"
-                      maxWidth="1200px"
-                      paddingBottom={4}
-                    >
+                    <Box width="100%" maxWidth="1200px" paddingBottom={4}>
                       <QuestionPanel
                         width="100%"
                         onSearch={handleSearch}
@@ -191,13 +195,18 @@ const MainPage = () => {
                   </Box>
                   <VStack flex={1} minWidth="200px" spacing={8}>
                     <TopicBox
-                      topicNumber={1}
+                      topicNumber={currentTopic}
                       courseName="CLF-C02"
                       courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
                     />
                     <Box width="100%" paddingTop={6}>
                       <DownloadBox />
                     </Box>
+                    <TopicSelector
+                      topics={topics}
+                      currentTopic={currentTopic}
+                      onTopicChange={handleTopicChange}
+                    />
                   </VStack>
                 </Flex>
               ) : activeItem === "Exams" ? (
