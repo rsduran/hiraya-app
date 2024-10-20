@@ -1,6 +1,6 @@
-import React from 'react';
-import { Box, Flex, Text, Button, VStack, Link } from '@chakra-ui/react';
-import { FaApple, FaAndroid, FaHeart } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { Box, Flex, Text, Button, VStack, IconButton } from '@chakra-ui/react';
+import { FaApple, FaAndroid, FaHeart, FaTimes } from 'react-icons/fa';
 import CustomDashboardTable from './CustomDashboardTable';
 
 const WelcomeComponent = ({ users, countries }) => (
@@ -87,7 +87,22 @@ const CustomButton = ({ children, leftIcon, ...props }) => (
   </Button>
 );
 
-const MobileAppsComing = () => (
+const CloseButton = ({ onClick }) => (
+  <IconButton
+    icon={<FaTimes />}
+    size="sm"
+    variant="ghost"
+    position="absolute"
+    top={2}
+    right={2}
+    onClick={onClick}
+    color="black"
+    _hover={{ bg: 'transparent' }}
+    zIndex={1}
+  />
+);
+
+const MobileAppsComing = ({ onClose }) => (
   <Box
     width="100%"
     bgGradient="linear(to-br, #FFB347, #ffcc33)"
@@ -99,6 +114,7 @@ const MobileAppsComing = () => (
     position="relative"
     overflow="hidden"
   >
+    <CloseButton onClick={onClose} />
     <Box
       position="absolute"
       bottom={{ base: "-15px", md: "-30px" }}
@@ -133,7 +149,7 @@ const MobileAppsComing = () => (
   </Box>
 );
 
-const SupportDevelopers = () => (
+const SupportDevelopers = ({ onClose }) => (
   <Box
     width="100%"
     bgGradient="linear(to-r, #8BC34A, #4CAF50)"
@@ -145,6 +161,7 @@ const SupportDevelopers = () => (
     position="relative"
     overflow="hidden"
   >
+    <CloseButton onClick={onClose} />
     <Box
       position="absolute"
       top={{ base: "-15px", md: "-30px" }}
@@ -173,9 +190,17 @@ const SupportDevelopers = () => (
       <Box ml={{ base: 0, md: 4 }} mt={{ base: 4, md: 0 }}>
         <CustomButton 
           leftIcon={<FaHeart />} 
-          backgroundColor="#FF4081" 
-          color="white" 
-          _hover={{ backgroundColor: "#E91E63" }}
+          backgroundColor="#FF4081"
+          color="white"
+          _hover={{
+            backgroundColor: "#E91E63",
+            transform: 'translateY(2px)',
+            boxShadow: '0 2px 0 0 black',
+          }}
+          _active={{
+            transform: 'translateY(4px)',
+            boxShadow: 'none',
+          }}
         >
           DONATE
         </CustomButton>
@@ -185,11 +210,18 @@ const SupportDevelopers = () => (
 );
 
 const Dashboard = () => {
+  const [showMobileApps, setShowMobileApps] = useState(true);
+  const [showSupport, setShowSupport] = useState(true);
+
   return (
     <Box width="100%" px={{ base: 2, sm: 4, md: 6, lg: 8 }}>
       <WelcomeComponent users={2.0} countries={190} />
-      <MobileAppsComing />
-      <SupportDevelopers />
+      {showMobileApps && (
+        <MobileAppsComing onClose={() => setShowMobileApps(false)} />
+      )}
+      {showSupport && (
+        <SupportDevelopers onClose={() => setShowSupport(false)} />
+      )}
       <CustomDashboardTable />
     </Box>
   );
