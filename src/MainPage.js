@@ -12,6 +12,7 @@ import "@fontsource-variable/karla/wght.css";
 import Sidebar from "./components/Sidebar";
 import Navbar from "./components/Navbar";
 import Breadcrumbs from "./components/Breadcrumbs";
+import ComingSoonComponent from './components/ComingSoonComponent';
 
 const ProviderExamsCard = lazy(() => import("./components/ProviderExamsCard"));
 const ProvidersPage = lazy(() => import("./components/ProvidersPage"));
@@ -81,6 +82,8 @@ const MainPage = () => {
   const [isStarFilled, setIsStarFilled] = useState(false);
   const [activeItem, setActiveItem] = useState("Dashboard");
   const [currentTopic, setCurrentTopic] = useState(1);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+
   const questionNumber = 1;
   const totalQuestions = 10;
   const questionText =
@@ -89,6 +92,10 @@ const MainPage = () => {
   const toggleStar = (event) => {
     event.stopPropagation();
     setIsStarFilled(!isStarFilled);
+  };
+
+  const toggleSidebar = () => {
+    setIsSidebarCollapsed(!isSidebarCollapsed);
   };
 
   const options = [
@@ -156,8 +163,17 @@ const MainPage = () => {
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh">
-        <Sidebar activeItem={activeItem} onItemClick={setActiveItem} />
-        <Flex direction="column" flex={1} overflow="hidden">
+        <Sidebar
+          activeItem={activeItem}
+          onItemClick={setActiveItem}
+          isCollapsed={isSidebarCollapsed}
+          onToggleCollapse={toggleSidebar}
+        />
+        <Flex
+          direction="column"
+          flex={1}
+          overflow="hidden"
+        >
           <Navbar activeItem={activeItem}>
             {activeItem === "Actual Exam" && (
               <Breadcrumbs items={breadcrumbsData} />
@@ -165,59 +181,66 @@ const MainPage = () => {
           </Navbar>
           <Box flex={1} overflow="auto" padding={8}>
             <Suspense fallback={<LoadingSpinner />}>
-              {activeItem === "Dashboard" ? (
+              {activeItem === "Dashboard" && (
                 <Box width="100%">
                   <Dashboard />
                 </Box>
-              ) : activeItem === "Actual Exam" ? (
+              )}
+              {activeItem === "Actual Exam" && (
                 <Flex>
-                  <Box flex={3} minWidth="300px" marginRight={8}>
-                    <Box width="100%" maxWidth="1200px" paddingBottom={4}>
-                      <QuestionPanel
-                        width="100%"
-                        onSearch={handleSearch}
-                        onShuffle={handleShuffle}
-                        onReset={handleReset}
-                        onSubmit={handleSubmit}
-                        tabs={tabs}
-                        onTabChange={handleTabChange}
-                        questionNumber={questionNumber}
-                        totalQuestions={totalQuestions}
-                        questionText={questionText}
-                        isStarFilled={isStarFilled}
-                        toggleStar={toggleStar}
-                        options={options}
-                        answer={answerData.answer}
-                        answerDescription={answerData.answerDescription}
-                        votes={answerData.votes}
-                      />
-                    </Box>
+                  <Box flex={1} minWidth="0">
+                    <QuestionPanel
+                      width="100%"
+                      onSearch={handleSearch}
+                      onShuffle={handleShuffle}
+                      onReset={handleReset}
+                      onSubmit={handleSubmit}
+                      tabs={tabs}
+                      onTabChange={handleTabChange}
+                      questionNumber={questionNumber}
+                      totalQuestions={totalQuestions}
+                      questionText={questionText}
+                      isStarFilled={isStarFilled}
+                      toggleStar={toggleStar}
+                      options={options}
+                      answer={answerData.answer}
+                      answerDescription={answerData.answerDescription}
+                      votes={answerData.votes}
+                    />
                   </Box>
-                  <VStack flex={1} minWidth="200px" spacing={8}>
-                    <TopicBox
-                      topicNumber={currentTopic}
-                      courseName="CLF-C02"
-                      courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
-                    />
-                    <Box width="100%" paddingTop={6}>
+                  <Box width="300px" minWidth="300px" marginLeft={8}>
+                    <VStack spacing={8}>
+                      <TopicBox
+                        topicNumber={currentTopic}
+                        courseName="CLF-C02"
+                        courseFullName="AWS CERTIFIED CLOUD PRACTITIONER"
+                      />
                       <DownloadBox />
-                    </Box>
-                    <TopicSelector
-                      topics={topics}
-                      currentTopic={currentTopic}
-                      onTopicChange={handleTopicChange}
-                    />
-                  </VStack>
+                      <TopicSelector
+                        topics={topics}
+                        currentTopic={currentTopic}
+                        onTopicChange={handleTopicChange}
+                      />
+                    </VStack>
+                  </Box>
                 </Flex>
-              ) : activeItem === "Exams" ? (
+              )}
+              {activeItem === "Exams" && (
                 <Box width="100%">
                   <ProviderExamsCard />
                 </Box>
-              ) : activeItem === "Providers" ? (
+              )}
+              {activeItem === "Providers" && (
                 <Box width="100%">
                   <ProvidersPage />
                 </Box>
-              ) : (
+              )}
+              {activeItem === "Custom Exam" && (
+                <Box width="100%">
+                  <ComingSoonComponent />
+                </Box>
+              )}
+              {!["Dashboard", "Actual Exam", "Exams", "Providers", "Custom Exam"].includes(activeItem) && (
                 <Box>Content for {activeItem}</Box>
               )}
             </Suspense>

@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
-import { Box, Text, Flex, Button, SimpleGrid } from '@chakra-ui/react';
+import React, { useState, useRef, useEffect } from 'react';
+import { Box, Text, Flex, Button, VStack } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+
+const CONTAINER_HEIGHT = "300px";
+const TOPICS_PER_PAGE = 10;
 
 const TopicButton = ({ topic, isSelected, onClick }) => (
   <Button
@@ -10,8 +13,8 @@ const TopicButton = ({ topic, isSelected, onClick }) => (
     backgroundColor={isSelected ? "#00bfff" : "white"}
     color="black"
     fontWeight={700}
-    fontSize="12px"
-    borderRadius="8px"
+    fontSize="14px"
+    borderRadius="10px"
     border="1px solid black"
     boxShadow={isSelected ? "none" : "0 2px 0 0 black"}
     _hover={{
@@ -31,44 +34,69 @@ const TopicButton = ({ topic, isSelected, onClick }) => (
 
 const TopicSelector = ({ topics, currentTopic, onTopicChange }) => {
   const [currentPage, setCurrentPage] = useState(0);
-  const topicsPerPage = 10;
-  const totalPages = Math.ceil(topics.length / topicsPerPage);
-
-  const visibleTopics = topics.slice(
-    currentPage * topicsPerPage,
-    (currentPage + 1) * topicsPerPage
-  );
+  const scrollContainerRef = useRef(null);
+  const totalPages = Math.ceil(topics.length / TOPICS_PER_PAGE);
 
   const handlePageChange = (direction) => {
-    if (direction === 'left') {
-      setCurrentPage((prevPage) => Math.max(0, prevPage - 1));
-    } else {
-      setCurrentPage((prevPage) => Math.min(totalPages - 1, prevPage + 1));
-    }
+    setCurrentPage(prevPage => {
+      const newPage = direction === 'left'
+        ? Math.max(0, prevPage - 1)
+        : Math.min(totalPages - 1, prevPage + 1);
+      return newPage;
+    });
   };
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [currentPage]);
 
   return (
     <Box
       width="100%"
       bg="#f2f2f3"
-      borderRadius="16px"
+      borderRadius="20px"
       border="1px solid black"
       boxShadow="0 4px 0 0 black"
-      p={3}
+      p={4}
     >
-      <Text fontSize="18px" fontWeight="700" color="black" mb={2}>
+      <Text fontSize="24px" fontWeight="700" color="black" mb={4}>
         Topics
       </Text>
-      <SimpleGrid columns={5} spacing={2} mb={3}>
-        {visibleTopics.map((topic) => (
-          <TopicButton
-            key={topic}
-            topic={topic}
-            isSelected={currentTopic === topic}
-            onClick={onTopicChange}
-          />
-        ))}
-      </SimpleGrid>
+      <Box
+        ref={scrollContainerRef}
+        overflowY="auto"
+        height={CONTAINER_HEIGHT}
+        mb={4}
+        css={{
+          '&::-webkit-scrollbar': {
+            width: '8px',
+          },
+          '&::-webkit-scrollbar-track': {
+            background: '#f1f1f1',
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb': {
+            background: '#888',
+            borderRadius: '4px',
+          },
+          '&::-webkit-scrollbar-thumb:hover': {
+            background: '#555',
+          },
+        }}
+      >
+        <VStack spacing={3} align="stretch" padding={2}>
+          {topics.slice(currentPage * TOPICS_PER_PAGE, (currentPage + 1) * TOPICS_PER_PAGE).map((topic) => (
+            <TopicButton
+              key={topic}
+              topic={topic}
+              isSelected={currentTopic === topic}
+              onClick={onTopicChange}
+            />
+          ))}
+        </VStack>
+      </Box>
       <Flex justifyContent="space-between" alignItems="center">
         <Button
           onClick={() => handlePageChange('left')}
@@ -78,7 +106,7 @@ const TopicSelector = ({ topics, currentTopic, onTopicChange }) => {
           backgroundColor="white"
           color="black"
           fontWeight={700}
-          fontSize="12px"
+          fontSize="14px"
           borderRadius="full"
           border="1px solid black"
           boxShadow="0 2px 0 0 black"
@@ -99,9 +127,6 @@ const TopicSelector = ({ topics, currentTopic, onTopicChange }) => {
         >
           Previous
         </Button>
-        <Text fontWeight="bold" fontSize="14px">
-          Page {currentPage + 1} of {totalPages}
-        </Text>
         <Button
           onClick={() => handlePageChange('right')}
           isDisabled={currentPage === totalPages - 1}
@@ -110,7 +135,7 @@ const TopicSelector = ({ topics, currentTopic, onTopicChange }) => {
           backgroundColor="white"
           color="black"
           fontWeight={700}
-          fontSize="12px"
+          fontSize="14px"
           borderRadius="full"
           border="1px solid black"
           boxShadow="0 2px 0 0 black"

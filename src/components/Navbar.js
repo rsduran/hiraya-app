@@ -28,12 +28,13 @@ const Navbar = ({ activeItem, children }) => {
               px="1"
               py="0"
               borderRadius="8px"
+              ml="2"
             >
               {activeItem}
             </Box>
           </Text>
         </Box>
-        {children} {/* This will render the Breadcrumbs component */}
+        <Box ml={4}>{children}</Box>
       </Flex>
       <Flex align="center" mr={4}>
         <Box
