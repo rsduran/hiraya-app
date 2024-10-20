@@ -104,7 +104,7 @@ const MainPage = () => {
 
   // Breadcrumbs data
   const breadcrumbsData = [
-    { label: 'Providers', href: '/providers' },
+    { label: 'All Providers', href: '/providers' },
     { label: 'Amazon', href: '/providers/amazon' },
     { label: 'AWS Certified Cloud Practitioner (CLF-C02)', href: '/providers/amazon/aws-certified-cloud-practitioner-clf-c02', isCurrentPage: true },
   ];

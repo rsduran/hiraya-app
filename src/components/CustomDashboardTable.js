@@ -4,13 +4,9 @@ import {
   Flex,
   Text,
   Button,
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverBody,
   VStack,
+  Input,
 } from "@chakra-ui/react";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { PiSortAscending, PiSortDescending } from "react-icons/pi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
@@ -77,7 +73,6 @@ const mockData = [
     status: "Passed",
     updated: "2 weeks ago",
   },
-  // Add more data as needed
 ];
 
 const CustomCheckbox = ({ isChecked, onChange }) => (
@@ -229,9 +224,11 @@ const StatusBadge = ({ status }) => {
 };
 
 const CustomProgressIndicator = ({ value }) => {
-  const angle = (value / 100) * 360;
-  const gradientColor =
-    value < 50 ? "#ff4d4d" : value < 75 ? "#ffa700" : "#abf701";
+  const getColor = (value) => {
+    if (value < 50) return "linear(to-r, #FF5252, #FF8A80)";
+    if (value < 75) return "linear(to-r, #FFD54F, #FFF176)";
+    return "linear(to-r, #4CAF50, #8BC34A)";
+  };
 
   return (
     <Box position="relative" width="50px" height="50px">
@@ -246,30 +243,28 @@ const CustomProgressIndicator = ({ value }) => {
         borderColor="#E0E0E0"
       />
       <Box
-        position="absolute"
-        top="0"
-        left="0"
+        as="svg"
+        viewBox="0 0 36 36"
         width="100%"
         height="100%"
-        borderRadius="50%"
-        border="4px solid"
-        borderColor={gradientColor}
-        clipPath={`polygon(50% 50%, 50% 0%, ${
-          angle <= 180
-            ? `${50 + 50 * Math.tan((angle * Math.PI) / 360)}% 0`
-            : "100% 0"
-        }, ${
-          angle <= 90
-            ? "50% 50%"
-            : angle <= 180
-            ? "100% 50%"
-            : angle <= 270
-            ? `100% ${
-                50 + 50 * Math.tan(((angle - 180) * Math.PI) / 360)
-              }%`
-            : "50% 100%, 0 100%, 0 0, 50% 0"
-        })`}
-      />
+        position="absolute"
+      >
+        <defs>
+          <linearGradient id={`gradient-${value}`} gradientTransform="rotate(90)">
+            <stop offset="0%" stopColor={getColor(value).split(", ")[1]} />
+            <stop offset="100%" stopColor={getColor(value).split(", ")[2].slice(0, -1)} />
+          </linearGradient>
+        </defs>
+        <path
+          d={`M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831`}
+          fill="none"
+          stroke={`url(#gradient-${value})`}
+          strokeWidth="4"
+          strokeDasharray={`${value}, 100`}
+        />
+      </Box>
       <Flex
         position="absolute"
         top="0"
@@ -292,15 +287,12 @@ const ProviderGroup = ({
   exams,
   selectedRows,
   handleSelectRow,
-  handleDeleteRow,
   handleSort,
 }) => {
   const [isOpen, setIsOpen] = useState(true);
-  const [hasInteracted, setHasInteracted] = useState(false);
 
   const toggleGroup = () => {
     setIsOpen(!isOpen);
-    setHasInteracted(true);
   };
 
   return (
@@ -330,10 +322,10 @@ const ProviderGroup = ({
           <IoChevronDown size={20} />
         )}
       </Flex>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
-            initial={hasInteracted ? { height: 0 } : false}
+            initial={{ height: 0 }}
             animate={{ height: "auto" }}
             exit={{ height: 0 }}
             transition={{ duration: 0.3 }}
@@ -364,10 +356,11 @@ const ProviderGroup = ({
                     <TableCell>{item.examType}</TableCell>
                   </Box>
                   <Box flex={1}>
-                    <TableCell>{item.attempts}</TableCell>
-                  </Box>
-                  <Box flex={1}>
-                    <TableCell>{item.averageScore.toFixed(2)}%</TableCell>
+                    <TableCell>
+                      Attempt {item.attempts}
+                      <br />
+                      Avg: {item.averageScore.toFixed(2)}%
+                    </TableCell>
                   </Box>
                   <Box flex={1} display="flex" justifyContent="center">
                     <CustomProgressIndicator value={item.progress} />
@@ -382,38 +375,6 @@ const ProviderGroup = ({
                   </Box>
                   <Box flex={1}>
                     <TableCell>{item.updated}</TableCell>
-                  </Box>
-                  <Box width="60px" textAlign="center">
-                    <Popover placement="bottom-end">
-                      <PopoverTrigger>
-                        <Button variant="ghost" size="sm" padding={0}>
-                          <BsThreeDotsVertical />
-                        </Button>
-                      </PopoverTrigger>
-                      <PopoverContent
-                        width="auto"
-                        border="1px solid black"
-                        borderRadius="8px"
-                        boxShadow="0 4px 0 0 black"
-                      >
-                        <PopoverBody padding={0}>
-                          <Button
-                            onClick={() => handleDeleteRow(item.id)}
-                            width="100%"
-                            justifyContent="flex-start"
-                            fontWeight={700}
-                            fontSize="14px"
-                            color="black"
-                            backgroundColor="white"
-                            _hover={{ backgroundColor: "#f8f8f8" }}
-                            borderRadius="8px"
-                            padding={3}
-                          >
-                            Delete Row
-                          </Button>
-                        </PopoverBody>
-                      </PopoverContent>
-                    </Popover>
                   </Box>
                 </Flex>
               ))}
@@ -433,6 +394,7 @@ const CustomDashboardTableComponent = () => {
     direction: "desc",
   });
   const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
   const itemsPerPage = 2; // Adjust as needed
 
   const handleSelectAll = () => {
@@ -462,11 +424,6 @@ const CustomDashboardTableComponent = () => {
     // Implement delete all logic here
   };
 
-  const handleDeleteRow = (id) => {
-    console.log("Delete row:", id);
-    // Implement delete row logic here
-  };
-
   const handleSort = (key) => {
     let direction = "asc";
     if (sortConfig.key === key && sortConfig.direction === "asc") {
@@ -491,17 +448,23 @@ const CustomDashboardTableComponent = () => {
     return sortableItems;
   }, [sortConfig]);
 
-  const groupedData = useMemo(() => {
-    return sortedData.reduce((acc, item) => {
-      if (!acc[item.provider]) {
-        acc[item.provider] = [];
-      }
-      acc[item.provider].push(item);
-      return acc;
-    }, {});
-  }, [sortedData]);
+  const filteredAndGroupedData = useMemo(() => {
+    return sortedData
+      .filter(
+        (item) =>
+          item.exam.toLowerCase().includes(searchTerm.toLowerCase()) ||
+          item.provider.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .reduce((acc, item) => {
+        if (!acc[item.provider]) {
+          acc[item.provider] = [];
+        }
+        acc[item.provider].push(item);
+        return acc;
+      }, {});
+  }, [sortedData, searchTerm]);
 
-  const providerList = Object.keys(groupedData);
+  const providerList = Object.keys(filteredAndGroupedData);
   const totalPages = Math.ceil(providerList.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -526,6 +489,15 @@ const CustomDashboardTableComponent = () => {
           Your Exam Progress
         </Text>
         <Flex>
+          <Input
+            placeholder="Search exams..."
+            size="md"
+            width="250px"
+            marginRight={4}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            backgroundColor="white"
+          />
           <CustomButton
             onClick={handleDeleteSelected}
             backgroundColor="transparent"
@@ -576,9 +548,6 @@ const CustomDashboardTableComponent = () => {
                 <TableHeader>Attempts</TableHeader>
               </Box>
               <Box flex={1}>
-                <TableHeader>Avg. Score</TableHeader>
-              </Box>
-              <Box flex={1}>
                 <TableHeader>Progress</TableHeader>
               </Box>
               <Box flex={1}>
@@ -597,19 +566,15 @@ const CustomDashboardTableComponent = () => {
                   Updated
                 </TableHeader>
               </Box>
-              <Box width="60px">
-                <TableHeader>Actions</TableHeader>
-              </Box>
             </Flex>
             {/* Table Body */}
             {paginatedProviderList.map((provider) => (
               <ProviderGroup
                 key={provider}
                 provider={provider}
-                exams={groupedData[provider]}
+                exams={filteredAndGroupedData[provider]}
                 selectedRows={selectedRows}
                 handleSelectRow={handleSelectRow}
-                handleDeleteRow={handleDeleteRow}
                 handleSort={handleSort}
               />
             ))}

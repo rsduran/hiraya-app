@@ -18,7 +18,7 @@ const ProvidersPage = lazy(() => import("./components/ProvidersPage"));
 const QuestionPanel = lazy(() => import("./components/QuestionPanel"));
 const TopicBox = lazy(() => import("./components/TopicBox"));
 const DownloadBox = lazy(() => import("./components/DownloadBox"));
-const CustomDashboardTable = lazy(() => import("./components/CustomDashboardTable"));
+const Dashboard = lazy(() => import("./components/Dashboard"));
 
 const theme = extendTheme({
   fonts: {
@@ -69,7 +69,7 @@ const LoadingSpinner = () => (
     left="0"
     right="0"
     bottom="0"
-    bg="rgba(255, 255, 255, 0.8)"
+    backgroundColor="rgba(255, 255, 255, 0.8)"
     zIndex="9999"
   >
     <Spinner size="xl" color="#00bfff" thickness="4px" />
@@ -136,7 +136,7 @@ const MainPage = () => {
   };
 
   const breadcrumbsData = [
-    { label: "Providers", href: "/providers" },
+    { label: "All Providers", href: "/providers" },
     { label: "Amazon", href: "/providers/amazon" },
     {
       label: "AWS Certified Cloud Practitioner (CLF-C02)",
@@ -159,7 +159,7 @@ const MainPage = () => {
             <Suspense fallback={<LoadingSpinner />}>
               {activeItem === "Dashboard" ? (
                 <Box width="100%">
-                  <CustomDashboardTable />
+                  <Dashboard />
                 </Box>
               ) : activeItem === "Actual Exam" ? (
                 <Flex>
@@ -167,7 +167,7 @@ const MainPage = () => {
                     <Box
                       width="100%"
                       maxWidth="1200px"
-                      pb={4}
+                      paddingBottom={4}
                     >
                       <QuestionPanel
                         width="100%"
