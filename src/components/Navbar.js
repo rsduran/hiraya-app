@@ -1,8 +1,19 @@
 import React, { useState } from 'react';
-import { Box, Text, Flex, Avatar } from '@chakra-ui/react';
+import { Box, Text, Flex, Avatar, Tooltip } from '@chakra-ui/react';
 
 const Navbar = ({ activeItem, children }) => {
   const [isLightTheme, setIsLightTheme] = useState(true);
+
+  // Function to truncate text and add ellipsis if necessary
+  const truncateText = (text, maxLength) => {
+    if (text.length <= maxLength) return text;
+    return text.slice(0, maxLength) + '...';
+  };
+
+  // Extract the exam title from children if it exists
+  const examTitle = React.Children.toArray(children).find(
+    child => child.type === 'span' && child.props.children[2]
+  )?.props?.children[2];
 
   return (
     <Flex 
@@ -13,8 +24,8 @@ const Navbar = ({ activeItem, children }) => {
       borderBottom="1px solid" 
       borderColor="gray.200"
     >
-      <Flex align="center">
-        <Box ml={4}>
+      <Flex align="center" overflow="hidden">
+        <Box ml={4} flexShrink={0}>
           <Text
             fontFamily='"Karla Variable", sans-serif'
             fontWeight={700}
@@ -34,7 +45,24 @@ const Navbar = ({ activeItem, children }) => {
             </Box>
           </Text>
         </Box>
-        <Box ml={4}>{children}</Box>
+        <Box ml={4} overflow="hidden">
+          {examTitle ? (
+            <Tooltip label={examTitle} aria-label="Full exam title">
+              <Text
+                fontFamily='"Karla Variable", sans-serif'
+                fontWeight={500}
+                fontSize="16px"
+                whiteSpace="nowrap"
+                overflow="hidden"
+                textOverflow="ellipsis"
+              >
+                {truncateText(examTitle, 30)}
+              </Text>
+            </Tooltip>
+          ) : (
+            children
+          )}
+        </Box>
       </Flex>
       <Flex align="center" mr={4}>
         <Box

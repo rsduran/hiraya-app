@@ -180,18 +180,21 @@ const Sidebar = ({ activeItem, onItemClick, isCollapsed, onToggleCollapse }) => 
         left="0"
         right="0"
         zIndex={1}
-        _hover={{ color: 'rgb(226, 18, 18)', transform: 'translateY(-2px)' }}
+        _hover={{
+          '& > *': {
+            color: 'rgb(226, 18, 18)',
+          },
+          transform: 'translateY(-2px)',
+        }}
       >
         <SidebarIcon
           as={LuLogOut}
           color="gray.500"
           transition="color 0.3s ease"
-          _groupHover={{ color: 'rgb(226, 18, 18)' }}
         />
         <SidebarText
           color="gray.500"
           transition="color 0.3s ease, opacity 0.3s ease"
-          _groupHover={{ color: 'rgb(226, 18, 18)' }}
           opacity={isCollapsed ? 0 : 1}
           pointerEvents={isCollapsed ? 'none' : 'auto'}
         >
