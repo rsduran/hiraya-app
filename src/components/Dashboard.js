@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Flex, Text, Button, VStack } from '@chakra-ui/react';
-import { FaApple, FaAndroid } from 'react-icons/fa';
+import { Box, Flex, Text, Button, VStack, Link } from '@chakra-ui/react';
+import { FaApple, FaAndroid, FaHeart } from 'react-icons/fa';
 import CustomDashboardTable from './CustomDashboardTable';
 
 const WelcomeComponent = ({ users, countries }) => (
@@ -133,11 +133,63 @@ const MobileAppsComing = () => (
   </Box>
 );
 
+const SupportDevelopers = () => (
+  <Box
+    width="100%"
+    bgGradient="linear(to-r, #8BC34A, #4CAF50)"
+    borderRadius={{ base: "10px", md: "20px" }}
+    border="1px solid black"
+    boxShadow="0 4px 0 0 black"
+    p={{ base: 4, md: 6 }}
+    mb={{ base: 4, md: 8 }}
+    position="relative"
+    overflow="hidden"
+  >
+    <Box
+      position="absolute"
+      top={{ base: "-15px", md: "-30px" }}
+      right={{ base: "-15px", md: "-30px" }}
+      width={{ base: "100px", md: "150px" }}
+      height={{ base: "100px", md: "150px" }}
+      borderRadius="full"
+      backgroundColor="rgba(255, 255, 255, 0.1)"
+    />
+    <Flex 
+      justifyContent="space-between" 
+      alignItems="center"
+      flexDirection={{ base: "column", md: "row" }}
+    >
+      <VStack align={{ base: "center", md: "flex-start" }} spacing={2} flex="1">
+        <Text fontSize={{ base: "24px", md: "28px" }} fontWeight="800" color="white" textAlign={{ base: "center", md: "left" }}>
+          Support the Developers
+        </Text>
+        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+          Help us keep Hiraya ad-free and running 24/7, 365 days a year
+        </Text>
+        <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+          Your support helps cover recurring costs and keeps this website ad-free. Thank you for your generosity!
+        </Text>
+      </VStack>
+      <Box ml={{ base: 0, md: 4 }} mt={{ base: 4, md: 0 }}>
+        <CustomButton 
+          leftIcon={<FaHeart />} 
+          backgroundColor="#FF4081" 
+          color="white" 
+          _hover={{ backgroundColor: "#E91E63" }}
+        >
+          DONATE
+        </CustomButton>
+      </Box>
+    </Flex>
+  </Box>
+);
+
 const Dashboard = () => {
   return (
     <Box width="100%" px={{ base: 2, sm: 4, md: 6, lg: 8 }}>
       <WelcomeComponent users={2.0} countries={190} />
       <MobileAppsComing />
+      <SupportDevelopers />
       <CustomDashboardTable />
     </Box>
   );
