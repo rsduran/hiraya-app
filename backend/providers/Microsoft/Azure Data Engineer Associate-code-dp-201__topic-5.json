@@ -1,0 +1,203 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53291-exam-dp-201-topic-5-question-2-discussion/",
+    "body": "You need to design a sharding strategy for the Planning Assistance database.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta list mapping shard map on the binary representation of the License Plate column",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta range mapping shard map on the binary representation of the speed column",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta list mapping shard map on the location column",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta range mapping shard map on the time column"
+    ],
+    "answer": "A",
+    "answerDescription": "Data used for Planning Assistance must be stored in a sharded Azure SQL Database.<br>A shard typically contains items that fall within a specified range determined by one or more attributes of the data. These attributes form the shard key (sometimes referred to as the partition key). The shard key should be static. It shouldn't be based on data that might change.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/patterns/sharding",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-04T00:02:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with C"
+      },
+      {
+        "date": "2021-06-29T11:50:00.000Z",
+        "voteCount": 1,
+        "content": "shard key should be static \"The shard key should be static. It shouldn't be based on data that might change.\" \nhttps://docs.microsoft.com/en-us/azure/architecture/patterns/sharding"
+      },
+      {
+        "date": "2021-06-16T06:09:00.000Z",
+        "voteCount": 4,
+        "content": "I believe that C is the best option:\nA) A binary representation of the license plate could cause problems due to the non-numeric characters in the plate number.\nB) Speeds will more often than not be similar leading to hotspots\nD) Rush hour traffic will cause hotspots as well if you use timespans\n\nYes, some locations may have significantly more traffic than others but I think the likelihood of the differences being so great as to cause hotspots is minimal because real-world logic tells me that the planners are not going to put sensors in low-traffic areas."
+      },
+      {
+        "date": "2021-06-29T11:53:00.000Z",
+        "voteCount": 1,
+        "content": "I agree as \"The shard key should be static. It shouldn't be based on data that might change.\"   \n\nhttps://docs.microsoft.com/en-us/azure/architecture/patterns/sharding"
+      },
+      {
+        "date": "2021-06-13T02:01:00.000Z",
+        "voteCount": 1,
+        "content": "Is it really D?"
+      },
+      {
+        "date": "2021-06-05T01:46:00.000Z",
+        "voteCount": 2,
+        "content": "I think the D is correct answer.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-scale-shard-map-management\nThe binary representation of plate number is not supported among available data types for sharding keys. Time range mapping is more appropriate solution."
+      },
+      {
+        "date": "2021-06-06T11:49:00.000Z",
+        "voteCount": 1,
+        "content": "date and time columns are not good options for sharding"
+      },
+      {
+        "date": "2021-06-04T21:41:00.000Z",
+        "voteCount": 1,
+        "content": "I would go for D: https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-scale-shard-map-management"
+      },
+      {
+        "date": "2021-05-29T04:25:00.000Z",
+        "voteCount": 4,
+        "content": "I would go with C. Thoughts?"
+      },
+      {
+        "date": "2021-06-11T05:07:00.000Z",
+        "voteCount": 2,
+        "content": "C: Yes a list based mapping where sensors in similar locations are sharded together makes sense. You want to see the sensors over time in that area.  Lat/Long would be mapped to shards. Time-based will cause hot-spots."
+      },
+      {
+        "date": "2021-05-21T10:19:00.000Z",
+        "voteCount": 1,
+        "content": "Wouldn't D be a better choice here?"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/55439-exam-dp-201-topic-5-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to design the SensorData collection.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0000700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0000800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Eventual -<br>Traffic data insertion rate must be maximized.<br>Sensor data must be stored in a Cosmos DB named treydata in a collection named SensorData<br>With Azure Cosmos DB, developers can choose from five well-defined consistency models on the consistency spectrum. From strongest to more relaxed, the models include strong, bounded staleness, session, consistent prefix, and eventual consistency.<br><br>Box 2: License plate -<br>This solution reports on all data related to a specific vehicle license plate. The report must use data from the SensorData collection.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-16T06:22:00.000Z",
+        "voteCount": 2,
+        "content": "I believe the answer given (Eventual, License Plate) is correct: https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#using-item-id-as-the-partition-key"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53377-exam-dp-201-topic-5-question-4-discussion/",
+    "body": "You need to recommend an Azure SQL Database pricing tier for Planning Assistance.<br>Which pricing tier should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBusiness critical Azure SQL Database single database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeneral purpose Azure SQL Database Managed Instance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBusiness critical Azure SQL Database Managed Instance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeneral purpose Azure SQL Database single database"
+    ],
+    "answer": "B",
+    "answerDescription": "Azure resource costs must be minimized where possible.<br>Data used for Planning Assistance must be stored in a sharded Azure SQL Database.<br>The SLA for Planning Assistance is 70 percent, and multiday outages are permitted.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-22T20:26:00.000Z",
+        "voteCount": 6,
+        "content": "Why use Managed Instance? No mention about migrating on-prem SQL Server to Azure SQL Server"
+      },
+      {
+        "date": "2021-06-29T12:00:00.000Z",
+        "voteCount": 1,
+        "content": "In requirement, it says \"sharded Azure SQL Database.\""
+      },
+      {
+        "date": "2021-05-23T12:21:00.000Z",
+        "voteCount": 10,
+        "content": "i think so.\nanswer should be D"
+      },
+      {
+        "date": "2021-06-16T06:55:00.000Z",
+        "voteCount": 1,
+        "content": "Sharded is not applicable to Managed Instances as clearly stated in the MS documentation below. I think it can be done in MI indirectly via linked servers but your costs go up therefore making the Azure SQL DB the more cost-effective option. The answer should be D.\n\n https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-scale-shard-map-management"
+      },
+      {
+        "date": "2021-06-11T08:33:00.000Z",
+        "voteCount": 2,
+        "content": "Key point: shared DB. Answer is correct"
+      },
+      {
+        "date": "2021-06-23T13:43:00.000Z",
+        "voteCount": 2,
+        "content": "The text is \"Sharded\" not \"shared\".n If the text is shared then you are right. But as per the text, correct answer is D."
+      },
+      {
+        "date": "2021-06-06T04:18:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is : corret"
+      },
+      {
+        "date": "2021-05-23T09:23:00.000Z",
+        "voteCount": 1,
+        "content": "Exam is for Azure solutions"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53769-exam-dp-201-topic-5-question-5-discussion/",
+    "body": "HOTSPOT -<br>You need to design the Planning Assistance database.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0001000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0001000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>Data used for Planning Assistance must be stored in a sharded Azure SQL Database.<br><br>Box 2: Yes -<br><br>Box 3: Yes -<br>Planning Assistance database will include reports tracking the travel of a single vehicle<br>Design Azure data storage solutions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-29T06:42:00.000Z",
+        "voteCount": 7,
+        "content": "The given answer is not logic. This database is OLAP because ADF adds data once a week and the database is used for query purposes. This is a great use case for clustered columnstore index. I don't know why it is suggested the other way around!!!"
+      },
+      {
+        "date": "2021-06-16T06:59:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed with Ouso1 and MMM777. Should be Yes, No, No"
+      },
+      {
+        "date": "2021-09-28T00:52:00.000Z",
+        "voteCount": 1,
+        "content": "Certainly, the nonclustered columnstore index will NOT help because it is a OLAP system.\n\n\"Use a nonclustered columnstore index to perform analysis in real time on an OLTP workload. For more information, see Get started with columnstore for real-time operational analytics.\"\n\nhttps://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-overview?view=sql-server-ver15"
+      },
+      {
+        "date": "2021-06-13T03:05:00.000Z",
+        "voteCount": 1,
+        "content": "This is correct"
+      },
+      {
+        "date": "2021-06-11T17:59:00.000Z",
+        "voteCount": 2,
+        "content": "\"For privacy reasons, license plate number information must not be accessible in Planning Assistance.\"  - so why would you need an index on it if the data is not supposed to be accessible?   Also related to the sharding issue - why shard on something you will not query?"
+      },
+      {
+        "date": "2021-06-28T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "\"This solution reports on all data related to a specific vehicle license plate.\" how is this possible without querying LicensePlate? \"license plate number information must not be accessible in Planning Assistance\" correct not for planning but for reporting. so index it"
+      },
+      {
+        "date": "2021-06-28T07:11:00.000Z",
+        "voteCount": 1,
+        "content": "sorry the question is about planning. Hence you are right"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "5"
+  }
+]

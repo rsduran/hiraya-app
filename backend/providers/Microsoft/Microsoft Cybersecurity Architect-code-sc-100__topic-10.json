@@ -1,0 +1,141 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81035-exam-sc-100-topic-10-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the security of ClaimsApp.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04228/0011300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04228/0011300002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br><br>Box 2: Yes -<br>Users will connect to ClaimsApp by using a URL of https://claims.fabrikam.com.<br>Need certificate for HTTPS.<br><br>TLS/SSL certificates -<br>To enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use a TLS/SSL certificate. You can choose to use a certificate that is managed by Azure Front Door or use your own certificate.<br><br>Box 3: Yes -<br>By default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions.<br>Note: Requirements. Security Requirements<br>Fabrikam identifies the following security requirements:<br>\u05d2\u20ac\u00a2    Internet-accessible applications must prevent connections that originate in North Korea.<br>Reference:<br>https://techcommunity.microsoft.com/t5/azure-architecture-blog/permit-access-only-from-azure-front-door-to-azure-app-service-as/ba-p/2000173 https://docs.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https#tlsssl-certificates",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-26T04:59:00.000Z",
+        "voteCount": 27,
+        "content": "it's not clear why the first is NO since all the instances of ClaimsApp is on app services and can be protected by the FD1. for me is YES/YES/YES"
+      },
+      {
+        "date": "2023-05-21T06:15:00.000Z",
+        "voteCount": 6,
+        "content": "YYY is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/frontdoor/front-door-custom-domain-https#tlsssl-certificates\nTo enable the HTTPS protocol for securely delivering content on a Front Door custom domain, you must use a TLS/SSL certificate. You can choose to use a certificate that is managed by Azure Front Door or use your own certificate."
+      },
+      {
+        "date": "2023-05-21T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/web-application-firewall/afds/waf-front-door-geo-filtering\nBy default, Azure Front Door will respond to all user requests regardless of the location where the request is coming from. In some scenarios, you may want to restrict the access to your web application by countries/regions. The Web application firewall (WAF) service in Front Door enables you to define a policy using custom access rules for a specific path on your endpoint to either allow or block access from specified countries/regions."
+      },
+      {
+        "date": "2023-05-24T06:02:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq#what-regions-is-the-service-available-in-\nAzure Front Door is a global service and isn't tied to any specific Azure region. The only location you need to specify while creating a Front Door is the resource group location, which is specifying where the metadata for the resource group gets stored. The Front Door profile itself is created as a global resource and the configuration is deployed globally to all edge locations."
+      },
+      {
+        "date": "2023-09-21T00:10:00.000Z",
+        "voteCount": 2,
+        "content": "No,Yes,Yes\nhttps://www.youtube.com/watch?v=r-P-2lGzPFQ&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=9\nQuestion 114"
+      },
+      {
+        "date": "2024-01-17T15:02:00.000Z",
+        "voteCount": 2,
+        "content": "no video with the video link"
+      },
+      {
+        "date": "2023-03-30T02:28:00.000Z",
+        "voteCount": 2,
+        "content": "Focusing on this \"ClaimsApp will be deployed to Azure App Service instances that connect to Vnet1 and Vnet2\" and with those two Vnet's in different regions, which is supported by FD; my answer would be Yes/Yes/Yes"
+      },
+      {
+        "date": "2023-03-19T05:03:00.000Z",
+        "voteCount": 1,
+        "content": "Front Door is non-regional and can be used across regions. Therefore, as noted in the case: \"A virtual network named Vnet1 in the East US Azure region\nA virtual network named Vnet2 in the West Europe Azure region\", and with ClaimsApp being deployed to both vNet's; I believe its YES to first item."
+      },
+      {
+        "date": "2023-01-22T17:17:00.000Z",
+        "voteCount": 2,
+        "content": "For Box 1 I would choose Yes\n\nThe question is whether 'FD1 can be used to protect all the instances of ClaimsApp.'. The requirement also mentioned 'ClaimsApp will be deployed to Azure App Service instances'. So the required scope of protection is only App Service instances, not Vnet1, Vnet2 and ClaimsDB.\n \nAzure Front Door with WAF able to protection layer 7 web application hosted in Azure App Service.\n \nAzure Web Application Firewall on Azure Front Door\nhttps://learn.microsoft.com/en-us/azure/web-application-firewall/afds/afds-overview"
+      },
+      {
+        "date": "2022-09-13T21:56:00.000Z",
+        "voteCount": 1,
+        "content": "Q1, FD1 be used to protect all the instances of ClaimsApp. as per case study. ClaimsApp will be deployed to Azure App Service instances that connect to Vnet1 and Vnet2. Maybe the answer is no because it cant protect Vnet1 and Vnet2 it is a layer 7 firewall to protect web apps. any thoughts?"
+      },
+      {
+        "date": "2022-09-07T15:40:00.000Z",
+        "voteCount": 1,
+        "content": "Why is the first question No?"
+      },
+      {
+        "date": "2022-09-11T05:25:00.000Z",
+        "voteCount": 5,
+        "content": "The front door only works with HTTP and HTTPS, and connections to a database use other ports or protocols.\nIn this case, only the web app can be protected, since the question is related to all instances it can't protect the DB."
+      },
+      {
+        "date": "2022-09-11T15:36:00.000Z",
+        "voteCount": 6,
+        "content": "I don't know if there are others instances can't be protected. But from what I read, ClaimsDB is not asked in the question. The question only mentioned ClaimsApp, which is the app service itself."
+      },
+      {
+        "date": "2022-09-12T12:00:00.000Z",
+        "voteCount": 1,
+        "content": "If you follow your interpretation then should be yes."
+      },
+      {
+        "date": "2023-03-30T02:23:00.000Z",
+        "voteCount": 3,
+        "content": "When it says \"all instances of ClaimsApp\", I would interpret that as how many instances of the app itself and not the related database, etc.. Tricky misleading question in my opinion."
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 11,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/78355-exam-sc-100-topic-10-question-2-discussion/",
+    "body": "You need to recommend a solution to scan the application code. The solution must meet the application development requirements.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGitHub Advanced Security\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Key Vault",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure DevTest Labs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication Insights in Azure Monitor"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 27,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-08-29T18:42:00.000Z",
+        "voteCount": 15,
+        "content": "Microsoft has an entire learning module about this. https://docs.microsoft.com/en-us/learn/modules/introduction-github-advanced-security/2-what-is-github-advanced-security"
+      },
+      {
+        "date": "2023-01-05T14:30:00.000Z",
+        "voteCount": 6,
+        "content": "because the other choices just don't make any sense... :)"
+      },
+      {
+        "date": "2023-05-21T06:03:00.000Z",
+        "voteCount": 1,
+        "content": "A is the answer.\n\nhttps://learn.microsoft.com/en-us/training/modules/introduction-github-advanced-security/2-what-is-github-advanced-security"
+      },
+      {
+        "date": "2023-01-17T05:37:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct, GitHub Advanced Security"
+      },
+      {
+        "date": "2022-09-29T19:49:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct, GitHub Advanced Security"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "10"
+  }
+]

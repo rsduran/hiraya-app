@@ -1,0 +1,271 @@
+[
+  {
+    "topic": 13,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8915-exam-dp-200-topic-13-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to build a solution to collect the telemetry data for Race Central.<br>What should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0013000003.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0013100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "API: Table -<br>Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and<br>Azure Table storage.<br>Scenario: The telemetry data must migrate toward a solution that is native to Azure.<br><br>Consistency level: Strong -<br>Use the strongest consistency Strong to minimize convergence time.<br>Scenario: The data must be written to the Azure datacenter closest to each race and must converge in the least amount of time.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-28T10:57:00.000Z",
+        "voteCount": 85,
+        "content": "MongoDB: telemetry data is sent to MongoDB database\nEventual: The data should be written to nearest data center and latency should be minimize so answer in eventual.\nI have check on other website and this are the correct answer for this.."
+      },
+      {
+        "date": "2021-06-12T00:48:00.000Z",
+        "voteCount": 1,
+        "content": "Yes you're correct. Requirement is to create Azure cosmos db and SQL database. So mongo DB API is correct and second answer \"Eventual\" as well."
+      },
+      {
+        "date": "2019-11-22T14:26:00.000Z",
+        "voteCount": 42,
+        "content": "The telemetry data is sent to a MongoDB database : so we need MongoDB API"
+      },
+      {
+        "date": "2020-03-09T07:03:00.000Z",
+        "voteCount": 2,
+        "content": "Mongo or SQL API both works"
+      },
+      {
+        "date": "2020-03-31T02:33:00.000Z",
+        "voteCount": 12,
+        "content": "No, it\u2019s just MongoDB in this case - The existing applications is using MongoDB. To minimise the development time, use MongoDB API."
+      },
+      {
+        "date": "2020-06-15T05:05:00.000Z",
+        "voteCount": 4,
+        "content": "there is no requirement to minimize development"
+      },
+      {
+        "date": "2020-06-21T00:26:00.000Z",
+        "voteCount": 5,
+        "content": "Based on the requirement \"The telemetry data must migrate toward a solution that is native to Azure\", the Table API seems more logical."
+      },
+      {
+        "date": "2020-11-20T03:30:00.000Z",
+        "voteCount": 7,
+        "content": "It absolutely does not"
+      },
+      {
+        "date": "2021-03-24T01:58:00.000Z",
+        "voteCount": 1,
+        "content": "+1 for Mongo DB"
+      },
+      {
+        "date": "2021-02-02T00:29:00.000Z",
+        "voteCount": 2,
+        "content": "MS recommends using SQL for new apps and other APIs for existing apps. So the answers IMO, Mongo and Strong."
+      },
+      {
+        "date": "2020-12-21T07:27:00.000Z",
+        "voteCount": 6,
+        "content": "I think \"Mongo DB\" and \"strong\". \nMongoDB since the application already uses it. \nStrong, because the cars should be monitored _in real time_. Lower consistencies increase waiting periods, and IMHO the real-time business requirement has priority over any technical requirement about RU's."
+      },
+      {
+        "date": "2020-11-27T05:26:00.000Z",
+        "voteCount": 5,
+        "content": "API is MongoDB for sure\nFor consistency, I would got for eventual since real-time tracking would mean lowest latency possible\nJust my reasoning"
+      },
+      {
+        "date": "2020-11-06T15:13:00.000Z",
+        "voteCount": 2,
+        "content": "The second box should be \"session\". Please check the following link. You can't enable multi region writes with strong consistency.\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels#strong-consistency-and-multiple-write-regions"
+      },
+      {
+        "date": "2020-11-11T11:21:00.000Z",
+        "voteCount": 1,
+        "content": "Yes you can enable multiple write regions to any consistency level. However, the differences are in the impact in case of failover - recover time and recover point. \n\nFor strong consistency in multiple write region, in case of a failover, you have a recovery time maximum of 240 minutos and the period of updates that you might afford to lose goes up to 1 week (RPO)...\n\nSo the correct answer is still the Strong."
+      },
+      {
+        "date": "2020-11-11T11:52:00.000Z",
+        "voteCount": 4,
+        "content": "correct answer is eventual. However, the rest I've written is correct."
+      },
+      {
+        "date": "2020-12-12T00:58:00.000Z",
+        "voteCount": 2,
+        "content": "hi,\nno. telemetry data happens at real time and it represents several events sent at the same time to be processed so you must have a low level consistency here so that the throughput can be higher.\n\neventual\n\n\nregards"
+      },
+      {
+        "date": "2021-02-21T17:07:00.000Z",
+        "voteCount": 2,
+        "content": "Strong consistency level DOES NOT support multi-write enable. I just tried it in my Cosmos DB Account. You would get the following error: Update Default Consistency\nAccounts configured with default consistency level as 'Strong' cannot be enabled for multiple write locations(i.e. EnableMultipleWriteLocations=true). Consider relaxing default consistency level of the account to enable multiple write locations.\nActivityId: ade4c368-bf45-43c0-ae45-095f71c0e051, Microsoft.Azure.Documents.Common/2.11.0"
+      },
+      {
+        "date": "2020-09-30T21:08:00.000Z",
+        "voteCount": 4,
+        "content": "Requirements says \"The data must be written to the Azure datacentre closest to each race and must converge in the least amount of time.\" So answer is Session as Eventual takes long time to converge and Strong will consume more RUs."
+      },
+      {
+        "date": "2020-09-29T21:13:00.000Z",
+        "voteCount": 7,
+        "content": "MongoDB &amp; Eventual"
+      },
+      {
+        "date": "2020-08-02T03:41:00.000Z",
+        "voteCount": 11,
+        "content": "Answer should be MongoDB for the fist and eventual consistency for the second."
+      },
+      {
+        "date": "2020-06-15T05:08:00.000Z",
+        "voteCount": 5,
+        "content": "\"native to azure\" is vague ( vs native support). If Mongo isn't native, than the preferred choice for a new development should be CORE (sql)"
+      },
+      {
+        "date": "2020-05-18T13:25:00.000Z",
+        "voteCount": 6,
+        "content": "Not sure about the 2nd box. \n\nStrong consistency is taking least amount of time to converge, however it take double RU/s than Session. And one of the requirement is \"minimize the RU/s cost\". \n\nSession is guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. And out-side of session (for a different region, single master account) would be Consistent Prefix, which is also guarantees that read never see out-of-order writes."
+      },
+      {
+        "date": "2020-09-30T21:05:00.000Z",
+        "voteCount": 1,
+        "content": "Strong consistency takes more RUs"
+      },
+      {
+        "date": "2020-11-11T11:37:00.000Z",
+        "voteCount": 1,
+        "content": "You have always other ways to minimize RU/s cost like elastic pools, azure query performance insights, automatic tuning, etc. But not the consistency of it in the least amount of time for other regions. Having said that, the correct option should be Strong."
+      },
+      {
+        "date": "2020-11-11T11:52:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, can't remove the answer above. Eventual would in fact be the correct option."
+      },
+      {
+        "date": "2020-05-02T03:31:00.000Z",
+        "voteCount": 4,
+        "content": "The data should be written to nearest Azure Location. This implies the enable of multi-writes which disables the Strong consistency. Therefore, bounded staleness consistency is the highest (in terms of fast converge) which can be applied in this case."
+      },
+      {
+        "date": "2020-01-28T04:56:00.000Z",
+        "voteCount": 4,
+        "content": "And this API is native toAzure too.\n\"Azure Cosmos DB provides native support for wire protocol-compatible APIs for popular databases. These include MongoDB, Apache Cassandra, Gremlin, and Azure Table storage.\""
+      },
+      {
+        "date": "2020-10-27T07:48:00.000Z",
+        "voteCount": 1,
+        "content": "Yes same mentioned mutiple times here:\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-introduction"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49688-exam-dp-200-topic-13-question-2-discussion/",
+    "body": "On which data store should you configure TDE to meet the technical requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCosmos DB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Synapse Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure SQL Database"
+    ],
+    "answer": "B",
+    "answerDescription": "Scenario: Transparent data encryption (TDE) must be enabled on all data stores, whenever possible.<br>The database for Mechanical Workflow must be moved to Azure Synapse Analytics.<br>Incorrect Answers:<br>A: Cosmos DB does not support TDE.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-07T04:53:00.000Z",
+        "voteCount": 2,
+        "content": "TDE must be manually enabled for Azure Synapse Analytics\nBy default, TDE is enabled for all newly deployed SQL Databases. So no need to configure\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal"
+      },
+      {
+        "date": "2021-05-21T20:55:00.000Z",
+        "voteCount": 1,
+        "content": "TDE must be manually enabled for Azure Synapse Analytics. B it is.\nLink: https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-tde-overview?tabs=azure-portal"
+      },
+      {
+        "date": "2021-05-19T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "answer is CORRECT"
+      },
+      {
+        "date": "2021-04-18T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "B and C"
+      },
+      {
+        "date": "2021-04-08T22:59:00.000Z",
+        "voteCount": 1,
+        "content": "Race Central uses Azure SQL. So answer C should be also right?"
+      },
+      {
+        "date": "2021-04-23T21:16:00.000Z",
+        "voteCount": 8,
+        "content": "C cannot be right since TDE is default enabled. Only for B you need to enable manually( By default, TDE is enabled for all newly deployed SQL Databases and must be manually enabled for older databases of Azure SQL Database, Azure SQL Managed Instance. TDE must be manually enabled for Azure Synapse Analytics.)"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42955-exam-dp-200-topic-13-question-3-discussion/",
+    "body": "HOTSPOT -<br>You are building the data store solution for Mechanical Workflow.<br>How should you configure Table1? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0013300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0013300002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Table Type: Hash distributed.<br>Hash-distributed tables improve query performance on large fact tables.<br><br>Index type: Clusted columnstore -<br>Scenario:<br>Mechanical Workflow has a named Table1 that is 1 TB. Large aggregations are performed on a single column of Table 1.<br>References:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-20T20:43:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53118-exam-dp-200-topic-13-question-4-discussion/",
+    "body": "HOTSPOT -<br>Which masking functions should you implement for each column to meet the data masking requirements? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0013400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0013500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:  Credit Card -<br>The Credit Card Masking method exposes the last four digits of the designated fields and adds a constant string as a prefix in the form of a credit card.<br><br>Example: XXXX-XXXX-XXXX-1234 -<br>\u2711 Only show the last four digits of the values in a column named SuspensionSprings.<br><br>Box 2: Default -<br>Default uses a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br>\u2711 Only show a zero value for the values in a column named ShockOilWeight.<br>Scenario:<br>The company identifies the following data masking requirements for the Race Central data that will be stored in SQL Database:<br>\u2711 Only show a zero value for the values in a column named ShockOilWeight.<br>\u2711 Only show the last four digits of the values in a column named SuspensionSprings.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/dynamic-data-masking-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-19T07:19:00.000Z",
+        "voteCount": 2,
+        "content": "answer is CORRECT"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/51841-exam-dp-200-topic-13-question-5-discussion/",
+    "body": "HOTSPOT -<br>Which masking functions should you implement for each column to meet the data masking requirements? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0013700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0013800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:  Custom text/string: A masking method, which exposes the first and/or last characters and adds a custom padding string in the middle.<br>Only show the last four digits of the values in a column named SuspensionSprings.<br><br>Box 2: Default -<br>Default uses a zero value for numeric data types (bigint, bit, decimal, int, money, numeric, smallint, smallmoney, tinyint, float, real).<br>Scenario: Only show a zero value for the values in a column named ShockOilWeight.<br>Scenario:<br>The company identifies the following data masking requirements for the Race Central data that will be stored in SQL Database:<br>\u2711 Only show a zero value for the values in a column named ShockOilWeight.<br>\u2711 Only show the last four digits of the values in a column named SuspensionSprings.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/dynamic-data-masking-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-19T07:21:00.000Z",
+        "voteCount": 1,
+        "content": "this answer also CORRECT\nit is possible for first question both; credit card and custom string"
+      },
+      {
+        "date": "2021-05-04T14:08:00.000Z",
+        "voteCount": 1,
+        "content": "Is this an updated question? If not, it is duplicated"
+      },
+      {
+        "date": "2021-05-09T02:14:00.000Z",
+        "voteCount": 3,
+        "content": "For SuspensionSprings, Credit Card is an option in the previous question but it has been changed to Custom String on this one."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "13"
+  }
+]

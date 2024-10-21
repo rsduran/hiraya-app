@@ -1,0 +1,76 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/apics/view/111509-exam-az-400-topic-9-question-4-discussion/",
+    "body": "DRAG DROP -<br><br>You have a project in Azure DevOps named Project1 that contains two Azure DevOps pipelines named Pipeline1 and Pipeline2.<br><br>You need to ensure that Pipeline1 can deploy code successfully to an Azure web app named webapp1. The solution must ensure that Pipeline2 does not have permission to webapp1.<br><br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/az-400/image52.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-400/image53.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-08T02:20:00.000Z",
+        "voteCount": 25,
+        "content": "Answer is incorrect, but this is also a repeated question.\n\n1. Create a SP\n2. In Project1, create a service connection\n3. In Pipeline1, authorize the service connection\n\nBut correct me if I'm wrong."
+      },
+      {
+        "date": "2024-07-27T07:14:00.000Z",
+        "voteCount": 1,
+        "content": "Create a service principal in Azure AD.\nIn Project1, create a service connection.\nIn Pipeline1, authorize the service connection."
+      },
+      {
+        "date": "2024-06-04T23:15:00.000Z",
+        "voteCount": 2,
+        "content": "Project1 create service connection\nProject1 configure permissions\nPipeline1  authorize\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;tabs=yaml"
+      },
+      {
+        "date": "2024-05-10T18:56:00.000Z",
+        "voteCount": 2,
+        "content": "Project1: Create a service connection for webapp1. (Note: Service principal will be created automatically during service connection creation.)\nPipeline1: Authorize the service connection.\nIn Project1: Configure permissions."
+      },
+      {
+        "date": "2024-01-13T23:56:00.000Z",
+        "voteCount": 2,
+        "content": "Create a Managed Identity: Managed Identity is used to provide an identity to your application, in this case, the pipeline, without needing to manage the credentials. It helps secure access to Azure resources.\n\nIn Project1, create a service connection: A service connection in Azure DevOps is a way to connect to an external service or resource. In this case, it's used to connect to Azure.\n\nIn Pipeline1, authorize the service connection: After creating the service connection, you need to authorize it in the specific pipeline (Pipeline1 in this case) where you want to use it. This step allows the pipeline to use the credentials provided by the service connection to deploy code to the Azure web app (webapp1)."
+      },
+      {
+        "date": "2023-12-24T12:41:00.000Z",
+        "voteCount": 4,
+        "content": "1. Create a Managed Identity (SP will also work)\n2. In Project1, create a service connection. While creating service connection make sure Not to check the box 'Grant access permission to all pipelines'\n3.Configure pipeline permissions - Click on newly created pipeline. Click on 'Security' displayed under '...'. Under 'Pipeline Permssions', select your pipeline and authorize it"
+      },
+      {
+        "date": "2023-10-02T03:18:00.000Z",
+        "voteCount": 2,
+        "content": "Provided answer seems correct -&gt; login to azure devops =&gt;\nCreate new service connection -&gt; Azure Resource Manager =&gt; leave the default selection &amp; click next =&gt; you are prompted to authorize the service connection -&gt; save\nOnce completed you will see that this has created automatically a service principal.\n\nIf you select the manual process =&gt; it will require a service principal prior creating the service connection itself.\n\nSame is valid for the 2nd and 3rd options -&gt; Service principal automatic/manual."
+      },
+      {
+        "date": "2023-08-18T04:40:00.000Z",
+        "voteCount": 1,
+        "content": "I believe both SP and managed Identity will work.  when creating a new Service connection, you have the following options: \nNew Azure service connection (Azure Resource Manager)\nAuthentication method\n1.Service principal (automatic) Recommended\n2.Service principal (manual)\n3.Managed identity\n4.Publish Profile"
+      },
+      {
+        "date": "2023-08-09T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "1. Create a Managed Identity\n2. In Project1, create a service connection\n3. In Pipeline1, authorize the service connection \nI think SP works too. I guess this question may accepted different answer."
+      },
+      {
+        "date": "2023-07-02T16:54:00.000Z",
+        "voteCount": 1,
+        "content": "For deploy an Azure web app with Azure devops pipelines you need:\n1. In Proyect1, create a service connection. This connection in Azure devops allows pipelines access to Azure web app.\n2. In Pipeline1, create a variable. To reference values that can be used throughout the pipeline execution, for example the service connection created in the previous step.\n3. In Pipeline1, authorize the service connection. This step ensure that the pipeline has the necessary access to Azure web app using the service connection during deployments proccess."
+      },
+      {
+        "date": "2023-06-08T05:57:00.000Z",
+        "voteCount": 4,
+        "content": "I think it is 1. Create a Service Principal 2. Create a Service Connection and 3. Authorize the Service Connection"
+      },
+      {
+        "date": "2023-06-08T02:18:00.000Z",
+        "voteCount": 3,
+        "content": "To ensure that Pipeline1 can deploy code successfully to an Azure web app named webapp1 while restricting Pipeline2's permission to webapp1, you should perform the following three actions in sequence:\n\n1. Create a system assigned managed identity in Microsoft Azure AD, part of MS Entra: Create a system assigned managed identity for the Azure web app webapp1. This managed identity will be used by Pipeline1 to authenticate and access webapp1 during the deployment process.\n\n2. in Project1, configure permissions: Within Azure DevOps Project1, configure the permissions to grant the necessary access rights to Pipeline1. This can involve assigning appropriate roles or permissions within the project, ensuring that Pipeline1 has the required privileges to deploy to webapp1.\n\n3. In Project1, create a service connection: Create a service connection in Azure DevOps Project1 that represents the connection between Pipeline1 and webapp1. This service connection will use the managed identity created in step 1 to authenticate and authorize Pipeline1's access to webapp1."
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "9"
+  }
+]

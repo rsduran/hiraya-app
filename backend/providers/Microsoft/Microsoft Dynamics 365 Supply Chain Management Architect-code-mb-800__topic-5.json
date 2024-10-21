@@ -1,0 +1,194 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/131716-exam-mb-800-topic-5-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to report profitability by business line.<br>How should you configure the system? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04328/0004900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04328/0005000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-13T18:28:00.000Z",
+        "voteCount": 3,
+        "content": "To report profitability by business line in Dynamics 365 Business Central, you need to configure dimensions to track financial transactions by business line. Here\u2019s how you should set up the system:\n\n- Create a dimension: Choose \"Business Line\" as the dimension, which will enable you to tag transactions according to the different business lines.\n\n- Assign the dimension: Set this dimension to be used with \"G/L Account\" because profitability is often tracked through general ledger entries that reflect income and expenses associated with each business line.\n\n- Select a value posting: Choose \"Code Mandatory\" to ensure that every financial transaction tagged with the \"Business Line\" dimension must have a value. This ensures complete data for accurate profitability reporting."
+      },
+      {
+        "date": "2024-01-20T20:04:00.000Z",
+        "voteCount": 1,
+        "content": "Think it should be dimension 'value'"
+      },
+      {
+        "date": "2024-05-07T13:14:00.000Z",
+        "voteCount": 1,
+        "content": "Ref: https://learn.microsoft.com/en-gb/dynamics365/business-central/finance-dimensions\nAccount type default Dim is correct. \n\"To set up default dimensions for customers, suppliers, and other accounts:\nOn the Dimensions page, select the relevant dimension, then choose the Account Type Default Dim action.\""
+      }
+    ],
+    "examNameCode": "mb-800",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58615-exam-mb-800-topic-5-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to ensure that any transaction that uses a customer account always includes the customer source dimension.<br>Which five actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04328/0005100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04328/0005200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://stoneridgesoftware.com/how-to-set-up-required-dimensions-in-dynamics-365-business-edition/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-24T22:37:00.000Z",
+        "voteCount": 45,
+        "content": "The answer doesn't seem correct. Step 2 from COA does not flow logically to step 3, as the the Account Type Default Dimension is not opened from COA. If the answer is trying to assign specific Default Dimension Value against specific G/L Account, then step 3 should be \"open Default Dimensions and select the customer source dimension code\", which is not an option.\n\nMy answer would be:\n1. Create a dimension code to identify the customer source\n2. Create dimension values for the customer source dimension code\n3. From the Dimension Code, select the Account Type Default Dimension list\n4. Add the Customer table\n5. Set the Value Posting to Code Mandatory\n\nHowever, imo step 2 is not specifically related to the requirement but five options are needed then this is the best option, which could be done as second step or the last step."
+      },
+      {
+        "date": "2021-07-28T10:50:00.000Z",
+        "voteCount": 2,
+        "content": "I agree. It doesn't seem correct to me neither. I would have answered as you did."
+      },
+      {
+        "date": "2021-11-14T02:57:00.000Z",
+        "voteCount": 2,
+        "content": "I think the same. Your answer is correct"
+      },
+      {
+        "date": "2021-10-10T01:56:00.000Z",
+        "voteCount": 1,
+        "content": "But they are talking about Customer Source should be on every transaction , if you we setup default dimension Customer table then it can cause issue i think"
+      },
+      {
+        "date": "2021-11-26T11:19:00.000Z",
+        "voteCount": 1,
+        "content": "Default dimension does not mean to set default value... Just leave it empty. i have test on cronus and it works. i assume that the solution provided by bcws is correct"
+      },
+      {
+        "date": "2021-10-10T01:57:00.000Z",
+        "voteCount": 1,
+        "content": "ok , i had check this in Cronus again  it's going correct"
+      },
+      {
+        "date": "2023-07-21T08:18:00.000Z",
+        "voteCount": 1,
+        "content": "3-6-2-5-4"
+      },
+      {
+        "date": "2023-07-20T05:11:00.000Z",
+        "voteCount": 1,
+        "content": "I concure with the answers given here.  going to Chart of Accounts makes no sense. \nhence \n1. Create a dimension code to identify the customer source\n2. Create dimension values for the customer source dimension code\n3. From the Dimension Code, select the Account Type Default Dimension list\n4. Add the Customer table\n5. Set the Value Posting to Code Mandatory\n\nI disagree with bcws in the assesment that set 2 is not needed though. As not setting up values with \"code Mandatory\" will make it impossible to post anything as no Code can be added into a field that requires a Code"
+      },
+      {
+        "date": "2023-05-23T16:26:00.000Z",
+        "voteCount": 3,
+        "content": "I agree with the BCWS' answer.\n1. Create a dimension code to identify the customer source\n2. Create dimension values for the customer source dimension code\n3. From the Dimension Code, select the Account Type Default Dimension list\n4. Add the Customer table\n5. Set the Value Posting to Code Mandatory"
+      },
+      {
+        "date": "2023-05-06T17:03:00.000Z",
+        "voteCount": 4,
+        "content": "I think the answer is:\n\n1. Create a dimension code to identify the customer source\n2. Create dimension values for the customer source dimension code\n3. From the Dimension Code, select the Account Type Default Dimension list\n4. Add the Customer table\n5. Set the Value Posting to Code Mandatory"
+      },
+      {
+        "date": "2023-04-26T09:43:00.000Z",
+        "voteCount": 1,
+        "content": "agree with bcws"
+      }
+    ],
+    "examNameCode": "mb-800",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/70552-exam-mb-800-topic-5-question-3-discussion/",
+    "body": "You need to configure the new customer creation process.<br>Which two areas must you configure? Each correct answer presents part of the solution<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResponsibility center",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguration worksheet",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguration template\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPermissions\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-19T16:36:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answers are:\n\nC. Configuration template\nD. Permissions\n\nHere's a brief explanation of each:\n\nC. Configuration template: Configuration templates in Dynamics 365 Business Central can be used to streamline the process of creating new customers. You can set up a template with common settings and then use that template each time you create a new customer. This can help ensure consistency and accuracy in your customer data.\n\nD. Permissions: You'll also need to configure permissions to ensure that only authorized users can create new customers. In Dynamics 365 Business Central, you can set up permission sets that define what actions a user or group of users can perform. You can then assign these permission sets to your users.\n\nThe other options (A: Responsibility center and B: Configuration worksheet) are not typically used for configuring the new customer creation process in Dynamics 365 Business Central."
+      },
+      {
+        "date": "2023-04-11T08:28:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2022-02-19T05:34:00.000Z",
+        "voteCount": 1,
+        "content": "C,D is correct."
+      },
+      {
+        "date": "2022-01-25T06:17:00.000Z",
+        "voteCount": 3,
+        "content": "D is required"
+      }
+    ],
+    "examNameCode": "mb-800",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65996-exam-mb-800-topic-5-question-4-discussion/",
+    "body": "DRAG DROP -<br>You need to design a process to resolve the broker issues for Accounts.<br>Which three actions should perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>NOTE: More than one order of answer choices is correct. You will receive credit for any of the correct orders you select.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04328/0005300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04328/0005400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-gb/dynamics365/business-central/ui-create-number-series https://docs.microsoft.com/en-gb/dynamics365/business-central/admin-use-templates-to-prepare-customer-data-for-migration",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-25T02:39:00.000Z",
+        "voteCount": 4,
+        "content": "correct answer is also 1.create nr. series 2.define nr series line 3. relationship"
+      },
+      {
+        "date": "2023-01-17T09:54:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct however assuming the following typos:\n-\tIn the second point it should be\u201aVendor Template\u2018. \u201eData Template\u201c does not exist or at least I cannot find it in BC.\n-\tIn third point it also should be\u201eVendor Template\u201c, as it is a logic consequence. A \u201eConfiguration Template\u201c wouldn\u2019t work with No. Series the way it can be done with \u201eVendor Template\u201c. So the correct order:\n\n- Create a No. Series\n- Create a Vendor Template\n- Define the No. Series on the Vendor Template."
+      },
+      {
+        "date": "2022-12-14T16:23:00.000Z",
+        "voteCount": 2,
+        "content": "It's correct, the scenario says: \"Adding new brokers is a different process than adding other purchase vendors. Users often forget which fields to select and how to correctly assign the vendor number to add new brokers.\" \n\nTo overcome user forgetting which field to select, we need a configuration template,\nTo overcome the issue with correctly assign the vendor number to add new broker, you need to create a no. series. You can then assign that no. series on the Vendor Template or Customer Template card. I tried to look into the Configuration Template card but I couldn't find the \"No. Series\" field. But the field is actually in the Vendor Template card."
+      },
+      {
+        "date": "2022-07-23T02:01:00.000Z",
+        "voteCount": 1,
+        "content": "It's said \"more than one order is correct\". Which is the other one?"
+      },
+      {
+        "date": "2023-04-26T09:45:00.000Z",
+        "voteCount": 1,
+        "content": "anche la risposta corretta \u00e8 1.create nr. serie 2.define nr linea di serie 3. relazione"
+      },
+      {
+        "date": "2021-11-18T02:35:00.000Z",
+        "voteCount": 2,
+        "content": "Shouldn't \"Define No. Series Line\" be a part of the sequence?"
+      },
+      {
+        "date": "2021-11-14T02:58:00.000Z",
+        "voteCount": 1,
+        "content": "It's correct"
+      }
+    ],
+    "examNameCode": "mb-800",
+    "topicNumber": "5"
+  }
+]

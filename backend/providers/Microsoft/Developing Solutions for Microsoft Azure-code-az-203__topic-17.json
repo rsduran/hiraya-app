@@ -1,0 +1,36 @@
+[
+  {
+    "topic": 17,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26857-exam-az-203-topic-17-question-1-discussion/",
+    "body": "You need to support the requirements for the Shipping Logic App.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Active Directory Application Proxy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPoint-to-Site (P2S) VPN connection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSite-to-Site (S2S) VPN connection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn-premises Data Gateway"
+    ],
+    "answer": "D",
+    "answerDescription": "Before you can connect to on-premises data sources from Azure Logic Apps, download and install the on-premises data gateway on a local computer. The gateway works as a bridge that provides quick data transfer and encryption between data sources on premises (not in the cloud) and your logic apps.<br>The gateway supports BizTalk Server 2016.<br>Note: Microsoft have now fully incorporated the Azure BizTalk Services capabilities into Logic Apps and Azure App Service Hybrid Connections.<br>Logic Apps Enterprise Integration pack bring some of the enterprise B2B capabilities like AS2 and X12, EDI standards support<br>Scenario: The Shipping Logic app must meet the following requirements:<br>\u2711 Support the ocean transport and inland transport workflows by using a Logic App.<br>\u2711 Support industry standard protocol X12 message format for various messages including vessel content details and arrival notices.<br>\u2711 Secure resources to the corporate VNet and use dedicated storage resources with a fixed costing model.<br>\u2711 Maintain on-premises connectivity to support legacy applications and final BizTalk migrations.<br>References:<br>https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-install",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-27T11:11:00.000Z",
+        "voteCount": 1,
+        "content": "Azure VPN gateway is used to connect only to IAAS such as VM, VMSS which has a Private IP address from On-Prem to Azure. The communication is over IKE protocol. You need a Gateway in Azure as well as a VPN device in On-Prem to connect using this mode. \n\nUsing On-Prem Data Gateway you can communicate to Azure SAAS and PAAS services over HTTP/HTTPS. You only need Gateway at On-Premises, no gateway is required in Azure end. \n\nSo I guess the answer is correct.\nhttps://social.msdn.microsoft.com/Forums/en-US/c3ac7770-319c-4d60-8107-0a08d8da5d9e/difference-between-vpn-gateway-and-on-premise-data-gateway"
+      },
+      {
+        "date": "2021-02-02T05:19:00.000Z",
+        "voteCount": 1,
+        "content": "I'm not convinced it's correct. Data Gateway gives access to on-prem \"data sources\" from Logic Apps. \n\nBUT, are \"legacy apps\" data sources? No. What on-prem data sources do the Logic Apps call? None. Yes, BizTalk contains a number of databases -- MsgBox, Mngmt, etc. -- but we are not running BizTalk in the cloud, so we don't need access to these data from the new Logic Apps.\n\nIf we assume \"legacy apps\" means literally \"apps\", then I think they are just asking for general site-to-site access so we can call legacy apps from cloud solution, view BTS schemas, etc. as we perform the migration. I vote for site-to-site VPN."
+      },
+      {
+        "date": "2020-07-28T09:03:00.000Z",
+        "voteCount": 4,
+        "content": "Correct\nOn premises data gateway supports connectivity with on-prem services including Biztalk\nhttps://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-gateway-connection"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "17"
+  }
+]

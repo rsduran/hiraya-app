@@ -1,0 +1,93 @@
+[
+  {
+    "topic": 6,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/3393-exam-70-345-topic-6-question-1-discussion/",
+    "body": "You have an Exchange Server 2016 organization. The organization contains an Edge Transport server.<br>Users report that a message with the following anti-spam headers is delivered to their Inbox folder in Microsoft Outlook.<br>X-MS-Exchange-Organization-PCL:7<br>X-MS-Exchange-Organization-SCL:6<br>X-MS-Exchange-OrganizationAntispam-Report: DV: 3.1.3924.1409; SID: SenderIDStatus Fail; PCL: PhishingLevel SUSPICIOUS;<br>CW: CustomList; PP: Presolved; TIME: TimeBasedFeatures<br>You need to prevent similar messages from being delivered. The solution must generate a non-delivery report (NDR) when the messages are prevented from being delivered to all user mailboxes.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the SCL reject threshold to 7.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Set-SenderIdConfig cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the SCL delete threshold to 7.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Set-TransportConfig cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Set-RecipientFilterConfig cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the SCL delete threshold to 5."
+    ],
+    "answer": "C",
+    "answerDescription": "When the message's SCL value is greater than or equal to the SCL reject threshold, but less than the SCL delete threshold, the Content Filter agent rejects the message and sends a rejection response to the sending system. You can customize the rejection response. In some cases, a non-delivery report (also known as an NDR, delivery status notification, DSN, or bounce message) is sent to the original sender of the message. https://technet.microsoft.com/en-us/library/aa995744(v=exchg.160).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-06T13:17:00.000Z",
+        "voteCount": 6,
+        "content": "Ill go with B."
+      },
+      {
+        "date": "2020-01-20T05:18:00.000Z",
+        "voteCount": 5,
+        "content": "Correct answer: B\n Run the Set-SenderIdConfig cmdlet."
+      },
+      {
+        "date": "2020-12-17T12:33:00.000Z",
+        "voteCount": 2,
+        "content": "This example configures the Sender ID agent to reject any messages with a 5 xx SMTP error response when sender's domain has an SPF record, and the IP address of the source server isn't listed as an authoritative server for the domain (the Sender ID status is Fail).\n\nSet-SenderIDConfig -SpoofedDomainAction Reject\n\nB is correct"
+      },
+      {
+        "date": "2021-01-18T17:41:00.000Z",
+        "voteCount": 2,
+        "content": "This question came in exam\n\nPassed On: 19-01-2021\n\nAnswered: B\n\nOption A &amp; C was not given as choice"
+      },
+      {
+        "date": "2020-10-29T19:14:00.000Z",
+        "voteCount": 2,
+        "content": "B\nSendIDStatus is currently Fail"
+      },
+      {
+        "date": "2020-10-27T17:08:00.000Z",
+        "voteCount": 2,
+        "content": "I'd go with B"
+      },
+      {
+        "date": "2020-04-03T18:50:00.000Z",
+        "voteCount": 3,
+        "content": "B. Run the Set-SenderIdConfig cmdlet"
+      },
+      {
+        "date": "2019-09-22T00:26:00.000Z",
+        "voteCount": 1,
+        "content": "Think A is not correct. the SCL of the message is 6, Setting reject threshold to 7 wouldn't work. cause SCL 6 is not greater or equal to SCL 7"
+      },
+      {
+        "date": "2019-08-09T04:59:00.000Z",
+        "voteCount": 4,
+        "content": "The explanation is correct, the correct answer should be A, because the message SCL value is 6. So need to set the SCL reject thresrold to 7."
+      }
+    ],
+    "examNameCode": "70-345",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15708-exam-70-345-topic-6-question-2-discussion/",
+    "body": "You plan to deploy Exchange Server 2016 to a new server. The server will host 1,000 mailboxes.<br>You need to identify whether the new server has the required disk throughput and speed.<br>Which two tools should you use? Each correct answer presents part of the solution.<br>Each correct selection is worth one point.<br>NOTE:<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLoadGen",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Exchange Server Best Practices Analyzer Tool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJetstress",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIsinteg",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Exchange Server Role Requirements Calculator"
+    ],
+    "answer": "AC",
+    "answerDescription": "To determine how many Exchange servers are required to manage user load, use the following capacity planning tools:<br>\u2711 Microsoft Exchange Jetstress<br>\u2711 Microsoft Exchange Load Generator<br>Note:<br>The Jetstress tool is designed to simulate Exchange I/O at the database level by interacting directly with the database technology of the Extensible Storage Engine<br>(ESE), also known as Jet, that Exchange is built on. Jetstress can be configured to test the maximum I/O throughput available to your disk subsystem within the required performance constraints of Exchange, or it can accept a desired profile of user count and I/Os per second per user and validate that the disk subsystem is capable of maintaining an acceptable level of performance with such a profile. Jetstress testing can be used to validate storage reliability and performance prior to the deployment of Exchange servers. You should run Jetstress if you are concerned about your storage subsystem performance or if you need to determine a system's I/O capacity.<br>The Load Generator (LoadGen) tool is designed to produce a simulated client workload against a test Exchange deployment. This workload can be used to evaluate how Exchange performs, and can also be used to analyze the effect of various configuration changes on Exchange behavior and performance while the system is under load<br>Use the output from these tests in the following ways:<br>\u2711 Validate deployments<br>\u2711 Calculate the client computer response time for the server configuration under client load<br>\u2711 Estimate the number of users per server<br>\u2711 Identify bottlenecks on the server<br>References: https://technet.microsoft.com/en-us/library/dd335108(v=exchg.141).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-06T13:24:00.000Z",
+        "voteCount": 1,
+        "content": "Correct."
+      }
+    ],
+    "examNameCode": "70-345",
+    "topicNumber": "6"
+  }
+]

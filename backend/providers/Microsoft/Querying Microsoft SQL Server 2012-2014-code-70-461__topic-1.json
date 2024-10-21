@@ -1,0 +1,1651 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10695-exam-70-461-topic-1-question-1-discussion/",
+    "body": "You develop a Microsoft SQL Server database that supports an application. The application contains a table that has the following definition:<br><br>CREATE TABLE Inventory -<br>(ItemID int NOT NULL PRIMARY KEY,<br>ItemsInStore int NOT NULL,<br>ItemsInWarehouse int NOT NULL)<br>You need to create a computed column that returns the sum total of the ItemsInStore and ItemsInWarehouse values for each row.<br>Which Transact-SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Inventory ADD TotalItems AS ItemsInStore + ItemsInWarehouse",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Inventory ADD ItemsInStore - ItemsInWarehouse = TotalItemss",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLEInventory ADD TotalItems = ItemsInStore + ItemsInWarehouse",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Inventory ADD TotalItems AS SUM(ItemsInStore, ItemsInWarehouse);"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>http://technet.microsoft.com/en-us/library/ms190273.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-01T04:50:00.000Z",
+        "voteCount": 1,
+        "content": "C. ALTER TABLEInventory ADD TotalItems = ItemsInStore + ItemsInWarehouse"
+      },
+      {
+        "date": "2019-12-19T18:06:00.000Z",
+        "voteCount": 1,
+        "content": "ALTER TABLE Inventory ADD TotalItems AS ItemsInStore + ItemsInWarehouse"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/119523-exam-70-461-topic-1-question-2-discussion/",
+    "body": "You develop a Microsoft SQL Server database. You create a view from the Orders and OrderDetails tables by using the following definition.<br><img src=\"/assets/media/exam-media/03395/0000300001.png\" class=\"in-exam-image\"><br>You need to improve the performance of the view by persisting data to disk. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate anINSTEAD OFtrigger on the view.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate anAFTERtrigger on the view.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the view to use theWITH VIEW_METADATAclause.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a clustered index on the view."
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms188783.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-30T21:13:00.000Z",
+        "voteCount": 1,
+        "content": "Agree."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36838-exam-70-461-topic-1-question-3-discussion/",
+    "body": "Note: This question is part of a series of questions that use the same set of answer choices. An answer choice may be correct for more than one question in the series.<br>You develop a database for a travel application. You need to design tables and other database objects.<br>You create the Airline_Schedules table.<br>You need to store the departure and arrival dates and times of flights along with time zone information.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the CAST function.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the DATE data type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the FORMAT function.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an appropriate collation.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a user-defined table type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the VARBINARY data type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the DATETIME data type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the DATETIME2 data type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"I\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tI.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the DATETIMEOFFSET data type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"J\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tJ.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the TODATETIMEOFFSET function."
+    ],
+    "answer": "I",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ff848733.aspx<br>http://msdn.microsoft.com/en-us/library/bb630289.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-16T10:34:00.000Z",
+        "voteCount": 1,
+        "content": "DateTime , j\u00e1 \u00e9 o suficiente"
+      },
+      {
+        "date": "2020-12-23T07:52:00.000Z",
+        "voteCount": 1,
+        "content": "I is the correct , datetime2 for 24 system time not for zone ."
+      },
+      {
+        "date": "2020-12-07T13:03:00.000Z",
+        "voteCount": 1,
+        "content": "nm it is I\n\nhttps://docs.microsoft.com/en-us/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-ver15"
+      },
+      {
+        "date": "2020-12-07T12:59:00.000Z",
+        "voteCount": 1,
+        "content": "H is the answer I think"
+      },
+      {
+        "date": "2020-12-05T18:11:00.000Z",
+        "voteCount": 1,
+        "content": "which one is the correct answer?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/1181-exam-70-461-topic-1-question-9-discussion/",
+    "body": "You have a Microsoft SQL Server database that contains tables named Customers and Orders.<br>The tables are related by a column named CustomerID.<br>You need to create a query that meets the following requirements:<br>\u2711 Returns the CustomerName for all customers and the OrderDate for any orders that they have placed.<br>\u2711 Results must include customers who have not placed any orders.<br>Which Transact-SQL query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerName, OrderDate FROM Customers RIGHT OUTER JOIN Orders ON Customers.CustomerID = Orders.CustomerID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerName, OrderDate FROM Customers JOIN Orders ON Customers.CustomerID = Orders.CustomerID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerName, OrderDate FROM Customers CROSS JOIN Orders ON Customers.CustomerID = Orders.CustomerID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerName, OrderDate FROM Customers LEFT OUTER JOIN Orders ON Customers.CustomerID = Orders.CustomerID"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms177634.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-21T20:04:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry. Use a left join"
+      },
+      {
+        "date": "2020-10-21T20:02:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is D. The question requires you to show al sutlers who haven't place any other yet which is in the customers Table (thus making it the right table). All you have to do is to use the right outer join to bring in a matching values from the Orders table (left table)."
+      },
+      {
+        "date": "2020-10-20T12:25:00.000Z",
+        "voteCount": 3,
+        "content": "Option D is correct because the second criteria states ----( Results must include customers who have not placed any orders) so we are expected to populate all Customers whether or not they have orders"
+      },
+      {
+        "date": "2020-12-23T09:39:00.000Z",
+        "voteCount": 1,
+        "content": "YES, thank you"
+      },
+      {
+        "date": "2020-09-05T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "select cust.customer_id,cust.cut_name,orders.order_date from Customer cust left outer join Order orders\non cust.customer_id=orders.customer_id"
+      },
+      {
+        "date": "2020-08-27T12:46:00.000Z",
+        "voteCount": 1,
+        "content": "there is another same question in which slight change in second point is there, for that question B option is correct."
+      },
+      {
+        "date": "2020-04-27T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "No doubt, B is the answer. Right outer join is needed to return all orders"
+      },
+      {
+        "date": "2020-03-06T16:02:00.000Z",
+        "voteCount": 1,
+        "content": "i think that the right answer is B not D"
+      },
+      {
+        "date": "2020-02-18T01:55:00.000Z",
+        "voteCount": 1,
+        "content": "the correct answer is B because D  is incomplet  answer"
+      },
+      {
+        "date": "2019-12-06T07:34:00.000Z",
+        "voteCount": 2,
+        "content": "Agreed, the suggested answer is \nsyntactically wrong"
+      },
+      {
+        "date": "2019-05-07T07:21:00.000Z",
+        "voteCount": 3,
+        "content": "your answer is wrong here, the correct answer must be 'B'"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30675-exam-70-461-topic-1-question-11-discussion/",
+    "body": "Your database contains two tables named DomesticSalesOrders and InternationalSalesOrders. Both tables contain more than 100 million rows. Each table has a<br>Primary Key column named SalesOrderId. The data in the two tables is distinct from one another.<br>Business users want a report that includes aggregate information about the total number of global sales and total sales amounts.<br>You need to ensure that your query executes in the minimum possible time.<br>Which query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount FROM ( SELECT SalesOrderId, SalesAmount FROM DomesticSalesOrders UNION ALL SELECT SalesOrderId, SalesAmount FROM InternationalSalesOrders ) AS p",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount FROM ( SELECT SalesOrderId, SalesAmount FROM DomesticSalesOrders UNION SELECT SalesOrderId, SalesAmount FROM InternationalSalesOrders ) AS p",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount FROM DomesticSalesOrders UNION SELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount FROM InternationalSalesOrders",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount FROM DomesticSalesOrders UNION ALL SELECT COUNT(*) AS NumberOfSales, SUM(SalesAmount) AS TotalSalesAmount FROM InternationalSalesOrders"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms180026.aspx<br>http://blog.sqlauthority.com/2009/03/11/sql-server-difference-between-union-vs-union-all-optimalperformance-comparison/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-06T04:02:00.000Z",
+        "voteCount": 1,
+        "content": "true A"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30715-exam-70-461-topic-1-question-14-discussion/",
+    "body": "You administer a Microsoft SQL Server database that contains a table named OrderDetail. You discover that the NCI_OrderDetail_CustomerID non-clustered index is fragmented. You need to reduce fragmentation.<br>You need to achieve this goal without taking the index offline. Which Transact-SQL batch should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE INDEX NCI_OrderDetail_CustomerID ON OrderDetail.CustomerID WITH DROP EXISTING",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER INDEX NCI_OrderDetail_CustomerID ON OrderDetail.CustomerID REORGANIZE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER INDEX ALL ON OrderDetail REBUILD",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER INDEX NCI_OrderDetail_CustomerID ON OrderDetail.CustomerID REBUILD"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms188388.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-06T10:52:00.000Z",
+        "voteCount": 1,
+        "content": "ALTER INDEX REORGANIZE"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17631-exam-70-461-topic-1-question-20-discussion/",
+    "body": "Your database contains a table named Purchases. The table includes a DATETIME column named PurchaseTime that stores the date and time each purchase is made. There is a non-clustered index on the PurchaseTime column.<br>The business team wants a report that displays the total number of purchases made on the current day.<br>You need to write a query that will return the correct results in the most efficient manner.<br>Which Transact-SQL query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM Purchases WHERE PurchaseTime = CONVERT(DATE, GETDATE())",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM Purchases WHERE PurchaseTime = GETDATE()",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM Purchases WHERE CONVERT(VARCHAR, PurchaseTime, 112) = CONVERT(VARCHAR, GETDATE(), 112)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM Purchases WHERE PurchaseTime &gt;= CONVERT(DATE, GETDATE()) AND PurchaseTime &lt; DATEADD(DAY, 1, CONVERT(DATE, GETDATE()))"
+    ],
+    "answer": "D",
+    "answerDescription": "Two answers will return the correct results (the \"WHERE CONVERT...\" and \"WHERE ... AND ... \" answers).<br>The correct answer for Microsoft would be the answer that is most \"efficient\". Anybody have a clue as to which is most efficient? In the execution plan, the one that<br>I've selected as the correct answer is the query with the shortest duration. Also, the query answer with \"WHERE CONVERT...\" threw warnings in the execution plan...something about affecting CardinalityEstimate and SeekPlan.<br>Reference:<br>http://technet.microsoft.com/en-us/library/ms181034.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-29T03:06:00.000Z",
+        "voteCount": 1,
+        "content": "\"where convert\" is a manipulation of the original column and will result in SQL not being able to use the index, and therefore this is not the most efficient answer."
+      },
+      {
+        "date": "2020-04-21T09:36:00.000Z",
+        "voteCount": 1,
+        "content": "the requirement is the most efficient result. it did not mention about forcing to use index"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17898-exam-70-461-topic-1-question-29-discussion/",
+    "body": "You administer a Microsoft SQL Server database that supports a shopping application.<br>You need to retrieve a list of customers who live in territories that do not have a sales person.<br>Which Transact- SQL query or queries should you use? (Each correct answer presents a complete solution. Choose all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerID FROM Customer WHERE TerritoryID &lt;&gt; SOME(SELECT TerritoryID FROM Salesperson)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerID FROM Customer WHERE TerritoryID &lt;&gt; ALL(SELECT TerritoryID FROM Salesperson)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerID FROM Customer WHERE TerritoryID &lt;&gt; ANY(SELECT TerritoryID FROM Salesperson)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CustomerID FROMCustomer WHERE TerritoryID NOT IN(SELECT TerritoryID FROM Salesperson)"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-05T04:35:00.000Z",
+        "voteCount": 1,
+        "content": "Try these queries in your adventureworks database. You won't get any results because there are no customers with a territory that has no salesperson. You can fix this by changing the territoryid of the salesperson with territoryid 2 into 1. Now there are customers from '2' but no salesperson for '2'. Still no result! THis is bercause of three-valued logic. Some salespersons have territoryid NULL, and thus the predicate \"territoryid &lt;&gt; all(select TerritoryID from sales.SalesPerson)\" evaluates to UNKNOWN, and not to true for any of the customers. :-( . So you have deal with the nulls, either in the source data or in the predicate: \"territoryid &lt;&gt; all(select isnull(TerritoryID,0) from sales.SalesPerson)\""
+      },
+      {
+        "date": "2020-04-24T07:34:00.000Z",
+        "voteCount": 1,
+        "content": "I agree!"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40304-exam-70-461-topic-1-question-44-discussion/",
+    "body": "SIMULATION -<br>You have a database that contains the tables as shown in the exhibit. (Click the Exhibit button.)<br><img src=\"/assets/media/exam-media/03395/0005900001.jpg\" class=\"in-exam-image\"><br>You need to create a query that returns a list of products from Sales.ProductCatalog. The solution must meet the following requirements:<br>UnitPrice must be returned in descending order.<br><img src=\"/assets/media/exam-media/03395/0005900002.png\" class=\"in-exam-image\"><br>\u2711 The query must use two-part names to reference the table.<br>\u2711 The query must use the RANK function to calculate the results.<br>\u2711 The query must return the ranking of rows in a column named PriceRank.<br>\u2711 The list must display the columns in the order that they are defined in the table.<br>\u2711 PriceRank must appear last.<br>To answer, type the correct code in the answer area.<br>Part of the correct T-SQL statement has been provided in the answer area. Provide the complete code.<br><img src=\"/assets/media/exam-media/03395/0006000006.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "Explantation:<br>SELECT ProductCatalog.CatID, ProductCatalog.CatName, ProductCatalog.ProductID,<br>ProductCatalog.ProdName,ProductCatalog.UnitPrice,<br>RANK() OVER (ORDER BY ProductCatalog.UnitPrice DESC) AS PriceRank<br><br>FROM Sales.ProductCatalog -<br>ORDER BY ProductCatalog.UnitPrice DESC<br>References:<br>https://msdn.microsoft.com/en-us/library/ms176102.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-18T09:40:00.000Z",
+        "voteCount": 1,
+        "content": "If you wanted to start the ranking with 1 first, you would order by pricerank asc.  This would give the highest unitprice the ranking of 1."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23957-exam-70-461-topic-1-question-49-discussion/",
+    "body": "You use Microsoft SQL Server to develop a database application.<br>You create a stored procedure named DeleteJobCandidate.<br>You need to ensure that if DeleteJobCandidate encounters an error, the execution of the stored procedure reports the error number.<br>Which Transact-SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDECLARE @ErrorVar INT; DECLARE @RowCountVar INT; EXEC DeleteJobCandidate SELECT @ErrorVar = @@ERROR, @RowCountVar = @@ROWCOUNT; IF (@ErrorVar &lt;&gt; 0) PRINT N'Error = ' + CAST(@ErrorVar AS NVARCHAR(8)) + N', Rows Deleted = ' + CAST(@RowCountVar AS NVARCHAR(8)); GO",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDECLARE @ErrorVar INT; DECLARE @RowCountVar INT; EXEC DeleteJobCandidate SELECT @ErrorVar = ERROR_STATE(), @RowCountVar = @@ROWCOUNT; IF (@ErrorVar &lt;&gt; 0) PRINT N'Error = ' + CAST(ERROR_STATE() AS NVARCHAR(8)) + N', Rows Deleted = ' + CAST(@RowCountVar AS NVARCHAR(8)); GO",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEXEC DeleteJobCandidate IF (ERROR_STATE() != 0) PRINT N'Error = ' + CAST(@@ERROR AS NVARCHAR(8)) + N', Rows Deleted = ' + CAST(@@ROWCOUNT AS NVARCHAR(8)); GO",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEXEC DeleteJobCandidate PRINT N'Error = ' + CAST(@@ERROR AS NVARCHAR(8)) + N', Rows Deleted = ' + CAST(@@ROWCOUNT AS NVARCHAR(8)); GO"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms190193.aspx<br>http://msdn.microsoft.com/en-us/library/ms188790.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-24T11:57:00.000Z",
+        "voteCount": 1,
+        "content": "Probably a typo, but the  variable @@ErrorVar  is not declared in answer A"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39568-exam-70-461-topic-1-question-60-discussion/",
+    "body": "You develop a Microsoft SQL Server database that has two tables named SavingAccounts and LoanAccounts. Both tables have a column named AccountNumber of the nvarchar data type.<br>You use a third table named Transactions that has columns named TransactionId AccountNumber, Amount, and TransactionDate.<br>You need to ensure that when multiple records are inserted in the Transactions table, only the records that have a valid AccountNumber in the SavingAccounts or<br>LoanAccounts are inserted.<br>Which Transact-SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE TRIGGER TrgValidateAccountNumber ON Transactions INSTEAD OF INSERT AS BEGIN INSERT INTO Transactions SELECT TransactionID,AccountNumber,Amount,TransactionDate FROM inserted WHERE AccountNumber IN (SELECT AccountNumber FROM LoanAccounts UNION SELECT AccountNumber FROM SavingAccounts) END",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE TRIGGER TrgValidateAccountNumber ON Transactions FOR INSERT AS BEGIN INSERT INTO Transactions SELECT TransactionID,AccountNumber,Amount,TransactionDate FROM inserted WHERE AccountNumber IN (SELECT AccountNumber FROM LoanAccounts UNION SELECT AccountNumber FROM SavingAccounts) END",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE TRIGGER TrgValidateAccountNumber ON Transactions INSTEAD OF INSERT AS BEGIN IF EXISTS ( SELECT AccountNumber FROM inserted EXCEPT (SELECT AccountNumber FROM LoanAccounts UNION SELECT AccountNumber FROM SavingAccounts)) BEGIN ROLLBACK TRAN END END",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE TRIGGER TrgValidateAccountNumber ON Transactions FOR INSERT AS BEGIN IF EXISTS ( SELECT AccountNumber FROM inserted EXCEPT (SELECT AccountNumber FROM LoanAccounts UNION SELECT AccountNumber FROM SavingAccounts)) BEGIN ROLLBACK TRAN END END"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-14T08:31:00.000Z",
+        "voteCount": 1,
+        "content": "When only the 'FOR' keyword is used, the trigger type defaults to 'AFTER'. For this question, the insert should only occur IF the accounts exist in either of the two tables. If the 'FOR'/'AFTER' trigger type was used, the insert would occur and THEN the trigger would be called. The account verification has to happen first, so the 'INSTEAD OF' trigger type is used, preventing the insert of the new records if the account numbers do not exist in the other tables. i.e. 'FOR' is the same as 'AFTER'.\nclearest source: https://www.dotnettricks.com/learn/sqlserver/different-types-of-sql-server-triggers"
+      },
+      {
+        "date": "2020-12-10T14:16:00.000Z",
+        "voteCount": 1,
+        "content": "Can anyone explain with some clarity why this is A the INSTEAD OF trigger, as opposed to B the FOR INSERT trigger?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/29118-exam-70-461-topic-1-question-69-discussion/",
+    "body": "You use Microsoft SQL Server to write code for a transaction that contains several statements.<br>There is high contention between readers and writers on several tables used by your transaction.<br>You need to minimize the use of the tempdb space. You also need to prevent reading queries from blocking writing queries.<br>Which isolation level should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSERIALIZABLE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSNAPSHOT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREAD COMMITTED SNAPSHOT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREPEATABLE READ"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms173763.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-20T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "I am not sure that C can insure \"You need to minimize the use of the tempdb space\""
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42281-exam-70-461-topic-1-question-71-discussion/",
+    "body": "Note: This question is part of a series of questions that use the same set of answer choices. An answer choice may be correct for more than one question in the series.<br>You create a table that has the StudentCode, SubjectCode, and Marks columns to record mid-year marks for students. The table has marks obtained by 50 students for various subjects.<br>You need to ensure that the following requirements are met:<br>\u2711 Students must be ranked based on their average marks.<br>\u2711 If one or more students have the same average, the same rank must be given to these students.<br>\u2711 Consecutive ranks must be skipped when the same rank is assigned.<br>Which Transact-SQL query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode as Code, RANK() OVER(ORDER BY AVG (Marks) DESC) AS Value FROM StudentMarks GROUP BY StudentCode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT Id, Name, Marks, DENSE_RANK() OVER(ORDER BY Marks DESC) AS Rank FROM StudentMarks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode as Code, DENSE_RANK() OVER(ORDER BY AVG (Marks) DESC) AS Value FROM StudentMarks GROUP BY StudentCode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode as Code, NTILE(2) OVER(ORDER BY AVG (Marks) DESC) AS Value FROM StudentMarks GROUP BY StudentCode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode AS Code,Marks AS Value FROM ( SELECT StudentCode, Marks AS Marks, RANK() OVER(PARTITION BY SubjectCode ORDER BY Marks ASC) AS Rank FROM StudentMarks) tmp WHERE Rank = 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode AS Code,Marks AS Value FROM ( SELECT StudentCode, Marks AS Marks, RANK() OVER(PARTITION BY SubjectCode ORDER BY Marks DESC) AS Rank FROM StudentMarks) tmp WHERE Rank = 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode AS Code,Marks AS Value FROM ( SELECT StudentCode, Marks AS Marks, RANK() OVER(PARTITION BY StudentCode ORDER BY Marks ASC) AS Rank FROM StudentMarks) tmp WHERE Rank = 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT StudentCode AS Code,Marks AS Value FROM ( SELECT StudentCode, Marks AS Marks, RANK () OVER(PARTITION BY StudentCode ORDER BY Marks DESC) AS Rank FROM StudentMarks) tmp WHERE Rank = 1"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms189798.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-13T12:21:00.000Z",
+        "voteCount": 1,
+        "content": "Rank functions include:\n\n- Row_Number(): to get a unique sequential number for each row.  It gives the rank one for the first row and then increments the value by one for each row.\n- Rank(): used to specify rank for each row in the result set.  \n- Dense_Rank(): to specify a unique rank number within the partition as per the specified column value.  It is similar to the Rank function with a small difference.  If we have duplicate values, SQL assigns different ranks to those rows as well.  Ideally, you should get the same rank for duplicate values.\n- Ntile(): to distribute the number of rows in the specified (N) number of groups.  Each row group gets its rank as per the specified condition.\n\nIn the SQL Rank functions, we use the OVER() clause to define a set of rows in the result set.  You can also use SQL Partition by clause to define a subset of data in a partition."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26987-exam-70-461-topic-1-question-75-discussion/",
+    "body": "You administer a Microsoft SQL Server database that has Trustworthy set to On. You create a stored procedure that returns database-level information from<br>Dynamic Management Views. You grant User1 access to execute the stored procedure. You need to ensure that the stored procedure returns the required information when User1 executes the stored procedure. You need to achieve this goal by granting the minimum permissions required. What should you do? (Each correct answer presents a complete solution. Choose all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SQL Server login that has VIEW SERVER STATE permissions. Create an application role and a secured password for the role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the stored procedure to include the EXECUTE AS OWNER statement. Grant VIEW SERVER STATE permissions to the owner of the stored procedure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SQL Server login that has VIEW SERVER STATE permissions. Modify the stored procedure to include the EXECUTE AS {newlogin} statement.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGrant the db_owner role on the database to User1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGrant the sysadmin role on the database to User1."
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-06T11:18:00.000Z",
+        "voteCount": 1,
+        "content": "A and C"
+      },
+      {
+        "date": "2020-07-30T04:30:00.000Z",
+        "voteCount": 1,
+        "content": "Neither D or E satisfy the requirement for \"minimum permissions\"."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/29723-exam-70-461-topic-1-question-82-discussion/",
+    "body": "You administer a Microsoft SQL Server database named ContosoDb. The database contains a table named Suppliers and a column named IsActive in the<br>Purchases schema. You create a new user named ContosoUser in ContosoDb. ContosoUser has no permissions to the Suppliers table. You need to ensure that<br>ContosoUser can delete rows that are not active from Suppliers. You also need to grant ContosoUser only the minimum required permissions. Which Transact-<br>SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGRANT DELETE ON Purchases.Suppliers TO ContosoUser",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PROCEDURE Purchases.PurgeInactiveSuppliers WITH EXECUTE AS USER = 'dbo' AS DELETE FROM Purchases.Suppliers WHERE IsActive = 0 GO GRANT EXECUTE ON Purchases.PurgelnactiveSuppliers TO ContosoUser",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGRANT SELECT ON Purchases.Suppliers TO ContosoUser",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PROCEDURE Purchases.PurgeInactiveSuppliers AS DELETE FROM Purchases.Suppliers WHERE IsActive = 0 GO GRANT EXECUTE ON Purchases.PurgeInactiveSuppliers TO ContosoUser"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>http://msdn.microsoft.com/en-us/library/ms188354.aspx<br>http://msdn.microsoft.com/en-us/library/ms187926.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-27T13:13:00.000Z",
+        "voteCount": 1,
+        "content": "right option is b."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19250-exam-70-461-topic-1-question-85-discussion/",
+    "body": "Your database contains a table named SalesOrders. The table includes a DATETIME column named OrderTime that stores the date and time each order is placed. There is a non-clustered index on the OrderTime column.<br>The business team wants a report that displays the total number of orders placed on the current day.<br>You need to write a query that will return the correct results in the most efficient manner.<br>Which Transact-SQL query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM SalesOrders WHERE OrderTime = CONVERT(DATE, GETDATE())",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM SalesOrders WHERE OrderTime = GETDATE()",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM SalesOrders WHERE CONVERT(VARCHAR, OrderTime, 112) = CONVERT(VARCHAR, GETDATE(), 112))",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT COUNT(*) FROM SalesOrders WHERE OrderTime &gt;= CONVERT(DATE, GETDATE()) AND OrderTime &lt; DATEADD(DAY, 1, CONVERT(DATE, GETDATE()))"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-24T13:26:00.000Z",
+        "voteCount": 1,
+        "content": "How can answer A also give the desired result when OrderTime contains the date and time an order was placed and the call to CONVERT(DATE, GETDATE()) effectively removes the time portion of the GETDATE() DATETIME value?"
+      },
+      {
+        "date": "2020-04-28T06:37:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A will also give the desired result"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/27208-exam-70-461-topic-1-question-87-discussion/",
+    "body": "You use Microsoft SQL Server to develop a database application.<br>You create a stored procedure named dbo.ModifyData that can modify rows.<br>You need to ensure that when the transaction fails, dbo.ModifyData meets the following requirements:<br>\u2711 Does not return an error<br>\u2711 Closes all opened transactions<br>Which Transact-SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBEGIN TRANSACTION BEGIN TRY EXEC dbo.ModifyData COMMIT TRANSACTION END TRY BEGIN CATCH IF @@ TRANCOUNT = 0 ROLLBACK TRANSACTION; END CATCH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBEGIN TRANSACTION BEGIN TRY EXEC dbo.ModifyData COMMIT TRANSACTION END TRY BEGIN CATCH IF @@ERROR != 0 ROLLBACK TRANSACTION; THROW; END CATCH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBEGIN TRANSACTION BEGIN TRY EXEC dbo.ModifyData COMMIT TRANSACTION END TRY BEGIN CATCH IF @@TRANCOUNT = 0 ROLLBACK TRANSACTION; THROW; END CATCH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBEGIN TRANSACTION BEGIN TRY EXEC dbo.ModifyData COMMIT TRANSACTION END TRY BEGIN CATCH IF @@ERROR != 0 ROLLBACK TRANSACTION; END CATCH"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-03T02:54:00.000Z",
+        "voteCount": 1,
+        "content": "Probably, D has to be finished with END CATCH"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40578-exam-70-461-topic-1-question-99-discussion/",
+    "body": "DRAG DROP -<br>You use a Microsoft SQL Server database.<br>You need to create an indexed view within the database for a report that displays Customer Name and the total revenue for that customer.<br>Which four Transact-SQL segments should you use to develop the solution? (To answer, move the appropriate Transact-SQL segments from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.)<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0013400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0013500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>http://msdn.microsoft.com/en-us/library/ms191432.aspx<br>http://stackoverflow.com/questions/12419330/how-to-create-indexed-view-with-select-distinct-statement-insql-2005",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-22T11:40:00.000Z",
+        "voteCount": 1,
+        "content": "box 3: GROUP BY...\nbox 4: CREATE UNIQUE CLUSTERED INDEX..."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39685-exam-70-461-topic-1-question-106-discussion/",
+    "body": "DRAG DROP -<br>You use Microsoft SQL Server to develop a database that has two tables named Div1Cust and Div2Cust.<br>Each table has columns named DivisionID and CustomerID.<br>You need to write a query that meets the following requirements:<br>\u2711 The rows in Div1Cust must be combined with the rows in Div2Cust.<br>\u2711 The result set must have columns named Division and Customer.<br>\u2711 Duplicates must be not retained.<br>Which three Transact-SQL statements should you use? (To answer, move the appropriate statements from the list of statements to the answer area and arrange them in the correct order.)<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0014800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0014800002.png\" class=\"in-exam-image\">",
+    "answerDescription": "The UNION ALL command is equal to the UNION command, except that UNION ALL selects all values.<br>The difference between Union and Union all is that Union all will not eliminate duplicate rows, instead it just pulls all rows from all tables fitting your query specifics and combines them into a table.<br>We should also use the DISTINCT keyword in the third SELECT statement.<br>Incorrect: The UNION command is used to select related information from two tables, much like the JOIN command. However, when using the UNION command all selected columns need to be of the same data type. With UNION, only distinct values are selected.<br>References:<br>https://blog.sqlauthority.com/2009/03/11/sql-server-difference-between-union-vs-union-all-optimal-performance-comparison/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-12T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "third box should be:\nselect divisionID, customerID\nfrom Division2"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30749-exam-70-461-topic-1-question-107-discussion/",
+    "body": "Note: This question is part of a series of questions that use the same set of answer choices. An answer choice may be correct for more than one question in the series.<br>You create a table that has three columns named StudentCode, SubjectCode, and Marks. The Marks column records grades for students expressed as a percentage. The table has marks obtained by 50 students for various subjects.<br>You need to retrieve the StudentCode and Marks for students who scored the lowest percentage for each subject.<br>Which Transact-SQL query should you use?<br>A.<br><img src=\"/assets/media/exam-media/03395/0014900001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0014900002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0014900003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0015000001.png\" class=\"in-exam-image\"><br>E.<br><img src=\"/assets/media/exam-media/03395/0015000002.png\" class=\"in-exam-image\"><br>F.<br><img src=\"/assets/media/exam-media/03395/0015000003.png\" class=\"in-exam-image\"><br>G.<br><img src=\"/assets/media/exam-media/03395/0015000004.png\" class=\"in-exam-image\"><br>H.<br><img src=\"/assets/media/exam-media/03395/0015000005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "G",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T00:56:00.000Z",
+        "voteCount": 3,
+        "content": "I think it is E, because \"for each subject\", so partition by SubjectCode"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30750-exam-70-461-topic-1-question-110-discussion/",
+    "body": "DRAG DROP -<br>You administer a Microsoft SQL Server database named ContosoDb. ContosoDb contains a table named Suppliers and an indexed view named<br>VwLocalSuppliers, both of which were created by using the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0015500001.png\" class=\"in-exam-image\"><br>You need to change the data type of the Code column in the Suppliers table to nvarchar(50).<br>Which four Transact-SQL segments should you use to develop the solution? To answer, move the appropriate Transact-SQL segments from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0015600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0015700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T01:18:00.000Z",
+        "voteCount": 1,
+        "content": "I think, we have to alert view and disable SCHEMABINDING, change the column and alert view in order to enable SCHEMABINDING."
+      },
+      {
+        "date": "2020-12-07T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, I agree with you. First column columns to be altered. Then Altering the view WITHOUT SCHEMABINDING, At last Altering the view with SCHEMABINDING."
+      },
+      {
+        "date": "2020-09-07T01:13:00.000Z",
+        "voteCount": 1,
+        "content": "Create after alter? 0_0"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12073-exam-70-461-topic-1-question-113-discussion/",
+    "body": "You develop a database application. You create four tables. Each table stores different categories of products.<br>You create a Primary Key field on each table.<br>You need to ensure that the following requirements are met:<br>\u2711 The fields must use the minimum amount of space.<br>\u2711 The fields must be an incrementing series of values.<br>\u2711 The values must be unique among the four tables.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a ROWVERSION column.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SEQUENCE object that uses the INTEGER data type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the INTEGER data type along with IDENTITY",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the UNIQUEIDENTIFIER data type along with NEWSEQUENTIALID()",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a TIMESTAMP column."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-15T11:58:00.000Z",
+        "voteCount": 2,
+        "content": "Why not SEQUENCE? Int is smaller then GUID."
+      },
+      {
+        "date": "2020-04-30T22:44:00.000Z",
+        "voteCount": 1,
+        "content": "agree! sequence is also my call here"
+      },
+      {
+        "date": "2020-05-29T00:32:00.000Z",
+        "voteCount": 3,
+        "content": "I think SEQUENCE does not guarantee uniqueness of the data across all four tables"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21733-exam-70-461-topic-1-question-115-discussion/",
+    "body": "Your application contains a stored procedure for each country. Each stored procedure accepts an employee identification number through the @EmpID parameter.<br>You need to build a single process for each employee that will execute the appropriate stored procedure based on the country of residence.<br>Which approach should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA SELECT statement that includes CASE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCursor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBULK INSERT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tView",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA user-defined function"
+    ],
+    "answer": "E",
+    "answerDescription": "SQL Server user-defined functions are routines that accept parameters, perform an action, such as a complex calculation, and return the result of that action as a value. The return value can either be a single scalar value or a result set.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-30T10:09:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2020-10-01T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the limitations on UDF's they cannot call SP's"
+      },
+      {
+        "date": "2020-06-01T03:50:00.000Z",
+        "voteCount": 3,
+        "content": "Surely the answer here is instead B: Cursor (even though usage is generally not recommended, if avoidable). You cannot call a stored procedure from within a UDF."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21735-exam-70-461-topic-1-question-116-discussion/",
+    "body": "You are developing a database application by using Microsoft SQL Server 2012.<br>An application that uses a database begins to run slowly.<br>You discover that the root cause is a query against a frequently updated table that has a clustered index. The query returns four columns: three columns in its<br>WHERE clause contained in a non-clustered index and one additional column.<br>You need to optimize the statement.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a HASH hint to the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a LOOP hint to the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a FORCESEEK hint to the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd an INCLUDE clause to the index.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a FORCESCAN hint to the Attach query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a columnstore index to cover the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable the optimize for ad hoc workloads option.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCover the unique clustered index with a columnstore index.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"I\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tI.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude a SET FORCEPLAN ON statement before you run the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"J\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tJ.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude a SET STATISTICS PROFILE ON statement before you run the query. K. Include a SET STATISTICS SHOWPLAN_XML ON statement before you run the query. L. Include a SET TRANSACTIONISOLATION LEVEL REPEATABLE READ statement before you run the query. M. Include a SET TRANSACTION ISOLATION LEVEL SNAPSHOT statement before you run the query. N. Include a SET TRANSACTION ISOLATION LEVEL SERIALIZABLE statement before you run the query."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-01T04:04:00.000Z",
+        "voteCount": 3,
+        "content": "This seems an ideal scenario to add INCLUDE clause to the index (option D). Can anyone explain why adding FORCESEEK is a better answer?"
+      },
+      {
+        "date": "2021-01-18T16:58:00.000Z",
+        "voteCount": 1,
+        "content": "Nobody. D is correct."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30752-exam-70-461-topic-1-question-117-discussion/",
+    "body": "Note: This question is part of a series of questions that use the same set of answer choices. An answer choice may be correct for more than one question in the series.<br>You administer a Microsoft SQL Server database. The database contains a table named Employee.<br>Part of the Employee table is shown in the exhibit. (Click the Exhibit tab.)<br><img src=\"/assets/media/exam-media/03395/0016500001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0016500002.png\" class=\"in-exam-image\"><br>Unless stated above, no columns in the Employee table reference other tables.<br>Confidential information about the employees is stored in a separate table named EmployeeData. One record exists within EmployeeData for each record in the<br>Employee table.<br>You need to assign the appropriate constraints and table properties to ensure data integrity and visibility.<br>On which column in the Employee table should you create a Foreign Key constraint that references a different table in the database?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDateHired",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDepartmentID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEmployeeID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEmployeeNum",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFirstName",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJobTitle",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLastName",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMiddleName",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"I\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tI.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReportsToID"
+    ],
+    "answer": "C",
+    "answerDescription": "Use the EmployeeID, which would be used as a primary key in the Employee table, when defining a foreign key constraint from another table in the database.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-09T09:08:00.000Z",
+        "voteCount": 1,
+        "content": "Yes.  EmployeeID would be the primary key in the Employee table"
+      },
+      {
+        "date": "2020-09-07T01:52:00.000Z",
+        "voteCount": 1,
+        "content": "I think, it is DepartmentID"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30761-exam-70-461-topic-1-question-127-discussion/",
+    "body": "HOTSPOT -<br>You are developing an SQL Server database. The database contains two tables and a function that are defined by the following Transact-SQL statements.<br><img src=\"/assets/media/exam-media/03395/0018500001.png\" class=\"in-exam-image\"><br>You need to create a query to determine the total number of products that are sold each day for the five top-selling products on that particular day.<br>How should you complete the Transact-SQL script? To answer, select the appropriate Transact-SQL statements in the answer area.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03395/0018600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0018700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "The APPLY operator allows you to invoke a table-valued function for each row returned by an outer table expression of a query. T<br>There are two forms of APPLY: CROSS APPLY and OUTER APPLY. CROSS APPLYreturns only rows from the outer table that produce a result set from the table-valued function. OUTER APPLY returns both rows that produce a result set, and rows that do not, with NULL values in the columns produced by the table- valued function.<br><br>Reference: Using APPLY -<br>https://technet.microsoft.com/en-us/library/ms175156(v=sql.105).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T03:24:00.000Z",
+        "voteCount": 1,
+        "content": "I think, there is an error in the question or the question is not full."
+      },
+      {
+        "date": "2020-12-07T15:32:00.000Z",
+        "voteCount": 1,
+        "content": "I feel the same"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30780-exam-70-461-topic-1-question-130-discussion/",
+    "body": "SIMULATION -<br>You have a database named Sales that contains the tables as shown in the exhibit. (Click the Exhibit button.)<br><img src=\"/assets/media/exam-media/03395/0019200001.jpg\" class=\"in-exam-image\"><br>You need to create a query for a report. The query must meet the following requirements:<br>\u2711 Return the last name of the customer who placed the order.<br>\u2711 Return the most recent order date for each customer.<br>\u2711 Group the results by CustomerID.<br>\u2711 Order the results by the most recent OrderDate.<br>\u2711 Use the database name and table name for any table reference.<br>\u2711 Use the first initial of the table as an alias when referencing columns in atable.<br>The solution must support the ANSI SQL-99 standard and must NOT use object identifiers.<br>Part of the correct T-SQL statement has been provided in the answer area. Complete the SQL statement.<br><img src=\"/assets/media/exam-media/03395/0019300007.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "SELECT o.LastName,<br>MAX (o.OrderData) AS MostRecentOrderData<br><br>FROM Sales.Orders AS o -<br><br>GROUP BY o.CustomerID -<br>ORDER BY o.OrderDate DESC",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-23T07:12:00.000Z",
+        "voteCount": 2,
+        "content": "* add c.lastname after customerid to the GROUP BY clause"
+      },
+      {
+        "date": "2021-01-22T20:05:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-12-09T12:22:00.000Z",
+        "voteCount": 1,
+        "content": "SELECT c.lastname, MAX(o.orderdate) as MostRecentOrder\nFROM Sales.Customers c\nJOIN Sales.Orders o\non c.customerid = o.customerid\nGROUP BY c.customerid\nORDER By MAX(o.orderdate) DESC"
+      },
+      {
+        "date": "2020-09-07T04:57:00.000Z",
+        "voteCount": 2,
+        "content": "I think we have to join results with Customer table. And LastName is from Customer."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30585-exam-70-461-topic-1-question-131-discussion/",
+    "body": "SIMULATION -<br>You need to create a query that calculates the total sales of each OrderID from a table named Sales.Details. The table contains two columns named OrderID and<br>ExtendedAmount.<br>The solution must meet the following requirements:<br>\u2711 Use one-part names to reference columns.<br>\u2711 Order the results by OrderID with the smallest value first.<br>\u2711 NOT depend on the default schema of a user.<br>\u2711 Use an alias of TotalSales for the calculated ExtendedAmount.<br>\u2711 Display only the OrderID column and the calculated TotalSales column.<br>Provide the correct code in the answer area.<br>Key Words:<br><img src=\"/assets/media/exam-media/03395/0019400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "SELECT OrderId, SUM(ExtendedAmount) AS TotalSales<br><br>FROM Sales.Details -<br>ORDER BY OrderID ASC",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-23T04:39:00.000Z",
+        "voteCount": 4,
+        "content": "I think in response have to be group by clause."
+      },
+      {
+        "date": "2021-01-22T20:11:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, correct there should be a Group by OrderId"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/32279-exam-70-461-topic-1-question-132-discussion/",
+    "body": "DRAG DROP -<br>You administer a Microsoft SQL Server database that contains a table named Customer defined by the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0019500001.png\" class=\"in-exam-image\"><br>The SalesRep column contains the SQL Login name of the user designated as the customer's sales rep.<br>You need to create at trigger that meets the following requirements:<br>\u2711 A customer's CreditLimit can only be changed by the customer's SalesRep.<br>\u2711 CreditLimit cannot be increased by more than 50 percent in any single update.<br>If an UPDATE statement causes either of these business rules to be violated, the entire UPDATE statement should be rolled back.<br>In addition, the trigger must handle single-row and multi-row update statements and should execute in the most efficient manner possible.<br>How should you complete the trigger? To answer, drag the appropriate Transact-SQL segments to the correct locations. Each Transact-SQL segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0019600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0019700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:<br>The COLUMNS_UPDATED function returns a varbinary bit pattern indicating the inserted or updated columns of a table or view. Use COLUMNS_UPDATED anywhere inside the body of a Transact-SQL INSERT or UPDATE trigger to test whether the trigger should execute certain actions.<br>Box 2, Box 3:<br>An Example of Using the inserted Table in a Trigger to Enforce Business Rules<br>The following example creates a DML trigger. This trigger checks to make sure the credit rating for the vendor is good when an attempt is made to insert a new purchase order into the PurchaseOrderHeader table. To obtain the credit rating of the vendor corresponding to the purchase order that was just inserted, the<br>Vendor table must be referenced and joined with the inserted table. If the credit rating is too low, a message is displayed and the insertion does not execute.<br>CREATE TRIGGER Purchasing.LowCredit ON Purchasing.PurchaseOrderHeader<br><br>AFTER INSERT -<br><br>AS -<br>IF EXISTS (SELECT *<br>FROM Purchasing.PurchaseOrderHeader p<br><br>JOIN inserted AS i -<br>ON p.PurchaseOrderID = i.PurchaseOrderID<br><br>JOIN Purchasing.Vendor AS v -<br>ON v.BusinessEntityID = p.VendorID<br><br>WHERE v.CreditRating = 5 -<br>)<br><br>BEGIN -<br>RAISERROR ('A vendor''s credit rating is too low to accept new purchase orders.', 16, 1);<br>ROLLBACK TRANSACTION;<br><br>RETURN -<br>END;<br><br>GO -<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/functions/columns-updated-transact-sql?view=sql-server-2017 https://docs.microsoft.com/en-us/sql/relational-databases/triggers/use-the-inserted-and-deleted-tables?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-23T04:43:00.000Z",
+        "voteCount": 2,
+        "content": "COLUMNS_UPDATE function returns VARBINARY value but not bit, so we have to use UPDATE() function to check if column was updated."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11143-exam-70-461-topic-1-question-135-discussion/",
+    "body": "You have a database application that uses Microsoft SQL Server 2012. You have a query named Query1 that returns four columns from a frequently updated table that has a clustered index. Three of the columns are referenced in the WHERE clause of the query. The three columns are part of a non-clustered index. The fourth column is not referenced in the WHERE clause.<br>Users report that the application begins to run slowly. You determine that the root cause for the performance issue is Query1.<br>You need to optimize the statement.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a HASH hint to the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a LOOP hint to the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a FORCESEEK hint to the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd an INCLUDE clause to the index.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a FORCESCAN hint to the Attach query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a columnstore index to cover the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable the optimize for ad hoc workloads option.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCover the unique clustered index with a columnstore index.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"I\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tI.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude a SET FORCEPLAN ON statement before you run the query.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"J\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tJ.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude a SET STATISTICS PROFILEON statement before you run the query. K. Include a SET STATISTICS SHOWPLAN_XML ON statement before you run the query. L. Include a SET TRANSACTION ISOLATION LEVEL REPEATABLE READ statement before you run the query. M. Include a SET TRANSACTION ISOLATIONLEVEL SNAPSHOT statement before you run the query. N. Include a SET TRANSACTION ISOLATION LEVEL SERIALIZABLE statement before you run the query."
+    ],
+    "answer": "K",
+    "answerDescription": "SET SHOWPLAN_XML (Transact-SQL) causes SQL Server not to execute Transact-SQL statements. Instead, SQL Server returns detailed information about how the statements are going to be executed in the form of a well-defined XML document<br>Incorrect Answers:<br>F: Columnstore indexes in the SQL Server Database Engine can be used to significantly speed-up the processing time of common data warehousing queries.<br>Typical data warehousing workloads involve summarizing large amounts of data. But in this question the query is run on a table that is updated frequently, not a warehousing table.<br>Reference: SET SHOWPLAN_XML(Transact-SQL)<br>https://msdn.microsoft.com/en-us/library/ms187757.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-02T06:53:00.000Z",
+        "voteCount": 1,
+        "content": "could be D or G"
+      },
+      {
+        "date": "2019-12-31T03:31:00.000Z",
+        "voteCount": 3,
+        "content": "I would consider D.\nIncluding 4th column in non-clustered index. The clustered index wouldn't have to be sought at all."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30618-exam-70-461-topic-1-question-152-discussion/",
+    "body": "SIMULATION -<br>You create a table by using the following Transact-SQL Statement:<br><img src=\"/assets/media/exam-media/03395/0023500001.jpg\" class=\"in-exam-image\"><br>You need to return a result set that has a single column named DisplayInformation. The result set must contain the Name value if the Name value is NOT NULL, otherwise the result set must contain the SubName value.<br>Part of the correct Transact-SQL has been provided in the answer area below. Enter the code in the answer area that resolves the problem and meets the stated goals or requirements. You can add code within the code that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0023500002.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0023600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "SELECT IIF (Name IS NOT NULL, Name, SubName)<br>Update line 1 to get the following:<br>SELECT IIF (Name IS NOT NULL, Name, SubName)<br>FROM Products;<br>IIF returns one of two values, depending on whether the Boolean expression evaluates to true or false in SQL Server.<br>Syntax: IIF ( boolean_expression, true_value, false_value )<br>If the value of expression is NULL, IS NULL returns TRUE; otherwise, it returns FALSE.<br>If the value of expression is NULL,IS NOT NULL returns FALSE; otherwise, it returns TRUE.<br>To determine whether an expression is NULL, use IS NULL or IS NOT NULL instead of comparison operators (such as = or !=). Comparison operators return<br>UNKNOWN when either or both arguments are NULL<br>References:<br>https://msdn.microsoft.com/en-us/library/hh213574.aspx<br>https://msdn.microsoft.com/en-us/library/ms188795.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-05T00:04:00.000Z",
+        "voteCount": 5,
+        "content": "Why not ISNULL?"
+      },
+      {
+        "date": "2021-01-22T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "need:\nSELECT IIF (Name IS NOT NULL, Name, SubName) AS DisplayInformation"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30804-exam-70-461-topic-1-question-155-discussion/",
+    "body": "DRAG DROP -<br>You use Microsoft SQL Server to develop a database application.<br>You create a stored procedure named usp_calculategrowth. The stored procedure modifies rows and can result in several different exceptions.<br>You need to ensure that when the stored procedure is executed, the following requirements are met:<br>\u2711 The calling application can receive a custom error message.<br>\u2711 The error is readable from the Windows Event Viewer of the server.<br>\u2711 The error isreadable in the SQL Error log.<br>Which six Transact-SQL segments should you use? To answer, move the appropriate Transact-SQL segments from the list of Transact-SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0024200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0024300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: BEGIN TRY -<br>A TRY\"\u00a6CATCH construct consists of two parts: a TRY block and a CATCH block. When an error condition is detected in a Transact-SQL statement that is inside a TRY block, control is passed to a CATCH block where the error can be processed.<br>A TRY blockstarts with the BEGIN TRY statement and ends with the END TRY statement.<br><br>Box 2: Exec usp_calculategrowth -<br><br>Box 3: END TRY -<br><br>Box 4: BEGIN CATCH -<br>A TRY block must be followed immediately by a CATCH block. A CATCH block starts with the BEGIN CATCH statement andends with the END CATCH statement.<br>Box 5: EXEC xp_logevent \"\u00a6<br>xp_logevent logs a user-defined message in the SQL Server log file and in the Windows Event Viewer. xp_logevent can be used to send an alert without sending a message to the client.<br>Incorrect:<br>Not RAISERROR: RAISERROR generates an error message and initiates error processing for the session.<br>The message is returned as a server error message to the calling application or to an associated CATCH block of a TRY\"\u00a6CATCH construct. New applicationsshould use THROW instead.<br><br>Box 6: END CATCH -<br>References:<br>https://msdn.microsoft.com/en-us/library/ms186244.aspx<br>https://technet.microsoft.com/en-us/library/ms179296(v=sql.105).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "I think, it is RAISEERROR"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39965-exam-70-461-topic-1-question-156-discussion/",
+    "body": "DRAG DROP -<br>You need to create a stored procedure that enters values into multiple tables. The solution must ensure that if a single insert fails, none of the values are inserted into the tables.<br>How should you complete the stored procedure? To answer, drag the appropriate values to the correct locations. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0024500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0024600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://msdn.microsoft.com/en-us/library/ms188378.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-15T17:07:00.000Z",
+        "voteCount": 1,
+        "content": "I think this is:\n1.BEGIN TRANSACTION\n2.BEGIN TRY\n3.ROLLBACK\n4.COMMITT TRANSACTION"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30622-exam-70-461-topic-1-question-160-discussion/",
+    "body": "The Agent table of a Microsoft SQL Server database contains several million rows. The database uses the SQL_Latin1_General_Cp1_CS_AS collation.<br>You need to ensure that the following requirements are met:<br>\u2711 The values of the StateRefID column conform to the pattern of 3 uppercase letters followed by 5 numeric digits, such as \"ABC12345\".<br>\u2711 The StateRefID values are unique within the Agent table.<br>\u2711 The values of all records that will be inserted or updated in the Agent table are correctly formatted.<br>\u2711 Exisitng rows are ignored<br>Which Transact-SQL statement should you run?<br>A.<br><img src=\"/assets/media/exam-media/03395/0025200005.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0025200006.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0025200007.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0025300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-05T00:30:00.000Z",
+        "voteCount": 1,
+        "content": "In A the pattern is checked only after converting of the value to Uppercase. However, the value has to be in Uppercase without converting. I think, it is C"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18408-exam-70-461-topic-1-question-161-discussion/",
+    "body": "You need to build a table structure for a stored procedure to support data entry from a website form. The website form must meet the following requirements:<br>\u2711 Users must validate their age as 18 or older to use the website.<br>\u2711 Users who leave the date of birth field blank, or who enter an invalid date, must receive an error message.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the CHECK constraint to the table structure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the DATEPART function to the stored procedure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the DEFAULT constraint to the table structure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the SYSDATETIMEOFFSET function to the stored procedure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the ISDATE function to the stored procedure."
+    ],
+    "answer": "DE",
+    "answerDescription": "SYSDATETIMEOFFSET returns a datetimeoffset(7) value that contains the date and time of the computer on which the instance of SQL Server is running.<br>ISDATE returns 1 if the expression is a valid date, time, or datetime value; otherwise, 0.<br>References:<br>https://msdn.microsoft.com/en-us/library/bb677334.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-19T16:29:00.000Z",
+        "voteCount": 1,
+        "content": "THE ANSWER IS A AND E"
+      },
+      {
+        "date": "2020-04-14T01:51:00.000Z",
+        "voteCount": 1,
+        "content": "Isn't it A supposed to be one of the answers. Check constaint for age"
+      },
+      {
+        "date": "2020-05-03T23:54:00.000Z",
+        "voteCount": 2,
+        "content": "A and E is the answer"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30808-exam-70-461-topic-1-question-166-discussion/",
+    "body": "You use a Microsoft SQL Server database that contains a table. The table has records of customer orders.<br>Your company has three divisions that have the following names:<br>\u2711 East<br>\u2711 Central<br>\u2711 West<br>You need to create a query that displays the following information:<br>\u2711 The number of sales for each product (ProductName) grouped by the division (Division) that sold the product<br>\u2711 A column for each division<br>Which Transact-SQL query should you use?<br>A.<br><img src=\"/assets/media/exam-media/03395/0026100001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0026200001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0026200002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0026300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "You can use the PIVOT and UNPIVOT relational operators to change a table-valued expression into another table. PIVOT rotates a table-valued expression by turning the unique values from one column in the expression into multiple columns in the output, and performs aggregations where they are required on any remaining column values that are wanted in the final output. UNPIVOT performs the opposite operation to PIVOT by rotating columns of a table-valued expression into column values.<br>References:<br>https://technet.microsoft.com/en-us/library/ms177410(v=sql.105).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-08T13:19:00.000Z",
+        "voteCount": 1,
+        "content": "C must be the correct answer"
+      },
+      {
+        "date": "2020-11-05T16:29:00.000Z",
+        "voteCount": 1,
+        "content": "I think that the correct answer is C"
+      },
+      {
+        "date": "2020-09-07T10:28:00.000Z",
+        "voteCount": 2,
+        "content": "Why not PIVOT? Divisions must be columns"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40056-exam-70-461-topic-1-question-167-discussion/",
+    "body": "SIMULATION -<br>You need to execute an UPDATE statement that modifies a subset of rows in a table. The rows affected by the UPDATE statement must only be committed if the row count criteria is met.<br>Part of the correct Transact-SQL has been provided in the answer are below. Enter the code in the answer area that resolves the problem and meets the stated goals or requirements. You can add code within the code that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0026400001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0026500001.png\" class=\"in-exam-image\"><br>Use the \"\u02dcCheck Syntax' button to verify your work. Any syntax or spelling errors will be reported by line and character position.<br><img src=\"/assets/media/exam-media/03395/0026600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "1. DECLARE @ExprectedRowCount int = 8<br>2.<br>3. BEGIN TRAN OrderUpdate<br>4.<br>5. UPDATE dbo.OrderHeader<br>6. SET PromisedDate = DATEADD(dd, 5, PromisedDate)<br>7. WHERE CustomerID = 8432<br>8. AND Shipped =0<br>9.<br>10. If @@RowCount = @ExpectedRowCount<br>11.<br>12. COMMIT OrderUpdate<br>13.<br>14. else<br>15.<br>16. ROLLBACK OrderUpdate<br><br><br>On line 3 add: BEGIN TRAN -<br><br>On line 12 add: COMMIT -<br><br>On line 16 add: ROLLBACK -<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/language-elements/begin-transaction-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-16T08:17:00.000Z",
+        "voteCount": 1,
+        "content": "If the blank #'s need to be filled with clauses, I think this is a possible solution:\n2. WITH\n4. AS\n9. BEGIN TRAN\n11. BEGIN TRY\n12. COMMIT OrderUpdate\n13. END TRY\n15. ROLLBACK\n16. TRAN OrderUpdate"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42683-exam-70-461-topic-1-question-168-discussion/",
+    "body": "You have a Microsoft SQL Server database. You create tables by running the following Transact-SQL statements:<br><img src=\"/assets/media/exam-media/03395/0026700001.png\" class=\"in-exam-image\"><br>You need to create a stored procedure that meets the following requirements:<br>\u2711 Creates orders based on a customer's email address.<br>\u2711 Creates the order entry, and then adds the customer relationship.<br>\u2711 If any step fails during the process, all changes are reserved.<br>Which Transact-SQL statement should you run?<br>A.<br><img src=\"/assets/media/exam-media/03395/0026800004.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0026900001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0027000001.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0027100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-18T07:46:00.000Z",
+        "voteCount": 1,
+        "content": "Why not A?\nAnd D will raise the 'The COMMIT TRANSACTION request has no corresponding BEGIN TRANSACTION.' ERROR.\nThere is only one transaction opened inside procedure."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30244-exam-70-461-topic-1-question-170-discussion/",
+    "body": "SIMULATION -<br>You have a view named Person.vAdditionalContactInfo that uses data from a table named Customers. The Customers table was created by running the following<br>Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0027400001.png\" class=\"in-exam-image\"><br>You need to create a query that returns the first and last names of a customer from the view. If the CustomerID column does not have a value defined, the following message must be added to the query result: \"Customer ID Does Not Exist.\"<br>Construct the query using the following quidelines:<br>\u2711 Do not use aliases for column or table names.<br>\u2711 Display the columns in the same order as they are defined in the Customers table.<br>Part of the correct Transact-SQL has been provided in the answer area below. Enter the code in the answer area that resolves the problem and meets the stated goals or requirements. You can add code within code that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0027500003.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0027600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "1 SELECT FirstName, LastName, CustomerID =<br>2 CASE<br>3 WHEN CustomerID IS NULL THEN \"Customer ID Does Not Exist\"<br>4 ELSE CustomerID<br>5 END<br>6 FROM Person.vAdditionalContactInfo;<br>To line 1 add: CustomerID =<br><br>To line 2 add: CASE -<br><br>To line 3 add: IS NULL -<br><br>To line 5 add: END -<br>References:<br>https://technet.microsoft.com/en-us/library/ms181765(v=sql.105).aspx https://docs.microsoft.com/en-us/sql/t-sql/queries/is-null-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-01T03:29:00.000Z",
+        "voteCount": 3,
+        "content": "However CustomerID was marked as not null in the table.... So, when the error will appear?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42716-exam-70-461-topic-1-question-171-discussion/",
+    "body": "SIMULATION -<br>You have a data warehouse that contains the data for all the customers of your company.<br>You need to create a stored procedure that generates a list of customer addresses. The list must meet the following requirements:<br>\u2711 The procedure must accept a string value.<br>\u2711 The procedure should return all customers who reside in a city whose name begins with the provided value.<br>\u2711 If a user provides a blank value, the procedure must execute, and then return a blank result set.<br>Part of the correct Transact-SQL has been provided in the answer area below. Enter the code in the answer area that resolves the problem and meets the stated goals or requirements. You can add code within code that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0027800001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0027900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "1 CREATE PROCEDURE uspGetAddress @City nvarchar(50) = \"\"<br>2 AS<br>3 SELECT *<br>4 FROM Person.Address<br>5 WHERE City LIKE @City *<br>6 GO<br>On line 1 add \"\" (set the default value)<br>On line 5 add LIKE (use string comparison)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-18T12:55:00.000Z",
+        "voteCount": 1,
+        "content": "This query doesn't return a blank rrsult set od a User provide blank value"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30245-exam-70-461-topic-1-question-172-discussion/",
+    "body": "SIMULATION -<br>You have a database named Sales that contains the tables sworn in the exhibit. (Click the Exhibit button.)<br><img src=\"/assets/media/exam-media/03395/0028100001.jpg\" class=\"in-exam-image\"><br>You need to create a query for a report. The query must meet the following requirements:<br>\u2711 Return the last name of the customer who placed the order.<br>\u2711 Return the most recent order date for each customer.<br>\u2711 Group the results by CustomerID.<br>\u2711 Display the most recent OrderDate first.<br>The solution must support the ANSI SQL-99 standard and must not use table or column aliases.<br>Part of the correct Transact-SQL has been provided in the answer area below. Enter the Transact-SQL in the answer area that resolves the problem and meets the stated goals or requirements. You can add Transact-SQL within the Transact-SQL segment that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0028200005.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0028300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "1. SELECT LastName,<br>2 MAX(OrderDate) AS MostRecentOrderDate<br>3 FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID<br>4 GROUP BY CustomerID<br>5 ORDER BY OrderDate DESC<br>On line 3 add Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID<br><br>On line 4 add CustomerID -<br><br>On line 5 add OrderDate DESC -<br>References:<br>https://technet.microsoft.com/en-us/library/ms190014(v=sql.105).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-01T03:55:00.000Z",
+        "voteCount": 1,
+        "content": "1.SELECT LastName,\n2 MAX(OrderDate) AS MostRecentOrderDate\n3 FROM Customers INNER JOIN Orders ON Customers.CustomerID = Orders.CustomerID\n4 GROUP BY Orders.CustomerID, LastName\n5 ORDER BY MAX(OrderDate) DESC"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/32361-exam-70-461-topic-1-question-173-discussion/",
+    "body": "SIMULATION -<br>The following is a series of questions in which you are required to input one or more lines of code.<br><br>To input your response -<br>Type your response into the text entry field in the Answer Area. You may input one or more lines of code. More than one solution may be correct. You will receive credit if your solution matches any of the correct solutions.<br><br>To validate code syntax -<br>After entering your code, click the Check Syntax button. This validates code syntax (such as SQL commands) and values (such as table names and variable names) used in your solution. If there are any errors, they will appear in the window next to the Check Syntax button. You may change your code and re-validate the syntax as many times as you want.<br>Note that Check Syntax does NOT validate whether you have answered the question correctly. It simply validates the accuracy of your syntax.<br>To view available command keywords<br>Click the Keywords button to view a list of command keywords. This is a general list provided for reference and is not limited to commands used in the question.<br>You need to create a query that meets the following requirements:<br>\u2711 The query must return a list of salespeople ranked by amount of sales and organized by postal code.<br>\u2711 The salesperson who has the highest amount of sales must be ranked first.<br>Part of the correct Transact-SQL has been provided in the answer area below. Enter the code in the answer area that resolves the problem and meets the stated goals or requirements. You can add code within code that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0028500003.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0028600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "1 SELECT RowNumber() OVER(PARTITION BY PostalCode ORDER BY SalesYTd DESC) AS \"Ranking\",<br>2 p.LastName, s.SalesYTD, a.PostalCode<br>3 FROM Sales.SalesPerson AS a<br>etc<br><br>On line 1 add: RowNumber -<br><br>One line 1 add: PARTITION BY -<br>ROW_NUMBER() numbers the output of a result set. More specifically, returns the sequential number of a row within a partition of a result set, starting at 1 for the first row in each partition.<br>SYNTAX for OVER:<br>OVER (<br>[ &lt;PARTITION BY clause&gt; ]<br>[ &lt;ORDER BY clause&gt; ]<br>[ &lt;ROW or RANGE clause&gt; ]<br>)<br>Example: Using the OVER clause with the ROW_NUMBER function<br>The following example returns the ROW_NUMBER for sales representatives based on their assigned sales quota.<br>SELECT ROW_NUMBER() OVER(ORDER BY SUM(SalesAmountQuota) DESC) AS RowNumber,<br>FirstName, LastName,<br>CONVERT(varchar(13), SUM(SalesAmountQuota),1) AS SalesQuota<br><br>FROM dbo.DimEmployee AS e -<br>INNER JOIN dbo.FactSalesQuota AS sq<br>ON e.EmployeeKey = sq.EmployeeKey<br><br>WHERE e.SalesPersonFlag = 1 -<br>GROUP BY LastName, FirstName;<br>Here is a partial result set.<br>RowNumber  FirstName  LastName            SalesQuota<br>---------  ---------  ------------------  -------------<br>1          Jillian    Carson              12,198,000.00<br>2          Linda      Mitchell            11,786,000.00<br>3          Michael    Blythe              11,162,000.00<br>4          Jae        Pak                 10,514,000.00<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/functions/row-number-transact-sql https://docs.microsoft.com/en-us/sql/t-sql/queries/select-over-clause-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-23T08:37:00.000Z",
+        "voteCount": 2,
+        "content": "Why not Rank() function? What if two persons had the same result?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42919-exam-70-461-topic-1-question-175-discussion/",
+    "body": "You have a Microsoft SQL Server database. The database contains a table that is defined by the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0028900002.png\" class=\"in-exam-image\"><br>Employee names must always start with a capital letter.<br>You need to define a constraint to enforce the employee name requirement.<br>Which Transact-SQL statement should you use?<br>A.<br><img src=\"/assets/media/exam-media/03395/0029000001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0029000002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0029000003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0029000004.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-20T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "The Like operator ignore the capitalization. [Checked]"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30248-exam-70-461-topic-1-question-176-discussion/",
+    "body": "You develop a Microsoft SQL Server database that contains a table named Products. The Products table has columns named ProductId, CategoryId, Name, and<br>Price.<br>Product prices are often updated as follows:<br>\u2711 For a single product by a specific value by using the ProductId column<br>\u2711 For an entire category by a percentage by using the CategoryId column<br>You need to log the change price to a new table named PriceChange by using the ProductId' ChangedValue, and ChangedDate columns. You also need to ensure that increases in price are recorded as positive values and decreases in price as negative values.<br>Which Transact-SQL query should you use?<br>A.<br><img src=\"/assets/media/exam-media/03395/0029100001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0029100002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0029200001.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0029200002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "Incorrect Answers:<br>A, B: Price change would be displayed incorrectly. Price increases would be displayed as negative numbers.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-01T05:49:00.000Z",
+        "voteCount": 2,
+        "content": "But why not C? You had price 60, it was changed to 70. So, inserted (70) - deleted (60) = 10. D will provide negative value in case of increase."
+      },
+      {
+        "date": "2020-12-16T04:00:00.000Z",
+        "voteCount": 1,
+        "content": "I am also looking for the answer.but C,D is not right answer. Question said if value decrease than negative value come in.in my opinion the answer is A(not sure). B and D contain the same query.\nThanks"
+      },
+      {
+        "date": "2020-12-16T05:30:00.000Z",
+        "voteCount": 1,
+        "content": "U r right.the answer would b C."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30250-exam-70-461-topic-1-question-178-discussion/",
+    "body": "HOTSPOT -<br>You are designing an order entry system that uses an SQL Server database. The following tables exist in the Purchasing database:<br><img src=\"/assets/media/exam-media/03395/0029500001.png\" class=\"in-exam-image\"><br>You create the following trigger. Line numbers are included for reference only.<br><img src=\"/assets/media/exam-media/03395/0029500002.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03395/0029600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0029600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-16T14:24:00.000Z",
+        "voteCount": 1,
+        "content": "Some are clearly wrong"
+      },
+      {
+        "date": "2020-10-06T09:01:00.000Z",
+        "voteCount": 1,
+        "content": "Why is everyone challenging the validation of the answers????  thats why MS says NOT to use this dumps....Use MeasureUP"
+      },
+      {
+        "date": "2020-09-01T05:58:00.000Z",
+        "voteCount": 1,
+        "content": "I think, only the second statement is true."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30253-exam-70-461-topic-1-question-185-discussion/",
+    "body": "DRAG DROP -<br>You want to add a new GUID column named ProductGUID to a table named dbo.Product that already contains data.<br>ProductGUID will have a constraint to ensure that it always has a value when new rows are inserted into dbo.Product.<br>You need to ensure that the new column is assigned a GUID for existing rows.<br>Which four Transact-SQL statements should you use to develop the solution? (To answer, move the appropriate Transact-SQL segments from the list of SQL- segments to the answer area and arrange them in the correct order.)<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0031100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0031200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:<br>Existing BookGuid can be null.<br>Box 2:<br>Box 3: new()<br><br>Generate a new global value -<br>Box 4:<br>Actually, in the real world, you don't have to use WITH VALUES at the end of the statement and it works just as well. But because the question specifically states which FOUR TSQL statements to use, we have to include it.<br>Reference:<br>http://msdn.microsoft.com/en-us/library/ms190273.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-01T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "Why constraint DF_productguid and not constraint CK_productguid?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33833-exam-70-461-topic-1-question-189-discussion/",
+    "body": "DRAG DROP -<br>You develop a Microsoft SQL Server database for a sales ordering application.<br>You want to create a report that displays the increase of order quantities over the previous year for each product.<br>You need to write a query that displays:<br>\u2711 Product name,<br>\u2711 Year of sales order,<br>\u2711 Sales order quantity, and<br>\u2711 Increase of order quantity over the previous year.<br>Which three Transact-SQL segments should you use to develop the solution? To answer, move the appropriate Transact-SQL segments from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0032300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0032400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: FROM ..<br>Box 2: LAG (not LEAD)<br>Lag accesses data from a previous row in the same result set without the use of a self-join starting with SQL Server 2012 (11.x). LAG provides access to a row at a given physical offset that comes before the current row. Use this analytic function in a SELECT statement to compare values in the current row with values in a previous row.<br>Not lead: Lead accesses data from a subsequent row in the same result set without the use of a self-join starting with SQL Server 2012 (11.x). LEAD provides access to a row at a given physical offset that follows the current row.<br>Box 3:  GROY BY PRO.NAME, YEAR (OrderDate)<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/functions/lag-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-06T13:03:00.000Z",
+        "voteCount": 2,
+        "content": "Why is the FROM clause, first?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30270-exam-70-461-topic-1-question-190-discussion/",
+    "body": "You develop a Microsoft SQL Server database that contains a table named Employee, defined as follows:<br><img src=\"/assets/media/exam-media/03395/0032500001.png\" class=\"in-exam-image\"><br>You need to create a view that contains two computed columns representing the month and the year of the [HireDate] of each Employee.<br>Which function should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDATENAME( )",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCONVERT( )",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTRYDATEDIFF( )",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMONTH( ) and YEAR( )"
+    ],
+    "answer": "D",
+    "answerDescription": "The Month function returns an integer that represents the month of the specified date.<br>The Year function an integer that represents the year of the specified date.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/functions/month-transact-sql?view=sql-server-2017 https://docs.microsoft.com/en-us/sql/t-sql/functions/year-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-08T01:46:00.000Z",
+        "voteCount": 1,
+        "content": "There are no requirements for month and year format. DATENAME can provide year and month but as string ('2007' and 'October', for example)."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30308-exam-70-461-topic-1-question-192-discussion/",
+    "body": "DRAG DROP -<br>Your Microsoft SQL Server database contains tables as shown below.<br>You have tables that were created by running the following Transact-SQL statements:<br><img src=\"/assets/media/exam-media/03395/0032900001.png\" class=\"in-exam-image\"><br>The Product table contains 10,000 records. The maximum ProductID is 11,000.<br>There are 12 rows in the Category table. The maximum CategoryID is 12.<br>The Product table contains at least one product in every category.<br>Data in the tables was accidently modified. To correct this, you need to make some updates directly to the tables. You issue several statements.<br>Which result or results will you obtain for each Transact-SQL statement? To answer, drag the appropriate results to the correct Transact-SQL statements. Each result may be used once. More than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0033100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0033200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:<br>The SET IDENTITY_INSERT command allows explicit values to be inserted into the identity column of a table.<br>Box 2:<br>The Product table contains at least one product in every category.<br>Box 3:<br>Box 4:<br>Bit is a data type that can take a value of 1, 0, or NULL.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/data-types/bit-transact-sql?view=sql-server-2017 https://docs.microsoft.com/en-us/sql/t-sql/statements/set-identity-insert-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-07T08:15:00.000Z",
+        "voteCount": 1,
+        "content": "The first statement cannot succeed because it missing the Value for the ProductDescription. Even if the mark is NULL, you still have to state that in the Values."
+      },
+      {
+        "date": "2020-09-08T02:35:00.000Z",
+        "voteCount": 1,
+        "content": "Also, we can not use the third statement because the foreign key constraint is violated."
+      },
+      {
+        "date": "2020-09-01T22:34:00.000Z",
+        "voteCount": 2,
+        "content": "You can not use delete statement because the statement is not correct (there is no FROM), not because of foreign key."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33927-exam-70-461-topic-1-question-195-discussion/",
+    "body": "You develop a database application for Microsoft SQL Server and Microsoft Azure SQL Database.<br>You need to raise an exception and transfer execution to a CATCH block.<br>You need to ensure that the exception returns output in the following format:<br>Msg 51000, Level 16, State 1, Line 1<br>The record does not exist.<br>Which Transact-SQL statement should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDECLARE @Message NVARCHAR(2048); SELECT @Message = FORMATMESSAGE('The record does not exist.'); THROW 51000 , 1 , @Message",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTHROW 51000 , 'The record does not exist.' , 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTHROW ERROR_MESSAGE ('The record does not exist.'), 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTHROW 51000 , FORMATMESSAGE('The record does not exist.') , 1"
+    ],
+    "answer": "B",
+    "answerDescription": "The following example shows how to use the THROW statement to raise an exception.<br>THROW 51000, 'The record does not exist.', 1;<br>Here is the result set.<br>Msg 51000, Level 16, State 1, Line 1<br>The record does not exist.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-07T08:54:00.000Z",
+        "voteCount": 1,
+        "content": "I say its A. According to the book, for THROW; \"The message parameter does not allow formatting, but you can use FORMATMESSAGE  with a variable to get the same effect.\""
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30815-exam-70-461-topic-1-question-198-discussion/",
+    "body": "DRAG DROP -<br>You are the administrator for a heavily-used OLTP Microsoft SQL Server database.<br>You are troubleshooting performance issues seen when using stored procedures in the database. The database stores millions of orders across thousands of customers. Some of the customers have large numbers of orders, while others have only one order. You update the statistics and perform defragmentation of all tables and indexes, but two stored procedures still have issues when accessing data. p_GetCustomer accepts @companyID as a parameter. From the results of profiling, you know that 90 percent of the calls use the @companyid value of 5, while the other 10 percent of calls are evenly distributed across another 10000 values. While viewing the execution plan, you discover that a non-clustered index seek is used. p_GetShipDate accepts @orderID as a parameter and returns the ship date for that order. You discover that the execution plan is performing a scan on a non- clustered index that has orderID as the index key.<br>You need to add appropriate query hints to each stored procedure to improve the performance.<br>What should you do? To answer, drag the appropriate procedures to the correct hints. Each procedure may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0034500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0034600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Optimize FOR..<br>OPTIMIZE FOR ( @variable_name { UNKNOWN | = literal_constant } [ , ...n ] )<br>Instructs the query optimizer to use a particular value for a local variable when the query is compiled and optimized. The value is used only during query optimization, and not during query execution.<br><br>Box 2: FORCESEEK -<br>FORCESEEK [ (index_value(index_column_name [ ,... n ] )) ]<br>Specifies that the query optimizer use only an index seek operation as the access path to the data in the table or view.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-query?view=sql-server-2017 https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T12:01:00.000Z",
+        "voteCount": 1,
+        "content": "Forced Seek is a Table Hint, not a Query Hint"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 52,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/31051-exam-70-461-topic-1-question-202-discussion/",
+    "body": "SIMULATION -<br>The following is a series of questions in which you are required to input one or more lines of code.<br><br>To input your response -<br>Type your response into the text entry field in the Answer Area. You may input one or more lines of code. More than one solution may be correct. You will receive credit if your solution matches any of the correct solutions.<br><br>To validate code syntax -<br>After entering your code, click the Check Syntax button. This validates code syntax (such as SQL commands) and values (such as table names and variable names) used in your solution. If there are any errors, they will appear in the window next to the Check Syntax button. You may change your code and re-validate the syntax as many times as you want.<br>Note that Check Syntax does NOT validate whether you have answered the question correctly. It simply validates the accuracy of your syntax.<br>To view available command keywords<br>Click the Keywords button to view a list of command keywords. This is a general list provided for reference and is not limited to commands used in the question.<br>You plan to deploy a stored procedure for a database named TICKETS.<br>You need to implement error handling for the stored procedure to ensure that the system-defined error messages are returned if an error occurs upon insert.<br>Part of the correct Transact-SQL has been provided in the answer are below. Enter the code in the answer area that resolves the problem and meets the stated goals or requirements. You can add code within the code that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0035400001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03395/0035500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "1  CREATE PROCEDURE AdCase<br>2  @CustomerId INT,<br>3  @ProblemId INT,<br>4  @Comment NVARCHAR (MAX)<br>5  AS<br>7  BEGIN TRY<br>8  INSERT INTO Cases<br>9  (CustomerId, ProblemId, Comment)<br>10 VALUES<br>11 (@CustomerId, @ProblemId, @Comment)<br>12 END TRY<br>13 BEGIN CATCH<br>14 INSERT INTO AppLog<br>15 (CurrentTime, ErrorNumber, CustomerId)<br>16 VALUES<br>17 (getdate(), ERROR_NUMBER(), @CustomerId);<br>18 THROW;<br>20 END CATCH<br><br>Make changes and additions in the above lines.<br>7 BEGIN TRY<br>12 END TRY<br>13 BEGIN CATCH<br>18 THROW;<br>20 END CATCH<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/language-elements/try-catch-transact-sql?view=sql-server-2017 https://docs.microsoft.com/en-us/sql/t-sql/language-elements/throw-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-11T02:55:00.000Z",
+        "voteCount": 1,
+        "content": "In exam this answer returns \"spelling error\" when checking correctness of the written code. I don't know why."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 53,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30409-exam-70-461-topic-1-question-205-discussion/",
+    "body": "DRAG DROP -<br>You develop a Microsoft SQL Server database. The database contains a table named Status that is defined by the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0035900001.png\" class=\"in-exam-image\"><br>There are thousands of rows in the Status table, with significant duplication of data in the Color column. Ninety percent of the rows in the table have Color=\"Red\", and the remaining 10 percent have Color=\"Green\".<br>You want to normalize the Color information in this table. You create a table named Colors that is defined by the following DDL:<br><img src=\"/assets/media/exam-media/03395/0036000001.png\" class=\"in-exam-image\"><br>You populate the new Colors table by using the following Transact-SQL statement:<br>INSERT Colors (ColorName) SELECT DISTINCT Color FROM Status<br>You need to ensure that the following requirements are met:<br>\u2711 The Status table uses only colors that exist in the Colors table.<br>\u2711 Data redundancy in the Status table is reduced.<br>\u2711 Data integrity is enforced during the normalization process.<br>Which three Transact-SQL segments should you use to develop the solution? To answer, move the appropriate Transact-SQL segment from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0036100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0036200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "First update the new column ColorID, and drop the old Column Color.<br>Add a check constraint on the new ColorID column, and finally add a foreign key constraint.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-02T07:25:00.000Z",
+        "voteCount": 2,
+        "content": "How ColorID in Status table can be updated without creation of this column?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 54,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30864-exam-70-461-topic-1-question-215-discussion/",
+    "body": "You develop a Microsoft SQL Server database. The database contains a table defined by the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0038000001.png\" class=\"in-exam-image\"><br>All regions have more than one employee.<br>You need to write a query to find the employee with the highest SalesYTD in each region with the following result set:<br>\u2711 First Name<br>\u2711 Last Name<br>\u2711 Region<br>\u2711 Sales YTD<br>Which Transact-SQL query should you run?<br>A.<br><img src=\"/assets/media/exam-media/03395/0038000006.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0038100001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0038100002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0038200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "Use TOP 1 and RANK() OVER (PARTITION BY).<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/functions/rank-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-08T05:11:00.000Z",
+        "voteCount": 1,
+        "content": "I think, it is D, but where FirstName and DESC?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 55,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30435-exam-70-461-topic-1-question-220-discussion/",
+    "body": "DRAG DROP -<br>You administer a Microsoft Azure SQL Database instance.<br>You are troubleshooting a number of stored procedures that use transactions.<br>\u2711 p_ModifyCustomer modifies customer records in the database. Processes that uses these records must receive a copy of the record as it exists at the beginning of the transaction, and the procedure must not block these processes.<br>\u2711 p_GetOrders is used to retrieve orders for a customer. While the transaction is running, no other process should be able to read the same data, and no other transaction should be able to modify the data until the transaction completes.<br>\u2711 p_ShipOrders is run once per day to batch orders into shipping criteria. While this transaction is running, no other transaction should be allowed to insert data into the range of orders being modified.<br>You need to choose the appropriate transaction isolation level for each stored procedure. The transaction must meet the need while providing the highest level of concurrency and performance.<br>Which isolation levels should you use? To answer, drag the appropriate isolation levels to correct stored procedures. Each isolation level may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0039000002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0039000003.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: READ_COMMITTED -<br>READ COMMITTED specifies that statements cannot read data that has been modified but not committed by other transactions. This prevents dirty reads. Data can be changed by other transactions between individual statements within the current transaction, resulting in nonrepeatable reads or phantom data. This option is the SQL Server default.<br>The behavior of READ COMMITTED depends on the setting of the READ_COMMITTED_SNAPSHOT database option<br>Box 2: REPEATABLE_READ:<br>REPEATABLE_READ specifies that statements cannot read data that has been modified but not yet committed by other transactions and that no other transactions can modify data that has been read by the current transaction until the current transaction completes.<br>Shared locks are placed on all data read by each statement in the transaction and are held until the transaction completes. This prevents other transactions from modifying any rows that have been read by the current transaction.<br><br>Box 3: SERIALIZABLE -<br>SERIALIZABLE Specifies the following:<br>\u2711 Statements cannot read data that has been modified but not yet committed by other transactions.<br>\u2711 No other transactions can modify data that has been read by the current transaction until the current transaction completes.<br>\u2711 Other transactions cannot insert new rows with key values that would fall in the range of keys read by any statements in the current transaction until the current transaction completes.<br>Incorrect Answers:<br>Not READ:UNCOMMITTED:<br>Transactions running at the READ UNCOMMITTED level do not issue shared locks to prevent other transactions from modifying data read by the current transaction. READ UNCOMMITTED transactions are also not blocked by exclusive locks that would prevent the current transaction from reading rows that have been modified but not committed by other transactions. When this option is set, it is possible to read uncommitted modifications, which are called dirty reads.<br>Reference:<br>https://docs.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-02T23:26:00.000Z",
+        "voteCount": 1,
+        "content": "Why not READ COMMITTED SNAPSHOT for the first procedure?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 56,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30436-exam-70-461-topic-1-question-222-discussion/",
+    "body": "You administer a Microsoft SQL Server database named ContosoDb. Tables are defined as shown in the exhibit. (Click the Exhibit button.)<br><img src=\"/assets/media/exam-media/03395/0039300003.jpg\" class=\"in-exam-image\"><br>You need to display rows from the Orders table for the Customers row having the CustomerId value set to 1 in the following XML format:<br>&lt;CUSTOMERS Name=\"Customer A\" Country=\"Australia\"&gt;<br>&lt;ORDERS OrderID=\"1\" OrderDate=\"2000-01-01T00:00:00\" Amount=\"3400.00\" /&gt;<br>&lt;ORDERS OrderID=\"2\" OrderDate=\"2001-01-01T00:00:00\" Amount=\"4300.00\" /&gt;<br>&lt;/CUSTOMERS&gt;<br>Which Transact-SQL query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT OrderId, OrderDate, Amount, Name, Country FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML RAW",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT OrderId, OrderDate, Amount, Name, Country FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML RAW, ELEMENTS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT OrderId, OrderDate, Amount, Name, Country FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML AUTO",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT OrderId, OrderDate, Amount, Name, Country FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML AUTO, ELEMENTS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT Name, Country, OrderId, OrderDate, Amount FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML AUTO",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT Name, Country, OrderId, OrderDate, Amount FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML AUTO, ELEMENTS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT Name AS '@Name', Country AS '@Country', OrderId, OrderDate, Amount FROM Orders INNER JOIN Customers ON Orders.CustomerId= Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML PATH ('Customers')",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT Name AS 'Customers/Name', Country AS 'Customers/Country', OrderId, OrderDate, Amount FROM Orders INNER JOIN Customers ON Orders.CustomerId = Customers.CustomerId WHERE Customers.CustomerId = 1 FOR XML PATH ('Customers')"
+    ],
+    "answer": "G",
+    "answerDescription": "Need to use FOR XML PATH ('Customers') to get the XML output oriented towards the Customers Element.<br>Example: Specifying XPath-like column names<br>In the following query the ProductModelID column name specified starts with '@'. Therefore, an attribute of the &lt;row&gt; element that has the corresponding column value is created in the resulting XML.<br>SELECT ProductModelID AS \"@id\",<br><br>Name -<br><br>FROM Production.ProductModel -<br>WHERE ProductModelID=122 OR ProductModelID=119<br>FOR XML PATH ('ProductModelData');<br>This is the result:<br>&lt;ProductModelData id=\"122\"&gt;<br>&lt;Name&gt;All-Purpose Bike Stand&lt;/Name&gt;<br>&lt;/ProductModelData&gt;<br>&lt;ProductModelData id=\"119\"&gt;<br>&lt;Name&gt;Bike Wash&lt;/Name&gt;<br>&lt;/ProductModelData&gt;<br>References:<br>https://docs.microsoft.com/en-us/sql/relational-databases/xml/examples-using-path-mode",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-02T23:33:00.000Z",
+        "voteCount": 1,
+        "content": "I think, it is E!"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 57,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30440-exam-70-461-topic-1-question-224-discussion/",
+    "body": "You are developing an application that uses data residing in two databases named Inventory and Accounting on a single Microsoft SQL Server 2012 server.<br>You plan to provide a record set from tables in the Inventory database. You write the following query:<br><img src=\"/assets/media/exam-media/03395/0039700001.png\" class=\"in-exam-image\"><br>You need to create this query as a permanent database object that can be joined to other queries. The other queries will be run from the Accounting database.<br>Neither database allows cross-database ownership.<br>Which Transact-SQL statement should you use?<br>A.<br><img src=\"/assets/media/exam-media/03395/0039700002.jpg\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0039700003.jpg\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0039800001.jpg\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0039800002.png\" class=\"in-exam-image\"><br>E.<br><img src=\"/assets/media/exam-media/03395/0039800003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "A table-valued function returns a single rowset (unlike stored procedures, which can return multiple result shapes). Because the return type of a table-valued function is Table, you can use a table-valued function anywhere in SQL that you can use a table. You can also treat the table-valued function just as you would a table.<br>References:<br>https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/linq/how-to-use-table-valued-user-defined-functions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T00:48:00.000Z",
+        "voteCount": 1,
+        "content": "Why not view?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 58,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30462-exam-70-461-topic-1-question-227-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft SQL Server database. The database contains a group of tables created by using the following Transact-SQL statements:<br><img src=\"/assets/media/exam-media/03395/0040400001.jpg\" class=\"in-exam-image\"><br>You need to write a query that returns all the salesperson's phone numbers and an indicator as to whether you can contact the salesperson using that number.<br>The indicator must meet the following requirements:<br>\u2711 If the phone number is a work phone number, the indicator should show the value \"\u02dcAllow Calls'.<br>\u2711 If the phone number is NULL, the indicator should show the value \"\u02dcUnrecognized Phone Type'.<br>\u2711 In all other cases, the indicator should show the value \"\u02dcDo Not Call'.<br>Which three Transact-SQL segments should you use to develop the solution? To answer, move the appropriate Transact-SQL segments from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0040500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0040600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/sql/t-sql/language-elements/coalesce-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T03:21:00.000Z",
+        "voteCount": 1,
+        "content": "I think, it is the first IIF statement."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 59,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30484-exam-70-461-topic-1-question-235-discussion/",
+    "body": "You administer a Microsoft SQL Server database named Orders.<br>The database contains a table named Customer that has the following definition:<br><img src=\"/assets/media/exam-media/03395/0042000001.png\" class=\"in-exam-image\"><br>You add a new data source to the application that inserts records into the Customer table. An example of a query that the application executes is shown below.<br><img src=\"/assets/media/exam-media/03395/0042000002.png\" class=\"in-exam-image\"><br>Users report that these new records are not displayed correctly. You review data in the table and observe that records from the new data source are displayed as shown below.<br><img src=\"/assets/media/exam-media/03395/0042000003.png\" class=\"in-exam-image\"><br>You need to change the database schema to support the characters coming in from this new data source. You need to achieve this goal without losing existing customer records.<br>Which Transact-SQL statement should you run?<br>A.<br><img src=\"/assets/media/exam-media/03395/0042100001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0042100002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0042100003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0042100004.png\" class=\"in-exam-image\"><br>E.<br><img src=\"/assets/media/exam-media/03395/0042100005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/sql/t-sql/statements/windows-collation-name-transact-sql?view=sql-server-ver15",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T07:13:00.000Z",
+        "voteCount": 1,
+        "content": "I think, it is E"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 60,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30531-exam-70-461-topic-1-question-240-discussion/",
+    "body": "You administer a Microsoft SQL Server instance that will support several databases.<br>You need to ensure that the organization serial numbers can be stored in every new database created. You also need to ensure that the serial numbers are six alphanumeric characters and have the same structure across every database.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user-defined data type on the master database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user-defined type on the master database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user-defined data type on the model database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user-defined type on the model database."
+    ],
+    "answer": "D",
+    "answerDescription": "A user defined data type in SQL Server is only accessible in a single database, but one trick with new databases is to create the objects in the model database, so as new databases are created the user defined data types, rules, defaults, etc. will automatically be available.<br>References:<br>https://www.mssqltips.com/sqlservertip/1628/sql-server-user-defined-data-types-rules-and-defaults/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-29T06:29:00.000Z",
+        "voteCount": 1,
+        "content": "it is C . I AGREE WITH YOU"
+      },
+      {
+        "date": "2020-09-03T23:03:00.000Z",
+        "voteCount": 1,
+        "content": "The answer does not correspond to explanation. It is C."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 61,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30532-exam-70-461-topic-1-question-241-discussion/",
+    "body": "DRAG DROP -<br>You use Microsoft SQL Server Management Studio to develop a Microsoft Azure SQL Database instance that will support a purchase order application.<br>You write the following query:<br><img src=\"/assets/media/exam-media/03395/0043000001.png\" class=\"in-exam-image\"><br>A partial view of the query results can be seen in the following table.<br><img src=\"/assets/media/exam-media/03395/0043100001.png\" class=\"in-exam-image\"><br>You must generate a summary report that displays the total number of purchase orders received by each vendor for the following regions: North, East, South,<br>West, and Central.<br>You need to write a query that returns the results in the format shown in the following table.<br><img src=\"/assets/media/exam-media/03395/0043200001.png\" class=\"in-exam-image\"><br>Which three Transact-SQL segments should you use to develop the solution? To answer, move the appropriate Transact-SQL segments from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0043300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0043400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: SELECT Vendorname, [North], [East],..FROM SourceTable<br>Step 2:  WITH SourceTable AS..<br>Step 3: UNPIVOT ..<br>UNPIVOT carries out almost the reverse operation of PIVOT, by rotating columns into rows.<br>Reference:<br>https://docs.microsoft.com/en-us/sql/t-sql/queries/from-using-pivot-and-unpivot",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T23:28:00.000Z",
+        "voteCount": 1,
+        "content": "1) with\n2) select\n3) PIVOT"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 62,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30534-exam-70-461-topic-1-question-242-discussion/",
+    "body": "You administer a Microsoft SQL Server database that includes a table named Products. The Products table has columns named ProductId, ProductName, and<br>CreatedDateTime.<br>The table contains a unique constraint on the combination of ProductName and CreatedDateTime.<br>You need to modify the Products table to meet the following requirements:<br>\u2711 Remove all duplicates of the Products table based on the ProductName column.<br>\u2711 Retain only the oldest Products row.<br>Which Transact-SQL query should you run?<br>A.<br><img src=\"/assets/media/exam-media/03395/0043500003.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0043600001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0043600002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0043700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "You use the WHERE clause to delete a set of rows<br>Incorrect Answers:<br>A: Instead use the cte.CreatedDateTime &gt; p.CreateDateTime condition.<br>C: Need to have a AND cte.CreatedDateTime &gt; p.CreateDateTime condition.<br>D: Use MAX not MIN, and we need to have a AND cte.CreatedDateTime &gt; p.CreateDateTime condition.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/statements/delete-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T23:43:00.000Z",
+        "voteCount": 1,
+        "content": "Why not A? We have to delete all the products which have date &gt; then minimum"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 63,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30537-exam-70-461-topic-1-question-245-discussion/",
+    "body": "You are designing a Microsoft SQL Server database named Orders.<br>You create a table by running the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0044000001.jpg\" class=\"in-exam-image\"><br>You create a stored procedure to be used by an ASP.NET application that runs the following statement:<br><img src=\"/assets/media/exam-media/03395/0044100001.png\" class=\"in-exam-image\"><br>You need to ensure that the query runs as efficiently as possible.<br>Which Transact-SQL statement should you run?<br>A.<br><img src=\"/assets/media/exam-media/03395/0044100002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03395/0044100003.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03395/0044100004.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03395/0044100005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "Creating a primary key automatically creates a corresponding unique clustered index, or a nonclustered index if specified as such.<br>Example: To create a primary key in an existing table<br>The following example creates a primary key on the column TransactionID in the AdventureWorks database.<br>ALTER TABLE Production.TransactionHistoryArchive<br>ADD CONSTRAINT PK_TransactionHistoryArchive_TransactionID PRIMARY KEY CLUSTERED (TransactionID);<br>References:<br>https://docs.microsoft.com/en-us/sql/relational-databases/tables/create-primary-keys",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-04T00:18:00.000Z",
+        "voteCount": 1,
+        "content": "I think it is A or D. We have to optimize the stored procedure. UserName is in the WHERE clause"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 64,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30553-exam-70-461-topic-1-question-246-discussion/",
+    "body": "SIMULATION -<br>The following is a series of questions in which you are required to input one or more lines of code.<br><br>To input your response -<br>Type your response into the text entry field in the Answer Area. You may input one or more lines of code. More than one solution may be correct. You will receive credit if your solution matches any of the correct solutions.<br><br>To validate code syntax -<br>After entering your code, click the Check Syntax button. This validates code syntax (such as SQL commands) and values (such as table names and variable names) used in your solution. If there are any errors, they will appear in the window next to the Check Syntax button. You may change your code and re-validate the syntax as many times as you want.<br>Note that Check Syntax does NOT validate whether you have answered the question correctly. It simply validates the accuracy of your syntax.<br>To view available command keywords<br>Click the Keywords button to view a list of command keywords. This is a general list provided for reference and is not limited to commands used in the question.<br><img src=\"/assets/media/exam-media/03395/0044300001.png\" class=\"in-exam-image\"><br>The Sales schema of a database contains the tables shown in the exhibit.<br><img src=\"/assets/media/exam-media/03395/0044500001.jpg\" class=\"in-exam-image\"><br>You need to create a stored procedure named RecentOrders that meets the following requirements:<br>\u2711 Declares an input variable named @EndDate of type varchar(255).<br>\u2711 Compare the value of @EndDate with the OrderDate for records from the Sales.Orders table.<br>\u2711 Return only the OrderID column for rows where the OrderDate is more recent than @EndDate.<br>Construct the Transact-SQL for the stored procedure by using the following guidelines:<br>\u2711 Do not use aliases.<br>\u2711 Do not use object delimiters.<br>\u2711 Ensure that any objects called in RecentOrders can be resolved by all users.<br>\u2711 Convert @endDate to a datetime data type in the WHERE clause of the SELECT statement before comparing the value to an OrderDate.<br>Part of the correct Transact-SQL has been provided in the answer area below. Enter the Transact-SQL in the answer area that resolves the problem and meets the stated goals or requirements. You can add Transact-SQL within the Transact-SQL segment that has been provided as well as below it.<br><img src=\"/assets/media/exam-media/03395/0044600008.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Please review the explanation part for this answer.",
+    "answerDescription": "Line 1: CREATE PROCECURE RecentOrders @EndDate varchar(255)<br><br>Line 2: AS -<br><br>Line 3: SELECT OrderID -<br><br>Line 4: FROM Sales.Orders -<br>Line 5: WHERE Sales.Orders.OrderDate &gt; @Endate<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/statements/create-procedure-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-04T02:17:00.000Z",
+        "voteCount": 2,
+        "content": "\"Convert @endDate to a datetime data type in the WHERE clause of the SELECT statement before comparing the value to an OrderDate\"\n\nI wrote \"where convert(datetime, @EndDate) &gt; OrderDate\""
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 65,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30561-exam-70-461-topic-1-question-249-discussion/",
+    "body": "DRAG DROP -<br>You develop a Microsoft SQL Server database for an educational institution. The database contains tables named ExamEvaluation and ProjectEvaluation, which are used to track student scores. The tables are created by using the following code:<br><img src=\"/assets/media/exam-media/03395/0045300001.jpg\" class=\"in-exam-image\"><br>Students are evaluated based on the following rules:<br>Each student will complete a maximum of one exam and one project.<br><img src=\"/assets/media/exam-media/03395/0045300002.png\" class=\"in-exam-image\"><br>\u2711 A student must complete at least one exam.<br>\u2711 A single exam consists of multiple sections, where the student is evaluated based on the average score of all sections.<br>\u2711 A single project consists of Section A and Section B, where the student is evaluated by adding 60 percent of Section A and 40 percent of Section B.<br>\u2711 At any given time, a student may have completed only an exam, or both an exam and a project.<br>You want to create a summary report of student evaluations.<br>You need to write a query that will return evaluation results for students who have completed any form of evaluation, grouped by the year of undertaling. A sample result set is shown in the following table.<br><img src=\"/assets/media/exam-media/03395/0045400005.jpg\" class=\"in-exam-image\"><br>Which five Transact-SQL segments should you use to develop the solution? To answer, move the appropriate Transact-SQL segments from the list of Transact-<br>SQL segments to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0045500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0045600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: SELECT..<br><br>The outer select statement -<br>Box 2: (SELECT ..AVG(SectionScore)<br>Need the average score: A single exam consists of multiple sections, where the student is evaluated based on the average score of all sections.<br><br>Box 3: LEFT OUTER JOIN -<br>There might be no finished Project<br>Box 4: ON..<br><br>Box 5: (SELECT ..SUM -<br>Need the SUM function to handle addition of NULL values.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/functions/sum-transact-sql",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-04T03:41:00.000Z",
+        "voteCount": 1,
+        "content": "The last statement for Project is not correct, because GROUP BY must be used in this case. I think, the statement without SUM must be chosen instead."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 66,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30577-exam-70-461-topic-1-question-253-discussion/",
+    "body": "DRAG DROP -<br>You are a developer for a Microsoft SQL Server database that contains a complaint table created by running the following Transact-SQL statement:<br><img src=\"/assets/media/exam-media/03395/0046700001.png\" class=\"in-exam-image\"><br>Which Transact-SQL statement or statements should you run? To answer, drag the appropriate Transact-SQL statements to the correct functions. Each Transact-<br>SQL statement may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03395/0046700002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03395/0046800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://social.technet.microsoft.com/wiki/contents/articles/17948.t-sql-right-left-substring-and-charindex-functions.aspx https://docs.microsoft.com/en-us/sql/t-sql/language-elements/if-else-transact-sql?view=sql-server-ver15",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-04T06:03:00.000Z",
+        "voteCount": 2,
+        "content": "I have an error \"'substitute' is not a recognized built-in function name\" in SQL Management studio."
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "1"
+  }
+]

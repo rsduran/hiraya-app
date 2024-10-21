@@ -1,0 +1,147 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81955-exam-az-305-topic-11-question-1-discussion/",
+    "body": "You need to recommend a data storage strategy for WebApp1.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure virtual machine that runs SQL Server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta fixed-size DTU Azure SQL database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure SQL Database elastic pool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta vCore-based Azure SQL database\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 17,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-20T18:24:00.000Z",
+        "voteCount": 29,
+        "content": "vCore-based Azure SQL database  --  because the case states they want to use Azure Hybrid Benefit licensing.  You cannot utilize that with the DTU model."
+      },
+      {
+        "date": "2024-08-27T10:10:00.000Z",
+        "voteCount": 1,
+        "content": "First question of this test topics about if we need storage account everyone answer yes for azure sql MI migration now we're talking about azure sql DB"
+      },
+      {
+        "date": "2024-05-01T23:03:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer: D\nPurchasing Model: vCore-based\nService Tier: General Purpose or Hyperscale\nCompute Tier: Serverless\nScenarios well suited for serverless compute\nSingle databases with intermittent, unpredictable usage patterns interspersed with periods of inactivity, and lower average compute utilization over time. \nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/serverless-tier-overview?view=azuresql&amp;tabs=general-purpose"
+      },
+      {
+        "date": "2024-03-15T04:42:00.000Z",
+        "voteCount": 1,
+        "content": "Anyone to save us here with consistent answers for this case study? answers are confusing!"
+      },
+      {
+        "date": "2024-01-04T06:08:00.000Z",
+        "voteCount": 2,
+        "content": "Two issues\n- use of own licenses wherever possible is available for sql elastic pool.  See SQL Database Hybrid Benefits Calculator (drop down database to elastic pool) https://azure.microsoft.com/en-gb/pricing/hybrid-benefit/#features\n- unpredictable usage pattern which necessitates an elastic pool\n\nJust my two pennies"
+      },
+      {
+        "date": "2024-01-04T06:20:00.000Z",
+        "voteCount": 2,
+        "content": "Of course the problem is that elastic pool is meant to pool resources amongst many databases and not a single one.  So in order to deal with the second issue of unpredictablity we can go for vCore with Dynamic scaling - see:  https://learn.microsoft.com/en-us/azure/azure-sql/database/single-database-scale?view=azuresql&amp;tabs=azure-portal\n\nSo I am changing my answer to D"
+      },
+      {
+        "date": "2023-12-11T09:56:00.000Z",
+        "voteCount": 4,
+        "content": "D. vCore-based SQL\nRequirement: Use existing on-premises licenses whenever possible\nYou can only apply the Azure Hybrid licensing model when you choose a vCore-based purchasing model and the provisioned compute tier for your Azure SQL Database. Azure Hybrid Benefit isn't available for service tiers under the DTU-based purchasing model or for the serverless compute tier."
+      },
+      {
+        "date": "2023-11-22T04:14:00.000Z",
+        "voteCount": 2,
+        "content": "it was a exam Question"
+      },
+      {
+        "date": "2023-09-14T04:00:00.000Z",
+        "voteCount": 1,
+        "content": "In my opinion is A because of the migration. It has to be ONLINE. As Far as I know we have several tool to migrate DB. DMA, ADS, DMS and Azure Migrate. DMA only supports OFFLINE, ADS supports ONLINE and OFFLINE but does not work with Azure SQL DB, DMS supports ONLINE and OFFLINE but for Azure SQL DB only OFFLINE and Azure Migrate normally uses ADS or DMS depending on requirements.\n\nTo make the long story short, it cannot be Azure SQL DB. It could be Azure SQL MI but I do not see that option. So it is SQL in Azure VM."
+      },
+      {
+        "date": "2023-08-18T10:59:00.000Z",
+        "voteCount": 1,
+        "content": "Why the hell you choose D? You can use Azure Hybrid Benefit for Azure SQL Database elastic pool + they have high and low utilization scenarios, hence elastic pool will be the best option. Answer C IMHO is correct"
+      },
+      {
+        "date": "2023-04-24T10:19:00.000Z",
+        "voteCount": 2,
+        "content": "D because of Azure Hybrid Benefit licensing requirement"
+      },
+      {
+        "date": "2023-02-03T23:58:00.000Z",
+        "voteCount": 1,
+        "content": "Hyperscale service tier is available for single databases that are using the vCore-based purchasing model.\n\nRapid scale out and scale up options are available for unpredictable load.\n\nA Hyperscale database grows as needed - and you're billed only for the capacity you use. For read-intensive workloads, the Hyperscale service tier provides rapid scale-out by provisioning additional replicas as needed for offloading read workloads.\n\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/service-tier-hyperscale?view=azuresql"
+      },
+      {
+        "date": "2023-01-20T07:00:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer looks correct as per article, which discusses auto-scale with serverless compute tier\n\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/service-tiers-sql-database-vcore?view=azuresql"
+      },
+      {
+        "date": "2023-01-04T06:01:00.000Z",
+        "voteCount": 4,
+        "content": "Appeared 2023/01/04 in the exam"
+      },
+      {
+        "date": "2022-10-23T21:14:00.000Z",
+        "voteCount": 3,
+        "content": "Hybrid benefit - vCore-Based Azure SQL Database"
+      },
+      {
+        "date": "2022-10-09T23:35:00.000Z",
+        "voteCount": 1,
+        "content": "vCore-based Azure SQL database"
+      },
+      {
+        "date": "2022-10-05T15:00:00.000Z",
+        "voteCount": 2,
+        "content": "C. Elastic Pool. Perfectly matches the description of the answer listed. The use case also mentioned databases plural being migrated and unpredictable usage. Also you can setup regional auto failover groups for SQL Database and Elastic Pools, so that would cover the geo-redundancy requirement. https://learn.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview?view=azuresql"
+      },
+      {
+        "date": "2023-01-20T02:07:00.000Z",
+        "voteCount": 2,
+        "content": "Elactic Pool makes sense only when you have multiple databases."
+      },
+      {
+        "date": "2022-11-05T04:16:00.000Z",
+        "voteCount": 5,
+        "content": "I certainly would agree with you if multiple databases, but I'm not seeing that reference."
+      },
+      {
+        "date": "2023-11-13T06:46:00.000Z",
+        "voteCount": 1,
+        "content": "It does state in the case study blurb : \"To avoid disrupting customer access, database downtime must be minimized when *databases* are migrated.\" Because it says \"databases\", I think Elastic Pools is a viable option here."
+      },
+      {
+        "date": "2022-09-28T01:02:00.000Z",
+        "voteCount": 1,
+        "content": "Why not A? \"To avoid disrupting customer access, database downtime must be minimized when databases are migrated.\""
+      },
+      {
+        "date": "2022-10-17T02:04:00.000Z",
+        "voteCount": 2,
+        "content": "I think there is always a preference to migrate to a cloud native solution rather than VMs. There is a migration tool within SQL Server to Azure SQL Database which wouldn't take any longer than migrating the VM from on-premises (using Migrate, for example)"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "11"
+  }
+]

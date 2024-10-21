@@ -1,0 +1,539 @@
+[
+  {
+    "topic": 17,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57113-exam-az-400-topic-17-question-1-discussion/",
+    "body": "HOTSPOT -<br>How should you configure the filters for the Project5 trigger? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04257/0038800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0038900001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: branch filter to exclude -<br>Scenario:<br><img src=\"/assets/media/exam-media/04257/0038900002.png\" class=\"in-exam-image\"><br>Continuous integration (CI) triggers cause a build to run whenever a push is made to the specified branches or a specified tag is pushed.<br><br>Box 2: branch filter to include -<br>You can specify branches to include and exclude. For example:<br># specific branch build<br>trigger:<br>branches:<br>include:<br>- master<br>- releases/*<br>exclude:<br>- releases/old*<br>Reference:<br>https://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-04T12:40:00.000Z",
+        "voteCount": 69,
+        "content": "I think it's\n-Path filter to exclude\n-Path filter to include\n\nBecause '/.' is not the name of a branch.\nCheck this example: https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&amp;tabs=yaml#wildcards"
+      },
+      {
+        "date": "2021-07-19T03:19:00.000Z",
+        "voteCount": 2,
+        "content": "you are right"
+      },
+      {
+        "date": "2021-07-27T08:19:00.000Z",
+        "voteCount": 2,
+        "content": "I think you are right. \nhttps://mohitgoyal.co/2018/09/19/using-path-filters-in-build-definition-in-azure-devops-vsts/\n\n\"To properly specify an exclusion path, we need to also define an inclusion path. It may be something specific like /teraVis (in our case) or just root i.e. /\""
+      },
+      {
+        "date": "2022-08-28T05:44:00.000Z",
+        "voteCount": 3,
+        "content": "I think you are right as explained in the article you cited (https://mohitgoyal.co/2018/09/19/using-path-filters-in-build-definition-in-azure-devops-vsts/), so the answer must be \n\n-Path filter to exclude /folder1\n-Path filter to include /\n\nAlthough a branchfilter is needed when using a pathfilter, \"/\" is not a valid branchefilter. A branchefilter must be something like \"main\" or \"develop\", etc.\n\n\"When you specify paths, you must explicitly specify branches to trigger on. You can't trigger a pipeline with only a path filter; you must also have a branch filter, and the changed files that match the path filter must be from a branch that matches the branch filter.\"\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&amp;tabs=yaml#paths"
+      },
+      {
+        "date": "2022-03-30T05:38:00.000Z",
+        "voteCount": 1,
+        "content": "totally agree with you\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&amp;tabs=yaml#ci-triggers"
+      },
+      {
+        "date": "2022-02-04T02:01:00.000Z",
+        "voteCount": 16,
+        "content": "Got this January 2022. path Exclude, include. 100% on that part."
+      },
+      {
+        "date": "2024-01-02T15:08:00.000Z",
+        "voteCount": 3,
+        "content": "-Path filter to exclude\n-Path filter to include"
+      },
+      {
+        "date": "2023-12-24T21:56:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-08-09T00:07:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answers are:\nPath filter to exclude\nBranch filter to include\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/build/triggers -&gt; right under Paths title -&gt; When you specify paths, you must explicitly specify branches to trigger on if you are using Azure DevOps Server 2019.1 or lower. You can't trigger a pipeline with only a path filter; you must also have a branch filter, and the changed files that match the path filter must be from a branch that matches the branch filter. If you are using Azure DevOps Server 2020 or newer, you can omit branches to filter on all branches in conjunction with the path filter."
+      },
+      {
+        "date": "2023-06-04T07:26:00.000Z",
+        "voteCount": 3,
+        "content": "Same as Topic 11 Question 1.\nhttps://www.examtopics.com/discussions/microsoft/view/20737-exam-az-400-topic-11-question-1-discussion"
+      },
+      {
+        "date": "2023-04-23T11:18:00.000Z",
+        "voteCount": 2,
+        "content": "GPT-4: 1. Set a path filter to exclude `/folder1` (option c): A path filter allows you to specify which files or folders in your repository should trigger a build when they are changed. In this case, setting a path filter to exclude `/folder1` will prevent changes within `/folder1` of the repository from triggering a build.\n\n2. Set a branch filter to include `/` (option b): A branch filter allows you to specify which branches in your repository should trigger a build when they are changed. In this case, setting a branch filter to include `/` will allow changes in any branch of the repository to trigger a build.\n\nThese two actions will configure the continuous integration trigger for Project4 to initiate a build in response to any change in the repository except for changes within `/folder1` of the repository."
+      },
+      {
+        "date": "2022-08-06T23:07:00.000Z",
+        "voteCount": 2,
+        "content": "I would agree with the given answer\n\nBranch filter to include / would include all code from triggering a build\n\nPath filter to exclude /folder 1 for first drop down is correct to address 'except for changes in /folder 1\""
+      },
+      {
+        "date": "2022-05-20T09:04:00.000Z",
+        "voteCount": 2,
+        "content": "-Path filter to exclude\n-Path filter to include"
+      },
+      {
+        "date": "2022-02-23T10:53:00.000Z",
+        "voteCount": 3,
+        "content": "I would go for \n-Path filter exclude\n-Path filter include\n\nIf you exclude a path, you cannot also include it unless you qualify it to a deeper folder. \nFor example if you exclude /tools then you could include /tools/trigger-runs-on-these\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/repos/azure-repos-git?view=azure-devops&amp;tabs=yaml#:~:text=If%20you%20exclude%20a%20path%2C%20you%20cannot%20also%20include%20it%20unless%20you%20qualify%20it%20to%20a%20deeper%20folder.%20For%20example%20if%20you%20exclude%20/tools%20then%20you%20could%20include%20/tools/trigger%2Druns%2Don%2Dthese"
+      },
+      {
+        "date": "2022-01-24T21:44:00.000Z",
+        "voteCount": 2,
+        "content": "-Path filter to exclude\n-Path filter to include"
+      },
+      {
+        "date": "2021-09-06T03:51:00.000Z",
+        "voteCount": 5,
+        "content": "This question came out in August 2021"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "17"
+  },
+  {
+    "topic": 17,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57282-exam-az-400-topic-17-question-2-discussion/",
+    "body": "In Azure DevOps, you create Project3.<br>You need to meet the requirements of the project.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure DevOps, modify the build definition.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom SonarQube, obtain an authentication token.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure DevOps, create a service endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom SonarQube, create a project.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 33,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 22,
+        "isMostVoted": false
+      },
+      {
+        "answer": "C",
+        "count": 21,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-24T10:23:00.000Z",
+        "voteCount": 41,
+        "content": "D. From SonarQube, create a project."
+      },
+      {
+        "date": "2021-08-24T10:27:00.000Z",
+        "voteCount": 8,
+        "content": "Before creating the service endpoint, you have to set up the organization and import the project into sonar cloud."
+      },
+      {
+        "date": "2023-01-21T12:56:00.000Z",
+        "voteCount": 1,
+        "content": "\"\nTo set up the import of Azure DevOps repositories:\n\nSet your global DevOps platform settings\nAdd a personal access token for importing repositories\n\nAdding a personal access token for importing repositories\nAfter setting your global settings, you can add a project from Azure DevOps by clicking the Add project button in the upper-right corner of the Projects homepage and selecting Azure DevOps.\n\nThen, you'll be asked to provide a personal access token with Code (Read &amp; Write) scope so SonarQube can access and list your Azure DevOps projects. This token will be stored in SonarQube and can be revoked at any time in Azure DevOps.\n\nAfter saving your personal access token, you'll see a list of your Azure DevOps projects that can be set up and added to SonarQube. Setting up your projects this way also defines your project settings for pull request decoration.\"\n\nhttps://docs.sonarqube.org/latest/devops-platform-integration/azure-devops-integration/#analyzing-projects-with-azure-pipelines"
+      },
+      {
+        "date": "2021-07-19T03:19:00.000Z",
+        "voteCount": 9,
+        "content": "Got this on 19th July 2021 exam. Chose C and Scored 800+ so it should be correct."
+      },
+      {
+        "date": "2024-04-18T03:44:00.000Z",
+        "voteCount": 1,
+        "content": "you mean 80% change my answer was correct instead of should be correct."
+      },
+      {
+        "date": "2023-09-26T05:57:00.000Z",
+        "voteCount": 3,
+        "content": "You need to import the repo into SonarCloud before everything else and for that you need to create a new project. So, C is definitely not the correct answer.\n\nhttps://azuredevopslabs.com/labs/vstsextend/sonarcloud/"
+      },
+      {
+        "date": "2022-03-30T14:14:00.000Z",
+        "voteCount": 10,
+        "content": "you only got 800+ so you could be wrong.  Very confusing question. You need to create a project, get the token, create service enpoint and modify the build definition. I would go with C. because the question is related to azure devops."
+      },
+      {
+        "date": "2022-03-30T14:15:00.000Z",
+        "voteCount": 3,
+        "content": "C ties in the other answers together"
+      },
+      {
+        "date": "2022-03-30T14:17:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, I the @LNE is correct. What would you do first?"
+      },
+      {
+        "date": "2024-10-11T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "First you need a connection in Azure DevOps to SonarQube. So first add the SonarQube extention in the Azure DevOps and add a new SonarQube service endpoint\n\nHere is the document:\nhttps://docs.sonarsource.com/sonarqube/latest/devops-platform-integration/azure-devops-integration/#:~:text=In%20Azure%20DevOps%2C%20go%20to,Save%20to%20save%20your%20connection."
+      },
+      {
+        "date": "2024-10-02T01:21:00.000Z",
+        "voteCount": 2,
+        "content": "The first step in integrating any external tool, like SonarQube, with Azure DevOps is to establish a secure connection. For this, you need an authentication token from SonarQube. This token allows Azure DevOps to communicate securely with SonarQube. Without the token, you wouldn't be able to set up a proper connection between the two systems."
+      },
+      {
+        "date": "2023-12-24T22:04:00.000Z",
+        "voteCount": 4,
+        "content": "Need to create project first in SonarClond before creating a service connection devops."
+      },
+      {
+        "date": "2023-10-26T23:27:00.000Z",
+        "voteCount": 1,
+        "content": "In order to integrate with sonar cloud you need to create the service endpoint in azure devops portal \nTherefore answer is service endpoint"
+      },
+      {
+        "date": "2023-09-26T05:55:00.000Z",
+        "voteCount": 3,
+        "content": "As per, https://azuredevopslabs.com/labs/vstsextend/sonarcloud/ , the first thing to happen is to Import your repo into SonarCloud and for that we create a new project. Hence the answer is D. The Service Connection comes into picture only when Azure Pipelines nee to access SonarCloud and that happens much later."
+      },
+      {
+        "date": "2023-08-18T07:37:00.000Z",
+        "voteCount": 2,
+        "content": "C . \n1. Installing SonarQube extension\n2. Adding a new SonarQube service endpoint\nhttps://docs.sonarsource.com/sonarqube/latest/devops-platform-integration/azure-devops-integration/"
+      },
+      {
+        "date": "2023-07-05T03:18:00.000Z",
+        "voteCount": 6,
+        "content": "D. From SonarQube, create a project. \n\nFrom Azure DevOps, create a service endpoint. you need SonarCloud server URL before.\nFrom SonarQube, obtain an authentication token. you get it by log in to your SonarQube project, My account, Security, Generate tokens."
+      },
+      {
+        "date": "2023-06-29T16:51:00.000Z",
+        "voteCount": 1,
+        "content": "Service EndPoint is correct\nFrom the Visual Studio Marketplace, install the SonarQube extension by clicking the Get it free button.\nAfter installing your extension, you need to declare your SonarQube server as a service endpoint in your Azure DevOps project settings:\n\nIn Azure DevOps, go to Project Settings &gt; Service connections.\nSelect New service connection and then select SonarQube from the service connection list.\nEnter your SonarQube Server URL, an authentication token, and a memorable Service connection name. Then, select Save to save your connection.\nhttps://docs.sonarqube.org/latest/devops-platform-integration/azure-devops-integration/"
+      },
+      {
+        "date": "2023-07-05T03:12:00.000Z",
+        "voteCount": 1,
+        "content": "To obtain SonarCloud server URL, involves having created the SonarCloud project before"
+      },
+      {
+        "date": "2023-06-13T19:27:00.000Z",
+        "voteCount": 1,
+        "content": "Answer D, you need to create a project in sonarcloud."
+      },
+      {
+        "date": "2023-06-21T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry it is C \nsource: https://docs.sonarqube.org/latest/devops-platform-integration/azure-devops-integration/#analyzing-projects-with-azure-pipelines"
+      },
+      {
+        "date": "2023-06-04T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "Same as Topic 11 Qns 2.\nhttps://www.examtopics.com/discussions/microsoft/view/16721-exam-az-400-topic-11-question-2-discussion"
+      },
+      {
+        "date": "2023-06-04T07:27:00.000Z",
+        "voteCount": 3,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/sonar-qube-prepare-v5?view=azure-pipelines\nSpecifies the SonarQube server endpoint for your project. To create one, click the Manage link, create a new SonarQube Server Endpoint, and enter your server url and token."
+      },
+      {
+        "date": "2023-04-28T10:45:00.000Z",
+        "voteCount": 2,
+        "content": "C. From Azure DevOps, create a service endpoint.\n\nTo meet the requirements of Project3, the first step is to create a service endpoint in Azure DevOps. Service endpoints are a mechanism for securely storing and managing credentials that are required to connect to external systems or services. In this case, a service endpoint is needed to connect to the Azure subscription, which is required for deploying resources to Azure. Once the service endpoint is created, it can be used in the build and release pipelines to deploy resources to Azure. Modifying the build definition, obtaining an authentication token from SonarQube, or creating a project in SonarQube are not required for meeting the requirements of Project3."
+      },
+      {
+        "date": "2023-04-22T23:00:00.000Z",
+        "voteCount": 1,
+        "content": "D. From SonarQube, create a project.\n\nCorrect sequence:\nD &gt; C &gt; B &gt; A\nhttps://docs.sonarqube.org/latest/devops-platform-integration/azure-devops-integration/#:~:text=In%20Azure%20DevOps%2C%20go%20to,Save%20to%20save%20your%20connection."
+      },
+      {
+        "date": "2023-04-13T04:58:00.000Z",
+        "voteCount": 2,
+        "content": "D - Create a project\n\nThere are many things to be done before creating a project but out of the given answers, it is the first thing to do.\n\nSonarCloud/Qube integration steps:\n1. Create a PAT in Azure DevOps\n2. Install Sonar Cloud extension from Marketplace\n3. Import organisation from Azure with PAT on Sonar Cloud website\n4. Select Azure repository to analyse as Sonar Cloud project\n5. Create repository on Sonar Cloud\n6. Get project authentication token from Sonar Cloud\n7. Create service connection in Azure DevOps project using the Sonar Cloud token\n8. Add SonarCloudPrepare task to build pipeline"
+      },
+      {
+        "date": "2023-01-21T03:21:00.000Z",
+        "voteCount": 7,
+        "content": "its D.\nYou cant create a service connection without the token generated from SonarCloud. To generate that, you need to first have a project in place. So Answer D"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "17"
+  },
+  {
+    "topic": 17,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57683-exam-az-400-topic-17-question-3-discussion/",
+    "body": "You need to implement Project4.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the FROM instruction in the Dockerfile file.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a Copy and Publish Build Artifacts task to the build pipeline.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a Docker task to the build pipeline.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the MAINTAINER instruction in the Dockerfile file."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 10,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-09-23T09:00:00.000Z",
+        "voteCount": 11,
+        "content": "C. Add a Docker task"
+      },
+      {
+        "date": "2023-12-24T22:07:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-08-09T00:50:00.000Z",
+        "voteCount": 1,
+        "content": "Provided answer is correct"
+      },
+      {
+        "date": "2023-07-05T19:38:00.000Z",
+        "voteCount": 1,
+        "content": "C. Add a Docker task to the build pipeline, responsible for building the Docker image and pushing it to Azure Container Registry\n\nAdd the FROM instruction in the Dockerfile file: required instructions to build the desired Docker image.\n\nAdd a Copy and Publish Build Artifacts task to the build pipeline: copy and publish build output files or artifacts to a specific location within Azure DevOps.\n\nAdd the MAINTAINER instruction in the Dockerfile file: specifies the author or maintainer of the Docker image"
+      },
+      {
+        "date": "2023-06-04T09:46:00.000Z",
+        "voteCount": 3,
+        "content": "Same as Topic 11 Question 3.\nhttps://www.examtopics.com/discussions/microsoft/view/27078-exam-az-400-topic-11-question-3-discussion"
+      },
+      {
+        "date": "2023-06-04T09:46:00.000Z",
+        "voteCount": 3,
+        "content": "C is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/containers/acr-template?view=azure-devops#how-we-build-your-pipeline\nThe build stage uses the Docker task Docker@2 to build and push your Docker image to the container registry."
+      },
+      {
+        "date": "2023-06-04T09:46:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/devops/pipelines/tasks/reference/docker-v2?view=azure-pipelines&amp;tabs=yaml#remarks\nThe following are the key benefits of using the Docker task instead of directly using Docker client binary in a script.\n- Integration with Docker registry service connection - The task makes it easy to use a Docker registry service connection for connecting to any container registry. Once signed in, you can add follow up tasks that execute other tasks or scripts by leveraging the sign on used by the Docker task. For example, use the Docker task to sign in to any Azure Container Registry, and then use another task or script to build and push an image to the registry."
+      },
+      {
+        "date": "2023-01-22T02:31:00.000Z",
+        "voteCount": 1,
+        "content": "I think it's correct C"
+      },
+      {
+        "date": "2022-08-08T04:15:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct\n\nDocker image and Dockerfile so has to be Docker task"
+      },
+      {
+        "date": "2022-05-20T09:07:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct answer."
+      },
+      {
+        "date": "2022-03-30T06:57:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer is C since we already have a Dockerfile"
+      },
+      {
+        "date": "2022-01-24T21:47:00.000Z",
+        "voteCount": 1,
+        "content": "C. Add a Docker task to the build pipeline."
+      },
+      {
+        "date": "2021-07-22T04:44:00.000Z",
+        "voteCount": 4,
+        "content": "yes, this is correct.\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/docker?view=azure-devops"
+      },
+      {
+        "date": "2021-07-12T03:50:00.000Z",
+        "voteCount": 4,
+        "content": "Now use Azure Container Registry to build and push an image. First, create a local working directory and then create a Dockerfile named Dockerfile with the single line: FROM mcr.microsoft.com/hello-world.\n\nhttps://docs.microsoft.com/en-us/azure/container-registry/container-registry-quickstart-task-cli#build-and-push-image-from-a-dockerfile"
+      },
+      {
+        "date": "2021-11-12T23:32:00.000Z",
+        "voteCount": 1,
+        "content": "You are building from Azure DevOps. First, you need to create a Docker task on the build stage. The others (Dockerfile creation, push to ACR) are later"
+      },
+      {
+        "date": "2021-11-13T05:51:00.000Z",
+        "voteCount": 1,
+        "content": "The docker file is already created."
+      },
+      {
+        "date": "2022-03-30T06:58:00.000Z",
+        "voteCount": 2,
+        "content": "\"Project4 will use an existing Dockerfile\""
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "17"
+  },
+  {
+    "topic": 17,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/59101-exam-az-400-topic-17-question-4-discussion/",
+    "body": "DRAG DROP -<br>You need to recommend a procedure to implement the build agent for Project1.<br>Which three actions should you recommend be performed in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04257/0039200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0039300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario:<br><img src=\"/assets/media/exam-media/04257/0039300002.png\" class=\"in-exam-image\"><br>Step 1: Sign in to Azure Devops by using an account that is assigned the Administrator service connection security role.<br>Note: Under Agent Phase, click Deploy Service Fabric Application. Click Docker Settings and then click Configure Docker settings. In Registry Credentials Source, select Azure Resource Manager Service Connection. Then select your Azure subscription.<br>Step 2: Create a personal access token..<br>A personal access token or PAT is required so that a machine can join the pool created with the Agent Pools (read, manage) scope.<br>Step 3: Install and register the Azure Pipelines agent on an Azure virtual machine.<br>By running a Azure Pipeline agent in the cluster, we make it possible to test any service, regardless of type.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-tutorial-deploy-container-app-with-cicd-vsts https://mohitgoyal.co/2019/01/10/run-azure-devops-private-agents-in-kubernetes-clusters/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-01T17:41:00.000Z",
+        "voteCount": 67,
+        "content": "1. Sign in with pool admin role\n2. Create PAT\n3. Install and register on Azure VM\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops"
+      },
+      {
+        "date": "2022-04-06T05:20:00.000Z",
+        "voteCount": 3,
+        "content": "agee with you\n\nhttps://docs.microsoft.com/en-us/azure/devops/organizations/security/about-security-roles?view=azure-devops"
+      },
+      {
+        "date": "2022-05-26T01:48:00.000Z",
+        "voteCount": 12,
+        "content": "Guys, Project 1 requires incremental build. So the Pipelines Agent should be installed on an on-premises environment that will be self-host . Answer is (1) sign into Devops as an agent pool admin. 2 Create a personal token and 3. Install the agent on an on-premises machine."
+      },
+      {
+        "date": "2022-09-06T13:10:00.000Z",
+        "voteCount": 17,
+        "content": "self-host can be Azure VM\nTechnical requirement: \"Whenever possible, use Azure resources.\""
+      },
+      {
+        "date": "2022-09-04T01:36:00.000Z",
+        "voteCount": 9,
+        "content": "I think you are mixing things up. You are right about the fact that you need a self hosted agent to make use of incremental builds. But that doesn't mean they have to be on premise; you can use an Azure VM as well. What you can't use is an MS hosted agent, since they are thrown away after the build. \n\"If you use a self-hosted agent, you can run incremental builds [...] When you use a Microsoft-hosted agent, you don't get these benefits because the agent is destroyed after the build [...]\"\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/agents/agents?view=azure-devops&amp;tabs=browser#private-agent-performance-advantages"
+      },
+      {
+        "date": "2023-12-24T22:17:00.000Z",
+        "voteCount": 1,
+        "content": "pool admin role\npat\ninstall and register azure vm"
+      },
+      {
+        "date": "2023-07-06T04:44:00.000Z",
+        "voteCount": 3,
+        "content": "1. Sign in to Azure DevOps with agent pool administrator role. \nThis allow you to configurate and manage the agent pools in Azure DevOps and ask for the PAT.\n\n2. Create a PAT. \nToken used to authenticate the build agents, this is used in the next step.\n \n3. Install and register the Azure Pipelines agent on an Azure virtual machine. \nUpon request \"Whenever possible, use Azure resources.\", and you can install self-hosted agent into azure virtual machines to incremental builds."
+      },
+      {
+        "date": "2023-06-04T09:48:00.000Z",
+        "voteCount": 1,
+        "content": "Same as Topic 11 Question 4.\nhttps://www.examtopics.com/discussions/microsoft/view/17103-exam-az-400-topic-11-question-4-discussion"
+      },
+      {
+        "date": "2023-06-04T09:47:00.000Z",
+        "voteCount": 3,
+        "content": "1. Sign in to Azure Devops using an account that is assigned agent pool admin role\n2. Create a personal access token\n3. Install and register Azure Pipelines agent on an Azure virtual machine\n\nhttps://learn.microsoft.com/en-us/azure/devops/organizations/security/about-security-roles?view=azure-devops#agent-pool-security-roles-organization-or-collection-level\n- Administrator\nCan register or unregister agents from the pool and manage membership for all pools, as well as view and create pools. They can also use the agent pool when creating an agent in a project. The system automatically adds the user that created the pool to the Administrator role for that pool."
+      },
+      {
+        "date": "2023-03-17T11:43:00.000Z",
+        "voteCount": 2,
+        "content": "Correct procedure should be like Jame79 provided - \n1. Sign in with pool admin role\n2. Create PAT\n3. Install and register on Azure VM\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops#permissions"
+      },
+      {
+        "date": "2022-12-07T18:12:00.000Z",
+        "voteCount": 2,
+        "content": "The user configuring the agent needs pool admin permissions, but the user running the agent does not. Hence, James 79 is right"
+      },
+      {
+        "date": "2022-08-08T00:43:00.000Z",
+        "voteCount": 5,
+        "content": "NO !!! \nProject 1 requires an incremental build and 3rd party extensions which you can add only on self-hosted agents. https://docs.microsoft.com/en-us/azure/devops/pipelines/process/phases?view=azure-devops&amp;tabs=yaml\n\nThe correct answer should be:\n1. Sign in with pool admin role\n2. Create PAT\n3. Install and register on on-prem VM"
+      },
+      {
+        "date": "2022-08-07T04:23:00.000Z",
+        "voteCount": 2,
+        "content": "1. Sign in using pool admin role\n2. Create PAT\n3. Install and register on Azure VM\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops\n\n\"If the user account you're going to use is not shown, then get an administrator to add it. The administrator can be an agent pool administrator,\""
+      },
+      {
+        "date": "2022-04-01T11:09:00.000Z",
+        "voteCount": 2,
+        "content": "Exam Question April 1st 2022. went with given answer."
+      },
+      {
+        "date": "2022-03-13T04:43:00.000Z",
+        "voteCount": 4,
+        "content": "1. pool admin role\n2. create PAT\n3. install register\n\n\nThe administrator can be an agent pool administrator, an Azure DevOps organization owner, or a TFS or Azure DevOps Server administrator."
+      },
+      {
+        "date": "2022-01-24T21:50:00.000Z",
+        "voteCount": 1,
+        "content": "the given answer is correct:"
+      },
+      {
+        "date": "2021-11-10T15:18:00.000Z",
+        "voteCount": 2,
+        "content": "I think the given answer is correct:\n\n1: Sign in to Azure Devops by using an account that is assigned the Administrator service connection security role.\n2: Create a personal access token in Azure DevOps organization of Contoso\n3: Install and register the Azure Pipelines agent on an Azure virtual machine.\nExcerpt taken from James79 link: https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops\nIf the user account you're going to use is not shown, then get an administrator to add it. \"The administrator can be an agent pool administrator, an Azure DevOps organization owner, or a TFS or Azure DevOps Server administrator.\""
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "17"
+  },
+  {
+    "topic": 17,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58336-exam-az-400-topic-17-question-5-discussion/",
+    "body": "DRAG DROP -<br><br><br>Overview -<br><br>Contoso, Ltd. is a manufacturing company that has a main office in Chicago.<br><br><br>Existing Environment -<br><br>Contoso plans to improve its IT development and operations processes by implementing Azure DevOps principles. Contoso has an Azure subscription and creates an Azure DevOps organization.<br><br>The Azure DevOps organization includes:<br><br><br>The Docker extension -<br>A deployment pool named Pool7 that contains 10 Azure virtual machines that run Windows Server 2019<br><br>The Azure subscription contains an Azure Automation account.<br><br><br>Requirements -<br><br><br>Planned changes -<br><br>Contoso plans to create projects in Azure DevOps as shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-400/image113.png\"><br><br><br><br>Technical requirements -<br><br>Contoso identifies the following technical requirements:<br><br>\u2022\tImplement build agents for Project1.<br>\u2022\tWhenever possible, use Azure resources.<br>\u2022\tAvoid using deprecated technologies.<br>\u2022\tImplement a code flow strategy for Project2 that will:<br>o\tEnable Team2 to submit pull requests for Project2.<br>o\tEnable Team2 to work independently on changes to a copy of Project2. o\tEnsure that any intermediary changes performed by Team2 on a copy of Project2 will be subject to the same restrictions as the ones defined in the build policy of Project2.<br>\u2022\tWhenever possible, implement automation and minimize administrative effort.<br>\u2022\tImplement Project3, Project5, Project6, and Project7 based on the planned changes.<br>\u2022\tImplement Project4 and configure the project to push Docker images to Azure Container Registry.<br><br><br>You need to implement Project6.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04257/0039400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0039500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Implement Project3, Project5, Project6, and Project7 based on the planned changes<br><img src=\"/assets/media/exam-media/04257/0039500002.png\" class=\"in-exam-image\"><br>Step 1: Open the release pipeline editor.<br>In the Releases tab of Azure Pipelines, select your release pipeline and choose Edit to open the pipeline editor.<br>Step 2: Enable  Gates.<br>Choose the pre-deployment conditions icon for the Production stage to open the conditions panel. Enable gates by using the switch control in the Gates section.<br>Step 3: Add Query Work items.<br>Choose + Add and select the Query Work Items gate.<br>Configure the gate by selecting an existing work item query.<br><img src=\"/assets/media/exam-media/04257/0039700001.png\" class=\"in-exam-image\"><br>Note: A case for release gate is:<br>Incident and issues management. Ensure the required status for work items, incidents, and issues. For example, ensure deployment occurs only if no priority zero bugs exist, and validation that there are no active incidents takes place after deployment.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deploy-using-approvals?view=azure-devops#configure-gate",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-22T04:51:00.000Z",
+        "voteCount": 17,
+        "content": "correct"
+      },
+      {
+        "date": "2022-02-23T11:55:00.000Z",
+        "voteCount": 13,
+        "content": "Start from 0:52 - very cool example about this question\nhttps://www.youtube.com/watch?v=7WLcqwhTZ_4&amp;t=56s&amp;ab_channel=MicrosoftDeveloper\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops"
+      },
+      {
+        "date": "2023-12-25T06:05:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-06-07T08:07:00.000Z",
+        "voteCount": 2,
+        "content": "Same as Topic 14 Question 1.\nhttps://www.examtopics.com/discussions/microsoft/view/21846-exam-az-400-topic-14-question-1-discussion"
+      },
+      {
+        "date": "2023-06-07T06:41:00.000Z",
+        "voteCount": 4,
+        "content": "1. Open release pipeline editor\n2. Enable Gates\n3. Add Query Work Items\n\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/release/deploy-using-approvals?view=azure-devops#set-up-gates"
+      },
+      {
+        "date": "2022-08-06T22:26:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops\n\nAnswer is correct"
+      },
+      {
+        "date": "2022-04-01T11:09:00.000Z",
+        "voteCount": 6,
+        "content": "Exam Question April 1st 2022"
+      },
+      {
+        "date": "2022-03-30T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2022-02-04T02:01:00.000Z",
+        "voteCount": 4,
+        "content": "Got this January 2022."
+      },
+      {
+        "date": "2022-01-24T21:53:00.000Z",
+        "voteCount": 3,
+        "content": "the given answer is correct"
+      },
+      {
+        "date": "2021-12-25T16:48:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "17"
+  }
+]

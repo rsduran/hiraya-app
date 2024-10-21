@@ -1,0 +1,1724 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/cncf/view/86078-exam-cka-topic-1-question-1-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0000200001.jpg\" class=\"in-exam-image\"><br><br>Context -<br>You have been asked to create a new ClusterRole for a deployment pipeline and bind it to a specific ServiceAccount scoped to a specific namespace.<br><br>Task -<br>Create a new ClusterRole named deployment-clusterrole, which only allows to create the following resource types:<br>\u2711 Deployment<br>\u2711 Stateful Set<br>\u2711 DaemonSet<br>Create a new ServiceAccount named cicd-token in the existing namespace app-team1.<br>Bind the new ClusterRole deployment-clusterrole to the new ServiceAccount cicd-token, limited to the namespace app-team1.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image15.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-13T14:31:00.000Z",
+        "voteCount": 41,
+        "content": "I would suggest a role binding instead of the clusterrolebinding exposed in the solution as: \n\n$ k create rolebinding deploy-b -n app-team1 --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token\n\nWith this, we scope resource creation to the namespace app-team1 as stated in the excercise. \n\nTo check, simply issue commands: \n$ k auth can-i create deployment -n app-team1 --as system:serviceaccount:app-team1:cicd-token\n==&gt; yes\n$ k auth can-i create deployment -n default --as system:serviceaccount:app-team1:cicd-token \n==&gt; no"
+      },
+      {
+        "date": "2024-10-11T08:29:00.000Z",
+        "voteCount": 1,
+        "content": "clusterRoles are not bound to a namespace. If we wanted to bind the pemissions to a specific namspace, we would create a role and not a clusterrole.\nSo, clusterrolebinding is correct."
+      },
+      {
+        "date": "2023-01-26T10:46:00.000Z",
+        "voteCount": 3,
+        "content": "The question specifically asked for clusterRole."
+      },
+      {
+        "date": "2023-02-20T12:58:00.000Z",
+        "voteCount": 7,
+        "content": "Yes, but not clusterRoleBinding."
+      },
+      {
+        "date": "2023-06-14T00:33:00.000Z",
+        "voteCount": 3,
+        "content": "\"limited to the namespace app-team\" means roleBinding also fine. Are the question on exam really in this broken english?"
+      },
+      {
+        "date": "2023-06-25T11:43:00.000Z",
+        "voteCount": 1,
+        "content": "make sense"
+      },
+      {
+        "date": "2023-08-03T06:48:00.000Z",
+        "voteCount": 2,
+        "content": "root@master-node-1:~# kubectl create clusterrole deployment-clusterrole --verb=create --resource=deployments,statefulsets,daemonsets -o yaml --dry-run=client | kubectl apply -f -\nclusterrole.rbac.authorization.k8s.io/deployment-clusterrole configured\nroot@master-node-1:~# kubectl create serviceaccount cicd-token -n app-team1\nserviceaccount/cicd-token created\nroot@master-node-1:~# kubectl create clusterrolebinding deployment-clusterrolebinding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token --namespace=app-team1 -o yaml --dry-run=client | kubectl apply -f -\nclusterrolebinding.rbac.authorization.k8s.io/deployment-clusterrolebinding created\nroot@master-node-1:~#  kubectl auth can-i create deployment -n app-team1 --as system:serviceaccount:app-team1:cicd-token\nyes\nroot@master-node-1:~# kubectl auth can-i create daemonsets --namespace app-team1 --as=system:serviceaccount\nno"
+      },
+      {
+        "date": "2023-10-02T03:39:00.000Z",
+        "voteCount": 11,
+        "content": "Setting Configuration Context:\nkubectl config use-context k8s\n\nCreating the ClusterRole:\nkubectl create clusterrole deployment-clusterrole --verb=create --resource=deployments,statefulsets,daemonsets -n app-team1\n\nCreating the ServiceAccount:\nkubectl create serviceaccount cicd-token -n app-team1\n\nBinding the ClusterRole to the ServiceAccount:\nTo bind the ClusterRole to the ServiceAccount in a specific namespace, you'll use a RoleBinding:\nkubectl create rolebinding deployment-clusterrole-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2024-09-21T23:52:00.000Z",
+        "voteCount": 1,
+        "content": "If I used a clusterrolebind here as per the answer will it still be correct?"
+      },
+      {
+        "date": "2024-04-06T03:08:00.000Z",
+        "voteCount": 5,
+        "content": "First needs to create clusterrole: \n$ kubectl create clusterrole deployment-clusterrole --verb=create --resource=dployments,statefulsets,daemonsets\n\nStep:2 create service account\nkubectl create sa cicd-token -n app-team1\n\nstep:3 Create rolebinding to clusterrole for specific namespace\n$kubectl create rolebinding deployment-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1\n\nstep:4 test the role and actions\n$kubectl auth can-i create deployment  --as=system:serviceaccount:app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2024-03-29T14:51:00.000Z",
+        "voteCount": 1,
+        "content": "Alternatively, a RoleBinding can reference a ClusterRole and bind that ClusterRole to the namespace of the RoleBinding. If you want to bind a ClusterRole to all the namespaces in your cluster, you use a ClusterRoleBinding."
+      },
+      {
+        "date": "2024-02-22T13:36:00.000Z",
+        "voteCount": 1,
+        "content": "dont fall for this! create clusterrole and follow instructions given!  you can specify the namespace when your creating a clusterrolebdinding  just as you have been asked in the question 'limited to the namespace app-team, also dont forget to create the serviceaccount on the same namespace app-team1"
+      },
+      {
+        "date": "2024-01-04T19:01:00.000Z",
+        "voteCount": 2,
+        "content": "k create clusterrole deployment-clusterrole -n app-team1 --resource=deployment,statefulset,daemonset --verb=create\n\nk create serviceaccount cicd-token -n app-team1\n\nk create clusterrolebinding rb-deployment-clusterrole --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2023-10-14T10:41:00.000Z",
+        "voteCount": 1,
+        "content": "k create rolebinding deployments,statefulsets,daemonsets --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2023-08-15T07:01:00.000Z",
+        "voteCount": 2,
+        "content": "The question is structured this way:\nkubectl create ns app-team1.  #ns already exist\nkubectl create sa cicd-token -n app-team1\n\nkubectl api-resources # to verify the resources names\nkubectl create clusterrole deployment-clusterrole --verb=create --resource=deployments,statefulsets,daemonsets\nkubectl create rolebinding deployment-role-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token --namespace=app-team1\nkubectl auth can-i create deployments --as=system:serviceaccount:app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2023-06-25T11:42:00.000Z",
+        "voteCount": 1,
+        "content": "Clusterrolebinding or rolebinding ? Some confusing answers"
+      },
+      {
+        "date": "2023-07-02T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "the question clearly states to create a clusterrole but never mentioned using a clusterrolebinding, instead it states to limit the binding to the namespace app-team1. So, it should be rolebinding."
+      },
+      {
+        "date": "2023-06-15T20:40:00.000Z",
+        "voteCount": 1,
+        "content": "kubectl create rolebinding deployment-clusterrole-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2023-06-07T04:54:00.000Z",
+        "voteCount": 3,
+        "content": "controlplane $ k create ns app-team1\nnamespace/app-team1 created\ncontrolplane $ k create sa -n app-team1 cicd-token\nserviceaccount/cicd-token created\ncontrolplane $ k create clusterrole deployment-clusterrole --verb=create --resource=deploy,sts,ds         \nclusterrole.rbac.authorization.k8s.io/deployment-clusterrole created\ncontrolplane $ k create clusterrolebinding deployment-clusterrole --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-tokenclusterrolebinding.rbac.authorization.k8s.io/deployment-clusterrole created\ncontrolplane $ \ncontrolplane $ k auth can-i create sts --as=system:serviceaccount:default:cicd-token\nno\ncontrolplane $ k auth can-i create sts --as=system:serviceaccount:app-team1:cicd-token\nyes\ncontrolplane $"
+      },
+      {
+        "date": "2023-02-25T06:52:00.000Z",
+        "voteCount": 2,
+        "content": "Create the ClusterRole:\nkubectl create clusterrole deployment-clusterrole --verb=create --resource=deployments,statefulsets,daemonsets\n\nCreate a new ServiceAccount:\nkubectl create serviceaccount -n app-team1 cicd-token\n\nBind the new ClusterRole \"deployment-clusterrole\" to the new ServiceAccount:\nkubectl create clusterrolebinding cicd-token-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1"
+      },
+      {
+        "date": "2023-05-19T08:00:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl create clusterrolebinding cicd-token-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token -n app-team1  - will not work as there is no namespace (-n) option for clusterrolebinding - if you do create a CRB it will give CR permissions to the user for the whole cluster"
+      },
+      {
+        "date": "2023-01-11T21:42:00.000Z",
+        "voteCount": 2,
+        "content": "1. k create clusterrole deployment-clusterrole --verb=create --resource=Deployment,StatefulSet,DaemonSet\n2. k create sa cicd-token -n app-team1\n3. k create rolebinding deploy-b -n app-team1 --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token\n4. k auth can-i create deployment -n app-team1 --as system:serviceaccount:app-team1:cicd-token\n5. k auth can-i create deployment --as system:serviceaccount:app-team1:cicd-token"
+      },
+      {
+        "date": "2023-01-02T03:16:00.000Z",
+        "voteCount": 1,
+        "content": "k create rolebinding deploy-b -n app-team1 --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token   \n=======\nThis is Currect"
+      },
+      {
+        "date": "2022-12-09T20:59:00.000Z",
+        "voteCount": 3,
+        "content": "1.k create clusterrole deployment-clusterrole --verb=create --resource=Deployment,StatefulSet,DaemonSet\n2.k create sa cicd-token --namespace=app-team1\n3.k create rolebinding -n app-team1 deployment-clusterrole-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token\n4. k auth can-i create deployment -n app-team1 --as system:serviceaccount:app-team1:cicd-token"
+      },
+      {
+        "date": "2022-12-12T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "i did the mistake of putting clusterrolebinding instead of rolebinding, as it is related to a namespace.."
+      },
+      {
+        "date": "2022-12-14T07:46:00.000Z",
+        "voteCount": 3,
+        "content": "It working !\ncontrolplane $ k create clusterrole deployment-clusterrole --verb=create --resource=Deployment,StatefulSet,DaemonSet\nclusterrole.rbac.authorization.k8s.io/deployment-clusterrole created\ncontrolplane $ \ncontrolplane $ #k create sa cicd-token --namespace=app-team1\ncontrolplane $ k create ns app-team1\nnamespace/app-team1 created\ncontrolplane $ k create sa cicd-token --namespace=app-team1\nserviceaccount/cicd-token created\ncontrolplane $ k create rolebinding -n app-team1 deployment-clusterrole-binding --clusterrole=deployment-clusterrole --serviceaccount=app-team1:cicd-token\nrolebinding.rbac.authorization.k8s.io/deployment-clusterrole-binding created\ncontrolplane $ \ncontrolplane $  k auth can-i create deployment -n app-team1 --as system:serviceaccount:app-team1:cicd-token\nyes\ncontrolplane $ \ncontrolplane $ k auth can-i create deployment -n default --as system:serviceaccount:app-team1:cicd-token\nno\ncontrolplane $"
+      },
+      {
+        "date": "2022-10-20T14:18:00.000Z",
+        "voteCount": 1,
+        "content": "for rolebinding, --namespace=app-team1?"
+      },
+      {
+        "date": "2022-10-23T02:16:00.000Z",
+        "voteCount": 4,
+        "content": "No, clusterroles works across cluster not bound to specific namspace."
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/cncf/view/85516-exam-cka-topic-1-question-2-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0000300002.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Set the node named ek8s-node-0 as unavailable and reschedule all the pods running on it.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image16.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-24T16:27:00.000Z",
+        "voteCount": 16,
+        "content": "Do you really need to uncordon it? The task is only to mark the node unschedulable and reschedule all the running pods on it. It should be done by issuing:\n\n# drain node &lt;node_name&gt; --ignore-daemonsets"
+      },
+      {
+        "date": "2023-08-06T13:19:00.000Z",
+        "voteCount": 1,
+        "content": "But the command will only mark the node schedulingDisabled how do we now reschedule the pods?"
+      },
+      {
+        "date": "2024-02-26T01:56:00.000Z",
+        "voteCount": 1,
+        "content": "drain will safely evict all of the pods from a node, if there are daemon set-managed pods, drain will not proceed without using --ignore-daemonsets flag"
+      },
+      {
+        "date": "2023-10-05T06:18:00.000Z",
+        "voteCount": 2,
+        "content": "The key thing here is to reschedule all POD's, if cluster has only single node and the controlplane then POD's won't get scheduled to controlplane. In this case either taints will need to be removed from controlplane or need to add tolerations to POD so that they can be scheduled on controlplane."
+      },
+      {
+        "date": "2023-10-12T04:07:00.000Z",
+        "voteCount": 2,
+        "content": "You are absolutely right. In my case, there where 3 nodes (1 master and 2 worker) so just cordon and then drain (i know drain alone can do the job, but cordon first and then drain is more complete) the worker node"
+      },
+      {
+        "date": "2023-03-13T04:52:00.000Z",
+        "voteCount": 12,
+        "content": "k cordon ek8s-node-0\nk drain ek8s-node-0 --delete-local-data --ignore-daemonsets --force"
+      },
+      {
+        "date": "2023-10-24T21:12:00.000Z",
+        "voteCount": 2,
+        "content": "i think you are right because its asking to rescheduling all pods which are running on ek8s-node-0 so when we cordon it pods will automatically rescheduling on another node."
+      },
+      {
+        "date": "2024-07-07T21:34:00.000Z",
+        "voteCount": 2,
+        "content": "When we cordon the node it only marks node as unschedulable. It doesn't automatically reschedule the pods to another node."
+      },
+      {
+        "date": "2024-07-25T23:24:00.000Z",
+        "voteCount": 1,
+        "content": "We have 2 statements. \n- drain ek8s-node-0 as unavailable\n    - kubectl drain  ek8s-node-0 \u2014ignore-daemonsets\n- reschedule all the pods running on it\n    - kubectl uncordon ek8s-node-0\n    - kubectl drain ek8s-master-0  \u2014ignore-daemonsets\n    - kubectl drain ek8s-node-1  \u2014ignore-daemonsets"
+      },
+      {
+        "date": "2024-05-15T02:56:00.000Z",
+        "voteCount": 1,
+        "content": "should we edit all pods one by one and write tolerations same as taint on ek8s-node-0?? after drain??"
+      },
+      {
+        "date": "2024-04-09T22:41:00.000Z",
+        "voteCount": 2,
+        "content": "Drain marks the node as unschedulable and also evict pods on the node. While, cordon, only marks the node as unschedulable. Hence, kubectl drain &lt;node name&gt; --ignore-daemonsets, would work in this case and also questions refers to only pods and not all objects."
+      },
+      {
+        "date": "2024-03-30T12:29:00.000Z",
+        "voteCount": 2,
+        "content": "This question can be tricky with pods that are NOT created as part of replicaSets. Then the pods will be terminated only and not rescheduled on other nodes. That needs to be checked before draining the node."
+      },
+      {
+        "date": "2024-03-15T18:06:00.000Z",
+        "voteCount": 1,
+        "content": "# Mark the node as unschedulable\nkubectl cordon ek8s-node-0\n\n# Delete all pods running on the node\nkubectl delete pods --all --grace-period=0 --force --field-selector spec.nodeName=ek8s-node-0"
+      },
+      {
+        "date": "2024-01-07T12:37:00.000Z",
+        "voteCount": 3,
+        "content": "No need to uncordon it. Draining the node will evict the nodes and mark it unschedulable.\n\n# k drain  &lt;node_name&gt; --ignore-daemonsets\n# k get nodes\n# k get pods -o wide (make sure existing pods are on other nodes)"
+      },
+      {
+        "date": "2023-07-06T04:59:00.000Z",
+        "voteCount": 6,
+        "content": "don't need to run cordon if you're going to drain it. Drain will do it then evict all the pods in the node.\n\nI'm confused the question didn't say we have to uncordon it eventually, why some comments are saying that we need to uncordon the node?"
+      },
+      {
+        "date": "2023-07-05T00:31:00.000Z",
+        "voteCount": 2,
+        "content": "As i read this question i see that there are two actions required - make unavailable and reschedule. To make unavailable (or unschedulable) we need to cordon it and then drain, no?"
+      },
+      {
+        "date": "2023-02-27T00:51:00.000Z",
+        "voteCount": 3,
+        "content": "would this be correct:\nK get nodes\nK drain ek8s-node-0 \u2013ignore-demosets\nMark the node as unschedulable:\nkubectl cordon ek8s-node-0\nDelete the node:\nkubectl delete node ek8s-node-0\nkubectl get pods -o wide"
+      },
+      {
+        "date": "2023-06-25T12:20:00.000Z",
+        "voteCount": 5,
+        "content": "I guess You Shouldnt delete node"
+      },
+      {
+        "date": "2022-11-15T02:35:00.000Z",
+        "voteCount": 4,
+        "content": "dont forget to uncordon the node so that rescheudling can occur"
+      },
+      {
+        "date": "2023-07-21T12:01:00.000Z",
+        "voteCount": 4,
+        "content": "The task does not asks to make it back available! I guess the exam checker will compare the LAST state of the node when ending the exam. If the node is uncordoned, how can the exam checker know that at some moment the node had been unscheduable.\nI do not see the point of uncordon it."
+      },
+      {
+        "date": "2022-11-05T21:10:00.000Z",
+        "voteCount": 1,
+        "content": "It doesn\u2019t matter, focus on how to solve it instead of node names"
+      },
+      {
+        "date": "2022-10-15T03:20:00.000Z",
+        "voteCount": 7,
+        "content": "isnt this should be node-0?"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/cncf/view/102485-exam-cka-topic-1-question-3-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0000400002.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Given an existing Kubernetes cluster running version 1.22.1, upgrade all of the Kubernetes control plane and node components on the master node only to version 1.22.2.<br>Be sure to drain the master node before upgrading it and uncordon it after the upgrade.<br><img src=\"/assets/media/exam-media/04318/0000500001.jpg\" class=\"in-exam-image\"><br>You are also expected to upgrade kubelet and kubectl on the master node.<br><img src=\"/assets/media/exam-media/04318/0000600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image17.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image18.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-13T07:08:00.000Z",
+        "voteCount": 7,
+        "content": "--etcd-upgrade                       Perform the upgrade of etcd. (default true)\n\nThe default etcd upgrade is true, so disable it with \nsudo kubeadm upgrade apply v1.** --etcd-upgrade=false"
+      },
+      {
+        "date": "2023-04-05T04:34:00.000Z",
+        "voteCount": 5,
+        "content": "not exactly like in the exam. but it helps. do not relay on dumps only. i recommend to study with kodekloud and the corresponding udemy course."
+      },
+      {
+        "date": "2024-02-12T02:40:00.000Z",
+        "voteCount": 1,
+        "content": "$ kubectl config use-config eks8\n$ kubectl cordon ek8s-node-1\n$ kubectl drain ek8s-node-1 --delete-local-data --ignore-daemonsets --force\nThis is much more understandable solution for me"
+      },
+      {
+        "date": "2023-07-06T23:32:00.000Z",
+        "voteCount": 4,
+        "content": "Would those steps be right?\n1.  k cordon nodename; \n2. k drain --ignore-daemonsets nodename; \n3. ssh into node; \n4. swapoff -a; \n5. then find swap line in /etc/fstab and comment it out; \n6. run apt-mark unhold kubeadm kubelet kubectl &amp;&amp; \\\napt-get update &amp;&amp; apt-get install -y kubeadm=1.2xx-00 kubelet=1.2x.x-00 kubectl=1.2x.x-00&amp;&amp; \\ apt-mark hold kubeadm  kubelet kubectl \n7. sudo systemctl daemon-reload\n8. sudo systemctl restart kubelet\n9. exit ssh\n10.k uncordon node"
+      },
+      {
+        "date": "2023-05-15T18:40:00.000Z",
+        "voteCount": 4,
+        "content": "we need to set --etcd-upgrade=false, question says so not upgrade the etcd"
+      },
+      {
+        "date": "2023-06-07T10:09:00.000Z",
+        "voteCount": 2,
+        "content": "Looking at the upgade logs i can see that etcd is still the same version, but i think you have a point because the --etcd-upgrade flag is set to true by default"
+      },
+      {
+        "date": "2023-11-29T11:23:00.000Z",
+        "voteCount": 2,
+        "content": "I didn't understand the issue that way.\nIt says to update all components and etcd is one of them.\n\"Update all Kubernetes node and control plane components on the master node to version 1.22.2 only.\""
+      },
+      {
+        "date": "2024-06-15T02:15:00.000Z",
+        "voteCount": 1,
+        "content": "I was also confused about it. But if you see the last picture in question, it clearly says not to upgrade etcd and Addons as well. So I think following is the command to upgrade the cluster\n\nkubeadm upgrade apply v1.22.2 --etcd-upgrade=false\n\nNow the question is how we can skip CoreDNS upgrade as I don't see any option to skip it"
+      },
+      {
+        "date": "2023-03-13T01:55:00.000Z",
+        "voteCount": 5,
+        "content": "I has this question on the exam, you can follow the steps below to complete it, just ensure that you are ssh-ing from the right node:\n\nhttps://kubernetes.io/docs/tasks/administer-cluster/kubeadm/kubeadm-upgrade/#upgrading-control-plane-nodes"
+      },
+      {
+        "date": "2023-03-21T00:22:00.000Z",
+        "voteCount": 7,
+        "content": "are this questions exactly thesame in exams?"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/cncf/view/87404-exam-cka-topic-1-question-4-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0000900001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>First, create a snapshot of the existing etcd instance running at https://127.0.0.1:2379, saving the snapshot to /var/lib/backup/etcd-snapshot.db.<br><img src=\"/assets/media/exam-media/04318/0001000001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/04318/0001000002.jpg\" class=\"in-exam-image\"><br>Next, restore an existing, previous snapshot located at /var/lib/backup/etcd-snapshot-previous.db.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image19.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-23T21:53:00.000Z",
+        "voteCount": 16,
+        "content": "In the real exam you need restore from /var/lib/backup/etcd-snapshot-previous.db and there will be a permission issue, to fix this you need to be a root user and change owner permission then you need to restore db backup"
+      },
+      {
+        "date": "2023-10-14T20:19:00.000Z",
+        "voteCount": 2,
+        "content": "take note ppl!"
+      },
+      {
+        "date": "2023-07-06T09:47:00.000Z",
+        "voteCount": 1,
+        "content": "Cd /etc/Kubernetes/manifest---- to check etcd yaml . Any scenario where this manifest file was not located ?"
+      },
+      {
+        "date": "2023-09-15T04:12:00.000Z",
+        "voteCount": 1,
+        "content": "If its an external etcd-server you will not see the manifest."
+      },
+      {
+        "date": "2024-10-12T04:10:00.000Z",
+        "voteCount": 1,
+        "content": "it is not external"
+      },
+      {
+        "date": "2023-09-15T04:29:00.000Z",
+        "voteCount": 3,
+        "content": "If etcd is stacked, meaning it is running as a pod on the master node... the manifest file should be there. I strongly doubt the exam will setup an external etcd server as it will take a lot more effort to complete that task.\nPersonally, i will start by checking ;\n- If there is an etcd pod on the master-node\n- Describe the api-server pod to see the etcd-server address(localhost or remote)\n- If local, then business as usual\n- If remote you will need some additional steps to fully restore, including ssh into the etcd server and modifying the --data-dir at systemd/system/etcd.service file ( A lot more headache)"
+      },
+      {
+        "date": "2022-11-13T15:30:00.000Z",
+        "voteCount": 12,
+        "content": "The solution does not fully solve the excercise, because the restore operation creates a default.etcd directory in the current directory where the utility ectdctl is called. Inside the newly created defaultl.etcd directory, it's a subdirectory called \"member\" containing the actual backup. That location is for sure not the one that is configured at etcd start. First is advisable to find out where the ETCD data is (--data-dir flag at service start). To effectively apply the backup, for instance, after stopping the service, we should move the targeted \"member\" folder in --data-dir location, let's name it $DATA_DIR_PATH, and decorate the restore operation with the flag data-dir set to $DATA_DIR_PATH: \n# #-- SERVICE ETCD STOPPED --\n...\n# mv $DATA_DIR_PATH/member $SOME_OTHER_LOCATION\n# ETCDCTL_API=3 etcdctl --data-dir $DATA_DIR_PATH snapshot restore /var/lib/backup/etcd-snapshot-previous.db\n# #-- SERVICE ETCD STARTED --"
+      },
+      {
+        "date": "2023-01-02T11:19:00.000Z",
+        "voteCount": 2,
+        "content": "This is only possible if ETCD is created as a systemd service and not as a pod. in most cases etcd will be created as a static pod, you cant utilize systemd service for that and you obviously cant have DATA_DIR_PATH as an environmental variable"
+      },
+      {
+        "date": "2023-01-02T11:52:00.000Z",
+        "voteCount": 1,
+        "content": "setting DATA_DIR_PATH is ok, not an issue, ignore initial comment on env"
+      },
+      {
+        "date": "2022-11-24T06:38:00.000Z",
+        "voteCount": 8,
+        "content": "indeed, or you can repoint in the manifest file of etcd the data-dir to the restored directory"
+      },
+      {
+        "date": "2024-08-27T23:50:00.000Z",
+        "voteCount": 1,
+        "content": "Hello,\nCan someone please explain the steps with commands to change to be a root user?\nThank you"
+      },
+      {
+        "date": "2024-08-03T10:15:00.000Z",
+        "voteCount": 1,
+        "content": "tip for this question ,change the user to root after you will be able to do it"
+      },
+      {
+        "date": "2024-06-08T03:55:00.000Z",
+        "voteCount": 4,
+        "content": "Backup:\netcdctl --endpoints 127.0.0.1:2379 --cacert=/opt/KUIN00601/ca.crt --cert=/opt/KUIN00601/etcd-client.crt\n--key=/opt/KUIN00601/etcd-client.key snapshot save /var/lib/backup/etcd-snapshot.db\n\nRestore:\nmkdir -p /var/lib/new-etcd/\netcdctl  snapshot restore --data-dir=/var/lib/new-etcd/  /var/lib/backup/etcd-snapshot-previous.db\n\n\nEdit manifest:\nvi /etc/kuberenetes/manifest/etcd.yaml\n\n#change hostpath\n  - hostPath:\n      path: /var/lib/new-etcd/\n      type: DirectoryOrCreate\n    name: etcd-data"
+      },
+      {
+        "date": "2024-04-04T08:34:00.000Z",
+        "voteCount": 2,
+        "content": "Do we need to update the Volume.hostPath in file - /etc/kubernetes/manifests/etcd.yaml post restore ?"
+      },
+      {
+        "date": "2024-02-12T09:10:00.000Z",
+        "voteCount": 6,
+        "content": "Solution is here &gt; https://www.youtube.com/watch?v=Onb85cQl1jc"
+      },
+      {
+        "date": "2024-02-12T04:29:00.000Z",
+        "voteCount": 2,
+        "content": "$ ETCDCTL_API=3 etcdctl --endpoints 127.0.0.1:2379 --cacert=/opt/KUIN00601/ca.crt --cert=/opt/KUIN00601/etcd-client.crt \n --key=/opt/KUIN00601/etcd-client.key snapshot save /var/lib/backup/etcd-snapshot.db\n\n\n$ ETCDCTL_API=3 etcdctl --endpoints 127.0.0.1:2379 --cacert=/opt/KUIN00601/ca.crt --cert=/opt/KUIN00601/etcd-client.crt\n --key=/opt/KUIN00601/etcd-client.key snapshot restore /var/lib/backup/etcd-snapshot-previous.db\nThis is more effective one you can use"
+      },
+      {
+        "date": "2023-10-11T16:30:00.000Z",
+        "voteCount": 5,
+        "content": "Wondering if no one has noticed the path in question? It clearly says to take the snapshot under /var/lib/backup/  but it seems everyone is okay with /etc/data/\n\nAny hints/help?"
+      },
+      {
+        "date": "2023-10-03T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "Why do we need to stop etcd service?"
+      },
+      {
+        "date": "2023-10-04T13:28:00.000Z",
+        "voteCount": 1,
+        "content": "I guess that it is always a good practice, so that you make sure nothing is writing on ETCD while performing the restore."
+      },
+      {
+        "date": "2023-08-31T08:41:00.000Z",
+        "voteCount": 6,
+        "content": "If you see that the question simply says to restore a backup. Doesn't mention any data directory. \nThere's a default.etcd directory that gets created if you restore this in the current working directory in the exam. \n\nRemember, if the etcd doesn't come back up the way it's expected, you may loose onto resources in the K8s cluster. There are around 9-10 questions to be performed in that context. You need to treat this question very carefully and not mess with the database by changing the manifest file."
+      },
+      {
+        "date": "2023-06-01T01:02:00.000Z",
+        "voteCount": 8,
+        "content": "#backup\nETCDCTL_API=3 etcdctl --endpoints=\"https://127.0.0.1:2379\" --cacert=/opt/KUIN000601/ca.crt --cert=/opt/KUIN000601/etcd-client.crt --key=/opt/KUIN000601/etcd-client.key snapshot save /etc/data/etcd-snapshot.db\n\n#restore\nETCDCTL_API=3 etcdctl --endpoints=\"https://127.0.0.1:2379\" --cacert=/opt/KUIN000601/ca.crt --cert=/opt/KUIN000601/etcd-client.crt --key=/opt/KUIN000601/etcd-client.key snapshot restore /var/lib/backup/etcd-snapshot-previoys.db"
+      },
+      {
+        "date": "2023-05-16T17:07:00.000Z",
+        "voteCount": 1,
+        "content": "do we need to run these backup/restored commands from the master node?"
+      },
+      {
+        "date": "2023-04-09T18:51:00.000Z",
+        "voteCount": 1,
+        "content": "https://kubernetes.io/docs/tasks/administer-cluster/configure-upgrade-etcd/\nto cover the etcd backup and restore"
+      },
+      {
+        "date": "2023-03-13T14:07:00.000Z",
+        "voteCount": 6,
+        "content": "You may have 2 etcd instances. One running in the cluster itself and the second one running outside the kubernetes cluster. They are not asking you to change context so DO NOT restore in the kubernets cluster.\nFollow these steps outside the cluster:\n1.Execute \u201cmember list\u201d and \u201csnapshot status\u201d to check hash\n2.systemctl stop etcd\n3.restore another backup using same certs, endpoint, and different dir\n4.chown -R etcd:etcd /DIR_YOU_RESTORE\n5.change dir in the service file\n6.system daemon-reload\n7.systermctl start etcd\n8.systemctl status etcd\n9.member list - to check you have different hash"
+      },
+      {
+        "date": "2023-03-13T05:01:00.000Z",
+        "voteCount": 2,
+        "content": "Any update about this task? Is there any step-by-step guide?"
+      },
+      {
+        "date": "2023-03-05T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "also, after restore, the pv created in the previous question was no longer available because both the questions were to be resolved in the same context"
+      },
+      {
+        "date": "2023-06-08T12:15:00.000Z",
+        "voteCount": 1,
+        "content": "you could refer to the  Certified Kubernetes Administrator (CKA) with Practice Tests\n \"Practice Test Backup and Restore Methods 2\" session by Mumshad Mannambeth"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/cncf/view/81759-exam-cka-topic-1-question-5-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0001200001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Create a new NetworkPolicy named allow-port-from-namespace in the existing namespace fubar.<br>Ensure that the new NetworkPolicy allows Pods in namespace internal to connect to port 9000 of Pods in namespace fubar.<br>Further ensure that the new NetworkPolicy:<br>\u2711 does not allow access to Pods, which don't listen on port 9000<br>\u2711 does not allow access from Pods, which are not in namespace internal<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image20.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image21.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-04T06:04:00.000Z",
+        "voteCount": 54,
+        "content": "I think this asnwer is wrong the solution should be \n\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: {}\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchLabels:\n              kubernetes.io/metadata.name: internal\n      ports:\n        - protocol: TCP\n          port: 9000"
+      },
+      {
+        "date": "2022-12-09T22:57:00.000Z",
+        "voteCount": 12,
+        "content": "For this question, we should create a label for \"internal\" namespace in further YAML.\n# k label ns internal tier=internal\n\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: {}\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchLabels:\n              tier: internal\n      ports:\n        - protocol: TCP\n          port: 9000"
+      },
+      {
+        "date": "2023-11-23T03:29:00.000Z",
+        "voteCount": 6,
+        "content": "Don't think you need to create a label specifically unless you need to work with multiple namespaces\n\n\"The Kubernetes control plane sets an immutable label kubernetes.io/metadata.name on all namespaces, the value of the label is the namespace name.\n\nWhile NetworkPolicy cannot target a namespace by its name with some object field, you can use the standardized label to target a specific namespace.\"\n\nI suppose that implies you CAN but you don't HAVE TO."
+      },
+      {
+        "date": "2024-01-31T16:26:00.000Z",
+        "voteCount": 2,
+        "content": "Due to this part: \"- does not allow access from Pods, which are not in namespace internal\" -means that even pods in namespace fubar should not be able to reach other pods in same namespace. \nI would suggest to do following  :\n----\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: {} # Selects all Pods in the `fubar` namespace\n  policyTypes:\n  - Ingress\n  - Egress\n  ingress:\n  - from:\n    - namespaceSelector:\n        matchLabels:\n          name: internal\n    ports:\n    - protocol: TCP\n      port: 9000\n\nthis way Egress is specified but due to fact nothing is defined pod in same NSs are not able to communicate."
+      },
+      {
+        "date": "2024-07-17T02:44:00.000Z",
+        "voteCount": 2,
+        "content": "No need for that... the policy already restricts the traffic to the internal ns.\nTested it and even another pod in the fubar ns cannot reach the other pods listening port 9000."
+      },
+      {
+        "date": "2023-11-30T11:11:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: # Selects Pods in the namespace where the NetworkPolicy is applied\n    matchLabels: {}\n\n  policyTypes:\n  - Ingress\n\n  ingress:\n  - from:\n    - namespaceSelector: # Allow traffic only from Pods in the 'internal' namespace\n        matchLabels:\n          name: internal\n    ports:\n    - protocol: TCP\n      port: 9000 # Allow connections to port 9000\n\n  egress:\n  - to:\n    - namespaceSelector: # Allow traffic only to Pods in the 'fubar' namespace\n        matchLabels:\n          name: fubar\n    ports:\n    - protocol: TCP\n      port: 9000 # Allow connections to port 9000"
+      },
+      {
+        "date": "2023-10-26T00:07:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: {}\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n      - namespaceSelector:\n          matchLabels:\n            name: internal\n      ports:\n      - protocol: TCP\n        port: 9000"
+      },
+      {
+        "date": "2023-10-14T00:09:00.000Z",
+        "voteCount": 1,
+        "content": "I think we need to check my-app labels first to match it,"
+      },
+      {
+        "date": "2023-08-13T12:50:00.000Z",
+        "voteCount": 4,
+        "content": "Tested locally and this worked for me\nUsed Nginx Pod with port set to 9000 in the fubar namespace\nUsed Alpine Pod image alpine/curl in the internal namespace for testing\nexec into the Alpine Pod and run the command:\ncurl (your nginx pod IP seperated by dashes).fubar.pod.cluster.local:9000\n\nPolicy:\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: {}\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchLabels:\n              kubernetes.io/metadata.name: \"internal\"\n      ports:\n        - protocol: TCP\n          port: 9000"
+      },
+      {
+        "date": "2023-10-13T10:22:00.000Z",
+        "voteCount": 2,
+        "content": "It doesn't work for me when I use port 9000 for nginx, however port 80 works fine. Not sure if I am doing something incorrectly."
+      },
+      {
+        "date": "2023-06-25T05:02:00.000Z",
+        "voteCount": 1,
+        "content": "I still fail to understand this question. Do they want me to create a policy that allows only traffic on port 9000 from namespace internal (x2 ingress) or do they want to create a network policy to restrict incoming traffic, so that only pods FROM (ingress) internal namespace are allowed and pods TO (egress) port 9000 ?"
+      },
+      {
+        "date": "2023-06-23T22:07:00.000Z",
+        "voteCount": 3,
+        "content": "To one who wonder where this from: kubernetes.io/metadata.name: internal, run: k get ns internal --show-labels"
+      },
+      {
+        "date": "2023-06-14T01:24:00.000Z",
+        "voteCount": 1,
+        "content": "Should we also add deny any any and add NP to access port 9000 in ns foobar, from internal?"
+      },
+      {
+        "date": "2023-05-17T02:52:00.000Z",
+        "voteCount": 3,
+        "content": "Maybe this?\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector:\n    matchLabels:\n      - namespaceSelector:\n          matchExpressions:\n          - key: namespace\n            operator: In\n            Values: [\"fubar\"]\n  policyTypes:\n    - Ingress\n    - Egress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchExpressions:\n            - key: namespace\n              operator: In\n              Values: [\"internal\"]\n      ports:\n        - protocol: TCP\n          port: 9000"
+      },
+      {
+        "date": "2023-04-26T13:48:00.000Z",
+        "voteCount": 2,
+        "content": "using this I get an error so I had to use label, at least practicing not in exam yet\nkubernetes.io/metadata.name: internal"
+      },
+      {
+        "date": "2023-07-30T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "me too I got an error using it"
+      },
+      {
+        "date": "2023-04-28T18:31:00.000Z",
+        "voteCount": 2,
+        "content": "I was using \nkubernetes.io/metadata.name=echo instead of kubernetes.io/metadata.name: echo\n\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: test-network-policy\n  namespace: my-app\nspec:\n  podSelector: {}\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchLabels:\n              kubernetes.io/metadata.name: echo\n      ports:\n        - protocol: TCP\n          port: 9000"
+      },
+      {
+        "date": "2023-04-11T04:48:00.000Z",
+        "voteCount": 2,
+        "content": "Is there a template during the exam or do we have to write it all from scratch?"
+      },
+      {
+        "date": "2023-03-08T15:24:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry, I disagree with :\nmatchLabels:\nkubernetes.io/metadata.name: internal  \n\nI suggest :\ningress:\n  - from:\n    - namespaceSelector:\n         matchLabels:\n            items[0].metadata.namespace:  internal   # from query kubectl get po with jsonpath\n\nWhat do you think ?"
+      },
+      {
+        "date": "2023-03-09T07:44:00.000Z",
+        "voteCount": 1,
+        "content": "I made an error. So, the answer from Kubernetes's document : \nkubernetes.io/metadata.name\nExample: kubernetes.io/metadata.name: \"mynamespace\"\n\nUsed on: Namespaces\nThe Kubernetes API server (part of the control plane) sets this label on all namespaces. The label value is set to the name of the namespace. You can't change this label's value.\nThis is useful if you want to target a specific namespace with a label selector."
+      },
+      {
+        "date": "2023-01-23T22:30:00.000Z",
+        "voteCount": 2,
+        "content": "They have asked us for namespace internal, hence following is the correct under matchlabels kubernetes.io/metadata.name: internal"
+      },
+      {
+        "date": "2023-01-19T03:01:00.000Z",
+        "voteCount": 1,
+        "content": "no magic: (this policy is ns scoped so no need any labelling on ns)\ntested, works\n\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: fubar\nspec:\n  podSelector: {}\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n      ports:\n        - protocol: TCP\n          port: 9000"
+      },
+      {
+        "date": "2022-11-24T06:45:00.000Z",
+        "voteCount": 2,
+        "content": "I think \"kubernetes.io/metadata.name: fubar\" is right\nhttps://kubernetes.io/docs/reference/labels-annotations-taints/#kubernetes-io-metadata-name"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/cncf/view/87502-exam-cka-topic-1-question-6-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0001500001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Reconfigure the existing deployment front-end and add a port specification named http exposing port 80/tcp of the existing container nginx.<br>Create a new service named front-end-svc exposing the container port http.<br>Configure the new service to also expose the individual Pods via a NodePort on the nodes on which they are scheduled.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image22.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image23.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image24.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-15T05:32:00.000Z",
+        "voteCount": 15,
+        "content": "if you add port, name, and protocol in the deployment spec, then you only need to run:\nkubectl expose deployment front-ed--type=NodePort --name=front-end-svc"
+      },
+      {
+        "date": "2024-09-26T00:15:00.000Z",
+        "voteCount": 7,
+        "content": "for reconfiguring part ;\n#kubectl edit deployment front-end\nthen add the following in the container part;\n\n      containers:\n      - name: nginx-dep-cont\n        image: nginx:1.14.2\n        ports:\n          - name: http\n            containerPort: 80\n            protocol: TCP\n\nand to Finally expose it;\n## kubectl expose deployment front-end --name front-end-svc --target-port http --type=NodePort\n\nextra steps;\n# kubectl describe svc front-end-svc\n## curl PICK-ANY-IP-FROM-ENDPOINTS:80\nin my case\n# curl 192.168.133.201:80\n\nTested!"
+      },
+      {
+        "date": "2024-10-11T12:52:00.000Z",
+        "voteCount": 1,
+        "content": "tcp is default. It will add it automatically."
+      },
+      {
+        "date": "2024-05-28T23:49:00.000Z",
+        "voteCount": 1,
+        "content": "after editing the existing ,kubectl expose deployment front-end --name=front-end-svc --port=80 --target-port=80 --type=NodePort"
+      },
+      {
+        "date": "2024-02-12T02:36:00.000Z",
+        "voteCount": 3,
+        "content": "kubectl config use-context k8s\nkubectl expose deployment front-end --port=80 --target-port=80 --protocol=TCP --type=NodePort --name=front-end-svc\nwith this solution it is much more easier"
+      },
+      {
+        "date": "2023-12-13T12:37:00.000Z",
+        "voteCount": 1,
+        "content": "1 kubectl edit deploy  front-end\n        ports:\n        - containerPort: 80\n          name: http\n2 \napiVersion: v1\nkind: Service\nmetadata:\n  name: svc1\nspec:\n  selector:\n    app: nginx\n  ports:\n  - name: name-of-service-port\n    protocol: TCP\n    port: 80\n    targetPort: http\n\t\n3 \napiVersion: v1\nkind: Service\nmetadata:\n  name: svc2\n  type: NodePort\n  selector:\n    app: nginx\n  ports:\n    - port: 80\n      targetPort: http\n      nodePort: 30007"
+      },
+      {
+        "date": "2023-11-30T10:13:00.000Z",
+        "voteCount": 1,
+        "content": "which this one makes you think more than you need to answer.\nWhen asked to export (http) you can put a flag - name: http : example:\n   ports:\n          - container port: 80\n            name: http\nHowever, when you create the service and export port 80 from it."
+      },
+      {
+        "date": "2023-08-15T09:23:00.000Z",
+        "voteCount": 2,
+        "content": "The question as I understood:\nkubectl create deployment front-end --image=nginx --replicas=1 --dry-run=client -oyaml &gt; dep1.yaml\nkubectl apply -f dep1.yaml\nvi dep1.yaml  # manually add the name: http and containerPort: 80\nkubectl expose deployment front-end --target-port=http --name=front-end-svc --type=ClusterIP/NodePort --dry-run=client -oyaml&gt;svc1.yaml\nkubectl apply -f svc1.yaml\nkubectl describe svc front-end-svc"
+      },
+      {
+        "date": "2023-07-15T06:20:00.000Z",
+        "voteCount": 2,
+        "content": "I dont realy understand if we need to do two or three actions- 1.reconfigure the yaml file - add ports. 2 create sa and 3. edit service adding type Nodeport or is it ok just reconfigure yaml and run k expose deployment front-end --name front-end-svc --type NodePort --port 80 --target-port HTTP ?"
+      },
+      {
+        "date": "2023-07-15T23:25:00.000Z",
+        "voteCount": 1,
+        "content": "This is what I asked too. Search here for my user \"iiiaz\". But I think for your comment at action 2 is not sa (service account) but svc (service).\nI guess there are 3 actions but can LinuxFoundation tell if you first done action 2 (create service) and then action 3 (change this service type to NodePort)? As you can directly create a service type NodePort."
+      },
+      {
+        "date": "2023-07-14T03:25:00.000Z",
+        "voteCount": 1,
+        "content": "Who can explain the difference between these tasks:\n\"T1. Create a new service named front-end-svc exposing the container port http.\nT2. Configure the new service to also expose the individual Pods via a NodePort on the nodes on which they are scheduled.\"\nIs it T1: first expose the deployment as default (service type ClusterIP is created) on port http?\nThen, T2, edit the service from type ClusterIP to type NodePort?\nI see the solutions mentioned here go directly to task 2. Quite confusing question."
+      },
+      {
+        "date": "2023-05-16T09:36:00.000Z",
+        "voteCount": 7,
+        "content": "This. is more align with the question\n\nk expose deployment front-end --name front-end-svc  --type NodePort --port 80 --target-port HTTP"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/cncf/view/96762-exam-cka-topic-1-question-7-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0001700002.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Scale the deployment presentation to 3 pods.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image25.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-05T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "dont forget to mention out the concerned namespace:\ncontrolplane ~ \u2716 k scale --replicas=3 deployment/webapp-video -n app-space\ndeployment.apps/webapp-video scaled"
+      },
+      {
+        "date": "2023-11-25T07:58:00.000Z",
+        "voteCount": 3,
+        "content": "kubectl scale --replicas=3 deployment/presentation"
+      },
+      {
+        "date": "2023-01-24T10:50:00.000Z",
+        "voteCount": 2,
+        "content": "use below command to scale the deployment\n\nkubvectl scale deployment_name --replicas=3"
+      },
+      {
+        "date": "2023-04-09T19:17:00.000Z",
+        "voteCount": 14,
+        "content": "You must specify the deployment to scale up or down.\nkubectl scale deployment &lt;deployment_name&gt; --replicas=3\nkubectl scale deployment/&lt;deployment_name&gt; --replicas=3"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/cncf/view/90887-exam-cka-topic-1-question-8-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0001900001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Schedule a pod as follows:<br>\u2711 Name: nginx-kusc00401<br>\u2711 Image: nginx<br>\u2711 Node selector: disk=ssd<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image26.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image27.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image28.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-24T17:09:00.000Z",
+        "voteCount": 13,
+        "content": "@pentium2000 it's not disk=ssd, it should be disk: ssd"
+      },
+      {
+        "date": "2022-12-09T23:31:00.000Z",
+        "voteCount": 6,
+        "content": "https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/\n\napiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx-kusc00401\nspec:\n  containers:\n  - name: nginx-kusc00401\n    image: nginx\n  nodeSelector:\n    disk=ssd"
+      },
+      {
+        "date": "2023-02-22T22:44:00.000Z",
+        "voteCount": 4,
+        "content": "nodeSelector:\n    disktype: ssd\n\nhttps://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/\nIn above url itself it is clearly mentioned."
+      },
+      {
+        "date": "2024-01-18T22:18:00.000Z",
+        "voteCount": 1,
+        "content": "Hers first we have to do the node label.\nkubectl label no node02 disk=ssd\nthen execute below code\nroot@master:~# cat nodeSelector.yml \napiVersion: v1\nkind: Pod\nmetadata:\n  labels:\n    run: nginx-kusc00401\n  name: nginx-kusc00401\nspec:\n  containers:\n  - image: nginx\n    name: nginx\n  nodeSelector:\n     disk: ssd\nroot@master:~#\nthen only pod will be in running state.\nroot@master:~# kubectl get po -o wide | grep 401\nnginx-kusc00401                 1/1     Running   0          7m52s   10.0.2.128   node02   &lt;none&gt;           &lt;none&gt;\nroot@master:~#"
+      },
+      {
+        "date": "2023-11-25T08:15:00.000Z",
+        "voteCount": 2,
+        "content": "first label the node or check if the label exist on the node\nkubectl get nodes --show-labels | grep -i disk=ssd\nif NOT exist then run  -  kubectl label node node01 disk=ssd\nthen\napiVersion: v1\nkind: Pod\nmetadata:\nname: nginx-kusc00401\nspec:\ncontainers:\n- name: nginx\nimage: nginx\nimagePullPolicy: IfNotPresent\nnodeSelector:\ndisk: ssd"
+      },
+      {
+        "date": "2023-10-21T19:30:00.000Z",
+        "voteCount": 1,
+        "content": "For some reason, the code provided by Pentium or ScrewOnPrem didn;t work for me until I added the labels under metadata"
+      },
+      {
+        "date": "2023-06-24T11:51:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx-kusc00401\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n    imagePullPolicy: IfNotPresent\n  nodeSelector:\n    disk: ssd\n\n\nthis works for me"
+      },
+      {
+        "date": "2023-04-26T14:24:00.000Z",
+        "voteCount": 2,
+        "content": "root@cka-master1:~ # kubectl label nodes cka-node1 disk=spinning\n \nroot@cka-master1:~ # kubectl get nodes --show-labels \n\nroot@cka-master1:~ # vim nodeselector.yaml\napiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx-kusc00401            \nspec:\n  containers:\n  - name: nginx                    \n    image: nginx\n    imagePullPolicy: IfNotPresent\n  nodeSelector:\n    disk: spinning                 \n\n# \nroot@cka-master1:~ # kubectl apply -f nodeselector.yaml"
+      },
+      {
+        "date": "2023-04-11T02:30:00.000Z",
+        "voteCount": 4,
+        "content": "The \"nodeselector\" arguement is looking a a label on the node. Use-\nkubectl get nodes --show-labels\nto check what that label actually is.\nThe examples using \"disktype\" from the docs are using that because that is the label name that has been attached to the node.\nP.S. It's a \":\" not a \"=\" -&gt;\ndisk: ssd"
+      },
+      {
+        "date": "2023-01-24T10:49:00.000Z",
+        "voteCount": 2,
+        "content": "nodeSelector is the good and right path .. please don;t use nodeaffinity as its different"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/cncf/view/86304-exam-cka-topic-1-question-9-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0002100001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Check to see how many nodes are ready (not including nodes tainted NoSchedule) and write the number to /opt/KUSC00402/kusc00402.txt.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image29.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-23T20:27:00.000Z",
+        "voteCount": 19,
+        "content": "kubectl get nodes -o=custom-columns=NodeName:.metadata.name,TaintKey:.spec.taints[*].key,TaintValue:.spec.taints[*].value,TaintEffect:.spec.taints[*].effect\n\nReference:\nhttps://kubernetes.io/docs/reference/kubectl/cheatsheet/#interacting-with-nodes-and-cluster"
+      },
+      {
+        "date": "2023-06-04T23:41:00.000Z",
+        "voteCount": 3,
+        "content": "Thanks for the link to the reference!"
+      },
+      {
+        "date": "2023-09-28T22:53:00.000Z",
+        "voteCount": 6,
+        "content": "are you drunk or on drugs? It says \"NOT INCLUDING\" but every answer is like getting those"
+      },
+      {
+        "date": "2024-10-12T04:39:00.000Z",
+        "voteCount": 2,
+        "content": "k describe nodes | grep Taint | grep -v NoSchedule| wc -l &gt; filename.txt"
+      },
+      {
+        "date": "2024-09-28T05:15:00.000Z",
+        "voteCount": 1,
+        "content": "echo $(k get nodes --no-headers | grep 'Ready' | grep -v 'NoSchedule' | wc -l) &gt; opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2024-07-16T10:20:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl get nodes --no-headers | grep -v 'NoSchedule' | grep -c ' Ready ' &gt; /opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2024-04-22T08:55:00.000Z",
+        "voteCount": 1,
+        "content": "k8s jsonpath doesn't support multiple filter conditions like:\n...conditions[?(@.type==\"Ready\" &amp;&amp; @.status==\"True\")].type\n...conditions[?(@.type==\"Ready\" AND @.status==\"True\")].type\nSo have to play around with extra grep as below. This shall handle node status Ready.\nk get no --no-headers -o='custom-columns=NodeName:.metadata.name,TaintKey:.spec.taints[*].key,TaintValue:.spec.taints[*].value,TaintEffect:.spec.taints[*].effect,Status:.status.conditions[?(@.type==\"Ready\")].status' | grep -v NoSchedule | grep True &gt; /opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2024-03-27T03:20:00.000Z",
+        "voteCount": 1,
+        "content": "The easiest solution and smart solution is : \n\nk describe nodes | grep -i taint | grep none -c &gt; /opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2024-08-18T19:06:00.000Z",
+        "voteCount": 1,
+        "content": "I tested, this one works"
+      },
+      {
+        "date": "2024-03-06T00:12:00.000Z",
+        "voteCount": 2,
+        "content": "step 1: kubectl get nodes - o yaml | grep taint\nstep 2: check the tainted and export to the file"
+      },
+      {
+        "date": "2024-02-08T12:51:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl get nodes \u2013no-headers -o='custom-columns=NodeName:.metadata.name,TaintKey:.spec.taints[*].key,TaintValue:.spec.taints[*].value,TaintEffect:.spec.taints[*].effect' | grep -v NoSchedule | wc -l &gt; /opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2023-09-20T19:09:00.000Z",
+        "voteCount": 2,
+        "content": "k get nodes -o jsonpath='{range.items[*]}{.metadata.name}{\"\\t\"}{.spec.taints[?(.effect == \"NoSchedule\")]}{\"\\n\"}{end}'"
+      },
+      {
+        "date": "2023-09-01T04:20:00.000Z",
+        "voteCount": 1,
+        "content": "k get nodes -o yaml --no-headers | grep -i taint | wc -l #this will show the tainted nodes"
+      },
+      {
+        "date": "2023-08-15T10:24:00.000Z",
+        "voteCount": 2,
+        "content": "From my understanding of the question:\n-c command will count the occurrence, for example of 2 node with 1 tainted node\nkubectl get nodes -o=custom-columns=NodeName:.metadata.name,TaintKey:.spec.taints[*].key,TaintValue:.spec.taints[*].value,TaintEffect:.spec.taints[*].effect| grep -c NoSchedule &gt; to1.txt\ncat to1.txt. # 1"
+      },
+      {
+        "date": "2023-08-13T17:58:00.000Z",
+        "voteCount": 1,
+        "content": "I was able to accomplish this with the following command:\n\nk get nodes --no-headers  -o custom-columns=Name:.metadata.name,Taint:.spec.taints[*].effect,Ready:'{.status.conditions[?(@.reason == \"KubeletReady\")].status}' | grep -v NoSchedule | wc -l\n\nyou can remove the | wc -l to see the output"
+      },
+      {
+        "date": "2023-08-13T18:02:00.000Z",
+        "voteCount": 2,
+        "content": "modified to pull type instead of True/False value so you get the ready output\n\nk get nodes --no-headers  -o custom-columns=Name:.metadata.name,Taint:.spec.taints[*].effect,Ready:'{.status.conditions[?(@.reason == \"KubeletReady\")].type}' | grep -v NoSchedule"
+      },
+      {
+        "date": "2023-08-07T04:36:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl describe node | grep -ie Ready -ie taint"
+      },
+      {
+        "date": "2023-06-01T02:39:00.000Z",
+        "voteCount": 2,
+        "content": "controlplane $ vim /opt/KUSC00402/kusc00402.txt \nwrite the number of the nodes, then save the doc!\ncontrolplane $ cat /opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2023-05-28T05:05:00.000Z",
+        "voteCount": 1,
+        "content": "kubectl describe node | grep -i taint &gt; /opt/KUSC00402/kusc00402.txt"
+      },
+      {
+        "date": "2023-04-24T22:50:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl describe nodes | grep \"Taint\" | grep \"NoSchedule\" | wc -1"
+      },
+      {
+        "date": "2023-04-24T22:53:00.000Z",
+        "voteCount": 1,
+        "content": "sorry -l\nkubectl describe nodes | grep \"Taint\" | grep \"NoSchedule\" | wc -l"
+      },
+      {
+        "date": "2023-08-04T13:16:00.000Z",
+        "voteCount": 1,
+        "content": "It says \"not including\""
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/cncf/view/109273-exam-cka-topic-1-question-10-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0002200001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Schedule a Pod as follows:<br>\u2711 Name: kucc8<br>\u2711 App Containers: 2<br>\u2711 Container Name/Images:<br>- nginx<br>- consul<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image30.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image31.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image32.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-03T16:23:00.000Z",
+        "voteCount": 11,
+        "content": "hashicorp/consul:latest seems the latest image"
+      },
+      {
+        "date": "2023-10-25T13:13:00.000Z",
+        "voteCount": 6,
+        "content": "Got this error with consul image :\n\nimage \"consul\": rpc error: code = NotFound desc = failed to pull and unpack image \"docker.io/library/consul:latest\": failed to resolve reference \"docker.io/library/consul:latest\": docker.io/library/consul:latest: not found\n  Warning  Failed     12s (x2 over 27s)  kubelet            Error: ErrImagePull\n  Normal   BackOff    0s (x2 over 27s)   kubelet            Back-off pulling image \"consul\"\n  Warning  Failed     0s (x2 over 27s)   kubelet            Error: ImagePullBackOff"
+      },
+      {
+        "date": "2023-11-25T08:25:00.000Z",
+        "voteCount": 1,
+        "content": "yeah getting error with consul image, guessing this is quite old question"
+      },
+      {
+        "date": "2023-10-24T02:50:00.000Z",
+        "voteCount": 4,
+        "content": "kubectl run kucc8 --image=nginx --dry-run=client &gt; kucc8.yml\n--------------\nvim kucc8.yml like this\n---------------\napiVersion: v1\nkind: Pod\nmetadata:\n  name: kucc8\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n  - name: consul\n    image: consul\n-------------------\nkubectl create -f kucc8.yml"
+      },
+      {
+        "date": "2023-06-24T12:31:00.000Z",
+        "voteCount": 3,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: kucc8\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n  - name: consul\n    image: consul"
+      },
+      {
+        "date": "2023-05-15T04:42:00.000Z",
+        "voteCount": 2,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  creationTimestamp: null\n  labels:\n    run: kucc8\n  name: kucc8\nspec:\n  containers:\n  - image: nginx\n    name: kucc8\n  - image: consul\n    name: consul"
+      },
+      {
+        "date": "2023-06-15T07:26:00.000Z",
+        "voteCount": 2,
+        "content": "- image: nginx\nname: nginx"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/cncf/view/88159-exam-cka-topic-1-question-11-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0002500001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Create a persistent volume with name app-data, of capacity 2Gi and access mode ReadOnlyMany. The type of volume is hostPath and its location is /srv/app- data.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image33.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image34.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image35.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-10T05:13:00.000Z",
+        "voteCount": 21,
+        "content": "apiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\nspec:\n  capacity:\n    storage: 2Gi\n  accessModes:\n    - ReadOnlyMany\n  hostPath:\n    path: \"/srv/app-data\""
+      },
+      {
+        "date": "2024-09-28T05:43:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\nspec:\n  capacity:\n    storage: 2Gi\n  accessModes:\n    - ReadOnlyMany\n  hostPath:\n    path:  /srv/app-data"
+      },
+      {
+        "date": "2024-02-22T10:36:00.000Z",
+        "voteCount": 2,
+        "content": "apiVersion: v1\n  2 kind: PersistentVolume\n  3 metadata:\n  4   name: app-data\n  5 spec:\n  6   capacity:\n  7     storage: 2Gi\n  8   accessModes:\n  9     - ReadWriteMany\n 10   hostPath:\n 11     path: \"/srv/app-data\"\n~"
+      },
+      {
+        "date": "2024-02-08T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "Vi app-data.yaml\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\nspec:\n  capacity:\n    storage: 2Gi\n  \n  accessModes:\n    - ReadWriteMany\n  hostPath:\n    path: \u201c/srv/app- data\u201d\n\n  kubectl create -f app-data.yaml"
+      },
+      {
+        "date": "2024-02-13T13:51:00.000Z",
+        "voteCount": 1,
+        "content": "The question asked for the Access Mode to be ReadOnlyMany"
+      },
+      {
+        "date": "2023-12-10T18:07:00.000Z",
+        "voteCount": 1,
+        "content": "vi pv.yaml\n\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-date\nspec:\n  capacity:\n    storage: 2Gi\n  accessModes:\n    - ReadOnlyMany\n  hostPath:\n    path: \"/srv/app- data\"\n\nk create -f pv.yaml\n\nhttps://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume"
+      },
+      {
+        "date": "2023-10-24T03:09:00.000Z",
+        "voteCount": 2,
+        "content": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume\n\nvi pv.yaml\n--------------\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\n  labels:\n    type: local\nspec:\n  capacity:\n    storage: 2Gi\n  accessModes:\n    - ReadOnlyMany\n  hostPath:\n    path: \"/srv/app-data\"\n------------------\nkubectl create -f pv.yaml"
+      },
+      {
+        "date": "2023-08-15T10:55:00.000Z",
+        "voteCount": 1,
+        "content": "From my view:\nvi pv1.yaml\n\napiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\nspec:\n  capacity:\n    storage: 2Gi\n  volumeMode: Filesystem\n  accessModes:\n    - ReadOnlyMany\n  persistentVolumeReclaimPolicy: Recycle\n  hostPath:\n    path: srv/app- data\n    type: Directory\n\nkubectl apply -f pv1.yaml\nkubectl get pv"
+      },
+      {
+        "date": "2022-12-18T12:43:00.000Z",
+        "voteCount": 1,
+        "content": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/\n\nhttps://raw.githubusercontent.com/kubernetes/website/main/content/en/examples/pods/storage/pv-volume.yaml"
+      },
+      {
+        "date": "2022-11-29T17:52:00.000Z",
+        "voteCount": 2,
+        "content": "Yes @spinmc, you're correct. It should be ROX."
+      },
+      {
+        "date": "2022-11-21T00:18:00.000Z",
+        "voteCount": 4,
+        "content": "accessModes is wrong in the solution.\nthe ask is to set it ReadOnlyMany"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/cncf/view/124043-exam-cka-topic-1-question-12-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0002700001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Monitor the logs of pod foo and:<br>\u2711 Extract log lines corresponding to error file-not-found<br>\u2711 Write them to /opt/KUTR00101/foo<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image36.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image37.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-19T07:04:00.000Z",
+        "voteCount": 7,
+        "content": "kubectlt logs foo | grep error file-not-found &gt; path/to/output"
+      },
+      {
+        "date": "2023-11-04T03:35:00.000Z",
+        "voteCount": 7,
+        "content": "Need to add \" \" or it wont take whole string.\nkubectl logs foo | grep -i \"error file-not-found\" &gt; path/to/output"
+      },
+      {
+        "date": "2024-09-28T05:49:00.000Z",
+        "voteCount": 1,
+        "content": "kubectl logs foo | grep 'file-not-found' &gt; /opt/KUTR00101/foo"
+      },
+      {
+        "date": "2024-07-20T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "kubectl logs -f foo | grep \"file-not-found\" &gt; /opt/KUTR00101/foo"
+      },
+      {
+        "date": "2024-02-08T13:15:00.000Z",
+        "voteCount": 4,
+        "content": "kubectl logs foo | grep -i \"error file-not-found\" &gt; /opt/KUTR00101/foo"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/cncf/view/87619-exam-cka-topic-1-question-13-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0002900001.jpg\" class=\"in-exam-image\"><br><br>Context -<br>An existing Pod needs to be integrated into the Kubernetes built-in logging architecture (e.g. kubectl logs). Adding a streaming sidecar container is a good and common way to accomplish this requirement.<br><br>Task -<br>Add a sidecar container named sidecar, using the busybox image, to the existing Pod big-corp-app. The new sidecar container has to run the following command:<br><img src=\"/assets/media/exam-media/04318/0002900002.jpg\" class=\"in-exam-image\"><br>Use a Volume, mounted at /var/log, to make the log file big-corp-app.log available to the sidecar container.<br><img src=\"/assets/media/exam-media/04318/0003000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image38.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image39.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image40.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-15T11:31:00.000Z",
+        "voteCount": 9,
+        "content": "This is an example that will work for this question for me:\n\nvi sd1.yaml\n\napiVersion: v1\nkind: Pod\nmetadata:\n  name: big-corp-app\nspec:\n  containers:\n  - name: count\n    image: busybox:1.28\n    args:\n    - /bin/sh\n    - -c\n    - &gt;\n      i=0;\n      while true;\n      do\n        echo \"$i: $(date)\" &gt;&gt; /var/log/big-corp-app.log;\n        i=$((i+1));\n        sleep 1;\n      done      \n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n  - name: sidecar\n    image: busybox\n    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/big-corp-app.log']\n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n  volumes:\n  - name: varlog\n    emptyDir: {}\n\n---\nkubectl apply -f sd1.yaml\nkubectl logs big-corp-app -c sidecar"
+      },
+      {
+        "date": "2024-10-11T13:28:00.000Z",
+        "voteCount": 1,
+        "content": "when the task says you should use a specific command, then you have to use that command."
+      },
+      {
+        "date": "2023-10-28T14:16:00.000Z",
+        "voteCount": 2,
+        "content": "Trying to understand why would you use volumeMounts: twice? In line#20 and #26"
+      },
+      {
+        "date": "2024-01-23T01:34:00.000Z",
+        "voteCount": 1,
+        "content": "one for each container"
+      },
+      {
+        "date": "2024-09-05T08:10:00.000Z",
+        "voteCount": 2,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: counter\nspec:\n  containers:\n  - name: count\n    image: busybox:1.28\n    args:\n    - [/bin/sh, -c, 'tail -n+1 -f /var/log/bit-corp-app.log']      \n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n  volumes:\n  - name: varlog\n    emptyDir: {}"
+      },
+      {
+        "date": "2024-06-04T07:05:00.000Z",
+        "voteCount": 3,
+        "content": "This is an exam question or not answers are not accuarte"
+      },
+      {
+        "date": "2024-05-22T09:47:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  creationTimestamp: null\n  labels:\n    run: nginx\n  name: nginx\nspec:\n  containers:\n  - image: nginx\n    name: nginx\n  - image: busybox\n    name: sidecar\n    command: [\"/bin/sh\"]\n    args: [ \"-c\", \"tail -n+1 -f /var/log/big-corp-app.log\" ]\n    volumeMounts:\n        - name: log\n          mountPath: /var/log\n  volumes:\n    - name: log\n      hostPath:\n        path: /var/log\n        type: Directory"
+      },
+      {
+        "date": "2024-03-22T12:32:00.000Z",
+        "voteCount": 4,
+        "content": "solution : https://kubernetes.io/docs/concepts/cluster-administration/logging/#sidecar-container-with-logging-agent"
+      },
+      {
+        "date": "2024-02-08T11:45:00.000Z",
+        "voteCount": 2,
+        "content": "create a bigcorp.yaml \napiVersion: v1\nkind: Pod\nmetadata:\n  name: big-corp-app\nspec:\n  containers:\n  - name: count\n    image: busybox\n    args:\n    - /bin/sh\n    - -c\n    - &gt;\n      i=0;\n      while true;\n      do\n        echo \"$i: $(date)\" &gt;&gt; /var/log/ big-corp-app.log\n        i=$((i+1));\n        sleep 1;\n      done      \n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n  - name: sidecar\n    image: busybox\n    args: [/bin/sh, -c, 'tail -n+1 -f /var/log/big-corp-app.log']\n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n\nkubectl create -f bigcorp.yaml"
+      },
+      {
+        "date": "2024-02-02T13:29:00.000Z",
+        "voteCount": 1,
+        "content": "i had this question but there was an issue with it not finding the file from the script in the first container"
+      },
+      {
+        "date": "2023-12-20T22:05:00.000Z",
+        "voteCount": 1,
+        "content": "vi sidecar.yaml\n\napiVersion: v1\nkind: Pod\nmetadata:\n  name: big-corp-app\nspec:\n  containers:\n  - name: count\n    image: busybox:1.28\n    args:\n    - /bin/sh\n    - -c\n    - &gt;\n      i=0;\n      while true;\n      do\n        echo \"$i: $(date)\" &gt;&gt; /var/log/1.log;\n        echo \"$(date) INFO $i\" &gt;&gt; /var/log/2.log;\n        i=$((i+1));\n        sleep 1;\n      done\n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n  - name: sidecar\n    image: busybox:1.28\n    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/big-corp-app.log']\n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log\n  volumes:\n  - name: varlog\n    emptyDir: {}\n\nk create -f sidecar.yaml\n\nk get pod\nNAME           READY   STATUS    RESTARTS   AGE\nbig-corp-app   2/2     Running   0          9s"
+      },
+      {
+        "date": "2023-10-15T04:40:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  name: big\nspec:\n  containers:\n  - name: big\n    image: nginx \n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log/nginx/\n  - name: sidecar\n    image: busybox:1.28\n    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/nginx/access.log']\n    volumeMounts:\n    - name: varlog\n      mountPath: /var/log/nginx/\n  volumes:\n  - name: varlog\n    emptyDir: {}\nhttps://kubernetes.io/docs/concepts/cluster-administration/logging/#sidecar-container-with-logging-agent"
+      },
+      {
+        "date": "2023-09-21T08:30:00.000Z",
+        "voteCount": 1,
+        "content": "Are we to describe and write the existing configuration of the deployment to a file, delete the deployment, then recreate it?"
+      },
+      {
+        "date": "2023-09-21T08:34:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl get deployment big-corp-app -o yaml &gt; 13.yaml"
+      },
+      {
+        "date": "2023-07-21T21:57:00.000Z",
+        "voteCount": 3,
+        "content": "Who started the \" include env in sidecar container\" thing? What are the reasons to use ENV from main container in the sidecar container? ENV variable from container 1 is not visible in container 2?"
+      },
+      {
+        "date": "2023-07-13T04:10:00.000Z",
+        "voteCount": 1,
+        "content": "I failed this question in my exam but I cannot tell the reason. The sidecar container was not running and pod was in Crashloopback. I used \"args\" when defining the sidecar container like:\nargs:\n- /bin/sh\n- -c\n- tail n+1  ....\nand I thought \"command\" should have been used. But in the busybox image there is CMD [\"sh\"] so in my case \"args\" would work. Tested also like this and the pod is running. I cannot tell at this moment what I did wrong. Any ideas?\n \ncontrolplane ~ \u279c  k get pods mypod -o yaml\napiVersion: v1\nkind: Pod\nmetadata:\n  creationTimestamp: \"2023-07-13T12:04:25Z\"\n  labels:\n    run: mypod\n  name: mypod\n  namespace: default\n  resourceVersion: \"1029\"\n  uid: c135577f-fad5-4127-a3a2-1ae0cb074e83\nspec:\n  containers:\n  - args:\n    - /bin/sh\n    - -c\n    - echo \"this is a test\"; sleep 3600\n    image: busybox"
+      },
+      {
+        "date": "2023-07-27T05:17:00.000Z",
+        "voteCount": 3,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\n  creationTimestamp: null\n  labels:\n    run: kucc8\n  name: kucc8\nspec:\n  containers:\n  - image: nginx\n    name: nginx\n    volumeMounts:\n      - mountPath: /var/log/nginx\n        name: logs\n  - image: busybox\n    name: sidecar\n    command: [\"/bin/sh\", \"-c\", \"tail -n+1 -f /var/log/nginx/access.log\"]\n    volumeMounts:\n      - mountPath: /var/log/nginx\n        name: logs\n  volumes:\n  - name: logs\n    emptyDir: {}"
+      },
+      {
+        "date": "2023-07-12T13:37:00.000Z",
+        "voteCount": 2,
+        "content": "Is it correct, if exiting yaml file has -env defined, I don't add a container under env and also do not include env in sidecar container, just adding sidecar container under spec like this?\n   Spec  :\n      name: sidecar\n      image: busybox\n      command: [\"/bin/sh\", \"-c\", \"kkkkkkmm\"]\n      volumeMounts:\n        - name: log-volume\n          mountPath: /var/log\n  volumes:\n    - name: log-volume\n      emptyDir: {}"
+      },
+      {
+        "date": "2023-07-20T20:23:00.000Z",
+        "voteCount": 1,
+        "content": "There is no relation between \"env\" in a pod and additional containers. Additional containers should be added under \"spec\", https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/ ."
+      },
+      {
+        "date": "2023-04-30T04:54:00.000Z",
+        "voteCount": 3,
+        "content": "Why its required to have env variable?"
+      },
+      {
+        "date": "2022-11-16T00:04:00.000Z",
+        "voteCount": 3,
+        "content": "don't forget to also define outside the container context:\n  volumes:\n  - name: varlog\n    emptyDir: {}"
+      },
+      {
+        "date": "2023-01-10T08:16:00.000Z",
+        "voteCount": 1,
+        "content": "I think it has been already defined as:\nvolumes:\n- name: logs\n  emptyDir: {}"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/cncf/view/97697-exam-cka-topic-1-question-14-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0003300001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>From the pod label name=overloaded-cpu, find pods running high CPU workloads and write the name of the pod consuming most CPU to the file /opt/<br>KUTR00401/KUTR00401.txt (which already exists).<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image41.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-09T01:28:00.000Z",
+        "voteCount": 6,
+        "content": "kubectl top pod -l name=overloaded-cpu --sort-by=cpu"
+      },
+      {
+        "date": "2023-02-20T10:24:00.000Z",
+        "voteCount": 6,
+        "content": "Why would they add \"(which already exists)\"?  It just confuses matters.  In other questions they do not add this qualification.  Makes me wonder if that file is empty?\n\nMaybe first\n# cat /opt/KUTR00401/KUTR00401.txt \nto make sure it's empty.\n\nIf it's not,\n# echo \"name-of-top-cpu-pod\" &gt;&gt; /opt/KUTR00401/KUTR00401.txt\nInstead of\n# echo \"name-of-top-cpu-pod\" &gt; /opt/KUTR00401/KUTR00401.txt\n\nOr am I overthinking here?"
+      },
+      {
+        "date": "2023-02-22T06:18:00.000Z",
+        "voteCount": 2,
+        "content": "I got the same feeling here :D"
+      },
+      {
+        "date": "2024-09-30T09:41:00.000Z",
+        "voteCount": 1,
+        "content": "kubectl top pod -l name=overloaded-cpu --sort-by=cpu --no-headers | head -n 1 | awk '{print $1}' &gt; /opt/KUTR00401/KUTR00401.txt"
+      },
+      {
+        "date": "2024-07-20T09:32:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl top pod -l name=overloaded-cpu --sort-by=cpu | awk 'NR==2 {print $1}' &gt; /opt/KUTR00401/KUTR00401.txt"
+      },
+      {
+        "date": "2024-04-21T10:44:00.000Z",
+        "voteCount": 1,
+        "content": "Frankly speaking, why bother typing the pod name with this single liner:\n\n# Dry-run\nk top po -l name=overloaded-cpu --sort-by=cpu -A --no-headers | head -n 1 | awk '{print $2}'\n# Exec\nk top po -l name=overloaded-cpu --sort-by=cpu -A --no-headers | head -n 1 | awk '{print $2}' &gt;&gt; /opt/KUTR00401/KURT00401.txt"
+      },
+      {
+        "date": "2023-07-04T07:05:00.000Z",
+        "voteCount": 1,
+        "content": "default or all namespaces ?"
+      },
+      {
+        "date": "2023-02-02T13:28:00.000Z",
+        "voteCount": 2,
+        "content": "I think the answer should be: overloaded-cpu-98b9se"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/cncf/view/124218-exam-cka-topic-1-question-15-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0003400002.jpg\" class=\"in-exam-image\"><br><br>Task -<br>A Kubernetes worker node, named wk8s-node-0 is in state NotReady.<br>Investigate why this is the case, and perform any appropriate steps to bring the node to a Ready state, ensuring that any changes are made permanent.<br><img src=\"/assets/media/exam-media/04318/0003500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image42.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image43.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image44.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image45.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image46.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-21T09:12:00.000Z",
+        "voteCount": 6,
+        "content": "systemctl restart kubelet"
+      },
+      {
+        "date": "2024-01-09T06:39:00.000Z",
+        "voteCount": 8,
+        "content": "Ensure it is enabled too so change remains active after reboot"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/cncf/view/109478-exam-cka-topic-1-question-16-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0004000001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Create a new PersistentVolumeClaim:<br>\u2711 Name: pv-volume<br>\u2711 Class: csi-hostpath-sc<br>\u2711 Capacity: 10Mi<br>Create a new Pod which mounts the PersistentVolumeClaim as a volume:<br>\u2711 Name: web-server<br>\u2711 Image: nginx<br>\u2711 Mount path: /usr/share/nginx/html<br>Configure the new Pod to have ReadWriteOnce access on the volume.<br>Finally, using kubectl edit or kubectl patch expand the PersistentVolumeClaim to a capacity of 70Mi and record that change.<br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image47.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image48.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image49.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image50.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image51.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image52.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image53.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-08T12:28:00.000Z",
+        "voteCount": 6,
+        "content": "Create a pvc.yaml \napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: pv-volume\nspec:\n  accessModes:\n    - ReadWriteOnce\n  resources: \n    requests:\n  storage: 10Mi\n  storageClassName: csi-hostpath-sc\n\nkubectl create -f pvc.yaml\nConfigure the new Pod to have ReadWriteOnce access on the volume.\napiVersion: v1\nkind: Pod\nmetadata:\n  name: web-server\nspec:\n  containers:\n    - name: web-server\n      image: nginx\n      volumeMounts:\n      - mountPath: \"/usr/share/nginx/html \"\n        name: pv-volume\n  volumes:\n    - name: pv-volume\n      persistentVolumeClaim:\n        claimName: pv-volume\n\nk patch pvc pv-volume -p '{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"70Mi\"}}}}' --record"
+      },
+      {
+        "date": "2024-09-02T03:29:00.000Z",
+        "voteCount": 1,
+        "content": "I got this question today in exam with these YAMls as mentioned @fc146fc but either pod or PVC was always in Pending state. Since I solved all other questions and only 10 minutes left and I wanted to go toilet so much, so I ended the exam.\nI am not sure why it was in pending state, maybe because I put storageClassName in double quotes like this dunno:\nstorageClassName: \"csi-hostpath-sc\""
+      },
+      {
+        "date": "2023-10-14T03:50:00.000Z",
+        "voteCount": 1,
+        "content": "@dim11 - You are correct. In my local, I am getting the same error when creating the web-server pod. I do not have storageclass, do I have to create one? If yes, what should be the provider?\n\nAny help is appreciated"
+      },
+      {
+        "date": "2023-09-01T02:09:00.000Z",
+        "voteCount": 2,
+        "content": "When i try it in home environment i am getting follwing when i create pvc \" storageclass.storage.k8s.io \"csi-hostpath-sc\" not found\". And thats why pvc is in pending state. In exam is the storageclass already existing or do we have to troubleshoot it ourselves?"
+      },
+      {
+        "date": "2023-08-12T03:10:00.000Z",
+        "voteCount": 3,
+        "content": "Please note that the last part of the question is to expand the PersistentVolumeClaim and record that change.\nThe \"--record\" will be required otherwise we will not be able to fulfill the record requirement.\n\n# k patch pv-volume -p '{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"70Mi\"}}}}' --record"
+      },
+      {
+        "date": "2024-10-14T14:54:00.000Z",
+        "voteCount": 1,
+        "content": "how do you memorize after -p  I can't find kubernetes doc for this path."
+      },
+      {
+        "date": "2023-10-12T04:14:00.000Z",
+        "voteCount": 1,
+        "content": "i think its \nk patch pvc pv-volume -p '{\"spec\":{\"resources\":{\"requests\":{\"storage\":\"70Mi\"}}}}' --record"
+      },
+      {
+        "date": "2023-07-22T01:20:00.000Z",
+        "voteCount": 2,
+        "content": "You PVC should be \napiVersion: v1\nkind: PersistentVolumeClaim\nmetadata:\n  name: pv-volume\nspec:\n  storageClassName: csi-hostpath-sc\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 10Mi\n\n\nand your pod can be like this:\n\napiVersion: v1\nkind: Pod\nmetadata:\n  name: web-server\nspec:\n  containers:\n    - name: nginx-container\n      image: nginx\n      volumeMounts:\n        - name: pv-volume\n          mountPath: /usr/share/nginx/html\n  volumes:\n    - name: pv-volume\n      persistentVolumeClaim:\n        claimName: pv-volume\n\nCheck the stirage class already existing to ensure it allowVolumeExpansion: true , if it does, eidt it to have this attribute"
+      },
+      {
+        "date": "2023-07-13T02:26:00.000Z",
+        "voteCount": 1,
+        "content": "@leebug: Related to your error \"I'm getting an error \"could not be patched\" when increasing the storage to 70MB\", where do you practice this? In your home lab or Udemy Kodekloud labs? Maybe the storage class \"Class: csi-hostpath-sc\" is not configured in your environment as in the CKA exam."
+      },
+      {
+        "date": "2023-06-03T21:47:00.000Z",
+        "voteCount": 1,
+        "content": "I'm getting an error \"could not be patched\" when increasing the storage to 70MB\n k edit pvc pv-volume --save-config\nerror: persistentvolumeclaims \"pv-volume\" could not be patched: persistentvolumeclaims \"pv-volume\" is forbidden: only dynamically provisioned pvc can be resized and the storageclass that provisions the pvc must support resize\nYou can run `kubectl replace -f /tmp/kubectl-edit-777230424.yaml` to try this update again."
+      },
+      {
+        "date": "2023-06-07T21:04:00.000Z",
+        "voteCount": 2,
+        "content": "just realised you will need to have a storage class \" csi-hostpath-sc\" created with allowVolumeExpansion: true  (See https://kubernetes.io/docs/concepts/storage/storage-classes/)\n#csi-hostpath-sc.yaml \napiVersion: storage.k8s.io/v1\nkind: StorageClass\nmetadata:\n  name: csi-hostpath-sc \nprovisioner: vendor-name.example/magicstorage\nparameters:\n  resturl: \"http://192.168.10.100:8080\"\n  restuser: \"\"\n  secretNamespace: \"\"\n  secretName: \"\"\nallowVolumeExpansion: true"
+      },
+      {
+        "date": "2023-07-04T22:01:00.000Z",
+        "voteCount": 1,
+        "content": "There in requirements are mention class name - i would think that this is storage class what is created in exam env, if we add it to pod spec and in that class there  expansion is set to true , then it should be possible to expend,no?"
+      },
+      {
+        "date": "2024-01-14T11:25:00.000Z",
+        "voteCount": 1,
+        "content": "Yea when you 'get' the storageclass you can see if expansion has been enabled"
+      },
+      {
+        "date": "2023-06-07T20:45:00.000Z",
+        "voteCount": 1,
+        "content": "I'm also getting the same error when trying to increase the Storage size on the PVC using the command below:\nk edit pvc pv-volume \nerror: persistentvolumeclaims \"pv-volume\" could not be patched: persistentvolumeclaims \"pv-volume\" is forbidden: only dynamically provisioned pvc can be resized and the storageclass that provisions the pvc must support resize"
+      },
+      {
+        "date": "2023-05-16T18:57:00.000Z",
+        "voteCount": 2,
+        "content": "I have notice, PV was not created In the exam, without PV how can we create PVC directly ?"
+      },
+      {
+        "date": "2023-07-13T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "From your solution screenshots, you listed pv, pvc with no results. Then you created the pvc only. Then list pv, pvc again and they show both. It means pv was dynamically provisioned. This seems to be the explanation: https://stackoverflow.com/questions/56450272/can-we-get-persistent-volume-with-only-pvc-without-pv-in-k8s"
+      },
+      {
+        "date": "2023-07-04T13:14:00.000Z",
+        "voteCount": 1,
+        "content": "I think you can use claims as values https://kubernetes.io/docs/concepts/storage/persistent-volumes/ (search claim as value)"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/cncf/view/83764-exam-cka-topic-1-question-17-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/04318/0004500001.jpg\" class=\"in-exam-image\"><br><br>Task -<br>Create a new nginx Ingress resource as follows:<br>\u2711 Name: pong<br>\u2711 Namespace: ing-internal<br>\u2711 Exposing service hello on path /hello using service port 5678<br><img src=\"/assets/media/exam-media/04318/0004500005.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image54.png\"><br><br><br><img src=\"https://img.examtopics.com/cka/image55.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-22T12:25:00.000Z",
+        "voteCount": 11,
+        "content": "k create ing pong -n ing-internal --rule=\"/hello=hello:5678\""
+      },
+      {
+        "date": "2023-04-12T00:39:00.000Z",
+        "voteCount": 13,
+        "content": "I think should be:\nk create ing pong -n ing-internal --rule=\"/hello/*=hello:5678\"\nfor pathType: Prefix , otherwise you got pathType: Exact"
+      },
+      {
+        "date": "2022-12-09T18:06:00.000Z",
+        "voteCount": 11,
+        "content": "why there is only 17 Qs and not 20?"
+      },
+      {
+        "date": "2023-05-25T08:03:00.000Z",
+        "voteCount": 2,
+        "content": "I think the exam has only 17 questions"
+      },
+      {
+        "date": "2024-02-11T11:33:00.000Z",
+        "voteCount": 1,
+        "content": "I had the same questions \nBut  I did curl  I didnt get any response, and after I changed port to 80, I got the correct response"
+      },
+      {
+        "date": "2024-03-07T06:45:00.000Z",
+        "voteCount": 2,
+        "content": "can i know for what ip you did curl?"
+      },
+      {
+        "date": "2024-02-08T11:03:00.000Z",
+        "voteCount": 2,
+        "content": "Create a ing-internal.yaml file\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: ping \n  namespace: ing-internal\n  annotations:\n    nginx.ingress.kubernetes.io/rewrite-target: /\nspec:\n  rules:\n  - http:\n      paths:\n      - path: /hi\n        pathType: Prefix\n        backend:\n          service:\n            name: hi\n            port:\n              number: 5678\n\nkubectl create -f ing-internal.yaml"
+      },
+      {
+        "date": "2023-09-21T08:27:00.000Z",
+        "voteCount": 2,
+        "content": "If you search for Ingress in kubernetes.io.docs you'll find almost the exact answer in the kb for the Ingress resource type."
+      },
+      {
+        "date": "2023-08-17T18:02:00.000Z",
+        "voteCount": 6,
+        "content": "I have seen several commands listed here but it states it is for nginx so you need to add the nginx annotation like so:\n\nk create ing pong -n ing-internal --rule=\"/hello=hello:5678\" --annotation=\"nginx.ingress.kubernetes.io/rewrite-target=/\"\n\nAlso the debate of pathType:\nI think the pathType should be exact because the path given is /hello and not /hello*\n\nIf you disagree and feel that pathType should be Prefix then your command would look like this:\n\nk create ing pong -n ing-internal --rule=\"/hello*=hello:5678\" --annotation=\"nginx.ingress.kubernetes.io/rewrite-target=/\""
+      },
+      {
+        "date": "2024-03-07T06:46:00.000Z",
+        "voteCount": 1,
+        "content": "for checking what did you do , can you explain the test"
+      },
+      {
+        "date": "2023-07-21T12:11:00.000Z",
+        "voteCount": 2,
+        "content": "From other forums I can see some people struggled with this question though it seems very simple. The first thing I would check is to search for the existence of a ingress-controller pod and ingress-controller service. The ingress-controller is mandatory for a ingress to work.\nI wonder what is the catch with this (easy) question?"
+      },
+      {
+        "date": "2023-07-15T08:53:00.000Z",
+        "voteCount": 2,
+        "content": "Do we need Prefix here?  it says path /hello not /hello* ? eny ideas?"
+      },
+      {
+        "date": "2023-07-06T01:47:00.000Z",
+        "voteCount": 1,
+        "content": "How to troubleshoot in case kubectl get ing does not show the ADDRESS?\n Like in this example:\nNAME           CLASS         HOSTS   ADDRESS         PORTS   AGE\ntest-ingress   external-lb   *       203.0.113.123   80      59s\n\n How the Ingress IngressClass is added? Is it needed to add IngressClass? The question does not mention IngressClass name. https://kubernetes.io/docs/concepts/services-networking/ingress/#default-ingress-class"
+      },
+      {
+        "date": "2023-06-28T22:16:00.000Z",
+        "voteCount": 5,
+        "content": "kind: Ingress\nmetadata:\n  name: pong\n  namespace: ing-internal\n  annotations:\n    nginx.ingress.kubernetes.io/rewrite-target: /\nspec:\n  rules:\n  - http:\n      paths:\n      - path: /hello\n        pathType: Prefix\n        backend:\n          service:\n            name: hello\n            port:\n              number: 5678"
+      },
+      {
+        "date": "2023-06-30T10:12:00.000Z",
+        "voteCount": 2,
+        "content": "hey just for confirmation, this same question comes in exam?"
+      },
+      {
+        "date": "2023-04-26T13:52:00.000Z",
+        "voteCount": 6,
+        "content": "apiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: pong                   \n  namespace: ing-internal       \n  annotations:\n    nginx.ingress.kubernetes.io/rewrite-target: /\nspec:\n  ingressClassName: nginx\n  rules:\n  - http:\n      paths:\n      - path: /hello            \n        pathType: Prefix\n        backend:\n          service:\n            name: test\n            port:\n              number: 5678"
+      },
+      {
+        "date": "2023-03-13T08:10:00.000Z",
+        "voteCount": 4,
+        "content": "is it necessary to create any service here? what type is the hello service?"
+      },
+      {
+        "date": "2023-03-13T08:06:00.000Z",
+        "voteCount": 1,
+        "content": "is it necessary to create any service here? what type is the hello service?"
+      },
+      {
+        "date": "2023-01-27T20:08:00.000Z",
+        "voteCount": 1,
+        "content": "How can be check the availability of service wit another commands."
+      },
+      {
+        "date": "2023-06-04T03:16:00.000Z",
+        "voteCount": 1,
+        "content": "k get ingress -n ing-internal \n\nor\n\nk describe ingress -n ing-internal"
+      },
+      {
+        "date": "2023-01-27T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "Can we change the service port 5678."
+      },
+      {
+        "date": "2022-11-04T13:44:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry cluster-ip of service"
+      },
+      {
+        "date": "2022-11-04T13:39:00.000Z",
+        "voteCount": 2,
+        "content": "InternalIP of the node"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/cncf/view/126448-exam-cka-topic-1-question-18-discussion/",
+    "body": "SIMULATION<br> -<br><br><img src=\"https://img.examtopics.com/cka/image1.png\"><br><br><img src=\"https://img.examtopics.com/cka/image2.png\"><br><br><br>Task<br> -<br><br>Create a new nginx Ingress resource as follows:<br><br>\u2022\tName: ping<br>\u2022\tNamespace: ing-internal<br>\u2022\tExposing service hi on path /hi using service port 5678<br><br><img src=\"https://img.examtopics.com/cka/image3.png\">",
+    "options": [],
+    "answer": "apiVersion: v1 kind: PersistentVolume metadata: name: app-data spec: capacity: storage: 2Gi accessModes: - ReadOnlyMany hostPath: path: \"/srv/app-data\"",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-17T05:17:00.000Z",
+        "voteCount": 7,
+        "content": "k create ns ing-internal\nk create ingress ping --rule=\"/hi=hi:5678\""
+      },
+      {
+        "date": "2024-02-08T04:17:00.000Z",
+        "voteCount": 1,
+        "content": "kubectl create ingress ping --rule=\"/hi=hi:5678\""
+      },
+      {
+        "date": "2024-03-12T12:38:00.000Z",
+        "voteCount": 1,
+        "content": "Actually you need to specify namespace"
+      },
+      {
+        "date": "2024-05-20T07:16:00.000Z",
+        "voteCount": 1,
+        "content": "do y need to crate a service?\nlike : apiVersion: v1\nkind: Service\nmetadata:\n  name: hi\n  namespace: ing-internal\nspec:\n  selector:\n    app: hi\n  ports:\n    - protocol: TCP\n      port: 5678\n      targetPort: 5678\nand after the ingres?"
+      },
+      {
+        "date": "2024-02-14T12:35:00.000Z",
+        "voteCount": 1,
+        "content": "This is pretty much the same question as number 17. Only thing different is the name. 18 Ping and 17 Pong. lol :)"
+      },
+      {
+        "date": "2023-11-25T01:15:00.000Z",
+        "voteCount": 3,
+        "content": "Answer given by Admin is completely un-related.  The answer is exactly same as question 17, only change name of the ingress to ping and path/name to /hi"
+      },
+      {
+        "date": "2023-11-24T11:24:00.000Z",
+        "voteCount": 3,
+        "content": "Create a YAML file named ping-ingress.yaml with the following content:\napiVersion: networking.k8s.io/v1\nkind: Ingress\nmetadata:\n  name: ping\n  namespace: ing-internal\nspec:\n  rules:\n  - http:\n      paths:\n      - path: /hi\n        pathType: Prefix\n        backend:\n          service:\n            name: hi\n            port:\n              number: 5678\n\nApply this Ingress resource to your cluster:\nkubectl apply -f ping-ingress.yaml"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/cncf/view/126449-exam-cka-topic-1-question-19-discussion/",
+    "body": "SIMULATION<br> -<br><br><img src=\"https://img.examtopics.com/cka/image4.png\"><br><br><img src=\"https://img.examtopics.com/cka/image5.png\"><br><br><br>Task<br> -<br><br>Create a new NetworkPolicy named allow-port-from-namespace in the existing namespace echo.<br><br>Ensure that the new NetworkPolicy allows Pods in namespace internal to connect to port 9200/tcp of Pods in namespace echo.<br><br>Further ensure that the new NetworkPolicy:<br><br>\u2022\tdoes not allow access to Pods, which don't listen on port 9200/tcp<br>\u2022\tdoes not allow access from Pods, which are not in namespace internal",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/cka/image6.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-03-27T02:16:00.000Z",
+        "voteCount": 3,
+        "content": "I think so this is the correct answer :\n\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: echo\nspec:\n  podSelector: {}\n  policyTypes:\n  - Ingress\n  ingress:\n  - from:\n    - namespaceSelector:\n        matchLabels:\n          kubernetes.io/metadata.name: internal\n    ports:\n    - protocol: TCP\n      port: 9200"
+      },
+      {
+        "date": "2024-02-15T08:19:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: echo\nspec:\n  podSelector: {}\n  policyTypes:\n  - Ingress\n  ingress:\n  - from:\n    - namespaceSelector:\n        matchLabels:\n          name: internal\n    ports:\n    - protocol: TCP\n      port: 9200"
+      },
+      {
+        "date": "2024-02-08T11:28:00.000Z",
+        "voteCount": 3,
+        "content": "kubectl create ns echo ( if this is not created)\nkubectl create ns internal\nkubectl label ns internal namespace=internal\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: echo\nspec:\n  podSelector: {}\n  policyTypes:\n  - Ingress\n  ingress:\n  - from:\n    - namespaceSelector:\n        matchLabels:\n          namespace: internal\n    ports:\n    - protocol: TCP\n      port: 9200"
+      },
+      {
+        "date": "2023-11-17T22:17:00.000Z",
+        "voteCount": 3,
+        "content": "apiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: echo\nspec:\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchLabels:\n              name: internal   ## Ensure \"name=internal\" exists  when  \"k get ns --show-labels\"\n      ports:\n        - protocol: TCP\n          port: 9200"
+      },
+      {
+        "date": "2024-02-08T04:08:00.000Z",
+        "voteCount": 1,
+        "content": "you are nissing pod-selector here , please find the answer below from abu7mldan"
+      },
+      {
+        "date": "2023-11-17T05:22:00.000Z",
+        "voteCount": 3,
+        "content": "k create ns echo\nk label ns echo part=echo\n\nk apply -f np.yaml \n\napiVersion: networking.k8s.io/v1\nkind: NetworkPolicy\nmetadata:\n  name: allow-port-from-namespace\n  namespace: echo\nspec:\n  policyTypes:\n    - Ingress\n  ingress:\n    - from:\n        - namespaceSelector:\n            matchLabels:\n              project: myproject\n        - podSelector:\n            matchLabels:\n              part: echo\n      ports:\n        - protocol: TCP\n          port: 9200"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/cncf/view/127144-exam-cka-topic-1-question-20-discussion/",
+    "body": "SIMULATION<br> -<br><br><img src=\"https://img.examtopics.com/cka/image7.png\"><br><br><img src=\"https://img.examtopics.com/cka/image8.png\"><br><br><br>Task<br> -<br><br>Schedule a Pod as follows:<br><br>\u2022\tName: kucc1<br>\u2022\tApp Containers: 2<br>\u2022\tContainer Name/images:<br>  o\t  redis<br>  o\t  consul",
+    "options": [],
+    "answer": "apiVersion: v1 kind: Pod metadata: name: nginx-kusc00401 spec: containers: - name: nginx-kusc00401 image: nginx nodeSelector: disk=ssd",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-03-07T22:19:00.000Z",
+        "voteCount": 2,
+        "content": "apiVersion: v1\nkind: Pod\nmetadata:\nname: kucc1\nspec:\ncontainers:\n- name: redis\nimage: redis\n- name: consul\nimage: hashicorp/consul:latest"
+      },
+      {
+        "date": "2023-11-25T01:29:00.000Z",
+        "voteCount": 1,
+        "content": "repeat question!"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/cncf/view/126450-exam-cka-topic-1-question-21-discussion/",
+    "body": "SIMULATION<br> -<br><br><img src=\"https://img.examtopics.com/cka/image9.png\"><br><br><img src=\"https://img.examtopics.com/cka/image10.png\"><br><br><br>Task<br> -<br><br>Schedule a pod as follows:<br><br>\u2022\tName: nginx-kusc00401<br>\u2022\tImage: nginx<br>\u2022\tNode selector: disk=spinning",
+    "options": [],
+    "answer": "apiVersion: v1 kind: Pod metadata: name: nginx-kusc00401 spec: containers: - name: nginx-kusc00401 image: nginx nodeSelector: disk=spinning",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-10-15T14:55:00.000Z",
+        "voteCount": 1,
+        "content": "here is the answer, but you can also add labels on metadata\n\n\napiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx-kusc00401\nspec:\n  containers:\n  - name: nginx-kusc00401\n    image: nginx\n  nodeSelector:\n    disk: spinning"
+      },
+      {
+        "date": "2024-02-08T10:50:00.000Z",
+        "voteCount": 2,
+        "content": "kubectl label nodes &lt;your-node-name&gt; disk=spinning\n and then create the below nginx.yaml file \napiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx\n  labels:\n    env: test\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n    imagePullPolicy: IfNotPresent\n  nodeSelector:\n    disktype: spinning\n\nand finally \nKubectl create -f nginx.yaml"
+      },
+      {
+        "date": "2023-11-17T05:31:00.000Z",
+        "voteCount": 3,
+        "content": "k label node node01 disk=spanning\napiVersion: v1\nkind: Pod\nmetadata:\n  name: nginx-kusc00401\n  labels:\n    env: test\nspec:\n  containers:\n  - name: nginx\n    image: nginx\n    imagePullPolicy: IfNotPresent\n  nodeSelector:\n    disk: spinning"
+      },
+      {
+        "date": "2023-11-17T19:09:00.000Z",
+        "voteCount": 1,
+        "content": "Should be ssd as disk..\n---\napiVersion: v1\nkind: Pod\nmetadata:\n  creationTimestamp: null\n  labels:\n    run: nginx-kusc00401\n  name: nginx-kusc00401\nspec:\n  containers:\n  - image: nginx\n    name: nginx-kusc00401\n  nodeSelector:\n    disk: ssd"
+      },
+      {
+        "date": "2024-09-05T19:21:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong. nodeSelector shouled be disk=spinning as specified in the question"
+      },
+      {
+        "date": "2024-01-07T07:11:00.000Z",
+        "voteCount": 4,
+        "content": "No it's Not. Question mentions disk=spinning. So we have to label the node first as disk=spinning."
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/cncf/view/127494-exam-cka-topic-1-question-22-discussion/",
+    "body": "SIMULATION<br> -<br><br><img src=\"https://img.examtopics.com/cka/image11.png\"><br><br><img src=\"https://img.examtopics.com/cka/image12.png\"><br><br><br>Task<br> -<br><br>Scale the deployment guestbook to 5 pods.",
+    "options": [],
+    "answer": "apiVersion: v1 kind: Pod metadata: name: nginx-kusc00401 spec: containers: - name: nginx-kusc00401 image: nginx nodeSelector: disk=ssd",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-07-09T15:07:00.000Z",
+        "voteCount": 1,
+        "content": "k scale deployment guestbook --replicas=6"
+      },
+      {
+        "date": "2024-01-07T07:00:00.000Z",
+        "voteCount": 4,
+        "content": "Use imperative command\n\nkubectl scale --replicas=5 deployment/guestbook"
+      },
+      {
+        "date": "2023-11-29T18:24:00.000Z",
+        "voteCount": 4,
+        "content": "kubectl config use-context k8s\n\nkubectl scale deployment guestbook --replicas=5"
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/cncf/view/126453-exam-cka-topic-1-question-23-discussion/",
+    "body": "SIMULATION<br> -<br><br><img src=\"https://img.examtopics.com/cka/image13.png\"><br><br><img src=\"https://img.examtopics.com/cka/image14.png\"><br><br><br>Task<br> -<br><br>Create a persistent volume with name app-data, of capacity 2Gi and access mode ReadWriteOnce. The type of volume is hostPath and its location is /srv/app-data.",
+    "options": [],
+    "answer": "apiVersion: v1 kind: PersistentVolume metadata: name: app-data spec: capacity: storage: 2Gi accessModes: - ReadOnlyMany hostPath: path: \"/srv/app-data\"",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-07T06:48:00.000Z",
+        "voteCount": 5,
+        "content": "https://kubernetes.io/docs/tasks/configure-pod-container/configure-persistent-volume-storage/#create-a-persistentvolume\n\nKeep in mind that example yaml is in Pod configuration section not in storage section.\n\n apiVersion: v1\n kind: PersistentVolume\n metadata:\n     name: app-data\n spec:\n    capacity:\n       storage: 2Gi\n    accessModes:\n       - ReadWriteOnce\n    hostPath:\n      path: \"/srv/app-data\""
+      },
+      {
+        "date": "2024-08-11T05:41:00.000Z",
+        "voteCount": 1,
+        "content": "apiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\nspec:\n  capacity:\n    storage: 2Gi\n  volumeMode: Filesystem\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n      path: /srv/app-data"
+      },
+      {
+        "date": "2023-11-17T05:39:00.000Z",
+        "voteCount": 4,
+        "content": "apiVersion: v1\nkind: PersistentVolume\nmetadata:\n  name: app-data\nspec:\n  capacity:\n    storage: 2Gi\n  accessModes:\n    - ReadWriteOnce\n  hostPath:\n    path: \"/srv/app-data\""
+      }
+    ],
+    "examNameCode": "cka",
+    "topicNumber": "1"
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "topic": 28,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57511-exam-az-204-topic-28-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to deploy a new version of the LabelMaker application to ACR.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04273/0007300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0007400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Build a new application image by using dockerfile<br>Step 2: Create an alias if the image with the fully qualified path to the registry<br>Before you can push the image to a private registry, you've to ensure a proper image name. This can be achieved using the docker tag command. For demonstration purpose, we'll use Docker's hello world image, rename it and push it to ACR.<br># pulls hello-world from the public docker hub<br>$ docker pull hello-world<br># tag the image in order to be able to push it to a private registry<br>$ docker tag hello-word &lt;REGISTRY_NAME&gt;/hello-world<br># push the image<br>$ docker push &lt;REGISTRY_NAME&gt;/hello-world<br>Step 3: Log in to the registry and push image<br>In order to push images to the newly created ACR instance, you need to login to ACR form the Docker CLI. Once logged in, you can push any existing docker image to your ACR instance.<br>Scenario:<br>Coho Winery plans to move the application to Azure and continue to support label creation.<br><br>LabelMaker app -<br>Azure Monitor Container Health must be used to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on Azure<br>Kubernetes Service (AKS).<br>You must use Azure Container Registry to publish images that support the AKS deployment.<br>Reference:<br>https://thorsten-hans.com/how-to-use-a-private-azure-container-registry-with-kubernetes-9b86e67b93b6 https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-03-08T15:24:00.000Z",
+        "voteCount": 23,
+        "content": "Correct answer given.\nStep 1: Build a new application image by using dockerfile\n\nFROM node:8.9.3-alpine\nRUN mkdir -p /usr/src/app\nCOPY ./app/ /usr/src/app/\nWORKDIR /usr/src/app\nRUN npm install\nCMD node /usr/src/app/index.js\n\ndocker build ./aci-helloworld -t aci-test-app\ndocker images\ndocker run -d -p 8080:80 aci-test-app\n(Example to build image only and run locally)\n\nStep 2: Create an alias if the image with the fully qualified path to the registry\ndocker tag mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine myregistry.azurecr.io/samples/nginx\n\nStep 3: Log in to the registry and push image\ndocker push myregistry.azurecr.io/samples/nginx"
+      },
+      {
+        "date": "2022-11-18T23:20:00.000Z",
+        "voteCount": 1,
+        "content": "nice explanation"
+      },
+      {
+        "date": "2021-07-08T22:25:00.000Z",
+        "voteCount": 10,
+        "content": "Correct\nhttps://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli?tabs=azure-cli"
+      },
+      {
+        "date": "2021-07-21T00:48:00.000Z",
+        "voteCount": 3,
+        "content": "Agree\nBut it's an update - so this link looks better for me:\nhttps://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-deploy-update"
+      },
+      {
+        "date": "2023-01-03T01:49:00.000Z",
+        "voteCount": 1,
+        "content": "Very Useful."
+      },
+      {
+        "date": "2022-10-08T07:25:00.000Z",
+        "voteCount": 1,
+        "content": "You could still alias with a new build number, but yeah, not required. And, yes, the version can be a build number. But if only three can be chosen I will not select that"
+      },
+      {
+        "date": "2022-03-12T20:06:00.000Z",
+        "voteCount": 3,
+        "content": "Got it on 03/2022, I chose as below:\nStep 1: Build a new application image by using dockerfile\nStep 2: Create an alias if the image with the fully qualified path to the registry\nStep 3: Log in to the registry and push image"
+      },
+      {
+        "date": "2021-08-16T23:37:00.000Z",
+        "voteCount": 4,
+        "content": "Strange question. I realize that from the provided options this is the only solution one can assemble. But the project describes LabelMaker app to be a set of images running in AKS. Pushing a new image into ACR won't change a thing, as one needs to update the YAML deployment file for Kubernetes to pick up the image, and then tell AKS to reconcile."
+      },
+      {
+        "date": "2024-05-09T10:46:00.000Z",
+        "voteCount": 1,
+        "content": "Question says \"You need to deploy ...to ACR\"  - ACR is the registry - it does exactly that. Question does not say, that you need to update production containers."
+      },
+      {
+        "date": "2022-10-08T07:24:00.000Z",
+        "voteCount": 6,
+        "content": "It is a Microsoft question. Keep intelligence out of it"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "28"
+  },
+  {
+    "topic": 28,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/59347-exam-az-204-topic-28-question-2-discussion/",
+    "body": "You need to access data from the user claim object in the e-commerce web app.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWrite custom code to make a Microsoft Graph API call from the e-commerce web app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the Contributor RBAC role to the e-commerce web app by using the Resource Manager create role assignment API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the e-commerce web app to read the HTTP request header values.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the Azure CLI, enable Cross-origin resource sharing (CORS) from the e-commerce checkout API to the e-commerce web app."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-05T18:05:00.000Z",
+        "voteCount": 27,
+        "content": "https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-user-identities\nThe answer C"
+      },
+      {
+        "date": "2021-09-20T10:58:00.000Z",
+        "voteCount": 5,
+        "content": "your link is intersting but I think the answer you provide is FALSE.\nAs I understood from the link, if you want to access user claims from Azure Function then the C answer is OK but if you want to get it from webapp then the A answer is the good one.\nPlease, recheck the link above"
+      },
+      {
+        "date": "2022-02-08T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "in Function you can access the user clams from headers, ClaimsPrincipal\n\nFor Azure Functions, ClaimsPrincipal.Current is not populated for .NET code, but you can still find the user claims in the request headers, or get the ClaimsPrincipal object from the request context or even through a binding parameter. See working with client identities in Azure Functions for more information.\n\nhttps://docs.microsoft.com/en-us/azure/app-service/configure-authentication-user-identities"
+      },
+      {
+        "date": "2021-10-30T17:17:00.000Z",
+        "voteCount": 6,
+        "content": "To quote the link provided:\n\"For all language frameworks, App Service makes the claims in the incoming token (whether from an authenticated end user or a client application) available to your code by injecting them into the request headers. External requests aren't allowed to set these headers, so they are present only if set by App Service....\"\n\nSo the first thing that happens in the the Web App is to read the information from the request headers that was inserted by the App Service as part of authenticating the user in order to provide the user's claims."
+      },
+      {
+        "date": "2022-02-21T01:02:00.000Z",
+        "voteCount": 1,
+        "content": "I would say this is correct because the JWT is sent in the header and it contains the claims. No need to access the GraphAPI"
+      },
+      {
+        "date": "2022-11-27T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "Exactly."
+      },
+      {
+        "date": "2021-09-20T00:46:00.000Z",
+        "voteCount": 6,
+        "content": "I think it's (A) though because it's a e-commerce 'web app' which is not an 'Azure function'."
+      },
+      {
+        "date": "2021-10-18T09:25:00.000Z",
+        "voteCount": 3,
+        "content": "But Azure function will get data from web app and App Service passes user claims to the app by using special request headers. External requests aren\u2019t allowed to set these headers, so they are present only if set by the App Service. then  \n[FunctionName(\"ClaimsDemo\")]\n        public static IActionResult Run\n        ([HttpTrigger(AuthorizationLevel.Anonymous, \"get\", \"post\", Route = null)]\n        HttpRequest req, ILogger log)\n        {\n\n            //Extract User ID and Claims from the request headers\n            var principal_name = req.Headers[\"X-MS-CLIENT-PRINCIPAL-NAME\"].FirstOrDefault();\n            var principal_Id = req.Headers[\"X-MS-CLIENT-PRINCIPAL-ID\"].FirstOrDefault();\nSo CCCCCCCCCCCCCCCCCCCCC"
+      },
+      {
+        "date": "2024-01-27T10:05:00.000Z",
+        "voteCount": 1,
+        "content": "The answer C"
+      },
+      {
+        "date": "2023-09-14T02:33:00.000Z",
+        "voteCount": 2,
+        "content": "App Service makes the claims in the incoming token (whether from an authenticated end user or a client application) available to your code by injecting them into the request headers.\n\nSo from this point, you just need to read them in your code"
+      },
+      {
+        "date": "2023-06-20T05:40:00.000Z",
+        "voteCount": 1,
+        "content": "\"E-commerce application sign-ins must be secured by using Azure App Service authentication and Azure Active Directory (AAD).\"  so using Microsoft Graph API call is probably what you want to do but the tricky part is the question asks what should you do first.  Read the header to get the info you need to make the Graph API call would be my vote."
+      },
+      {
+        "date": "2022-11-18T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "The answer C"
+      },
+      {
+        "date": "2022-02-22T06:47:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/app-service/configure-authentication-user-identities"
+      },
+      {
+        "date": "2022-02-08T01:04:00.000Z",
+        "voteCount": 2,
+        "content": "in Function you can access the user clams from headers, ClaimsPrincipal\n\nFor Azure Functions, ClaimsPrincipal.Current is not populated for .NET code, but you can still find the user claims in the request headers, or get the ClaimsPrincipal object from the request context or even through a binding parameter. See working with client identities in Azure Functions for more information.\n\nhttps://docs.microsoft.com/en-us/azure/app-service/configure-authentication-user-identities"
+      },
+      {
+        "date": "2023-04-14T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "Great finding! New link from learn.microsoft:\nhttps://learn.microsoft.com/en-us/azure/app-service/configure-authentication-user-identities"
+      },
+      {
+        "date": "2021-10-07T02:53:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is A.\nCheck this tutorial related to a web app accessing Microsoft Graph to get signed user's display name and his/her photo from Azure AD. It seems it corresponds to \"access data from the user claim object\" requirement. \n\nhttps://docs.microsoft.com/en-us/azure/app-service/scenario-secure-app-access-microsoft-graph-as-user\n\nNote: Reading HTTP headers (the answer C) could give basic information only - but the user claim contains more detailed data.\n\nhttps://docs.microsoft.com/en-us/azure/app-service/configure-authentication-user-identities"
+      },
+      {
+        "date": "2022-02-14T07:54:00.000Z",
+        "voteCount": 1,
+        "content": "Yeah, but to access the GraphAPI you need the information from the token which is sent in the header, so in both ways, the first step is to read the header values."
+      },
+      {
+        "date": "2022-10-08T07:34:00.000Z",
+        "voteCount": 1,
+        "content": "The question does not ask anything but claims and does not say read profile (which has detailed information), in which case you might want to access the graphs API if given access."
+      },
+      {
+        "date": "2021-08-26T12:15:00.000Z",
+        "voteCount": 3,
+        "content": "I do not know if C is correct, the thing you need is https://docs.microsoft.com/en-us/azure/active-directory/develop/msal-net-migration, you cannot read the http header directly, you need MS library, best thing I can see if graph from A ... But it is not really, the name of the library ..."
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "28"
+  }
+]

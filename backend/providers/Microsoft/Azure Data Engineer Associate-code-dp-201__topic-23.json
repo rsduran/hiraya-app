@@ -1,0 +1,160 @@
+[
+  {
+    "topic": 23,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/28675-exam-dp-201-topic-23-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to design the image processing solution to meet the optimization requirements for image tag data.<br>What should you configure? To answer, drag the appropriate setting to the correct drop targets.<br>Each source may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03774/0010600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0010700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Tagging data must be uploaded to the cloud from the New York office location.<br>Tagging data must be replicated to regions that are geographically close to company office locations.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-02T17:22:00.000Z",
+        "voteCount": 13,
+        "content": "We need to have a sitdown with the guys who put together dp-201"
+      },
+      {
+        "date": "2021-04-24T06:58:00.000Z",
+        "voteCount": 5,
+        "content": "yep, that would be fun"
+      },
+      {
+        "date": "2021-09-22T12:41:00.000Z",
+        "voteCount": 1,
+        "content": "ha ha We need to have a sitdown with the guys who put together dp-201"
+      },
+      {
+        "date": "2021-08-31T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "What question is this? nonsense"
+      },
+      {
+        "date": "2021-03-07T09:05:00.000Z",
+        "voteCount": 4,
+        "content": "scenario: The images are transferred from customer devices to the server in New\nYork.\nso the answer is correct - New York is a write region, other for reading"
+      },
+      {
+        "date": "2020-08-15T12:48:00.000Z",
+        "voteCount": 4,
+        "content": "The question is about image processing but the answer is about image tagging data. I assume I have to again guess about the intention, and not the sense of the question."
+      },
+      {
+        "date": "2020-09-29T14:05:00.000Z",
+        "voteCount": 3,
+        "content": "Microsoft Style !"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "23"
+  },
+  {
+    "topic": 23,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17056-exam-dp-201-topic-23-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to design the image processing and storage solutions.<br>What should you recommend? To answer, select the appropriate configuration in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0010800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0010800002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "From the scenario:<br>The company identifies the following business requirements:<br>\u2711 You must transfer all images and customer data to cloud storage and remove on-premises servers.<br>\u2711 You must develop an image object and color tagging solution.<br>The solution has the following technical requirements:<br>\u2711 Image data must be stored in a single data store at minimum cost.<br>\u2711 All data must be backed up in case disaster recovery is required.<br>All cloud data must be encrypted at rest and in transit. The solution must support:<br>\u2711 hyper-scale storage of images<br>Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/batch-processing https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tier-hyperscale<br>Design data processing solutions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-13T03:38:00.000Z",
+        "voteCount": 74,
+        "content": "Data Storage for Tagging Data should be Cosmos DB, because \"the tags must be stored in a document database, and be queried by SQL\". Also for the Image Processing, it should use Azure Cognitive Services which is an AI solution and can \"automatically identify, generate image Object and Color tags\"."
+      },
+      {
+        "date": "2020-05-05T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "but hyper-scale is a sql database feature.  so data storage could be sql database."
+      },
+      {
+        "date": "2020-05-11T11:36:00.000Z",
+        "voteCount": 6,
+        "content": "But hyper-scale is for images, not for tagging data. I think it should be Cosmos DB (SQL API)"
+      },
+      {
+        "date": "2020-05-14T11:42:00.000Z",
+        "voteCount": 26,
+        "content": "Looks like Image processing should be Cognitive Services\nhttps://docs.microsoft.com/en-us/rest/api/cognitiveservices/computervision/tagimage/tagimage\n\nAnd storing the tags should be done in  Cosmos DB as its document store and support SQL (SQL API)"
+      },
+      {
+        "date": "2020-05-16T07:40:00.000Z",
+        "voteCount": 6,
+        "content": "Reading further it looks like Azure HDInsight Deep Learning algorithms can be used for the purpose so the first box seems correct\n\nhttps://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-deep-dive-advanced-analytics#scenario---score-images-to-identify-patterns-in-urban-development"
+      },
+      {
+        "date": "2020-11-24T12:27:00.000Z",
+        "voteCount": 5,
+        "content": "I didn't see why Databricks cannot do image processing with machine learning libraries."
+      },
+      {
+        "date": "2021-10-28T21:30:00.000Z",
+        "voteCount": 2,
+        "content": "Did not appear on DP-203"
+      },
+      {
+        "date": "2020-12-27T08:31:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with box 2 as Cosmos DB ..but Cognitive services is out of scope in the exam. It should be HDInsight with Microsoft Cognitive Toolkit to identify image tag as so on..so box 1 is correct"
+      },
+      {
+        "date": "2020-12-10T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "storage is Cosmos DB for sure since document database is mentioned in the requirements\nuse cognitive services for processing\nhttps://azure.microsoft.com/en-us/services/cognitive-services/"
+      },
+      {
+        "date": "2020-10-27T07:07:00.000Z",
+        "voteCount": 4,
+        "content": "I pulled my hair when I saw SQL DB as the storage... it is obvious that Cosmos DB is the answer, just look at the previous question!!"
+      },
+      {
+        "date": "2020-09-29T14:08:00.000Z",
+        "voteCount": 9,
+        "content": "this is a mockery !"
+      },
+      {
+        "date": "2020-06-22T01:26:00.000Z",
+        "voteCount": 6,
+        "content": "Cognitive &amp; cosmos DB should be the answers"
+      },
+      {
+        "date": "2020-07-04T02:54:00.000Z",
+        "voteCount": 5,
+        "content": "Cognitive would be a good answer, but as it is out of scope for this exam, the answer should be HDInsights."
+      },
+      {
+        "date": "2020-12-05T08:59:00.000Z",
+        "voteCount": 1,
+        "content": "HDInsight now is also out of scope of this exam (at least as per latest sylabus). Therefore I'll go for Cognitive Services as ready-to-use and easier solution"
+      },
+      {
+        "date": "2021-04-13T06:51:00.000Z",
+        "voteCount": 2,
+        "content": "then maybe databricks? they're not out of scope and have libs available for ML and image recognition"
+      },
+      {
+        "date": "2021-01-25T07:59:00.000Z",
+        "voteCount": 2,
+        "content": "There is a requirement for Managed Spark clusters. Cognitive Services does not provide that."
+      },
+      {
+        "date": "2021-01-25T08:01:00.000Z",
+        "voteCount": 2,
+        "content": "Never mind, that requirement is for customer data."
+      },
+      {
+        "date": "2020-06-03T05:40:00.000Z",
+        "voteCount": 7,
+        "content": "1) Vision cognitive services will be used for tagging pictures. 2) Tags then will be stored into a document store that support SQL. So answer is CosmosDB."
+      },
+      {
+        "date": "2020-03-20T07:56:00.000Z",
+        "voteCount": 11,
+        "content": "should image tagging data not be Cosmos DB?"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "23"
+  }
+]

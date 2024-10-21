@@ -1,0 +1,197 @@
+[
+  {
+    "topic": 24,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47850-exam-az-204-topic-24-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to configure the integration for Azure Service Bus and Azure Event Grid.<br>How should you complete the CLI statement? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04273/0053200002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0053300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: eventgrid -<br>To create event subscription use: az eventgrid event-subscription create<br><br>Box 2: event-subscription -<br><br>Box 3:  servicebusqueue -<br>Scenario: Azure Service Bus and Azure Event Grid<br>Azure Event Grid must use Azure Service Bus for queue-based load leveling.<br>Events in Azure Event Grid must be routed directly to Service Bus queues for use in buffering.<br>Events from Azure Service Bus and other Azure services must continue to be routed to Azure Event Grid for processing.<br>Reference:<br>https://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-20T20:13:00.000Z",
+        "voteCount": 42,
+        "content": "correcto...\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/handler-service-bus"
+      },
+      {
+        "date": "2023-04-17T03:04:00.000Z",
+        "voteCount": 4,
+        "content": "received 2023-04-17 went with given answer, score 926"
+      },
+      {
+        "date": "2021-03-31T01:45:00.000Z",
+        "voteCount": 7,
+        "content": "Agreed. Note that the casus also denotes the opposite integration: \"Events from Azure Service Bus and other Azure services must continue to be routed to Azure Event Grid for processing\". But none of the given options seem to do just this, so the given answer is correct."
+      },
+      {
+        "date": "2022-10-24T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "Exact, this is only one piece of the integration. That for grid to service bus."
+      },
+      {
+        "date": "2022-01-19T08:02:00.000Z",
+        "voteCount": 9,
+        "content": "Got this one 01/2022. Went with most voted (to avoid writing answers again)"
+      },
+      {
+        "date": "2024-03-15T07:11:00.000Z",
+        "voteCount": 2,
+        "content": "az eventgrid event-subscription create --name &lt;my-event-subscription&gt; --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 --endpoint-type servicebusqueue --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1\n\n1) eventgrid\n2) event-subscription\n3) servicebusqueue\n\nhttps://learn.microsoft.com/en-us/azure/event-grid/handler-service-bus#use-azure-cli"
+      },
+      {
+        "date": "2023-05-27T00:52:00.000Z",
+        "voteCount": 2,
+        "content": "Appeared in exam I took on 27 May 2023 \n1 eventgrid \n2 event-subscription\n3 servicebusqueue\nFollowing is the example from Azcli command of az eventgrid \n\n Create a new event subscription for an Azure subscription, using default filters, and an Azure\n    ServiceBusQueue as a destination.\n        az eventgrid event-subscription create --name es2 \\\n            --source-resource-id /subscriptions/{SubID} \\\n            --endpoint-type servicebusqueue \\\n            --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/n\n        amespaces/ns1/queues/queue1"
+      },
+      {
+        "date": "2022-11-18T21:48:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2021-08-26T07:07:00.000Z",
+        "voteCount": 3,
+        "content": "Absolutely correct"
+      },
+      {
+        "date": "2021-08-23T12:12:00.000Z",
+        "voteCount": 2,
+        "content": "Given is valid... but DYOR.\nhttps://docs.microsoft.com/en-us/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az_eventgrid_event_subscription_create"
+      },
+      {
+        "date": "2021-07-26T08:06:00.000Z",
+        "voteCount": 2,
+        "content": "Correcto"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "24"
+  },
+  {
+    "topic": 24,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/44330-exam-az-204-topic-24-question-2-discussion/",
+    "body": "You need to ensure that all messages from Azure Event Grid are processed.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Event Grid topic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Service Bus topic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Service Bus queue\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Storage queue",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Logic App custom connector"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-01T19:59:00.000Z",
+        "voteCount": 25,
+        "content": "Answer is Correct  C. Service Bus\nOnly C. ServiceBus Queue and B. Service Bus Topic give a guarantee of delivery.\nSince Topics can only receive messages from a Queue that leaves only C."
+      },
+      {
+        "date": "2023-04-17T03:04:00.000Z",
+        "voteCount": 3,
+        "content": "received 2023-04-17 went with given answer, score 926"
+      },
+      {
+        "date": "2021-02-25T10:40:00.000Z",
+        "voteCount": 12,
+        "content": "Azure Event Grid must use Azure Service Bus for queue-based load leveling."
+      },
+      {
+        "date": "2021-07-26T06:26:00.000Z",
+        "voteCount": 8,
+        "content": "YEP CORRECT IS C ! 100% &gt;\n\nI HATE THIS QUESTION,, Who create this one LOL"
+      },
+      {
+        "date": "2024-07-18T18:22:00.000Z",
+        "voteCount": 1,
+        "content": "Only messages received by the Event Grid are from the Service Bus.\nEvent Grid is the only consumer, therefor a service bus queue."
+      },
+      {
+        "date": "2023-05-27T00:55:00.000Z",
+        "voteCount": 1,
+        "content": "Appear in exam I took at 27-May-2023\n\nI chose C - Azure Service Bus queue\nhttps://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-to-event-grid-integration-concept?source=recommendations&amp;tabs=event-grid-event-schema#how-many-events-are-emitted-and-how-often"
+      },
+      {
+        "date": "2023-02-22T02:39:00.000Z",
+        "voteCount": 2,
+        "content": "had it on 22/02/2023. Went with SB queue and topic, score 846"
+      },
+      {
+        "date": "2022-11-18T21:50:00.000Z",
+        "voteCount": 2,
+        "content": "C. Azure Service Bus queue"
+      },
+      {
+        "date": "2022-06-25T03:42:00.000Z",
+        "voteCount": 2,
+        "content": "C is correct answer.\nService Bus Queue."
+      },
+      {
+        "date": "2022-03-09T01:20:00.000Z",
+        "voteCount": 2,
+        "content": "I agree the provided answer works \u2013 but why not consider Azure Service Bus topics (+subscriptions) instead?"
+      },
+      {
+        "date": "2022-03-01T13:51:00.000Z",
+        "voteCount": 4,
+        "content": "Easy, C - Service Bus Queue.\nFrom the problem description: \n\"Events in Azure Event Grid must be routed directly to Service Bus queues for use in buffering.\""
+      },
+      {
+        "date": "2022-01-19T08:02:00.000Z",
+        "voteCount": 4,
+        "content": "Got this one 01/2022. Went with service bus queue since it war requested."
+      },
+      {
+        "date": "2021-10-31T15:33:00.000Z",
+        "voteCount": 3,
+        "content": "I think Service Bus is the right answer but not because of the guarantee of delivery (Event Grid already promises \"at least once\" delivery). I'd pick it because of the dead letter queue that ensures that every message could be processed (or, at least, looked at).\n\nIn fact, without the dead letter queue, I'd pick Storage Queue because of its larger capacity and longer hold times (you could image the Logic App -- already using the Service Bus for load leveling -- falling so far behind that the number of messages hits the capacity limit on the Service Bus. \n\nIt's just a terrible, terrible question."
+      },
+      {
+        "date": "2021-06-25T14:11:00.000Z",
+        "voteCount": 8,
+        "content": "Horrible question, just why Microsoft, why..."
+      },
+      {
+        "date": "2021-06-08T02:39:00.000Z",
+        "voteCount": 2,
+        "content": "Bit confusing, as per arch diagram, from azure event grid, arrows ends at LogicApp, meaning, logic app is subscriber to event grid... will it not be 'logic app connector'?"
+      },
+      {
+        "date": "2021-06-06T07:22:00.000Z",
+        "voteCount": 1,
+        "content": "Question doesn't make sense. Event Grid events are the consequence of Service Bus messages (when new message appears is Service Bus than Event Grid emits an event to subscribers). So how Service Bus can be an answer which ensures that all EventGrid events are processed?"
+      },
+      {
+        "date": "2021-02-09T23:41:00.000Z",
+        "voteCount": 1,
+        "content": "Weird question, not sure about the answer probably service bus queue or storage queue"
+      },
+      {
+        "date": "2021-02-17T12:08:00.000Z",
+        "voteCount": 5,
+        "content": "Check the Case Study:  \"Azure Event Grid must use Azure Service Bus for queue-based load leveling.\" so.... C, Azure Server Bus queue (IMHO)"
+      },
+      {
+        "date": "2021-02-09T01:49:00.000Z",
+        "voteCount": 2,
+        "content": "Question is bit confusing. Not sure on the answer."
+      },
+      {
+        "date": "2021-02-16T00:47:00.000Z",
+        "voteCount": 7,
+        "content": "Looking more into the question, the given answer looks correct.\n\nEvent grid sends all events to the service bus queue, and it is the best place to check if all events received by event grid are processed correctly."
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "24"
+  }
+]

@@ -1,0 +1,81 @@
+[
+  {
+    "topic": 12,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83939-exam-az-801-topic-12-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are planning the europe.fabrikam.com migration to support the on-premises migration plan.<br>Where should you install the Password Export Server (PES) service, where should you generate the encryption key? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0015000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0015000002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: dc2.europe.fabrikam.com -<br>To migrate passwords, select or install a backup domain controller in the source Windows NT 4.0 domain to act as the Secure Password Export server.<br>Run the PES service on the dc2 domain controller in source domain europe.fabrikam.com domain.<br>Scenario:<br>* Migrate all users, groups, and client computers from europe.fabrikam.com to corp.fabrikam.com.<br>* The migration will be performed by using the Active Directory Migration Tool (ADMT).<br>* A computer named ADMTcomputer will be deployed to the corp.fabrikam.com domain to run ADMT migration procedures.<br>* User accounts will retain their existing password.<br><br>Box 2: dc1.corp.fabrikam.com -<br>dc1.corp.fabrikam.com is the target server, and we generate the encryption key on it.<br>To migrate passwords, select or install a backup domain controller in the source Windows NT 4.0 domain to act as the Secure Password Export server. This server will communicate with the Active Directory Migration Tool (ADMT) Server in the Target Domain.<br>Note: Create an encryption key to install on the Password Export server Using an Encryption Key on the Password Export Server.<br>The Password server encryption key is a key created on the ADMT server and is required to complete the installation of the Password Export Server. The encryption key can be created and stored in one or both of the following methods, by copying to the local floppy disk drive for transport to the password export server or by storing the encryption key in a folder on the local hard drive.<br>Reference:<br>https://www.serverbrain.org/secrets-2003/setting-up-an-admt-password-migration-server.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-02T02:42:00.000Z",
+        "voteCount": 13,
+        "content": "Generate encryption key in admtcomputer and install PES in dc2 Reference:\n\nhttps://akhil0087.home.blog/2020/09/10/password-migration-using-admt/"
+      },
+      {
+        "date": "2022-10-07T10:20:00.000Z",
+        "voteCount": 4,
+        "content": "Thanks for providing a source for this!"
+      },
+      {
+        "date": "2023-05-01T02:45:00.000Z",
+        "voteCount": 6,
+        "content": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc974435(v=ws.10)?redirectedfrom=MSDN#to-create-an-encryption-keyhttps://learn.microsoft.com/en-us/answers/questions/130203/admt-pes-password-export-server-31-x64-package-dow.html\n\nThe PES service can be installed on any writable domain controller in the source domain\n\nThe PES service installation in the source domain requires an encryption key. However, you must create the encryption key on the computer running the ADMT in the target domain\n\nInstall PES on dc2.europe.fabrikam.com\nGenerate encryption key on admtcomputer.fabrikam.com"
+      },
+      {
+        "date": "2023-12-10T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "admtcomputer.fabrikam.com ... fabrikam.com domain does not exist, we only have europe.fabrikam.com and corp.fabrikam.com. I think you should generate the key from dc1.corp.fabrikam.com"
+      },
+      {
+        "date": "2024-02-17T16:55:00.000Z",
+        "voteCount": 1,
+        "content": "The question is malformed. You are incorrect about generating the key from dc1.corp.fabrikam.com - the encryption key needs to be generated from the SOURCE domain, effectively ruling out any machine that's in the corp.fabrikam.com domain.\n\nBased on the spirit of the question, I assume the option was supposed to be \"admt.europe.fabrikam.com\" - this would make sense because any ADMT machine would need to exist on the source domain (europe.fabrikam.com), not in the target domain. So by process of elimination, the answer basically NEEDS to be \"admt.fabrikam.com,\" though what they MEANT was \"admt.europe.fabrikam.com\""
+      },
+      {
+        "date": "2024-08-05T03:49:00.000Z",
+        "voteCount": 1,
+        "content": "Fabrikam Case Study \n\nOn-Premises Migration Plan\n\nFabrikam has an Active Directory Domain Services (AD DS) forest that syncs with an Azure Active Directory (Azure AD) tenant. \nThe AD DS forest contains two domains named corp.fabrikam.com and europe.fabrikam.com.\n\nThe office in Paris contains a physical server named dc2.europe.fabrikam.com that runs Windows Server 2016 and is a domain controller for the europe.fabrikam.com domain.\n\nMigrate all users, groups, and client computers from europe.fabrikam.com to corp.fabrikam.com.\n- The migration will be performed by using the Active Directory Migration Tool (ADMT).\n- A computer named ADMTcomputer will be deployed to the corp.fabrikam.com domain to run ADMT migration procedures.\n- User accounts will retain their existing password\n\nAnswer\n\u2022 Install the PES service on:  dc2.europe.fabrikam.com\n\u2022 Generate the encryption key on: admtcomputer.fabrikam.com\n\nADMTcomputer will be deployed to the corp.fabrikam.com domain so to name admtcomputer.fabrikam.com more likely is wrong.\nThe right name could be : admtcomputer.corp.fabrikam.com"
+      },
+      {
+        "date": "2023-06-29T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "admt is used for create key -&gt; https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/supplied-password-not-match-encryption-keys-password\n\nbecauss admt srv it's in DC1 domain, it's destination  , source domain must be DC2, and PES must be installaed in source dom, DC"
+      },
+      {
+        "date": "2023-04-03T08:15:00.000Z",
+        "voteCount": 2,
+        "content": "If you're using password synchronization, you must install Password Export Server (PES) on a domain controller in the source."
+      },
+      {
+        "date": "2022-12-07T21:40:00.000Z",
+        "voteCount": 3,
+        "content": "Apologies - this was hard to pin down- -I was wrong earlier again - \n\nanswer is : \nSource - Dc1.europe \nENcryption key- ADMTserver\n===\n1. The Encryption tool can be installed on the ADMT server in the target domain member server \n2. The PES is installed on the DC in the source domain controller \n3. generate the key in target admt and input into source PES \n4. Run PES server to perform the migraiton - \nhttps://social.technet.microsoft.com/wiki/contents/articles/13904.how-to-migrate-users-across-forest-cross-forest-using-admt-3-2-with-sid-and-passwords.aspx\nhttps://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc974435(v=ws.10)?redirectedfrom=MSDN#to-create-an-encryption-key\nhttps://learn.microsoft.com/en-us/answers/questions/130203/admt-pes-password-export-server-31-x64-package-dow.html"
+      },
+      {
+        "date": "2022-12-25T06:27:00.000Z",
+        "voteCount": 4,
+        "content": "Be mo consistent :) There is no dc1.europe in the answers :)"
+      },
+      {
+        "date": "2022-12-07T21:30:00.000Z",
+        "voteCount": 2,
+        "content": "Ok so the answers are backwards- the source is corp and the target is europe- and alos PES must be intalled on a DC - same witht he KEY generations - so its DC1.corp as the source and DC2.eurpoe - https://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/supplied-password-not-match-encryption-keys-password"
+      },
+      {
+        "date": "2022-12-03T14:43:00.000Z",
+        "voteCount": 1,
+        "content": "So you : \n1. Generate the Key on the ADM computer in target\n2. DOwnload the PES tool and install in source DC - \n3. Run the wizzard and it adds this key\n4. Open the ADM tool on the target and complete the migration - \n\nthe order of the two questions is also backwards get the key first then run the PES. \nits also not the whole process."
+      },
+      {
+        "date": "2022-09-28T11:15:00.000Z",
+        "voteCount": 4,
+        "content": "The explanation given below the answer and the link provided both state that the encryption key is created on ADMTComputer.fabrikam.com.\nSo that would be the answer to the second question, I assume..."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "12"
+  }
+]

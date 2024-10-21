@@ -1,0 +1,401 @@
+[
+  {
+    "topic": 6,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22735-exam-mb-400-topic-6-question-1-discussion/",
+    "body": "DRAG DROP -<br>Five high schools test a custom app from AppSource. They provide feedback that the Course credit entity should include additional fields that cover information shared by the schools.<br>You do not have access to each high school organization.<br>Each high school administrator must be able to apply the updates to the Course credit entity.<br>You need to deliver a custom program that creates the additional fields.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0011300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0011400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Call the login logic.<br>Step 2: Retrieve the Course credit entity metadata by using RetrieveEntityRequest with EntityFilters = Attributes and LogicalName<br>The RetrieveEntityRequest.EntityFilters property gets or sets a filter to control how much data for the entity is retrieved.<br>Step 3:  Define the AttributeMetaData for each new field.<br>Step 4: Call the RetrieveAttributeRequest with LogicalName for each new field.<br>The RetrieveAttributeRequest contains the data that is needed to retrieve attribute metadata.<br>Reference:<br>https://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.messages.retrieveentityrequest.entityfilters?view=dynamics-general-ce-9",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-22T03:35:00.000Z",
+        "voteCount": 15,
+        "content": "correct order:\n6,7,3,4"
+      },
+      {
+        "date": "2020-10-09T05:00:00.000Z",
+        "voteCount": 2,
+        "content": "I agree, but only because it is necessary to provide 4 answers. I don't understand why we should retrieve the metadata of the existing attributes. Should we not only create the new ones?"
+      },
+      {
+        "date": "2020-10-16T10:44:00.000Z",
+        "voteCount": 2,
+        "content": "It would be a better practice check whether the new metadata that is about to get created already exists in the environment. I think if we try to create a attribute with existing name we get an exception"
+      },
+      {
+        "date": "2020-11-06T02:07:00.000Z",
+        "voteCount": 2,
+        "content": "I\u2019d like to discuss the 2nd step: retrieving the existent fields. I have looked up in the SDK: RetrieveEntityRequest.EntityFilters has the item \u201cAttributes\u201d, but does not have an item \u201cLogicalName\u201d - impossible. The 1st option would work for the 2nd step, but it is not the most efficient way. 2nd option: You don\u2019t have the MetadataId at this moment. The most efficient, working and well-tailored way to get the existent attributes is option 5 (Call the RetrieveAttributeRequest with LogocalName for each new field). So, it is 6,5,3,4"
+      },
+      {
+        "date": "2021-04-12T13:32:00.000Z",
+        "voteCount": 1,
+        "content": "Correct: the sample query to retrieve :\nhttps://carldesouza.com/dynamics-365-get-entity-metadata-using-c/"
+      },
+      {
+        "date": "2020-06-11T07:05:00.000Z",
+        "voteCount": 13,
+        "content": "Call the CreateAttributeRequest constructor for each new field\nhttps://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.messages.createattributerequest?view=dynamics-general-ce-9"
+      },
+      {
+        "date": "2020-12-23T06:07:00.000Z",
+        "voteCount": 2,
+        "content": "6, 7, 3, 4\n7: because EntityFilters is required for RetrieveEntityRequest"
+      },
+      {
+        "date": "2020-12-13T02:50:00.000Z",
+        "voteCount": 1,
+        "content": "6,2,3,4\n\n2- couse EntityFilters is obligatory for request\n3- before create new attributes you have to define Atribute metadana\n4 - CreateAttributeRequest to create attributs\n\nfor 3,4 https://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.messages.createattributerequest?view=dynamics-general-ce-9"
+      },
+      {
+        "date": "2020-06-10T05:25:00.000Z",
+        "voteCount": 3,
+        "content": "why is correct \"Call the RetrieveAttributeRequest with LogicalName for each new field\" and not \"Call the CreateAttributeRequest constructor for each new field\"?"
+      },
+      {
+        "date": "2020-06-15T13:46:00.000Z",
+        "voteCount": 10,
+        "content": "I think \"Call the CreateAttributeRequest constructor for each new Field\" is the correct answer."
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23392-exam-mb-400-topic-6-question-2-discussion/",
+    "body": "DRAG DROP -<br>A developer must register a step using the Plug-in registration tool.<br>You need to associate the correct Event Pipeline Stage of Execution with its purpose.<br>Which stage should you associate with each description? To answer, drag the appropriate stages to the correct descriptions. Each stage may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0011500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0011600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "The event pipeline allows you to configure when in the event the plug-in code will execute. The event pipeline is divided into the following events and stages:<br><br>Box 1: PreValidation -<br><br>Pre-event/Pre-Validation -<br>This stage executes before anything else, even before basic validation if the triggering action is even allowed based on security. Therefore, it would be possible to trigger the plug-in code even without actually having permission to do so and great consideration must be used when writing a pre-validation plug-in.  Also, execution in this stage might not be part of the database transaction.<br>Examples:- security checks being performed to verify the calling or logged on user has the correct permissions to perform the intended operation.<br><br>Box 2: PreOperation -<br><br>Pre-event/Pre-Operation -<br>This stage executes after validation, but before the changes has been committed to database. This is one of the most commonly used stages.<br>Example uses:<br>If and \"update\" plug-in should update the same record, it is best practice to use the pre-operation stage and modify the properties. That way the plug-in update is done within same DB transaction without needing additional web service update call.<br><br>Box 3: PostOperation -<br>Plug-ins which are to execute after the main operation. Plug-ins registered in this stage are executed within the database transaction.<br>This stage executed after changes have been committed to database. This is one of the most used stages.<br>Example uses:<br>Most of the \"Create\" plugins are post-event. This allows access to the created GUID and creation of relationships to newly created record.<br>Incorrect Answers:<br>MainOperation:- main operation of the system, such as create, update, delete, and so on. No custom plug-ins can be registered in this stage.<br>Reference:<br>https://community.dynamics.com/crm/f/microsoft-dynamics-crm-forum/216569/ms-crm-plugin-execution-pipeline",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-17T13:11:00.000Z",
+        "voteCount": 11,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2020-08-22T21:04:00.000Z",
+        "voteCount": 1,
+        "content": "PreOperation happens before the db transaction. 2nd one should be PostOp, as PostOp happens within the db transaction."
+      },
+      {
+        "date": "2020-08-25T01:33:00.000Z",
+        "voteCount": 2,
+        "content": "No. PreOperation happens within database transaction so the answer is correct. See https://community.dynamics.com/crm/f/microsoft-dynamics-crm-forum/216569/ms-crm-plugin-execution-pipeline (grid)"
+      },
+      {
+        "date": "2021-06-20T12:12:00.000Z",
+        "voteCount": 1,
+        "content": "synchronous operation of Pre and Post both are in database transaction."
+      },
+      {
+        "date": "2020-08-18T06:23:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-07-29T08:37:00.000Z",
+        "voteCount": 2,
+        "content": "https://crmbook.powerobjects.com/extending-dynamics-365/plug-in-development-and-workflow-extensions/plug-ins/event-pipeline/"
+      },
+      {
+        "date": "2020-07-10T05:54:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-06-29T00:36:00.000Z",
+        "voteCount": 3,
+        "content": "Correct!"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22766-exam-mb-400-topic-6-question-3-discussion/",
+    "body": "HOTSPOT -<br>A company imports data from files.<br>The following code is created to import the files. (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/03197/0011800001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03197/0011900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0012000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>Need to set ContinueOnError=True. ContinueOnError: When true, continue processing the next request in the collection even if a fault has been returned from processing the current request in the collection. When false, do not continue processing the next request.<br><br>Box 2: No -<br>ContinueOnError = true must be added before Requests = new OrganizationRequestCollection() on line 3.<br>Example:<br>// Create an ExecuteMultipleRequest object.<br>requestWithResults = new ExecuteMultipleRequest()<br>{<br>// Assign settings that define execution behavior: continue on error, return responses.<br>Settings = new ExecuteMultipleSettings()<br>{<br>ContinueOnError = false,<br><br>ReturnResponses = true -<br>},<br>// Create an empty organization request collection.<br>Requests = new OrganizationRequestCollection()<br>};<br><br>Box 3: Yes -<br>You can use the ExecuteMultipleRequest message to support higher throughput bulk message passing scenarios in Common Data Service.<br>ExecuteMultipleRequest accepts an input collection of message Requests, executes each of the message requests in the order they appear in the input collection, and optionally returns a collection of Responses containing each message's response or the error that occurred.<br><br>Box 4: No -<br>This is just for displaying the result.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/org-service/execute-multiple-requests",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-14T12:42:00.000Z",
+        "voteCount": 39,
+        "content": "1- false (executing multiple operations in a single transaction with the ability to roll back all data changes should any one operation fail.)\n2-false (ExecuteTransactionRequest does not have ContinueOnError property)\n3-true (Message requests in the Requests collection are executed in order as they appear in the collection, where the element at index 0 is executed firs)\n4-false ( Display the results returned in the responses)"
+      },
+      {
+        "date": "2020-06-17T13:14:00.000Z",
+        "voteCount": 5,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-06-26T02:18:00.000Z",
+        "voteCount": 3,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-07-10T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-07-18T11:13:00.000Z",
+        "voteCount": 1,
+        "content": "I agree,\nhttps://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/jj863631(v=crm.8)?redirectedfrom=MSDN#specify-run-time-execution-options\n\nhttps://docs.microsoft.com/en-us/previous-versions/dynamicscrm-2016/developers-guide/jj733858(v=crm.8)#properties"
+      },
+      {
+        "date": "2020-06-13T13:26:00.000Z",
+        "voteCount": 14,
+        "content": "The second answer is wrong.\nExecuteTransactionRequest does not have ContinueOnError property."
+      },
+      {
+        "date": "2020-07-14T04:13:00.000Z",
+        "voteCount": 1,
+        "content": "It does have the ContinueOnError proptery"
+      },
+      {
+        "date": "2020-09-21T05:48:00.000Z",
+        "voteCount": 4,
+        "content": "No it doesn't: https://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.messages.executetransactionrequest?view=dynamics-general-ce-9"
+      },
+      {
+        "date": "2020-12-16T15:44:00.000Z",
+        "voteCount": 1,
+        "content": "It makes sense as transaction should be safely completed without any error, just like bank payment."
+      },
+      {
+        "date": "2020-12-15T07:13:00.000Z",
+        "voteCount": 2,
+        "content": "correct answer\nNO\nNO\nYES\nNO"
+      },
+      {
+        "date": "2020-08-18T06:25:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be No, No, Yes No"
+      },
+      {
+        "date": "2020-07-29T08:44:00.000Z",
+        "voteCount": 1,
+        "content": "second question seems to be asking if they added it to line 5,would that work."
+      },
+      {
+        "date": "2020-06-20T14:15:00.000Z",
+        "voteCount": 5,
+        "content": "There is no ContinueOnError property on Execute Transaction Request:  https://docs.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.messages.executetransactionrequest?view=dynamics-general-ce-9"
+      },
+      {
+        "date": "2020-06-10T08:03:00.000Z",
+        "voteCount": 11,
+        "content": "Third should be Yes\n\n Message requests in the Requests collection are executed in order as they appear in the collection, where the element at index 0 is executed first. This same order is preserved in the Responses collection.\n\nhttps://docs.microsoft.com/en-us/powerapps/developer/common-data-service/org-service/use-executetransaction"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23506-exam-mb-400-topic-6-question-4-discussion/",
+    "body": "An organization plans to set up a secure custom connector for PowerApps. The app will capture tweets from Twitter about the organization's upcoming product for sales follow-up.<br>You need to configure security for the app.<br>Which authentication method should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOAuth",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWindows authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPI key",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBasic authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tKerberos authentication"
+    ],
+    "answer": "A",
+    "answerDescription": "Configure OAuth2 provider settings for portals.<br>The OAuth 2.0 based external identity providers involve registering an \"application\" with a third-party service to obtain a \"client ID\" and \"client secret\" pair.<br>The supported providers are:<br>\u2711 Microsoft Account<br>\u2711 Twitter<br>\u2711 Facebook<br>\u2711 Google<br>\u2711 LinkedIn<br>\u2711 Yahoo<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/configure-oauth2-settings",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-18T06:26:00.000Z",
+        "voteCount": 3,
+        "content": "Bonus question...OAuth is the correct answer."
+      },
+      {
+        "date": "2020-06-29T00:37:00.000Z",
+        "voteCount": 1,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-06-24T23:09:00.000Z",
+        "voteCount": 2,
+        "content": "A more relevant link - when creating Power Apps custom connectors there's a need to setup the security to OAuth 2  -&gt;Azure AD\nhttps://toddbaginski.com/blog/how-to-make-a-custom-connector-for-powerapps-and-flow-that-calls-the-microsoft-graph-api/"
+      },
+      {
+        "date": "2020-06-19T06:36:00.000Z",
+        "voteCount": 2,
+        "content": "ok unless you are in US GCC or China, there is a standard connector for Twitter.  You do not need it to be custom.  https://docs.microsoft.com/en-us/connectors/twitter/"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23393-exam-mb-400-topic-6-question-5-discussion/",
+    "body": "HOTSPOT -<br>You are developing a Web API for a company.<br>You need to implement the appropriate operations to meet the company's requirements.<br>What should you implement? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03197/0012300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0012400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Functions -<br><br>Box 2: Actions -<br><br>Box 3: Complex types -<br>Complex types are keyless named structured types consisting of a set of properties. Complex types are commonly used as property values in model entities, or as parameters or return values for operations.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/webapi/web-api-types-operations#complex-types",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-17T13:19:00.000Z",
+        "voteCount": 11,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-01-26T06:17:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-10-19T09:15:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      },
+      {
+        "date": "2020-08-18T06:20:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22293-exam-mb-400-topic-6-question-6-discussion/",
+    "body": "HOTSPOT -<br>A travel agency has a Dynamics 365 Customer Engagement.<br>Customers are allowed to add up to three countries/regions to their travel preferences from the website. Their preferences must be stored in the Contact entity.<br>You need to register the plug-in to meet the requirements.<br>Which value should you apply for each parameter? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03197/0012600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0012700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: associate -<br><br>Box 2: contact -<br>Customers are allowed to add up to three countries/regions to their travel preferences from the website. Their preferences must be stored in the Contact entity.<br><br>Box 3: country -<br><br>Box 4: synchronous -<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/tutorial-write-plug-in",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-14T12:49:00.000Z",
+        "voteCount": 36,
+        "content": "1- Associate\n2- none\n3-none\n4-Sync\n( When you register a plugin on Associate message, you have to leave \u201cPrimary and Secondary\u201d entities as \u2018none\u2019)\nWhen you register a plugin on Associate message, you have to leave \u201cPrimary and Secondary\u201d entities as \u2018none\u2019"
+      },
+      {
+        "date": "2020-06-06T03:49:00.000Z",
+        "voteCount": 9,
+        "content": "I think Primary and secondary entity are 'None'"
+      },
+      {
+        "date": "2020-10-22T00:54:00.000Z",
+        "voteCount": 2,
+        "content": "This is correct. You can't add a primary and/or secondary entity for the associate message. If you try to do this over the Plugin Registration Tool, you will get something similar to the following message:\n\"Invalid Primary Entity Name for Primary or Secondary Entity. Please re-enter the data\"."
+      },
+      {
+        "date": "2021-05-26T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "Where is it mentioned to store the data in any other entity than Contact?\nShouldn't it be a simple Update?"
+      },
+      {
+        "date": "2020-10-15T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "In MS CRM Plugin Associate/Disassociate messages are used only for N-N relationship adding/removal of a associate record.\nNote: With 1-N relationship you will have to use Update message with filter by relationship lookup.\n\nSo I vote for: 1 - Update."
+      },
+      {
+        "date": "2020-11-15T17:10:00.000Z",
+        "voteCount": 1,
+        "content": "but is there been said that there is a N:N relationship between contact and country?"
+      },
+      {
+        "date": "2021-06-20T12:32:00.000Z",
+        "voteCount": 2,
+        "content": "it's common sense contact and country should be N:N. if you put lookup of contact in country entity then country records will duplicated."
+      },
+      {
+        "date": "2020-09-16T13:07:00.000Z",
+        "voteCount": 7,
+        "content": "I read recommended answers. As question dictates that preferences must be stored in the Contact entity, can't we say that answers should be following:\n\n1- Update\n2- Contact\n3- None\n4- Synchronous\n\nI am not sure, just ....."
+      },
+      {
+        "date": "2020-10-02T13:18:00.000Z",
+        "voteCount": 1,
+        "content": "For me this is the correct question as we must store it in the contact entity"
+      },
+      {
+        "date": "2020-10-13T20:09:00.000Z",
+        "voteCount": 1,
+        "content": "I feel your answer is correct.....but not sure too....\nit says it needs to be stored in \"Contacts\" entity...but most votes here for \"Associate\" :/"
+      },
+      {
+        "date": "2020-10-28T05:03:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, and an additional reason is, that the question does not say anything about a country entity. Country could be an option-set used 3 times in the contact entity."
+      },
+      {
+        "date": "2020-12-16T08:29:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with this also.  The information must be stored IN the contact entity.  It doesn't say anything about association.\n\nIt is increasingly apparant that these Microsoft exams are not necessarily testing knowledge of the platform, but more so on spotting small pieces of information in the questions.  The requirements should be clear as the exam is not testing how well a person reads requirement, but on their knowledge of the platform."
+      },
+      {
+        "date": "2020-07-14T10:50:00.000Z",
+        "voteCount": 3,
+        "content": "There is nothing in the question that would allow you to decide whether or not it should be registered as asynchronous or synchronous"
+      },
+      {
+        "date": "2020-08-22T03:43:00.000Z",
+        "voteCount": 5,
+        "content": "Actually there is in some way... imagine that the customer is associating countries/regions one after another. each time he associates a region/country, a synchronous plug-in retrieves existing associations count from the appropriate table before the new association is created. if there are already 3 associations given, the synchronous plugin can cancel the operation in realtime e.g. by throwing an exception.\nthink about it.... otherwise a customer would pick 10 countries and only 3 will be associated. how will the customer know which 3 where associated etc. etc.\n\nI think synchronous would be a more logical approach... right, guys?"
+      },
+      {
+        "date": "2020-06-28T15:23:00.000Z",
+        "voteCount": 3,
+        "content": "Agree with AliDiab. Her's the link : https://rajeevpentyala.com/2013/04/17/associatedisassociate-plugin-messages-in-crm/"
+      },
+      {
+        "date": "2020-06-11T00:14:00.000Z",
+        "voteCount": 2,
+        "content": "Primary and entity will be none"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24347-exam-mb-400-topic-6-question-7-discussion/",
+    "body": "A company needs to illustrate the relationships of the entities in Dynamics 365 Customer Engagement.<br>You need to select the appropriate tool to show this graphic.<br>Which tool should you select?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSecurity model",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMetadata diagram",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPower BI",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeb services"
+    ],
+    "answer": "B",
+    "answerDescription": "Visual representation of metadata can be very useful, especially when you are trying to describe the relationship between entities in the system. You can use the<br>Metadata Diagram sample code provided for Dynamics 365 Customer Engagement (on-premises) to generate the entity relationship diagrams. You can create a simple diagram that shows a relationship for just one entity, or a complex diagram that includes dozens of related entities, including custom and system entities.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-metadata-generate-entity-diagrams<br>Develop Integrations",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-29T00:40:00.000Z",
+        "voteCount": 10,
+        "content": "I think it is correct"
+      },
+      {
+        "date": "2020-08-18T06:22:00.000Z",
+        "voteCount": 2,
+        "content": "Yes..Metadata diagram should be correct."
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "6"
+  }
+]

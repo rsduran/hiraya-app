@@ -1,0 +1,900 @@
+[
+  {
+    "topic": 17,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/68065-exam-az-500-topic-7-question-1-discussion/",
+    "body": "You need to recommend which virtual machines to use to host App1. The solution must meet the technical requirements for KeyVault1.<br>Which virtual machines should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVM1 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVM1, VM2, VM3, and VM4\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVM1 and VM2 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVM1, VM2, and VM4 only"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 49,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 17,
+        "isMostVoted": false
+      },
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-15T12:53:00.000Z",
+        "voteCount": 32,
+        "content": "It's B guys. All VMs can access KV1 through private endpoint in VNET1/Subnet1. All VNETs are peered, so all the traffic traverse Microsoft backbone network without any exposure to public Internet.\n\nThe private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections.\nhttps://docs.microsoft.com/en-us/azure/private-link/private-link-service-overview\n\nThe traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.\nhttps://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      },
+      {
+        "date": "2021-12-15T11:40:00.000Z",
+        "voteCount": 13,
+        "content": "Requirements:\n \n* You need to recommend which virtual machines to use to host App1.The solution must meet the technical requirements for KeyVault1.\n* KeyVault1 traffic must NOT travel over the internet.\n \nVM1 (West US) - VNET1/Subnet1 - None\nVM2 (West US) - VNET2/Subnet1 - NSG2 (West US)\nVM4 (West US) - VNET3/Subnet1 - NSG4 (West US)\n \nKeyVault1 (West US) VNET1/Subnet1\n \nThey all are in the same region / subnet1 / NSG2 &amp; NSG4 allow access."
+      },
+      {
+        "date": "2022-01-04T13:00:00.000Z",
+        "voteCount": 4,
+        "content": "Just curious, why not B (VM1, VM2, VM3, and VM4), KV exist in same Subscription &amp; Same geography (East/West/Central US), \nBy enabling KV Networking &gt; Selected networks &gt; add all 3 vnet/subnet, 'd allow all 4 vms to access the KV?"
+      },
+      {
+        "date": "2022-01-05T05:40:00.000Z",
+        "voteCount": 3,
+        "content": "To me, Key vault and VM region must be same. VM1, VM2 &amp; VM4 has same region that of KV."
+      },
+      {
+        "date": "2022-03-13T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "Private endpoint must be at same vNet region. But it's not clear for me if traffic can occurs through vNet peerings to others regions. https://docs.microsoft.com/en-us/azure/key-vault/general/private-link-service?tabs=portal#prerequisites"
+      },
+      {
+        "date": "2022-01-07T07:39:00.000Z",
+        "voteCount": 2,
+        "content": "* KeyVault1 traffic must NOT travel over the internet.- this will fail for VM4 as there is no private endpoint created on VM4's VNET"
+      },
+      {
+        "date": "2022-01-23T12:19:00.000Z",
+        "voteCount": 2,
+        "content": "A private endpoint prevents KV from being accessed over a public endpoint, if the VM's subnet is associated with a service endpoint (key vault), all outbound connections to the key vault will no longer travel over the internet but Microsft's backbone only. Therefore, VM4 is also correct."
+      },
+      {
+        "date": "2024-08-02T04:29:00.000Z",
+        "voteCount": 1,
+        "content": "App1 must only retrieve a secret from KeyVault, this is not Azure Disk Encryption where KV would have to be in same region. All VNETs are peered, so they all can use the Private Endpoint, which would meet the security requirement."
+      },
+      {
+        "date": "2024-04-03T05:09:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct imo.\n\nThe key here is that they are asking us for recommendations, and not to list all the possible options. While it is possible to use keyvaults in different region here, it is recommended to have them all on the same one."
+      },
+      {
+        "date": "2024-01-07T08:39:00.000Z",
+        "voteCount": 1,
+        "content": "Watch out: vm1,2 and 3 need ADE. So the app and the vault should best be deployed on US West so answer seems correct VM1,2 and 4"
+      },
+      {
+        "date": "2023-12-14T14:35:00.000Z",
+        "voteCount": 3,
+        "content": "VM1: Located in West US, connected to VNET1/Subnet1. It has direct access to KeyVault1 without internet travel.\n\nVM2: Located in West US, connected to VNET1/Subnet2. It has access to KeyVault1 via VNET1 without internet travel.\n\nVM3: Located in Central US, connected to VNET2/Subnet1. With the peering between VNET2 and VNET1, VM3 can access KeyVault1 without traffic going over the internet, despite being in a different region.\n\nVM4: Located in West US, connected to VNET3/Subnet1. With the peering between VNET3 and VNET1, VM4 can access KeyVault1 without internet travel.\n\nConsidering the peering between VNET1, VNET2, and VNET3, and the requirement that KeyVault1 traffic must not travel over the internet, all VMs (VM1, VM2, VM3, and VM4) can securely access KeyVault1 without their traffic traversing the internet.\n\nThe answer to the question, taking into account all the peerings and the requirement for KeyVault1, would be:\n\nB. VM1, VM2, VM3, and VM4"
+      },
+      {
+        "date": "2023-10-09T11:26:00.000Z",
+        "voteCount": 1,
+        "content": "Answers are correct: D. VM1, VM2, and VM4 only\n\nKey Requirement: AKV needs to be on Private Endpoint. VM3 Is in Central US, but AKV2 is in Central US without PE. Hence, VM3 is not applicable here.\n\nVM1, VM2, and VM4 and AKV1&amp;3 are matched with location and AKV1&amp;3 have PE."
+      },
+      {
+        "date": "2023-10-17T06:36:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with this dude"
+      },
+      {
+        "date": "2023-09-15T13:56:00.000Z",
+        "voteCount": 2,
+        "content": "RECOMMEND IS THE KEY WORD.\n\nFROM MICROSOFT:\nNo, VMs do not have to use a key vault in the same region. However, it is recommended to do so for better performance and lower latency. According to the Azure Key Vault Overview1, you can use a key vault that is in the same region and tenant as the VMs to be encrypted. However, this is not a strict requirement, as the article also states that you can use a key vault that is in a different region or tenant, but you need to grant permissions to the VMs to access the key vault. The article also mentions that the contents of your key vault are replicated within the region and to a secondary region at least 150 miles away, but within the same geography to maintain high durability of your keys and secrets2. Therefore, using a key vault in the same region as your VMs can help you avoid cross-region network traffic and potential network failures."
+      },
+      {
+        "date": "2023-07-31T05:31:00.000Z",
+        "voteCount": 1,
+        "content": "\"KeyVault1 traffic must NOT travel over the internet\", how do you achieve this if App1 is deployed on different regions.."
+      },
+      {
+        "date": "2024-08-02T04:26:00.000Z",
+        "voteCount": 1,
+        "content": "Because the VNets are peered and one of them has a Private Endpoint for KeyVault1"
+      },
+      {
+        "date": "2023-07-15T12:24:00.000Z",
+        "voteCount": 1,
+        "content": "To reach the keyvault1 private endpoint, you have to be able to resolve keyvault1.privatelink.vaultcore.azure.net into the private IP address of the endpoint. \nAt the private endpoint creation a private dns zone is created and linked to the VNET in which the endpoint is created, VNET1 in this case.\n\nSince there is no mention of private dns zone in the study case, I guess that the private dns zone is not linked to any other VNET's and that the privalink dns record is only resolvable from VNET1 ?\n\nThe answer in this case should be C (VM1 and VM2)."
+      },
+      {
+        "date": "2023-05-08T05:44:00.000Z",
+        "voteCount": 4,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/private-link/private-link-service-overview#details\nPrivate Link service can be accessed from approved private endpoints in any public region. The private endpoint can be reached from the same virtual network and regionally peered virtual networks. The private endpoint can be reached from globally peered virtual networks and on premises using private VPN or ExpressRoute connections."
+      },
+      {
+        "date": "2023-03-29T09:26:00.000Z",
+        "voteCount": 6,
+        "content": "In exam 24/03/2023 (there was also two more questions on this case study, don't know why they are not here)"
+      },
+      {
+        "date": "2023-03-13T10:01:00.000Z",
+        "voteCount": 1,
+        "content": "We're talking about App1 hosting. There is a mention of an ASG.\nIt doesn't make any sense to host an App on different OS (bad practice when it comes to manageability/servicing, ...)\nSo we need: keyvault access for ADE, an ASG (obivously).\nThat leaves us with VM1 and VM2 (same region for keyvault requirement for ADE, same vNet requirement for the ASG).\nFor those reasons I say answer C.\nNow we could argue that App1 doesn't have to use the ASG, that all VMs can be encrypted using different keyvaults, etc... but that doesn't make sense to me."
+      },
+      {
+        "date": "2023-03-04T12:05:00.000Z",
+        "voteCount": 6,
+        "content": "B. VM1, VM2, VM3, and VM4"
+      },
+      {
+        "date": "2023-01-04T07:55:00.000Z",
+        "voteCount": 1,
+        "content": "Guys I think the question is about what VMs \"should\" we use, not \"what possible\" to use. I think I will go with B then. What do you think about this pargraph from the link?\n\"Our recommendation is to use a vault per application per environment (development, pre-production, and production), per region. This helps you not share secrets across environments and regions. It will also reduce the threat in case of a breach.\"\n\nhttps://learn.microsoft.com/en-us/azure/key-vault/general/best-practices"
+      },
+      {
+        "date": "2022-12-29T11:19:00.000Z",
+        "voteCount": 2,
+        "content": "It's D. When it comes to keyvaults and VMs, it's all about the region. The VMs must be in the same region as the keyvault (West US). It's really as simple as that"
+      },
+      {
+        "date": "2024-08-02T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "No, this is not about Azure Disk Encryption, the app must just be able to \"retrieve\" a secret from KeyVault1."
+      },
+      {
+        "date": "2022-10-20T03:42:00.000Z",
+        "voteCount": 3,
+        "content": "All VMs can access KV1 through private endpoint in VNET1/Subnet1. All VNETs are peered, so all the traffic traverse Microsoft backbone network without any exposure to public Internet."
+      },
+      {
+        "date": "2022-12-01T16:58:00.000Z",
+        "voteCount": 1,
+        "content": "But doesn't KeyVault data only replicate within the region therefore the KeyVault data would not be on VM3 so that VM doesn't need to host the App1?"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109837-exam-az-500-topic-7-question-1-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-500/image668.png\"><br><br>You create a shared access token as shown in the following exhibit.<br><br><img src=\"https://img.examtopics.com/az-500/image669.png\"><br><br>Which resources can you access by using the shared access token and Key1? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct answer is worth one point.<br><br><img src=\"https://img.examtopics.com/az-500/image670.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image671.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-19T08:16:00.000Z",
+        "voteCount": 14,
+        "content": "Correct answer: Shared access token: container1 only\nKey1: container1, share1 only"
+      },
+      {
+        "date": "2024-08-01T23:16:00.000Z",
+        "voteCount": 1,
+        "content": "Yeah, answer is correct.\nSAS token is for contoso2023\\container1, you can only access that with it\nKey is per storage account, so key1 is for contoso2023, you can access container1 and share1"
+      },
+      {
+        "date": "2024-05-27T12:20:00.000Z",
+        "voteCount": 2,
+        "content": "on test 5/24/2023"
+      },
+      {
+        "date": "2024-04-28T08:35:00.000Z",
+        "voteCount": 2,
+        "content": "To support the Answer.\nThe SAS is assigned to CONTAINER1 where also FILE SHARE 1 is located\nhttps://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/create-sas-tokens?view=doc-intel-4.0.0\nAnswer = Container1 \nKey1 = Container1 and FileShare1"
+      },
+      {
+        "date": "2023-10-17T01:24:00.000Z",
+        "voteCount": 3,
+        "content": "answer is correct. You are creating the SAS and using Key1 from (picture) container1. There is no mention about other container and SAS key"
+      },
+      {
+        "date": "2023-10-08T19:39:00.000Z",
+        "voteCount": 2,
+        "content": "Answers are correct."
+      },
+      {
+        "date": "2023-09-14T13:33:00.000Z",
+        "voteCount": 4,
+        "content": "CORRECT.\n\nTHE SAS TOKEN ARE CREATED AGAINST THE STORAGE ACCT'S KEY. \n-FOR THIS EXAMPLE ONLY CONTAINER 1 N FILE SHARE 1 IS HOSTED IN THE SA. \n--STILL, THE SAS IS BEING CREATED FOR THE CONTAINER WHICH WILL NOT INCLUDE THE FILE SHARE, THEREFORE, THE SAS WILL ONLY ALLOW ACCESS TO THE CONTAINER.\n\nTHE KEY WILL ALLOW YOU TO ACCESS ANY TYPE OF STORAGE IN THE SA. THIS INCLUDES BOTH THE CONTAINERS N FILE SHARES. SO CON1 N FS1 CAN BE ACCESSED WITH KEY1. THE OTHER ITEMS BELONG TO ANOTHER SA ENTIRELY."
+      },
+      {
+        "date": "2023-06-07T18:27:00.000Z",
+        "voteCount": 3,
+        "content": "Tested on my subscription. On the screenshot shows the Shared access tokens creation for the container1 using the Key 1. The Token can be used for accessing container1 only.\n\nBut singing keys (Key 1 and Key 2) can be used for creating Shared access signatures for all storage account services (blob, file, queue and table).\n\nSo it is fair to say that, in the question context, we can use Key 1 to access the container1 and share1.\n\nIn that case the given answer is correct."
+      },
+      {
+        "date": "2023-05-28T04:06:00.000Z",
+        "voteCount": 4,
+        "content": "This image is for consoto2023."
+      },
+      {
+        "date": "2023-05-23T04:12:00.000Z",
+        "voteCount": 2,
+        "content": "I just tested this in a LAB. Given answers is correct. \nSorry for confusing."
+      },
+      {
+        "date": "2023-05-23T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "Look at: Topic 4 - Question Set 4, Question: 90 \nAlmost the same. And with same confusion.\nSomeone more competent please clarify this for us."
+      },
+      {
+        "date": "2023-05-21T04:19:00.000Z",
+        "voteCount": 1,
+        "content": "Shared access token: contianer1 and container2 only\nKey1: container1, container2, share1, and share2"
+      },
+      {
+        "date": "2023-05-23T01:45:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry for my previous. I will go for containter1 only on both Box1 and Box2"
+      },
+      {
+        "date": "2024-08-01T23:15:00.000Z",
+        "voteCount": 1,
+        "content": "The whole SAS token (and \"key1\") is for storage account contoso2023, as can be seen from the screenshot. So you can't access anything in contoso2024 with that.\n\nBut the key is for the storage account, so with the key you can access everything in contoso2023"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109875-exam-az-500-topic-7-question-2-discussion/",
+    "body": "You have an Azure subscription that contains an Azure SQL server named SQL1. SQL1 contains an Azure SQL database named DB1.<br><br>You need to use Microsoft Defender for Cloud to complete a vulnerability assessment for DB1.<br><br>What should you do first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Advanced Threat Protection types, select SQL injection vulnerability.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Send scan report to setting.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet Periodic recurring scans to ON.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable the Microsoft Defender for SQL plan.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-19T08:17:00.000Z",
+        "voteCount": 10,
+        "content": "D. Enable the Microsoft Defender for SQL plan"
+      },
+      {
+        "date": "2023-05-22T00:21:00.000Z",
+        "voteCount": 6,
+        "content": "D. Enable the Microsoft Defender for SQL plan."
+      },
+      {
+        "date": "2023-05-22T00:21:00.000Z",
+        "voteCount": 1,
+        "content": "It's a repeat question. But good to know you will get this in the exam."
+      },
+      {
+        "date": "2024-07-21T07:06:00.000Z",
+        "voteCount": 1,
+        "content": "The thing that we need to do first is to read question carefully this is not an option then, we need to search for the plan that enabled for Defender for Cloud we did not find information about the plan this means it can be Free plan as well from this point the first think is that we need to check plan of Defender for Cloud and in order to enable defender for cloud for sql servers we can not use free plan that is why I would go with D.\nHowever , after we enable the plan we need to follow option A.\nAnswer is D.\nBR"
+      },
+      {
+        "date": "2024-05-27T12:13:00.000Z",
+        "voteCount": 1,
+        "content": "on test 5/24/2023"
+      },
+      {
+        "date": "2023-09-29T16:47:00.000Z",
+        "voteCount": 2,
+        "content": "D. Enable the Microsoft Defender for SQL plan."
+      },
+      {
+        "date": "2023-07-06T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong it's valid for sql on machine for azure sql is:\nA -Configure Advanced Threat Protection for Azure SQL Database \n\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/threat-detection-configure?view=azuresql-db"
+      },
+      {
+        "date": "2023-07-23T13:41:00.000Z",
+        "voteCount": 8,
+        "content": "Nope!\nhttps://learn.microsoft.com/en-us/azure/defender-for-cloud/sql-azure-vulnerability-assessment-enable\n\nRead the questionagain: 'WHAT SHOULD YOU DO FIRST'"
+      },
+      {
+        "date": "2024-01-12T03:18:00.000Z",
+        "voteCount": 1,
+        "content": "Set up Advanced Threat Protection in the Azure portal\nSign into the Azure portal.\n\nNavigate to the configuration page of the server you want to protect. In the security settings, select Microsoft Defender for Cloud.\n\nOn the Microsoft Defender for Cloud configuration page:\n\nIf Microsoft Defender for SQL hasn't yet been enabled, select Enable Microsoft Defender for SQL.\n\nSelect Configure."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109839-exam-az-500-topic-7-question-3-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-500/image672.png\"><br><br>SQL1 has the following configurations:<br><br>\u2022\tAuditing: Enabled<br>\u2022\tAudit log destination: storage1, Workspace1<br><br>DB1 has the following configurations:<br><br>\u2022\tAuditing: Enabled<br>\u2022\tAudit log destination: storage2<br><br>DB2 has auditing disabled.<br><br>Where are the audit logs for DB1 and DB2 stored? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-500/image673.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image674.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-31T08:23:00.000Z",
+        "voteCount": 17,
+        "content": "Correct : Enabling auditing on the database in addition to enabling auditing on the server doesn't override or change any of the settings of the server auditing. Both audits exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.\n\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/auditing-server-level-database-level?view=azuresql"
+      },
+      {
+        "date": "2023-05-21T04:27:00.000Z",
+        "voteCount": 12,
+        "content": "DB1: storage1, storage2, and Workspace1\nDB2: storage1 and workspace1"
+      },
+      {
+        "date": "2023-09-14T13:40:00.000Z",
+        "voteCount": 5,
+        "content": "CORRECT. \n\nAUDITING CAN BE APPLIED AT THE DB AND SERVER LEVEL. IF IT IS APPLIED ON BOTH THEN THE COMBONIATION SETTINGS IS APPLIED TO THE DB.\n\nIF IT IS DISABLED ON THE DB BUT ENABLED ON THE SERVER THEN THE SETTINGS SET ON THE SERVER ARE APPLIED TO ALL DBS HOSTED ON THE SERVER.\n\nIF IT IS ONLY APPLIED TO THE DB, N DISABLED ON THE SERVER, THEN THOSE SETTINGS ARE APPLIED TO THAT DB SPECIFICALLY."
+      },
+      {
+        "date": "2023-07-06T07:58:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry but db2 has  audit disabled"
+      },
+      {
+        "date": "2023-07-10T05:16:00.000Z",
+        "voteCount": 6,
+        "content": "yes but SQL1 has auding enabled"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110053-exam-az-500-topic-7-question-4-discussion/",
+    "body": "SIMULATION<br> -<br><br>You need to prevent HTTP connections to the rg1lod28681041n1 Azure Storage account.<br><br>To complete this task, sign in to the Azure portal.",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image675.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-07-01T02:47:00.000Z",
+        "voteCount": 2,
+        "content": "Secure transfer required --&gt; Enabled"
+      },
+      {
+        "date": "2023-05-23T10:22:00.000Z",
+        "voteCount": 4,
+        "content": "Given answer is correct"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/130344-exam-az-500-topic-7-question-5-discussion/",
+    "body": "SIMULATION<br> -<br><br>You need to ensure that the rg1lod28681041n1 Azure Storage account is encrypted by using a key stored in the KeyVault28681041 Azure key vault.<br><br>To complete this task, sign in to the Azure portal.",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image676.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-04T10:11:00.000Z",
+        "voteCount": 5,
+        "content": "The procedure is correct, but it is outdated and is lacking some details.\n\n1. First of all, the user you're connect with must have Key Vault Crypto Officer to create a key. You'll need to grant that yourself if that is not provided out-of-the-box by the lab.\n2. You can use the System-Assigned identity of the Storage as well. It does not have to be User-Assigned only anymore.\n3. The permission granted to the storage identity should be Key Vault Crypto Service Encryption User, that is required for the wrap/unwrap permissions."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109923-exam-az-500-topic-7-question-6-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription that contains the virtual machines shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-500/image677.png\"><br><br>You have an Azure Cosmos DB account named cosmos1 configured as shown in the following exhibit.<br><br><img src=\"https://img.examtopics.com/az-500/image678.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-500/image679.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image680.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-06T07:41:00.000Z",
+        "voteCount": 28,
+        "content": "N,Y,Y\nService endpoint is enabled for VNet1/Subnet1 so VM1 connects thou MS backbone to Cosmos DB instead of using Internet.\nService endpoint is disabled for VNet1/Subnet2 so VM2 using its public IP address to connect to the  Cosmos DB.\nThere is no service endpoint for VNet2 then VM3 using its public IP address to connect to the Cosmos DB."
+      },
+      {
+        "date": "2024-08-02T20:43:00.000Z",
+        "voteCount": 1,
+        "content": "Alexbz is correct, service endpoint enabled will disable the Public IP rule\n\nhttps://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview#:~:text=.%20Existing%20Azure%20service%20firewall%20rules%20using%20Azure%20public%20IP%20addresses%20will%20stop%20working%20with%20this%20switch."
+      },
+      {
+        "date": "2023-07-02T11:01:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry Alex, maybe I'm making a mistake, but the question does not specify that the service endpoint is enabled, only the security of the database, based on this the answer should be YES,NO,YES. where is the service endpoint specified?"
+      },
+      {
+        "date": "2023-07-04T05:38:00.000Z",
+        "voteCount": 3,
+        "content": "In the screenshot endpoint status subnet1 enabled subnet2 disable"
+      },
+      {
+        "date": "2023-09-08T01:09:00.000Z",
+        "voteCount": 2,
+        "content": "ChatGPT: \nIf the VM is in a Virtual Network (VNet) and you've enabled service endpoints for Azure database services (like Azure SQL Database or Azure Cosmos DB), then the VM will access the database service over the Azure backbone network, and not over the public internet. This provides a secure and optimized route to access the database services."
+      },
+      {
+        "date": "2024-05-27T11:47:00.000Z",
+        "voteCount": 1,
+        "content": "Use Copilot. It's made by Microsoft and is retrieving from a much more up to date repository that is especially mature in Azure. ChatGPT is yesterdays news. Also AWS has an offering coming down the pipe. Big dogs coming in to steal it and make it better. /shrug"
+      },
+      {
+        "date": "2023-07-10T05:28:00.000Z",
+        "voteCount": 8,
+        "content": "for all of them YES,\nsince VM1 has a public IP and the Cosmos DB firewall allows internet access, VM1 can access Cosmos DB over the internet. The fact that vnet1/subnet1 has a service endpoint for Cosmos DB does not restrict access from the public internet. the same for the rest"
+      },
+      {
+        "date": "2024-01-04T10:16:00.000Z",
+        "voteCount": 2,
+        "content": "N,Y,Y\n\nWhen Service Endpoint is enabled, it will always use the private IP only for that service.\n\nPublic IP rules will fail."
+      },
+      {
+        "date": "2024-08-02T20:42:00.000Z",
+        "voteCount": 1,
+        "content": "Believe epomatti is correct.\n\nRefer &gt; https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview#:~:text=.%20Existing%20Azure%20service%20firewall%20rules%20using%20Azure%20public%20IP%20addresses%20will%20stop%20working%20with%20this%20switch."
+      },
+      {
+        "date": "2024-07-24T09:52:00.000Z",
+        "voteCount": 3,
+        "content": "In the documentation https://learn.microsoft.com/en-us/azure/private-link/tutorial-private-endpoint-sql-portal?source=recommendations\nAfter prodecude how to configure a private endpoint, there is additional step to disable public access to Azure SQL server. Assuming this was not done by administrator, I would answer YYY"
+      },
+      {
+        "date": "2024-07-13T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "I assume that the correct answer depends on the interpretation of CAN.\nMy ans would be: N,Y,Y\n\nIf a service endpoint is enabled that the traffic would be routed through the Microsoft backbone. This mean that when VM1 will try to connect to the cosmos with the MSFT network and not with its public IP address. It is still technically possible for the VM1 to use its pubic ip address but the fact that the service endpoint is in place would make the traffic follow the backbone direction. Using the public ip is possible if the service endpoint is removed, this would change the question and I guess that it is not supposed to. \nVM2 has no service endpoint enabled and the public ip is in the correct range, so YES.\nVM2 has no service endpoint and the public ip is in the correct range, so YES."
+      },
+      {
+        "date": "2024-05-05T22:28:00.000Z",
+        "voteCount": 1,
+        "content": "In first question, it says, VM1 \"CAN\" access via internet. since its public ip range has been whitelisted, it CAN be accessed via internet even if subnet1 is removed from selected networks\nin 2nd question, public ip is whitelisted in selected networks, hence  it is accessible via internet\nin 3rd Question, public IP is whitelisted hence db is accessible via intetnet. \n\nAnswer is YYY"
+      },
+      {
+        "date": "2024-01-07T04:12:00.000Z",
+        "voteCount": 1,
+        "content": "That's a tough question.\nVM1 \"can\" access the Internet, because it's not prohibited, but with this policy VM1 accesses with a private IP address..."
+      },
+      {
+        "date": "2023-10-31T13:37:00.000Z",
+        "voteCount": 1,
+        "content": "\"Once you enable service endpoints in your virtual network, you can add a virtual network rule to secure the Azure service resources to your virtual network. The rule addition provides improved security by fully removing public internet access to resources and allowing traffic only from your virtual network.\"\nhttps://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview"
+      },
+      {
+        "date": "2023-10-17T01:39:00.000Z",
+        "voteCount": 3,
+        "content": "YYY, the FW was whitelisted and the you can access to the resource (CosmosDB) via internet."
+      },
+      {
+        "date": "2023-08-11T08:54:00.000Z",
+        "voteCount": 1,
+        "content": "ALL  PUBLIC IPs of the VMs will have access to the COSMOS DB via the INTERNET, based on FIREWALL POLICY,  the VIRTUAL NETWORK FILTERING shows VNET/SUBNET1 has an SERVICE ENDPOINT which means it will route via the MICROSOFT BACKBONE and not the INTERNET. VNET1/SUBNET2 does not so it will route via the INTERNET and VNET2/SUBNET is not listed at all so it will also route via the INTERNET. \nn, y, y"
+      },
+      {
+        "date": "2023-08-06T07:32:00.000Z",
+        "voteCount": 3,
+        "content": "All of them CAN. Even VM1 CAN but it won't"
+      },
+      {
+        "date": "2024-04-28T18:35:00.000Z",
+        "voteCount": 1,
+        "content": "Agree!! VM1 CAN but it won't"
+      },
+      {
+        "date": "2023-12-19T15:04:00.000Z",
+        "voteCount": 1,
+        "content": "The CAN part (should have been WILL) is incorrectly worded as VM1 will access the service endpoint using its private IP because the endpoint status for subnet1 is enabled. If it was not enabled, then VM1 would have used its public IP to access the Cosmos DB."
+      },
+      {
+        "date": "2023-05-22T11:36:00.000Z",
+        "voteCount": 4,
+        "content": "Yes, No, Yes is correct"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109759-exam-az-500-topic-7-question-7-discussion/",
+    "body": "You are troubleshooting a security issue for an Azure Storage account.<br><br>You enable Azure Storage Analytics logs and archive it to a storage account.<br><br>What should you use to retrieve the diagnostics logs?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Cosmos DB explorer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Monitor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzCopy\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender for Cloud"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-19T23:53:00.000Z",
+        "voteCount": 7,
+        "content": "Repeat. You will get this in the exam :-D"
+      },
+      {
+        "date": "2023-05-22T00:26:00.000Z",
+        "voteCount": 6,
+        "content": "It's either Az-copy or Azure Storage Explorer. \n\nAzCopy is a command-line utility that you can use to copy blobs or files to or from a storage account"
+      },
+      {
+        "date": "2024-03-17T01:49:00.000Z",
+        "voteCount": 2,
+        "content": "yeah, we know, read this already 1000 times :)"
+      },
+      {
+        "date": "2024-08-01T23:24:00.000Z",
+        "voteCount": 1,
+        "content": "How I've missed this question!"
+      },
+      {
+        "date": "2024-01-04T10:18:00.000Z",
+        "voteCount": 2,
+        "content": "I wish this one would repeat as much in the actual exam."
+      },
+      {
+        "date": "2023-10-25T17:43:00.000Z",
+        "voteCount": 3,
+        "content": "C.  Storage explorer would also work but:   To view and analyze your log data, you should download the blobs that contain the log data you are interested in to a local machine. Many storage-browsing tools enable you to download blobs from your storage account; you can also use the Azure Storage team provided command-line Azure Copy Tool AzCopy to download your log data.  https://learn.microsoft.com/en-us/azure/storage/common/manage-storage-analytics-logs?tabs=azure-portal#view-log-data"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112366-exam-az-500-topic-7-question-8-discussion/",
+    "body": "You have an Azure subscription that contains an Azure Blob storage account named blob1.<br><br>You need to configure attribute-based access control (ABAC) for blob1.<br><br>Which attributes can you use in access conditions?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tblob index tags only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tblob index tags and container names only\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfile extensions and container names only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tblob index tags, file extensions, and container names"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 8,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-20T10:13:00.000Z",
+        "voteCount": 15,
+        "content": "Here are some of the blob storage attributes you can use in your conditions.\n\nAccount name\nBlob index tags\nBlob path\nBlob prefix\nContainer name\nEncryption scope name\nIs Current Version\nIs hierarchical namespace enabled\nIs private link\nSnapshot\nUTC now (the current date and time in Coordinated Universal Time)\nVersion ID\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview"
+      },
+      {
+        "date": "2023-10-25T17:36:00.000Z",
+        "voteCount": 1,
+        "content": "saturation97 is absolutely correct.  the link spells it out.  B is correct."
+      },
+      {
+        "date": "2023-06-19T14:05:00.000Z",
+        "voteCount": 8,
+        "content": "Correct answer: B. blob index tags and container names only\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview"
+      },
+      {
+        "date": "2023-06-25T10:43:00.000Z",
+        "voteCount": 3,
+        "content": "Based on c12 link answer is b"
+      },
+      {
+        "date": "2024-07-04T11:05:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B , please use this ref and scroll a bit:\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview\n\nBR"
+      },
+      {
+        "date": "2024-05-14T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Attribute-Based Access Control (ABAC) for Blob storage, as of today, May 14, 2024, only supports blob index tags as the attribute for defining access conditions."
+      },
+      {
+        "date": "2024-05-26T19:27:00.000Z",
+        "voteCount": 1,
+        "content": "This is a bad answer. I'll save you the research. Look at the top answer. This is probably an \"Infiltrator\"\nThe answer shown is correct and can be found here:\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview"
+      },
+      {
+        "date": "2023-10-02T11:19:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is B\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/storage-auth-abac-attributes#azure-blob-storage-attributes"
+      },
+      {
+        "date": "2023-09-12T05:00:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct: https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview"
+      },
+      {
+        "date": "2023-08-30T04:11:00.000Z",
+        "voteCount": 1,
+        "content": "Previous comments are referring to RBAC, the question is asking about ABAC so answer is A"
+      },
+      {
+        "date": "2023-10-25T17:38:00.000Z",
+        "voteCount": 1,
+        "content": "This article is about ABAC.  https://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview   Clearly states that blob tags and blob containers are included in the list."
+      },
+      {
+        "date": "2023-07-08T19:49:00.000Z",
+        "voteCount": 2,
+        "content": "As per doco shared by saturation97."
+      },
+      {
+        "date": "2023-06-18T10:19:00.000Z",
+        "voteCount": 1,
+        "content": "It's B:\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/conditions-overview"
+      },
+      {
+        "date": "2023-06-16T03:40:00.000Z",
+        "voteCount": 2,
+        "content": "ttribute-based access control (ABAC) in Azure Blob storage allows you to define fine-grained access policies based on attributes associated with the blobs. Blob index tags are the specific attributes that can be used to define access conditions. These tags can be added to individual blobs and used as part of the access control rules to grant or deny access."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112368-exam-az-500-topic-7-question-9-discussion/",
+    "body": "You have an Azure subscription that contains a storage account and an Azure web app named App1.<br><br>App1 connects to an Azure Cosmos DB database named Cosmos1 that uses a private endpoint named Endpoint1. Endpoint1 has the default settings.<br><br>You need to validate the name resolution to Cosmos1.<br><br>Which DNS zone should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tendpoint1.privatelink.documents.azure.com\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tendpoint1.privatelink.blob.core.windows.net",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tendpoint1.privatelink.azurewebsites.net",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tendpoint1.privatelink.database.azure.com"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 12,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-19T14:14:00.000Z",
+        "voteCount": 14,
+        "content": "Correct Answer: A. endpoint1.privatelink.documents.azure.com\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints"
+      },
+      {
+        "date": "2024-09-28T18:30:00.000Z",
+        "voteCount": 1,
+        "content": "A. endpoint1.privatelink.documents.azure.com\nExplanation:\nWhen you create a private endpoint for Azure Cosmos DB, it uses the private link DNS zone associated with Azure Cosmos DB.\nThe default DNS zone for Azure Cosmos DB private endpoints is privatelink.documents.azure.com. This allows you to access your Cosmos DB instance privately using the private endpoint."
+      },
+      {
+        "date": "2024-07-04T11:10:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct please refer:https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints?tabs=arm-bicep\nBR"
+      },
+      {
+        "date": "2024-06-17T02:34:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints?tabs=arm-bicep#private-zone-name-mapping"
+      },
+      {
+        "date": "2023-09-29T16:56:00.000Z",
+        "voteCount": 4,
+        "content": "A. endpoint1.privatelink.documents.azure.com"
+      },
+      {
+        "date": "2023-09-12T05:09:00.000Z",
+        "voteCount": 3,
+        "content": "A is correct: https://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-private-endpoints"
+      },
+      {
+        "date": "2023-06-16T03:44:00.000Z",
+        "voteCount": 4,
+        "content": "A is correct"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/138312-exam-az-500-topic-7-question-10-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription that contains the virtual networks shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-500/image748.png\"><br><br>The subscription contains the virtual machines shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-500/image749.png\"><br><br>You have a storage account named contoso2024 that contains the following resources:<br><br>\u2022\tA container named Container1 that contains a file named File1<br>\u2022\tA file share named Share1 that contains a file named File2<br><br>You create a private endpoint for contoso2024 as shown in the following exhibit.<br><br><img src=\"https://img.examtopics.com/az-500/image750.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-500/image751.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image752.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-17T23:45:00.000Z",
+        "voteCount": 5,
+        "content": "Yes: the private endpoint is accessible via the peered VNet\n    Yes: the private endpoint is assigned to VNet2 and even to Subnet21\n    No: because the private endpoint settings are assigned to blob, not fileshare\n\nThat private endpoints are accessible through a peered network is only indirectly described in Microsoft articles:\n\n\"When you use Private Endpoint across a regional virtual network peering, you're not charged peering fees for traffic to and from Private Endpoint.\"\n\nFor reference: For Reference: https://learn.microsoft.com/en-us/azure/architecture/networking/guide/private-link-hub-spoke-network\n\nIt must be ensured that both VNets can reach the same DNS server. Otherwise, the private endpoint will not work."
+      },
+      {
+        "date": "2024-07-19T20:22:00.000Z",
+        "voteCount": 3,
+        "content": "In Exam20/07/2024"
+      },
+      {
+        "date": "2024-05-14T02:07:00.000Z",
+        "voteCount": 1,
+        "content": "As you're creating private endpoints, consider the following:\n\nPrivate endpoints enable connectivity between the customers from the same:\n\nVirtual network\nRegionally peered virtual networks\nGlobally peered virtual networks\nOn-premises environments that use VPN or Express Route\nServices that are powered by Private Link\nhttps://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview#limitations"
+      },
+      {
+        "date": "2024-04-30T14:48:00.000Z",
+        "voteCount": 2,
+        "content": "To support the answer\nhttps://learn.microsoft.com/en-us/azure/private-link/private-endpoint-overview\nAnswer - V1 &amp; V2 = Yes\nAnswer  VM2 to File2 =  N  ( because the PE is assigned to the Blob, and file2 is on FileShare)"
+      },
+      {
+        "date": "2024-04-10T04:07:00.000Z",
+        "voteCount": 2,
+        "content": "For VM1 and VM2 answers seem to be correct. Look here: https://stackoverflow.com/questions/70371252/can-we-connect-to-resources-in-other-subnets-in-same-vnet-using-a-azure-private"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141309-exam-az-500-topic-7-question-11-discussion/",
+    "body": "You have an Azure subscription that contains an Azure Kubernetes Service (AKS) cluster named AKS1.<br><br>You have an Azure container registry that stores container images that were deployed by using Azure DevOps Microsoft-hosted agents.<br><br>You need to ensure that administrators can access AKS1 only from specific networks. The solution must minimize administrative effort.<br><br>What should you configure for AKS1?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tauthorized IP address ranges",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Application Gateway Ingress Controller (AGIC)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta private endpoint\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta private cluster"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": false
+      },
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-18T00:01:00.000Z",
+        "voteCount": 7,
+        "content": "correct answer is A: \n\"authorized IP address ranges \" restricts access to specific IP addresses\n\nfor reference: \nhttps://learn.microsoft.com/en-us/azure/aks/api-server-authorized-ip-ranges?tabs=azure-cli\n\n\nB: an Application Gateway Ingress Controller (AGIC): No because it's manages ingress traffic via Azure Application Gateway.\nC. a private endpoint: No because it's establishes a private connection through the Azure network.\nD. a private cluster: No because it's limits API server access to a private virtual network."
+      },
+      {
+        "date": "2024-10-01T08:17:00.000Z",
+        "voteCount": 1,
+        "content": "By using a private cluster, you can ensure network traffic between your API server and your node pools remains only on the private network.\nSource : https://learn.microsoft.com/en-us/azure/aks/private-clusters?tabs=default-basic-networking%2Cazure-portal\n\nQuestion is about ensuring that administrators can access AKS1 only from specific networks, which means you have to use \"authorized IP address ranges\""
+      },
+      {
+        "date": "2024-08-25T08:39:00.000Z",
+        "voteCount": 2,
+        "content": "Answer A is correct"
+      },
+      {
+        "date": "2024-06-17T07:49:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/aks/private-clusters?tabs=azure-portal"
+      },
+      {
+        "date": "2024-05-26T16:59:00.000Z",
+        "voteCount": 4,
+        "content": "This was on the test 5/25/2024"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/137600-exam-az-500-topic-7-question-12-discussion/",
+    "body": "You have an Azure subscription that contains an Azure Data Lake Storage account named sa1.<br><br>You plan to deploy an app named App1 that will access sa1 and perform operations, including Read, List, Create Directory, and Delete Directory.<br><br>You need to ensure that App1 can connect securely to sa1 by using a private endpoint.<br><br>What is the minimum number of private endpoints required for sa1?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t2\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t4",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t5"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-31T08:18:00.000Z",
+        "voteCount": 7,
+        "content": "Given answer is correct. Explanation below.\n\n\"If you create a private endpoint for the Data Lake Storage Gen2 storage resource, then you should also create one for the Blob Storage resource. That's because operations that target the Data Lake Storage Gen2 endpoint might be redirected to the Blob endpoint. Similarly, if you add a private endpoint for Blob Storage only, and not for Data Lake Storage Gen2, some operations (such as Manage ACL, Create Directory, Delete Directory, etc.) will fail since the Gen2 APIs require a DFS private endpoint. By creating a private endpoint for both resources, you ensure that all operations can complete successfully.\"\nhttps://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/147144-exam-az-500-topic-7-question-13-discussion/",
+    "body": "You have an Azure subscription that uses Microsoft Defender for Cloud. The subscription contains an instance of Azure Database for PostgreSQL.<br><br>You need to ensure that an email alert is triggered when a suspected brute force attack on the database is detected. The solution must minimize administrative effort.<br><br>What should you configure?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Monitor activity log",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Monitor alert rule",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender for open-source relational databases",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe PostgreSQL Audit extension (pgAudit)"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-09-07T01:24:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is C - MS Defender for open source DBs. \nRef: https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-databases-introduction#what-are-the-benefits-of-microsoft-defender-for-open-source-relational-databases"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/147861-exam-az-500-topic-7-question-14-discussion/",
+    "body": "HOTSPOT<br> -<br><br>Your company uses cloud-based resources from the following platforms:<br><br>\u2022\tAzure<br>\u2022\tAmazon Web Services (AWS)<br>\u2022\tGoogle Cloud Platform (GCP)<br><br>You plan to implement Microsoft Defender for Cloud.<br><br>On which platforms can you use Defender for Cloud to protect containers and storage? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-500/image789.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-500/image790.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-09-19T12:47:00.000Z",
+        "voteCount": 2,
+        "content": "Containers: Azure, AWS, GCP\n\nhttps://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-containers-introduction\n\nMicrosoft Defender for Containers is a cloud-native solution to improve, monitor, and maintain the security of your containerized assets (Kubernetes clusters, Kubernetes nodes, Kubernetes workloads, container registries, container images and more), and their applications, across multicloud and on-premises environments.\n\nStorage: Azure only\n\nhttps://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-storage-introduction"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "7"
+  }
+]

@@ -1,0 +1,130 @@
+[
+  {
+    "topic": 14,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49773-exam-dp-300-topic-14-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are planning the migration of the SERVER1 databases. The solution must meet the business requirements.<br>What should you include in the migration plan? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04275/0001100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04275/0001100002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Premium 4-VCore -<br>Scenario:<br>An on-premises named SERVER1 hosts an instance of Microsoft SQL Server 2012 and two 1-TB databases.<br>Migrate the SERVER1 databases to the Azure SQL Database platform.<br>Minimize downtime during the migration of the SERVER1 databases.<br>Premimum 4-vCore is for large or business critical workloads. It supports online migrations, offline migrations, and faster migration speeds.<br>Incorrect Answers:<br>The Standard pricing tier suits most small- to medium- business workloads, but it supports offline migration only.<br>Box 2: A virtual network that has service endpoints<br>Scenario: The primary datacenter has an ExpressRoute connection that uses both Microsoft peering and private peering.<br>You need to create a Microsoft Azure Virtual Network for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either ExpressRoute or VPN.<br>Note: During virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service endpoints to the subnet in which the service will be provisioned:<br>Target database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)<br><br>Storage endpoint -<br><br>Service bus endpoint -<br>This configuration is necessary because Azure Database Migration Service lacks internet connectivity.<br>Reference:<br>https://azure.microsoft.com/pricing/details/database-migration/ https://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-azure-sql-online",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-10T01:05:00.000Z",
+        "voteCount": 17,
+        "content": "Premium 4-vCore\nA VPN gateway"
+      },
+      {
+        "date": "2021-09-27T12:42:00.000Z",
+        "voteCount": 7,
+        "content": "1- A main office in Boston. The main office hosts a sales department \n2- The main office hosts a sales department and the primary datacenter for the company.\n3- The sales department has the following database workload:\nAn on-premises named SERVER1 hosts an instance of Microsoft SQL Server 2012 and two 1-TB databases.\n4- The primary datacenter has an ExpressRoute connection that uses both Microsoft peering and private peering. The private peering connects to an Azure virtual network named HubVNet.\n\nhttps://docs.microsoft.com/en-us/azure/dms/tutorial-sql-server-to-azure-sql\nLink Says :\nDuring virtual network setup, if you use ExpressRoute with network peering to Microsoft, add the following service endpoints to the subnet in which the service will be provisioned:\nTarget database endpoint (for example, SQL endpoint, Cosmos DB endpoint, and so on)\nI think correct answers are  :\nPremium - 4vCore ( Premium supports online migration, but Standard not support)\nA virtual network that has service endpoint"
+      },
+      {
+        "date": "2024-10-16T05:25:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Database Migration Service pricing tier:\n\nStandard 4-vCore: This option offers sufficient compute resources to handle the migration of multiple large databases like the ones hosted on SERVER1, without the additional premium cost.\nRequired Azure resource:\n\nA virtual network that has service endpoints: For Azure Database Migration Service to connect securely to both the on-premises data sources and Azure databases, the service needs to operate within a virtual network with service endpoints enabled."
+      },
+      {
+        "date": "2022-05-02T04:54:00.000Z",
+        "voteCount": 3,
+        "content": "Premium 4-vCore\nA VPN gateway"
+      },
+      {
+        "date": "2021-08-27T20:28:00.000Z",
+        "voteCount": 6,
+        "content": "The sales department is in the main office/primary datacenter which has an ExpressRoute to Azure.  Access to the SERVER1 Azure SQL Database would be by ExpressRoute.  Should this not be Virtual Network with service endpoints?"
+      },
+      {
+        "date": "2021-08-27T20:22:00.000Z",
+        "voteCount": 2,
+        "content": "The sales on prem server is with the sales department which is in the main office/datacenter.  This location has an express route to Azure.  Why do we need a VPN gateway?"
+      },
+      {
+        "date": "2021-06-21T06:27:00.000Z",
+        "voteCount": 7,
+        "content": "Answer is correct but selection is wrong"
+      },
+      {
+        "date": "2021-05-24T22:56:00.000Z",
+        "voteCount": 5,
+        "content": "Explanation in the answer and what is selected as the answer in the visuals are not the same."
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "14"
+  },
+  {
+    "topic": 14,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47122-exam-dp-300-topic-14-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend the appropriate purchasing model and deployment option for the 30 new databases. The solution must meet the technical requirements and the business requirements.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04275/0001300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04275/0001400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Vcore -<br>Scenario:<br>\u2711 The 30 new databases must scale automatically.<br>\u2711 Once all requirements are met, minimize costs whenever possible.<br>You can configure resources for the pool based either on the DTU-based purchasing model or the vCore-based purchasing model.<br>In short, for simplicity, the DTU model has an advantage. Plus, if you're just getting started with Azure SQL Database, the DTU model offers more options at the lower end of performance, so you can get started at a lower price point than with vCore.<br>Box 2: An Azure SQL database elastic pool<br>Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable<br>SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.<br>Reference:<br>https://azure.microsoft.com/es-es/blog/a-flexible-new-way-to-purchase-azure-sql-database/ https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview https://docs.microsoft.com/en-us/azure/azure-sql/database/reserved-capacity-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-14T17:56:00.000Z",
+        "voteCount": 21,
+        "content": "Hybrid Use Benefits is not supported for DTU"
+      },
+      {
+        "date": "2021-04-05T00:58:00.000Z",
+        "voteCount": 7,
+        "content": "You are right\nShould be vCore\nhttps://azure.microsoft.com/es-es/blog/a-flexible-new-way-to-purchase-azure-sql-database/"
+      },
+      {
+        "date": "2021-06-22T10:43:00.000Z",
+        "voteCount": 2,
+        "content": "But we are talking about ~new database so not sure how would you reap license benefits?"
+      },
+      {
+        "date": "2022-02-10T12:34:00.000Z",
+        "voteCount": 3,
+        "content": "It also says: \"Azure Hybrid Use Benefits must be leveraged for Azure SQL Database deployments\". Doesn't matter if they are new or migrated."
+      },
+      {
+        "date": "2024-10-16T05:31:00.000Z",
+        "voteCount": 1,
+        "content": "For the given scenario, the correct recommendations would be:\n\nPurchasing model:\n\nvCore: This option offers more flexibility and control over resources such as CPU, memory, and storage. It allows scaling based on the exact needs of the workload and would be a suitable choice given the requirement for scalability.\nDeployment option:\n\nAn Azure SQL Database elastic pool: Given the varying usage patterns of the 30 new databases, elastic pools would allow these databases to share resources. This solution helps optimize cost and performance by allowing resource flexibility across databases with different usage demands."
+      },
+      {
+        "date": "2022-05-04T04:18:00.000Z",
+        "voteCount": 3,
+        "content": "Purchasin model: vCore\nDeployment option: Elastic pool\nFor Azure SQL Database, Azure Hybrid Benefit is only available when using the provisioned compute tier of the vCore-based purchasing model. Azure Hybrid Benefit doesn't apply to DTU-based purchasing models or the serverless compute tier.\nAzure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands."
+      },
+      {
+        "date": "2022-01-05T13:33:00.000Z",
+        "voteCount": 1,
+        "content": "The first comment that \"Hybrid Use Benefits is not supported for DTU\" is indeed true, but not applicable. These are 30 new databases.  With that said - which licensing model (DTU or VCore) would Microsoft recommend as the Microsoft answer?"
+      },
+      {
+        "date": "2022-01-01T00:55:00.000Z",
+        "voteCount": 3,
+        "content": "Purchasin model: vCore\nDeployment option: Elastic pool"
+      },
+      {
+        "date": "2021-11-25T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "the answers are correct. DTU model is the one. The 30 databases will be new, not migrated to the cloud and you just need that license when you are migrating the databases. the databases must scale automaticly and in vcore model that is just possible when we have a serverless tier, not an option for this enviorment. DTU is the one"
+      },
+      {
+        "date": "2021-08-12T08:03:00.000Z",
+        "voteCount": 1,
+        "content": "The provided answer is not correct regarding the purchasing model, it should be vCore based, because vCore model allows more  configuration possibilities to optimize the cost. \n\nThe elastic pool option is correct."
+      },
+      {
+        "date": "2021-12-06T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "you need auto scale and that is just possible in serverless"
+      },
+      {
+        "date": "2021-12-06T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "serverless in not an option"
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "14"
+  }
+]

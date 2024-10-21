@@ -1,0 +1,301 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26829-exam-dp-200-topic-5-question-1-discussion/",
+    "body": "You manage a process that performs analysis of daily web traffic logs on an HDInsight cluster. Each of the 250 web servers generates approximately 10 megabytes (MB) of log data each day. All log data is stored in a single folder in Microsoft Azure Data Lake Storage Gen 2.<br>You need to improve the performance of the process.<br>Which two changes should you make? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCombine the daily log files for all servers into one file",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the value of the mapreduce.map.memory parameter",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the log files into folders so that each day's logs are in their own folder",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the number of worker nodes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the value of the hive.tez.container.size parameter"
+    ],
+    "answer": "AC",
+    "answerDescription": "A: Typically, analytics engines such as HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance. In general, organize your data into larger sized files for better performance (256MB to 100GB in size). Some engines and applications might have trouble efficiently processing files that are greater than 100GB in size.<br>C: For Hive workloads, partition pruning of time-series data can help some queries read only a subset of the data which improves performance.<br>Those pipelines that ingest time-series data, often place their files with a very structured naming for files and folders. Below is a very common example we see for data that is structured by date:<br>\\DataSet\\YYYY\\MM\\DD\\datafile_YYYY_MM_DD.tsv<br>Notice that the datetime information appears both as folders and in the filename.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-performance-tuning-guidance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-27T19:11:00.000Z",
+        "voteCount": 18,
+        "content": "https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-performance-tuning-guidance\nThe link provided clearly states that the optimization methods for cluster are only for I/O intensive job. However, the jobs for the question is like CPU intensive job and Memory intensive because the size of files is not large. Then the slow speed of processing comes from the more times of processing for each web servers files because HDInsight and Azure Data Lake Analytics have a per-file overhead. If you store your data as many small files, this can negatively affect performance.\nThen come back to the question, only the options that adjust the data structures can be the solutions. Thus, A and C will be the answer."
+      },
+      {
+        "date": "2021-03-09T00:50:00.000Z",
+        "voteCount": 2,
+        "content": "A and C are correct"
+      },
+      {
+        "date": "2020-12-21T06:42:00.000Z",
+        "voteCount": 3,
+        "content": "My 2 cents: C and D\n\nWhy C? Storing files in a separate folder increases concurrency. \nWhy not A? When read literally, A advocates the creation of one single file that holds all the log information of the 250 servers at the same time. Since one file cannot be stored in more than one folder, this contradicts C. \n\nThe question also mentions \"performs analysis\". Performance optimisation of the analysis is a valid part of the answer. Since no information is given on any tools, a valid assumption is that it will be performed within the HD Insight realm. \nWhy not B? This parameter is used for memory problems, so it is not relevant for performance optimisation (https://dzone.com/articles/configuring-memory-for-mapreduce-running-on-yarn)\nWhy not E? If anything, this parameter should be reduced, not increased (https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-performance-tuning-hive)\nD is correct. Scaling out worker nodes is mentioned on https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-optimize-hive-query"
+      },
+      {
+        "date": "2021-01-08T06:49:00.000Z",
+        "voteCount": 4,
+        "content": "A does not contradicts C. A talks about combining all 250 files in a day into 1. C talks about ensuring you keep this 1 combined file in a folder. Next day combined file should be in another folder and should not be in previous day folder."
+      },
+      {
+        "date": "2020-11-26T04:22:00.000Z",
+        "voteCount": 4,
+        "content": "From the link provided:\nIn general, we recommend that your system have some sort of process to aggregate small files into larger ones for use by downstream applications. -&gt; This supports A\nAgain, the choice you make with the folder and file organization should optimize for the larger file sizes and a reasonable number of files in each folder. -&gt; This supports C"
+      },
+      {
+        "date": "2020-08-12T13:55:00.000Z",
+        "voteCount": 3,
+        "content": "Answer should be C &amp; E"
+      },
+      {
+        "date": "2020-07-27T23:53:00.000Z",
+        "voteCount": 3,
+        "content": "i don't seem this should be the right answer"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40199-exam-dp-200-topic-5-question-2-discussion/",
+    "body": "You have a SQL pool in Azure Synapse.<br>A user reports that queries against the pool take longer than expected to complete.<br>You need to add monitoring to the underlying storage to help diagnose the issue.<br>Which two metrics should you monitor? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCache used percentage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDWU Limit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSnapshot Storage Size",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive queries",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCache hit percentage"
+    ],
+    "answer": "AE",
+    "answerDescription": "A: Cache used is the sum of all bytes in the local SSD cache across all nodes and cache capacity is the sum of the storage capacity of the local SSD cache across all nodes.<br>E: Cache hits is the sum of all columnstore segments hits in the local SSD cache and cache miss is the columnstore segments misses in the local SSD cache summed across all nodes<br>Reference:<br>https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-09T19:32:00.000Z",
+        "voteCount": 2,
+        "content": "\"To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, tempdb, and adaptive cache capacity. \" with this in mind, can number of query be a possible correct answer as well? \n\n\nRef : https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity"
+      },
+      {
+        "date": "2021-05-29T04:39:00.000Z",
+        "voteCount": 1,
+        "content": "Maybe, but the number of active queries alone does not help much if you can't differentiate between the queries that are more resource-intesive and the ones that do not require much DWU."
+      },
+      {
+        "date": "2020-12-17T05:57:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/45448-exam-dp-200-topic-5-question-3-discussion/",
+    "body": "You create an Azure Databricks cluster and specify an additional library to install.<br>When you attempt to load the library to a notebook, the library is not found.<br>You need to identify the cause of the issue.<br>What should you review?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tworkspace logs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnotebook logs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tglobal init scripts logs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcluster event logs"
+    ],
+    "answer": "C",
+    "answerDescription": "Cluster-scoped Init Scripts: Init scripts are shell scripts that run during the startup of each cluster node before the Spark driver or worker JVM starts. Databricks customers use init scripts for various purposes such as installing custom libraries, launching background processes, or applying enterprise security policies.<br>Logs for Cluster-scoped init scripts are now more consistent with Cluster Log Delivery and can be found in the same root folder as driver and executor logs for the cluster.<br>Reference:<br>https://databricks.com/blog/2018/08/30/introducing-cluster-scoped-init-scripts.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-02T04:14:00.000Z",
+        "voteCount": 6,
+        "content": "C is the correct Answer. \nAn init script is a shell script that runs during startup of each cluster node before the Apache Spark driver or worker JVM starts.\nInit script start and finish events are captured in cluster event logs. Details are captured in cluster logs.\n\nhttps://docs.microsoft.com/en-us/azure/databricks/clusters/init-scripts"
+      },
+      {
+        "date": "2021-03-21T08:44:00.000Z",
+        "voteCount": 2,
+        "content": "according to the link you provided it should be D"
+      },
+      {
+        "date": "2021-10-13T18:33:00.000Z",
+        "voteCount": 1,
+        "content": "Every time a cluster launches, it writes a log to the init script log folder."
+      },
+      {
+        "date": "2022-05-01T21:22:00.000Z",
+        "voteCount": 1,
+        "content": "See https://www.examtopics.com/discussions/microsoft/view/56279-exam-dp-203-topic-4-question-7-discussion/"
+      },
+      {
+        "date": "2021-05-29T04:50:00.000Z",
+        "voteCount": 4,
+        "content": "\"C\" is correct. The cluster event log only capture the start and finish of the init script, but they do not provide details on the libraries installed by the init scripts. Even if it provided this information, it would still make more sense to look directly at the cluster init script logs."
+      },
+      {
+        "date": "2021-03-17T03:39:00.000Z",
+        "voteCount": 3,
+        "content": "\"D\" is correct.\n\"Init script start and finish events are captured in cluster event logs. \"\nhttps://docs.databricks.com/clusters/init-scripts.html"
+      },
+      {
+        "date": "2021-10-13T18:33:00.000Z",
+        "voteCount": 1,
+        "content": "Every time a cluster launches, it writes a log to the init script log folder."
+      },
+      {
+        "date": "2021-02-22T12:59:00.000Z",
+        "voteCount": 2,
+        "content": "it should be \"D\" - cluster logs:\nInit script start and finish events are captured in cluster event logs. Details are captured in cluster logs\nhttps://docs.databricks.com/clusters/init-scripts.html  (section logging)"
+      },
+      {
+        "date": "2021-10-13T18:33:00.000Z",
+        "voteCount": 1,
+        "content": "Every time a cluster launches, it writes a log to the init script log folder."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56076-exam-dp-200-topic-5-question-4-discussion/",
+    "body": "DRAG DROP -<br>A company builds an application to allow developers to share and compare code. The conversations, code snippets, and links shared by people in the application are stored in a Microsoft Azure SQL Database instance. The application allows for searches of historical conversations and code snippets.<br>When users share code snippets, the code snippet is compared against previously share code snippets by using a combination of Transact-SQL functions including SUBSTRING, FIRST_VALUE, and SQRT. If a match is found, a link to the match is added to the conversation.<br>Customers report the following issues:<br>\u2711 Delays occur during live conversations<br>\u2711 A delay occurs before matching links appear after code snippets are added to conversations<br>You need to resolve the performance issues.<br>Which technologies should you use? To answer, drag the appropriate technologies to the correct issues. Each technology may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03872/0047600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0047600002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: memory-optimized table -<br>In-Memory OLTP can provide great performance benefits for transaction processing, data ingestion, and transient data scenarios.<br><br>Box 2: materialized view -<br>To support efficient querying, a common solution is to generate, in advance, a view that materializes the data in a format suited to the required results set. The<br>Materialized View pattern describes generating prepopulated views of data in environments where the source data isn't in a suitable format for querying, where generating a suitable query is difficult, or where query performance is poor due to the nature of the data or the data store.<br>These materialized views, which only contain data required by a query, allow applications to quickly obtain the information they need. In addition to joining tables or combining data entities, materialized views can include the current values of calculated columns or data items, the results of combining values or executing transformations on the data items, and values specified as part of the query. A materialized view can even be optimized for just a single query.<br>References:<br>https://docs.microsoft.com/en-us/azure/architecture/patterns/materialized-view",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-25T10:32:00.000Z",
+        "voteCount": 1,
+        "content": "I really don't see how a materialized view is going to help with comparing text with substrings. What would even be in the materialized view? I'd just use memory-optimized table twice."
+      },
+      {
+        "date": "2021-06-28T19:33:00.000Z",
+        "voteCount": 6,
+        "content": "I think it should be memory-optimized table for conversations (because this optimizes transactions and insertions in general), and columnstore index (clustered columnstore index in particular) which improves analytics and reporting in general. Matching links qualifies as analytics."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/55900-exam-dp-200-topic-5-question-5-discussion/",
+    "body": "You implement an enterprise data warehouse in Azure Synapse Analytics.<br>You have a large fact table that is 10 terabytes (TB) in size.<br>Incoming queries use the primary key Sale Key column to retrieve data as displayed in the following table:<br><img src=\"/assets/media/exam-media/03872/0047700001.jpg\" class=\"in-exam-image\"><br>You need to distribute the large fact table across multiple nodes to optimize performance of the table.<br>Which technology should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thash distributed table with clustered ColumnStore index",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thash distributed table with clustered index",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\theap table with distribution replicate",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tround robin distributed table with clustered index",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tround robin distributed table with clustered ColumnStore index"
+    ],
+    "answer": "A",
+    "answerDescription": "Hash-distributed tables improve query performance on large fact tables.<br>Columnstore indexes can achieve up to 100x better performance on analytics and data warehousing workloads and up to 10x better data compression than traditional rowstore indexes.<br>Incorrect Answers:<br>D, E: Round-robin tables are useful for improving loading speed.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute https://docs.microsoft.com/en-us/sql/relational-databases/indexes/columnstore-indexes-query-performance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-23T03:45:00.000Z",
+        "voteCount": 3,
+        "content": "Clustered indexes may outperform clustered columnstore tables when a single row needs to be quickly retrieved. For queries where a single or very few row lookup is required to perform with extreme speed, consider a clustered index or nonclustered secondary index. The answer could be B as it is sales key-based rows retrieval."
+      },
+      {
+        "date": "2021-06-25T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "I agree under the assumption that the table is only used for row retrieval by primary key. It isn't explicitly said that this is the only use though. If this really is the only use of the table, it would make more sense to put it in a CosmosDB with table API. Still, I think that B is the answer they want to hear. Otherwise, why would they have added that queries will use row retrieval by primary key?"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11676-exam-dp-200-topic-5-question-8-discussion/",
+    "body": "A company has a real-time data analysis solution that is hosted on Microsoft Azure. The solution uses Azure Event Hub to ingest data and an Azure Stream<br>Analytics cloud job to analyze the data. The cloud job is configured to use 120 Streaming Units (SU).<br>You need to optimize performance for the Azure Stream Analytics job.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement event ordering",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tScale the SU count for the job up",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement Azure Stream Analytics user-defined functions (UDF)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tScale the SU count for the job down",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement query parallelization by partitioning the data output",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement query parallelization by partitioning the data input"
+    ],
+    "answer": "BF",
+    "answerDescription": "Scale out the query by allowing the system to process each input partition separately.<br>F: A Stream Analytics job definition includes inputs, a query, and output. Inputs are where the job reads the data stream from.<br>References:<br>https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-27T05:43:00.000Z",
+        "voteCount": 17,
+        "content": "https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization\nThe link above from Azure has the following statement:\nThis article shows you how to take advantage of parallelization in Azure Stream Analytics. You learn how to scale Stream Analytics jobs by configuring input partitions and tuning the analytics query definition. \nI think it implies that once you partition the input, the output will be partitioned according to your query. There is no way that you can directly partition the output. Besides, the table of contents on the left shows that SU is one way to optimize the Stream Analysis. Thus, the answer should be B and F"
+      },
+      {
+        "date": "2020-01-29T04:49:00.000Z",
+        "voteCount": 10,
+        "content": "I think the correct answer are\n\tE.&nbsp;Implement query parallelization by partitioning the data output\n\tF.&nbsp;Implement query parallelization by partitioning the data input\nBecause increasing number of streaming units for a job might not reduce SU% Utilization if your query is not&nbsp;fully parallel.\nAnd I think 120 RU should be enought if we consider that 6 RU is the full capacity of a single computing node.\nReference:\nhttps://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption"
+      },
+      {
+        "date": "2020-02-12T04:05:00.000Z",
+        "voteCount": 31,
+        "content": "But the question only about  \"Azure Event Hub to ingest data and an Azure Stream\nAnalytics cloud job to analyze the data\".\nSo \tB.&nbsp;Scale the SU count for the job up\n\tF.&nbsp;Implement query parallelization by partitioning the data input"
+      },
+      {
+        "date": "2020-12-09T16:45:00.000Z",
+        "voteCount": 1,
+        "content": "hmmm i agree with your first assumption, 120 RU seems for me already a large number, i think microsoft wants us to really choose E and F; even if from azure event hub the data comes with partitions, as stated in the links we must explicity set the partition by for the analytics job so.... hm.... E and F. Sorry."
+      },
+      {
+        "date": "2020-12-11T16:04:00.000Z",
+        "voteCount": 1,
+        "content": "Partitions in inputs and outputs\nPartitioning lets you divide data into subsets based on a partition key. If your input (for example Event Hubs) is partitioned by a key, it is highly recommended to specify this partition key when adding input to your Stream Analytics job. Scaling a Stream Analytics job takes advantage of partitions in the input and output. A Stream Analytics job can consume and write different partitions in parallel, which increases throughput."
+      },
+      {
+        "date": "2021-05-13T05:31:00.000Z",
+        "voteCount": 2,
+        "content": "I have seen this question and the answer in other sites , the correct answer 100% is : BF"
+      },
+      {
+        "date": "2024-10-15T06:20:00.000Z",
+        "voteCount": 1,
+        "content": "Increasing the number of streaming units (SU) is not exactly an optimization, but rather an improvement by adding resources. Focusing on optimizing with current resources is more accurate.\n\nIn that case, the best options would be:\n\nImplement query parallelization by partitioning the data input: Distribute the initial workload, improving performance without the need to add additional resources.\n\nImplement query parallelization by partitioning the data output: Ensure that data processing and delivery are also distributed efficiently, optimizing the entire workflow."
+      },
+      {
+        "date": "2021-03-09T00:46:00.000Z",
+        "voteCount": 2,
+        "content": "E and F as answer for optimization"
+      },
+      {
+        "date": "2020-11-26T03:43:00.000Z",
+        "voteCount": 2,
+        "content": "Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated for your job.\nScaling up does increase performance but is not a good way to optimize jobs. I would say E and F as the answer"
+      },
+      {
+        "date": "2020-11-29T05:36:00.000Z",
+        "voteCount": 1,
+        "content": "Changing to B and E since input is already partitioned"
+      },
+      {
+        "date": "2020-10-29T07:02:00.000Z",
+        "voteCount": 8,
+        "content": "In my opinion the answer is correct. The cloud job is already configured to use 120 Streaming Units (SU), so if we partition the input, we must scale the SU up to support the extra SU load that will be generated by this partitioning. Makes sense?"
+      },
+      {
+        "date": "2020-01-09T11:49:00.000Z",
+        "voteCount": 2,
+        "content": "How is adding extra steaming units optimizing performance ? Is adding RAM on a SQL Server optimizing performance ?"
+      },
+      {
+        "date": "2020-05-26T01:00:00.000Z",
+        "voteCount": 4,
+        "content": "If it improves the performance of the jobs of the SQL Server, sure?"
+      },
+      {
+        "date": "2020-06-14T23:40:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with ADHDBA, the question is about optimizing and not improving performance.\nE and F.\nhttps://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization says:\n\n  \" If your input (for example Event Hubs) is partitioned by a key, it is highly recommended to specify this partition key when adding input to your Stream Analytics job. Scaling a Stream Analytics job takes advantage of partitions in the input and output. A Stream Analytics job can consume and write different partitions in parallel, which increases throughput.\""
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "5"
+  }
+]

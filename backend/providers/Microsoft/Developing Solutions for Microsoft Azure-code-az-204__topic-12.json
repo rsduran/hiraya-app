@@ -1,0 +1,171 @@
+[
+  {
+    "topic": 12,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75073-exam-az-204-topic-12-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to secure the Shipping Function app.<br>How should you configure the app? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04273/0030200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0030300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Shipping Function app: Implement secure function endpoints by using app-level security and include Azure Active Directory (Azure AD).<br><br>Box 1: Function -<br>Box 2: JSON based Token (JWT)<br>Azure AD uses JSON based tokens (JWTs) that contain claims<br><br>Box 3: HTTP -<br>How a web app delegates sign-in to Azure AD and obtains a token<br>User authentication happens via the browser. The OpenID protocol uses standard HTTP protocol messages.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/develop/authentication-scenarios",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-20T17:56:00.000Z",
+        "voteCount": 22,
+        "content": "The correct answer is:\nAnonymous\nJWT\nHTTP\n\nScenario: Shipping Function app: Implement secure function endpoints by using app-level security and include Azure Active Directory (Azure AD).\n\n1. Authorization Level must be anonymous to use function app level security methods.\n2. User claims must be JWT tokens; API Key is not recommended due to security issues.\n3. Function App is triggered from Logic App. So it must be http\n\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production"
+      },
+      {
+        "date": "2022-06-25T01:37:00.000Z",
+        "voteCount": 19,
+        "content": "Function\nJWT\nHTTP"
+      },
+      {
+        "date": "2024-08-02T07:04:00.000Z",
+        "voteCount": 1,
+        "content": "AuthorizationLevel : Setting the Authorization level to \"Anonymous\" means that no authentication is required to access the Azure Function. This would not be secure, particularly for sensitive operations, as anyone who knows the URL can invoke the function, potentially leading to misuse or data breaches.\n\nSo correct answers are : Functions , JSON Web Token(JWT) and HTTP"
+      },
+      {
+        "date": "2024-02-18T03:39:00.000Z",
+        "voteCount": 2,
+        "content": "Authorization level: Anonymous\nUser claims: JSON Web Token (JWT)\nTrigger type: HTTP"
+      },
+      {
+        "date": "2023-02-03T17:34:00.000Z",
+        "voteCount": 2,
+        "content": "Secure an HTTP endpoint in production\nTo fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options. When using one of these function app-level security methods, you should set the HTTP-triggered function authorization level to anonymous. https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&amp;pivots=programming-language-csharp#secure-an-http-endpoint-in-production Anonymous JWT and HTTP"
+      },
+      {
+        "date": "2023-02-01T12:35:00.000Z",
+        "voteCount": 2,
+        "content": "I will go with anonymous\nhttps://learn.microsoft.com/en-us/answers/questions/801055/authenticate-azure-functions"
+      },
+      {
+        "date": "2022-11-24T07:25:00.000Z",
+        "voteCount": 1,
+        "content": "the answer is correct, shipping function app is the one at the left.. it will need to access the 2 apis from the internal VM, not public accessing. API key is correct instead of anonymous."
+      },
+      {
+        "date": "2022-11-13T01:14:00.000Z",
+        "voteCount": 4,
+        "content": "Based on description it should be anonymous \nhttps://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=in-process%2Cfunctionsv2&amp;pivots=programming-language-csharp#secure-an-http-endpoint-in-production"
+      },
+      {
+        "date": "2023-01-28T03:04:00.000Z",
+        "voteCount": 1,
+        "content": "based on the link posted i see it should be anonymous but not tried on it"
+      },
+      {
+        "date": "2022-10-08T00:18:00.000Z",
+        "voteCount": 2,
+        "content": "If using AD is used then Function key should not be used and it should be set to anonymous. Could not find the link, but just think about it and try it"
+      },
+      {
+        "date": "2022-11-02T01:46:00.000Z",
+        "voteCount": 3,
+        "content": "here is the link:\nAnonymous is the only authorization level that doesn't require a key.\nSo :\n\nfunction, \nJWT \nHTTP \n\nis still valid .\nhttps://learn.microsoft.com/en-us/azure/azure-functions/security-concepts?tabs=v4#function-access-keys"
+      },
+      {
+        "date": "2023-02-03T17:40:00.000Z",
+        "voteCount": 1,
+        "content": "Functions lets you use keys to make it harder to access your HTTP function endpoints during development. Unless the HTTP access level on an HTTP triggered function is set to anonymous, requests must include an API access key in the request.\n\nNO! its anonymous"
+      },
+      {
+        "date": "2022-09-09T01:33:00.000Z",
+        "voteCount": 4,
+        "content": "\"Implement secure function endpoints by using app-level security and include Azure Active Directory (Azure AD).\" How can it be Function is AAD requires \"Anonymous\"?\nMy vote: \nAnonymous \nJWT\nHTTP"
+      },
+      {
+        "date": "2022-05-02T07:22:00.000Z",
+        "voteCount": 3,
+        "content": "in Korean\nhttps://docs.microsoft.com/ko-kr/azure/active-directory/develop/authentication-scenarios"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/27025-exam-az-204-topic-12-question-2-discussion/",
+    "body": "You need to secure the Shipping Logic App.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure App Service Environment (ASE)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIntegration Service Environment (ISE)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVNet service endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure AD B2B integration"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 4,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-30T23:00:00.000Z",
+        "voteCount": 37,
+        "content": "B is correct. confirmed"
+      },
+      {
+        "date": "2021-06-01T07:43:00.000Z",
+        "voteCount": 7,
+        "content": "Shipping Logic app:\nSecure resources to the corporate VNet and use dedicated storage resources with a fixed costing model.\n\nFor scenarios where your logic apps and integration accounts need access to an Azure virtual network, create an integration service environment (ISE). An ISE is a dedicated environment that uses dedicated storage and other resources that are kept separate from the \"global\" multi-tenant Logic Apps service. This separation also reduces any impact that other Azure tenants might have on your apps' performance. An ISE also provides you with your own static IP addresses. These IP addresses are separate from the static IP addresses that are shared by the logic apps in the public, multi-tenant service.\n\nReference:\nhttps://docs.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment"
+      },
+      {
+        "date": "2021-06-01T07:43:00.000Z",
+        "voteCount": 7,
+        "content": "B. Integration Service Environment (ISE)"
+      },
+      {
+        "date": "2024-05-02T18:14:00.000Z",
+        "voteCount": 1,
+        "content": "Logic Apps don't seem to be part of the exam anymore. \nSomeone got it recently?"
+      },
+      {
+        "date": "2024-03-28T10:24:00.000Z",
+        "voteCount": 2,
+        "content": "The answer options are obviously outdated. Instead of ISE, it should be Standard logic apps which is the service that replaced ISE but added more features. You can also connect to private vnets. If Standard logic apps is not an option, the most correct one is vnet service endpoint but it doesn't satisfy the fixed pricing model.\n\nhttps://learn.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview"
+      },
+      {
+        "date": "2023-06-15T11:02:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is A:\nApp Service Environments are appropriate for application workloads that require:\nHigh scale.\nIsolation and secure network access.\nHigh memory utilization.\nHigh requests per second (RPS). You can create multiple App Service Environments in a single Azure region or across multiple Azure regions. This flexibility makes an App Service Environment ideal for horizontally scaling stateless applications with a high RPS requirement.\nhttps://learn.microsoft.com/en-us/azure/app-service/environment/overview\n\nThere is nothing about security, apart from  that ISE is \"fully isolated\": https://azure.microsoft.com/en-us/updates/integration-service-environments-ise-are-now-generally-available/?cdn=disable"
+      },
+      {
+        "date": "2022-11-26T23:59:00.000Z",
+        "voteCount": 2,
+        "content": "You can't create ISE starting 1st of November and it'll be retired in 2024, you should create vnet instead. https://learn.microsoft.com/en-us/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview"
+      },
+      {
+        "date": "2022-11-27T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "Access to Azure virtual networks from Azure Logic Apps using an integration service environment (ISE) https://learn.microsoft.com/en-us/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint"
+      },
+      {
+        "date": "2022-11-27T00:02:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry this it the correct link name - Secure traffic between Standard logic apps and Azure virtual networks using private endpoints"
+      },
+      {
+        "date": "2023-02-03T17:44:00.000Z",
+        "voteCount": 1,
+        "content": "https://azure.microsoft.com/en-us/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/ logic app is not in the list"
+      },
+      {
+        "date": "2022-06-25T01:36:00.000Z",
+        "voteCount": 4,
+        "content": "B is correct answer."
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "12"
+  }
+]

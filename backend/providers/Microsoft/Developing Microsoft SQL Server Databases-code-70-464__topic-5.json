@@ -1,0 +1,50 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41674-exam-70-464-topic-5-question-2-discussion/",
+    "body": "You execute IndexManagement.sql and you receive the following error message: \"Msg 512, Level 16, State 1, Line 12<br>Subquery returned more than 1 value. This is not permitted when the subquery follows =, != ,&lt;, &lt;= , &gt;, &gt; = or when the subquery is used as an expression.\"<br>You need to ensure that IndexManagement.sql executes properly.<br>Which WHILE statement should you use at line 18?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWHILE SUM(@RowNumber) &lt; (SELECT @counter FROM @indextable)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWHILE @counter &lt; (SELECT SUM(RowNumber) FROM @indextable)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWHILE COUNT(@RowNumber) &lt; (SELECT @counter FROM @indextable)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWHILE @counter &lt; (SELECT COUNT(RowNumber) FROM @indextable)"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-06T15:26:00.000Z",
+        "voteCount": 1,
+        "content": "i have no idea as to why its is 'D'. can someone plz hint whats going on plzzzz?"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36283-exam-70-464-topic-5-question-11-discussion/",
+    "body": "You need to convert the functionality of Dynamic.sql to use a stored procedure.<br>Which Transact SQL statement should you add to the stored procedure contain?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PROC Production.ProductsAfterDate (@ProductID AS varchar(11), @CreationDate AS date) AS ...",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PROC Production.ProductsAfterDate( @sqlstring AS nvarchar(1000)) AS ...",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PROC Production.ProductsAfterDate( @sqlstring AS nvarchar(1000), OUTPUT @ProductID AS varchar(11), OUTPUT @CreationDate AS date) AS ...",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PROC Production.ProductsAfterDate( @sqlstring AS nvarchar(1000), @ProductID AS varchar(11), @CreationDate AS date) AS ..."
+    ],
+    "answer": "C",
+    "answerDescription": "@sqlstring, @ProductID, and @CreationData need to be declared as parameters. @ProductID, and @CreationData should be output parameters.<br>Topic 5, Litware, Inc",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-06T11:49:00.000Z",
+        "voteCount": 2,
+        "content": "sqlstring is never output due to it\u00b4s used to generate the output"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "5"
+  }
+]

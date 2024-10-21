@@ -1,0 +1,141 @@
+[
+  {
+    "topic": 19,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48008-exam-dp-300-topic-19-question-1-discussion/",
+    "body": "Based on the PaaS prototype, which Azure SQL Database compute tier should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBusiness Critical 4-vCore",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHyperscale",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeneral Purpose v-vCore",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tServerless\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-03-26T15:30:00.000Z",
+        "voteCount": 14,
+        "content": "In my opinion it should be General Purpose Serverless as you can configure max and min vCores and configure Pause to save costs. So D Serverless seems the most appropriate option."
+      },
+      {
+        "date": "2022-12-30T09:54:00.000Z",
+        "voteCount": 10,
+        "content": "Ok hear me out. The question is:\nBased on the PaaS prototype, which Azure SQL Database compute tier should you use? it does not ask which service tier. There are 2 different compute tiers: Provisioned and Serverless. While the provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, the serverless compute tier auto-scales compute resources based on workload activity.\n\nThe answer is clearly serverless unless whoever wrote this question does not know the difference between service tier and compute tier.\n\nThank you for listening!"
+      },
+      {
+        "date": "2024-10-16T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "D - Serverless - Here's why:\n\nServerless is optimal when there are variable workloads, which seems to be the case based on the graphs that show intermittent usage spikes. Serverless compute automatically scales resources based on usage and pauses during idle periods, helping to optimize cost and resource allocation for databases that experience irregular load patterns.\nThe other tiers (Business Critical, Hyperscale, and General Purpose) are more suited for workloads that have consistent or high resource demands but may not fit well in scenarios with fluctuating demand, as seen in the usage chart."
+      },
+      {
+        "date": "2022-07-10T00:38:00.000Z",
+        "voteCount": 3,
+        "content": "This question is either confusing or misleading due to the scenario in the case study. But definitely it is an interesting question since it checks how deep we understand the difference between the service tier / computer tier and their capabilities.\nThe question is which compute tier should you use. \nThe Business requirement says - The PaaS solution must provide automatic failover during Azure regional outage.\n\nServerless compute tier comes under Gen. Purpose Service tier which has HA solution where failover happens automatically during node failure or outage.\nThe answer is D"
+      },
+      {
+        "date": "2022-02-21T15:47:00.000Z",
+        "voteCount": 1,
+        "content": "Idle periods and the fact that it's POC, minimize costs it should be serverless"
+      },
+      {
+        "date": "2022-01-01T00:33:00.000Z",
+        "voteCount": 2,
+        "content": "Serverless based on monitoring dashboard. Most time, the database is idle"
+      },
+      {
+        "date": "2021-07-18T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct. The question asks \u201ccompute tier\u201d not service tier"
+      },
+      {
+        "date": "2021-06-13T20:14:00.000Z",
+        "voteCount": 4,
+        "content": "In the event of an Azure regional outage, ensure that the customers can access the PaaS solution with minimal downtime. The solution must provide automatic failover.\n\nShould be \"A\", Always On Availability Group and Geo replication are needed.\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/high-availability-sla\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview"
+      },
+      {
+        "date": "2021-05-24T23:59:00.000Z",
+        "voteCount": 10,
+        "content": "I will go with serverless since there are consistent idle periods."
+      },
+      {
+        "date": "2021-04-11T17:40:00.000Z",
+        "voteCount": 4,
+        "content": "The solution must provide automatic failover. That is why I select \"A\"."
+      },
+      {
+        "date": "2021-07-18T04:54:00.000Z",
+        "voteCount": 1,
+        "content": "question is \"Based on the PaaS prototype\" and not about failover... so serverless is the right choice due to the capacity to pause and saving costs"
+      },
+      {
+        "date": "2021-08-12T21:27:00.000Z",
+        "voteCount": 3,
+        "content": "Its a poorly written question and quite ambiguous, but just because it is \"based on the PaaS prototype\" it doesnt mean you ignore the business goals, and this is to provide automatic failover and protect from regional outage, hence \"A\""
+      },
+      {
+        "date": "2021-03-23T04:39:00.000Z",
+        "voteCount": 1,
+        "content": "There are daily spikes in CPU usage.\nHyperscale with automatic scaling seems the most appropriate solution.\n\nhttps://techcommunity.microsoft.com/t5/azure-sql/autoscaling-azure-sql-hyperscale/ba-p/1149025"
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "19"
+  },
+  {
+    "topic": 19,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52446-exam-dp-300-topic-19-question-2-discussion/",
+    "body": "Which audit log destination should you use to meet the monitoring requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Event Hubs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Log Analytics\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "Scenario: Use a single dashboard to review security and audit data for all the PaaS databases.<br>With dashboards can bring together operational data that is most important to IT across all your Azure resources, including telemetry from Azure Log Analytics.<br>Note: Auditing for Azure SQL Database and Azure Synapse Analytics tracks database events and writes them to an audit log in your Azure storage account, Log<br>Analytics workspace, or Event Hubs.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/visualize/tutorial-logs-dashboards",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-11T09:10:00.000Z",
+        "voteCount": 10,
+        "content": "I think it's correct"
+      },
+      {
+        "date": "2024-10-16T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "C. Azure Log Analytics\n\nHere's why:\n\nThe requirement states that there should be a single dashboard to monitor query performance, security, audit data, and identify poorly performing queries across all the PaaS databases.\nAzure Log Analytics integrates well with Azure Monitor, providing a centralized platform to analyze logs, metrics, and performance data, including query performance and security data, across multiple resources.\nWith Azure Log Analytics, you can create a comprehensive, unified view (dashboard) of the environment that meets the requirement to view security, audit data, and query performance in a single dashboard.\nAzure Storage and Azure Event Hubs are more suitable for raw storage or streaming of logs and events but wouldn't offer the built-in analytics capabilities that Azure Log Analytics provides for real-time querying and monitoring."
+      },
+      {
+        "date": "2024-07-20T08:51:00.000Z",
+        "voteCount": 2,
+        "content": "\u7b54\u3048\u306fC\u3067\u3059\u3002"
+      },
+      {
+        "date": "2023-08-21T22:13:00.000Z",
+        "voteCount": 1,
+        "content": "Monitoring requirements is only for PaaS databases"
+      },
+      {
+        "date": "2023-01-29T10:18:00.000Z",
+        "voteCount": 1,
+        "content": "is Azure Log Analytics for cloud only, but can't be use for hybrid?\nthere is another question early explaining the difference between Event hub and Log Analytics. Event Hubs was chosen because Log Analytics only support cloud."
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "19"
+  }
+]

@@ -1,0 +1,91 @@
+[
+  {
+    "topic": 14,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30771-exam-mb-500-topic-14-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to deploy the web portal integration solution.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04327/0004300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0004400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: You must install and configure a third-party solution for credit card processing within Dynamics 365 Finance. The third-party company will provide a deployable package.<br>You must develop a web portal that allows customers to browse products, place orders, and check order status. Product data for the web portal must be integrated as periodic batches.<br>You must configure the warehouse mobile device portal for warehouse operations.<br>You must install a third-party solution to support web portal integration. The solution is supplied as a source code model file.<br>Step 1: Add the package to source control and check in the changes.<br>Deployable packages from third parties can be manually installed on a development VM, and the installed artifacts can then be added to source control.<br>Step 2: Import the model into a Development environment.<br>Install a model in a development environment<br>Step 3: Synchronize the models in the Developer environment by using Get latest feature<br>Because the models and runtime packages are in source control, other developers who use other development environments can just synchronize the models and packages to their workspace by using the Get latest feature of source control.<br>Step 4: Build and create a deployment package<br>The build process will include this runtime package in the final deployable package. This allows customers to take the deployable package from the build and have one package to deploy to their environments. The one package includes both custom solutions and all the third party solutions.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/manage-runtime-packages https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/manage-runtime-packages#deploying-third-party-code",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-18T00:25:00.000Z",
+        "voteCount": 18,
+        "content": "My answers are:\n-Import the model into a Development environment\n-&gt;Synchronize the models in the Developer environment by using Get Lastest feature\n-&gt; Add the package to source control and check in changes\n-&gt; Build and create a deployment package"
+      },
+      {
+        "date": "2020-09-07T04:19:00.000Z",
+        "voteCount": 9,
+        "content": "I would do: Import the model into a development environment - Synchronize the models in the developer enviroment by using Get Latest feature - Build en create a deployment package - Add the package to source control and check in the changes."
+      },
+      {
+        "date": "2021-10-25T08:24:00.000Z",
+        "voteCount": 2,
+        "content": "Correct! Before \"Add the package to source control\" is mandatory build the package"
+      },
+      {
+        "date": "2022-12-19T15:36:00.000Z",
+        "voteCount": 1,
+        "content": "One of the requirements is \"You must configure version control and a Build environment.\"\nAnd Build environment is to run Build and create deployment package.\nIn that case:\nImport the model into Dev environment\nAdd the package to Source control and check in changes\nImport the model into Build environment\nBuild and create a deployment package"
+      },
+      {
+        "date": "2022-03-14T10:36:00.000Z",
+        "voteCount": 1,
+        "content": "1. Synchronize the models in the Developer environment by using Get latest feature\n2. Import the model into a Development environment\n3. Add the package to source control and check in changes\n4. Build and create a deployment package"
+      },
+      {
+        "date": "2022-01-28T04:40:00.000Z",
+        "voteCount": 4,
+        "content": "Microsoft says:\n\"Deployable packages from third parties can be manually installed on a development VM, and the installed artifacts can then be added to source control. Then, by synchronizing their local workspace, other developers can receive the runtime package on their VMs without having to install the deployable package. The build process on the build VM will help guarantee that the runtime packages for any extensions or other dependencies are available on the build VM.\"\nSo 1. Import the model into a Development environment\n2. Add the package to source control and check in changes\n3. Synchronize the models in the Developer environment by using Get Lastest feature\n4. Build and create a deployment package\nhttps://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-tools/manage-runtime-packages#deploying-third-party-code"
+      },
+      {
+        "date": "2022-01-05T07:59:00.000Z",
+        "voteCount": 2,
+        "content": "Import the model into a Development environment\nSynchronize the models in the Developer environment by using Get Lastest feature\nAdd the package to source control and check in changes\nBuild and create a deployment package"
+      },
+      {
+        "date": "2021-12-03T03:04:00.000Z",
+        "voteCount": 1,
+        "content": "I would do it as in the answer, so Correct. You checkin the changes to reflect if any changes done to the model since it is exported first. Then on the development environment import the model, get latest for the model to get those changes and build - create package."
+      },
+      {
+        "date": "2021-10-17T02:31:00.000Z",
+        "voteCount": 3,
+        "content": "I would go with: 1. Get latest 2. Import the model into a dev environment 3. Add to source control and check in 4. Build and create a deployable package"
+      },
+      {
+        "date": "2021-03-09T01:35:00.000Z",
+        "voteCount": 1,
+        "content": "Import to QA\nBuild and create a deployment package\nAdd the package to source control and check in\nSynchronize the model and get latest"
+      },
+      {
+        "date": "2021-02-03T05:53:00.000Z",
+        "voteCount": 3,
+        "content": "I often have to take these steps:\n- Install the new model\n- Add the package (including descriptor and bin folders) to the source control so that other development boxes can use it or the daily build can call it up. This step is called separately in this answer area\n- Create a one-in-all package, usually created by the build server\n- Finally, other developers can also use the check-ins by clicking \"Latest\" \n\nThe correct order shoul be: 3,1,2,4"
+      },
+      {
+        "date": "2020-12-22T21:19:00.000Z",
+        "voteCount": 3,
+        "content": "I could be wrong but it seems to be that you would \n1.  Import the model into a development environment\n2.  Add the package to source control and check-in changes \n3.  Build and create a deployment package \n4.  Sync the models in the developer environment --&gt; the wording on this is confusing but if you read the linked article, they talk about other developers synchronizing and pulling the 3rd party models into their system.  In that case, they won't be able to do that until the code is checked in.  Or maybe I'm missing something?"
+      },
+      {
+        "date": "2020-12-19T14:42:00.000Z",
+        "voteCount": 1,
+        "content": "-&gt;Synchronize the models in the Developer environment by using Get Lastest feature (check for latest version and Developer2 joins the company and does not have access to a development environment or source control.) \n-&gt;Import the model into a Development environment\n-&gt; Add the package to source control and check in changes\n-&gt; Build and create a deployment package"
+      },
+      {
+        "date": "2020-09-10T01:49:00.000Z",
+        "voteCount": 5,
+        "content": "Actually source control is only allowed after QA testing thus: Import the model into Development environment - Build en create a deployment package - Import the model into a QA environment - Add the package to source control and check in the changes"
+      },
+      {
+        "date": "2022-02-28T09:32:00.000Z",
+        "voteCount": 2,
+        "content": "This seems like the only possible answer.\nAll other comments ignore the fact that the all new code must be validated by QA!"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "14"
+  }
+]

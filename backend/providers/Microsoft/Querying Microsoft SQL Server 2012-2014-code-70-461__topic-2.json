@@ -1,0 +1,55 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4678-exam-70-461-topic-2-question-5-discussion/",
+    "body": "You administer a Microsoft SQL Server database that includes a table named Products. The Products table has columns named ProductId, ProductName, and<br>CreatedDateTime.<br>The table contains a unique constraint on the combination of ProductName and CreatedDateTime.<br>You need to modify the Products table to meet the following requirements:<br>\u2711 Remove all duplicates of the Products table based on the ProductName column.<br>\u2711 Retain only the newest Products row.<br>Which Transact-SQL query should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWITH CTEDupRecords AS ( SELECT MIN(CreatedDateTime) AS CreatedDateTime, ProductName FROM Products GROUP BY ProductName HAVING COUNT(*) &gt; 1 ) DELETE p FROM Products p JOIN CTEDupRecords cte ON cte.ProductName = p.ProductName AND cte.CreatedDateTime &gt;  p.CreatedDateTime",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWITH CTEDupRecords AS ( SELECT MIN(CreatedDateTime) AS CreatedDateTime, ProductName FROM Products GROUP BY ProductName HAVING COUNT(*) &gt; 1 ) DELETE p FROM Products p JOIN CTEDupRecords cte ON p.ProductName = cte.ProductName AND p.CreatedDateTime &gt; cte.CreatedDateTime",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWITH CTEDupRecords AS ( SELECT MIN(CreatedDateTime) AS CreatedDateTime, ProductName FROM Products GROUP BY ProductName ) DELETE p FROM Products p JOIN CTEDupRecords cte ON p.ProductName = cte.ProductName",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWITH CTEDupRecords AS ( SELECT MAX(CreatedDateTime) AS CreatedDateTime, ProductName FROM Products GROUP BY ProductName HAVING COUNT(*) &gt; 1 ) DELETE Products FROM Products p"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-04T02:51:00.000Z",
+        "voteCount": 5,
+        "content": "Answer B is wrong; the MIN aggregate function finds the oldest date and then the record in the table that new than this date are deleted. Not what was asked for."
+      },
+      {
+        "date": "2020-04-24T07:50:00.000Z",
+        "voteCount": 1,
+        "content": "i think B is the answer but there was a typo error. instead of MIN should be MAX. rest all are correct"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26901-exam-70-461-topic-2-question-6-discussion/",
+    "body": "You use Microsoft SQL Server 2012 to develop a database application.<br>Your application sends data to an NVARCHAR(MAX) variable named @var.<br>You need to write a Transact-SQL statement that will find out the success of a cast to a decimal (36,9).<br>Which code segment should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBEGIN TRY SELECT convert (decimal(36,9), @var) as Value, 'True' As BadCast END TRY BEGIN CATCH SELECT convert (decimal(36,9), @var) as Value, 'False' As BadCast END CATCH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTRY( SELECT convert (decimal(36,9), @var) SELECT 'True' As BadCast ) CATCH( SELECT 'False' As BadCast )",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT CASE WHEN convert (decimal(36,9), @var) IS NULL THEN 'True' ELSE 'False' END AS BadCast",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT IIF(TRY_PARSE(@var AS decimal(36,9)) IS NULL, 'True', 'False' )"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference: http://msdn.microsoft.com/en-us/library/hh213126.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-28T23:20:00.000Z",
+        "voteCount": 1,
+        "content": "if the statement select TRY_PARSE(@var AS decimal(36,9)) returns value (converting was successful) than D returns False. Is it correct?"
+      }
+    ],
+    "examNameCode": "70-461",
+    "topicNumber": "2"
+  }
+]

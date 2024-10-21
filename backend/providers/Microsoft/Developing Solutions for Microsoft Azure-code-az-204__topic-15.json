@@ -1,0 +1,259 @@
+[
+  {
+    "topic": 15,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79115-exam-az-204-topic-15-question-1-discussion/",
+    "body": "You need to reduce read latency for the retail store solution.<br>What are two possible ways to achieve the goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new composite index for the store location data queries in Azure Cosmos DB. Modify the queries to support parameterized SQL and update the Azure Function app to call the new queries.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvision an Azure Cosmos DB dedicated gateway. Update the Azure Function app connection string to use the new dedicated gateway endpoint.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure Cosmos DB consistency to session consistency. Cache session tokens in a new Azure Redis cache instance after every write. Update reads to use the session token stored in Azure Redis.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvision an Azure Cosmos DB dedicated gateway. Update blob storage to use the new dedicated gateway endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure Cosmos DB consistency to strong consistency. Increase the RUs for the container supporting store location data."
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 5,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AC",
+        "count": 4,
+        "isMostVoted": false
+      },
+      {
+        "answer": "BC",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-30T05:27:00.000Z",
+        "voteCount": 19,
+        "content": "Got this question on 30-Sep-2022 exam.\nCorrect answer is A and B. Passed with 870 score."
+      },
+      {
+        "date": "2023-08-21T11:13:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is A and B. \nThis was on the exam (08/20/2023). Scored 925"
+      },
+      {
+        "date": "2023-04-13T02:46:00.000Z",
+        "voteCount": 2,
+        "content": "I think is correct. If your wondering about B: https://learn.microsoft.com/en-us/azure/cosmos-db/dedicated-gateway\n\nAnd some info from ChatGpt: \nA dedicated gateway provides a dedicated endpoint for client applications to communicate with Azure Cosmos DB. By using a dedicated gateway, client applications such as the Azure Function app can reduce network latency and improve overall performance when communicating with Azure Cosmos DB.\n\nWhen a dedicated gateway is provisioned, it creates a Virtual Network (VNet) peering between the gateway and the Azure Cosmos DB account. This ensures that all traffic between the client application and Azure Cosmos DB remains within the same network, reducing the network latency."
+      },
+      {
+        "date": "2022-09-05T12:40:00.000Z",
+        "voteCount": 9,
+        "content": "C makes no sense... so A and B"
+      },
+      {
+        "date": "2022-09-22T14:21:00.000Z",
+        "voteCount": 2,
+        "content": "\"Cache session tokens in a new Azure Redis cache instance after every write\" in C. Does not sound right to me either."
+      },
+      {
+        "date": "2024-07-04T13:43:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A and B.\n\"When you provision a dedicated gateway, an integrated cache is automatically configured within the dedicated gateway.\"\nSo no need to use redis.\nRef: https://learn.microsoft.com/en-us/azure/cosmos-db/dedicated-gateway#overview"
+      },
+      {
+        "date": "2024-02-18T05:14:00.000Z",
+        "voteCount": 2,
+        "content": "A) Creating a composite index tailored to the queries used by the application can significantly improve query performance and reduce RU consumption. Modifying the queries to support parameterized SQL can also help optimize query execution.\nB) A dedicated gateway in Azure Cosmos DB provides a consistent low-latency connection and can offload some of the query processing workloads from the client. This can help reduce read latency, especially for complex queries and under scaling conditions."
+      },
+      {
+        "date": "2023-07-31T19:18:00.000Z",
+        "voteCount": 2,
+        "content": "A &amp; B\nA. Create a new composite index for the store location data queries in Azure Cosmos DB. Modify the queries to support parameterized SQL and update the Azure Function app to call the new queries:\nBy creating a composite index tailored to the specific queries used, you can potentially reduce the query cost and improve performance. Parameterized queries can further improve efficiency.\n\nB. Provision an Azure Cosmos DB dedicated gateway. Update the Azure Function app connection string to use the new dedicated gateway endpoint:\nA dedicated gateway in Azure Cosmos DB provides improved performance for query execution and can reduce latency. Connecting the Azure Function app to this dedicated gateway can leverage these performance improvements."
+      },
+      {
+        "date": "2023-05-31T18:11:00.000Z",
+        "voteCount": 1,
+        "content": "AB is correct"
+      },
+      {
+        "date": "2023-03-25T14:25:00.000Z",
+        "voteCount": 1,
+        "content": "Got this vanarsdelltd case study on 26-Mar-2023 exam. Go with A and C. Score 890."
+      },
+      {
+        "date": "2023-03-13T16:12:00.000Z",
+        "voteCount": 1,
+        "content": "A and C. ChatGPT"
+      },
+      {
+        "date": "2023-02-03T01:11:00.000Z",
+        "voteCount": 1,
+        "content": "A and C"
+      },
+      {
+        "date": "2023-01-04T05:19:00.000Z",
+        "voteCount": 3,
+        "content": "A and C\nB &amp; D are off due to Azure Cosmos DB dedicated gateway not supporting SQL queries. See limitations on:\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/dedicated-gateway#dedicated-gateway-in-multi-region-accounts\nE. Makes no sense as increasing consistency to Strong only makes the reads slower\n\nThus A &amp; C which makes sense: Composite Index in Cosmos DB and Redis Cache for reads"
+      },
+      {
+        "date": "2023-02-19T06:13:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query/getting-started\nIn Azure Cosmos DB for NoSQL accounts, there are two ways to read data\uff1aPoint reads&amp; SQL queries\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/dedicated-gateway#dedicated-gateway-in-multi-region-accounts\nDedicated gateways are only supported on API for NoSQL accounts\nSo  dedicated gateway is  support NoSQL account.How do you found  that Azure Cosmos DB dedicated gateway not supporting SQL queries?"
+      },
+      {
+        "date": "2022-12-26T11:07:00.000Z",
+        "voteCount": 2,
+        "content": "composite index improves the sql performace"
+      },
+      {
+        "date": "2022-11-17T10:03:00.000Z",
+        "voteCount": 1,
+        "content": "As per the description B and C look correct"
+      },
+      {
+        "date": "2022-09-30T06:18:00.000Z",
+        "voteCount": 2,
+        "content": "Redis is clearly a correct option if using Session consistency. From the following document it is clear that the session-id can be used in a cookie for multiple client-instances to share the same session. That is a clear case for redis-cache. So, if Session consistency is correct then redis cache is also correct. https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/data-cache-with-redis-cache"
+      },
+      {
+        "date": "2022-10-08T03:10:00.000Z",
+        "voteCount": 1,
+        "content": "\"Parameterized SQL provides robust handling and escaping of user input, and prevents accidental exposure of data through SQL injection\" \nSo, it does not give performance improvements. Maybe a trick to confuse the traditional sql guys (at least the Java ones, who use that for performance). A trick to punish the Java guys (non-microsoft, I guess. Don't be evil, Microsoft). \nDedicated gateway is a fine option with integrated cache. But otherwise increases latency with an extra hop if using a gateway (either standard or dedicated). \nSo, another Microsoft gem to create total confusion. An ill conceived question that is half baked"
+      },
+      {
+        "date": "2023-04-07T12:14:00.000Z",
+        "voteCount": 1,
+        "content": "Of course parametrization gives performance when it uses cached query plans."
+      },
+      {
+        "date": "2022-10-08T03:16:00.000Z",
+        "voteCount": 1,
+        "content": "\"Connecting to Azure Cosmos DB with the dedicated gateway provides lower and more predictable latency than connecting to Azure Cosmos DB with the standard gateway.\" But worse than a direct connection unless the cache is used. Probably that is the guessing game we have to do with a lot of assumption thinking that the location data can be cached."
+      },
+      {
+        "date": "2022-10-08T03:18:00.000Z",
+        "voteCount": 2,
+        "content": "I will bet on B (dedicated gateway) and E (Strong consistency with increased RUs). Strong consistency because that will make the writes do synchronous and so reads can be with lesser consistency level. \nThis is very innovative answer, but then I can only hope. It cannot be session consistency. It cannot be parameterized sql (unless the Microsoft guys does not understand that it does not increase performance)"
+      },
+      {
+        "date": "2022-09-30T06:09:00.000Z",
+        "voteCount": 3,
+        "content": "B and C are correct. \nNot using Strong consistency (or bounded staleness is good for read latency), I\nRedis cache can be used to store session information. But that is about web sessions. But I guess  this also can be stored in Redis."
+      },
+      {
+        "date": "2022-10-08T03:12:00.000Z",
+        "voteCount": 1,
+        "content": "Strong consistency as default will make sure the writes are synchronized. But this is about the read latency. While reading any consistency less than Bounded staleness will be better for read latency (read on read quoroms)."
+      },
+      {
+        "date": "2022-09-01T11:38:00.000Z",
+        "voteCount": 4,
+        "content": "why not A  composite index"
+      },
+      {
+        "date": "2023-02-04T16:05:00.000Z",
+        "voteCount": 1,
+        "content": "A = https://learn.microsoft.com/en-us/azure/cosmos-db/index-policy is correct"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "15"
+  },
+  {
+    "topic": 15,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75074-exam-az-204-topic-15-question-2-discussion/",
+    "body": "You need to audit the retail store sales transactions.<br>What are two possible ways to achieve the goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the retail store location data upload process to include blob index tags. Create an Azure Function to process the blob index tags and filter by store location.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProcess the change feed logs of the Azure Blob storage account by using an Azure Function. Specify a time range for the change feed data.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable blob versioning for the storage account. Use an Azure Function to process a list of the blob versions per day.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProcess an Azure Storage blob inventory report by using an Azure Function. Create rule filters on the blob inventory report.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSubscribe to blob storage events by using an Azure Function and Azure Event Grid. Filter the events by store location.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BE",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-10T02:26:00.000Z",
+        "voteCount": 8,
+        "content": "B and E"
+      },
+      {
+        "date": "2024-06-26T22:58:00.000Z",
+        "voteCount": 1,
+        "content": "With answer E. Ordinarily this would be an obvious choice in real time but the question has the requirement of 'Audit store sale transaction information nightly'. To me this meant that it would not be 'real time' but rather say a schedule at night. \nWhile this is not clear I'll still go with B and E."
+      },
+      {
+        "date": "2023-08-21T11:13:00.000Z",
+        "voteCount": 2,
+        "content": "Correct B and E. \nThis was on the exam (08/20/2023). Scored 925"
+      },
+      {
+        "date": "2023-03-20T15:24:00.000Z",
+        "voteCount": 5,
+        "content": "B. Process the change feed logs of the Azure Blob storage account by using an Azure Function. Specify a time range for the change feed data.\nThe change feed provides a way to log changes to blobs in a storage account. By using an Azure Function to process the change feed logs, it is possible to track and audit sales transaction information. The time range for the change feed data can be specified to capture the transactions within a specific time period.\n\nE. Subscribe to blob storage events by using an Azure Function and Azure Event Grid. Filter the events by store location.\nAzure Event Grid allows subscribing to events raised by Azure services or third-party services. By using an Azure Function and Event Grid, it is possible to filter the events for a specific store location and track sales transactions. This approach can help to monitor sales transactions in real-time and provide an audit trail for reconciliation."
+      },
+      {
+        "date": "2023-09-10T11:02:00.000Z",
+        "voteCount": 1,
+        "content": "Must be B and E"
+      },
+      {
+        "date": "2023-07-06T01:30:00.000Z",
+        "voteCount": 2,
+        "content": "This was on the exam (July 2023). Went with highly voted. Scored 917"
+      },
+      {
+        "date": "2022-10-08T03:39:00.000Z",
+        "voteCount": 3,
+        "content": "Also note that it is possible to react to change in storage blob the following way:\n* Blob storage trigger (Functions), They call this sometimes Blob storage trigger standard. This uses polling and latency is high\n* Blob storage trigger event based (function). Uses event grid but not the same as event-grid-trigger\n* Event grid trigger (function or others) Also called Storage Events: Not same as above. This uses an event grid subscription directly (for functions) and others as storage events that can be subscribed to\n* Change feed : Avro and event grid format (see articles for details, I never used). Latency higher than events. Transactional log, ordered\n* Azure storage blob inventory : Records of all read, write, list, and delete operations with successful and failed requests across all operations. Analytics logs are best-effort and no ordering is guaranteed. Not transactional log"
+      },
+      {
+        "date": "2022-09-27T09:35:00.000Z",
+        "voteCount": 1,
+        "content": "why not D? can someone explain that?"
+      },
+      {
+        "date": "2022-09-30T06:40:00.000Z",
+        "voteCount": 1,
+        "content": "Unfortunately that cannot be explained because it is not clear what is being audited. Microsoft keeps that vague so that you can guess what the person who wrote this question is thinking. But if the audit is about content other two choices are fine."
+      },
+      {
+        "date": "2022-09-30T06:43:00.000Z",
+        "voteCount": 4,
+        "content": "Sorry, I did not read the question fully or forgot. It says clearly it needs to audit the transactions. The option to use Azure storage blob inventory does not give the transactions, but the properties for the blob containers. So, it is clearly not the option to audit the transactions. Hope it is clear"
+      },
+      {
+        "date": "2022-05-02T07:23:00.000Z",
+        "voteCount": 3,
+        "content": "in Korean\nhttps://docs.microsoft.com/ko-kr/azure/storage/blobs/storage-blob-change-feed?tabs=azure-portal"
+      },
+      {
+        "date": "2022-09-10T13:16:00.000Z",
+        "voteCount": 2,
+        "content": "Sceen shots in English :D"
+      },
+      {
+        "date": "2022-10-31T18:22:00.000Z",
+        "voteCount": 4,
+        "content": "in English\nhttps://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-change-feed?tabs=azure-portal"
+      },
+      {
+        "date": "2023-09-11T10:00:00.000Z",
+        "voteCount": 1,
+        "content": "In Spanish\nhttps://learn.microsoft.com/es-es/azure/storage/blobs/storage-blob-change-feed?tabs=azure-portal\n\nGreetz, Se\u00f1or developer :P"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "15"
+  }
+]

@@ -1,0 +1,80 @@
+[
+  {
+    "topic": 13,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84955-exam-az-305-topic-13-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to recommend a solution that meets the file storage requirements for App2.<br>What should you deploy to the Azure subscription and the on-premises network? To answer, drag the appropriate services to the correct locations. Each service may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04224/0008600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04224/0008700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Azure Files -<br>Scenario: App2 has the following file storage requirements:<br>\u2711 Save files to an Azure Storage account.<br>\u2711 Replicate files to an on-premises location.<br>\u2711 Ensure that on-premises clients can read the files over the LAN by using the SMB protocol.<br><br>Box 2: Azure File Sync -<br>Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/file-sync/file-sync-deployment-guide",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-08T07:35:00.000Z",
+        "voteCount": 45,
+        "content": "Took the AZ-305 on 12/7 and passed with a 935 only using this question bank (I have the Contributor access). I did not use AZ-304 or any other question bank. \n\nI had this specific case study actually, in case knowing that helps anyone."
+      },
+      {
+        "date": "2023-01-18T06:05:00.000Z",
+        "voteCount": 4,
+        "content": "Thanks for mentioning this!!!"
+      },
+      {
+        "date": "2022-10-09T23:42:00.000Z",
+        "voteCount": 13,
+        "content": "&gt; Azure Subscription: \"Azure Files\"\n&gt; On-premises network: \"Azure File Sync\"\n\nReference:\nhttps://www.examtopics.com/discussions/microsoft/view/67817-exam-az-305-topic-8-question-1-discussion/"
+      },
+      {
+        "date": "2023-07-05T20:44:00.000Z",
+        "voteCount": 5,
+        "content": "Answer:\n\nAzure subscription:\n- Azure Files\n\nOn-Premises network:\n- Azure File Sync\n\nExplanation:\n\nAzure Files would be suitable for saving files to an Azure Storage account as mentioned in the requirements for App2. \n\nAzure File Sync will sync the Azure Files to the on-premises location, ensuring that on-premises clients can read the files over the LAN using the SMB protocol, which is also a requirement for App2. It extends on-premises systems into Azure storage while maintaining a local cache of the data on-premises."
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84956-exam-az-305-topic-13-question-2-discussion/",
+    "body": "You need to recommend a solution that meets the data requirements for App1.<br>What should you recommend deploying to each availability zone that contains an instance of App1?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Cosmos DB that uses multi-region writes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Data Lake store that uses geo-zone-redundant storage (GZRS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Storage account that uses geo-zone-redundant storage (GZRS)"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 26,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-09T23:58:00.000Z",
+        "voteCount": 12,
+        "content": "A. an Azure Cosmos DB that uses multi-region writes\n\nReference\nhttps://www.examtopics.com/discussions/microsoft/view/69314-exam-az-305-topic-8-question-2-discussion/"
+      },
+      {
+        "date": "2023-07-05T22:07:00.000Z",
+        "voteCount": 8,
+        "content": "A. an Azure Cosmos DB that uses multi-region writes\n\nExplanation:\nThe data requirements for App1 specify that each instance will write data to a data store in the same availability zone, and that data written by any App1 instance must be visible to all App1 instances. \n\nAzure Cosmos DB with multi-region writes is a globally distributed database service. It allows you to read and write data (with automatic failover) in the region closest to the users, providing both low latency and high availability. This meets the requirements of App1, as it ensures that data written by any instance is visible to all instances regardless of the region. \n\nAzure Data Lake and Azure Storage with GZRS do not natively support this type of active-active data replication across multiple regions."
+      },
+      {
+        "date": "2024-04-27T23:02:00.000Z",
+        "voteCount": 2,
+        "content": "Given Answer A is correct\nHowever it is very unclear requirement i.e. NO where in the data requirements specifies that write and read are required instantaneously (Sync repl or multi-writes) by other App instances and hence B and C are either correct since Async replication is NOT rejected in the requirements and if you have to chose between B or C then B due to its more advance features and capability\nI guess it is A because only of the multi-writes (Multi-Master)  as for Global/regional presence - B and C provide that too"
+      },
+      {
+        "date": "2023-01-18T06:08:00.000Z",
+        "voteCount": 4,
+        "content": "A. an Azure Cosmos DB that uses multi-region writes"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "13"
+  }
+]

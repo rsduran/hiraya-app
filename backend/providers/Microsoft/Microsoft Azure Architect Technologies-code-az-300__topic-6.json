@@ -1,0 +1,328 @@
+[
+  {
+    "topic": 6,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10742-exam-az-300-topic-6-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the connectivity between the virtual machines after the planned implementation of the Azure networking infrastructure.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02758/0026900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0026900002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Once the VNets are peered, all resources on one VNet can communicate with resources on the other peered VNets. You plan to enable peering between Paris-<br>VNet and AllOffices-VNet. Therefore VMs on Subnet1, which is on Paris-VNet and VMs on Subnet3, which is on AllOffices-VNet will be able to connect to each other.<br>All Azure resources connected to a VNet have outbound connectivity to the Internet by default. Therefore VMs on ClientSubnet, which is on ClientResources-VNet will have access to the Internet; and VMs on Subnet3 and Subnet4, which are on AllOffices-VNet will have access to the Internet.<br>References:<br>https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview https://docs.microsoft.com/en-us/azure/networking/networking-overview#internet-connectivity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-14T12:38:00.000Z",
+        "voteCount": 6,
+        "content": "YES\nYES\nYES"
+      },
+      {
+        "date": "2020-09-19T13:53:00.000Z",
+        "voteCount": 1,
+        "content": "Yes it is YYY . Since nothing is spoke about NSG , the default outbound rule Internet access."
+      },
+      {
+        "date": "2020-08-30T04:50:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is correct as they will only use Azure System routes. These routes will create a routeing table to the default gateway, which provides internet access by default. There are no NSGs or firewalls attached to block traffic \nA\nA\nA"
+      },
+      {
+        "date": "2020-07-10T04:56:00.000Z",
+        "voteCount": 1,
+        "content": "The question mentions:  \"Default Azure system routes that will be the only routes used to route traffic\", meaning communication between subnets in the same vNet is allowed. However, when it comes to peering, it only says Paris and All-Offices vNet. Am I overthinking here or it should mention bi-direcional peering : All-Offices and Paris vNet?  The other two are YES, YES"
+      },
+      {
+        "date": "2020-09-07T05:06:00.000Z",
+        "voteCount": 1,
+        "content": "Yeah i think you are overthinking this a bit.. it was the case that once upon a time you could only create the peering one way.. but these days it encourages you to make them bi-directionally, and it's actually a bit of a faff not to do that."
+      },
+      {
+        "date": "2020-06-22T17:35:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, Yes, No"
+      },
+      {
+        "date": "2020-05-16T08:59:00.000Z",
+        "voteCount": 2,
+        "content": "NSGs by default have an allow any any outbound but in order for VMs to be able to reach Internet you need to have Public IPs assigned to VMs OR have a firewall in front of the VMs"
+      },
+      {
+        "date": "2020-04-23T00:58:00.000Z",
+        "voteCount": 1,
+        "content": "This explanation doesn't explain anything related to internet connectivity and then question related to internet connectivity asked. Not relevant information provided so ignore this question."
+      },
+      {
+        "date": "2020-05-11T22:03:00.000Z",
+        "voteCount": 3,
+        "content": "Well you're right there isn't a lotta explicit information provided but I think the question's asking if people know that by default subnets have internet connectivity or not. They do, in Azure so the answers are Yes, Yes and Yes."
+      },
+      {
+        "date": "2019-12-21T01:53:00.000Z",
+        "voteCount": 1,
+        "content": "Question and Explanations are not related. Find the proper questions,\n\nWhat should you do?\nA. From the Directory role blade, modify the directory role\nB. From the Groups blade, invite the user accounts to a new group\nC. From the Profile blade, modify the usage location\nCorrect Answer: C"
+      },
+      {
+        "date": "2019-12-21T01:59:00.000Z",
+        "voteCount": 18,
+        "content": "Ignore this"
+      },
+      {
+        "date": "2020-09-09T16:20:00.000Z",
+        "voteCount": 2,
+        "content": "Yes\nYes\nYes"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10137-exam-az-300-topic-6-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to prepare the environment to ensure that the web administrators can deploy the web apps as quickly as possible.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0027100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0027200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1:<br>First you create a storage account using the Azure portal.<br>Step 2:<br>Select Automation options at the bottom of the screen. The portal shows the template on the Template tab.<br>Add the storage account to the library.<br>Step 3:<br>Share the template.<br>Scenario: Web administrators will deploy Azure web apps for the marketing department. Each web app will be added to a separate resource group. The initial configuration of the web apps will be identical. The web administrators have permission to deploy web apps to resource groups.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-29T08:37:00.000Z",
+        "voteCount": 92,
+        "content": "1) Create RG , and then deploy a web app to the RG\n2) From the Automation script blade of the RG , click \"Add to Library\"\n3) From the Templates service, select the template, and then share the template to the web admins"
+      },
+      {
+        "date": "2020-01-02T00:49:00.000Z",
+        "voteCount": 4,
+        "content": "Agree with Ekramy, this is the only logical sequence."
+      },
+      {
+        "date": "2020-03-06T12:00:00.000Z",
+        "voteCount": 11,
+        "content": "Ekramy is right but Q is outdated. If anyones wondering where it is, it is in RG -&gt; Settings bllade -&gt;  Export Template -&gt; Add to library"
+      },
+      {
+        "date": "2020-07-04T18:10:00.000Z",
+        "voteCount": 11,
+        "content": "Agree with Ekramy.\nCorrect answer is below. I have verified it in my tenant.\n1. Create a resource group, and then deploy a webapp to the resource group.\n2. From the Automation Script blade of the resource group, click Add to Library. (Automation Script blade is not available now in Resource Group. New option is Export Template blade in Resource Group).\n3. From the Templates service, select the template and then share the template to the web administrators."
+      },
+      {
+        "date": "2020-07-17T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "correct steps."
+      },
+      {
+        "date": "2020-09-19T13:55:00.000Z",
+        "voteCount": 1,
+        "content": "Correct steps"
+      },
+      {
+        "date": "2020-07-27T01:58:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with Ekramy,"
+      },
+      {
+        "date": "2019-12-10T09:23:00.000Z",
+        "voteCount": 16,
+        "content": "Why to create an automation account?\nit should be create resource group and web as the first choice"
+      },
+      {
+        "date": "2020-09-09T16:26:00.000Z",
+        "voteCount": 10,
+        "content": "1. Create a resource group, and then deploy a webapp to the resource group.\n2. From the Automation Script blade of the resource group, click Add to Library. \n3. From the Templates service, select the template and then share the template to the web administrators."
+      },
+      {
+        "date": "2019-12-21T01:54:00.000Z",
+        "voteCount": 1,
+        "content": "Again, question and explanation are not related at all:\n\nYou need to define a custom domain name for Azure AD to support the planned infrastructure.\nWhich domain name should you use?\nA. ad.humongousinsurance.com\nB. humongousinsurance.local\nC. humongousinsurance.com\nD. humongousinsurance.onmicrosoft.com\n\nCorrect Answer: C"
+      },
+      {
+        "date": "2019-12-21T12:47:00.000Z",
+        "voteCount": 8,
+        "content": "ignore this"
+      },
+      {
+        "date": "2020-05-08T02:25:00.000Z",
+        "voteCount": 32,
+        "content": "Bhenchod"
+      },
+      {
+        "date": "2020-09-07T05:57:00.000Z",
+        "voteCount": 2,
+        "content": "christ, bit harsh.. also, upvoted 27 times! yikes!"
+      },
+      {
+        "date": "2020-09-10T01:48:00.000Z",
+        "voteCount": 5,
+        "content": "Thanks to Urban dictionary, I learned more that AZ-300 stuff in here ;-)"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20569-exam-az-300-topic-6-question-3-discussion/",
+    "body": "You need to resolve the licensing issue before you attempt to assign the license again.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Directory role blade, modify the directory role",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Groups blade, invite the user accounts to a new group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Profile blade, modify the usage location"
+    ],
+    "answer": "C",
+    "answerDescription": "License cannot be assigned to a user without a usage location specified.<br><br>Scenario: Licensing Issue -<br>You attempt to assign a license in Azure to several users and receive the following error message: \"Licenses not assigned. License agreement failed for one user.\"<br>You verify that the Azure subscription has the available licenses.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-14T07:56:00.000Z",
+        "voteCount": 15,
+        "content": "Not all Microsoft services are available in all locations. Before a license can be assigned to a user, you must specify the Usage location. You can set this value in the Azure Active Directory &gt; Users &gt; Profile &gt; Settings area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.\n\nSource: https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/license-users-groups#assign-licenses-to-users-or-groups"
+      },
+      {
+        "date": "2020-09-09T16:28:00.000Z",
+        "voteCount": 2,
+        "content": "C is ok"
+      },
+      {
+        "date": "2020-08-15T08:21:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer: C\nLicense cannot be assigned to a user without a usage location specified.\nExplanation: Many options are possible, but of the set of answers only one is inside of the right possibilities, see the reference.\nScenario: Licensing Issue -\nYou attempt to assign a license in Azure to several users and receive the following error message: \"Licenses not assigned. License agreement failed for one user.\"\nYou verify that the Azure subscription has the available licenses.\nReferences: https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems"
+      },
+      {
+        "date": "2020-07-17T11:06:00.000Z",
+        "voteCount": 2,
+        "content": "Select Azure AD-&gt; users-&gt;select user-&gt; if usage location not set and from license tab you wany to assign license you will get an error. from profile-&gt; edit -&gt;set usage location and then re-assign license."
+      },
+      {
+        "date": "2020-07-14T12:31:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2020-06-27T19:13:00.000Z",
+        "voteCount": 1,
+        "content": "Explanation:\nLicense cannot be assigned to a user without a usage location specified.\n\nScenario: Licensing Issue -\nYou attempt to assign a license in Azure to several users and receive the following error message: \"Licenses not assigned. License agreement failed for one user.\"\nYou verify that the Azure subscription has the available licenses."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19180-exam-az-300-topic-6-question-4-discussion/",
+    "body": "You need to define a custom domain name for Azure AD to support the planned infrastructure.<br>Which domain name should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tad.humongousinsurance.com",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thumongousinsurance.local",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thumongousinsurance.com\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thumongousinsurance.onmicrosoft.com"
+    ],
+    "answer": "C",
+    "answerDescription": "Every Azure AD directory comes with an initial domain name in the form of domainname.onmicrosoft.com. The initial domain name cannot be changed or deleted, but you can add your corporate domain name to Azure AD as well. For example, your organization probably has other domain names used to do business and users who sign in using your corporate domain name. Adding custom domain names to Azure AD allows you to assign user names in the directory that are familiar to your users, such as \"\u02dcalice@contoso.com.' instead of 'alice@domain name.onmicrosoft.com'.<br>Scenario:<br>Network Infrastructure: Each office has a local data center that contains all the servers for that office. Each office has a dedicated connection to the Internet.<br>Humongous Insurance has a single-domain Active Directory forest named humongousinsurance.com<br>Planned Azure AD Infrastructure: The on-premises Active Directory domain will be synchronized to Azure AD.<br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-09-08T12:57:00.000Z",
+        "voteCount": 12,
+        "content": "since I'm working with Azure AD for almost 8 years so I want to clear the confusion here.\nwhen you add a custom domain to Azure AD, you have to be the owner of that domain and you can add this domain to a single AD tenant.\nthere's nothing prevents having the same domain name for the on-premises AD and Azure AD.\nin real life, you have already a custom domain name for users emails or published websites and this is the same domain name that you should add to Azure AD.\nTherefore the given answer is correct"
+      },
+      {
+        "date": "2024-04-15T18:53:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2020-09-25T15:22:00.000Z",
+        "voteCount": 2,
+        "content": "This question appeared in my AZ-104 exam. Same answers."
+      },
+      {
+        "date": "2020-09-05T03:13:00.000Z",
+        "voteCount": 1,
+        "content": "1. Azure recommends the custom domain name should be unique i.e. between onpremise and Azure.\n2. 15 character limit applies to the left most portion of the FQDN. For ex. if domain name is xyz.abcdefghijklmnopq.com, then the the 15 character limit is on xyz not on \"abcdefghijklmnopq\". \n\nSo the correct answer would be \"A\"."
+      },
+      {
+        "date": "2020-09-08T12:42:00.000Z",
+        "voteCount": 1,
+        "content": "Unique custom domain name here means, the domain name should not be used by other AD tenants because you have to verify that you are the owner of that domain.\nTherefore the given answer is correct."
+      },
+      {
+        "date": "2020-08-01T08:56:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/pl-pl/azure/active-directory-domain-services/tutorial-create-instance#create-an-instance \nIts A"
+      },
+      {
+        "date": "2020-07-25T12:14:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct. In Custom domain name, enter your organization's new name, in this example, humongousinsurance.com. Select Add domain"
+      },
+      {
+        "date": "2020-07-18T22:11:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be A because of 15 character limit\nhttps://docs.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#create-a-managed-domain\n\nLook for this\n\"Domain prefix restrictions: You can't create a managed domain with a prefix longer than 15 characters. The prefix of your specified domain name (such as aaddscontoso in the aaddscontoso.com domain name) must contain 15 or fewer characters.\""
+      },
+      {
+        "date": "2020-08-05T10:56:00.000Z",
+        "voteCount": 1,
+        "content": "if i understand the question correctly, we just have to add a custom domain name and there is no such restriction of 15 characters on it."
+      },
+      {
+        "date": "2020-08-22T03:44:00.000Z",
+        "voteCount": 5,
+        "content": "It's important to understand the difference between Azure AD and Azure AD Domain Services. Those are different things! the 15 character limitation only applies to the Azure AD Domain Services which is an additional custom service in Azure.\nGiven answer is correct."
+      },
+      {
+        "date": "2020-07-04T18:40:00.000Z",
+        "voteCount": 4,
+        "content": "Answer seems to be correct as per the below article.\nhttps://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain"
+      },
+      {
+        "date": "2020-06-05T10:34:00.000Z",
+        "voteCount": 1,
+        "content": "answer seem to inappropriate."
+      },
+      {
+        "date": "2020-06-01T18:23:00.000Z",
+        "voteCount": 2,
+        "content": "should be A. \nIf you create a custom domain name, take care with existing DNS namespaces. It's recommended to use a domain name separate from any existing Azure or on-premises DNS name space."
+      },
+      {
+        "date": "2020-06-04T10:20:00.000Z",
+        "voteCount": 1,
+        "content": "Can you provide a link to the technical documentation for this ?"
+      },
+      {
+        "date": "2020-06-17T02:49:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/pl-pl/azure/active-directory-domain-services/tutorial-create-instance#create-an-instance"
+      },
+      {
+        "date": "2020-07-14T12:53:00.000Z",
+        "voteCount": 3,
+        "content": "This is wrong. \nOnly when you are implementing with AADDS not ADDS."
+      },
+      {
+        "date": "2020-04-27T17:38:00.000Z",
+        "voteCount": 1,
+        "content": "can the on-premise ad have the same domain name with the azure ad?"
+      },
+      {
+        "date": "2020-06-10T13:02:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, you can add a custom domain to use the same domain in both services (AD DS and Azure AD)"
+      },
+      {
+        "date": "2020-09-09T16:36:00.000Z",
+        "voteCount": 3,
+        "content": "C is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "6"
+  }
+]

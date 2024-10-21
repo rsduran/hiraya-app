@@ -1,0 +1,36 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83409-exam-ms-720-topic-11-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure that numbers dialed from the Melbourne warehouse conform to the dialing rules of the phone carrier.<br>How should you complete the command? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04330/0006000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04330/0006100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: New-CsTeamsTranslationRule<br>The New-CsTeamsTranslationRule cmdlet to create a new telephone number manipulation rule.<br>Example:<br>New-CsTeamsTranslationRule -Identity 'AddPlus1' -Pattern '^(\\d{10})$' -Translation '+1$1'<br>This example creates a rule that strips +1 from any E.164 eleven digits number. For example, +12065555555 will be translated to 206555555<br>Example 2:<br>New-CsTeamsTranslationRule -Identity 'StripE164SeattleAreaCode' -Pattern  '^\\+1206555(\\d{4})$' -Translation '$1'<br>This example creates a rule that strips +1206555 from any E.164 ten digits number. For example, +12065555555 will be translated to 5555<br>Box 2: '^\\+61(\\d{9})$'<br>Strip out +61. Keep 9 digits.<br>Note: You are opening a new warehouse site in Melbourne. The new warehouse will connect to a phone carrier by using a Session Border Controller (SBC).<br>Dialing rules are an area code of two digits beginning with a zero followed by a subscriber number of eight digits. For example, an E.164 number of<br>+61370105550 will be translated to 03 7010 5550 and +61255505550 will be translated to 02 5550 5550.<br>Reference:<br>https://docs.microsoft.com/en-us/powershell/module/skype/new-csteamstranslationrule",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-24T06:33:00.000Z",
+        "voteCount": 6,
+        "content": "Can someone explain this example for me?\n\nFor example, an E.164 number of +61370105550 will be translated to 03 7010 5550 and +61255505550 will be translated to 02 5550 5550.\nThe suggested answer is ^\\+61(\\d{9})$ to strip +61 from the full number and keep 9 digits.\n\nWith the $1 translation to me this means +61370105550 will be translated to: 3 7010 5550\nOr am I wrong here?\n\nTo me the question is wrong, or has something missing, should the translation rule not be 0$1 to make it 03 7010 5550?"
+      },
+      {
+        "date": "2022-09-24T17:33:00.000Z",
+        "voteCount": 3,
+        "content": "you absolutely right. The question is wrong"
+      },
+      {
+        "date": "2023-04-02T06:48:00.000Z",
+        "voteCount": 2,
+        "content": "https://blog.insycle.com/phone-number-formatting-crm - \"In many countries including the UK, a \u201c0\u201d is placed at the beginning of the area code and subscriber number. With E.164, the \u201c0\u201d is typically removed, with a \u201c+\u201d and the international country code added before the area code.\"\nanswer with ^\\61(\\d{10})$"
+      },
+      {
+        "date": "2023-02-05T10:50:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, the translation is wrong"
+      }
+    ],
+    "examNameCode": "ms-720",
+    "topicNumber": "11"
+  }
+]

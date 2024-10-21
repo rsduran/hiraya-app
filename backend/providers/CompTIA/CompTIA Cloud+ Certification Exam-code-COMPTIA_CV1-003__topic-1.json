@@ -1,0 +1,2183 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59524-exam-cv1-003-topic-1-question-1-discussion/",
+    "body": "SIMULATION -<br>A company has decided to scale its e-commerce application from its corporate datacenter to a commercial cloud provider to meet an anticipated increase in demand during an upcoming holiday.<br>The majority of the application load takes place on the application server under normal conditions. For this reason, the company decides to deploy additional application servers into a commercial cloud provider using the on-premises orchestration engine that installs and configures common software and network configurations.<br>The remote computing environment is connected to the on-premises datacenter via a site-to-site IPSec tunnel. The external DNS provider has been configured to use weighted round-robin routing to load balance connections from the Internet.<br>During testing, the company discovers that only 20% of connections completed successfully.<br><br>INSTRUCTIONS -<br>Review the network architecture and supporting documents and fulfill these requirements:<br>Part 1:<br>\u2711 Analyze the configuration of the following components: DNS, Firewall 1, Firewall 2, Router 1, Router 2, VPN and Orchestrator Server.<br>\u2711 Identify the problematic device(s).<br>Part 2:<br>\u2711 Identify the correct options to provide adequate configuration for hybrid cloud architecture.<br>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br>Part 1:<br><br>Cloud Hybrid Network Diagram -<br><img src=\"/assets/media/exam-media/03625/0000300001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0000400001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0000500001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0000600001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0000700001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0000800001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0000900001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0001000001.jpg\" class=\"in-exam-image\"><br>Part 2:<br>Only select a maximum of TWO options from the multiple choice question<br><img src=\"/assets/media/exam-media/03625/0001100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "1. Change the Address Space on Router2<br>2. Update the PSK (Pre-shared key in Router2)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-19T13:49:00.000Z",
+        "voteCount": 1,
+        "content": "1) Update the PSK(Pre-shared key in Router2): if the keys are not equals, you can't connect. As you can see in the picture, IPSEC Tunnel use PSK \"Cloud001\"\n\n2) Change the address space on Router2, althrough when you make a site-to-site IPSec tunnel, you creaet a new address space.\nBut that's the last best answer"
+      },
+      {
+        "date": "2021-08-09T13:31:00.000Z",
+        "voteCount": 1,
+        "content": "In router 2 - I am trying to wrap my head around the issue for the address spacing. Is it wrong because that is the address space from Router 1? or is it wrong because the address space is supposed to point to the application server cluster (10.1.2.0/24) below it?"
+      },
+      {
+        "date": "2022-06-01T13:47:00.000Z",
+        "voteCount": 1,
+        "content": "Since the application cluster should be in the cloud (according to the question), yes, Router2 needs to be placed in the same address space as the cluster, otherwise traffic will be directed back to the on-prem appliances."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/comptia/view/100627-exam-cv1-003-topic-1-question-2-discussion/",
+    "body": "SIMULATION -<br>The QA team is testing a newly implemented clinical trial management (CTM) SaaS application that uses a business intelligence application for reporting. The<br>UAT users were instructed to use HTTP and HTTPS.<br>Refer to the application dataflow:<br>1A \"\" The end user accesses the application through a web browser to enter and view clinical data.<br>2A \"\" The CTM application server reads/writes data to/from the database server.<br>1B \"\" The end user accesses the application through a web browser to run reports on clinical data.<br>2B \"\" The CTM application server makes a SOAP call on a non-privileged port to the BI application server.<br>3B \"\" The BI application server gets the data from the database server and presents it to the CTM application server.<br>When UAT users try to access the application using https://ctm.app.com or http://ctm.app.com, they get a message stating: \"Browser cannot display the webpage.\" The QA team has raised a ticket to troubleshoot the issue.<br><br>INSTRUCTIONS -<br>You are a cloud engineer who is tasked with reviewing the firewall rules as well as virtual network settings.<br>You should ensure the firewall rules are allowing only the traffic based on the dataflow.<br>You have already verified the external DNS resolution and NAT are working.<br>Verify and appropriately configure the VLAN assignments and ACLs. Drag and drop the appropriate VLANs to each tier from the VLAN Tags table. Click on each<br>Firewall to change ACLs as needed.<br>If at any time you would like to bring back the initial state of the simulation, please click the Reset All button.<br><img src=\"/assets/media/exam-media/03625/0001300001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0001400001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0001500001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0001600001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03625/0001700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "On firewall 3, change the DENY 0.0.0.0 entry to rule 3 not rule 1.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-18T20:12:00.000Z",
+        "voteCount": 1,
+        "content": "what about firewall two?  I see multiple errors on those rules."
+      },
+      {
+        "date": "2023-02-23T23:42:00.000Z",
+        "voteCount": 3,
+        "content": "Part of the PbQ steps was to drag and drop the Vlans into the appropriate sections. wouldn't it be 100 - 101 - 102 - 104? as well as changing the DENY 0.0.0.0 entry to rule 3 and not rule 1."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55704-exam-cv1-003-topic-1-question-4-discussion/",
+    "body": "A marketing team is using a SaaS-based service to send emails to large groups of potential customers. The internally managed CRM system is configured to generate a list of target customers automatically on a weekly basis, and then use that list to send emails to each customer as part of a marketing campaign. Last week, the first email campaign sent emails successfully to 3,000 potential customers. This week, the email campaign attempted to send out 50,000 emails, but only 10,000 were sent.<br>Which of the following is the MOST likely reason for not sending all the emails?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPI request limit\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncorrect billing account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMisconfigured auto-scaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBandwidth limitation"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://developers.google.com/analytics/devguides/config/mgmt/v3/limits-quotas",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-19T14:17:00.000Z",
+        "voteCount": 1,
+        "content": "That's not easy to understand the meaning of \"Incorrect billing account\", maybe your account can only send 10.000 e-mail, but reading the question seems like suddenly happened, and nothing predictable.\n\n\"Misconfigured auto-scaling\" and \"Bandwidth limitation\" are not SaaS configuration.\n\n\"API request limit\", considering you are using an internally managed CRM, can be the best answer; A lot of services puts limits and quotas on API requets from receiving more thata that it can handle and to ensure an equitable distribuction of system resources (i.g. https://developers.google.com/analytics/devguides/reporting/core/v3/limits-quotas )"
+      },
+      {
+        "date": "2021-06-20T18:53:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer: A   Google puts limits and quotas on API requests to protect the system from receiving more data than it can handle, and to ensure and equitable distribution of system resources. https://developers.google.com/analytics/devguides/reporting/core/v3/limits-quotas"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55705-exam-cv1-003-topic-1-question-5-discussion/",
+    "body": "A VDI administrator has received reports of poor application performance.<br>Which of the following should the administrator troubleshoot FIRST?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe network environment",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tContainer resources",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClient devices",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tServer resources\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T04:24:00.000Z",
+        "voteCount": 1,
+        "content": "VDI is about virtualization (with hypervisor).\n\nThe network environments -&gt; in some cases application performances could be affected by network, but that's not a \"VDI administrator\" environment, can be noticed by \"network administrator\".\n\n\"Client devices\" -&gt; are just stupid devices without any real performance\n\n\"Container resources\" -&gt; here we are speaking about virtualization(ig. VMWare vSphere) not \"containerization\" (ig. docker)\n\nthe best solution is: Server resources."
+      },
+      {
+        "date": "2021-06-20T19:01:00.000Z",
+        "voteCount": 1,
+        "content": "VDI (Virtual Desktop Infrastructure) is where a hypervisor segments a server(s) into virtual machines that in turn host virtual desktops, which users access remotely from their devices. Users can access these virtual desktops from any device and all processing is done on the host server. https://www.vmware.com/topics/glossary/content/virtual-desktop-infrastructure-vdi"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/comptia/view/94951-exam-cv1-003-topic-1-question-6-discussion/",
+    "body": "Due to a policy change, a few of a customer's application VMs have been migrated to synchronously replicated storage. The customer now reports that performance is lower. The systems administrator checks the resource usage and discovers CPU utilization is at 60% and available memory is at 30%.<br>Which of the following is the MOST likely cause?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThere is not enough vCPU assigned",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe application is not compatible with the new settings",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe new configuration is adding latency\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe memory of the VM is underallocated"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T13:25:00.000Z",
+        "voteCount": 1,
+        "content": "Changed only configuration, not memory settings, not vCPU.\nCan't be \"the application is not compatible\" because if not compatible it shouldn't work at all."
+      },
+      {
+        "date": "2023-01-12T14:57:00.000Z",
+        "voteCount": 2,
+        "content": "This is C"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134251-exam-cv1-003-topic-1-question-7-discussion/",
+    "body": "An organization requires the following to be achieved between the finance and marketing departments:<br>\u2711 Allow HTTPS/HTTP.<br>\u2711 Disable FTP and SMB traffic.<br>Which of the following is the MOST suitable method to meet the requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement an ADC solution to load balance the VLAN traffic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure an ACL between the VLANs\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement 802.1X in these VLANs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure on-demand routing between the VLANs"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T13:37:00.000Z",
+        "voteCount": 1,
+        "content": "ADC - Application Delivery Controller: it is a load balancer solution. Could be a good solution, you can say \"block FTP and SMB traffic\" that's not its primary purpose.\n\n-&gt; ACL - Access Control List: here you can open and close doors like in a firewall. \n\n802.1X - AAA (Triple-A) protocol: a security protocol based on account, using a radius server, the user(supplicant) access with the application server. Here you need Authorization Authentication Accounting, so you doesn't meet the goal. Don't confuse with 802.11 (basic standard wifi)\n\nRouting is Level-3 ISO/OSI model, so it doesn't meet the goal"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/comptia/view/133510-exam-cv1-003-topic-1-question-8-discussion/",
+    "body": "A systems administrator is building a new virtualization cluster. The cluster consists of five virtual hosts, which each have flash and spinning disks. This storage is shared among all the virtual hosts, where a virtual machine running on one host may store data on another host.<br>This is an example of:<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta storage area network",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta network file system",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thyperconverged storage\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthick-provisioned disks"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T13:56:00.000Z",
+        "voteCount": 1,
+        "content": "flash(SSD) and spinning(HDD) disks. \n\nthin-provisioning: you allocate spaces (i.g. 100GB) used only when needed, so I don't reserve the all space if not used.\n\nthick-provisioning: you reserve spaces (i.g. 100GB) independently if you use it or not\n\nhyperconverged storage(HCI): it is used when you share the space of different hosts. You create a virtual pool of storage.\n\nHere we are speaking about hosts, sharing storage.\n\nSAN: here there is no external server storage attached to hosts; storage devices are already inside the hosts.\n\nNFS: it is about file storage."
+      },
+      {
+        "date": "2024-02-10T16:16:00.000Z",
+        "voteCount": 2,
+        "content": "Hyperconverged Storage: Hyperconverged infrastructure (HCI) integrates compute, storage, and networking into a single system."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/comptia/view/94622-exam-cv1-003-topic-1-question-9-discussion/",
+    "body": "A company is utilizing a private cloud solution that is hosted within its datacenter. The company wants to launch a new business application, which requires the resources below:<br><img src=\"/assets/media/exam-media/03625/0002000001.png\" class=\"in-exam-image\"><br>The current private cloud has 30 vCPUs and 512GB RAM available. The company is looking for a quick solution to launch this application, with expected maximum sessions to be close to 24,000 at launch and an average of approximately 5,000 sessions.<br>Which of the following solutions would help the company accommodate the new workload in the SHORTEST amount of time and with the maximum financial benefits?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure auto-scaling within the private cloud",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up cloud bursting for the additional resources\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMigrate all workloads to a public cloud provider",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd more capacity to the private cloud"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T14:08:00.000Z",
+        "voteCount": 1,
+        "content": "X) Configure auto-scaling within the private cloud  -&gt; it could be possible in private cloud, with limited resources obviously. See VMWare vSphere\nV)  B. Set up cloud bursting for the additional resources  -&gt; could be a solution because you implement a fast average solution for the 5000 sessions and you burst when you need resources. I have 512GB but not for \"maximum concurrent sessions\".\nX)  C. Migrate all workloads to a public cloud provider  -&gt; not quick/shortest solution\nX)  D. Add more capacity to the private cloud  -&gt; not quick/shortest solution"
+      },
+      {
+        "date": "2024-02-11T10:30:00.000Z",
+        "voteCount": 1,
+        "content": "IMO, cloud bursting seems to be the best option here"
+      },
+      {
+        "date": "2023-01-09T15:06:00.000Z",
+        "voteCount": 2,
+        "content": "It is Cloud Bursting"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134252-exam-cv1-003-topic-1-question-10-discussion/",
+    "body": "A systems administrator recently upgraded the processors in a web application host. Upon the next login, the administrator sees a new alert regarding the license being out of compliance.<br>Which of the following licensing models is the application MOST likely using?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPer device",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPer user",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCore-based\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVolume-based"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://download.microsoft.com/download/3/d/4/3d42bdc2-6725-4b29-b75a-a5b04179958b/percorelicensing_definitions_vlbrief.pdf",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T14:10:00.000Z",
+        "voteCount": 1,
+        "content": "in host virtualization licenses are limited to cores."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55707-exam-cv1-003-topic-1-question-11-discussion/",
+    "body": "A systems administrator is informed that a database server containing PHI and PII is unencrypted. The environment does not support VM encryption, nor does it have a key management system. The server needs to be able to be rebooted for patching without manual intervention.<br>Which of the following will BEST resolve this issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure all database queries are encrypted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an IPSec tunnel between the database server and its clients",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable protocol encryption between the storage and the hypervisor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable volume encryption on the storage\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable OS encryption"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T14:24:00.000Z",
+        "voteCount": 1,
+        "content": "x)  A. Ensure all database queries are encrypted  -&gt; you can encrypt databases, not \"queries\" because you need data in clear. Only password should be encrypted via hashing(it is a one way solution, just for integrity!), but any other type of data just need physical encryption\nX)  B. Create an IPSec tunnel between the database server and its clients -&gt; ipsec it is for site-to-site, you can't use it with \"clients\"\nX)  C. Enable protocol encryption between the storage and the hypervisor  -&gt; \"hypervisor encryption\" is different from \"VM encryption\". But doesn't exist an encryption protocol between \"storage\" and \"hypervisor\"\nV) D. Enable volume encryption on the storage\nX) E. Enable OS encryption  -&gt; can be a solution, but maybe data are saved on different storage, so if you encrypt \"OS\"  you didn't match the solution. Then: you can't encrypt \"OS\", i.g. bitlocker on windows encrypts disks not OS"
+      },
+      {
+        "date": "2023-01-22T19:26:00.000Z",
+        "voteCount": 1,
+        "content": "D. Enable volume encryption on the storage.\nThis will encrypt the data at rest, protecting it in case the physical storage is lost or stolen, and also meet the requirement of the server being able to be rebooted for patching without manual intervention"
+      },
+      {
+        "date": "2021-06-20T19:35:00.000Z",
+        "voteCount": 2,
+        "content": "Correct: A database server can use Transport Layer Security (TLS) to encrypt data that is transmitted across a network between an instance of database and a client application. TLS is performed within the protocol layer and is available to all supported Server Clients.  https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine?view=sql-server-ver15"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55710-exam-cv1-003-topic-1-question-12-discussion/",
+    "body": "An OS administrator is reporting slow storage throughput on a few VMs in a private IaaS cloud. Performance graphs on the host show no increase in CPU or memory. However, performance graphs on the storage show a decrease of throughput in both IOPS and MBps but not much increase in latency. There is no increase in workload, and latency is stable on the NFS storage arrays that are used by those VMs.<br>Which of the following should be verified NEXT?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAN\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVM GPU settings",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetwork"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-20T14:28:00.000Z",
+        "voteCount": 1,
+        "content": "It's B. IOPS(input/output operations per second) are decresed!"
+      },
+      {
+        "date": "2023-01-22T19:27:00.000Z",
+        "voteCount": 1,
+        "content": "It is B"
+      },
+      {
+        "date": "2021-06-20T20:27:00.000Z",
+        "voteCount": 2,
+        "content": "IOPS (input/output operations per second) is a performance measurement for computer storage devices like hard disk drives, solid state drives and storage are networks. Mbps is used to specify Internet connection speeds, whereas MBps is used to specify how much of a file is downloaded/uploaded per second."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/comptia/view/81712-exam-cv1-003-topic-1-question-14-discussion/",
+    "body": "A systems administrator is configuring RAID for a new server. This server will host files for users and replicate to an identical server. While redundancy is necessary, the most important need is to maximize storage.<br>Which of the following RAID types should the administrator choose?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t5\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t6",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t50"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://mysupport.netapp.com/NOW/public/eseries/sam_archive1150/index.html#page/GUID-8538272A-B802-49D9-9EA2-96C82DAD26A2/GUID-<br>1BF9A33B-C3A1-487C-B8D8-5F2C14E3ED2E.html",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-06T07:19:00.000Z",
+        "voteCount": 1,
+        "content": "Argreed with A"
+      },
+      {
+        "date": "2024-02-22T12:43:00.000Z",
+        "voteCount": 1,
+        "content": "RAID5: striping with parity. \nRAID6: striping with dual parity. \nRAID1+0 mirror + striping: \nRAID0+1 striping and mirroring"
+      },
+      {
+        "date": "2022-09-11T12:45:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A: RAID 5 has more capacity compared to RAID 10, up to 94%. key word here is maximize storage"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76835-exam-cv1-003-topic-1-question-17-discussion/",
+    "body": "An organization purchased new servers with GPUs for render farms. The servers have limited CPU resources.<br>Which of the following GPU configurations will be the MOST optimal for virtualizing this environment?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDedicated",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShared",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPassthrough\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvGPU"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-22T13:01:00.000Z",
+        "voteCount": 1,
+        "content": "a GPU can be: dedicated, shared and passthrough and obviously vGPU. \nThis question has no sense."
+      },
+      {
+        "date": "2022-06-15T14:22:00.000Z",
+        "voteCount": 2,
+        "content": "vGPUs make use of the CPU but the CPU usage is limited in order to make use of the new GPUs there should be a GPU passthrough put in place this will allow the VMs to use the GPUs directly"
+      },
+      {
+        "date": "2022-09-11T12:53:00.000Z",
+        "voteCount": 1,
+        "content": "A virtualization configuration that provides a virtual machine with direct access to GPU resources, bypassing the hypervisor - from Certmaster comptia"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134393-exam-cv1-003-topic-1-question-20-discussion/",
+    "body": "A company needs to rehost its ERP system to complete a datacenter migration to the public cloud. The company has already migrated other systems and configured VPN connections.<br>Which of the following MOST likely needs to be analyzed before rehosting the ERP?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSoftware",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLicensing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRight-sizing\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe network"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-22T13:20:00.000Z",
+        "voteCount": 1,
+        "content": "A -&gt; Not clear answer. What does it mean? If it mean about ERP in PHP lang., you need apache environment... or with software do you mean something about database?\n\nB -&gt; Generally licenses are for number of \"computers\". If you migrate from private to public cloud, you move, so you are not duplicating the \"licenses needs\". Maybe compliances licenses? No sense.\n\nD -&gt; No sense. \n\nIn the question you can read \"...before...\", so you need to analyze the \"C -&gt; Right-sizing\""
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55714-exam-cv1-003-topic-1-question-21-discussion/",
+    "body": "A company wants to check its infrastructure and application for security issues regularly. Which of the following should the company implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerformance testing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPenetration testing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVulnerability testing\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegression testing"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-22T13:33:00.000Z",
+        "voteCount": 1,
+        "content": "C. Vulnerability testing / assessment."
+      },
+      {
+        "date": "2022-07-28T16:58:00.000Z",
+        "voteCount": 2,
+        "content": "total BS. its definitely vulner scan. I work in cyber sec and I do them all the time."
+      },
+      {
+        "date": "2022-06-15T14:30:00.000Z",
+        "voteCount": 2,
+        "content": "Its 100% C, a penetration test is to invasive which can lead to performance issues even down time its also resource intensive \"costly\", a vulnerability scan on the other hand is a vulnerability scanner \"OpenVAS or Nessus\" that runs scripts testing whether a system is vulnerable to an array of vulnerabilities."
+      },
+      {
+        "date": "2022-06-15T14:29:00.000Z",
+        "voteCount": 1,
+        "content": "Its 100% C, a penetration test is to invasive which can lead to performance issues even down time its also resource intensive \"costly\", a vulnerability scan on the other hand is a vulnerability scanner \"OpenVAS or Nessus\" that runs scripts testing whether a system is vulnerable to an array of vulnerabilities."
+      },
+      {
+        "date": "2021-06-20T22:06:00.000Z",
+        "voteCount": 2,
+        "content": "Maybe C: Vulnerability test scans assess computers, systems, and networks for security weaknesses, also know as vulnerabilities. Typically are automated and give a beginning look at what could possibly be exploited. They are normally run manually or run an a scheduled based. They simply detect, report and log. Penetration test simulates a hacker attempts to exploit vulnerabilities. Search for vulnerabilities and then try to prove they can be exploited"
+      },
+      {
+        "date": "2022-03-27T07:39:00.000Z",
+        "voteCount": 1,
+        "content": "totally agree it s more like a regular testing , and vulnerability testing should do it especially it could be scheduled"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/comptia/view/77271-exam-cv1-003-topic-1-question-23-discussion/",
+    "body": "A systems administrator would like to reduce the network delay between two servers.<br>Which of the following will reduce the network delay without taxing other system resources?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDecrease the MTU size on both servers\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdjust the CPU resources on both servers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable compression between the servers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a VPN tunnel between the servers"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://cseweb.ucsd.edu/~calder/papers/HPDC-01-DynComp.pdf",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-22T13:47:00.000Z",
+        "voteCount": 1,
+        "content": "the question \"without taxing other system resources\"... so sadly C can't be the right answer.\n\nYou need to decrease the MTU."
+      },
+      {
+        "date": "2022-09-11T13:16:00.000Z",
+        "voteCount": 1,
+        "content": "Enabling compression will be very taxing on the servers. Decreasing MTU size will help with network latency. https://www.ibm.com/docs/en/aix/7.2?topic=tuning-mtu-size-performance-impacts"
+      },
+      {
+        "date": "2022-07-04T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "The compression feature reduces the amount of data that is sent between servers in a multi-server architecture. This is useful on systems that have connections with limited bandwidth as it means data can be transferred between servers more quickly. So the answer is correct"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134397-exam-cv1-003-topic-1-question-24-discussion/",
+    "body": "An administrator is performing an in-place upgrade on a quest VM operating system.<br>Which of the following can be performed as a quick method to roll back to an earlier state, if necessary?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA configuration file backup",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA full backup of the database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA differential backup",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA VM-level snapshot\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://cloud.google.com/compute/docs/tutorials/performing-in-place-upgrade-windows-server",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-22T13:50:00.000Z",
+        "voteCount": 1,
+        "content": "VM, state... snapshot!\n\ndifferential backup and full backup are only for backup.\n\na \"configuration file\" doesn't provide a \"previously state\""
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/comptia/view/48327-exam-cv1-003-topic-1-question-25-discussion/",
+    "body": "After analyzing a web server's logs, a systems administrator sees that users are connecting to the company's application through HTTP instead of HTTPS. The administrator then configures a redirect from HTTP to HTTPS on the web server, and the application responds with a connection time-out message.<br>Which of the following should the administrator verify NEXT?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe TLS certificate",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe firewall rules\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe concurrent connection limit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe folder permissions"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://www.ionos.com/digitalguide/hosting/technical-matters/http-408-how-to-fix-the-request-timeout-error/",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T16:57:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely B. A. would give you an invalid certificate error, not timeout."
+      },
+      {
+        "date": "2024-02-23T16:50:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely B.  A. would give you an invalid certificate error, not timeout."
+      },
+      {
+        "date": "2024-02-23T12:23:00.000Z",
+        "voteCount": 1,
+        "content": "TLS certificate generates errors like: DLG_FLAGS_SEC_CERT_DATE_INVALID, SSL_ERROR_BAD_CERT_DOMAIN, ...\n\nfolder can generate problem like HTTP status 500 \"internal server error\"\n\nthe concurrent connections can generate \"too many requests\" (HTTP 429\"\n\nthe timeout is about firewall rules."
+      },
+      {
+        "date": "2023-02-24T00:34:00.000Z",
+        "voteCount": 1,
+        "content": "not sure why you would check the TLS certificate as it would be a error that would point to such an issue. example date/time, unknown issuer, certificate invalid. \n\nEven AWS troubleshooting says check the ACLs\n\nevery result will point you to look at your network settings / firewalls first"
+      },
+      {
+        "date": "2021-03-27T14:58:00.000Z",
+        "voteCount": 2,
+        "content": "why not B?"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55715-exam-cv1-003-topic-1-question-28-discussion/",
+    "body": "A global web-hosting company is concerned about the availability of its platform during an upcoming event. Web traffic is forecasted to increase substantially during the next week. The site contains mainly static content.<br>Which of the following solutions will assist with the increased workload?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDoH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWAF",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIPS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCDN"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://www.globaldots.com/content-delivery-network-explained",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-20T22:13:00.000Z",
+        "voteCount": 1,
+        "content": "Content Delivery Network (CDN)  is a geographically distributed network of proxy servers and their data centers. The goal is to provide high availability and performance by distributing the service spatially relative to end users."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134466-exam-cv1-003-topic-1-question-29-discussion/",
+    "body": "An organization is hosting a cloud-based web server infrastructure that provides web-hosting solutions. Sudden continuous bursts of traffic have caused the web servers to saturate CPU and network utilizations.<br>Which of the following should be implemented to prevent such disruptive traffic from reaching the web servers?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSolutions to perform NAC and DLP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDDoS protection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tQoS on the network\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA solution to achieve microsegmentation"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://blog.paessler.com/the-top-5-causes-of-sudden-network-spikes",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T12:38:00.000Z",
+        "voteCount": 1,
+        "content": "Valid: \"DDoS protection\" as \"QoS on the network...with traffic shaping\""
+      },
+      {
+        "date": "2024-02-23T12:39:00.000Z",
+        "voteCount": 1,
+        "content": "tricky question"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134467-exam-cv1-003-topic-1-question-30-discussion/",
+    "body": "A developer is no longer able to access a public cloud API deployment, which was working ten minutes prior.<br>Which of the following is MOST likely the cause?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPI provider rate limiting\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInvalid API token",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDepleted network bandwidth",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInvalid API request"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T12:43:00.000Z",
+        "voteCount": 1,
+        "content": "Tricky/Malformed question\n\n\"API provider rate limiting\" can be best solution than \"Invalid API token\" (seemly valid too)\nIf you deploy, you should know when the token session expires, but you could not know if you ends the rate limit. Depends on the service you are using."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76836-exam-cv1-003-topic-1-question-31-discussion/",
+    "body": "An organization is implementing a new requirement to facilitate users with faster downloads of corporate application content. At the same time, the organization is also expanding cloud regions.<br>Which of the following would be suitable to optimize the network for this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement CDN for overall cloud application\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement auto-scaling of the compute resources",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement SR-IOV on the server instances",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement an application container solution"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://access.redhat.com/documentation/en-us/red_hat_openstack_platform/13/html/ network_functions_virtualization_planning_and_configuration_guide/part-sriov-nfv-configuration",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T12:47:00.000Z",
+        "voteCount": 1,
+        "content": "No way. Only CDN can be the solution here."
+      },
+      {
+        "date": "2024-02-18T14:29:00.000Z",
+        "voteCount": 1,
+        "content": "is that static content? CDN for static i think"
+      },
+      {
+        "date": "2023-12-10T06:15:00.000Z",
+        "voteCount": 1,
+        "content": "I would also choose A , as CDN will be also linked with location of the data and the regions."
+      },
+      {
+        "date": "2023-02-24T00:58:00.000Z",
+        "voteCount": 1,
+        "content": "single root I/O virtualization isnt apart of expanding cloud regions, Answer is A"
+      },
+      {
+        "date": "2022-09-11T13:28:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A: Because CDNs are placed closest to the user, it\u2019s possible to reduce latency when the distance that your content needs to travel is shorter. https://www.cloudflare.com/learning/cdn/cdn-benefits/"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134468-exam-cv1-003-topic-1-question-32-discussion/",
+    "body": "Which of the following cloud deployment models allows a company to have full control over its IT infrastructure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrivate\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCloud within a cloud",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHybrid",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPublic"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://www.sciencedirect.com/topics/computer-science/private-cloud",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "private"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134469-exam-cv1-003-topic-1-question-33-discussion/",
+    "body": "A cloud administrator is designing a multiregion network within an IaaS provider. The business requirements for configuring the network are as follows:<br>\u2711 Use private networking in and between the multisites for data replication.<br>\u2711 Use low latency to avoid performance issues.<br>Which of the following solutions should the network administrator use within the IaaS provider to connect multiregions?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPeering",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGateways\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVPN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHub and spoke"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T21:07:00.000Z",
+        "voteCount": 1,
+        "content": "Peering satisfies all of the requirements and has been able to span regions for years now.\n\nhttps://aws.amazon.com/blogs/networking-and-content-delivery/aws-transit-gateway-now-supports-intra-region-peering/\nhttps://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      },
+      {
+        "date": "2024-02-23T12:57:00.000Z",
+        "voteCount": 1,
+        "content": "Both valid \"Gateway\" and \"VPN\".\nIncomplete question."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/comptia/view/77982-exam-cv1-003-topic-1-question-34-discussion/",
+    "body": "A company has decided to get multiple compliance and security certifications for its public cloud environment. However, the company has few staff members to handle the extra workload, and it has limited knowledge of the current infrastructure.<br>Which of the following will help the company meet the compliance requirements as quickly as possible?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDLP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCASB\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFIM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNAC"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:02:00.000Z",
+        "voteCount": 1,
+        "content": "\"[...]has few staff members to handle the extra workload, and it has limited knowledge[...]\" -&gt; SO YOU USE A BROKER!"
+      },
+      {
+        "date": "2022-08-09T12:27:00.000Z",
+        "voteCount": 3,
+        "content": "B. Cloud access security brokers (CASBs) are on-premises, or cloud-based security policy enforcement points, placed between cloud service consumers and cloud service providers to combine and interject enterprise security policies as the cloud-based resources are accessed."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76838-exam-cv1-003-topic-1-question-35-discussion/",
+    "body": "The human resources department was charged for a cloud service that belongs to another department. All other cloud costs seem to be correct.<br>Which of the following is the MOST likely cause for this error?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMisconfigured templates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMisconfigured chargeback\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncorrect security groups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMisconfigured tags"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:06:00.000Z",
+        "voteCount": 1,
+        "content": "\"misconfigured tags\" could be good but not the right solution. Misconfigured chargeback"
+      },
+      {
+        "date": "2023-01-19T16:43:00.000Z",
+        "voteCount": 2,
+        "content": "The most likely cause for this error is misconfigured chargeback (Option B). Chargeback is a process by which the costs of using a service are allocated to the departments or individuals that are using that service. If the chargeback is misconfigured, it could result in costs being incorrectly allocated to the wrong department. This would explain why the human resources department is being charged for a service that belongs to another department, while all other cloud costs seem to be correct."
+      },
+      {
+        "date": "2022-06-15T14:55:00.000Z",
+        "voteCount": 4,
+        "content": "It's B, chargeback is when company's departments are being charged for their network usage here the other department has been added to the human resources chargeback policy"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134470-exam-cv1-003-topic-1-question-36-discussion/",
+    "body": "A cloud administrator has finished setting up an application that will use RDP to connect. During testing, users experience a connection timeout error.<br>Which of the following will MOST likely solve the issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChecking user passwords",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguring QoS rules",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnforcing TLS authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOpening TCP port 3389\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/troubleshoot/rdp-error-general-troubleshooting",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:07:00.000Z",
+        "voteCount": 1,
+        "content": "open tcp on 3389"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55716-exam-cv1-003-topic-1-question-38-discussion/",
+    "body": "A systems administrator notices that a piece of networking equipment is about to reach its end of support.<br>Which of the following actions should the administrator recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the firmware",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMigrate the equipment to the cloud",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the OS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the equipment\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "hahaha the answer is D."
+      },
+      {
+        "date": "2024-02-11T07:35:00.000Z",
+        "voteCount": 1,
+        "content": "D-Replace the equipment: This is the MOST recommended action when networking equipment is approaching its end of support. Replacing the aging hardware ensures continued reliability, security, and access to vendor support. Newer equipment often offers improved features and performance."
+      },
+      {
+        "date": "2022-06-17T09:46:00.000Z",
+        "voteCount": 1,
+        "content": "as for B, it would not make sense to migrate one piece of network equipment to the cloud."
+      },
+      {
+        "date": "2022-06-17T09:45:00.000Z",
+        "voteCount": 1,
+        "content": "When something is at \"End of Support\", that means no more updates are available. So, A and C are out. I am doing with D"
+      },
+      {
+        "date": "2022-06-15T15:00:00.000Z",
+        "voteCount": 2,
+        "content": "It cant be A, its end of support so there will be no update, I would go with D as we're talking about network equipment you wouldn't move your network equipment to the cloud and keep your servers on premises."
+      },
+      {
+        "date": "2021-06-20T22:30:00.000Z",
+        "voteCount": 2,
+        "content": "Don't think answer A is correct! Probably D?"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76839-exam-cv1-003-topic-1-question-39-discussion/",
+    "body": "An organization has two businesses that are developing different software products. They are using a single cloud provider with multiple IaaS instances. The organization identifies that the tracking of costs for each business are inaccurate.<br>Which of the following is the BEST method for resolving this issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform segregation of the VLAN and capture egress and ingress values of each network interface",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTag each server with a dedicated cost and sum them based on the businesses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSplit the total monthly invoice equally between the businesses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a dedicated subscription for the businesses to manage the costs\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:13:00.000Z",
+        "voteCount": 1,
+        "content": "Tag is solution if you don't know how to use cloud.\nBest practice invites you to separate subscriptions."
+      },
+      {
+        "date": "2023-02-24T01:04:00.000Z",
+        "voteCount": 1,
+        "content": "similar to AWS Organizations, its better to have them separated then use consolidated billing. D is the answer."
+      },
+      {
+        "date": "2023-01-20T10:11:00.000Z",
+        "voteCount": 1,
+        "content": "D. Create a dedicated subscription for the businesses to manage the costs is the best method for resolving this issue. By creating dedicated subscriptions, the organization can have separate billing, cost management, and access control for each business. This will provide better visibility and accuracy of costs for each business and make it easier to allocate costs and track usage. The other options may provide some level of cost tracking, but they will not be as accurate and may not provide detailed cost visibility or control."
+      },
+      {
+        "date": "2022-06-15T15:04:00.000Z",
+        "voteCount": 1,
+        "content": "Why wouldn't you separate the business accounts along with this issue it would also remove how much of a loss the Organization would have if one of the businesses got sued, unless I'm misunderstanding something."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76840-exam-cv1-003-topic-1-question-40-discussion/",
+    "body": "A systems administrator disabled TLS 1.0 and 1.1, as well as RC4, 3DES, and AES-128 ciphers for TLS 1.2, on a web server. A client now reports being unable to access the web server, but the administrator verifies that the server is online, the web service is running, and other users can reach the server as well.<br>Which of the following should the administrator recommend the user do FIRST?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable antivirus/anti-malware software",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTurn off the software firewall",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEstablish a VPN tunnel between the computer and the web server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the web browser to the latest version\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:16:00.000Z",
+        "voteCount": 1,
+        "content": "Obviously the only valid answer is D: update de webbrowser/operating system to the latest version"
+      },
+      {
+        "date": "2022-06-15T15:06:00.000Z",
+        "voteCount": 3,
+        "content": "D.  You don't fix, a security fix by creating another security hole, update the browser."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76841-exam-cv1-003-topic-1-question-42-discussion/",
+    "body": "A company is switching from one cloud provider to another and needs to complete the migration as quickly as possible.<br>Which of the following is the MOST important consideration to ensure a seamless migration?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe cost of the environment",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe I/O of the storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFeature compatibility\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetwork utilization"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-06-15T15:11:00.000Z",
+        "voteCount": 5,
+        "content": "Would C \"compatibility\" not be the most important what do you do if you coped everything over but some features don't work anymore, then after that network utilization followed by I/O of storage, as I/O means nothing in the cloud if the network is slower than the I/O."
+      },
+      {
+        "date": "2024-02-23T13:26:00.000Z",
+        "voteCount": 1,
+        "content": "Obviusly answer is C."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/comptia/view/76842-exam-cv1-003-topic-1-question-44-discussion/",
+    "body": "A company recently subscribed to a SaaS collaboration service for its business users. The company also has an on-premises collaboration solution and would like users to have a seamless experience regardless of the collaboration solution being used.<br>Which of the following should the administrator implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLDAP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWAF",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVDI",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSSO\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:34:00.000Z",
+        "voteCount": 1,
+        "content": "LDAP is for Active Directory...\nWAF windows application firewall\nVDI - virtual desktop interface\n\nThe right solution is only SSO Single Sign-On!"
+      },
+      {
+        "date": "2022-06-15T15:16:00.000Z",
+        "voteCount": 3,
+        "content": "Its D, they're looking for seamless experience when using the collaboration service  SSO \"Single Sign On\" will accomplish this the others wont"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59202-exam-cv1-003-topic-1-question-45-discussion/",
+    "body": "A systems administrator has migrated an internal application to a public cloud. The new web server is running under a TLS connection and has the same TLS certificate as the internal application that is deployed. However, the IT department reports that only internal users who are using new versions of the OSs are able to load the application home page.<br>Which of the following is the MOST likely cause of the issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe local firewall from older OSs is not allowing outbound connections",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe local firewall from older OSs is not allowing inbound connections",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe cloud web server is using a self-signed certificate that is not supported by older browsers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe cloud web server is using strong ciphers that are not supported by older browsers\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:36:00.000Z",
+        "voteCount": 1,
+        "content": "an old TLS certificate, so please, the right answer is only only only D!"
+      },
+      {
+        "date": "2023-02-24T01:11:00.000Z",
+        "voteCount": 1,
+        "content": "\" only internal users who are using new versions of the OSs are able to load the application home page.\"\n\nAnswer is D."
+      },
+      {
+        "date": "2021-08-04T01:24:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct is C."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59203-exam-cv1-003-topic-1-question-47-discussion/",
+    "body": "A systems administrator is provisioning VMs in a cloud environment and has been told to select an OS build with the furthest end-of-life date.<br>Which of the following OS builds would be BEST for the systems administrator to use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOpen-source",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLTS\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCanary",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBeta",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStable"
+    ],
+    "answer": "E",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:43:00.000Z",
+        "voteCount": 1,
+        "content": "furthest -&gt; Long Term Support (OS).\nThe answer is B."
+      },
+      {
+        "date": "2022-09-14T00:23:00.000Z",
+        "voteCount": 1,
+        "content": "What is an LTS OS?\nLong-term support (LTS) is a product lifecycle management policy in which a stable release of computer software is maintained for a longer period of time than the standard edition."
+      },
+      {
+        "date": "2021-08-04T01:32:00.000Z",
+        "voteCount": 1,
+        "content": "I think the Correct is B: LTS - Long-Time Support"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134473-exam-cv1-003-topic-1-question-49-discussion/",
+    "body": "A cloud administrator is reviewing the authentication and authorization mechanism implemented within the cloud environment. Upon review, the administrator discovers the sales group is part of the finance group, and the sales team members can access the financial application. Single sign-on is also implemented, which makes access much easier.<br>Which of the following access control rules should be changed?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDiscretionary-based",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAttribute-based\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMandatory-based",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRole-based"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://www.ekransystem.com/en/blog/rbac-vs-abac",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T13:55:00.000Z",
+        "voteCount": 1,
+        "content": "The issue with resource allocation refers to the improper granting of permissions or access rights to specific users, groups, or roles within a system or application.\n\nIn the described context, the problem with resource allocation is highlighted by the fact that members of the sales team have gained access to the financial application, despite not being authorized to do so. This problem may stem from improperly configured permissions within the cloud environment."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59205-exam-cv1-003-topic-1-question-50-discussion/",
+    "body": "A systems administrator needs to configure SSO authentication in a hybrid cloud environment.<br>Which of the following is the BEST technique to use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAccess controls",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFederation\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMultifactor authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCertificate authentication"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://techbeacon.com/security/how-get-single-sign-right-todays-hybrid-it-environments",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T14:01:00.000Z",
+        "voteCount": 1,
+        "content": "Multifactor authentications surely is not the answer.\nIf I auth on a system using texts on my phone number, it doesn't means surely I will not need to authenticate again with MFA.\n\nIf the system provides SSO, I use just one MFA auth.\n\nThe question seems more about the Federation, obviously federation needs \"Access Controls\" as you need \"Certificate auth\".\n\nThe best solution here is B - Federation"
+      },
+      {
+        "date": "2021-08-04T01:40:00.000Z",
+        "voteCount": 4,
+        "content": "I think the Correct Answer is B: Federation"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55848-exam-cv1-003-topic-1-question-51-discussion/",
+    "body": "A cloud architect is designing the VPCs for a new hybrid cloud deployment. The business requires the following:<br>\u2711 High availability<br>\u2711 Horizontal auto-scaling<br>\u2711 60 nodes peak capacity per region<br>\u2711 Five reserved network IP addresses per subnet<br>\u2711 /24 range<br>Which of the following would BEST meet the above requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate two /25 subnets in different regions\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate three /25 subnets in different regions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate two /26 subnets in different regions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate three /26 subnets in different regions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate two /27 subnets in different regions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate three /27 subnets in different regions"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T14:12:00.000Z",
+        "voteCount": 1,
+        "content": "/26 creates 4 networks with 64hosts per network, using this strategy you lost 1 network because answert doesn't provides \"4 different regions\".\n\nThat's why the best solution is to subnet the network with CIDR /25: here you can have two networks in two different regions, each network can have 128hosts-2(network and broadcast)"
+      },
+      {
+        "date": "2021-06-22T09:05:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer A: 60 nodes + 5 reserved network IP addresses. The CIDR /25 allows for 126 valid IP addresses and 2 network addresses."
+      },
+      {
+        "date": "2021-08-04T01:44:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with you, tricky is 60 + 5 &gt; 64 address (/26). So the answer must be A."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/comptia/view/134474-exam-cv1-003-topic-1-question-52-discussion/",
+    "body": "In an existing IaaS instance, it is required to deploy a single application that has different versions.<br>Which of the following should be recommended to meet this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy using containers\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a Type 2 hypervisor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable SR-IOV on the host",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate snapshots"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-23T14:18:00.000Z",
+        "voteCount": 1,
+        "content": "B. Install a Type 2 hypervisor -&gt;  No advantages to deploy twice the application with different versions\nC. Enable SR-IOV on the host -&gt; No matters.\nD. Create snapshots -&gt; concerned to OS updates, not used for app updates, not in this scenario.\n-&gt; A. Deploy using containers -&gt; you can have on same IaaS, multiple containers, so you can have multiple/different versions of the single"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59207-exam-cv1-003-topic-1-question-53-discussion/",
+    "body": "A media company has made the decision to migrate a physical, internal file server to the cloud and use a web-based interface to access and manage the files.<br>The users must be able to use their current corporate logins.<br>Which of the following is the MOST efficient way to achieve this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy a VM in a cloud, attach storage, and copy the files across",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a SaaS service with a directory service federation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy a fileshare in a public cloud and copy the files across",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCopy the files to the object storage location in a public cloud"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-04T01:49:00.000Z",
+        "voteCount": 5,
+        "content": "I think the correct answer is B: Use a SaaS service with a directory service federation. With Federation is mandatory for login requirement."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/comptia/view/48332-exam-cv1-003-topic-1-question-54-discussion/",
+    "body": "A systems administrator for an e-commerce company will be migrating the company's main website to a cloud provider. The principal requirement is that the website must be highly available.<br>Which of the following will BEST address this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVertical scaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA server cluster",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedundant switches",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA next-generation firewall"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-23T19:53:00.000Z",
+        "voteCount": 1,
+        "content": "Microsoft Cluster Server is a computer program that allows server computers to work together as a computer cluster, to provide failover and increased availability of applications, or parallel calculating power in case of high-performance computing clusters"
+      },
+      {
+        "date": "2021-03-27T18:08:00.000Z",
+        "voteCount": 4,
+        "content": "I believe it is B"
+      },
+      {
+        "date": "2021-08-04T04:25:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with you"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55852-exam-cv1-003-topic-1-question-56-discussion/",
+    "body": "A systems administrator is deploying a GPU-accelerated VDI solution. Upon requests from several users, the administrator installs an older version of the OS on their virtual workstations. The majority of the VMs run the latest LTS version of the OS.<br>Which of the following types of drivers will MOST likely ensure compatibility will all virtual workstations?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlternative community drivers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLegacy drivers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe latest drivers from the vendor's website",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe drivers from the OS repository"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-23T20:21:00.000Z",
+        "voteCount": 1,
+        "content": "D seems to be a better answer"
+      },
+      {
+        "date": "2021-06-22T09:47:00.000Z",
+        "voteCount": 2,
+        "content": "Probably D? Linux uses repositories."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/comptia/view/61517-exam-cv1-003-topic-1-question-58-discussion/",
+    "body": "Which of the following is relevant to capacity planning in a SaaS environment?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLicensing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA hypervisor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClustering",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tScalability"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-26T09:06:00.000Z",
+        "voteCount": 1,
+        "content": "I think based on \"capacity planning\", D is correct"
+      },
+      {
+        "date": "2021-09-04T06:08:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is A: Licensing"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55854-exam-cv1-003-topic-1-question-62-discussion/",
+    "body": "A systems administrator needs to configure monitoring for a private cloud environment. The administrator has decided to use SNMP for this task.<br>Which of the following ports should the administrator open on the monitoring server's firewall?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t53",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t123",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t139",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t161"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://thwack.solarwinds.com/t5/NPM-Discussions/SNMP-open-ports-on-the-firewall/m-p/168826",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-22T10:18:00.000Z",
+        "voteCount": 2,
+        "content": "DNS 53, NTP 123, Netbios 137, 138 &amp; 139, SNMP 161"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55855-exam-cv1-003-topic-1-question-64-discussion/",
+    "body": "A cloud administrator is reviewing a new application implementation document. The administrator needs to make sure all the known bugs and fixes are applied, and unwanted ports and services are disabled.<br>Which of the following techniques would BEST help the administrator assess these business requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerformance testing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsability testing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVulnerability testing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegression testing"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-22T10:23:00.000Z",
+        "voteCount": 1,
+        "content": "Correct\nRegression testing is a s/w testing practice that ensure an application still functions as expected after any code changes updates or improvements. \nUsability testing is user-centric, getting input on how users use the application\nVulnerability testing evaluates security risks   to reduce probability of getting hacked."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59218-exam-cv1-003-topic-1-question-65-discussion/",
+    "body": "A cloud administrator needs to implement a mechanism to monitor the expense of the company's cloud resources.<br>Which of the following is the BEST option to execute this task with minimal effort?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAsk the cloud provider to send a daily expense report",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet custom notifications for exceeding budget thresholds",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the API to collect expense information from cloud resources",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement a financial tool to monitor cloud resource expenses"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-12T20:58:00.000Z",
+        "voteCount": 1,
+        "content": "minimal effort, find a API someone else already created. works been done. Answers C"
+      },
+      {
+        "date": "2021-08-04T04:41:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is B. Set custom notifications for exceeding budget thresholds"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/comptia/view/55856-exam-cv1-003-topic-1-question-66-discussion/",
+    "body": "An organization's web server farm, which is hosted in the cloud with DNS load balancing, is experiencing a spike in network traffic. This has caused an outage of the organization's web server infrastructure.<br>Which of the following should be implemented to prevent this in the future as a mitigation method?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable DLP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure microsegmentation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable DNSSEC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy a vADC appliance"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-22T10:29:00.000Z",
+        "voteCount": 1,
+        "content": "VADC virtual Application Delivery Controller"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/comptia/view/61522-exam-cv1-003-topic-1-question-69-discussion/",
+    "body": "An organization will be deploying a web application in a public cloud with two web servers, two database servers, and a load balancer that is accessible over a single public IP.<br>Taking into account the gateway for this subnet and the potential to add two more web servers, which of the following will meet the minimum IP requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t192.168.1.0/26",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t192.168.1.0/27",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t192.168.1.0/28",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t192.168.1.0/29"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-14T17:56:00.000Z",
+        "voteCount": 2,
+        "content": "/28 gives you 13 usable IPs (sufficient). /27 gives you 29 usable IPs (wasteful)"
+      },
+      {
+        "date": "2021-09-04T06:58:00.000Z",
+        "voteCount": 4,
+        "content": "2 web servers + add more 2 web servers + 2 DB Servers + 1 LB (2 IPs) = about 8 IPs ==&gt; /28 is good for this answer"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/comptia/view/61524-exam-cv1-003-topic-1-question-72-discussion/",
+    "body": "A company just successfully completed a DR test and is ready to shut down its DR site and resume normal operations.<br>Which of the following actions should the cloud administrator take FIRST?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInitiate a failover",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestore backups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the network",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform a failback\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-06T09:24:00.000Z",
+        "voteCount": 1,
+        "content": "The failover would have been to the DR site.  Now the DR site is being shutdown so a failback would be appropriate."
+      },
+      {
+        "date": "2021-09-04T07:19:00.000Z",
+        "voteCount": 2,
+        "content": "I think the right answer is D. Perform a failback"
+      },
+      {
+        "date": "2022-05-20T17:45:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.ibm.com/docs/en/ds8870/7.2?topic=copy-failover-failback-operations"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/comptia/view/143513-exam-cv1-003-topic-1-question-75-discussion/",
+    "body": "After accidentally uploading a password for an IAM user in plain text, which of the following should a cloud administrator do FIRST?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIdentify the resources that are accessible to the affected IAM user",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the published plain-text password",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNotify users that a data breach has occurred",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the affected IAM user's password\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the affected IAM user"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-06T09:42:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed, the absolute first thing you should do based on this list is change the affected user's password."
+      },
+      {
+        "date": "2024-07-07T12:19:00.000Z",
+        "voteCount": 2,
+        "content": "This is D."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59219-exam-cv1-003-topic-1-question-76-discussion/",
+    "body": "A cloud administrator is planning to migrate a globally accessed application to the cloud.<br>Which of the following should the cloud administrator implement to BEST reduce latency for all users?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuto-scaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClustering",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCloud bursting"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-04T05:01:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is C. Clustering"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/comptia/view/81720-exam-cv1-003-topic-1-question-79-discussion/",
+    "body": "A storage array that is used exclusively for datastores is being decommissioned, and a new array has been installed. Now the private cloud administrator needs to migrate the data.<br>Which of the following migration methods would be the BEST to use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConduct a V2V migration",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform a storage live migration\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRsync the data between arrays",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a storage vendor migration appliance"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-06T09:56:00.000Z",
+        "voteCount": 1,
+        "content": "The assumption is the new SAN was attached to hypervisors.  But it just says it was installed.\n\nI would still go with B over D."
+      },
+      {
+        "date": "2022-09-11T14:58:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is B"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 52,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59221-exam-cv1-003-topic-1-question-80-discussion/",
+    "body": "A company developed a product using a cloud provider's PaaS platform and many of the platform-based components within the application environment.<br>Which of the following would the company MOST likely be concerned about when utilizing a multicloud strategy or migrating to another cloud provider?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLicensing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthentication providers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tService-level agreement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVendor lock-in"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-04T05:04:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is D. Vendor lock-in"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 53,
+    "url": "https://www.examtopics.com/discussions/comptia/view/81722-exam-cv1-003-topic-1-question-82-discussion/",
+    "body": "A systems administrator needs to configure an email client to ensure data integrity of the email messages.<br>Which of the following provides the BEST mechanism to achieve this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCyclic redundancy check",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSHA-1 hashes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSHA-256 hashes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDigital signature"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://www.fsl.cs.sunysb.edu/docs/integrity-storagess05/integrity.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-11T15:03:00.000Z",
+        "voteCount": 1,
+        "content": "It should be D: The digital signature confirms the integrity of the message.https://www.ibm.com/docs/en/b2badv-communication/1.0.0?topic=overview-digital-signature#:~:text=The%20digital%20signature%20confirms%20the,data%20invalidates%20the%20whole%20signature."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 54,
+    "url": "https://www.examtopics.com/discussions/comptia/view/143514-exam-cv1-003-topic-1-question-85-discussion/",
+    "body": "A systems administrator wants the VMs on the hypervisor to share CPU resources on the same core when feasible.<br>Which of the following will BEST achieve this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure CPU passthrough",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOversubscribe CPU resources",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSwitch from a Type 1 to a Type 2 hypervisor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease instructions per cycle",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable simultaneous multithreading"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-07-07T12:22:00.000Z",
+        "voteCount": 1,
+        "content": "E is the correct answer."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 55,
+    "url": "https://www.examtopics.com/discussions/comptia/view/143515-exam-cv1-003-topic-1-question-87-discussion/",
+    "body": "A systems administrator is creating a playbook to run tasks against a server on a set schedule.<br>Which of the following authentication techniques should the systems administrator use within the playbook?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the server's root credentials",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHard-code the password within the playbook",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a service account on the server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the administrator's SSO credentials"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-07-07T12:23:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 56,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59222-exam-cv1-003-topic-1-question-88-discussion/",
+    "body": "A cloud administrator recently deployed an update to the network drivers of several servers. Following the update, one of the servers no longer responds to remote login requests. The cloud administrator investigates the issue and gathers the following information:<br>\u2711 The cloud management console shows the VM is running and the CPU and memory utilization is at or near 0%.<br>\u2711 The cloud management console does not show an IP address for that server.<br>\u2711 A DNS lookup shows the hostname resolves to an IP address.<br>\u2711 The server is a member of the same security group as the others.<br>\u2711 The cloud administrator is able to log in remotely to the other servers without issue.<br>Which of the following is the MOST likely cause of the server being unavailable?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe network driver updates did not apply successfully, and the interface is in a down state.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe ACL policy for the server was updated as part of the server reboot, preventing login access.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe server was assigned a new IP address, and DNS entry for the server name was not updated.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe update caused an increase in the output to the logs, and the server is too busy to respond."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-07-11T16:48:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C, only one server was affected"
+      },
+      {
+        "date": "2021-08-04T05:13:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct answer is A. The network driver updates did not apply successfully, and the interface is in a down state."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 57,
+    "url": "https://www.examtopics.com/discussions/comptia/view/143516-exam-cv1-003-topic-1-question-89-discussion/",
+    "body": "A systems administrator in a large enterprise needs to alter the configuration of one of the finance department's database servers.<br>Which of the following should the administrator perform FIRST?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCapacity planning",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange management",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBackups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPatching"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-07-07T12:23:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 58,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59224-exam-cv1-003-topic-1-question-91-discussion/",
+    "body": "An SQL injection vulnerability was reported on a web application, and the cloud platform team needs to mitigate the vulnerability while it is corrected by the development team.<br>Which of the following controls will BEST mitigate the risk of exploitation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDLP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHIDS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNAC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWAF\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-06T10:22:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed"
+      },
+      {
+        "date": "2022-07-11T16:51:00.000Z",
+        "voteCount": 3,
+        "content": "Answer D: mitigate is key word"
+      },
+      {
+        "date": "2021-08-04T05:15:00.000Z",
+        "voteCount": 4,
+        "content": "I think the correct answer is D. WAF"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 59,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59225-exam-cv1-003-topic-1-question-93-discussion/",
+    "body": "A technician is working with an American company that is using cloud services to provide video-based training for its customers. Recently, due to a surge in demand, customers in Europe are experiencing latency.<br>Which of the following services should the technician deploy to eliminate the latency issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuto-scaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCloud bursting",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA content delivery network",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA new cloud provider"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-08-06T10:26:00.000Z",
+        "voteCount": 1,
+        "content": "CDNs are designed to deliver content at the edge."
+      },
+      {
+        "date": "2021-08-04T05:18:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct answer is C. A content delivery network (CDN)"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 60,
+    "url": "https://www.examtopics.com/discussions/comptia/view/143517-exam-cv1-003-topic-1-question-94-discussion/",
+    "body": "A web server has been deployed in a public IaaS provider and has been assigned the public IP address of 72.135.10.100. Users are now reporting that when they browse to the website, they receive a message indicating the service is unavailable. The cloud administrator logs into the server, runs a netstat command, and notices the following relevant output:<br><img src=\"/assets/media/exam-media/03625/0006000001.png\" class=\"in-exam-image\"><br>Which of the following actions should the cloud administrator take to resolve the issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign a new IP address of 192.168.100.10 to the web server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the firewall on 72.135.10.100 to allow only UDP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the WAF to filter requests from 17.3.130.3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the gateway on the web server to use 72.135.10.1"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-07-07T12:25:00.000Z",
+        "voteCount": 1,
+        "content": "C is the only answer that makes sense."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 61,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59226-exam-cv1-003-topic-1-question-96-discussion/",
+    "body": "A systems administrator is deploying a solution that requires a virtual network in a private cloud environment. The solution design requires the virtual network to transport multiple payload types.<br>Which of the following network virtualization options would BEST satisfy the requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVXLAN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSTT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNVGRE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGENEVE"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-06T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is D"
+      },
+      {
+        "date": "2021-08-04T05:25:00.000Z",
+        "voteCount": 4,
+        "content": "I think the correct answer is D. GENEVE\nGeneric Network Virtualization Encapsulation A network virtualization standard used with VXLANs, NVGRE, and STT. The use of this standard may be required across multi-cloud deployments. Also known as GENEVE."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 62,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59752-exam-cv1-003-topic-1-question-100-discussion/",
+    "body": "A systems administrator needs to convert ten physical servers to virtual.<br>Which of the following would be the MOST efficient conversion method for the administrator to use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRebuild the servers from scratch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the vendor's conversion tool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClone the hard drive",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestore from backup"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-14T12:28:00.000Z",
+        "voteCount": 2,
+        "content": "It should be B : PTV conversion tool"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 63,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59753-exam-cv1-003-topic-1-question-101-discussion/",
+    "body": "Which of the following cloud services is fully managed?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIaaS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGPU in the cloud",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIoT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tServerless compute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSaaS"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://developers.google.com/iot",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-14T12:31:00.000Z",
+        "voteCount": 2,
+        "content": "It should be D. IOT is a managed solution in public cloud providers while Serverless computer is fully managed service."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 64,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59227-exam-cv1-003-topic-1-question-102-discussion/",
+    "body": "A vendor is installing a new retail store management application for a customer. The application license ensures software costs are low when the application is not being used, but costs go up when use is higher.<br>Which of the following licensing models is MOST likely being used?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSocket-based",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCore-based",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSubscription",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVolume-based"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-04T05:39:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct answer is C. Subscription with PAYG."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 65,
+    "url": "https://www.examtopics.com/discussions/comptia/view/59228-exam-cv1-003-topic-1-question-103-discussion/",
+    "body": "A systems administrator swapped a failed hard drive on a server with a RAID 5 array. During the RAID resynchronization, a second hard drive failed.<br>Which of the following actions will make the server fully operational?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestart the RAID resynchronization process",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform a P2V migration of the server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSwap the failed hard drive with a fresh one",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestore the server from backup"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-04T05:40:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct answer is D. Restore the server from backup"
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 66,
+    "url": "https://www.examtopics.com/discussions/comptia/view/100696-exam-cv1-003-topic-1-question-107-discussion/",
+    "body": "A cloud administrator is building a new VM for machine-learning training. The developer requesting the VM has stated that the machine will need a full GPU dedicated to it.<br>Which of the following configuration options would BEST meet this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVirtual GPU",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExternal GPU",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPassthrough GPU\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShared GPU"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-24T13:13:00.000Z",
+        "voteCount": 2,
+        "content": "A cloud administrator is building a new VM for machine-learning training. The developer requesting the VM has stated that the machine will need a full GPU dedicated to it.\nWhich of the following configuration options would BEST meet this requirement?\nA. Virtual GPU\nB. External GPU\nC. Passthrough GPU\nD. Shared GPU"
+      },
+      {
+        "date": "2023-02-24T13:14:00.000Z",
+        "voteCount": 2,
+        "content": "ugh moderator please delete the other comment, IF we are wanting a VM to have a Dedicated GPU, we are wanting a Passthrough."
+      }
+    ],
+    "examNameCode": "cv1-003",
+    "topicNumber": "1"
+  }
+]

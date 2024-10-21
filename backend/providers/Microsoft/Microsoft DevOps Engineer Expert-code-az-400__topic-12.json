@@ -1,0 +1,385 @@
+[
+  {
+    "topic": 12,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/31748-exam-az-400-topic-12-question-1-discussion/",
+    "body": "You add the virtual machines as managed nodes in Azure Automation State Configuration.<br>You need to configure the managed computers in Pool7.<br>What should you do next?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the RefreshMode property of the Local Configuration Manager (LCM).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Register-AzureRmAutomationDscNode Azure Powershell cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the ConfigurationMode property of the Local Configuration Manager (LCM).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall PowerShell Core."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 26,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 8,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-09-19T23:37:00.000Z",
+        "voteCount": 20,
+        "content": "The Register-AzureRmAutomationDscNode cmdlet registers an Azure virtual machine as an APS Desired State Configuration (DSC) node in an Azure Automation account. See: https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0"
+      },
+      {
+        "date": "2022-02-03T02:56:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is C.  Check -\nhttps://docs.microsoft.com/en-us/powershell/dsc/managing-nodes/metaConfig?view=dsc-1.1"
+      },
+      {
+        "date": "2022-05-06T09:41:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is B.\nThe question is about applying configuration changes using automation not just changing configuration of virtual machines (VMs).\nhttps://docs.microsoft.com/en-us/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0"
+      },
+      {
+        "date": "2023-08-01T04:15:00.000Z",
+        "voteCount": 1,
+        "content": "That's what that cmdlet does. It register a DSC to Automation so it can be automated. Answer is B - Run the cmdlet"
+      },
+      {
+        "date": "2020-11-22T05:59:00.000Z",
+        "voteCount": 7,
+        "content": "of course, now it's Register-AzAutomationDscNode"
+      },
+      {
+        "date": "2021-11-28T10:14:00.000Z",
+        "voteCount": 12,
+        "content": "\"You add the virtual machines as managed nodes in Azure Automation State Configuration.' - running the \"register-AzAutomationDSCNode\" would do just that, but that is already done. \n\nI would go for C."
+      },
+      {
+        "date": "2022-05-30T18:28:00.000Z",
+        "voteCount": 2,
+        "content": "Could you clarify how do you know it is already been done. as I understand, we are to yet to create project 7."
+      },
+      {
+        "date": "2023-11-21T15:45:00.000Z",
+        "voteCount": 2,
+        "content": "The question states:\n\nYou add the virtual machines as managed nodes in Azure Automation State Configuration. (machines are already added)\nYou need to configure the managed computers in Pool7. (This is what we must do)\n\nThe cmdlet in answer B will not configure the already added machines.  So C is the answer."
+      },
+      {
+        "date": "2024-07-20T10:12:00.000Z",
+        "voteCount": 1,
+        "content": "C - https://learn.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1"
+      },
+      {
+        "date": "2024-02-08T01:34:00.000Z",
+        "voteCount": 2,
+        "content": "Guys be careful, when you register a node you associate to it the compiled node configuration you pre-uploaded. Who is responsible of managing the nodes configs is the AzAutomationStateConfig engine, that is Lical Configuration Manager. Since the question in asking to CONFIGURE the computers i suggest to select C. The  ConfigurationMode prop \"Specifies how the LCM actually applies the configuration to the target nodes. Possible values are \"ApplyOnly\",\"ApplyAndMonitor\", and \"ApplyAndAutoCorrect\".\"\n\nhttps://learn.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1"
+      },
+      {
+        "date": "2023-12-24T17:05:00.000Z",
+        "voteCount": 1,
+        "content": "Seems like C, although it can be done in B as well."
+      },
+      {
+        "date": "2023-10-24T04:05:00.000Z",
+        "voteCount": 1,
+        "content": "Seems to be C \nhttps://learn.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1"
+      },
+      {
+        "date": "2023-09-26T04:18:00.000Z",
+        "voteCount": 1,
+        "content": "answer is C"
+      },
+      {
+        "date": "2023-09-25T19:01:00.000Z",
+        "voteCount": 1,
+        "content": "The question says that you already registered the agent nodes in the automation account and \"You need to configure the managed computers in Pool7\", so the correct option should be to Set the \"-ConfigurationMode\" property"
+      },
+      {
+        "date": "2023-07-03T05:17:00.000Z",
+        "voteCount": 2,
+        "content": "The premise mention: \nYou add the virtual machines as managed nodes in Azure Automation State Configuration.\nI suppose the virtual machines have been registered and connected with to Azure automation account.\nThen you only change the ConfigurationMode property to applied and enforcing configurations."
+      },
+      {
+        "date": "2023-06-02T22:36:00.000Z",
+        "voteCount": 4,
+        "content": "C is the answer.\n\nhttps://learn.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1\nThe Local Configuration Manager (LCM) is the engine of Desired State Configuration (DSC). The LCM runs on every target node, and is responsible for parsing and enacting configurations that are sent to the node.\n\nhttps://learn.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1#basic-settings\n- ConfigurationMode\nSpecifies how the LCM actually applies the configuration to the target nodes."
+      },
+      {
+        "date": "2023-01-07T11:49:00.000Z",
+        "voteCount": 3,
+        "content": "The options for this problem are lame: logically the answer should be \"C\" however you can achieve \"C\" with command in \"B\",  With \"Register-AzureRmAutomationDscNode\" or new version \"Register-AzAutomationDscNode\" you can not only register the node with Automation account but you can also change the configuration properties \n\nhttps://learn.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state"
+      },
+      {
+        "date": "2022-08-06T22:40:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state:\n\n\"Use the Register-AzAutomationDscNode cmdlet to register a VM as a managed node and specify configuration properties\"\n\nAnswer is B"
+      },
+      {
+        "date": "2022-08-24T08:28:00.000Z",
+        "voteCount": 1,
+        "content": "But in the answer section it says \"Run the Register-AzureRmAutomationDscNode Azure Powershell cmdlet\", do we have any command let called Register-AzureRmAutomationDscNode? I would say answer is \"C\" - Configure LCM using Automation Portal."
+      },
+      {
+        "date": "2022-12-14T11:22:00.000Z",
+        "voteCount": 1,
+        "content": "yes, we have the Register-AzureRmAutomationDscNode command in PowerShell"
+      },
+      {
+        "date": "2022-08-03T11:35:00.000Z",
+        "voteCount": 5,
+        "content": "According to this document, you run the command twice. First to register your VM, then to update the mode settings. \nhttps://docs.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state"
+      },
+      {
+        "date": "2022-05-21T23:17:00.000Z",
+        "voteCount": 7,
+        "content": "Nodes have already been registered so B is not needed.\nNext step is to set ConfigurationMode to ApplyandAutoCorrect\n\nhttps://docs.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1&amp;viewFallbackFrom=dsc-3.0"
+      },
+      {
+        "date": "2022-04-26T09:26:00.000Z",
+        "voteCount": 1,
+        "content": "The posted option C does not match the answers here anymore.\nShould be now A - Modify the Refresh...\nThis is also mentioned here as the first step:\nhttps://docs.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1"
+      },
+      {
+        "date": "2022-05-26T00:40:00.000Z",
+        "voteCount": 2,
+        "content": "C is still the correct answer. Modify the Refresh only takes configurations that have already been modified."
+      },
+      {
+        "date": "2022-03-30T01:54:00.000Z",
+        "voteCount": 8,
+        "content": "Here the question states \"You add the virtual machines as managed nodes in Azure Automation State Configuration\". Register-AzureRmAutomationDscNode does just that. \n\nhttps://tkolber.medium.com/configuring-azure-dsc-automation-with-powershell-in-5-steps-454fbef9457b\nhttps://docs.microsoft.com/en-us/powershell/module/az.automation/register-azautomationdscnode?view=azps-7.3.2\n\nSince you have already done now the question is \"What should you do next?\".\nIn order to manatain the VMs status you need to set the ConfigurationMode property to ApplyAndAutocorrect. \nIt is true that you could set the property directly in the Register-AzureRmAutomationDscNode command but from the way the question is posed it does not seem to have been specified. Since its default value is None you have to change it to ApplyAndAutocorrect.\n\nhttps://docs.microsoft.com/en-us/powershell/module/az.automation/register-azautomationdscnode?view=azps-7.3.2#parameters"
+      },
+      {
+        "date": "2023-12-07T21:46:00.000Z",
+        "voteCount": 1,
+        "content": "Good reading and an correct answer. I agree with this answer."
+      },
+      {
+        "date": "2022-03-22T10:49:00.000Z",
+        "voteCount": 2,
+        "content": "B Register-AzureRmAutomationDscNode cmdle"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57760-exam-az-400-topic-12-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to implement the code flow strategy for Project2 in Azure DevOps.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04257/0012700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0012800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Create a repository -<br>A Git repository, or repo, is a folder that you've told Git to help you track file changes in. You can have any number of repos on your computer, each stored in their own folder.<br><br>Step 2: Create a fork -<br>Step 3: Add a build policy for the fork<br>Build policies help teams protect their important branches of development. Policies enforce your team's code quality and change management standards.<br>Scenario:<br>Implement a code flow strategy for Project2 that will:<br>\u2711 Enable Team2 to submit pull requests for Project2.<br>\u2711 Enable Team2 to work independently on changes to a copy of Project2.<br>\u2711 Ensure that any intermediary changes performed by Team2 on a copy of Project2 will be subject to the same restrictions as the ones defined in the build policy of Project2.<br><img src=\"/assets/media/exam-media/04257/0012900001.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/devops/repos/git/manage-your-branches",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-16T00:47:00.000Z",
+        "voteCount": 37,
+        "content": "Since a fork is a copy of a repository. Therefore no need to create a repository.\n\n- Create a fork\n- Add a build policy for the master branch\n- Add an application access policy\n\nhttps://docs.microsoft.com/en-us/azure/devops/repos/git/forks?view=azure-devops&amp;tabs=visual-studio#whats-in-a-fork"
+      },
+      {
+        "date": "2021-07-19T03:20:00.000Z",
+        "voteCount": 7,
+        "content": "Got this one in exam today, 19th July and I went with your selection, it should be correct"
+      },
+      {
+        "date": "2021-09-25T05:40:00.000Z",
+        "voteCount": 2,
+        "content": "Thank you king."
+      },
+      {
+        "date": "2021-10-08T04:34:00.000Z",
+        "voteCount": 2,
+        "content": "Also went with this one.\n870"
+      },
+      {
+        "date": "2022-12-31T05:57:00.000Z",
+        "voteCount": 2,
+        "content": "To complement this answer, since there is no reasoning here yet for the \"Add an application access policy\": This may be necessary to set up the required permissions for Team2."
+      },
+      {
+        "date": "2022-03-28T15:11:00.000Z",
+        "voteCount": 5,
+        "content": "Since team does not have access to the Project 1 you need to create a repo first."
+      },
+      {
+        "date": "2022-12-19T13:23:00.000Z",
+        "voteCount": 2,
+        "content": "you don't. fork is a copy of existing repo, why do you want to have another one?"
+      },
+      {
+        "date": "2022-09-25T15:39:00.000Z",
+        "voteCount": 3,
+        "content": "I agree with this answer. Although, I don't fully understand the 'App access policy' but it's the only option i have left."
+      },
+      {
+        "date": "2022-06-28T21:47:00.000Z",
+        "voteCount": 31,
+        "content": "The answer is correct. \nFirstly, let me try to exclude the options which are not related\n- Create a branch -&gt; Not such requirement \n- Add a build policy for the master branch -&gt; No mention about Master branch. Build policy can be set at any branch depends on the project. Lets exclude this option\n- Add an application access policy -&gt; No clue what it does for Azure repo\n\nSince there is no Azure repo exist for Project 2,  lets include it as a first step\n- Create a repository\n- Create a fork\n- Add a build policy for a fork"
+      },
+      {
+        "date": "2024-05-26T09:18:00.000Z",
+        "voteCount": 1,
+        "content": "Build policies apply to branches, no repos. I think it should be \"add build policy to the master branch\""
+      },
+      {
+        "date": "2023-02-04T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "sounds right"
+      },
+      {
+        "date": "2024-02-16T01:28:00.000Z",
+        "voteCount": 3,
+        "content": "- Create a fork\n- Add a build policy for the master branch\n- Create a branch"
+      },
+      {
+        "date": "2023-12-24T17:43:00.000Z",
+        "voteCount": 3,
+        "content": "Create a fork\n Add a build policy for master branch\n Create a branch"
+      },
+      {
+        "date": "2023-08-18T05:55:00.000Z",
+        "voteCount": 1,
+        "content": "the given answer is correct. 1st. teams has no access to project2, so it has to be a fork. in order to do so, you need to create a repository. the last step will be a build policy on the fork which mostly like raise a PR to project 2 once everything goes well. so someone with permission of project 2 can do the merge. my 2 cents."
+      },
+      {
+        "date": "2023-07-03T14:13:00.000Z",
+        "voteCount": 2,
+        "content": "I have doubts, In Planned changes mention that Contoso plans to create projects in Azure DevOps, then Project2 hadn't been created then you didn't have a code repository yet. But the question ask about \"implement the code flow strategy for Project2 in Azure DevOps\", then if we focus on the code flow strategy for Project2, I assume that the Project2 exists and now you have to implement the code flow strategy.\nStarting from there.\n\n1. Create a fork, for create an independent copy of the original repository. \n2. Add an application access policy, Team2 needs the necessary permissions to access on the forked repository.\n3. Add a build policy for the fork, the forked repo doesn't inherit permissions or policies then you have to define it to enforce the desired behavior.\n\nCreate repo in this scenary wasn't necessary.\nCreate a branch is not a requirement, the closest requirement would be \"Enable Team2 to work independently on changes to a copy of Project2\", we achieve that with the fork.\nAdd a build policy for the master branch, could limit policy on a master branch and not the repo."
+      },
+      {
+        "date": "2023-06-02T18:27:00.000Z",
+        "voteCount": 2,
+        "content": "Same as Topic 9 Question 4.\nhttps://www.examtopics.com/discussions/microsoft/view/18333-exam-az-400-topic-9-question-4-discussion"
+      },
+      {
+        "date": "2023-06-02T18:27:00.000Z",
+        "voteCount": 11,
+        "content": "1. Create a fork\n2. Add a build policy for master branch\n3. Create a branch\n\nhttps://learn.microsoft.com/en-us/azure/devops/repos/git/forks?view=azure-devops&amp;tabs=visual-studio\nGit repo forks are useful when people want to make experimental, risky, or confidential changes to a codebase, but those changes need to be isolated from the codebase in the original repo. A new fork is basically a clone of the original repo pushed to a new remote repo. The fork is independent of the original repo, and is a complete copy unless you specify a single branch.\n\nAs an independent copy, changes you make to your fork, such as adding commits or branches, aren't shared with the original repo. If you want to merge your codebase changes into the original repo, you must create a pull request (PR) to request review and approval of those changes.\n\nThe forking process doesn't transfer any permissions, policies, or build pipelines from the original repo to your fork."
+      },
+      {
+        "date": "2023-06-02T18:37:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/devops/repos/git/git-branching-guidance?view=azure-devops#keep-a-high-quality-up-to-date-main-branch\nThe code in your main branch should pass tests, build cleanly, and always be current. Your main branch needs these qualities so that feature branches created by your team start from a known good version of code.\n\nSet up a branch policy for your main branch that:\n- Requires a pull request to merge code. This approach prevents direct pushes to the main branch and ensures discussion of proposed changes.\n- Automatically adds reviewers when a pull request is created. The added team members review the code and comment on the changes in the pull request.\n- Requires a successful build to complete a pull request. Code merged into the main branch should build cleanly."
+      },
+      {
+        "date": "2023-03-11T11:12:00.000Z",
+        "voteCount": 2,
+        "content": "- create a fork\n- Add a build policy for the fork\n- Add an application access policy\nRationale:\n\"Ensure that any intermediary changes performed by Team2 on a copy of Project2\" - fork repo to a new repo, so need to create a repo\nforking process doesn't transfer any permissions, policies, or build pipelines from the original repo to your fork - so you need to add a build policy for the fork\n\"Enable Team2 to work independently on changes to a copy of Project2\" - satisfied\n\"Enable Team2 to submit pull requests for Project2.\" - satisfied\n\"Team2 members will not have permissions to project2\" - Add an application access policy"
+      },
+      {
+        "date": "2022-09-13T06:07:00.000Z",
+        "voteCount": 2,
+        "content": "All in all, I think the solution would be\n- Create a repository\n- Add a build policy for the master\n- Create a fork\n- Add a build policy for the fork\n\nHowever, we need to drop one of those, not sure which.\n\nThe workflow would be: 1) make changes to your fork 2) make PR to original repo 3) original repo policies take effect.\n\nNow:\nExisting environment does not have repos or build policies(?) which are typically in master branch\n\n\u201cWorking independently on changes to a copy of Project2\u201d probably means forking.\n\n\u201cEnsure that any intermediary changes performed by Team2 on a copy of Project2 will be subject to the same restrictions\u201d would mean we also need to add the policies to the fork repository."
+      },
+      {
+        "date": "2022-08-06T23:17:00.000Z",
+        "voteCount": 6,
+        "content": "\"- Enable Team2 to work independently on changes to a copy of Project2.\n- Ensure that any intermediary changes performed by Team2 on a copy of Project2 will be subject to the same restrictions as the ones defined in the build policy of Project2.\"\n\nhttps://docs.microsoft.com/en-us/azure/devops/repos/get-started/key-concepts-repos?view=azure-devops\n\nA fork is a complete copy of a repository, including all files, commits, and (optionally) branches\n\nGiven answer is correct"
+      },
+      {
+        "date": "2022-03-30T02:32:00.000Z",
+        "voteCount": 8,
+        "content": "The answer is correct.\nHere first you need a Repos. You don't have one yet.\nSecond you have to create a Fork --&gt; \"Enable Team2 to work independently on changes to a copy of Project2\"\nThird you need a build policy for the fork"
+      },
+      {
+        "date": "2022-03-23T09:37:00.000Z",
+        "voteCount": 1,
+        "content": "in case of\nImplement a code flow strategy for Project2 that will:\n- Enable Team2 to submit pull requests for Project2.\n- Enable Team2 to work independently on changes to a copy of Project2.\n- Ensure that any intermediary changes performed by Team2 on a copy of Project2 will be subject to the same restrictions as the ones defined in the build policy of Project2.\n\nmay be a fork and then policy and policy (to both branches?)"
+      },
+      {
+        "date": "2022-02-04T02:00:00.000Z",
+        "voteCount": 3,
+        "content": "Got this January 2022."
+      },
+      {
+        "date": "2022-01-24T22:18:00.000Z",
+        "voteCount": 3,
+        "content": "the correct answer is\n- Create a repository\n- Create a fork\n- Add a build policy"
+      },
+      {
+        "date": "2022-01-24T22:17:00.000Z",
+        "voteCount": 3,
+        "content": "- Create a repo\n- Create a fork\n- Add a build policy for the fork"
+      },
+      {
+        "date": "2022-01-23T13:20:00.000Z",
+        "voteCount": 2,
+        "content": "the answer is correct"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58477-exam-az-400-topic-12-question-3-discussion/",
+    "body": "DRAG DROP -<br>You need to configure Azure Automation for the computers in Pool7.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04257/0012900002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0013000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Create a Desired State Configuration (DSC) configuration file that has an extension of .ps1.<br>Step 2: Run the Import-AzureRmAutomationDscConfiguration Azure Powershell cmdlet<br>The Import-AzureRmAutomationDscConfiguration cmdlet imports an APS Desired State Configuration (DSC) configuration into Azure Automation. Specify the path of an APS script that contains a single DSC configuration.<br>Example:<br>PS C:\\&gt;Import-AzureRmAutomationDscConfiguration -AutomationAccountName \"Contoso17\"-ResourceGroupName \"ResourceGroup01\" -SourcePath \"C:\\DSC<br>\\client.ps1\" -Force<br>This command imports the DSC configuration in the file named client.ps1 into the Automation account named Contoso17. The command specifies the Force parameter. If there is an existing DSC configuration, this command replaces it.<br>Step 3: Run the Start-AzureRmAutomationDscCompilationJob Azure Powershell cmdlet<br>The Start-AzureRmAutomationDscCompilationJob cmdlet compiles an APS Desired State Configuration (DSC) configuration in Azure Automation.<br>Reference:<br>https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/import-azurermautomationdscconfiguration https://docs.microsoft.com/en-us/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-22T22:34:00.000Z",
+        "voteCount": 17,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2023-06-02T22:44:00.000Z",
+        "voteCount": 8,
+        "content": "1. Create DSC config file with ext of .ps1\n2. Run Import-AzureRmAutomationDscConfiguration Azure PS cmdlet\n3. Run Start-AzureRmAutomationDscCompliationJob Azure PS cmdlet\n\nhttps://learn.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state\nAzure Automation State Configuration allows you to specify configurations for your servers and ensure that those servers are in the specified state over time.\n- Onboard a VM to be managed by Azure Automation DSC\n- Upload a configuration to Azure Automation\n- Compile a configuration into a node configuration\n- Assign a node configuration to a managed node\n- Check the compliance status of a managed node"
+      },
+      {
+        "date": "2023-06-02T22:45:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state#compile-a-configuration-into-a-node-configuration\nA DSC configuration must be compiled into a node configuration before it can be assigned to a node. See DSC configurations.\n\nCall the Start-AzAutomationDscCompilationJob cmdlet to compile the TestConfig configuration into a node configuration named TestConfig.WebServer in your Automation account."
+      },
+      {
+        "date": "2023-06-02T22:45:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation\n- In a text editor, type the following and save it locally as TestConfig.ps1.\nCall the Import-AzAutomationDscConfiguration cmdlet to upload the configuration into your Automation account."
+      },
+      {
+        "date": "2023-12-24T17:46:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-10-24T02:51:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer given"
+      },
+      {
+        "date": "2022-08-06T22:18:00.000Z",
+        "voteCount": 5,
+        "content": "https://docs.microsoft.com/en-us/azure/automation/automation-dsc-getting-started\n\nGiven answer is correct"
+      },
+      {
+        "date": "2022-05-21T23:30:00.000Z",
+        "voteCount": 4,
+        "content": "Create DSC .ps1\nRun Import\nRun Start"
+      },
+      {
+        "date": "2022-04-06T04:50:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2022-01-24T22:20:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2021-11-28T10:19:00.000Z",
+        "voteCount": 1,
+        "content": "Seems correct"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "12"
+  }
+]

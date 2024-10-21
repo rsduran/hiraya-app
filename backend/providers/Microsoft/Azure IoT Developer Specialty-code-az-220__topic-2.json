@@ -1,0 +1,1640 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22206-exam-az-220-topic-2-question-1-discussion/",
+    "body": "You have an Azure subscription that contains a resource group named RG1.<br>You need to deploy the Device Provisioning Service. The solution must ensure that the Device Provisioning Service can accept new device enrollments.<br>You create a Device Provisioning Service instance.<br>Which two actions should you perform next? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Linked IoT hubs blade of the Device Provisioning Service, link an Azure IoT hub.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, create a new Azure IoT hub.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Manage allocation policy blade of the Device Provisioning Service, configure an allocation policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Certificates blade of the Device Provisioning Service, upload an X.509 certificate to the Device Provisioning Service."
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AC",
+        "count": 4,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-05T09:17:00.000Z",
+        "voteCount": 22,
+        "content": "Answer A and C"
+      },
+      {
+        "date": "2020-07-24T19:02:00.000Z",
+        "voteCount": 19,
+        "content": "i think answers are A and D, by default allocation policy is set to \"Evenly weighted distribution\", so, you dont need to manage the policy, instead, you need to upload and verify a X.509 certificate.\n\nhttps://docs.microsoft.com/en-us/learn/modules/securely-provision-iot-devices-at-scale-with-device-provisioning-service/4-exercise-create-dps-resource-root-certificate-group-enrollment"
+      },
+      {
+        "date": "2020-08-22T05:31:00.000Z",
+        "voteCount": 5,
+        "content": "Do not agree to this answer as question does not mention anything about which attestation mechanism to use, If at all one is not bothered about Generating CA signing certificate for devices then option A &amp; C makes more sense since with individual enrollments you can accept device enrollments using SAS key as well and thats the basic difference when creating enrollments, individual enrollments are possible with SAS key and certificate both but group enrollments are only possible with certificate so in my opinion if question had something on the attestation mechanism, i would have better choice to select the correct option but with plane vanilla set up of DPS i would go with Option A &amp; C"
+      },
+      {
+        "date": "2023-07-06T05:26:00.000Z",
+        "voteCount": 1,
+        "content": "Clearly explained here:\nhttps://learn.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision"
+      },
+      {
+        "date": "2023-04-07T22:16:00.000Z",
+        "voteCount": 1,
+        "content": "A. From the Linked IoT hubs blade of the Device Provisioning Service, link an Azure IoT hub: The Device Provisioning Service needs to be linked to an Azure IoT hub to enable it to provision devices for the hub. The linked IoT hub acts as the target hub for devices provisioned by the service. This step is required to enable the Device Provisioning Service to accept new device enrollments.\n\nC. From the Manage allocation policy blade of the Device Provisioning Service, configure an allocation policy: An allocation policy determines how devices are assigned to IoT hubs when they are provisioned by the Device Provisioning Service. It specifies the IoT hub to which a device should be provisioned based on criteria such as device ID, device group, and tags. Configuring an allocation policy is an important step for ensuring that the Device Provisioning Service can efficiently accept new device enrollments.\n\nTherefore, options A and C are the correct"
+      },
+      {
+        "date": "2023-04-07T22:15:00.000Z",
+        "voteCount": 1,
+        "content": "A. From the Linked IoT hubs blade of the Device Provisioning Service, link an Azure IoT hub: The Device Provisioning Service needs to be linked to an Azure IoT hub to enable it to provision devices for the hub. The linked IoT hub acts as the target hub for devices provisioned by the service. This step is required to enable the Device Provisioning Service to accept new device enrollments.\n\nC. From the Manage allocation policy blade of the Device Provisioning Service, configure an allocation policy: An allocation policy determines how devices are assigned to IoT hubs when they are provisioned by the Device Provisioning Service. It specifies the IoT hub to which a device should be provisioned based on criteria such as device ID, device group, and tags. Configuring an allocation policy is an important step for ensuring that the Device Provisioning Service can efficiently accept new device enrollments.\n\nTherefore, options A and C are the correct"
+      },
+      {
+        "date": "2023-04-07T22:15:00.000Z",
+        "voteCount": 1,
+        "content": "A. From the Linked IoT hubs blade of the Device Provisioning Service, link an Azure IoT hub: The Device Provisioning Service needs to be linked to an Azure IoT hub to enable it to provision devices for the hub. The linked IoT hub acts as the target hub for devices provisioned by the service. This step is required to enable the Device Provisioning Service to accept new device enrollments.\n\nC. From the Manage allocation policy blade of the Device Provisioning Service, configure an allocation policy: An allocation policy determines how devices are assigned to IoT hubs when they are provisioned by the Device Provisioning Service. It specifies the IoT hub to which a device should be provisioned based on criteria such as device ID, device group, and tags. Configuring an allocation policy is an important step for ensuring that the Device Provisioning Service can efficiently accept new device enrollments.\n\nTherefore, options A and C are the correct"
+      },
+      {
+        "date": "2023-04-07T22:11:00.000Z",
+        "voteCount": 1,
+        "content": "To ensure that the Device Provisioning Service can accept new device enrollments, the next two actions that should be performed are:\n\nA. From the Linked IoT hubs blade of the Device Provisioning Service, link an Azure IoT hub: The Device Provisioning Service needs to be linked to an Azure IoT hub to enable it to provision devices for the hub. The linked IoT hub acts as the target hub for devices provisioned by the service. This step is required to enable the Device Provisioning Service to accept new device enrollments.\n\nB. From the Azure portal, create a new Azure IoT hub: Before the Device Provisioning Service can start accepting new device enrollments, a new Azure IoT hub needs to be created. This IoT hub will act as the destination for devices that are provisioned by the Device Provisioning Service. If an IoT hub already exists, it can be used instead of creating a new one. This step is also required to enable the Device Provisioning Service to accept new device enrollments.\n\nTherefore, options A and B are the correct actions"
+      },
+      {
+        "date": "2022-07-10T04:07:00.000Z",
+        "voteCount": 1,
+        "content": "Should be A and B"
+      },
+      {
+        "date": "2022-07-08T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Only two steps that are not optional."
+      },
+      {
+        "date": "2022-06-09T11:14:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A &amp; D \nAllocation policy is not mandatory.\nhttps://docs.microsoft.com/en-us/azure/iot-dps/how-to-manage-enrollments"
+      },
+      {
+        "date": "2022-03-12T06:51:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with AC"
+      },
+      {
+        "date": "2022-01-16T18:45:00.000Z",
+        "voteCount": 2,
+        "content": "A and D.."
+      },
+      {
+        "date": "2022-01-16T10:36:00.000Z",
+        "voteCount": 3,
+        "content": "The answer makes no reference either to the authentication mechanism or to a different allocation policy, moreover the only existing resource is the resource the group sand so the iot hub must be created."
+      },
+      {
+        "date": "2021-11-23T06:55:00.000Z",
+        "voteCount": 2,
+        "content": "why it is not A and B?"
+      },
+      {
+        "date": "2021-05-05T10:42:00.000Z",
+        "voteCount": 8,
+        "content": "I also choose A and B. The question does not state that certificates need to be used and the allocation policy gets a default value."
+      },
+      {
+        "date": "2021-05-29T03:48:00.000Z",
+        "voteCount": 4,
+        "content": "I agree with A and B."
+      },
+      {
+        "date": "2021-04-10T23:48:00.000Z",
+        "voteCount": 5,
+        "content": "There are only two required steps A &amp; B. C and D are optional.\nStep 1 - Create IoT Hub (As creation of Hub is not mentioned)\nStep 2 - Link IoT Hub"
+      },
+      {
+        "date": "2021-04-22T05:54:00.000Z",
+        "voteCount": 5,
+        "content": "B is wrong, as per Microsoft recommended best practice, first deploy the IoT Hub, before DPS. \nhttps://docs.microsoft.com/en-us/azure/iot-dps/quick-setup-auto-provision\nHence, A is next step and C.\nD is a security option inside of C which is either individual or over-arching group enrollment"
+      },
+      {
+        "date": "2021-06-19T00:05:00.000Z",
+        "voteCount": 6,
+        "content": "technically, we can create DPS without IoT Hub. For for DPS to accept new enrolments, IoT Hub is must. Allocation policy is optional and CA will impact devices only from selected category. So my ans will be A and B."
+      },
+      {
+        "date": "2021-06-28T10:47:00.000Z",
+        "voteCount": 3,
+        "content": "correct. technically , Microsoft connects Allocation Policy to IoT Hubs. A DPS can have *custom* allocation policies"
+      },
+      {
+        "date": "2021-04-07T01:46:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is A and C"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24675-exam-az-220-topic-2-question-2-discussion/",
+    "body": "You have 10,000 IoT devices that connect to an Azure IoT hub. The devices do not support over-the-air (OTA) updates.<br>You need to decommission 1,000 devices. The solution must prevent connections and autoenrollment for the decommissioned devices.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the connectionState device twin property on all the devices.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBlacklist the X.509 root certification authority (CA) certificate for the enrollment group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the enrollment entry for the devices.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the identity certificate from the hardware security module (HSM) of the devices.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the device identity from the device registry of the IoT hub.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CE",
+    "answerDescription": "In general, deprovisioning a device involves two steps:<br>\u2711 Disenroll the device from your provisioning service, to prevent future auto-provisioning. Depending on whether you want to revoke access temporarily or permanently, you may want to either disable or delete an enrollment entry.<br>\u2711 Deregister the device from your IoT Hub, to prevent future communications and data transfer. Again, you can temporarily disable or permanently delete the device's entry in the identity registry for the IoT Hub where it was provisioned.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-dps/how-to-unprovision-devices",
+    "votes": [
+      {
+        "answer": "CE",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-03T04:13:00.000Z",
+        "voteCount": 19,
+        "content": "Should not hte answer be C &amp; E. \nThe question asks for stopping the auto enrollment for 1000 devices out of the 10,000"
+      },
+      {
+        "date": "2020-11-09T01:46:00.000Z",
+        "voteCount": 4,
+        "content": "Yes, you need first to disconnect them and then prevent it from enrollment."
+      },
+      {
+        "date": "2020-11-02T07:25:00.000Z",
+        "voteCount": 13,
+        "content": "I think correct answers should be C and E.\nThe statement says \"MUST PREVENT CONNECTIONS AND AUTO-ENROLLMENT\".\nBy deleting the enrollment entry, we are preventing devices from auto-enrolling but not from connecting. That's why we need also to delete their identities in the Identity Registry\n- Blacklisting the Root certificate would impact on the 10k devices, and we only want to disallow 1k devices.\nEven when we can create intermmediate certificates to disallow certain path in the chain, that option is not listed, and Option B clearly mentions ROOT CERTIFICATE, so I dont agree with option B"
+      },
+      {
+        "date": "2020-11-26T15:29:00.000Z",
+        "voteCount": 5,
+        "content": "I agree that this is correct. You don't want to affect the remaining devices - so can't blacklist. And since this is a permanent removal, disenroll and deregistration is the right process."
+      },
+      {
+        "date": "2022-03-12T07:16:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with CE"
+      },
+      {
+        "date": "2021-03-31T10:53:00.000Z",
+        "voteCount": 3,
+        "content": "For me, B is a wrong answer. It's required do deprovision 1000 of 10000 devies. Blacklisting root certificate seems like it will disable enrollments with other intermediate/leaf certificates chained to that root cert. There is a possibility, that other devices require that root cert, so doing that may cause issues in real life scenario."
+      },
+      {
+        "date": "2021-03-24T11:26:00.000Z",
+        "voteCount": 3,
+        "content": "Appeared for exam on 3/24/2021 and successfully cleared it, this question was there."
+      },
+      {
+        "date": "2021-01-12T14:22:00.000Z",
+        "voteCount": 8,
+        "content": "To deprovision a device that has an individual enrollment:\n1. Disenroll the device from your provisioning service\n2. Disable or delete the device in the identity registry of the IoT hub that it was provisioned to.\nhttps://docs.microsoft.com/en-us/azure/iot-dps/how-to-unprovision-devices\nC &amp; E it seems."
+      },
+      {
+        "date": "2020-11-21T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "Agree on BC"
+      },
+      {
+        "date": "2020-11-21T02:56:00.000Z",
+        "voteCount": 5,
+        "content": "Changed my mind to CE"
+      },
+      {
+        "date": "2020-10-12T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "Confusion here seems to be surrounding the term: blacklist.  Given answer is correct.  The documentation actually states this as being \"disallowed\".  X.509 certificates are typically arranged in a certificate chain of trust. If a certificate at any stage in a chain becomes compromised, trust is broken. \"The certificate must be disallowed to prevent Device Provisioning Service from provisioning devices downstream in any chain that contains that certificate. To learn more about X.509 certificates and how they are used with the provisioning service, see X.509 certificates.\" https://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal"
+      },
+      {
+        "date": "2020-07-24T16:57:00.000Z",
+        "voteCount": 3,
+        "content": "Correct ans are BC:\n\nDeprovisioning process:\n-Disenrollment (Blacklist individual devices or an enrollment group\n-Deregister (Delete de device enrollment entries)"
+      },
+      {
+        "date": "2020-07-21T20:33:00.000Z",
+        "voteCount": 2,
+        "content": "Guidance for this scenario has changed. To blacklist specific devices in an Enrollment group, without blacklisting the entire enrolment group, you can add the specific devices and their certificates as individually enrolled devices, and then disable them.\n\nDPS first checks individual enrolments. If it finds a match that is disabled, it will refuse the connection, even if a non-blacklisted match exists in group enrolments:\n\nhttps://docs.microsoft.com/en-us/azure/iot-dps/how-to-revoke-device-access-portal#blacklist-specific-devices-in-an-enrollment-group"
+      },
+      {
+        "date": "2020-07-20T07:27:00.000Z",
+        "voteCount": 3,
+        "content": "B &amp; C is the correct answer - blacklist the cert or delete the enrollment group \n\nTo blacklist the certificate, you can either disable or delete its enrollment group."
+      },
+      {
+        "date": "2020-07-04T02:31:00.000Z",
+        "voteCount": 4,
+        "content": "I think it's B &amp; E - https://docs.microsoft.com/en-us/azure/iot-dps/how-to-unprovision-devices"
+      },
+      {
+        "date": "2020-07-22T07:04:00.000Z",
+        "voteCount": 1,
+        "content": "I also think B&amp;E because there are 2 basic steps to disenroll an automatically provisioned device ,first blacklist the certificate/disable the enrollment group .secondly delete/disable the device entry in the IoT hub identity registry"
+      },
+      {
+        "date": "2020-08-05T01:30:00.000Z",
+        "voteCount": 5,
+        "content": "It states \"For devices that use X.509 attestation, you may want to disable/delete an entry in the hierarchy of your existing enrollment groups\". So this is not always mandatory. The page is clear Disenroll en Deregister = C &amp; E"
+      },
+      {
+        "date": "2020-08-31T00:50:00.000Z",
+        "voteCount": 2,
+        "content": "I think it's B&amp;E. 1st: The question is not clear if these 1.000 devices are  in 1 enrollment group or if all 10,000 devices are in one enrollment group.\n2nd: The question states that there are 10.000 devices and you only need to prevent 1000 devices for qutoenrollment. So, assuming that all the 10.000 devices are in the same enrollment group (because it's not specified), blacklisting the certificate affects all 10.000 devices.\nSo, you have to delete the enrollment entries for the 10000 devices and delete the device identity from the device registry in the IoT hub. Just like preventing one single IoT device from autoenrollment"
+      },
+      {
+        "date": "2020-08-31T01:44:00.000Z",
+        "voteCount": 8,
+        "content": "I mean C&amp;E off course"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54044-exam-az-220-topic-2-question-3-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure IoT Central application that has a custom device template.<br>You need to configure the device template to support the following activities:<br>\u2711 Return the reported power consumption.<br>\u2711 Configure the desired fan speed.<br>\u2711 Run the device reset routine.<br>\u2711 Read the fan serial number.<br>Which option should you use for each activity? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04123/0003700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04123/0003800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "A device template in Azure IoT Central is a blueprint that defines the:<br>\u2711 Telemetry a device sends to IoT Central.<br>\u2711 Properties a device synchronizes with IoT Central.<br>\u2711 Commands that IoT Central calls on a device.<br><br>Box 1: Measurement -<br>Telemetry/measurement is a stream of values sent from the device, typically from a sensor. For example, a sensor might report the ambient temperature.<br><br>Box 2: Properties -<br>The template can provide a writeable fan speed property<br>Properties represent point-in-time values. For example, a device can use a property to report the target temperature it's trying to reach. You can set writeable properties from IoT Central.<br><br>Box 3: Properties -<br><br>Box 4: Command -<br>You can call device commands from IoT Central. Commands optionally pass parameters to the device and receive a response from the device. For example, you can call a command to reboot a device in 10 seconds.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-central/core/howto-set-up-template",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-08T03:29:00.000Z",
+        "voteCount": 11,
+        "content": "The question Options are wrong. The correct answer is:\na. Return the reported power consumption --&gt; Telemetry\nb. Configure the desired fan speed --&gt; Properties\nc. Read the fan serial number --&gt; Cloud Properties\nd. Run the device reset routine --&gt; command"
+      },
+      {
+        "date": "2021-06-27T23:01:00.000Z",
+        "voteCount": 1,
+        "content": "I am not sure but \"Run device reset routine\" sounds like a \"Settings\" answer.\nAm I right?"
+      },
+      {
+        "date": "2021-06-01T01:03:00.000Z",
+        "voteCount": 2,
+        "content": "I am not sure but \"Configure the desired fan speed\" sounds like \"Settings\" answer.\nAm I right?"
+      },
+      {
+        "date": "2021-06-07T11:53:00.000Z",
+        "voteCount": 3,
+        "content": "No, because there is no \"settings\" when it comes to device template \"interfaces\"\nhttps://docs.microsoft.com/en-us/azure/iot-central/core/concepts-device-templates#interfaces"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23031-exam-az-220-topic-2-question-4-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure IoT Central application that includes a Device Provisioning Service instance.<br>You need to connect IoT devices to the application without first registering the devices.<br>In which order should you perform the actions? To answer, move all actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04123/0004000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04123/0004000002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Obtain the credential -<br>Obtain the group primary key from the IoT Central enrollment group.<br>Step 2: Generate device credentials<br>The group primary key used to generate device credentials<br>Step 3: Flash unique credentials to the devices<br>The OEM flashes each device with a device ID, a generated device SAS key, and the application ID scope value.<br>Step 4: Connect the devices to IoT Central<br>Step 5: Associate the devices to a template and approve the connections<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-get-connected",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-17T03:28:00.000Z",
+        "voteCount": 51,
+        "content": "I think it should be \n- Obtain cred\n- Generate cred\n- Flash cred\n- Connect\n- Associate\nWe need to obtain the  IoT Central application's group primary key first to generate the device credentials.\n\nhttps://docs.microsoft.com/en-us/azure/iot-central/core/concepts-get-connected#connect-without-registering-devices"
+      },
+      {
+        "date": "2020-07-20T07:38:00.000Z",
+        "voteCount": 12,
+        "content": "theiotguy is right. The question is not well written. The first step should be written as \"Obtain  the group primary key from the IoT Central enrollment group\". The second step should be \"User the group primary key to generate device credentials\"\n\nPurposely obtuse in order to confuse. Poor question."
+      },
+      {
+        "date": "2022-02-27T05:40:00.000Z",
+        "voteCount": 2,
+        "content": "Came in Exam Feb 2022."
+      },
+      {
+        "date": "2021-02-25T20:04:00.000Z",
+        "voteCount": 2,
+        "content": "The given answers seem to be correct. Check this link https://docs.microsoft.com/en-us/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-csharp"
+      },
+      {
+        "date": "2021-01-15T23:06:00.000Z",
+        "voteCount": 3,
+        "content": "Question appeared on exam"
+      },
+      {
+        "date": "2021-01-18T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "You gave it recently?\nHow many questions did appear?"
+      },
+      {
+        "date": "2020-06-14T01:37:00.000Z",
+        "voteCount": 7,
+        "content": "I am no expert but according to the content, the sequence should be\n- Generate cred\n- Obtain cred\n- Flash cred\n- Connect\n- Associate"
+      },
+      {
+        "date": "2020-06-13T00:29:00.000Z",
+        "voteCount": 3,
+        "content": "To make sense, \"obtain the credential\" should be moved to step 3"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54861-exam-az-220-topic-2-question-5-discussion/",
+    "body": "You have an Azure IoT Central application.<br>You need to connect an IoT device to the application.<br>Which two settings do you require in IoT Central to configure the device? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGroup SAS Primary Key\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe IoT hub name",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tScope ID\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication Name",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice ID"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-08T07:12:00.000Z",
+        "voteCount": 11,
+        "content": "We need the Scope ID and Device ID to configure the device in IoT Central. Answer should be C &amp; E."
+      },
+      {
+        "date": "2022-12-05T03:51:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/iot-central/core/quick-deploy-iot-central"
+      },
+      {
+        "date": "2022-12-24T12:47:00.000Z",
+        "voteCount": 3,
+        "content": "Get connection information\nWhen you run the sample device application later in this tutorial, you need the following configuration values:\n\nID scope: In your IoT Central application, navigate to Permissions &gt; Device connection groups. Make a note of the ID scope value.\nGroup primary key: In your IoT Central application, navigate to Permissions &gt; Device connection groups &gt; SAS-IoT-Devices. Make a note of the shared access signature Primary key value.\nhttps://learn.microsoft.com/en-us/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-javascript"
+      },
+      {
+        "date": "2022-01-25T23:23:00.000Z",
+        "voteCount": 1,
+        "content": "Not sure about the exact answer, but below seems to be the relevant link\nhttps://docs.microsoft.com/en-us/azure/iot-central/core/concepts-get-connected"
+      },
+      {
+        "date": "2021-12-30T23:04:00.000Z",
+        "voteCount": 4,
+        "content": "A&amp;C is correct as we see on links\nhttps://docs.microsoft.com/bs-cyrl-ba/azure/iot-central/core/tutorial-connect-device?pivots=programming-language-ansi-c\nAnd as IoT Central uses DPS under the hood for device connect\nhttps://docs.microsoft.com/en-us/azure/iot-dps/concepts-service\n\"The device ID is the ID as it appears in IoT Hub. The desired device ID may be set in the enrollment entry, but it is not required to be set. \""
+      },
+      {
+        "date": "2021-11-08T04:11:00.000Z",
+        "voteCount": 2,
+        "content": "C &amp; E --&gt; Scope ID, Device ID."
+      },
+      {
+        "date": "2021-08-14T01:40:00.000Z",
+        "voteCount": 4,
+        "content": "Given answer is correct according https://docs.microsoft.com/bs-cyrl-ba/azure/iot-central/core/tutorial-connect-device:\n\nWhen you run the sample device application later in this tutorial, you need the following configuration values:\n- ID scope: In your IoT Central application, navigate to Administration &gt; Device Connection. Make a note of the ID scope value.\n- Group primary key: In your IoT Central application, navigate to Administration &gt; Device Connection &gt; SAS-IoT-Devices. Make a note of the shared access signature Primary key value."
+      },
+      {
+        "date": "2021-06-07T23:30:00.000Z",
+        "voteCount": 2,
+        "content": "I vote for C+E. A device application need the device-id to connect. SAS key may be also correct, but there are other enrollment methods available"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37461-exam-az-220-topic-2-question-6-discussion/",
+    "body": "You have an existing Azure IoT hub.<br>You use IoT Hub jobs to schedule long running tasks on connected devices.<br>Which three operations do the IoT Hub jobs support directly? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTrigger Azure functions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInvoke direct methods.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate desired properties.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSend cloud-to-device messages.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable IoT device registry entries.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate tags."
+    ],
+    "answer": "BCF",
+    "answerDescription": "Consider using jobs when you need to schedule and track progress any of the following activities on a set of devices:<br>\u2711 Invoke direct methods<br>\u2711 Update desired properties<br>\u2711 Update tags<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-jobs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-14T01:45:00.000Z",
+        "voteCount": 9,
+        "content": "Given answer is correct. The question explanation and reference are clear."
+      },
+      {
+        "date": "2021-08-14T01:46:00.000Z",
+        "voteCount": 7,
+        "content": "-    Update desired properties\n-    Update tags\n-    Invoke direct methods"
+      },
+      {
+        "date": "2020-11-21T03:56:00.000Z",
+        "voteCount": 8,
+        "content": "BCF is ok"
+      },
+      {
+        "date": "2021-05-09T00:29:00.000Z",
+        "voteCount": 2,
+        "content": "Tags are not visible on the device. Should be BCD, adding 'D. Send cloud-to-device messages.'"
+      },
+      {
+        "date": "2021-05-22T02:47:00.000Z",
+        "voteCount": 6,
+        "content": "You are wrong. IoT Hub jobs is running on IoT hub not on device.  tag can be updated by IoT hub jobs. Correct answer is BCF"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26585-exam-az-220-topic-2-question-7-discussion/",
+    "body": "You have an Azure IoT hub.<br>You need to recommend a solution to scale the IoT hub automatically.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an SMS alert in IoT Hub for the Total number of messages used metric.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an Azure function that retrieves the quota metrics of the IoT hub.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure autoscaling in Azure Monitor.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEmit custom metrics from the IoT device code and create an Azure Automation runbook alert."
+    ],
+    "answer": "B",
+    "answerDescription": "Note: IoT Hub is scaled and priced based on an allowed number of messages per day across all devices connected to that IoT Hub. If you exceed the allowed message threshold for your chosen tier and number of units, IoT Hub will begin rejecting new messages. To date, there is no built-in mechanism for automatically scaling an IoT Hub to the next level of capacity if you approach or exceed that threshold.<br>Reference:<br>https://docs.microsoft.com/en-us/samples/azure-samples/iot-hub-dotnet-autoscale/iot-hub-dotnet-autoscale/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-14T06:11:00.000Z",
+        "voteCount": 10,
+        "content": "B.\nHere is explanation:\nhttps://docs.microsoft.com/en-us/samples/azure-samples/iot-hub-dotnet-autoscale/iot-hub-dotnet-autoscale/\nThe solution consists of three Azure Functions, each one playing a specific part in the Azure Durable Functions framework\nIotHubScaleInit \u2013 this function is executed on a regular timer. This function checks to see if an instance of the Orchestrator function is running and, if not, starts one. In essence, it\u2019s used to \u201ckick off\u201d the solution and make sure it\u2019s always running. For the sample, it is set for once per hour, but can be set to any period.\nIotHubScaleOrchestrator \u2013 this function implements the \u201cOrchestrator\u201d for the solution. It\u2019s role in the pattern is to manage the execution of the worker function (asynchronously, and safely), and to, once it\u2019s done, re-schedule itself for execution after a specific number of minutes.\nIotHubScaleWorker \u2013 this is the function that performs the actions of checking to see if the IoTHub needs to be scales and, if so, scaling it."
+      },
+      {
+        "date": "2021-02-26T09:18:00.000Z",
+        "voteCount": 7,
+        "content": "No confusion B is the correct answer.\nCreate Azure Function to retrieve the Quota Metrics of the IoT Hub"
+      },
+      {
+        "date": "2020-11-05T08:15:00.000Z",
+        "voteCount": 2,
+        "content": "If you are approaching the allowed message limit on your IoT hub, you can use these steps to automatically scale to increment an IoT Hub unit in the same IoT Hub tier.\nhttps://docs.microsoft.com/de-de/azure/iot-hub/iot-hub-scaling\nhttps://docs.microsoft.com/de-de/samples/azure-samples/iot-hub-dotnet-autoscale/iot-hub-dotnet-autoscale/"
+      },
+      {
+        "date": "2020-07-24T17:03:00.000Z",
+        "voteCount": 5,
+        "content": "Ans is B, the answer could be D but is talking about iothub \"code\"."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24849-exam-az-220-topic-2-question-8-discussion/",
+    "body": "You have an Azure IoT hub that uses a Device Provisioning Service instance.<br>You create a new individual device enrollment that uses symmetric key attestation.<br>Which detail from the enrollment is required to auto provision the device by using the Device Provisioning Service?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe registration ID of the enrollment",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe primary key of the enrollment",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe device identity of the IoT hub",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe hostname of the IoT hub"
+    ],
+    "answer": "A",
+    "answerDescription": "The registration ID is used to uniquely identify a device registration with the Device Provisioning Service. The device ID must be unique in the provisioning service<br>ID scope. Each device must have a registration ID.<br>Note: An individual enrollment is an entry for a single device that may register. Individual enrollments may use either X.509 leaf certificates or SAS tokens (from a physical or virtual TPM) as attestation mechanisms. The registration ID in an individual enrollment is alphanumeric, lowercase, and may contain hyphens.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-dps/concepts-service#enrollment",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-06T01:12:00.000Z",
+        "voteCount": 25,
+        "content": "Ans is A Registration ID is a required field"
+      },
+      {
+        "date": "2020-08-05T01:43:00.000Z",
+        "voteCount": 5,
+        "content": "When adding an enrollment the device ID should be provided, during provisioning the registration ID is required. I agree answer should be A."
+      },
+      {
+        "date": "2021-04-12T07:20:00.000Z",
+        "voteCount": 6,
+        "content": "Device ID is optional, whereas registration ID is mandatory. If Device ID is not provided, it is autofill by Registration ID. I agree answer should be A."
+      },
+      {
+        "date": "2022-12-05T04:14:00.000Z",
+        "voteCount": 1,
+        "content": "Reference to https://learn.microsoft.com/en-us/azure/iot-dps/media/quick-create-simulated-device-symm-key/create-individual-enrollment-nodejs.png"
+      },
+      {
+        "date": "2021-01-03T09:55:00.000Z",
+        "voteCount": 2,
+        "content": "yes, but the Reg. ID is not a 'detail from the enrollment'.  B, Primary Key is correct IMO."
+      },
+      {
+        "date": "2021-04-08T05:59:00.000Z",
+        "voteCount": 4,
+        "content": "Correct and confirmed here: https://docs.microsoft.com/en-us/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#request-body"
+      },
+      {
+        "date": "2020-07-22T10:04:00.000Z",
+        "voteCount": 9,
+        "content": "I would say the answer is A ,  Registration ID is mandatory \nhttps://docs.microsoft.com/en-us/azure/iot-dps/concepts-device"
+      },
+      {
+        "date": "2022-06-03T20:08:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is A Registration ID for individual device enrollment"
+      },
+      {
+        "date": "2022-05-26T19:06:00.000Z",
+        "voteCount": 1,
+        "content": "I think the question wants to say \"which field is mandatory in 'Add enrollment screen'\". I that case, only registration id is mandatory.\nVery confusing question, I totally agree."
+      },
+      {
+        "date": "2021-06-18T23:52:00.000Z",
+        "voteCount": 2,
+        "content": "It shall be B. Reason - Device Enrollment is already done, now need Primary Key which will be used to create SAS token"
+      },
+      {
+        "date": "2021-03-26T01:11:00.000Z",
+        "voteCount": 1,
+        "content": "Confusing question, question says which details is required, then ans is A. but to auto provision device id is used !"
+      },
+      {
+        "date": "2021-02-26T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "The Device Identity of the IoT Hub\nIs the correct one. Checked the documents and couple of other sites."
+      },
+      {
+        "date": "2021-01-22T12:52:00.000Z",
+        "voteCount": 3,
+        "content": "An enrollment is the record of devices or groups of devices that may register through auto-provisioning. The enrollment record contains information about the device or group of devices, including:\n\nthe attestation mechanism used by the device\nthe optional initial desired configuration\ndesired IoT hub\nthe desired device ID\n\n\nGIven answer is correct\nToo much confusion in the comments"
+      },
+      {
+        "date": "2021-01-08T12:00:00.000Z",
+        "voteCount": 2,
+        "content": "Answer B is correct. The RegID will be used to generate a symmetric key (e.g. the primary and secondary key) which will be used to authenticate with the DPS during provisioning."
+      },
+      {
+        "date": "2020-12-08T14:18:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B.\nRegistration ID is a device identifier not enrollment group, so it is not A.\n\"Open the enrollment and copy the value of your generated Primary Key.\" \nhttps://docs.microsoft.com/en-us/azure/iot-dps/how-to-legacy-device-symm-key"
+      },
+      {
+        "date": "2020-10-13T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "A and/or B for a symmetric device.  https://docs.microsoft.com/bs-latn-ba/azure/iot-dps/quick-create-device-symmetric-key-python#prepare-the-device-provisioning-code"
+      },
+      {
+        "date": "2020-09-20T21:14:00.000Z",
+        "voteCount": 7,
+        "content": "Definitely  A is the Answer"
+      },
+      {
+        "date": "2020-07-21T10:37:00.000Z",
+        "voteCount": 7,
+        "content": "Ans is A:\nhttps://docs.microsoft.com/en-us/azure/iot-dps/about-iot-dps"
+      },
+      {
+        "date": "2020-07-06T22:10:00.000Z",
+        "voteCount": 8,
+        "content": "I will go with A) as \"registration ID\" is a mandatory field when adding a device individual enrollment in DPS"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49601-exam-az-220-topic-2-question-9-discussion/",
+    "body": "You have an Azure IoT hub that uses a Device Provisioning Service instance to automate the deployment of Azure IoT Edge devices.<br>The IoT Edge devices have a Trusted Platform Module (TPM) 2.0 chip.<br>From the Azure portal, you plan to add an individual enrollment to the Device Provisioning Service that will use the TPM of the IoT Edge devices as the attestation mechanism.<br>Which detail should you obtain before you can create the enrollment?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe scope ID and the Device Provisioning Service endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe primary key of the Device Provisioning Service shared access policy and the global device endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe X.509 device certificate and the certificate chain",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe endorsement key and the registration ID"
+    ],
+    "answer": "D",
+    "answerDescription": "The TPM simulator's Registration ID and the Endorsement key, are used when you create an individual enrollment for your device.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-edge/how-to-auto-provision-simulated-device-linux",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-08T06:01:00.000Z",
+        "voteCount": 9,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-08-19T21:13:00.000Z",
+        "voteCount": 4,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26373-exam-az-220-topic-2-question-10-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have devices that connect to an Azure IoT hub. Each device has a fixed GPS location that includes latitude and longitude.<br>You discover that a device entry in the identity registry of the IoT hub is missing the GPS location.<br>You need to configure the GPS location for the device entry. The solution must prevent the changes from being propagated to the physical device.<br>Solution: You use an Azure policy to apply tags to a resource group.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead tags should be added to the Device twin.<br>Tags: A section of the JSON document that the solution back end can read from and write to. Tags are not visible to device apps.<br>Reference:<br>https://docs.microsoft.com/de-de/azure/iot-hub/iot-hub-devguide-device-twins https://azure.microsoft.com/sv-se/blog/deep-dive-into-azure-iot-hub-notifications-and-device-twin/",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-21T20:14:00.000Z",
+        "voteCount": 16,
+        "content": "The explanation of the answer is slightly inaccurate.\nThe question specifies that this information should not be propagated to the device.\n\nFor that reason, you should not put the information in the desired properties. Information in the \"desired properties\" will propagate to the devices.\n\nYou should instead put that information in the device tags. Information in the devices tags do not propagate to the physical device."
+      },
+      {
+        "date": "2021-05-04T06:52:00.000Z",
+        "voteCount": 3,
+        "content": "WRONG!\nA desired property: is WRITTEN by a back-end application and READ ONLY by a device.\nA reported property is WRITTEN by a device and READ ONLY by a back-end application.\nA tag is set by a back-end application and is NEVER sent to a device.\nhttps://docs.microsoft.com/en-us/azure/iot-hub/tutorial-device-twins\n(some clown has copied the same answers from 1 question to all the questions of this sim)\nRead the question:\nYou need to configure the GPS location for the device entry. The solution must prevent the changes from being propagated (=NEVER) to the physical device.\n=TAGS!"
+      },
+      {
+        "date": "2021-05-30T23:36:00.000Z",
+        "voteCount": 6,
+        "content": "The answer given is \"no\" and it is correct. The reason is that \"resource tags\" are not appropriate in this case. \"Twin tags\" are instead appropriate. In Azure every resource may have tags, those are called \"resource tags\", but are used for organizing resources. In this case \"twin tags\" are needed, which are a completely different concept"
+      },
+      {
+        "date": "2021-12-30T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "best explanation here"
+      },
+      {
+        "date": "2022-03-06T11:50:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct, Instead tags should be added to the Device twin."
+      },
+      {
+        "date": "2020-11-20T03:47:00.000Z",
+        "voteCount": 2,
+        "content": "I think the answer should be Yes ... it has to be tags ... i think the answer give is inaccurate."
+      },
+      {
+        "date": "2020-11-20T03:50:00.000Z",
+        "voteCount": 4,
+        "content": "Might be the Answer is right as a NO ... since we dont apply tags to the resource group, but to the device twin. I think the answer is right, but the explanation is misleading"
+      },
+      {
+        "date": "2020-10-09T07:16:00.000Z",
+        "voteCount": 2,
+        "content": "A tag is set by a back-end application and is never sent to a device"
+      },
+      {
+        "date": "2020-09-29T08:37:00.000Z",
+        "voteCount": 2,
+        "content": "Should the answer be yes?"
+      },
+      {
+        "date": "2020-10-05T00:26:00.000Z",
+        "voteCount": 11,
+        "content": "The answer is no. It should say \"Device Tags\" not resource tags."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24436-exam-az-220-topic-2-question-11-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have devices that connect to an Azure IoT hub. Each device has a fixed GPS location that includes latitude and longitude.<br>You discover that a device entry in the identity registry of the IoT hub is missing the GPS location.<br>You need to configure the GPS location for the device entry. The solution must prevent the changes from being propagated to the physical device.<br>Solution: You add tags to the device twin.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Tags are not synced.<br>Tags: A section of the JSON document that the solution back end can read from and write to. Tags are not visible to device apps.<br>Reference:<br>https://docs.microsoft.com/de-de/azure/iot-hub/iot-hub-devguide-device-twins https://azure.microsoft.com/sv-se/blog/deep-dive-into-azure-iot-hub-notifications-and-device-twin/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-30T03:04:00.000Z",
+        "voteCount": 19,
+        "content": "Ans should be \"No\". Bu using desired properties, changes will be propagated to device"
+      },
+      {
+        "date": "2020-11-04T08:08:00.000Z",
+        "voteCount": 6,
+        "content": "Yeah, \nAnswer is No because solution is: Tags. A section of the JSON document that the solution back end can read from and write to. Tags are not visible to device apps.\nhttps://docs.microsoft.com/de-de/azure/iot-hub/iot-hub-devguide-device-twins"
+      },
+      {
+        "date": "2021-06-28T11:58:00.000Z",
+        "voteCount": 3,
+        "content": "so youre saying the answer is Yes which is correct."
+      },
+      {
+        "date": "2021-05-04T06:48:00.000Z",
+        "voteCount": 3,
+        "content": "WRONG!\nyou are correct, the answer is tags. \nA desired property: is WRITTEN by a back-end application and READ ONLY by a device.\nA reported property is WRITTEN by a device and READ ONLY by a back-end application.\nA tag is set by a back-end application and is NEVER sent to a device.\nhttps://docs.microsoft.com/en-us/azure/iot-hub/tutorial-device-twins\n(some clown has copied the same answers from 1 question to all the questions of this sim)"
+      },
+      {
+        "date": "2021-05-04T06:49:00.000Z",
+        "voteCount": 1,
+        "content": "Read the question: \nYou need to configure the GPS location for the device entry. The solution must prevent the changes from being propagated (=NEVER) to the physical device.\n=TAGS!"
+      },
+      {
+        "date": "2021-03-15T02:13:00.000Z",
+        "voteCount": 13,
+        "content": "You need to configure the GPS location for the device entry. The solution must prevent the changes from being propagated to the physical device.\nSolution: You add tags to the device twin.\nDoes the solution meet the goal?\n\nThe answer should be Yes. \n\nUpdating/Adding Tags to Device Twin will not propagate changes to the device."
+      },
+      {
+        "date": "2021-05-04T06:47:00.000Z",
+        "voteCount": 4,
+        "content": "you are correct, the answer is tags. \nA desired property: is WRITTEN by a back-end application and READ ONLY by a device.\nA reported property is WRITTEN by a device and READ ONLY by a back-end application.\nA tag is set by a back-end application and is NEVER sent to a device.\nhttps://docs.microsoft.com/en-us/azure/iot-hub/tutorial-device-twins\n(some clown has copied the same answers from 1 question to all the questions of this sim)"
+      },
+      {
+        "date": "2021-05-27T00:40:00.000Z",
+        "voteCount": 4,
+        "content": "Yes\n\" The solution must prevent the changes from being propagated to the physical device.\""
+      },
+      {
+        "date": "2021-03-26T05:08:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is No. Tags. A section of the JSON document that the solution back end can read from and write to. Tags are not visible to device apps."
+      },
+      {
+        "date": "2020-11-21T02:41:00.000Z",
+        "voteCount": 3,
+        "content": "B is the way"
+      },
+      {
+        "date": "2020-07-20T03:06:00.000Z",
+        "voteCount": 10,
+        "content": "The answer should be NO"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54912-exam-az-220-topic-2-question-12-discussion/",
+    "body": "You have an existing Azure IoT hub.<br>You use IoT Hub jobs to schedule long running tasks on connected devices.<br>Which two operations do the IoT Hub jobs support directly? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTrigger Azure functions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInvoke direct methods.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate desired properties.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSend cloud-to-device messages.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable IoT device registry entries."
+    ],
+    "answer": "BC",
+    "answerDescription": "Consider using jobs when you need to schedule and track progress any of the following activities on a set of devices:<br>\u2711 Invoke direct methods<br><br>Update desired properties -<br><img src=\"/assets/media/exam-media/04123/0004600002.png\" class=\"in-exam-image\"><br>\u2711 Update tags<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-jobs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-08T13:05:00.000Z",
+        "voteCount": 5,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48105-exam-az-220-topic-2-question-13-discussion/",
+    "body": "You have 1,000 IoT devices that connect to an Azure IoT hub.<br>Each device has a property tag named city that is used to store the location of the device.<br>You need to update the properties on all the devices located at an office in the city of Seattle as quickly as possible. Any new devices in the Seattle office that are added to the IoT hub must receive the updated properties also.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Automatic Device Management, create an IoT device configuration.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the IoT hub, generate a query for the target devices.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a scheduled job by using the IoT Hub service SDKs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an Azure IoT Edge transparent gateway to the Seattle office and deploy an Azure Stream Analytics edge job."
+    ],
+    "answer": "A",
+    "answerDescription": "Automatic device management in Azure IoT Hub automates many of the repetitive and complex tasks of managing large device fleets. With automatic device management, you can target a set of devices based on their properties, define a desired configuration, and then let IoT Hub update the devices when they come into scope. This update is done using an automatic device configuration or automatic module configuration, which lets you summarize completion and compliance, handle merging and conflicts, and roll out configurations in a phased approach.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-automatic-device-management",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-03T13:05:00.000Z",
+        "voteCount": 11,
+        "content": "Very happy to know that you have appeared the exam on 24/3/21 and clearing it too.\n\nInstead of commenting this , mention the correct answer."
+      },
+      {
+        "date": "2022-07-20T04:42:00.000Z",
+        "voteCount": 2,
+        "content": "why not B?"
+      },
+      {
+        "date": "2021-08-14T02:30:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2021-11-03T10:02:00.000Z",
+        "voteCount": 1,
+        "content": "What is the given answer? They changed a couple of answers recently"
+      },
+      {
+        "date": "2021-06-28T12:08:00.000Z",
+        "voteCount": 3,
+        "content": "not sure why C can\u2019t be true (too). From https://docs.microsoft.com/en-us/azure/iot-develop/about-iot-sdks:\n\nIoT Hub\nThe IoT Hub service SDKs allow you to build applications that easily interact with your IoT Hub to manage devices and security. You can use these SDKs to send cloud-to-device messages, invoke direct methods on your devices, update device properties, and more."
+      },
+      {
+        "date": "2022-01-04T01:20:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed, there is more then one way to skin a cat)\nAnd SDK can do it also, and I would say SDK works under the hood of Automatic device management.\nBut MS always ask how to do something easiest and simpliest way, so A.\nbtw SDK is the only way to do it on basic tier because Automatic device management use twins"
+      },
+      {
+        "date": "2022-01-05T00:15:00.000Z",
+        "voteCount": 1,
+        "content": "disregard my words of basic tier,as we have no any twins there)"
+      },
+      {
+        "date": "2021-03-24T11:27:00.000Z",
+        "voteCount": 3,
+        "content": "Appeared for exam on 3/24/2021 and successfully cleared it, this question was there."
+      },
+      {
+        "date": "2021-04-03T13:06:00.000Z",
+        "voteCount": 17,
+        "content": "Very happy to know that you have appeared the exam on 24/3/21 and cleared it too.\n\nInstead of commenting this , mention the correct answer."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48106-exam-az-220-topic-2-question-14-discussion/",
+    "body": "You have an Azure IoT Central application.<br>You add an IoT device named Oven1 to the application. Oven1 uses an IoT Central template for industrial ovens.<br>You need to send an email to the managers group at your company as soon as the oven temperature falls below 400 degrees.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SendGrid account in the same resource group as the IoT Central application.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a condition that has Time Aggregation set to Off.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a condition that has Aggregation set to Minimum.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the Manager role to the IoT Central application.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom IoT Central, create a telemetry rule for the template."
+    ],
+    "answer": "BE",
+    "answerDescription": "Devices use telemetry to send numerical data from the device. A rule triggers when the selected telemetry crosses a specified threshold.<br>E: To create a telemetry rule, the device template must include at least one telemetry value. The rule monitors the temperature reported by the device and sends an email when it falls below 400 degrees.<br>B: Configure the rule conditions.<br>Conditions define the criteria that the rule monitors. In this tutorial, you configure the rule to fire when the temperature exceeds 70\u05b2\u00b0 F.<br>1. Select Temperature in the Telemetry dropdown.<br>2. Next, choose Is less than as the Operator and enter 400 as the Value.<br><img src=\"/assets/media/exam-media/04123/0004900001.jpg\" class=\"in-exam-image\"><br>3. Optionally, you can set a Time aggregation. When you select a time aggregation, you must also select an aggregation type, such as average or sum from the aggregation drop-down.<br>\u2711 Without aggregation, the rule triggers for each telemetry data point that meets the condition.<br>\u2711 With aggregation, the rule triggers if the aggregate value of the telemetry data points in the time window meets the condition.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-central/core/tutorial-create-telemetry-rules",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-28T12:16:00.000Z",
+        "voteCount": 8,
+        "content": "answers are correct. \nA is technically possible but unnecessary and complete overkill, so you would \u2018lose\u2019 a step. The other options are nonsense."
+      },
+      {
+        "date": "2021-03-24T11:27:00.000Z",
+        "voteCount": 5,
+        "content": "Appeared for exam on 3/24/2021 and successfully cleared it, this question was there."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48107-exam-az-220-topic-2-question-15-discussion/",
+    "body": "You have an Azure IoT solution that includes multiple Azure IoT hubs in different geographic locations and a single Device Provision Service instance.<br>You need to configure device enrollment to assign devices to the appropriate IoT hub based on the following requirements:<br>\u2711 The registration ID of the device<br>The geographic location of the device<br><img src=\"/assets/media/exam-media/04123/0004900005.png\" class=\"in-exam-image\"><br>The load between the IoT hubs in the same geographic location must be balanced.<br>What should you use to assign the devices to the IoT hubs?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStatic configuration (via enrollment list only)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLowest latency",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEvenly weighted distribution",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCustom (Use Azure Function)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-11T21:09:00.000Z",
+        "voteCount": 16,
+        "content": "I think the answer should be D? It requires dps to allocate devices based on the registration ID of the device and the geographic location of the device. And also the load-balance should be made. But the static configuration can not achieve this requirement. The logic can be written in the Azure Function. So I think answer is D."
+      },
+      {
+        "date": "2021-05-11T22:28:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/iot-dps/how-to-use-custom-allocation-policies?tabs=windows"
+      },
+      {
+        "date": "2021-06-28T12:21:00.000Z",
+        "voteCount": 4,
+        "content": "you\u2019re right. The load balancer is of second order. Geogr. comes first. Only custom config can do this."
+      },
+      {
+        "date": "2021-05-23T01:01:00.000Z",
+        "voteCount": 7,
+        "content": "answer should be D.  it require to base registration id and geographic location to assign device to IoT hub.  It only can be done by Customised Function App."
+      },
+      {
+        "date": "2023-07-06T05:47:00.000Z",
+        "voteCount": 1,
+        "content": "\"Static configuration: devices are provisioned to a single IoT hub, which must be specified on the enrollment.\" So Answer should be D.\n\nhttps://learn.microsoft.com/en-us/azure/iot-dps/how-to-use-allocation-policies#understand-allocation-policies"
+      },
+      {
+        "date": "2023-04-07T23:02:00.000Z",
+        "voteCount": 1,
+        "content": "\"Custom (Use Azure Function)\" allocation policy option.\n\nThis option allows you to use a custom Azure Function to dynamically allocate devices to IoT hubs based on your specific criteria, including the device's registration ID and geographic location. You can write a function that takes the device's metadata as input and returns the IoT hub endpoint that the device should be provisioned to. This enables you to apply more complex allocation logic beyond the standard allocation policy options provided by Azure IoT Hub.\n\nUsing the custom allocation policy, you can implement a load balancing strategy that distributes devices evenly between IoT hubs in the same geographic location, based on the current load and availability of each hub. This can help ensure that the devices are distributed efficiently and prevent overloading of any particular IoT hub.\n\nTherefore, the correct answer is option D: Custom (Use Azure Function)."
+      },
+      {
+        "date": "2022-07-20T07:40:00.000Z",
+        "voteCount": 1,
+        "content": "why not Evenly weighted distribution?"
+      },
+      {
+        "date": "2022-12-24T13:53:00.000Z",
+        "voteCount": 2,
+        "content": "It misses the requirement \"The load between the IoT hubs in the same geographic location must be balanced\"."
+      },
+      {
+        "date": "2022-07-08T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "Only way to include ID in allocation logic is with a custom Function."
+      },
+      {
+        "date": "2022-03-29T04:30:00.000Z",
+        "voteCount": 1,
+        "content": "IMO answer should be D"
+      },
+      {
+        "date": "2022-03-18T00:15:00.000Z",
+        "voteCount": 1,
+        "content": "I see Static configuration is not wrong, it works!"
+      },
+      {
+        "date": "2022-01-17T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "\u201c This article demonstrates a custom allocation policy using an Azure Function written in C#. Two new IoT hubs are created representing a Contoso Toasters Division and a Contoso Heat Pumps Division. Devices requesting provisioning must have a registration ID with one of the following suffixes to be accepted for provisioning:\n-contoso-tstrsd-007: Contoso Toasters Division\n-contoso-hpsd-088: Contoso Heat Pumps Division\nThe devices will be provisioned based on one of these required suffixes on the registration ID.\u201d  https://docs.microsoft.com/en-us/azure/iot-dps/how-to-use-custom-allocation-policies?tabs=windows"
+      },
+      {
+        "date": "2021-12-30T23:37:00.000Z",
+        "voteCount": 2,
+        "content": "D looks ok:\nhttps://docs.microsoft.com/en-us/azure/iot-dps/how-to-use-custom-allocation-policies?tabs=windows"
+      },
+      {
+        "date": "2021-05-11T08:51:00.000Z",
+        "voteCount": 5,
+        "content": "It states \"The load between the IoT hubs in the same geographic location must be balanced.\"\nIf geographic location is the same, I suppose that the latency is also the same.\nWhy not select \"Evenly weighted distribution\"?"
+      },
+      {
+        "date": "2021-05-09T09:53:00.000Z",
+        "voteCount": 1,
+        "content": "It states \"The load between the IoT hubs in the same geographic location must be balanced.\" This would not be the case when using lowest latency. So I would choose A."
+      },
+      {
+        "date": "2021-04-07T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "I think should be the answer B: Lowest Latency to cover the requirement about geographic location"
+      },
+      {
+        "date": "2021-06-28T12:23:00.000Z",
+        "voteCount": 4,
+        "content": "no, lowest latency would push devices to the closest hub. thats not necessarily an equal distribution between hubs."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48108-exam-az-220-topic-2-question-16-discussion/",
+    "body": "You are developing an Azure IoT Central application.<br>You add a new custom device template to the application.<br>You need to add a fixed location value to the device template. The value must be updated by the physical IoT device, read-only to device operators, and not graphed by IoT Central.<br>What should you add to the device template?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Location property\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Location telemetry",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Cloud property"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-04-24T16:02:00.000Z",
+        "voteCount": 9,
+        "content": "corrrrrect"
+      },
+      {
+        "date": "2022-01-17T13:19:00.000Z",
+        "voteCount": 3,
+        "content": "\u201c must be updated by the physical IoT device\u201d so A is correct."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48109-exam-az-220-topic-2-question-17-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure IoT solution that includes an Azure IoT hub, a Device Provisioning Service instance, and 1,000 connected IoT devices. The IoT devices are allocated to four enrollment groups. Each enrollment group is configured to use certificate attestation.<br>You need to decommission all the devices in a single enrollment group and the enrollment group itself.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04123/0005100003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04123/0005200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "To deprovision all of the devices that have been provisioned through an enrollment group:<br>1. Disable the enrollment group to disallow its signing certificate.<br>2. Use the list of provisioned devices for that enrollment group to disable or delete each device from the identity registry of its respective IoT hub.<br>3. After disabling or deleting all devices from their respective IoT hubs, you can optionally delete the enrollment group. Be aware, though, that, if you delete the enrollment group and there is an enabled enrollment group for a signing certificate higher up in the certificate chain of one or more of the devices, those devices can re-enroll.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-dps/how-to-unprovision-devices",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-05T22:04:00.000Z",
+        "voteCount": 10,
+        "content": "The answer is fully correct!"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48110-exam-az-220-topic-2-question-18-discussion/",
+    "body": "You have an Azure IoT hub that uses a Device Provision Service instance.<br>You plan to deploy 100 IoT devices.<br>You need to confirm the identity of the devices by using the Device Provision Service.<br>Which three device attestation mechanisms can you use? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tX.509 certificates\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTrusted Platform Module (TPM) 2.0\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTrusted Platform Module (TPM) 1.2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSymmetric key\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice Identity Composition Engine (DICE)"
+    ],
+    "answer": "ABD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "ABD",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-06-28T22:19:00.000Z",
+        "voteCount": 5,
+        "content": "careful!\nDice is technically a good answer too, see for example https://azure.microsoft.com/en-us/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/\n\nsince Dice is new, not many vendors are supported yet. as such, it is *not yet* a complete solution"
+      },
+      {
+        "date": "2022-03-29T08:23:00.000Z",
+        "voteCount": 3,
+        "content": "Vote ABD"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48248-exam-az-220-topic-2-question-19-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Standard tier Azure IoT hub and a fleet of IoT devices.<br>The devices connect to the IoT hub by using either Message Queuing Telemetry Transport (MQTT) or Advanced Message Queuing Protocol (AMQP).<br>You need to send data to the IoT devices and each device must respond. Each device will require three minutes to process the data and respond.<br>Solution: You update the twin desired property and check the corresponding reported property.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "IoT Hub provides three options for device apps to expose functionality to a back-end app:<br>\u2711 Twin's desired properties for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.<br>\u2711 Direct methods for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.<br>\u2711 Cloud-to-device messages for one-way notifications to the device app.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-c2d-guidance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-26T06:15:00.000Z",
+        "voteCount": 7,
+        "content": "Each device will require three minutes to process the data and respond. hence twin properties is correct"
+      },
+      {
+        "date": "2022-09-18T17:11:00.000Z",
+        "voteCount": 1,
+        "content": "why would you \"send data\" using device twin properties, device twins are made for configurations right?"
+      },
+      {
+        "date": "2022-07-11T08:27:00.000Z",
+        "voteCount": 1,
+        "content": "twin's desired properties are one-way communication"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48632-exam-az-220-topic-2-question-20-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Standard tier Azure IoT hub and a fleet of IoT devices.<br>The devices connect to the IoT hub by using either Message Queuing Telemetry Transport (MQTT) or Advanced Message Queuing Protocol (AMQP).<br>You need to send data to the IoT devices and each device must respond. Each device will require three minutes to process the data and respond.<br>Solution: You use direct methods and check the response.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "IoT Hub provides three options for device apps to expose functionality to a back-end app:<br>\u2711 Twin's desired properties for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.<br>\u2711 Direct methods for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.<br>\u2711 Cloud-to-device messages for one-way notifications to the device app.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-c2d-guidance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-14T03:31:00.000Z",
+        "voteCount": 5,
+        "content": "Fleet of devices has minimum 2 devices (it's obivious), thus 2x3min = 6mi. Direct methods has maximum 5 minutes of time out period.\nSo given answer is correct: No."
+      },
+      {
+        "date": "2022-07-11T08:30:00.000Z",
+        "voteCount": 2,
+        "content": "A Direct method communicate with one device , so either we have 1 or 1000 devices it doesn't matter, it doesn't impact the timeout of one device which is maximum 5 mins"
+      },
+      {
+        "date": "2023-01-19T07:00:00.000Z",
+        "voteCount": 2,
+        "content": "IMHO anser is B) NO \na Direct Method call requires HTTPS call and here there are only MQTT and AMQP\n\"Direct methods are HTTPS-only from the cloud side and MQTT, AMQP, MQTT over WebSockets, or AMQP over WebSockets from the device side.\"\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods"
+      },
+      {
+        "date": "2023-03-25T00:00:00.000Z",
+        "voteCount": 1,
+        "content": "Direct methods could also be over AMQP or MQTT, it is stated in the link you provided"
+      },
+      {
+        "date": "2022-10-09T00:44:00.000Z",
+        "voteCount": 2,
+        "content": "The timeout is per device:\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-direct-methods\nSo A."
+      },
+      {
+        "date": "2021-06-19T10:00:00.000Z",
+        "voteCount": 4,
+        "content": "Direct methods are synchronous and either succeed or fail after the timeout period....WHEREAS QUESTION SAYS - \"each device must respond\""
+      },
+      {
+        "date": "2021-05-23T01:22:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be Yes. Direct method can set timeout up to 300 sec which allow device to response in 3 mins."
+      },
+      {
+        "date": "2021-04-01T06:30:00.000Z",
+        "voteCount": 3,
+        "content": "Are we sure? The Direct Method has a maximum 300s method timeout. So it should work in concept."
+      },
+      {
+        "date": "2021-06-19T09:47:00.000Z",
+        "voteCount": 5,
+        "content": "Since there are \"fleet of IoT devices\", this count can be huge....Direct Meathod is good for immediate actions and on limited number of devices."
+      },
+      {
+        "date": "2021-08-14T03:31:00.000Z",
+        "voteCount": 1,
+        "content": "Fleet of devices has minimum 2 devices (it's obivious), thus 2x3min = 6mi. Direct methods has maximum 5 minutes of time out period.\nSo given answer is correct: No."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57047-exam-az-220-topic-2-question-21-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Standard tier Azure IoT hub and a fleet of IoT devices.<br>The devices connect to the IoT hub by using either Message Queuing Telemetry Transport (MQTT) or Advanced Message Queuing Protocol (AMQP).<br>You need to send data to the IoT devices and each device must respond. Each device will require three minutes to process the data and respond.<br>Solution: You use cloud-to-device messages and watch the cloud-to-device feedback endpoint for successful acknowledgement.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "IoT Hub provides three options for device apps to expose functionality to a back-end app:<br>\u2711 Twin's desired properties for long-running commands intended to put the device into a certain desired state. For example, set the telemetry send interval to 30 minutes.<br>\u2711 Direct methods for communications that require immediate confirmation of the result. Direct methods are often used for interactive control of devices such as turning on a fan.<br>\u2711 Cloud-to-device messages for one-way notifications to the device app.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-c2d-guidance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-03T19:09:00.000Z",
+        "voteCount": 7,
+        "content": "Cloud to Device messages are one-way only so answer should be No."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/68635-exam-az-220-topic-2-question-22-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure IoT solution that includes an Azure IoT hub, a Device Provisioning Service instance, and 1,000 connected IoT devices.<br>All the IoT devices are provisioned automatically by using one enrollment group.<br>You need to temporarily disable the IoT devices from connecting to the IoT hub.<br>Solution: You disconnect the Device Provisioning Service from the IoT hub.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-23T08:20:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct"
+      },
+      {
+        "date": "2023-03-06T06:16:00.000Z",
+        "voteCount": 2,
+        "content": "B is ok"
+      },
+      {
+        "date": "2022-05-10T04:07:00.000Z",
+        "voteCount": 3,
+        "content": "B is correct."
+      },
+      {
+        "date": "2021-12-27T03:54:00.000Z",
+        "voteCount": 3,
+        "content": "disconnect the Device Provisioning Service from the IoT hub do not prevent device already provisioned from connecting to the iotHub"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22771-exam-az-220-topic-2-question-23-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have devices that connect to an Azure IoT hub. Each device has a fixed GPS location that includes latitude and longitude.<br>You discover that a device entry in the identity registry of the IoT hub is missing the GPS location.<br>You need to configure the GPS location for the device entry. The solution must prevent the changes from being propagated to the physical device.<br>Solution: You add the desired properties to the device twin.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-10T09:15:00.000Z",
+        "voteCount": 27,
+        "content": "shouldn't this be device tag? it says changes should not propagate to device."
+      },
+      {
+        "date": "2020-11-04T08:09:00.000Z",
+        "voteCount": 4,
+        "content": "yes,  https://docs.microsoft.com/de-de/azure/iot-hub/iot-hub-devguide-device-twins"
+      },
+      {
+        "date": "2020-07-20T03:06:00.000Z",
+        "voteCount": 11,
+        "content": "Correct, the answer should be YES here"
+      },
+      {
+        "date": "2022-01-18T12:57:00.000Z",
+        "voteCount": 4,
+        "content": "Desired props are propagated to device. No is the answer"
+      },
+      {
+        "date": "2021-05-05T10:34:00.000Z",
+        "voteCount": 4,
+        "content": "https://docs.microsoft.com/en-us/learn/modules/remotely-monitor-devices-with-azure-iot-hub/7-write-code-device-twins\n=&gt; Tags: information on the device that isn't visible to the device.\nChanges should not be sent to the device, so I would go with tags and answer B 'No'"
+      },
+      {
+        "date": "2021-03-28T08:11:00.000Z",
+        "voteCount": 5,
+        "content": "i think ans is No. tags should be used"
+      },
+      {
+        "date": "2021-01-08T01:24:00.000Z",
+        "voteCount": 2,
+        "content": "I think No is the right answer, in my opinion \"adding a tag to the device twin\" means adding a data to the desired property, which will be transmited to the device and we must prevent changes being propagated to the device.\nThe solution is to add a tag to the device, not to the device twin."
+      },
+      {
+        "date": "2021-01-23T02:57:00.000Z",
+        "voteCount": 4,
+        "content": "Tags are not desired properties and are not seen by the device and therefore would not trigger a response. Desired properties themselves are seen by devices and would trigger a response"
+      },
+      {
+        "date": "2020-11-21T17:47:00.000Z",
+        "voteCount": 1,
+        "content": "I think should be A."
+      },
+      {
+        "date": "2020-11-21T02:41:00.000Z",
+        "voteCount": 1,
+        "content": "A is the way"
+      },
+      {
+        "date": "2020-11-20T03:51:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be YES .."
+      },
+      {
+        "date": "2020-10-24T11:44:00.000Z",
+        "voteCount": 3,
+        "content": "I think the answer should be Yes"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37459-exam-az-220-topic-2-question-24-discussion/",
+    "body": "You have three Azure IoT hubs named Hub1, Hub2, and Hub3, a Device Provisioning Service instance, and an IoT device named Device1.<br>Each IoT hub is deployed to a separate Azure region.<br>Device enrollment uses the Lowest latency allocation policy.<br>The Device Provisioning Service uses the Lowest latency allocation policy.<br>Device1 is auto-provisioned to Hub1 by using the Device Provisioning Service.<br>Device1 regularly moves between regions.<br>You need to ensure that Device1 always connects to the IoT hub that has the lowest latency.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure device attestation that uses X.509 certificates.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement device certificate rolling.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisenroll and reenroll Device1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the re-provisioning policy."
+    ],
+    "answer": "D",
+    "answerDescription": "Automated re-provisioning support.<br>Microsoft added first-class support for device re-provisioning which allows devices to be reassigned to a different IoT solution sometime after the initial solution assignment. Re-provisioning support is available in two options:<br>\u2711 Factory reset, in which the device twin data for the new IoT hub is populated from the enrollment list instead of the old IoT hub. This is common for factory reset scenarios as well as leased device scenarios.<br>\u2711 Migration, in which device twin data is moved from the old IoT hub to the new IoT hub. This is common for scenarios in which a device is moving between geographies.<br>Reference:<br>https://azure.microsoft.com/en-us/blog/new-year-newly-available-iot-hub-device-provisioning-service-features/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-21T02:43:00.000Z",
+        "voteCount": 9,
+        "content": "D is ok"
+      },
+      {
+        "date": "2022-12-24T14:29:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/iot-dps/how-to-reprovision"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/69122-exam-az-220-topic-2-question-25-discussion/",
+    "body": "You have an Azure IoT Central solution that includes multiple IoT devices. The devices report temperature, humidity, and pressure.<br>You need to export the sensor data captured during a 48-hour period as a CSV file.<br>What should you use in IoT Central?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevices",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJobs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice groups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAnalytics\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-21T01:38:00.000Z",
+        "voteCount": 1,
+        "content": "Nowadays it is called data-explorer according to the link"
+      },
+      {
+        "date": "2022-12-21T01:39:00.000Z",
+        "voteCount": 2,
+        "content": "Under \"Analyse\", not \"Analytics\""
+      },
+      {
+        "date": "2021-12-30T23:51:00.000Z",
+        "voteCount": 4,
+        "content": "D looks correct as link provided said"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/68706-exam-az-220-topic-2-question-26-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure IoT Central application.<br>You need to connect IoT devices that use SAS tokens to the application without first registering the devices.<br>In which order should you perform the actions? To answer, move all actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04123/0006000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04123/0006100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Automatically register devices that use SAS tokens:<br>Step 1:  Obtain the group primary key<br>1. Copy the group primary key from the SAS-IoT-Devices enrollment group:<br><img src=\"/assets/media/exam-media/04123/0006200001.jpg\" class=\"in-exam-image\"><br>Step 2: Generate device SAS Keys.<br>2. Use the az iot central device compute-device-key command to generate the device SAS keys. Use the group primary key from the previous step.<br>Step 3: Flash unique credentials to the devices.<br>3. As an OEM, flash each device with the device ID, the generated device SAS key, and the application ID scope value. The device code should also send the model ID of the device model it implements.<br>Step 4: Connect the devices to IoT Central<br>4. When you switch on a device, it first connects to DPS to retrieve its IoT Central registration information.<br>5. The device uses the information from DPS to connect to, and register with, your IoT Central application.<br>Step 5: Associate the devices to a template and approve the connections.<br>The IoT Central application uses the model ID sent by the device to associate the registered device with a device template.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-central/core/concepts-get-connected",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-28T00:06:00.000Z",
+        "voteCount": 6,
+        "content": "repeated question with more reliable phrases, but thanks anyway, answer is correct"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/103816-exam-az-220-topic-2-question-27-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure IoT Edge automatic deployment named D1 that deploys a temperature module to five IoT Edge devices.<br><br>D1 has a deployment priority of 10 and the following module configuration.<br><br><img src=\"https://img.examtopics.com/az-220/image17.png\"><br><br>You need to create a new layered deployment that will add a new twin property named ReportingMode. The new deployment must not overwrite the existing module configurations set by D1.<br><br>How should you configure the deployment? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image18.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image19.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-03-25T00:16:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is wrong. I should say priority 20, because it should not overwrite and properties.desired.reportingSettings."
+      },
+      {
+        "date": "2023-04-04T21:57:00.000Z",
+        "voteCount": 4,
+        "content": "Higher value is higher priority. \nhttps://learn.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring?view=iotedge-1.4#priority\n\nSo I would go with priority 1"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/108344-exam-az-220-topic-2-question-29-discussion/",
+    "body": "You have an Azure IoT solution that includes an Azure IoT hub and a Device Provisioning Service instance.<br><br>Several enrolled devices are stolen.<br><br>You need to prevent the stolen devices from connecting to the IoT solution. The solution must prevent the devices from re-enrollment and must be implemented as soon as possible.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the devices from the IoT hub.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the device enrollments from the Device Provisioning Service.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the devices in the IoT hub and delete from the IoT hub.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the device enrollments in the Device Provisioning Service and delete the devices from the IoT hub."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-02T16:31:00.000Z",
+        "voteCount": 3,
+        "content": "shouldn't the answer be d. Disable and then delete?"
+      },
+      {
+        "date": "2023-05-24T04:56:00.000Z",
+        "voteCount": 2,
+        "content": "The requirement is \"prevent the devices from re-enrollment\" in DSP.\nJust \"disabling\" the enrollment in DSP does not meet this req., the enrollment in DSP has to be deleted."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110117-exam-az-220-topic-2-question-31-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have an Azure IoT hub.<br><br>You need to deploy a Device Provisioning Service instance that uses X.509 attestation to support new IoT devices.<br><br>Which three actions should you perform in sequence in the Azure portal? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/az-220/image20.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image21.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-24T05:04:00.000Z",
+        "voteCount": 2,
+        "content": "Correct!"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110924-exam-az-220-topic-2-question-33-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You need to configure a digital twin to accept device telemetry data from the IoT hub.<br><br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/az-220/image25.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image26.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-02T14:26:00.000Z",
+        "voteCount": 2,
+        "content": "you have to upload the model before you can create a digital twin so correct order is below;\nDeploy an Azure Digital Twins instance\nUpload the digital twin model\nCreate a digital twin\nConfigure a system-assigned managed identity for Azure Digital Twins"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110510-exam-az-220-topic-2-question-34-discussion/",
+    "body": "You have an Azure IoT Central solution.<br><br>You need to verify that telemetry messages from devices arrive to IoT Central.<br><br>What should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure IoT explorer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe az command in Azure CLI",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Service Bus Explorer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure IoT Tools for VS Code extension pack"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-29T12:53:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is Azure IOT Explorer\nhttps://learn.microsoft.com/en-us/azure/iot-develop/quickstart-send-telemetry-iot-hub?pivots=programming-language-java#view-telemetry"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107793-exam-az-220-topic-2-question-37-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure IoT Central application that has a custom device template.<br><br>You need to configure the device template to support the following activities:<br><br>\u2022\tReturn the reported power consumption.<br>\u2022\tConfigure the desired fan speed.<br>\u2022\tRun the device reset routine.<br>\u2022\tRead the fan serial number.<br><br>Which option should you use for each activity? Each correct answer presents part of the solution.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image27.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image28.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-28T23:46:00.000Z",
+        "voteCount": 1,
+        "content": "Following this link https://learn.microsoft.com/en-us/azure/iot-central/core/howto-use-properties cloud properties are  never exchanged with the device therefore answer is property"
+      },
+      {
+        "date": "2023-04-28T08:05:00.000Z",
+        "voteCount": 3,
+        "content": "this question is the same as topic 2 question 3, but with different options... why don't you people try to be consistent in your information??????? You are really not helping your paying customers with this confusion..."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107278-exam-az-220-topic-2-question-38-discussion/",
+    "body": "You have an Azure IoT hub that uses a Device Provisioning Service (DPS) instance.<br><br>For 100 legacy devices, you plan to create a new device enrollment that will use symmetric key attestation. The solution must minimize administrative effort.<br><br>What should you use to derive the device key?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe subscription ID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe IoT hub name",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe group master key",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe primary key of the DPS shared access policy"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-24T00:05:00.000Z",
+        "voteCount": 1,
+        "content": "The multiple-choice options in the question are confusing.\nAlso, the question says \"what should you do to derive the device key?\". Better wording would be, \"what should you do to derive the device key for each device?\".\n\nI will answer it in real world terms:\nSince we are going for symmetric key attestation and minimizing administrative effort, it's best to use a symmetric key enrollment group.\n\nIn that case, for each device, \"the derived device key is a hash of the device's registration ID and is computed using the symmetric key of the enrollment group.\"\n\nReference:\nhttps://learn.microsoft.com/en-gb/azure/iot-dps/concepts-symmetric-key-attestation?tabs=windows#group-enrollments"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113403-exam-az-220-topic-2-question-40-discussion/",
+    "body": "You have an Azure IoT Hub deployment.<br><br>You plan to deploy 1,000 IoT devices that will have 1 MB of RAM. The devices will be deployed behind firewalls that block port 443.<br><br>You need to configure the communication protocol for the devices. The solution must ensure that each device uses unique credentials.<br><br>Which protocol should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAMQP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMQTT over WebSockets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMQTT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAMQP over WebSockets"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-27T06:28:00.000Z",
+        "voteCount": 1,
+        "content": "It shouldn't be B? MQTT isn't restricted to 8883? I'm asking as I'm totally new to IoT."
+      },
+      {
+        "date": "2023-06-28T05:39:00.000Z",
+        "voteCount": 1,
+        "content": "Ok, I misread, the port 443 is blocked, not the available one."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "2"
+  }
+]

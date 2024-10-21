@@ -1,0 +1,146 @@
+[
+  {
+    "topic": 32,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57067-exam-az-204-topic-32-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to configure the Account Kind, Replication, and Access tier options for the corporate website's Azure Storage account.<br>How should you complete the configuration? To answer, select the appropriate options in the dialog box in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04273/0018000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0018100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Account Kind: StorageV2 (general-purpose v2)<br>Scenario: Azure Storage blob will be used (refer to the exhibit). Data storage costs must be minimized.<br>General-purpose v2 accounts: Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.<br>Incorrect Answers:<br>\u2711 BlockBlobStorage accounts: Storage accounts with premium performance characteristics for block blobs and append blobs. Recommended for scenarios with high transactions rates, or scenarios that use smaller objects or require consistently low storage latency.<br>\u2711 General-purpose v1 accounts: Legacy account type for blobs, files, queues, and tables. Use general-purpose v2 accounts instead when possible.<br>Replication: Geo-redundant Storage<br>Scenario: Data must be replicated to a secondary region and three availability zones.<br>Geo-redundant storage (GRS) copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region.<br>Incorrect Answers:<br>Geo-zone-redundant storage (GZRS), but it would be more costly.<br><br>Access tier: Cool -<br>Data storage costs must be minimized.<br>Note: Azure storage offers different access tiers, which allow you to store blob object data in the most cost-effective manner. The available access tiers include:<br>Hot - Optimized for storing data that is accessed frequently.<br>Cool - Optimized for storing data that is infrequently accessed and stored for at least 30 days.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-04T03:34:00.000Z",
+        "voteCount": 40,
+        "content": "Replication should be GZRS.\nRequirements ask \"Data must be replicated to a secondary region and three availability zones\". GRS option doesn't copy data in different availability zones"
+      },
+      {
+        "date": "2021-07-08T02:24:00.000Z",
+        "voteCount": 5,
+        "content": "Geo-redundant storage (GRS) copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.\n\n\nGeo-zone-redundant storage (GZRS) copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS."
+      },
+      {
+        "date": "2021-07-08T02:25:00.000Z",
+        "voteCount": 5,
+        "content": "GZRS is correct answer\n\nhttps://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      },
+      {
+        "date": "2021-07-26T08:12:00.000Z",
+        "voteCount": 2,
+        "content": "I also agree the answer should be gpv2, gzrs and cool"
+      },
+      {
+        "date": "2021-08-19T19:19:00.000Z",
+        "voteCount": 2,
+        "content": "Why is not RA-GZRS? Isn't it much cheaper than GZRS?"
+      },
+      {
+        "date": "2021-08-26T06:13:00.000Z",
+        "voteCount": 4,
+        "content": "No, RA is additional option which costs MORE."
+      },
+      {
+        "date": "2021-07-12T03:22:00.000Z",
+        "voteCount": 13,
+        "content": "What about cool vs hot in the last box? Shouldn't this be hot, because the site gets accessed frequently?"
+      },
+      {
+        "date": "2021-08-28T05:57:00.000Z",
+        "voteCount": 2,
+        "content": "That is also my question? Any where mention performance requirements?  Only thing to make it cool, is that behind CDN, cached inside CDN maybe?"
+      },
+      {
+        "date": "2021-11-23T12:16:00.000Z",
+        "voteCount": 5,
+        "content": "No, even though its behind CDN, it should still be hot, because the CDN will most likely ask Storage Account several times a day. Cool will only be considered if the read frequency of storage account will be less than 1 per month."
+      },
+      {
+        "date": "2022-03-02T07:02:00.000Z",
+        "voteCount": 2,
+        "content": "But is only important to minimize storage costs, not storage access costs.\nIf they had said \"minimize total storage costs\" I also would have chosen hot."
+      },
+      {
+        "date": "2024-03-26T15:30:00.000Z",
+        "voteCount": 1,
+        "content": "On my exam today March 27th, 2024. \n  &gt; Storage V2 (general purpose v2), GZRS, Cool.\nScore 902."
+      },
+      {
+        "date": "2024-03-09T05:47:00.000Z",
+        "voteCount": 2,
+        "content": "Scroll to the last question in the topic exam"
+      },
+      {
+        "date": "2023-11-19T11:54:00.000Z",
+        "voteCount": 2,
+        "content": "Got this on 10/20/2023"
+      },
+      {
+        "date": "2023-10-05T02:46:00.000Z",
+        "voteCount": 1,
+        "content": "On my exam 2023-10 before the Update of the Exam"
+      },
+      {
+        "date": "2023-09-26T00:51:00.000Z",
+        "voteCount": 2,
+        "content": "The right answers are off-course:  Storage V2 (general purpose v2), GZRS, Cool"
+      },
+      {
+        "date": "2023-07-01T03:24:00.000Z",
+        "voteCount": 2,
+        "content": "This question was there on 29th June exam. Went with storage v2, GZRS and Cool."
+      },
+      {
+        "date": "2023-06-15T01:55:00.000Z",
+        "voteCount": 1,
+        "content": "Got this case study on 15th of June.\nPassed with 887\nOn this one I answered:  StorageV2, GZRS and Cool."
+      },
+      {
+        "date": "2023-05-27T00:58:00.000Z",
+        "voteCount": 1,
+        "content": "Had this question on 27 May 2023. \nI chose StorageV2 (general-purpose v2) , GZRS , Cool tier ."
+      },
+      {
+        "date": "2023-04-17T03:01:00.000Z",
+        "voteCount": 5,
+        "content": "received 2023-17-04 went with gpv2,GZRS,cool , score 926"
+      },
+      {
+        "date": "2023-03-29T12:25:00.000Z",
+        "voteCount": 2,
+        "content": "1. V2\n2. GZRS\n3. Hot (website should be visit a least a few times a month...)\nmicrosoft questions are poorly worded as always"
+      },
+      {
+        "date": "2022-12-16T15:37:00.000Z",
+        "voteCount": 7,
+        "content": "Got this on Dec 16th, 2022. Scored 921 and answered StorageV2, GZRS and Cool."
+      },
+      {
+        "date": "2022-03-08T16:50:00.000Z",
+        "voteCount": 5,
+        "content": "Correct Answer:  StorageV2, GZRS &amp; Cool."
+      },
+      {
+        "date": "2022-01-29T02:00:00.000Z",
+        "voteCount": 11,
+        "content": "1. StorageV2 is a recommended kind.\n2. GZRS because \"Data must be replicated to a secondary region and three availability zones.\" and are not required for reading access in the secondary region. Due to GZRS is cheaper than RA-GZRS, we select it.\n3. There are no specific requirements that lead us to which access tier is better. Cool has an advantage when we care about storage cost and we do not change files. We store SPA. It is not supposed to be huge. But due to we expect that the modern development process may be turned into multiple releases per day, I believe that hot is preferable. And again, because we do not have specific requirements and default is used to be \"hot\", I select \"hot\":"
+      },
+      {
+        "date": "2022-01-19T08:03:00.000Z",
+        "voteCount": 4,
+        "content": "Got this one 01/2022. Went with most voted (to avoid writing answers again)"
+      },
+      {
+        "date": "2021-12-04T02:11:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with StorageV2, GZRS and COOL"
+      },
+      {
+        "date": "2022-01-06T08:59:00.000Z",
+        "voteCount": 1,
+        "content": "Thinking back, HOT should be better because of @alperc reply."
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "32"
+  }
+]

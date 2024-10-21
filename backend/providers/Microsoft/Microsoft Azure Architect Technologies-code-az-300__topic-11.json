@@ -1,0 +1,141 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7776-exam-az-300-topic-11-question-1-discussion/",
+    "body": "You need to meet the technical requirement for VM4.<br>What should you create and configure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Logic App",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Service Bus",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Notification Hub",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Event Hub"
+    ],
+    "answer": "D",
+    "answerDescription": "Scenario: Create a workflow to send an email message when the settings of VM4 are modified.<br>You can start an automated logic app workflow when specific events happen in Azure resources or third-party resources. These resources can publish those events to an Azure event grid. In turn, the event grid pushes those events to subscribers that have queues, webhooks, or event hubs as endpoints. As a subscriber, your logic app can wait for those events from the event grid before running automated workflows to perform tasks - without you writing any code.<br>References:<br>https://docs.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-07T05:15:00.000Z",
+        "voteCount": 47,
+        "content": "I think the answer is A: Azure logic app + event grid"
+      },
+      {
+        "date": "2019-12-01T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "Thats incorrect, what is your connector for receieving those changed events of  vm4?"
+      },
+      {
+        "date": "2019-12-07T02:55:00.000Z",
+        "voteCount": 9,
+        "content": "To my understanding, event grid is connected to almost all the services of Azure. Whenever there is change in VM4, event grid will trigger an event, logic app will be executed and send the email."
+      },
+      {
+        "date": "2020-04-21T02:08:00.000Z",
+        "voteCount": 5,
+        "content": "That connector should be Event Grid, not Event Hub. Event Hub is for big data..."
+      },
+      {
+        "date": "2020-09-09T18:00:00.000Z",
+        "voteCount": 3,
+        "content": "A is ok"
+      },
+      {
+        "date": "2019-12-07T02:58:00.000Z",
+        "voteCount": 7,
+        "content": "A: https://docs.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app"
+      },
+      {
+        "date": "2023-10-20T19:15:00.000Z",
+        "voteCount": 1,
+        "content": "The question clearly mentions about \"Sending an email\". Event hub although part or automation, does not qualiifies for the answer in the context of this question. Please correct. So Answer should be \"Logic App\"."
+      },
+      {
+        "date": "2020-12-30T04:49:00.000Z",
+        "voteCount": 1,
+        "content": "Its A for sure."
+      },
+      {
+        "date": "2020-09-21T16:10:00.000Z",
+        "voteCount": 1,
+        "content": "it is A the explanation also talks about the same ."
+      },
+      {
+        "date": "2020-09-17T15:53:00.000Z",
+        "voteCount": 1,
+        "content": "Event Hub  major use case is telemetry and Iot. Logic App is the best fit for this use case"
+      },
+      {
+        "date": "2020-08-15T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "answer is A: Azure logic app + event grid"
+      },
+      {
+        "date": "2020-07-14T13:18:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      },
+      {
+        "date": "2020-06-17T19:15:00.000Z",
+        "voteCount": 1,
+        "content": "Logic App + Eventgrid"
+      },
+      {
+        "date": "2020-06-07T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "Logic App"
+      },
+      {
+        "date": "2020-05-24T09:10:00.000Z",
+        "voteCount": 7,
+        "content": "Nothing is tricky here, Answer is Logic App.\nWorkflow is created in Logic App using the Event Grid...\n\nif there is an Event Grid as an option in answers, then it will be tricky to answer. So it is very clear here \"Logic App\"."
+      },
+      {
+        "date": "2020-07-19T21:09:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, A is the right answer.\nhttps://docs.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app"
+      },
+      {
+        "date": "2020-04-23T03:49:00.000Z",
+        "voteCount": 4,
+        "content": "As ques says \"Create a workflow\". You can not create a workflow in Event grid so Logic App I will choose in exam."
+      },
+      {
+        "date": "2020-04-23T03:48:00.000Z",
+        "voteCount": 2,
+        "content": "A-Logic App is the right answer as event grid is a connector but logic app is flow orchestrator which fulfills the need."
+      },
+      {
+        "date": "2020-04-21T05:27:00.000Z",
+        "voteCount": 3,
+        "content": "Event Hub is for Ingestion of streaming or Large data volume ..Hence answer is incorrect.LogicApp is correct answer."
+      },
+      {
+        "date": "2020-03-13T07:41:00.000Z",
+        "voteCount": 3,
+        "content": "Answre is A:\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app"
+      },
+      {
+        "date": "2020-02-01T06:20:00.000Z",
+        "voteCount": 7,
+        "content": "Source: https://docs.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\n\nPrerequisites\n\n    An Azure subscription. If you don't have an Azure subscription, sign up for a free Azure account.\n\n    An email account from an email provider supported by Logic Apps for sending notifications, such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, review the connectors list here.\n\n    This tutorial uses an Office 365 Outlook account. If you use a different email account, the general steps stay the same, but your UI might appear slightly different.\n\n    A virtual machine that's alone in its own Azure resource group. If you haven't already done so, create a virtual machine through the Create a VM tutorial. To make the virtual machine publish events, you don't need to do anything else.\n\n\nFor me this last statement says everything. On the exam I will go on A."
+      },
+      {
+        "date": "2020-07-01T05:00:00.000Z",
+        "voteCount": 1,
+        "content": "Thanks, A is the answer"
+      },
+      {
+        "date": "2020-01-21T05:41:00.000Z",
+        "voteCount": 5,
+        "content": "A is the right asnwer.\nEven the expalation said so !"
+      },
+      {
+        "date": "2020-03-06T12:16:00.000Z",
+        "voteCount": 3,
+        "content": "Exactly"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "11"
+  }
+]

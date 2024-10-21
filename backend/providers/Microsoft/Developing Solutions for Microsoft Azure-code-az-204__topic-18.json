@@ -1,0 +1,87 @@
+[
+  {
+    "topic": 18,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48078-exam-az-204-topic-18-question-1-discussion/",
+    "body": "You need to correct the RequestUserApproval Function app error.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate line RA13 to use the async keyword and return an HttpRequest object value.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Function app to use an App Service hosting plan. Enable the Always On  setting of the hosting plan.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the function to be stateful by using Durable Functions to process the request payload.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the functionTimeout property of the host.json project file to 15 minutes."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-03-24T06:20:00.000Z",
+        "voteCount": 35,
+        "content": "Answer is correct. In addition you can see this pattern in microosoft documentation and it's known as Human Interaction.\nhttps://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#human"
+      },
+      {
+        "date": "2023-04-17T03:05:00.000Z",
+        "voteCount": 3,
+        "content": "received 2023-04-17 went with given answer, score 926"
+      },
+      {
+        "date": "2021-06-08T13:37:00.000Z",
+        "voteCount": 11,
+        "content": "http trigger timeout is maxed to 230 seconds, so the only available option is to change to a durable one"
+      },
+      {
+        "date": "2021-11-22T11:04:00.000Z",
+        "voteCount": 2,
+        "content": "\"Regardless of the function app timeout setting, 230 seconds is the maximum amount of time that an HTTP triggered function can take to respond to a request. This is because of the default idle timeout of Azure Load Balancer. For longer processing times, consider using the Durable Functions async pattern or defer the actual work and return an immediate response.\" REF: https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"
+      },
+      {
+        "date": "2024-06-27T18:07:00.000Z",
+        "voteCount": 1,
+        "content": "A: Wrong : excluding async keyword results in a compile time error, not runtime.\nB: Wrong : enabling always on would relate to timeout not bad request.\nD: Wrong : functionTimeout property would relate to timeout not bad request.\nC: Correct : Durable function."
+      },
+      {
+        "date": "2024-04-02T14:24:00.000Z",
+        "voteCount": 2,
+        "content": "How did it get this error message: 'Timeout value of 00:10:00 exceeded by function: RequestUserApproval'? If the max timeout for HTTP trigger is 230 seconds..."
+      },
+      {
+        "date": "2022-11-17T10:25:00.000Z",
+        "voteCount": 2,
+        "content": "Durable Function."
+      },
+      {
+        "date": "2022-06-25T03:43:00.000Z",
+        "voteCount": 4,
+        "content": "C is correct answer.\nDurable Function."
+      },
+      {
+        "date": "2021-07-26T08:07:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is 100% correct"
+      },
+      {
+        "date": "2021-05-30T05:16:00.000Z",
+        "voteCount": 3,
+        "content": "I think here the answer is just to increase the functionTimeout.\n\nDurable Functions are used when you want to introduce a state, it is not just \"if you have a long running function switch to Durable Functions\".\n\nAnother argument against Durable Functions is that architectural change seem to be out of scope for this case study.\n\nAnother argument is that function can run for up to 30 mins."
+      },
+      {
+        "date": "2021-11-22T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "Maximum timeout you can set is 10 min in consumption plan. Unless you go to premium which is unlimited:\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"
+      },
+      {
+        "date": "2022-06-20T05:56:00.000Z",
+        "voteCount": 1,
+        "content": "\"if you have a long running function switch to Durable Functions\" - actually, that is one of the features of DF. Modifying the function app timeout will do nothing. There is a hard limit of 230 seconds of timeout. Anything larger than that, use DF, state or no state."
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "18"
+  }
+]

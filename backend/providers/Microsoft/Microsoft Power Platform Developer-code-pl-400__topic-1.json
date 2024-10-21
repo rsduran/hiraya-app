@@ -1,0 +1,2659 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53408-exam-pl-400-topic-1-question-1-discussion/",
+    "body": "A company manages capital equipment for an electric utility company. The company has a SQL Server database that contains maintenance records for the equipment.<br>Technicians who service the equipment use the Dynamics 365 Field Service mobile app on tablet devices to view scheduled assignments. Technicians use a canvas app to display the maintenance history for each piece of equipment and update the history.<br>Managers use a Power BI dashboard that displays Dynamics 365 Field Service and real-time maintenance data.<br>Due to increasing demand, managers must be able to work in the field as technicians.<br>You need to design a solution that allows the managers to work from one single screen.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the maintenance history app to the Field Service Mobile app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the manager Power BI dashboard to the Field Service mobile app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new maintenance canvas app from within the Power BI management dashboard.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the maintenance history app to the Power BI dashboard.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 11,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 4,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-02-08T06:20:00.000Z",
+        "voteCount": 17,
+        "content": "\"Due to increasing demand, managers must be able to work in the field as technicians.\"\n\nThis statement clearly says the managers need to work the same way the technicians do, assuming they would in that situation use a tablet like the technicians and would need to follow similar processes/experience I would have thought it would be more logical to add the manager PowerBi to the field service app but restrict the visibility to the managers role. That way they can work the same as a technician would when they need to perform that role, but still have access to the manager reports when needed. More config to do than the other way around but makes more sense to me to have a unified setup - just me?"
+      },
+      {
+        "date": "2022-09-18T07:41:00.000Z",
+        "voteCount": 2,
+        "content": "Yeah, with D then have to lug a laptop around or awkwardly use the app in the dashboard on a mobile device."
+      },
+      {
+        "date": "2024-09-24T04:34:00.000Z",
+        "voteCount": 1,
+        "content": "That would depend on wether the datasource supports DirectQuery, no ?\n\n(https://learn.microsoft.com/en-us/power-apps/maker/canvas-apps/powerapps-custom-visual)\nFollowing limitations apply when using the PowerBIIntegration.Refresh() function:\n...\nYou must use a source that supports DirectQuery and the data connection must be created using DirectQuery method.\n\nand according to \"https://learn.microsoft.com/en-us/power-bi/connect-data/power-bi-data-sources\" Dynamics 365 Field Services is not listed (as far as I can tell) as a datasource the supports DirectQuery.\n\nSo this question is seriously open for interpretation in my opinion.\nPersonnaly I would go for answer \"B\"  in this case, since it seems less constricted by technical requirements"
+      },
+      {
+        "date": "2022-10-25T02:45:00.000Z",
+        "voteCount": 1,
+        "content": "OK, scratch that, should read the question better... PowerBI indeed already has Field Services data. But what about the \"PowerBIIntegration.Refresh()\" ? According to the documentation this only works if you create a NEW app... Is it necessary to have most up-to-date data in the app ?"
+      },
+      {
+        "date": "2024-09-07T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "The question makes it sound like the managers need to work out in the field like the technicians. Therefore the solution must be a mobile app."
+      },
+      {
+        "date": "2024-08-29T22:16:00.000Z",
+        "voteCount": 2,
+        "content": "B best addresses the need for a single screen where managers can view and manage both maintenance history and real-time data. It allows the managers to leverage the existing mobile app used by technicians, ensuring they have access to all necessary information while in the field."
+      },
+      {
+        "date": "2024-04-24T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "I think it is option B, because option D doesn't fully address the need for a single-screen solution."
+      },
+      {
+        "date": "2024-06-10T04:44:00.000Z",
+        "voteCount": 1,
+        "content": "Could use tabs and make the single screen solution work."
+      },
+      {
+        "date": "2023-07-23T18:22:00.000Z",
+        "voteCount": 3,
+        "content": "Managers use a Power BI dashboard that displays Dynamics 365 Field Service and real-time maintenance data. Based on this info, Managers have the D365 Field Service scheduling assignments and the SQL Server database maintenance records already. But they do not have the maintenance history. \n\nSo adding the maintenance history in the Dashboard would meet the requirement."
+      },
+      {
+        "date": "2023-06-10T04:25:00.000Z",
+        "voteCount": 2,
+        "content": "Based on the given scenario, the correct option would be:\n\nB. Add the manager Power BI dashboard to the Field Service mobile app.\n\nThis option allows managers to work from one single screen by adding the Power BI dashboard, which displays Dynamics 365 Field Service and real-time maintenance data, to the Field Service mobile app. By incorporating the Power BI dashboard into the mobile app, managers can access all the necessary information and perform their tasks without switching between different applications. This integration provides a centralized and efficient solution for managers working in the field."
+      },
+      {
+        "date": "2023-05-10T21:27:00.000Z",
+        "voteCount": 2,
+        "content": "chatgpt response is option B."
+      },
+      {
+        "date": "2023-04-11T00:35:00.000Z",
+        "voteCount": 2,
+        "content": "Vote for D\nhttps://learn.microsoft.com/en-us/power-bi/visuals/power-bi-visualization-powerapp"
+      },
+      {
+        "date": "2023-03-15T09:35:00.000Z",
+        "voteCount": 1,
+        "content": "D should be the answer."
+      },
+      {
+        "date": "2022-09-30T13:01:00.000Z",
+        "voteCount": 2,
+        "content": "i was thinking B, but is true .. is D, more ease, and less job, put low job in a interface of an upper job than put the upper job in a low interface and configure security"
+      },
+      {
+        "date": "2022-07-25T19:03:00.000Z",
+        "voteCount": 1,
+        "content": "My guess: D"
+      },
+      {
+        "date": "2022-03-07T07:23:00.000Z",
+        "voteCount": 3,
+        "content": "Correct D"
+      },
+      {
+        "date": "2022-02-04T16:43:00.000Z",
+        "voteCount": 4,
+        "content": "The PowerBI Dashboard already has the Field service + realtime maintenance info. the only thing left is, the history. So add the history to dashboard and they will have everything required to do the job. I think \"D\" should be correct"
+      },
+      {
+        "date": "2022-06-19T17:55:00.000Z",
+        "voteCount": 1,
+        "content": "I think it should be B. Technician need to \"update\" the history."
+      },
+      {
+        "date": "2022-01-28T07:08:00.000Z",
+        "voteCount": 1,
+        "content": "Correct D"
+      },
+      {
+        "date": "2021-11-22T04:44:00.000Z",
+        "voteCount": 4,
+        "content": "Why not answer B? Embed the manager's BI report to the model driven app the technicians are using? https://docs.microsoft.com/en-us/powerapps/maker/model-driven-apps/add-powerbi-visual"
+      },
+      {
+        "date": "2021-11-29T02:34:00.000Z",
+        "voteCount": 10,
+        "content": "Because this would allow the technicians to see the manager's Power BI dashboard, it would confuse the design and purpose of the model driven app, and the managers would have to change from using the Report to using the App. \n\nIt's more appropriate to include the technician's App within the manager's Report so that the managers don't have to change the solution they are currently using and the technicians don't see information unnecessarily."
+      },
+      {
+        "date": "2021-10-14T09:27:00.000Z",
+        "voteCount": 2,
+        "content": "Dumps Answer is correct Add the maintenance history app to the Power BI dashboard."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47990-exam-pl-400-topic-1-question-2-discussion/",
+    "body": "HOTSPOT -<br>You work for a staffing company that helps employees fill temporary jobs. Available temporary jobs are categorized and listed on a secure area of the company's website.<br>The company wants to eliminate manual work that relates to job and candidate management. The company plans to invite employers with available jobs and job candidates to view jobs by sending personalized invitations. The company identifies the following requirements:<br>\u2711 Human resources team members from the staffing company must be able to access the jobs listing and post available positions.<br>\u2711 Employers seeking temporary employees must also be able to access the jobs listing and post available positions.<br>\u2711 Approved job candidates must be notified about new positions for which they are qualified.<br>\u2711 Approved job candidate must have an option to accept a job assignment directly from a notification.<br>You need to perform a gap analysis against the features and capabilities of the Power Platform.<br>Which features should you implement? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0002200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0002300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Custom self-service portal for both employers and job candidates<br>If you select an environment that contains customer engagement, you can create the following portals:<br>\u2711 Customer self-service portal: A customer self-service portal enables customers to access self-service knowledge, support resources, view the progress of their cases, and provide feedback.<br>\u2711 Partner portal: A partner portal allows every organization with resellers, distributors, suppliers, or partners to have real-time access to every stage of shared activities.<br>\u2711 Employee self-service portal: An employee self-service portal creates an efficient and well-informed workforce by streamlining common tasks and empowering every employee with a definitive source of knowledge.<br>Box 2: Model-driven app with push notifications<br>Compared to canvas apps, model-driven apps in PowerApps are based on underlying data \u05d2\u20ac\" specifically, the data stored in Common Data Service (CDS).<br>Box 3: Webform with target set to the job custom entity<br>Box 4: Configure a value for the Execute Workflow on Redeeming Contact option only.<br>Execute Workflow on Redeeming Contact: A workflow process to be executed when the invite is redeemed. The workflow will be passed the redeeming contact as the primary entity.<br>Box 5: Configure the value for the Assigned to Account option only.<br>Assign to Account: An account record to be associated as the redeeming contact's parent customer when the invite is redeemed.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/maker/portals/portal-templates https://global.hitachi-solutions.com/blog/canvas-vs-model-driven-apps https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/invite-contacts#invitation-attributes",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-09-24T04:36:00.000Z",
+        "voteCount": 12,
+        "content": "My best guess:\n\n1. Portal from blank\nJob is a custom entity. While customer self-service portal enables customers to work with knowledge base, support cases, feedbacks etc.\n\n2. Model-driven app with push notifications\nSeems the best available choice\n\n3. Web page defined on the job custom entity\nWeb page seems a good fit. Other options provided will configure input forms only.\n\n4. Leave both ... empty\n\n5. Configure Assigned to Account and Execute Workflow\nApproved job candidate must have an option to accept a job assignment directly from a notification.\nApproved job candidates must be notified about new positions for which they are qualified."
+      },
+      {
+        "date": "2022-01-12T05:25:00.000Z",
+        "voteCount": 2,
+        "content": "1. So what? A custom self-service portal still allows Customization and Extensibility.\n3. Employers need to post available positions and access job listings, meaning they need to post / fill in something."
+      },
+      {
+        "date": "2022-01-12T05:26:00.000Z",
+        "voteCount": 5,
+        "content": "@KAL18 your answers are wrong. Answer given above are correct."
+      },
+      {
+        "date": "2023-07-10T00:06:00.000Z",
+        "voteCount": 2,
+        "content": "For 3 it is entity form because we can find the lookup entity only in entity form"
+      },
+      {
+        "date": "2023-03-15T09:37:00.000Z",
+        "voteCount": 5,
+        "content": "Custom Self-service portal for both employers and employees.\nModel-Driven App with push notifications.\nWeb page defined on the job custom entity\nConfigure a value for the executing workflow on redeeming contact option only.\nConfigure a value for the Assigned to Account option only."
+      },
+      {
+        "date": "2024-09-24T04:36:00.000Z",
+        "voteCount": 2,
+        "content": "So i think the correct is: \n1. Custom self service for both\n2. Model driven\n3. Web page\n4. Leave both\n5. Configure Assigned to Account\nLet me know if anything is wrong"
+      },
+      {
+        "date": "2023-02-28T23:00:00.000Z",
+        "voteCount": 15,
+        "content": "you should explain why it is wrong instead of just blindly giving your answers, it just causes more confusion for others. thanks."
+      },
+      {
+        "date": "2024-04-24T05:23:00.000Z",
+        "voteCount": 1,
+        "content": "I think the given answers are all correct."
+      },
+      {
+        "date": "2023-03-15T09:36:00.000Z",
+        "voteCount": 2,
+        "content": "The given answer should be correct."
+      },
+      {
+        "date": "2022-07-25T19:05:00.000Z",
+        "voteCount": 1,
+        "content": "My guess: Portal from blank for both, and others is correct for me"
+      },
+      {
+        "date": "2022-05-26T02:17:00.000Z",
+        "voteCount": 3,
+        "content": "2 - I think that app that lists available positions must be a canvas app - this app is intended for external users, so it is not recommended for it to be model-driven - I would never have allowed it anyway"
+      },
+      {
+        "date": "2022-07-25T18:18:00.000Z",
+        "voteCount": 5,
+        "content": "Push notifications is only available in model driven apps"
+      },
+      {
+        "date": "2023-10-28T00:38:00.000Z",
+        "voteCount": 1,
+        "content": "Canvas Apps allow push notifications - https://learn.microsoft.com/en-us/power-apps/mobile/power-apps-mobile-notification [this might be a new feature since the question was originally written and responded to]"
+      },
+      {
+        "date": "2021-11-22T05:23:00.000Z",
+        "voteCount": 1,
+        "content": "I dont understand the reasoning for q4 and q5. Are they correct at all?"
+      },
+      {
+        "date": "2021-06-10T01:33:00.000Z",
+        "voteCount": 1,
+        "content": "I am unsure of the answer for 1, the rest I think makes sense."
+      },
+      {
+        "date": "2021-05-30T04:02:00.000Z",
+        "voteCount": 4,
+        "content": "Why is it model driven apps? I believe it is a portal apps"
+      },
+      {
+        "date": "2021-11-22T05:16:00.000Z",
+        "voteCount": 4,
+        "content": "I think this is because the push notifications must come from a model driven app: https://docs.microsoft.com/en-us/powerapps/mobile/power-apps-mobile-notification https://www.inogic.com/blog/2021/02/push-notifications-for-dynamics-365-apps-and-canvas-apps-power-apps/. I dont see portal apps in the IOS power apps app to use for push notifications."
+      },
+      {
+        "date": "2022-01-12T05:28:00.000Z",
+        "voteCount": 2,
+        "content": "Portal apps is not a thing."
+      },
+      {
+        "date": "2021-03-23T16:58:00.000Z",
+        "voteCount": 4,
+        "content": "I am not sure about what type of portal to choose for the first option, Rest is correct."
+      },
+      {
+        "date": "2021-03-23T16:58:00.000Z",
+        "voteCount": 2,
+        "content": "I am note sure about what type of portal to choose for the first option, Rest are correct."
+      },
+      {
+        "date": "2021-03-23T00:37:00.000Z",
+        "voteCount": 2,
+        "content": "Can anyone confirm the answers 1,3,5 are corrects ?"
+      },
+      {
+        "date": "2021-03-30T15:54:00.000Z",
+        "voteCount": 7,
+        "content": "Answer for 3 is Entity Form defined on Job Entity because you don't define Web Page on Entity level it is portal configuration, Web form doesn't have Entity to target and Webstep has entity form targeted but its overkill when Entity form can satisfy the requirement."
+      },
+      {
+        "date": "2021-07-08T09:37:00.000Z",
+        "voteCount": 9,
+        "content": "\"Employers seeking temporary employees must also be able to access the jobs listing and post available positions.\"\n\nA web page is the best option since they must access a LIST of jobs, a web form only expresses a dataverse form to be filled out. the web page you can set the ENTITY LIST."
+      },
+      {
+        "date": "2021-09-24T10:38:00.000Z",
+        "voteCount": 4,
+        "content": "i think 3 is web page as well"
+      },
+      {
+        "date": "2021-11-22T05:18:00.000Z",
+        "voteCount": 2,
+        "content": "Web page on entity seems right to me here as well"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/67942-exam-pl-400-topic-1-question-3-discussion/",
+    "body": "HOTSPOT -<br>You create a suite of Power Platform-based order management canvas apps for a bakery that has five retail stores. Each store uses a tablet device to manage inventory and process orders.<br>You need to make the following changes to the original order tracking app:<br>When an online order for delivery is received, send the order to the bakery that is located closest to the order destination.<br><img src=\"/assets/media/exam-media/04332/0002400004.png\" class=\"in-exam-image\"><br>\u2711 When an online order for pickup is received, require store staff to enter an estimated time in an app. Staff must prepare the order and then use the app to notify the customer when the order is ready.<br>\u2711 Allow the store manager to personalize the company's corporate weekly newsletter and add store-specific specials.<br>You must minimize the amount of custom code and configuration required to implement the solution.<br>What should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0002500003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0002600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Power Automate flow -<br>Do you want to get the user's location whose location is closest to the current device, then use key is to use Bing Map connector.<br>The Bing Map connector is available in the following products and regions:<br><img src=\"/assets/media/exam-media/04332/0002700001.png\" class=\"in-exam-image\"><br>Box 2: New screen in an existing canvas app<br>Box 3: Power Automate flow triggered from an email button<br>Incorrect Answers:<br>UI flows brings Robotic Process Automation (RPA) capabilities to Power Automate. You can use UI flows to automate repetitive tasks in Windows and Web applications. UI flows records and plays back user interface actions (clicks, keyboard input, etc.)<br>Reference:<br>https://docs.microsoft.com/sv-se/connectors/bingmaps/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-13T01:57:00.000Z",
+        "voteCount": 19,
+        "content": "Trigger manually"
+      },
+      {
+        "date": "2023-11-27T07:07:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answers:\nA: no code solution\nA: there's an already existing canvass app\nB: this can be triggered from the power automate app. No need to implement trigger logic"
+      },
+      {
+        "date": "2023-08-08T14:05:00.000Z",
+        "voteCount": 2,
+        "content": "Answers:\nA\nB\nA"
+      },
+      {
+        "date": "2024-05-03T20:56:00.000Z",
+        "voteCount": 2,
+        "content": "Why would box 2 require an entirely new canvas app?"
+      },
+      {
+        "date": "2022-07-25T19:05:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-01-18T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "I would use a logic app for 1. Why should it run in a user context (aka Power Automate), when you can have it run in a service context?"
+      },
+      {
+        "date": "2022-03-05T20:20:00.000Z",
+        "voteCount": 12,
+        "content": "I think because it says that \"You must minimize the amount of custom code and configuration required to implement the solution.\""
+      },
+      {
+        "date": "2022-01-08T05:41:00.000Z",
+        "voteCount": 1,
+        "content": "what is the answer ?"
+      },
+      {
+        "date": "2021-12-19T05:04:00.000Z",
+        "voteCount": 3,
+        "content": "Not sure about the third question; What's the difference between \"Power Automate flow triggered from an email button\" and \"Power Automate flow triggered manually\" ? thanks"
+      },
+      {
+        "date": "2021-12-22T11:45:00.000Z",
+        "voteCount": 1,
+        "content": "Trigger manually usually refers to a SharePoint item in a list where you can trigger it from."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56000-exam-pl-400-topic-1-question-4-discussion/",
+    "body": "A company has an application that provides API access. You plan to connect to the API from a canvas app by using a custom connector.<br>You need to request information from the API developers so that you can create the custom connector.<br>Which two types of files can you use? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYAML",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWSDL",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOpenAPI definition\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPostman collection\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 18,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-11-23T06:20:00.000Z",
+        "voteCount": 11,
+        "content": "View: https://docs.microsoft.com/en-us/connectors/custom-connectors/faq"
+      },
+      {
+        "date": "2023-03-16T10:30:00.000Z",
+        "voteCount": 1,
+        "content": "Should be CD"
+      },
+      {
+        "date": "2022-12-08T13:19:00.000Z",
+        "voteCount": 1,
+        "content": "I have tried both options."
+      },
+      {
+        "date": "2022-10-30T04:09:00.000Z",
+        "voteCount": 2,
+        "content": "Postman Collection v2 is available as of Oct 2021.\nOpenAPI 2.0 is currently supported. Support for OpenAPI 3 is in the backlog."
+      },
+      {
+        "date": "2022-09-09T09:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct, https://docs.microsoft.com/en-us/training/modules/use-custom-connectors-in-powerapps-canvas-app/2-overview-custom-connector-lifecycle"
+      },
+      {
+        "date": "2022-07-25T19:05:00.000Z",
+        "voteCount": 1,
+        "content": "CD Correct"
+      },
+      {
+        "date": "2022-02-14T18:14:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-02-04T13:06:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-10-28T20:20:00.000Z",
+        "voteCount": 1,
+        "content": "CORRECT"
+      },
+      {
+        "date": "2021-11-16T23:14:00.000Z",
+        "voteCount": 1,
+        "content": "Galit yan?"
+      },
+      {
+        "date": "2021-10-09T05:18:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-06-24T07:48:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54211-exam-pl-400-topic-1-question-5-discussion/",
+    "body": "You plan to create a canvas app to manage large sets of records. Users will filter and sort the data.<br>You must implement delegation in the canvas app to mitigate potential performance issues.<br>You need to recommend data sources for the app.<br>Which two data sources should you recommend? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSQL Server\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCommon Data Service\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Factory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Table Storage"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 24,
+        "isMostVoted": true
+      },
+      {
+        "answer": "BD",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-06-19T07:59:00.000Z",
+        "voteCount": 37,
+        "content": "A. SQL Server\nB. Common Data Service"
+      },
+      {
+        "date": "2021-06-05T13:26:00.000Z",
+        "voteCount": 8,
+        "content": "I would have gone for A and B too. Explanation does not mention Azure data lakes..!?"
+      },
+      {
+        "date": "2024-04-24T06:01:00.000Z",
+        "voteCount": 1,
+        "content": "I don't know why everyone omits Azure Table storage as a valid option? Azure Table Storage supports delegation for basic filtering and sorting operations. We don't expect something super complex in terms of sorting and filtering in the Canvas app from the users, right? SQL Server does not fully support delegation for all functions. Additionally Azure Table Storage is is designed for scalability and can handle large datasets, which is one of the conditions (large sets of records). In my opinion correct answers are BD."
+      },
+      {
+        "date": "2024-04-11T15:28:00.000Z",
+        "voteCount": 1,
+        "content": "Just fYI, Common Data Service (CDS) got rebranded into Microsoft Dataverse"
+      },
+      {
+        "date": "2023-03-16T10:31:00.000Z",
+        "voteCount": 1,
+        "content": "Should be AB"
+      },
+      {
+        "date": "2023-03-16T10:30:00.000Z",
+        "voteCount": 1,
+        "content": "Should be CD."
+      },
+      {
+        "date": "2022-10-30T04:16:00.000Z",
+        "voteCount": 7,
+        "content": "In exam option B will be \"Microsoft Dataverse\"\n\nDelegation is supported for certain tabular data sources only. If a data source supports delegation, its connector documentation outlines that support. For example, these tabular data sources are the most popular, and they support delegation:\n\nPower Apps delegable functions and operations for Microsoft Dataverse\nPower Apps delegable functions and operations for SharePoint\nPower Apps delegable functions and operations for SQL Server\nPower Apps delegable functions and operations for Salesforce"
+      },
+      {
+        "date": "2022-08-19T05:49:00.000Z",
+        "voteCount": 3,
+        "content": "In explanations you are providing AB option and marking correct option as AC. What is the meaning to subscribe if you are team is that careless?"
+      },
+      {
+        "date": "2024-02-19T12:57:00.000Z",
+        "voteCount": 1,
+        "content": "so true man! WTF is wrong with them&gt;?"
+      },
+      {
+        "date": "2023-09-03T17:33:00.000Z",
+        "voteCount": 1,
+        "content": "man same proplem other sources dump questions saying different answers its really frustrating"
+      },
+      {
+        "date": "2022-07-25T19:06:00.000Z",
+        "voteCount": 1,
+        "content": "AB Of Course"
+      },
+      {
+        "date": "2022-06-07T19:07:00.000Z",
+        "voteCount": 3,
+        "content": "@ExamTopics,\nThe justification, you had given is also saying SQL Server &amp; Common Data Service. While you had marked SQL Server and Azure Data Factory.\nAny Specific Reason?"
+      },
+      {
+        "date": "2022-05-24T02:54:00.000Z",
+        "voteCount": 1,
+        "content": "see here: https://docs.microsoft.com/en-us/power-apps/maker/canvas-apps/delegation-overview"
+      },
+      {
+        "date": "2022-03-13T01:34:00.000Z",
+        "voteCount": 2,
+        "content": "A,B its all About  delegatiom"
+      },
+      {
+        "date": "2022-03-11T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "should be A and B!"
+      },
+      {
+        "date": "2022-03-10T03:05:00.000Z",
+        "voteCount": 1,
+        "content": "100% AB"
+      },
+      {
+        "date": "2022-02-04T16:59:00.000Z",
+        "voteCount": 4,
+        "content": "Moderator/Admin - Answer explanation says A&amp;B are the answer where as the actual answer showing is A&amp;C, please correct.."
+      },
+      {
+        "date": "2022-01-29T15:30:00.000Z",
+        "voteCount": 1,
+        "content": "Delegation is supported for certain tabular data sources only. If a data source supports delegation, its connector documentation outlines that support. For example, these tabular data sources are the most popular, and they support delegation:\n\nPower Apps delegable functions and operations for Microsoft Dataverse\nPower Apps delegable functions and operations for SharePoint\nPower Apps delegable functions and operations for SQL Server\nPower Apps delegable functions and operations for Salesforce\nreason 1--&gt; Azure data factory is not mentioned in MS documentation\nreason 2 --&gt; Azure is not an actual data (questions asks for data sources) source but ETL a service for scale-out serverless data integration and data transformation. \nhttps://docs.microsoft.com/en-gb/powerapps/maker/canvas-apps/delegation-overview"
+      },
+      {
+        "date": "2022-01-19T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "Hi guys, A general question what does the answer in yellow \"Selected answer: AB\" mean?"
+      },
+      {
+        "date": "2022-01-24T02:59:00.000Z",
+        "voteCount": 1,
+        "content": "It means it's a voting comment and they voted for AB"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/59953-exam-pl-400-topic-1-question-6-discussion/",
+    "body": "HOTSPOT -<br>A client is deploying Dynamics 365 Finance without any third-party add-ons.<br>You need to select the appropriate solutions for the client.<br>What should you select? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0002900004.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0003000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Out-of-the-box -<br>Technicians can use the Field Service (Dynamics 365) mobile app to scan barcodes.<br><br>Box 2: Power Automate -<br>Administrators can replace Dynamics 365 workflows with Power Automate flows for Field Service Mobile processes like geofencing, geofence alerts, and push notifications.<br>By using Power Automate for Field Service Mobile processes, you can:<br>Connect and run workflows within Dynamics 365 and between other outside applications.<br>Delete records and schedule jobs.<br>Perform robust approvals.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/field-service/mobile-power-app-system-barcode-scanning https://docs.microsoft.com/en-us/dynamics365/field-service/mobile-workflow-to-flow",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-19T10:58:00.000Z",
+        "voteCount": 37,
+        "content": "My guess here is Out-of-box, Power Automate. From what I remember a standard workflow can send out emails but it can't send SMS. Am I wrong here?"
+      },
+      {
+        "date": "2021-08-25T07:48:00.000Z",
+        "voteCount": 6,
+        "content": "You are right. In addition, the supplied links they provided takes you to a document about replacing workflows with Power Automate flows."
+      },
+      {
+        "date": "2021-09-01T12:40:00.000Z",
+        "voteCount": 3,
+        "content": "That was my guess too"
+      },
+      {
+        "date": "2023-10-02T21:54:00.000Z",
+        "voteCount": 1,
+        "content": "Mobile app for barcose scanning is an out of the box solution in Dynamics 365 field service. You are right Power Automate need a connector like Twilio or other sms gateways."
+      },
+      {
+        "date": "2021-10-28T20:25:00.000Z",
+        "voteCount": 17,
+        "content": "Correct Answers are Out-of-box and Power Automate."
+      },
+      {
+        "date": "2024-10-17T16:22:00.000Z",
+        "voteCount": 1,
+        "content": "These types of questions are what you get when you have scam-artists who are emboldened enough to teach"
+      },
+      {
+        "date": "2023-04-20T19:44:00.000Z",
+        "voteCount": 1,
+        "content": "Out of box and Power Automate\nhttps://learn.microsoft.com/en-us/dynamics365/field-service/reminders-arrival-time"
+      },
+      {
+        "date": "2023-03-16T10:32:00.000Z",
+        "voteCount": 1,
+        "content": "Out-of-box, Power Automate"
+      },
+      {
+        "date": "2023-01-29T02:53:00.000Z",
+        "voteCount": 1,
+        "content": "My thought, Dynamics Finance does not provide out-of box feature of scanning, whereas Dynamics Field Service can scan and read QR codes, which can be used to access work order and inventory information."
+      },
+      {
+        "date": "2022-07-25T19:06:00.000Z",
+        "voteCount": 1,
+        "content": "OOB and PA"
+      },
+      {
+        "date": "2022-03-26T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "Common Data Service because \"A client is deploying Dynamics 365 Finance without any third-party add-ons.\" https://blog.magnetismsolutions.com/blog/satyvirjasra/2017/10/02/how-to-scan-barcode-labels-in-microsoft-dynamics-365#:~:text=Microsoft%20Dynamics%20365%20comes%20with,using%20their%20phones%20and%20tablets.\n\nPower Automate: You can integrate with Twilio, for example, and send text messages."
+      },
+      {
+        "date": "2022-01-18T10:19:00.000Z",
+        "voteCount": 3,
+        "content": "In the first answer they talk about Dynamics 365 FINANCE which does not have the barcode scanner (its part of the Field Service App). So shouldnt it be Common Data Service as you have to extend the model driven app?"
+      },
+      {
+        "date": "2022-05-09T05:14:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/dynamics365/supply-chain/warehousing/scan-bar-codes-using-a-camera"
+      },
+      {
+        "date": "2021-12-20T17:07:00.000Z",
+        "voteCount": 4,
+        "content": "I guest the responses are Out-of-box and Power Automate"
+      },
+      {
+        "date": "2021-09-24T03:44:00.000Z",
+        "voteCount": 2,
+        "content": "Why is Workflow the correct choice here? Workflow is getting replaced by Flow/Power Automate right? Is the answer outdated?"
+      },
+      {
+        "date": "2021-09-11T05:09:00.000Z",
+        "voteCount": 2,
+        "content": "dynamics can't send sms of its own. answer to second question can't be workflow.\nPower Automate is better choice."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/88806-exam-pl-400-topic-1-question-7-discussion/",
+    "body": "DRAG DROP -<br>A company uses Microsoft 365. You are developing a model-driven app.<br>The app must meet the following requirements:<br>\u2711 Use SharePoint Online for document storage.<br>\u2711 Send emails by using Exchange Online.<br>You need to configure integrations.<br>What should you configure? To answer, drag the appropriate configuration options to the correct requirements. Each configuration option may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04332/0003100003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0003200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Server-side syncrhonization<br>Configure default email processing and synchronization: set server-side synchronization to be the default configuration method for newly created users.<br>Box 2: Server-side integration.<br>If your organization is already using document management with Microsoft Dynamics CRM List Component, you must switch to server-based SharePoint integration.<br>If your organization has not deployed document management, when a System Administrator logs in an alert message will be displayed to enable server-based<br>SharePoint integration.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-09T13:55:00.000Z",
+        "voteCount": 11,
+        "content": "good lord all these artificial technical terms you are supposed to remember."
+      },
+      {
+        "date": "2024-02-27T11:36:00.000Z",
+        "voteCount": 1,
+        "content": "Shouldn't it be System Settings, as the question asks, what to configure, and according to this article, you need to enable document management, \n3.Select Settings &gt; Integration &gt; Document management settings &gt; Document Management Settings.\n4. Select the entities that you want to use to manage SharePoint documents.\nhttps://learn.microsoft.com/en-us/power-platform/admin/enable-sharepoint-document-management-specific-entities"
+      },
+      {
+        "date": "2024-01-23T14:50:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-05-09T22:08:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-03-16T10:32:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-02-02T20:26:00.000Z",
+        "voteCount": 1,
+        "content": "It is right"
+      },
+      {
+        "date": "2023-01-03T13:12:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-11-30T20:03:00.000Z",
+        "voteCount": 2,
+        "content": "Yes the answer is correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/59971-exam-pl-400-topic-1-question-8-discussion/",
+    "body": "A company plans to create an order processing app. When orders are created, the app will perform complex business logic and integrate with several external systems.<br>Orders that have a large number of line items may take up to six minutes to complete. Processing for each order must be completed in one operation to avoid leaving records in an incomplete state.<br>You need to recommend a solution for the company.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan asynchronous workflow that uses a custom workflow activity",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta real-time workflow that uses a custom action",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta webhook that connects to an Azure Function\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan asynchronous plug-in"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 15,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 4,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-09-16T23:55:00.000Z",
+        "voteCount": 34,
+        "content": "Definitely C.\nCustom actions have a 2 min timeout.\nThis can be implemented using webhook and Azure function where the Azure function uses batch operations Web API which enables transactional operations and can run more than 2 mins\n https://docs.microsoft.com/en-us/powerapps/developer/data-platform/webapi/execute-batch-operations-using-web-api"
+      },
+      {
+        "date": "2021-12-01T04:43:00.000Z",
+        "voteCount": 7,
+        "content": "C seems correct"
+      },
+      {
+        "date": "2024-05-05T11:22:00.000Z",
+        "voteCount": 1,
+        "content": "B and C are less suitable because they both imply real-time processing, which might not be ideal for long-running operations and could potentially impact system performance and user experience. While D, an asynchronous plug-in, could be an alternative but might not provide the same level of flexibility and control over the processing flow as a custom workflow activity."
+      },
+      {
+        "date": "2024-04-24T06:24:00.000Z",
+        "voteCount": 1,
+        "content": "With plug-ins you can handle complex business logic, integrate with external systems, do synch processing, avoid delays and records are not left in incomplete state. They are native features of the Dynamics 365 and Dataverse, providing seamless integration and execution. Why would you introduce additional layer of complexity and potential points of failure by using webhooks?"
+      },
+      {
+        "date": "2024-04-24T06:30:00.000Z",
+        "voteCount": 2,
+        "content": "After reconsidering, due to the 2min timeout with plug-ins perhaps webhooks in conjunction with Azure Functions is a better approach."
+      },
+      {
+        "date": "2023-09-22T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "Sandbox limitation is 2 minutes, and here said that execution could take up to 6 minutes. So it should be C."
+      },
+      {
+        "date": "2023-09-03T14:57:00.000Z",
+        "voteCount": 5,
+        "content": "what answer is the right answer ? most of websites saying its a realtime and you guys saying here webhook its really confusing and i dont know how i can pass if this website answering wrong or right"
+      },
+      {
+        "date": "2023-03-23T23:27:00.000Z",
+        "voteCount": 2,
+        "content": "ChatGPD said D. C is a possible solution, but not best"
+      },
+      {
+        "date": "2023-03-24T00:30:00.000Z",
+        "voteCount": 2,
+        "content": "ChatGPD changed mind, should C since D may cause delays in processing if there are a large number of line items to process, which could result in incomplete records."
+      },
+      {
+        "date": "2023-07-23T18:45:00.000Z",
+        "voteCount": 1,
+        "content": "it can never be asynchronous because the requirement said it needs to be done in one operation. asynch means it can be done in many operations running at different times"
+      },
+      {
+        "date": "2023-03-16T10:35:00.000Z",
+        "voteCount": 1,
+        "content": "C should be correct"
+      },
+      {
+        "date": "2023-03-05T08:44:00.000Z",
+        "voteCount": 5,
+        "content": "I checked also in measure up website teh solution is C webhook and azure functions"
+      },
+      {
+        "date": "2023-01-08T16:13:00.000Z",
+        "voteCount": 3,
+        "content": "\"Processing for each order must be completed in one operation to avoid leaving records in an incomplete state\"\n\nReal-time workflow action is the only option that will roll back if it fails and avoid leaving record in an incomplete state."
+      },
+      {
+        "date": "2023-01-03T14:05:00.000Z",
+        "voteCount": 2,
+        "content": "Check out this doc : https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/create-own-actions?view=op-9-1\nHave a look on \"Watch Out\" section. It says no limit for Custom Action in real time workflow. But below that statement there is a tip \"long running operations should be run outside of Crm 365\". I would go for B but in real life I would push C as much as I can"
+      },
+      {
+        "date": "2022-12-29T10:04:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2022-11-30T05:42:00.000Z",
+        "voteCount": 1,
+        "content": "2 min timeout for plugins, CWA etc... You can go with C by just excluding the other 3 options"
+      },
+      {
+        "date": "2022-10-30T12:25:00.000Z",
+        "voteCount": 2,
+        "content": "Due to the 2 min timeout, answer is C"
+      },
+      {
+        "date": "2022-09-01T03:00:00.000Z",
+        "voteCount": 1,
+        "content": "C looks overkill with azure function. this is power platform exam. not azure."
+      },
+      {
+        "date": "2023-03-21T21:14:00.000Z",
+        "voteCount": 1,
+        "content": "it is not correct in my opinion"
+      },
+      {
+        "date": "2022-10-30T12:24:00.000Z",
+        "voteCount": 1,
+        "content": "A webhook is registered using the plugin registration tool, what's the problem?"
+      },
+      {
+        "date": "2022-07-25T19:08:00.000Z",
+        "voteCount": 1,
+        "content": "My guess: C"
+      },
+      {
+        "date": "2022-07-13T06:18:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be: \nA. an asynchronous workflow that uses a custom workflow activity\n\nAsync workflow has no timeout and custom workflow activity runs in a transaction."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/60807-exam-pl-400-topic-1-question-9-discussion/",
+    "body": "HOTSPOT -<br>You work for a not-for-profit agency that manages business processes by using Power Platform custom entities.<br>Volunteer registration and onboarding are manual processes that include multiple related entities.<br>You need to implement a portal solution that replaces the manual processes.<br>Which modules should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0003400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0003400002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Customer self-service portal<br>Customer self-service portal: A customer self-service portal enables customers to access self-service knowledge, support resources, view the progress of their cases, and provide feedback.<br>Incorrect Answers:<br>\u2711 Community portal: A community portal leverages peer-to-peer interactions between customers and experts to organically grow the catalog of available knowledge from knowledge base articles, forums, and blogs as well as providing feedback through comments and ratings.<br>\u2711 Starter portal: If you select an environment that contains Microsoft Dataverse, you can create a Dataverse starter portal. The Dataverse starter portal comes with the sample data for you to quickly get started. It also has the following built-in sample pages:<br><br>Default studio template -<br><br>Page with title -<br><br>Page with child links -<br><br>Box 2: Entity form metadata -<br>The Advanced Form Metadata contains additional behavior modification logic to augment or override the functionality of form fields that is otherwise not possible with native basic form editing capabilities.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/maker/portals/portal-templates https://docs.microsoft.com/en-us/powerapps/maker/portals/configure/configure-web-form-metadata",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-04T21:35:00.000Z",
+        "voteCount": 32,
+        "content": "Second one should be Web form as it allows for multiple entities which is what the question's scenario is based on - 'Volunteer registration and onboarding are manual processes that include multiple related entities.'"
+      },
+      {
+        "date": "2021-08-26T23:35:00.000Z",
+        "voteCount": 19,
+        "content": "Answer will be C and B"
+      },
+      {
+        "date": "2024-04-24T06:33:00.000Z",
+        "voteCount": 1,
+        "content": "C and B"
+      },
+      {
+        "date": "2023-07-16T13:41:00.000Z",
+        "voteCount": 1,
+        "content": "C(https://learn.microsoft.com/en-us/power-apps/maker/portals/portal-templates) and B"
+      },
+      {
+        "date": "2022-11-02T08:19:00.000Z",
+        "voteCount": 5,
+        "content": "A bit perplexed as to why the first answer is not 'Starter Portal' given this specifies custom entities, and is not using a D365 OOB app."
+      },
+      {
+        "date": "2022-07-25T19:33:00.000Z",
+        "voteCount": 1,
+        "content": "My guess: C and B"
+      },
+      {
+        "date": "2022-01-12T11:05:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct: The Advanced Form Metadata contains additional behavior modification logic to augment or override the functionality of form fields that is otherwise not possible with native basic form editing capabilities."
+      },
+      {
+        "date": "2022-01-26T21:13:00.000Z",
+        "voteCount": 4,
+        "content": "Entity Form is Basic Form. It's technically not wrong, as Entity Form Metadata allows for subgrids of the related tables to include CRUD operations. Either way, the question doesn't indicate any behavior modification is needed. It focuses on a manual effort with multiple related tables. Yes, form metadata may be included, but the overall solution for the problem is a complete Web Form (with Steps, Metadata, etc.) due to related tables."
+      },
+      {
+        "date": "2021-10-28T20:32:00.000Z",
+        "voteCount": 7,
+        "content": "Correct C and B"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/59975-exam-pl-400-topic-1-question-10-discussion/",
+    "body": "You are implementing custom business logic in a Power Apps portal.<br>You need to use Liquid templates to display dynamic content.<br>To which three entities can you include Liquid code? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tContent snippet\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeb page\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeb template\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPage template",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPortal settings"
+    ],
+    "answer": "ABC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "ABC",
+        "count": 17,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-19T15:11:00.000Z",
+        "voteCount": 38,
+        "content": "ABC.\n\n\"Liquid code can be used anywhere in the portals where HTML or text content can be entered, including web templates, webpages, and content snippets.\"\nhttps://docs.microsoft.com/en-us/learn/modules/liquid-template-language/1-introduction"
+      },
+      {
+        "date": "2024-09-23T17:58:00.000Z",
+        "voteCount": 1,
+        "content": "ABC ... you can refer to a webtemplate in a page template"
+      },
+      {
+        "date": "2023-10-28T02:18:00.000Z",
+        "voteCount": 2,
+        "content": "Using Liquid, you can:\n\nAdd dynamic content directly to the Copy field of a webpage or the content of a content snippet.\n\nBuild custom web templates, for use throughout the Power Pages content management system.\n\nRender a website header and primary navigation bar, entirely through configuration within Power Apps.\n\nhttps://learn.microsoft.com/en-us/power-pages/configure/liquid/liquid-overview"
+      },
+      {
+        "date": "2023-08-15T16:42:00.000Z",
+        "voteCount": 2,
+        "content": "BCD the right ones These three entities allow you to include and manipulate Liquid code to display dynamic content on your Power Apps portal."
+      },
+      {
+        "date": "2023-03-16T10:36:00.000Z",
+        "voteCount": 2,
+        "content": "ABC should be"
+      },
+      {
+        "date": "2023-03-08T17:25:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct. You will find the three folders here after you download the source code."
+      },
+      {
+        "date": "2023-03-05T08:49:00.000Z",
+        "voteCount": 1,
+        "content": "In measure up website I found as solution ABC"
+      },
+      {
+        "date": "2023-01-08T16:20:00.000Z",
+        "voteCount": 2,
+        "content": "ABC\nhttps://docs.microsoft.com/en-us/learn/modules/liquid-template-language/1-introduction"
+      },
+      {
+        "date": "2022-10-22T01:37:00.000Z",
+        "voteCount": 1,
+        "content": "ABC.\nhttps://learn.microsoft.com/en-us/power-apps/maker/portals/liquid/liquid-overview"
+      },
+      {
+        "date": "2022-08-20T05:57:00.000Z",
+        "voteCount": 1,
+        "content": "ABC is the correct answer"
+      },
+      {
+        "date": "2022-08-13T00:36:00.000Z",
+        "voteCount": 1,
+        "content": "Liquid is an open-source template language that can be used to add dynamic content to pages. Liquid code can be used anywhere in the portals where HTML or text content can be entered, including content in webpages, content snippets, and web templates."
+      },
+      {
+        "date": "2022-07-25T19:34:00.000Z",
+        "voteCount": 1,
+        "content": "ABC of course"
+      },
+      {
+        "date": "2022-07-23T11:57:00.000Z",
+        "voteCount": 1,
+        "content": "ABC is the correct"
+      },
+      {
+        "date": "2022-06-20T12:03:00.000Z",
+        "voteCount": 1,
+        "content": "ABC are the right options.."
+      },
+      {
+        "date": "2022-05-24T03:18:00.000Z",
+        "voteCount": 3,
+        "content": "Page Templates can only refer to Web Templates for HTML. https://docs.microsoft.com/en-us/power-apps/maker/portals/configure/page-templates"
+      },
+      {
+        "date": "2022-05-05T05:15:00.000Z",
+        "voteCount": 1,
+        "content": "ABC....."
+      },
+      {
+        "date": "2022-04-09T04:16:00.000Z",
+        "voteCount": 1,
+        "content": "C\nhttps://www.shopify.com/partners/blog/landing-page\nLiquid + page template\n????"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79323-exam-pl-400-topic-1-question-11-discussion/",
+    "body": "DRAG DROP -<br>Teachers in a school district use Azure skill bots to teach specific classes. Students sign into an online portal to submit completed homework to their teacher for review. Students use a Power Virtual Agents chatbot to request help from teachers.<br>You need to incorporate the skill bot for each class into the homework bot.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04332/0003700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0003700002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Create a manifest for the skill bot<br>You can use skills to extend another bot. A skill is a bot that can perform a set of tasks for another bot.<br>A skill's interface is described by a manifest.<br>Step 2: Register the skill bot in Power Virtual Agents<br>Power Virtual Agents enables you to extend your bot using Microsoft Bot Framework skills.<br>First, create a Power Virtual Agents bot and create and deploy the skill using pro-code tools into your organization.<br>Next, register a skill in Power Virtual Agents.<br>Step 3: Register the homework bot in Power Virtual Agents<br>You can use your Power Virtual Agents bot as a skill with Bot Framework bots.<br>The Bot Framework and Power Virtual Agents bots must be deployed in the same tenant.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/bot-service/skill-implement-skill https://docs.microsoft.com/en-us/azure/bot-service/skills-write-manifest",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-15T11:34:00.000Z",
+        "voteCount": 9,
+        "content": "1. Register the skill in Azure AD\n2. Create a manifest for the skill bot\n3. Register the skill bot in Power VA"
+      },
+      {
+        "date": "2023-02-22T07:16:00.000Z",
+        "voteCount": 7,
+        "content": "Bots and Virtual Agents are not in the skills measured for the PL-400 exam. I think these Bot related questions are from the Functional Associate exam."
+      },
+      {
+        "date": "2024-04-24T07:16:00.000Z",
+        "voteCount": 2,
+        "content": "1. Create a manifest for the skill bot \n2. Register the skill bot in Azure AD \n3. Register the homework bot in Power VA"
+      },
+      {
+        "date": "2024-04-22T08:54:00.000Z",
+        "voteCount": 5,
+        "content": "Em exame em abril/2024. \nMinha pontua\u00e7\u00e3o: 911\nMinha resposta: 1. Register the skill in Azure AD\n2. Create a manifest for the skill bot\n3. Register the skill bot in Power VA"
+      },
+      {
+        "date": "2024-01-31T23:58:00.000Z",
+        "voteCount": 1,
+        "content": "1. Register the skill in Azure AD\n2. Create a manifest for the skill bot\n3. Register the skill bot in Power VA"
+      },
+      {
+        "date": "2023-12-30T03:14:00.000Z",
+        "voteCount": 2,
+        "content": "1. Register the skill in Azure AD\n2. Create a manifest for the skill bot\n3. Register the skill bot in Power VA"
+      },
+      {
+        "date": "2023-06-24T15:58:00.000Z",
+        "voteCount": 4,
+        "content": "1.\tRegister the skill in Azure AD\n2.\tCreate a manifest for the skill bot\n3.\tRegister the skill bot in Power VA\n\nhttps://learn.microsoft.com/en-us/power-virtual-agents/configuration-add-skills?source=recommendations"
+      },
+      {
+        "date": "2023-06-06T01:24:00.000Z",
+        "voteCount": 2,
+        "content": "I think the answer should be:\n1. Create a manifest for the skill bot\n2. Register the skill in Azure AD\n3. Register the homework bot in Power VA"
+      },
+      {
+        "date": "2023-05-01T05:04:00.000Z",
+        "voteCount": 3,
+        "content": "1. Create a manifest for the skill bot\n2. Register the skill in Azure AD\n3. Register the skill bot in Power VA\nRef: \nhttps://learn.microsoft.com/en-us/power-virtual-agents/configuration-add-skills?source=recommendations\nhttps://learn.microsoft.com/en-us/azure/bot-service/skills-conceptual?view=azure-bot-service-4.0&amp;preserve-view=true"
+      },
+      {
+        "date": "2023-04-12T23:58:00.000Z",
+        "voteCount": 3,
+        "content": "According to chatgpt (after asking it to review the data many times) the first is Register the skills bot in Azure AD, then create the manifest for the skill bot and then register the skills bot in PVA, but I have very little trust in its answers"
+      },
+      {
+        "date": "2023-02-23T14:35:00.000Z",
+        "voteCount": 3,
+        "content": "Has anyone recently found this question in the exam?"
+      },
+      {
+        "date": "2023-01-01T01:38:00.000Z",
+        "voteCount": 3,
+        "content": "what a mess!\nIn question the homework bot is never mentioned. students only submit homework in portal (maybe using a basic form?), not use a bot.\nAnd the PVA is only used for getting help from teacher, not for homework!"
+      },
+      {
+        "date": "2022-12-27T22:06:00.000Z",
+        "voteCount": 2,
+        "content": "The skills bot should be first registered in Azure AD App Registration to get  AppID for the Bot.\nThe PVA Bot should then be created to get PVA Bot ID.\nThe Manifest of Skills Bot should then be updated where the Allow Callers List includes the the PVA Bot ID"
+      },
+      {
+        "date": "2022-12-30T18:03:00.000Z",
+        "voteCount": 3,
+        "content": "Is this correct?\n\n1. Register skill Bot in Azure AD\n2. Register skill Bot in PVA\n3. Create Manifest into Homework bot"
+      },
+      {
+        "date": "2023-01-22T23:49:00.000Z",
+        "voteCount": 1,
+        "content": "Is this correct? this makes sense to me than the answer provided. Reference: https://learn.microsoft.com/en-us/power-virtual-agents/configuration-add-skills?source=recommendations"
+      },
+      {
+        "date": "2022-09-08T01:39:00.000Z",
+        "voteCount": 4,
+        "content": "this answer is correct ??"
+      },
+      {
+        "date": "2022-09-02T01:46:00.000Z",
+        "voteCount": 3,
+        "content": "Ok, https://docs.microsoft.com/en-us/power-virtual-agents/configuration-add-skills?source=recommendations\nhttps://docs.microsoft.com/en-us/power-virtual-agents/advanced-use-skills"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79322-exam-pl-400-topic-1-question-12-discussion/",
+    "body": "A company is migrating from an on-premises Dynamics 365 installation to a Power Platform solution. You are creating plug-ins for the new solution.<br>You need to register the plug-ins.<br>Which isolation mode should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNone",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGlobal Assembly Cache (GAC)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSandbox\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisk"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-30T18:08:00.000Z",
+        "voteCount": 6,
+        "content": "Always C"
+      },
+      {
+        "date": "2023-08-15T11:34:00.000Z",
+        "voteCount": 1,
+        "content": "correct C"
+      },
+      {
+        "date": "2023-02-23T14:36:00.000Z",
+        "voteCount": 3,
+        "content": "Correct C"
+      },
+      {
+        "date": "2022-09-02T01:46:00.000Z",
+        "voteCount": 3,
+        "content": "Ok. https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/register-deploy-plugins?view=op-9-1"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81969-exam-pl-400-topic-1-question-13-discussion/",
+    "body": "An organization uses a public-facing Power Apps portal.<br>You need to change the layout of a specific web page.<br>What are two possible ways to achieve the goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the Portal Management app and then select Edit.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the Portal Management app and then select Play.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the portal app and then select Manage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the portal app and then select Edit.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AD",
+        "count": 4,
+        "isMostVoted": false
+      },
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-13T03:46:00.000Z",
+        "voteCount": 19,
+        "content": "BD are correct"
+      },
+      {
+        "date": "2022-09-21T07:27:00.000Z",
+        "voteCount": 3,
+        "content": "Why not AD?"
+      },
+      {
+        "date": "2022-12-14T01:52:00.000Z",
+        "voteCount": 5,
+        "content": "I think, A is not correct answer, my view is: To manage portal the app \"Portal Management\" should be play as then only it allows managing other portal apps and configurations. We do not want to edit this app instead it should be run or play to manage others portal apps."
+      },
+      {
+        "date": "2023-02-01T01:06:00.000Z",
+        "voteCount": 7,
+        "content": "B is definitely not right, since playing means running the application and wont be able to edit it"
+      },
+      {
+        "date": "2024-09-01T17:40:00.000Z",
+        "voteCount": 1,
+        "content": "Both C and D will allow you to access the Power Apps Portal Studio, where you can modify the layout of a specific web page."
+      },
+      {
+        "date": "2024-08-29T16:36:00.000Z",
+        "voteCount": 1,
+        "content": "All three options ABD can be used to go and edit web Page, but with Edit it will be able to update navigation of Model driven app, so Appropriate answer should be BD"
+      },
+      {
+        "date": "2024-07-01T01:19:00.000Z",
+        "voteCount": 1,
+        "content": "AD are correct. tested in lab"
+      },
+      {
+        "date": "2024-05-28T23:11:00.000Z",
+        "voteCount": 1,
+        "content": "BD \nAs when you do Edit it opens the designer app where we can change the model driven app capabilities so when we play we will get the app where we can go and change the required web page."
+      },
+      {
+        "date": "2024-05-28T02:11:00.000Z",
+        "voteCount": 1,
+        "content": "BD are correct.\nPortal Management is a model-driven application, which is the one that will allow us to configure the different portals that we have configured in an environment, as well as allowing us to change the layout of a web page. Taking this into account, the first thing to do is to run the application, so the correct answer is option B and D."
+      },
+      {
+        "date": "2024-05-04T18:14:00.000Z",
+        "voteCount": 1,
+        "content": "Both options A and C provide ways to access the portal settings and make changes to the layout of specific web pages. The Portal Management app allows administrators to manage various aspects of the portal, including editing web pages and their layout. Selecting \"Edit\" within the Portal Management app or \"Manage\" within the portal app interface would typically lead to options for modifying the layout of specific web pages."
+      },
+      {
+        "date": "2024-04-24T12:25:00.000Z",
+        "voteCount": 1,
+        "content": "AD correct"
+      },
+      {
+        "date": "2023-12-30T03:18:00.000Z",
+        "voteCount": 1,
+        "content": "AD is correct"
+      },
+      {
+        "date": "2023-09-09T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "B&amp;D\nwe can play/open Portal management and then modify the layout"
+      },
+      {
+        "date": "2023-09-08T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "B) https://learn.microsoft.com/en-us/power-pages/configure/portal-management-app#open-the-portal-management-app-from-power-apps\nD) https://learn.microsoft.com/en-us/power-apps/maker/portals/manage-existing-portals"
+      },
+      {
+        "date": "2023-09-05T22:56:00.000Z",
+        "voteCount": 2,
+        "content": "C. Go to the app. Click on \"Manage.\"\nD. Go to the app. Click on \"Edit.\"\n\nHere's why these options are correct;\nC. By selecting the app and clicking on \"Manage \" you can access the settings, for managing the portal, such as configuring pages and layouts.\nD. Selecting the app and clicking on \"Edit\" allows you to make changes to pages and layouts within the portal app. This is where you can modify how a particular web page looks.\n\nOptions A (Select the Portal Management app and then select Edit) and B (Select the Portal Management app and select Play) are not suitable for making changes to specific web pages within the portal app. Option A is related to modifying the settings of the Portal Management app itself while option B is about testing or previewing the portal, rather than editing page layouts."
+      },
+      {
+        "date": "2023-08-30T07:51:00.000Z",
+        "voteCount": 1,
+        "content": "A would just edit the model-driven app for managing the portal, not actually do any mgmt."
+      },
+      {
+        "date": "2023-08-28T01:27:00.000Z",
+        "voteCount": 3,
+        "content": "If you select A, you wont be editing any portal or web page, you will be editing the Portal management Model driven app. Answer is B and D"
+      },
+      {
+        "date": "2023-08-14T06:02:00.000Z",
+        "voteCount": 2,
+        "content": "B. Portal Management App - PLAY (Model Driven App use to managed advance portal Configurations)\nD. Portal App - EDIT (Use to design site through Drag and Drop)"
+      },
+      {
+        "date": "2023-06-06T01:46:00.000Z",
+        "voteCount": 1,
+        "content": "From MS Docs: \"You can use the Portal Management app, a model-driven Power App, for advanced configuration of your Power Pages sites.\"\nThat means we have to run the app to edit the portal pages and not edit the app iteself."
+      },
+      {
+        "date": "2023-02-13T17:36:00.000Z",
+        "voteCount": 3,
+        "content": "AD is Correct"
+      },
+      {
+        "date": "2023-05-21T20:15:00.000Z",
+        "voteCount": 1,
+        "content": "I do not believe it is A. You want to run the management app to manage the portal config, you are not editing the management app itself. \nAnswer would be BD"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/87463-exam-pl-400-topic-1-question-14-discussion/",
+    "body": "You are building a custom application in Azure to process resumes for the HR department.<br>The app will monitor submissions of resumes and parse the resumes.<br>You need to parse the resumes and save contact and skills information into the Common Data Service.<br>Which mechanism should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPower Automate\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCommon Data Service plug-in",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeb API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCustom workflow activity"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-06T00:44:00.000Z",
+        "voteCount": 9,
+        "content": "I think is A because you need to save on  dataverse."
+      },
+      {
+        "date": "2024-09-01T17:50:00.000Z",
+        "voteCount": 1,
+        "content": "Using a Web API allows you to build a custom solution that can efficiently parse resumes and handle the specific business logic required for saving data into Dataverse. This approach provides the flexibility needed for the scenario described, allowing the application to monitor submissions, perform complex parsing, and then store the processed data into Dataverse."
+      },
+      {
+        "date": "2024-03-05T18:15:00.000Z",
+        "voteCount": 1,
+        "content": "I think C is the best answer. They don't talk about the specific tecnology in azure, so, if you want to use power automate, i think it could be possible if you use http trigger and call the power automate from the application. But in this way you need a power automate premium license and power automate doesn't simplified the work. With option C you dont need extra license."
+      },
+      {
+        "date": "2023-09-22T07:43:00.000Z",
+        "voteCount": 3,
+        "content": "Both A and C are suitable in this situation, but Microsoft recommends using PowerAutomate flow wherever possible. So, I believe the answer should be A."
+      },
+      {
+        "date": "2023-09-09T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "C: need api to save the data"
+      },
+      {
+        "date": "2023-09-01T01:34:00.000Z",
+        "voteCount": 2,
+        "content": "Guys it should be \"C\". Whatever third-party application outside from Power Platform or Dynamics 365"
+      },
+      {
+        "date": "2023-09-01T01:39:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, butter finger... External applications should use Dataverse Web API to perform operations in Dataverse, instead of using Power Automate or Middleware."
+      },
+      {
+        "date": "2023-08-30T11:12:00.000Z",
+        "voteCount": 1,
+        "content": "Absolutely A"
+      },
+      {
+        "date": "2023-08-29T07:53:00.000Z",
+        "voteCount": 2,
+        "content": "I think is A. With Pwer Automate you can extract the ressume information and save it in dataverse. With Web API you only can write in dataverse but not extract/process/parse the resume"
+      },
+      {
+        "date": "2023-09-06T12:45:00.000Z",
+        "voteCount": 1,
+        "content": "But the question says, your azure app will extract the resume information and it only asks how to save it in the dataverse"
+      },
+      {
+        "date": "2024-09-13T09:07:00.000Z",
+        "voteCount": 1,
+        "content": "It is saying that \"you are building the App\" and what mechanism to use. So API is not right, the only mechanism to parse the info and so on is PA. A is correct then"
+      },
+      {
+        "date": "2023-08-14T06:12:00.000Z",
+        "voteCount": 2,
+        "content": "C. Web API (Bcz Azure app is doing all process, only the action left is to save contact and skills in dataverse which azure app can do using by calling Dataverse Web API)"
+      },
+      {
+        "date": "2023-06-06T01:49:00.000Z",
+        "voteCount": 3,
+        "content": "Why not web api, which can be called from custom application directly to create a record in Dataverse?"
+      },
+      {
+        "date": "2023-01-13T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct"
+      },
+      {
+        "date": "2023-01-08T16:37:00.000Z",
+        "voteCount": 1,
+        "content": "A -\nPower Automate can do the job"
+      },
+      {
+        "date": "2022-11-14T11:45:00.000Z",
+        "voteCount": 1,
+        "content": "i was thinking for D"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/82227-exam-pl-400-topic-1-question-15-discussion/",
+    "body": "DRAG DROP -<br>You are researching integrations with several external systems.<br>Each integration has different requirements.<br>You need to determine which data sources to use to meet each requirement.<br>What should you use? To answer, drag the appropriate data sources to the correct requirements. Each data source may be used once, more than one, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04332/0004100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0004100002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Virtual entity -<br>Initially, defining a virtual entity is the same as defining a custom entity: you specify the entity, attributes, and relationships for the new virtual entity type.<br>You can use GUIDs as primary keys in the external data source.<br><br>Box 2: Virtual entity -<br>Virtual entities enable the integration of data residing in external systems by seamlessly representing that data as entities in Microsoft Dataverse (Common Data<br>Service), without replication of data and often without custom coding. Virtual entities support create, updates and delete of data in the external system.<br><br>Box 3: Custom connector -<br>A custom connector is a wrapper around a REST API (Logic Apps also supports SOAP APIs) that allows Logic Apps, Power Automate, or Power Apps to communicate with that REST or SOAP API.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/virtual-entities/get-started-ve",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-18T08:21:00.000Z",
+        "voteCount": 24,
+        "content": "It has to be the opposite.\n1. Custom Connector (Virtual Entities have to have GUIDs or you won't create relationships in CRM)\n2. Custom Connector (Virtual Entites are still readonly in CRM)\n3. Virtual Entity (Will appear anywhere, it is another CRM entity just different data source)"
+      },
+      {
+        "date": "2023-08-06T23:49:00.000Z",
+        "voteCount": 8,
+        "content": "so should be \n1. Custom Connector\n2. Virtual Entity\n3. Virtual Entity"
+      },
+      {
+        "date": "2022-11-30T07:03:00.000Z",
+        "voteCount": 9,
+        "content": "No. You can use virtual Entities to make CRUD operations: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/sample-ve-provider-crud-operations"
+      },
+      {
+        "date": "2023-07-02T12:21:00.000Z",
+        "voteCount": 17,
+        "content": "As of July 2023. Based on testing results by myself.\n1. Virtual Table - I was able to create a custom table using SQL Server with primary key as Integer.\n2. Virtual Table - Virtual Table was able to handle both read and update out-of-box. We don't need to implement any plugin as get the external system updated.\n3. Virtual Table - Virtual Table can be accessible accross all the Dataverse clients.\n\nThis might be because MS is continously improving the capabilities of Virtual Table."
+      },
+      {
+        "date": "2024-02-01T00:16:00.000Z",
+        "voteCount": 1,
+        "content": "1. Custom Connector\n2. Virtual entity\n3. Custom Connector"
+      },
+      {
+        "date": "2023-12-30T03:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-10-01T14:34:00.000Z",
+        "voteCount": 1,
+        "content": "VE, CC, VE"
+      },
+      {
+        "date": "2023-09-22T08:49:00.000Z",
+        "voteCount": 1,
+        "content": "Well, looks like the correct answer is correct:\n1 - VE. Here you can take a look - integer can be used as a PK for VE.(https://learn.microsoft.com/en-us/power-apps/maker/data-platform/limits-tshoot-virtual-tables?tabs=sql#for-each-data-source)\n2 - VE. Looks like now VE can support CRUD. This is not a limitation now.\n(https://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/get-started-ve#limitations-of-virtual-tables)\n3 - CC (but I'm not sure). Because you need to use it in every client."
+      },
+      {
+        "date": "2023-09-07T08:12:00.000Z",
+        "voteCount": 1,
+        "content": "GUID is integer\u2026???"
+      },
+      {
+        "date": "2023-08-27T03:43:00.000Z",
+        "voteCount": 1,
+        "content": "C is definatly CC\n\na canvass app can connect to DV so is classed as a DV client, but you cannot connect to a vitual DV entity, so you would need the CC to go between"
+      },
+      {
+        "date": "2023-08-17T19:31:00.000Z",
+        "voteCount": 1,
+        "content": "VE\nVE\nCC"
+      },
+      {
+        "date": "2023-08-18T04:24:00.000Z",
+        "voteCount": 3,
+        "content": "Custom Connector\nCC\nVE"
+      },
+      {
+        "date": "2023-08-15T11:58:00.000Z",
+        "voteCount": 2,
+        "content": "1. custom connector - you can create custom connectors in Power Apps and Power Automate that support records with integer primary keys.\n2. custom connector - you can create a custom connector in Power Apps and Power Automate that allows data to be both read and updated.\n3. virtual entity - Yes, virtual entities in Microsoft Dataverse (formerly known as Common Data Service) are designed to ensure that data is available to all Microsoft Dataverse clients."
+      },
+      {
+        "date": "2023-07-23T20:58:00.000Z",
+        "voteCount": 5,
+        "content": "Source: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/get-started-ve\n1. Custom Connector - All tables in the external data source must have an associated GUID primary key.\n2. Virtual Entity - Full CRUD operation is now supported for custom virtual table data provider. Full CRUD operation is now supported for custom virtual table data provider. Developers can implement plug-ins and register them using the Plug-in Registration tool for each of the CRUD operation supporting the virtual table.\n3. Virtual Table"
+      },
+      {
+        "date": "2023-05-18T09:08:00.000Z",
+        "voteCount": 2,
+        "content": "Item 1 can  not be virtual table \"All tables in the external data source must have an associated GUID primary key.\""
+      },
+      {
+        "date": "2023-01-23T07:06:00.000Z",
+        "voteCount": 2,
+        "content": "1. Is Virtual Entities, SQL can either use a guid or an integer.\nhttps://learn.microsoft.com/en-us/power-apps/maker/data-platform/limits-tshoot-virtual-tables?tabs=sql"
+      },
+      {
+        "date": "2022-12-06T00:59:00.000Z",
+        "voteCount": 4,
+        "content": "The answers are correct.\n1 and 2 you can use virtual entities\nSee this link https://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/sample-ve-provider-crud-operations In fact you can not use the custom connector,\nThe 3 item is custom connector, because you can not avaible on all dataverse with virtual entity."
+      },
+      {
+        "date": "2022-11-30T07:08:00.000Z",
+        "voteCount": 4,
+        "content": "1) CC:  (ll tables in the external data source must have an associated GUID primary key) https://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/get-started-ve\n2) VE: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/sample-ve-provider-crud-operations\n3) CC if a different dataverse is even another tenant... if don't, you still have to create the entity in all environments to proceed with a VE"
+      },
+      {
+        "date": "2022-11-29T07:48:00.000Z",
+        "voteCount": 3,
+        "content": "1. 100% Custom Connector"
+      },
+      {
+        "date": "2023-08-27T03:42:00.000Z",
+        "voteCount": 1,
+        "content": "why as virtual entities can take int as primary key?"
+      },
+      {
+        "date": "2022-09-14T23:43:00.000Z",
+        "voteCount": 4,
+        "content": "Box 1 would not be supported as a Virtual Entity as the documentation states the following:\nAll tables in the external data source must have an associated GUID primary key."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79330-exam-pl-400-topic-1-question-16-discussion/",
+    "body": "A Power Platform solution includes the following Web API call:<br>GET http://contoso.crm.dynamics.com/api/data/v9.1/RelationshipDefinitions?$select=SchemaName<br>You need to explain what this line of code is doing.<br>What does the code do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRetrieve the list of relationships between tables.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRetrieve a list of tables that are related to each other.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRetrieve a list of one-to-many relationships with other tables.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRetrieve a list of tables that have more than one relationship.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRetrieve a list of many-to-many relationships with other tables."
+    ],
+    "answer": "A",
+    "answerDescription": "Querying relationship metadata -<br>Entity relationships can be queried using the RelationshipDefinitions entity set. You can use a query like the following to get the SchemaName property for every relationship.<br>GET [Organization URI]/api/data/v9.0/RelationshipDefinitions?$select=SchemaName<br>The properties available when querying this entity set are limited to those in the RelationshipMetadataBase EntityType.<br>Note: You can retrieve relationship metadata in the context of a given entity much in the same way that you can query attributes. The ManyToManyRelationships,<br>ManyToOneRelationships, and OneToManyRelationships collection-valued navigation properties can be queried just like the Attributes collection-valued navigation property.<br>However, entity relationships can also be queried using the RelationshipDefinitions entity set.<br>Reference:<br>https://docs.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-metadata-web-api https://docs.microsoft.com/en-us/power-apps/developer/data-platform/webapi/reference/relationshipmetadatabase?view=dataverse-latest",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-09T19:18:00.000Z",
+        "voteCount": 9,
+        "content": "Correct A"
+      },
+      {
+        "date": "2024-09-30T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A.\n\"You can use a query like the following to get the SchemaName property for every relationship. GET [Organization URI]/api/data/v9.2/RelationshipDefinitions?$select=SchemaName\"\n\nhttps://learn.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-metadata-web-api"
+      },
+      {
+        "date": "2023-10-22T09:00:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-09-02T02:04:00.000Z",
+        "voteCount": 4,
+        "content": "Correct, \nhttps://docs.microsoft.com/en-us/power-apps/developer/data-platform/webapi/query-metadata-web-api"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96078-exam-pl-400-topic-1-question-17-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You create a Power Automate flow that retrieves data from the Microsoft Dataverse Account table.<br><br>The flow uses only a subset of Account table data.<br><br>You need to retrieve the required data.<br><br>How should you configure the Dataverse List Rows action? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/pl-400/image367.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image368.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-19T19:10:00.000Z",
+        "voteCount": 11,
+        "content": "Correct, Tested it myself"
+      },
+      {
+        "date": "2024-03-24T03:50:00.000Z",
+        "voteCount": 1,
+        "content": "answer should be \"select columns: full name\n\""
+      },
+      {
+        "date": "2023-05-09T23:25:00.000Z",
+        "voteCount": 2,
+        "content": "Yeah, correct answer"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96976-exam-pl-400-topic-1-question-18-discussion/",
+    "body": "You are creating a canvas app to retrieve user sign in information from Microsoft Azure Active Directory (Azure AD) when someone searches for information about an end user.<br><br>You create an Azure Function to retrieve the required information by using JSON.<br><br>You need to ensure that the application functions correctly.<br><br>Which two actions should you perform? Each correct answer presents part of the solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Power Automate flow to import data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a custom connector by using the Azure Function API.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse app designer in the Power Platform admin center.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure Service Bus.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an API definition for the Azure Function.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BE",
+        "count": 40,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AE",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-01-29T10:49:00.000Z",
+        "voteCount": 29,
+        "content": "A. Create a Power Automate flow to import data is not necessary for the application to function correctly, as the application is already retrieving the user sign-in information from Azure AD by using JSON through an Azure Function.\nC. Using app designer in the Power Platform admin center would not be necessary for this task as it is not used to retrieve user sign-in information from Azure AD.\nD. Use Azure Service Bus is not necessary for this task as it is not used to retrieve user sign-in information from Azure AD.\n\nTo ensure that the application functions correctly, you should create a custom connector by using the Azure Function API. This will allow you to connect your canvas app to the Azure Function to retrieve the user sign-in information. Additionally, you need to create an API definition for the Azure Function, this will allow you to define the specific parameters and methods that your app will use to communicate with the Azure Function."
+      },
+      {
+        "date": "2023-02-09T00:00:00.000Z",
+        "voteCount": 6,
+        "content": "DimpleG said everything."
+      },
+      {
+        "date": "2024-09-01T18:04:00.000Z",
+        "voteCount": 1,
+        "content": "These two actions are crucial for integrating the Azure Function with the Power Apps canvas app and ensuring that it functions correctly by allowing the app to communicate with the function and properly handle the data returned."
+      },
+      {
+        "date": "2023-12-30T03:29:00.000Z",
+        "voteCount": 1,
+        "content": "BE is correct"
+      },
+      {
+        "date": "2023-10-01T14:39:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is BE"
+      },
+      {
+        "date": "2023-08-09T10:07:00.000Z",
+        "voteCount": 2,
+        "content": "Answer:- BE"
+      },
+      {
+        "date": "2023-02-05T06:34:00.000Z",
+        "voteCount": 4,
+        "content": "Lets say, we all agree with  *E*. \nSo the only logical answer left that go with *E*, is *B*\n\nSo  BE"
+      },
+      {
+        "date": "2023-01-27T08:07:00.000Z",
+        "voteCount": 1,
+        "content": "seems good"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96519-exam-pl-400-topic-1-question-19-discussion/",
+    "body": "DRAG DROP<br> -<br><br>A company is configuring Microsoft Power Virtual Agents and Power Automate flows that use model-driven apps.<br><br>The company has a website that uses Power Pages. You create Power Virtual Agents bot topics.<br><br>You must configure the following:<br><br>\u2022\tUse a bot on the website.<br>\u2022\tCreate Bot Framework skills.<br>\u2022\tCreate a support request from the bot without human interaction.<br><br>You need to configure the website.<br><br><img src=\"https://img.examtopics.com/pl-400/image369.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image370.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-22T10:59:00.000Z",
+        "voteCount": 44,
+        "content": "I think 1) Power Pages 2) Power Virtual Agents 3) Power Automate\n\nBot Framework skills can be created in the Power Platform using the Power Virtual Agents tool. This tool allows you to create and manage chatbots using a visual, drag-and-drop interface without the need for coding"
+      },
+      {
+        "date": "2023-01-22T23:00:00.000Z",
+        "voteCount": 1,
+        "content": "third one is also Power Virtual Agents:\nhttps://learn.microsoft.com/en-us/power-virtual-agents/advanced-hand-off"
+      },
+      {
+        "date": "2023-01-27T14:09:00.000Z",
+        "voteCount": 2,
+        "content": "i disagree the article says ask for live agent it doesn't say anything about creating support request"
+      },
+      {
+        "date": "2023-03-08T07:18:00.000Z",
+        "voteCount": 3,
+        "content": "The question also says to \"create a support request from the bot without human interaction,\" which would be done via Power Automate, so I think Power Automate is correct."
+      },
+      {
+        "date": "2023-01-23T01:24:00.000Z",
+        "voteCount": 1,
+        "content": "idk if this is the correct answer but i agree to your comment"
+      },
+      {
+        "date": "2023-01-27T14:10:00.000Z",
+        "voteCount": 1,
+        "content": "i agree with this"
+      },
+      {
+        "date": "2024-09-01T17:56:00.000Z",
+        "voteCount": 1,
+        "content": "1) Custom Connector: A custom connector allows you to connect to external systems and can support different data types, including integers as primary keys.\n2) Custom Connector: A custom connector can facilitate both reading and updating data, depending on how the connector is configured.\n3) Virtual Entity: Virtual entities are designed to make external data available within Dataverse as if it were native data, allowing it to be accessed by all Dataverse clients (e.g., model-driven apps, Power Automate, etc.)."
+      },
+      {
+        "date": "2024-08-29T16:42:00.000Z",
+        "voteCount": 1,
+        "content": "1) Power Pages 2) Power Virtual Agents 3) Power Automate"
+      },
+      {
+        "date": "2024-02-01T00:27:00.000Z",
+        "voteCount": 1,
+        "content": "Power Apps\nPower Virtual Agents\nPower Automate"
+      },
+      {
+        "date": "2023-10-01T14:42:00.000Z",
+        "voteCount": 2,
+        "content": "1) Power Apps\n2)PVA\n3)PA"
+      },
+      {
+        "date": "2023-08-25T15:07:00.000Z",
+        "voteCount": 3,
+        "content": "1. Power Apps\nhttps://learn.microsoft.com/en-us/power-apps/maker/portals/add-chatbot\n2. Power Virtual Agents\nYou create the not using code but add it using PVA\n3. Power Automate\nPVA advanced hand-off feature transfers to Live Agents and does not create a Support Ticket. That can only be done using power Automate."
+      },
+      {
+        "date": "2023-08-15T13:39:00.000Z",
+        "voteCount": 2,
+        "content": "1) Power Apps\n2)PVA\n3)PA"
+      },
+      {
+        "date": "2023-08-03T07:00:00.000Z",
+        "voteCount": 3,
+        "content": "1.  Power Virtual Agents\n      https://learn.microsoft.com/en-us/power-pages/guidance/integrate-pva\n2. Not sure, the docs say you need to use the Bot Framework SDK and pro-code tools to \n     create bots that can be converted to skills and then register them in PVA. So I would say \n     PVA for this one. I researched to create a skill with the other options without result.\n     https://learn.microsoft.com/en-us/power-virtual-agents/configuration-add-skills\n3. Power Automate\n     https://learn.microsoft.com/en-us/power-virtual-agents/advanced-flow-create"
+      },
+      {
+        "date": "2023-06-17T13:43:00.000Z",
+        "voteCount": 4,
+        "content": "First one should be Power Apps:\nhttps://learn.microsoft.com/en-us/power-apps/maker/portals/add-chatbot\nThe Question is about adding a Bot to a Page and not about creating the bot."
+      },
+      {
+        "date": "2023-05-18T03:42:00.000Z",
+        "voteCount": 3,
+        "content": "I go with 1)Power Virtual Agents 2) Power Virtual Agents and 3)Power Automate."
+      },
+      {
+        "date": "2023-01-23T00:43:00.000Z",
+        "voteCount": 2,
+        "content": "My guess would be:\n1) Power Apps \n2)PVA \n3)PVA\nSkills are created the PVA tool AFAIK, and I would think that \"create a support request\" is just another way of saying that you end the conversation with an escalation (with a transfer to an agent if possible), which is also done in the PVA tool?"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96738-exam-pl-400-topic-1-question-20-discussion/",
+    "body": "You are configuring a custom connector for a web service. The web service is hosted in two different regions. The web service URL includes a common domain name and a unique sub-domain for each region.<br><br>The custom connector must allow the region to be entered for additional regions when creating the connection.<br><br>You need to create a policy template.<br><br>Which template type should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet HTTP header",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRoute request",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet host URL\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet query string parameter"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 15,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-13T02:23:00.000Z",
+        "voteCount": 7,
+        "content": "Unique subdomain need to be constructed which is done using setHostURL. Same is explained in https://learn.microsoft.com/en-us/training/modules/policy-templates-custom-connectors/4-configure-host-url-routing.\n\nRouteRequest -&gt; routes to specific end point and it is not used to construct URL.\nquery string -&gt; used to pass default values.\nheader -&gt; is used to keep tracking of variables such as correlation id, authentication information etc.\nhttps://learn.microsoft.com/en-us/training/modules/policy-templates-custom-connectors/1-introduction has all details"
+      },
+      {
+        "date": "2023-03-25T00:34:00.000Z",
+        "voteCount": 1,
+        "content": "you are updating the hostname."
+      },
+      {
+        "date": "2023-03-21T21:30:00.000Z",
+        "voteCount": 3,
+        "content": "I checked in other exams test and looks like C is the correct one"
+      },
+      {
+        "date": "2023-01-29T10:57:00.000Z",
+        "voteCount": 3,
+        "content": "C. Set host URL. The custom connector needs to allow the region to be entered, and the URL includes a unique sub-domain for each region, so the host URL needs to be set dynamically based on the region entered by the user. The template type \"Set host URL\" allows you to set the hostname of the request URL dynamically."
+      },
+      {
+        "date": "2023-01-24T05:56:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2023-01-24T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "should be :B"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/97149-exam-pl-400-topic-1-question-21-discussion/",
+    "body": "You are a Power Apps maker creating a chat bot for a website.<br><br>The chat bot must recognize geographic attributes to enable additional functionality.<br><br>You need to recommend a feature.<br><br>What should you recommend?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFallback topic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPower Automate Flow",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBot Service compliance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSlot filling\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 15,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-01-29T10:58:00.000Z",
+        "voteCount": 15,
+        "content": "D. Slot filling. Slot filling is a feature that allows a chatbot to extract specific pieces of information from a user's input. In this case, it can be used to recognize geographic attributes, such as a city or country, and use that information to enable additional functionality in the chatbot. Slot filling can be accomplished with the use of pre-built entities or custom entities can be created for specific use-case. Power Automate Flow can be used to perform actions or tasks based on the extracted geographic attributes from the Slot filling process."
+      },
+      {
+        "date": "2023-08-13T22:12:00.000Z",
+        "voteCount": 1,
+        "content": "Is this going to be on the test? They updated the study guide and didn't include power virtual agents."
+      },
+      {
+        "date": "2023-09-19T06:09:00.000Z",
+        "voteCount": 1,
+        "content": "@Emehoku is saying that it was in his exam on 4/7/23! Who knows!!"
+      },
+      {
+        "date": "2023-05-18T03:57:00.000Z",
+        "voteCount": 4,
+        "content": "1.In the context of Power Virtual Agents, a fallback topic refers to a predefined set of responses or actions that are triggered when the chatbot is unable to understand or handle a user's input or request. Fallback topics are designed to provide a fallback mechanism to handle unexpected or unrecognized user inputs and prevent the conversation from coming to a halt.\n2. Bot Service Compliance refers to the adherence of bots built on the Microsoft Bot Framework and hosted on Azure Bot Service to regulatory and industry-specific compliance standards. Microsoft Bot Framework and Azure Bot Service provide tools and services to build and deploy intelligent chatbots and virtual assistants, and compliance ensures that these bots meet the required standards for privacy, security, and data protection.\nSo Answer is D. Slot Filling"
+      },
+      {
+        "date": "2023-05-18T03:54:00.000Z",
+        "voteCount": 2,
+        "content": "D is Correct. Coz,In Power Virtual Agents, slot filling is a process that allows you to collect specific information or parameters from users during a conversation or chatbot interaction. It helps in capturing the necessary data required to fulfill the user's request or provide relevant responses."
+      },
+      {
+        "date": "2023-04-07T15:30:00.000Z",
+        "voteCount": 2,
+        "content": "This question was on my 4/7/23 exam"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/100105-exam-pl-400-topic-1-question-22-discussion/",
+    "body": "You develop and deploy a Power Apps solution.<br><br>The following changes must be made to the solution:<br><br>\u2022\tDelete a column of data.<br>\u2022\tModify several views.<br>\u2022\tAdd several charts to dashboards.<br><br>You need to re-deploy the app.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the solution.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade the solution.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new solution.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPatch the solution."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 11,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-08T08:21:00.000Z",
+        "voteCount": 11,
+        "content": "\"Upgrade - This is the default option and upgrades your solution to the latest version and rolls up all previous patches in one step.\"\nIf you choose update, \"components that are not in the newer solution won't be deleted and will remain in the system.\" Does not sound ideal, since one of the steps required in the question is deleting a column.\nSource: https://learn.microsoft.com/en-us/power-apps/maker/data-platform/update-solutions"
+      },
+      {
+        "date": "2023-08-09T17:53:00.000Z",
+        "voteCount": 5,
+        "content": "came out in Exam Aug 10, 2023. My score: 918."
+      },
+      {
+        "date": "2024-05-05T12:23:00.000Z",
+        "voteCount": 2,
+        "content": "While upgrading the existing solution might be feasible in some cases, creating a new solution provides a cleaner and more controlled approach, particularly for significant changes like those described in the scenario. Therefore, creating a new solution (option C) is the recommended approach for re-deploying the Power Apps solution after making the specified changes."
+      },
+      {
+        "date": "2023-08-06T10:42:00.000Z",
+        "voteCount": 2,
+        "content": "In exam 02.08.2023"
+      },
+      {
+        "date": "2023-07-16T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct."
+      },
+      {
+        "date": "2023-02-20T10:05:00.000Z",
+        "voteCount": 2,
+        "content": "Sounds correct."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/101840-exam-pl-400-topic-1-question-23-discussion/",
+    "body": "You develop a model-driven app. You add the following users as members to the Sales Microsoft Azure Active Directory (Azure AD) security group: User1, User2, and User3.<br><br>The Sales Azure AD security group is linked to a pre-existing Microsoft Dataverse Azure AD security group team that is associated with the Sales security role. You assign each of the appropriate licenses to each user.<br><br>User1 is not listed in the Team Members subgrid for the app. User2 and User3 are listed in the subgrid.<br><br>You need to ensure that User1 can use the model-driven app.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the membership of the Sales Azure AD Security group to Dynamic User.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the membership type for User1 to Owner in the Azure AD security group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an Owner team for the members of the Sales Azure AD group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAsk User1 to sign into the model-driven app."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-25T12:31:00.000Z",
+        "voteCount": 5,
+        "content": "Yes, the correct solution is to have User1 sign into the model-driven app. Here's why:\n\nWhen users are added to an Azure AD security group that is linked to a Dataverse team and assigned the appropriate licenses, they are granted the associated security roles and access to the model-driven app. However, sometimes it might take some time for the synchronization between Azure AD and Dataverse to complete, and for the user to be recognized as a member of the team."
+      },
+      {
+        "date": "2023-06-26T09:29:00.000Z",
+        "voteCount": 3,
+        "content": "In the exam test on 06-23-2023"
+      },
+      {
+        "date": "2023-03-07T23:14:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-03-21T21:33:00.000Z",
+        "voteCount": 2,
+        "content": "Why D is correct ?"
+      },
+      {
+        "date": "2023-03-22T15:47:00.000Z",
+        "voteCount": 6,
+        "content": "I may be wrong, but from my experience users dont appear in an environment's default tables (like the user table) until they access the environment for the first time. Based on the issue of the user not appearing they must have not accessed the app/environment yet so having them log in should resolve the problem"
+      },
+      {
+        "date": "2023-05-09T08:47:00.000Z",
+        "voteCount": 2,
+        "content": "D is the correct option. Any user added to the Azure AD group will not appear in the member's list until he does not login to the environment."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/100878-exam-pl-400-topic-1-question-24-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You are modifying a model-driven app for a bicycle company.<br><br>The app modifications must meet the following requirements:<br><br>\u2022\tThe order form must include a column that calculates payments based on how many years the customer wants to finance a bicycle.<br>\u2022\tA pop-up box must remind the employee to validate the information entered before saving.<br><br>You must use out-of-the-box features before customizing the application.<br><br>What should you do?<br><br><img src=\"https://img.examtopics.com/pl-400/image397.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image398.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-09T17:53:00.000Z",
+        "voteCount": 21,
+        "content": "came out in Exam Aug 10, 2023. My score: 918. I answer out of the box for all"
+      },
+      {
+        "date": "2023-09-19T05:54:00.000Z",
+        "voteCount": 3,
+        "content": "are the questions in real exam from examtopics?"
+      },
+      {
+        "date": "2023-09-30T06:37:00.000Z",
+        "voteCount": 1,
+        "content": "Nice score!"
+      },
+      {
+        "date": "2024-02-15T02:34:00.000Z",
+        "voteCount": 1,
+        "content": "great score"
+      },
+      {
+        "date": "2023-04-05T00:41:00.000Z",
+        "voteCount": 12,
+        "content": "For Requirement 1: Calculate payments, you should Configure an out-of-the-box feature. You can achieve this by using a calculated field in the Common Data Service, which can be added to the order form to calculate payments based on the number of years the customer wants to finance a bicycle.\n\nFor Requirement 2: A pop-up box must appear, you should Configure an out-of-the-box feature. You can use the business rules feature in the Common Data Service to create a rule that triggers a pop-up message when the employee tries to save the order form without validating the entered information. This can remind the employee to validate the entered information before saving.\n\nTherefore, both requirements can be met by configuring out-of-the-box features, without the need for customization or editing XML."
+      },
+      {
+        "date": "2023-12-30T03:55:00.000Z",
+        "voteCount": 1,
+        "content": "Configure an out-of-the-box feature\nConfigure an out-of-the-box feature"
+      },
+      {
+        "date": "2023-12-20T05:19:00.000Z",
+        "voteCount": 1,
+        "content": "On exam 12-19-2023"
+      },
+      {
+        "date": "2023-08-09T20:04:00.000Z",
+        "voteCount": 2,
+        "content": "My opinion:\n1: Configure out-of-the-box feature. We can use calculated field.\n2: Customize the App. We can use script or plugin to validate the form before saving."
+      },
+      {
+        "date": "2023-08-09T11:27:00.000Z",
+        "voteCount": 3,
+        "content": "Configure an out-of-the-box feature\nConfigure an out-of-the-box feature"
+      },
+      {
+        "date": "2023-08-06T23:55:00.000Z",
+        "voteCount": 1,
+        "content": "B should be out of the box feature:\nhttps://learn.microsoft.com/en-us/power-apps/developer/component-framework/reference/popup"
+      },
+      {
+        "date": "2023-02-26T09:52:00.000Z",
+        "voteCount": 3,
+        "content": "The first answer seems correct. However I'm not sure about the second one. How could we edit an XML without customizing the application? Maybe developing a PCF?"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121663-exam-pl-400-topic-1-question-25-discussion/",
+    "body": "Case study -<br><br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br><br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br><br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br><br>To start the case study -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question.<br><br><br>Background -<br><br>Contoso Pharmaceuticals manufactures and sells drugs to retail and wholesale pharmacies, hospitals, and research facilities.<br><br>The company plans to implement Dynamics 365 Sales and Dynamics 365 Finance.<br><br><br>Current environment -<br><br>\u2022\tContoso maintains a Microsoft Excel workbook that lists all drugs they supply.<br>\u2022\tPharmacies submit order requests through email.<br>\u2022\tAll information at customer locations is handwritten by customer representatives.<br>\u2022\tContoso uses Cerner, which is a medical industry application that uses a proprietary database.<br>\u2022\tSome accounts are referrals from other pharmacies.<br>\u2022\tEvery pharmacy has its own Dynamics 365 Sales instance.<br><br><br>Requirements -<br><br><br>General -<br><br>You must create a model-driven app to meet Contoso\u2019s needs. You must minimize the use of custom code and custom connectors.<br><br><br>Accounts -<br><br>\u2022\tEnsure that the names of the pharmacies are synced between the accounting and the customer management systems.<br>\u2022\tAccount numbers should be entered automatically into the pharmaceutical system that is in a Cerner database and kept in sync.<br>\u2022\tWhen the account is entered into the system, extra fields must appear if the referral customer box is selected. If the box is not selected, the extra fields must not appear.<br>\u2022\tA trigger must be created that changes the Priority field to 1 in the Account record 10 days after an Account record is created.<br>\u2022\tA field named Priority_Trigger must be created to trigger the Priority field.<br>\u2022\tA field named Facility type field must be added in order to select whether a customer is a retail pharmacy, wholesale pharmacy, research facility, or hospital.<br><br><br>Users -<br><br>\u2022\tUserA must be able to create and publish Power Apps apps.<br>\u2022\tUserB must be the owner of all the systems and be able to provide permissions and create all new environments.<br>\u2022\tUserC must be able to create apps connected to the systems and update the security roles and entities.<br>\u2022\tPharmacy representatives must only be able to run the apps and access their own records.<br>\u2022\tAccess to the accounting Power Apps app must be restricted to accounting team members.<br>\u2022\tEnd users must have minimum access to the required systems.<br>\u2022\tOnly supervisors must be able to view phone numbers in the Accounts form.<br>\u2022\tDevelopers must be able to create new apps for all users.<br>\u2022\tSales users must only have access to their own records.<br><br><br>Reporting -<br><br>Pharmacy orders must be displayed in four graphs as follows:<br><br>\u2022\tAnnual revenue over $100,000<br>\u2022\tAnnual revenues under $100,000<br>\u2022\tResearch facilities<br>\u2022\tHospitals<br><br>The graphs must be interactive, and users must be able to drill down on any dimension.<br><br><br>Customizations -<br><br>\u2022\tEnsure that notifications are sent to the sales team when a lead is added by using Slack.<br>\u2022\tEnsure that leads have a review stage added to the sales process.<br>\u2022\tDoctors must be manually added to a custom entity named Doctor if the doctor is not listed.<br>\u2022\tRefill dates for customer prescriptions should be automatically determined and a notification should be sent to the customer.<br>\u2022\tFields for the doctor\u2019s name and phone number must be displayed in the customer record.<br>\u2022\tThe doctor entered on the customer\u2019s record must be validated against doctors that exist in the system.<br>\u2022\tThe new solution will be sold to other pharmacies for use. The application must not allow changes to be made.<br>\u2022\tThe solution must be error free so that when it is installed in other environments it does not cause issues.<br><br><br>Mobile app -<br><br>\u2022\tA custom mobile app must be created to allow salespeople to add or search by pharmacy name.<br>\u2022\tPharmacy records must be uniquely identified by pharmacy name, address, contact name, and phone number.<br>\u2022\tWhen a pharmacy is added by using the mobile app, the phone number must be validated to be all digits.<br><br><br>You need to create an application to deploy to other pharmacies.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNavigate to Customize the System and export everything to a managed solution.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate packages for Package Deployer.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate customizations with metadata in Organization Services.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWrite a Web API to move customizations."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 4,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-14T00:35:00.000Z",
+        "voteCount": 1,
+        "content": "B. Next question is identical with other options, and the correct one is Package Deployer"
+      },
+      {
+        "date": "2024-06-18T23:00:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct\nYou can't export default solution in the interface you need to do that with a PowerShell, when you push export button (in classic windows because in new window this button is hidden) you get the error: \"Attempted to perform an unauthorized operation.\""
+      },
+      {
+        "date": "2024-06-08T23:59:00.000Z",
+        "voteCount": 3,
+        "content": "B is correct"
+      },
+      {
+        "date": "2024-04-25T02:44:00.000Z",
+        "voteCount": 2,
+        "content": "Now that I think about it perhaps B is a better answer, because in managed solution everything goes into the package while with Package Deployer you can control what goes into the package."
+      },
+      {
+        "date": "2024-04-25T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "A should be correct"
+      },
+      {
+        "date": "2024-04-25T02:38:00.000Z",
+        "voteCount": 3,
+        "content": "I think A is the correct answer. Managed solutions are used when the solution file is exported and then imported into other environments (like other pharmacy instances). Package Deployer is useful when you need to move customisations across different Dataverse environments (like moving it between dev, acc and prod for example)."
+      },
+      {
+        "date": "2024-02-04T06:11:00.000Z",
+        "voteCount": 3,
+        "content": "A is correct as we should minimize the use of custome code and connectors. The following questions do not have that choice, so there B is correct, but here A should be fine."
+      },
+      {
+        "date": "2023-12-29T11:02:00.000Z",
+        "voteCount": 3,
+        "content": "Question 27 has these two options and the answer is B"
+      },
+      {
+        "date": "2023-12-29T11:03:00.000Z",
+        "voteCount": 1,
+        "content": "B. Create packages for Package Deployer."
+      },
+      {
+        "date": "2023-10-01T14:22:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2023-09-28T05:16:00.000Z",
+        "voteCount": 3,
+        "content": "Should be B"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121664-exam-pl-400-topic-1-question-26-discussion/",
+    "body": "Case study -<br><br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br><br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br><br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br><br>To start the case study -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question.<br><br><br>Background -<br><br>Contoso Pharmaceuticals manufactures and sells drugs to retail and wholesale pharmacies, hospitals, and research facilities.<br><br>The company plans to implement Dynamics 365 Sales and Dynamics 365 Finance.<br><br><br>Current environment -<br><br>\u2022\tContoso maintains a Microsoft Excel workbook that lists all drugs they supply.<br>\u2022\tPharmacies submit order requests through email.<br>\u2022\tAll information at customer locations is handwritten by customer representatives.<br>\u2022\tContoso uses Cerner, which is a medical industry application that uses a proprietary database.<br>\u2022\tSome accounts are referrals from other pharmacies.<br>\u2022\tEvery pharmacy has its own Dynamics 365 Sales instance.<br><br><br>Requirements -<br><br><br>General -<br><br>You must create a model-driven app to meet Contoso\u2019s needs. You must minimize the use of custom code and custom connectors.<br><br><br>Accounts -<br><br>\u2022\tEnsure that the names of the pharmacies are synced between the accounting and the customer management systems.<br>\u2022\tAccount numbers should be entered automatically into the pharmaceutical system that is in a Cerner database and kept in sync.<br>\u2022\tWhen the account is entered into the system, extra fields must appear if the referral customer box is selected. If the box is not selected, the extra fields must not appear.<br>\u2022\tA trigger must be created that changes the Priority field to 1 in the Account record 10 days after an Account record is created.<br>\u2022\tA field named Priority_Trigger must be created to trigger the Priority field.<br>\u2022\tA field named Facility type field must be added in order to select whether a customer is a retail pharmacy, wholesale pharmacy, research facility, or hospital.<br><br><br>Users -<br><br>\u2022\tUserA must be able to create and publish Power Apps apps.<br>\u2022\tUserB must be the owner of all the systems and be able to provide permissions and create all new environments.<br>\u2022\tUserC must be able to create apps connected to the systems and update the security roles and entities.<br>\u2022\tPharmacy representatives must only be able to run the apps and access their own records.<br>\u2022\tAccess to the accounting Power Apps app must be restricted to accounting team members.<br>\u2022\tEnd users must have minimum access to the required systems.<br>\u2022\tOnly supervisors must be able to view phone numbers in the Accounts form.<br>\u2022\tDevelopers must be able to create new apps for all users.<br>\u2022\tSales users must only have access to their own records.<br><br><br>Reporting -<br><br>Pharmacy orders must be displayed in four graphs as follows:<br><br>\u2022\tAnnual revenue over $100,000<br>\u2022\tAnnual revenues under $100,000<br>\u2022\tResearch facilities<br>\u2022\tHospitals<br><br>The graphs must be interactive, and users must be able to drill down on any dimension.<br><br><br>Customizations -<br><br>\u2022\tEnsure that notifications are sent to the sales team when a lead is added by using Slack.<br>\u2022\tEnsure that leads have a review stage added to the sales process.<br>\u2022\tDoctors must be manually added to a custom entity named Doctor if the doctor is not listed.<br>\u2022\tRefill dates for customer prescriptions should be automatically determined and a notification should be sent to the customer.<br>\u2022\tFields for the doctor\u2019s name and phone number must be displayed in the customer record.<br>\u2022\tThe doctor entered on the customer\u2019s record must be validated against doctors that exist in the system.<br>\u2022\tThe new solution will be sold to other pharmacies for use. The application must not allow changes to be made.<br>\u2022\tThe solution must be error free so that when it is installed in other environments it does not cause issues.<br><br><br>Mobile app -<br><br>\u2022\tA custom mobile app must be created to allow salespeople to add or search by pharmacy name.<br>\u2022\tPharmacy records must be uniquely identified by pharmacy name, address, contact name, and phone number.<br>\u2022\tWhen a pharmacy is added by using the mobile app, the phone number must be validated to be all digits.<br><br><br>You need to create an application to deploy to other pharmacies.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRecreate customizations in a new environment.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate packages for Package Deployer.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate customizations with metadata in Organization Services.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClone the solution."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-02T21:39:00.000Z",
+        "voteCount": 1,
+        "content": "Why the first question the answer was managed solution and not package deploy and when comes to this question the answer is package deploy"
+      },
+      {
+        "date": "2023-11-17T05:55:00.000Z",
+        "voteCount": 2,
+        "content": "RISPOSTA B"
+      },
+      {
+        "date": "2023-10-01T14:24:00.000Z",
+        "voteCount": 3,
+        "content": "Again Answer B"
+      },
+      {
+        "date": "2023-09-28T05:16:00.000Z",
+        "voteCount": 3,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/122123-exam-pl-400-topic-1-question-27-discussion/",
+    "body": "Case study -<br><br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br><br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br><br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br><br>To start the case study -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question.<br><br><br>Background -<br><br>Contoso Pharmaceuticals manufactures and sells drugs to retail and wholesale pharmacies, hospitals, and research facilities.<br><br>The company plans to implement Dynamics 365 Sales and Dynamics 365 Finance.<br><br><br>Current environment -<br><br>\u2022\tContoso maintains a Microsoft Excel workbook that lists all drugs they supply.<br>\u2022\tPharmacies submit order requests through email.<br>\u2022\tAll information at customer locations is handwritten by customer representatives.<br>\u2022\tContoso uses Cerner, which is a medical industry application that uses a proprietary database.<br>\u2022\tSome accounts are referrals from other pharmacies.<br>\u2022\tEvery pharmacy has its own Dynamics 365 Sales instance.<br><br><br>Requirements -<br><br><br>General -<br><br>You must create a model-driven app to meet Contoso\u2019s needs. You must minimize the use of custom code and custom connectors.<br><br><br>Accounts -<br><br>\u2022\tEnsure that the names of the pharmacies are synced between the accounting and the customer management systems.<br>\u2022\tAccount numbers should be entered automatically into the pharmaceutical system that is in a Cerner database and kept in sync.<br>\u2022\tWhen the account is entered into the system, extra fields must appear if the referral customer box is selected. If the box is not selected, the extra fields must not appear.<br>\u2022\tA trigger must be created that changes the Priority field to 1 in the Account record 10 days after an Account record is created.<br>\u2022\tA field named Priority_Trigger must be created to trigger the Priority field.<br>\u2022\tA field named Facility type field must be added in order to select whether a customer is a retail pharmacy, wholesale pharmacy, research facility, or hospital.<br><br><br>Users -<br><br>\u2022\tUserA must be able to create and publish Power Apps apps.<br>\u2022\tUserB must be the owner of all the systems and be able to provide permissions and create all new environments.<br>\u2022\tUserC must be able to create apps connected to the systems and update the security roles and entities.<br>\u2022\tPharmacy representatives must only be able to run the apps and access their own records.<br>\u2022\tAccess to the accounting Power Apps app must be restricted to accounting team members.<br>\u2022\tEnd users must have minimum access to the required systems.<br>\u2022\tOnly supervisors must be able to view phone numbers in the Accounts form.<br>\u2022\tDevelopers must be able to create new apps for all users.<br>\u2022\tSales users must only have access to their own records.<br><br><br>Reporting -<br><br>Pharmacy orders must be displayed in four graphs as follows:<br><br>\u2022\tAnnual revenue over $100,000<br>\u2022\tAnnual revenues under $100,000<br>\u2022\tResearch facilities<br>\u2022\tHospitals<br><br>The graphs must be interactive, and users must be able to drill down on any dimension.<br><br><br>Customizations -<br><br>\u2022\tEnsure that notifications are sent to the sales team when a lead is added by using Slack.<br>\u2022\tEnsure that leads have a review stage added to the sales process.<br>\u2022\tDoctors must be manually added to a custom entity named Doctor if the doctor is not listed.<br>\u2022\tRefill dates for customer prescriptions should be automatically determined and a notification should be sent to the customer.<br>\u2022\tFields for the doctor\u2019s name and phone number must be displayed in the customer record.<br>\u2022\tThe doctor entered on the customer\u2019s record must be validated against doctors that exist in the system.<br>\u2022\tThe new solution will be sold to other pharmacies for use. The application must not allow changes to be made.<br>\u2022\tThe solution must be error free so that when it is installed in other environments it does not cause issues.<br><br><br>Mobile app -<br><br>\u2022\tA custom mobile app must be created to allow salespeople to add or search by pharmacy name.<br>\u2022\tPharmacy records must be uniquely identified by pharmacy name, address, contact name, and phone number.<br>\u2022\tWhen a pharmacy is added by using the mobile app, the phone number must be validated to be all digits.<br><br><br>You need to create an application to deploy to other pharmacies.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClone the solution.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate packages for Package Deployer.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRecreate customizations in a new environment.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNavigate to Customize the System and export everything to a managed solution."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-10-16T23:39:00.000Z",
+        "voteCount": 1,
+        "content": "Why clone you are deploying to pharmacies, hospitals other tenancies. It needs to be packaged."
+      },
+      {
+        "date": "2024-10-09T20:40:00.000Z",
+        "voteCount": 1,
+        "content": "A is the ans."
+      },
+      {
+        "date": "2024-07-14T23:41:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B. Look at the other case study questions."
+      },
+      {
+        "date": "2024-02-04T06:13:00.000Z",
+        "voteCount": 2,
+        "content": "I think it should be A as we should minimize the use of custome code..."
+      },
+      {
+        "date": "2023-10-01T14:24:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121453-exam-pl-400-topic-1-question-28-discussion/",
+    "body": "A company develops a new Microsoft Dataverse plug-in that manages the Update message of an entity.<br><br>The plug-in logic requires access to the record columns before the operation starts and must compare the columns to post-update values.<br><br>You need to modify the design of the solution to access the information.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the code to the plug-in to read the record from the InputParameters collection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegister a pre-image by using the Plug-in Registration Tool. Add the code to the plug-in to read the image from the PreEntityImages collection.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegister a post-image by using the Plug-in Registration Tool. Add the code to the plug-in to read the image from the PostEntityImages collection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the code to the plug-in to query the data from Dataverse by using the API call based on the record ID."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 14,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 4,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-14T07:45:00.000Z",
+        "voteCount": 1,
+        "content": "To access the record columns before the operation starts and compare them to post-update values, you should:\n\nB. Register a pre-image by using the Plug-in Registration Tool. Add the code to the plug-in to read the image from the PreEntityImages collection.\n\nRegistering a pre-image allows you to capture the state of the record before the update operation. This way, you can compare the pre-update values (from the pre-image) with the post-update values (available in the InputParameters collection) within your plug-in logic1."
+      },
+      {
+        "date": "2024-09-01T19:18:00.000Z",
+        "voteCount": 1,
+        "content": "A pre-image is a snapshot of the entity's data before the update operation occurs. By registering a pre-image, the plug-in can access the values of the entity's columns before the update. This allows for comparison with the post-update values in the Target entity. This is the correct approach to accessing pre-update values."
+      },
+      {
+        "date": "2024-07-09T22:09:00.000Z",
+        "voteCount": 1,
+        "content": "B. For comparison use Pre-image\nand for showing updated record use post-image\nhere in question they said must compare so it should be pre-image."
+      },
+      {
+        "date": "2024-05-05T12:51:00.000Z",
+        "voteCount": 1,
+        "content": "Using a pre-image alone would not fulfill the requirement, as it only provides the state before the update, not after.\nWith a post-image, you capture the state of the entity after the operation has occurred, which includes the updated values of the record's columns. This allows us to compare the columns before and after the update, fulfilling the requirement of the scenario."
+      },
+      {
+        "date": "2024-04-25T03:24:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct"
+      },
+      {
+        "date": "2024-04-23T21:47:00.000Z",
+        "voteCount": 1,
+        "content": "The plug-in logic requires access to the record columns before the operation starts and must compare the columns to post-update values.\nsee the question -if postEntityImage contains both images before and after update then C is the answer"
+      },
+      {
+        "date": "2024-02-04T06:18:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/register-plug-in#define-entity-images \n\n\"If your plug-in step is registered in the PreValidation or PreOperation stages of the execution pipeline, you could use the IOrganizationService instance to retrieve the current value of the property, but this isn't a good practice for performance. A better practice is to define a pre-entity image with your plug-in step registration. This will capture a 'snapshot' of the table with the fields you're interested in as they existed before the operation that you can use to compare with the changed values.\""
+      },
+      {
+        "date": "2023-10-22T00:30:00.000Z",
+        "voteCount": 4,
+        "content": "Chatgpt Answer is also B"
+      },
+      {
+        "date": "2023-10-01T14:11:00.000Z",
+        "voteCount": 3,
+        "content": "ANSWER IS B"
+      },
+      {
+        "date": "2023-09-30T06:25:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/register-plug-in#define-entity-images\nFor an Update operation that is registered in the PostOperation stage you can have both a Pre Image AND a Post Image.\nSo the answer seems Correct."
+      },
+      {
+        "date": "2023-09-27T03:53:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/power-apps/developer/data-platform/register-plug-in#define-entity-images"
+      },
+      {
+        "date": "2023-09-26T06:38:00.000Z",
+        "voteCount": 2,
+        "content": "Correction I meant b"
+      },
+      {
+        "date": "2023-09-26T06:36:00.000Z",
+        "voteCount": 3,
+        "content": "Pre entitiy images have the value before the update. Then you can compare the values before and after the update happened"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/122261-exam-pl-400-topic-1-question-29-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company designs data integration with an external system by using virtual tables.<br><br>You need to implement the virtual tables.<br><br>Solution: Implement an OData v4 provider as the data source.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-11-14T03:12:00.000Z",
+        "voteCount": 5,
+        "content": "https://learn.microsoft.com/en-us/power-apps/maker/data-platform/virtual-entity-walkthrough-using-odata-provider"
+      },
+      {
+        "date": "2024-09-18T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "A) Using an OData v4 provider as a data source is a valid approach for implementing virtual tables in Microsoft Dataverse. OData is widely supported for real-time data integration, allowing virtual tables to fetch data from external systems without storing it in Dataverse. Therefore, this solution meets the goal of implementing virtual tables with an external system."
+      },
+      {
+        "date": "2023-12-19T19:53:00.000Z",
+        "voteCount": 1,
+        "content": "Dataverse includes an Odata v4 data provider that can be used to connect to data sources that support the OData v4 open standard."
+      },
+      {
+        "date": "2023-10-03T07:02:00.000Z",
+        "voteCount": 1,
+        "content": "Well, it says \"external system\", therefore I suppose it should be No"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/129042-exam-pl-400-topic-1-question-30-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company designs data integration with an external system by using virtual tables.<br><br>You need to implement the virtual tables.<br><br>Solution: Assign record ownership to individual users.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-19T19:53:00.000Z",
+        "voteCount": 3,
+        "content": "Only organization-owned tables are supported. The security filtering applied to user-owned tables is not supported. Access to the virtual table data can be turned on or off for individual users based on their security role. Field-level security is not supported."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121438-exam-pl-400-topic-1-question-31-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company designs data integration with an external system by using virtual tables.<br><br>You need to implement the virtual tables.<br><br>Solution: Use a table that has a GUID as its primary key.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 10,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-26T06:34:00.000Z",
+        "voteCount": 5,
+        "content": "Should be yes,virtual tables need guids"
+      },
+      {
+        "date": "2024-09-03T23:30:00.000Z",
+        "voteCount": 1,
+        "content": "it should be A yes"
+      },
+      {
+        "date": "2024-08-29T16:49:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A"
+      },
+      {
+        "date": "2024-07-22T02:23:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is Yes\nhttps://learn.microsoft.com/en-us/power-apps/developer/data-platform/virtual-entities/get-started-ve#limitations-of-virtual-tables"
+      },
+      {
+        "date": "2024-01-07T06:10:00.000Z",
+        "voteCount": 4,
+        "content": "Looks like integers can also be used as a primary key.\n\"SQL virtual tables can use a GUID or an Integer field for the Primary Key for functionality.\"\nhttps://learn.microsoft.com/en-us/power-apps/maker/data-platform/limits-tshoot-virtual-tables?tabs=sql"
+      },
+      {
+        "date": "2024-01-05T12:53:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2023-12-19T19:54:00.000Z",
+        "voteCount": 1,
+        "content": "All tables in the external data source must have an associated GUID primary key."
+      },
+      {
+        "date": "2023-11-14T03:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/power-apps/maker/data-platform/limits-tshoot-virtual-tables?tabs=sql"
+      },
+      {
+        "date": "2024-03-24T04:16:00.000Z",
+        "voteCount": 1,
+        "content": "It says SQL can use GUID or Integer, So the Answer should be no"
+      },
+      {
+        "date": "2023-09-26T04:36:00.000Z",
+        "voteCount": 3,
+        "content": "If all the entities in external data source have an associated GUID primary key then we can implement the virtual entities for sure.\nFor Reference: https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/virtual-entities/get-started-ve?view=op-9-1"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121509-exam-pl-400-topic-1-question-32-discussion/",
+    "body": "DRAG DROP<br> -<br><br>A company is developing a Microsoft Dataverse plug-in.<br><br>The plug-in must create a follow-up task for a new account.<br><br>You add the code that receives context(IPluginExecutionContext) and service(IOrganizationService).<br><br>You need to create the remaining code to insert the follow-up task.<br><br>Which three code blocks should you use in sequence? To answer, move the appropriate code sequences from the list of sequences to the answer area and arrange in the correct order.<br><br><img src=\"https://img.examtopics.com/pl-400/image416.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image417.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-05T07:16:00.000Z",
+        "voteCount": 20,
+        "content": "Correct order : 3 - 2 - 4"
+      },
+      {
+        "date": "2023-09-26T19:25:00.000Z",
+        "voteCount": 7,
+        "content": "The block that gets the account entity from the context comes first, the block to create a new Task comes second"
+      },
+      {
+        "date": "2024-09-14T08:05:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Oder is 2, 3, 4"
+      },
+      {
+        "date": "2024-10-16T10:55:00.000Z",
+        "voteCount": 1,
+        "content": "The order is 3, 2, 4, as you cannot set the regardingobjectid of the task to a variable that hasn't been declared yet."
+      },
+      {
+        "date": "2024-03-29T08:27:00.000Z",
+        "voteCount": 3,
+        "content": "The order is incorrect. Get account entity should be first"
+      },
+      {
+        "date": "2024-01-13T14:06:00.000Z",
+        "voteCount": 3,
+        "content": "Order is incorrect"
+      },
+      {
+        "date": "2023-09-26T15:38:00.000Z",
+        "voteCount": 6,
+        "content": "The order is incorrect, first access the account entity from target. Create a task obj and service.create to create follow up task"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/122022-exam-pl-400-topic-1-question-33-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company designs data integration with an external system by using virtual tables.<br><br>You need to implement the virtual tables.<br><br>Solution: Create a calculated column on the virtual table.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-06T12:07:00.000Z",
+        "voteCount": 3,
+        "content": "Correct.\n\nin Dynamics 365 Customer Engagement (on-premises), you cannot create calculated fields directly within virtual entities. Virtual entities are primarily designed for read-only access to external data sources. They are not intended to perform calculations or store data within Dynamics 365 itself.\n\nIf you need calculated fields, you would typically perform those calculations within the external data source itself or within the data provider responsible for retrieving data from the external source. The calculated results can then be presented as part of the virtual entity's data when it's retrieved and displayed in Dynamics 365."
+      },
+      {
+        "date": "2023-10-01T03:33:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer. An attribute on a virtual entity cannot be calculated or rollup. Any desired calculations must be done on the external side, possibly within or directed by the data provider.\n\nref: https://learn.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/virtual-entities/get-started-ve?view=op-9-1"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127258-exam-pl-400-topic-1-question-34-discussion/",
+    "body": "A company designs a Microsoft Dataverse Custom API to encapsulate business logic in it.<br><br>The Custom API business logic must be encapsulated in a way that does not allow the business logic behavior to be modified or canceled.<br><br>You need to set the parameter value of the custom API so it cannot be customized.<br><br>Which parameter value should you set?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecute Privilege Name to prv_SdkMessageProcessingStep",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnabled for Workflow to No",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBinding Type to Entity",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCustom Processing Step to None\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-08T03:42:00.000Z",
+        "voteCount": 9,
+        "content": "When the plug-in set for this custom API using CustomAPI.PluginTypeId is the only logic that occurs when this operation executes.\nYou won't allow another developer to register any more steps that can trigger other logic, modify the behavior of this operation, or cancel the operation.\nUse this option when the custom API provides some capability that shouldn't be customizable.\n\nhttps://learn.microsoft.com/en-us/power-apps/developer/data-platform/custom-api"
+      },
+      {
+        "date": "2023-11-26T08:39:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer.\n D. Custom Processing Step to None\" is not a valid option or setting in the context of Microsoft Dataverse Custom APIs."
+      },
+      {
+        "date": "2024-01-08T07:05:00.000Z",
+        "voteCount": 10,
+        "content": "Correct answer is D, \nPlease, don't confuse people and do some research before you post anything: https://learn.microsoft.com/en-us/power-apps/developer/data-platform/custom-api#add-more-request-parameters-and-response-properties"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/128073-exam-pl-400-topic-1-question-35-discussion/",
+    "body": "A company has a model-driven app form. Many users use the form.<br><br>Users state that the form takes too long to fully load.<br><br>You need to evaluate the form design to improve loading performance.<br><br>Which three control types can you use? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttimeline",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tquick view form",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiFrame",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlookup"
+    ],
+    "answer": "BCD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "ACD",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-10-01T02:11:00.000Z",
+        "voteCount": 1,
+        "content": "I believe all could be relevant for the loading performance. But could it be as simple as A, C and D, because \"Qucik View Form\" is not.. directly a control? Its supposed to be Quick View Control? haha..."
+      },
+      {
+        "date": "2023-12-08T03:44:00.000Z",
+        "voteCount": 2,
+        "content": "Correct for me"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "1"
+  }
+]

@@ -1,0 +1,140 @@
+[
+  {
+    "topic": 13,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21837-exam-az-103-topic-13-question-1-discussion/",
+    "body": "You are planning the move of App1 to Azure.<br>You create a network security group (NSG).<br>You need to recommend a solution to provide users with access to App1.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an incoming security rule for port 443 from the Internet. Associate the NSG to the subnet that contains the web servers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an outgoing security rule for port 443 from the Internet. Associate the NSG to all the subnets.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an incoming security rule for port 443 from the Internet. Associate the NSG to all the subnets.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an outgoing security rule for port 443 from the Internet. Associate the NSG to the subnet that contains the web servers."
+    ],
+    "answer": "A",
+    "answerDescription": "As App1 is public-facing we need an incoming security rule, related to the access of the web servers.<br>Scenario: You have a public-facing application named App1. App1 is comprised of the following three tiers: a SQL database, a web front end, and a processing middle tier.<br>Each tier is comprised of five virtual machines. Users access the web front end by using HTTPS only.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-12T07:10:00.000Z",
+        "voteCount": 6,
+        "content": "where is the key word outgoing here? its incoming to 443 on the web servers. i would think an NSG allowing only access to the specific web servers is required thus their answer A is right."
+      },
+      {
+        "date": "2020-07-06T20:50:00.000Z",
+        "voteCount": 1,
+        "content": "You are right. APP1 has public-facing web servers."
+      },
+      {
+        "date": "2020-09-05T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "\"You are planning the move of App1 to Azure.\" These Qs man...you gotta think as if App1 is 'already' in Azure. Therefore it will be an 'incoming' Rule for 'Internet users'. Answer A is correct."
+      },
+      {
+        "date": "2020-08-28T08:39:00.000Z",
+        "voteCount": 3,
+        "content": "I makes me so mad when I don't read the answers correctly and answer wrong but knowing the right answer...."
+      },
+      {
+        "date": "2020-06-01T14:07:00.000Z",
+        "voteCount": 1,
+        "content": "I thought the answer was B? . the key word is outgoing? and to all subnets...\nthis is because inbound port 443 accepts traffic??"
+      },
+      {
+        "date": "2020-06-03T05:30:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, inbound port accepting traffic. if you will assign the NSG to all the subnets you will apply the rules to all the VM's on those subnets"
+      },
+      {
+        "date": "2020-06-11T13:04:00.000Z",
+        "voteCount": 2,
+        "content": "GIven answer is CORRECT: 443 does not accept traffic by default. That needs to be specifically entered into the NSG inbound rules for the web servers to be able to accept traffic fron the internet/public facing app. No need to apply to all subnets as that will be overkill and added ports open that don't need to be."
+      },
+      {
+        "date": "2020-06-11T13:05:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry I mistyped. Given answer is INCORRECT, CORRECT answer is B NOT A based on reasoning mentioned above"
+      },
+      {
+        "date": "2020-06-19T06:41:00.000Z",
+        "voteCount": 11,
+        "content": "SOrry gang..looks like answers got switched up or I'm blind. Currently answer is A which is  Create an incoming security rule for port 443 from the Internet. Associate the NSG to the subnet that contains the web servers. Sorry for the confusion."
+      }
+    ],
+    "examNameCode": "az-103",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23225-exam-az-103-topic-13-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a solution for App1. The solution must meet the technical requirements.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03048/0030300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03048/0030400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "This reference architecture shows how to deploy VMs and a virtual network configured for an N-tier application, using SQL Server on Windows for the data tier.<br><img src=\"/assets/media/exam-media/03048/0030500001.png\" class=\"in-exam-image\"><br>Scenario: You have a public-facing application named App1. App1 is comprised of the following three tiers:<br>\u2711 A SQL database<br>\u2711 A web front end<br>\u2711 A processing middle tier<br>Each tier is comprised of five virtual machines. Users access the web front end by using HTTPS only.<br>Technical requirements include:<br>\u2711 Move all the virtual machines for App1 to Azure.<br>\u2711 Minimize the number of open ports between the App1 tiers.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/n-tier/n-tier-sql-server<br>Manage identities",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-23T01:29:00.000Z",
+        "voteCount": 1,
+        "content": "Who stops you to put all the tiers in the same subnet though?\nIt just says the frontend ties is accessed via HTTPS so just create an NSG for them and put everything in the same subnet."
+      },
+      {
+        "date": "2021-02-25T17:17:00.000Z",
+        "voteCount": 1,
+        "content": "Answers are correct! 3 tiers so 3 subnets in 1 vitual network."
+      },
+      {
+        "date": "2020-08-06T18:46:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong answers. No of VNet : 1 , No of Subnet : 2 \nFirst of all, SQL server is a managed service and we can not put it to specific subnet.\nAlso, if at all it needed a subnet (assuming sqlserver database into a vm), we still could put in the same subnet of the Middle Tier. Middle tier is not accessible to the users."
+      },
+      {
+        "date": "2020-08-22T15:49:00.000Z",
+        "voteCount": 1,
+        "content": "1d10t 3 tiers plus gateway subnet and jumpbox subnet, should be 5, but 3 is ok in the answer"
+      },
+      {
+        "date": "2020-08-23T06:23:00.000Z",
+        "voteCount": 2,
+        "content": "SQL Server - 5 vms, it's iaas not paas"
+      },
+      {
+        "date": "2020-08-01T23:44:00.000Z",
+        "voteCount": 2,
+        "content": "Should be 1 and 2 ,microsoft sql server is managed service and does not required a new subnet."
+      },
+      {
+        "date": "2020-08-08T01:24:00.000Z",
+        "voteCount": 1,
+        "content": "It says \"Each tier is comprised of five virtual machines.\" this includes the DB tier."
+      },
+      {
+        "date": "2020-06-15T18:14:00.000Z",
+        "voteCount": 2,
+        "content": "number virtualnetworks is 1 and subnets 3 ?"
+      },
+      {
+        "date": "2020-06-19T06:43:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is correct."
+      },
+      {
+        "date": "2020-07-06T20:51:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, APP1 is 3 tier app."
+      },
+      {
+        "date": "2020-08-09T11:35:00.000Z",
+        "voteCount": 1,
+        "content": "The problem is that this case study says there are three tiers but only tells you about two. Other websites show a data tier that is not listed on this site.  So, you might get 1-3 or 1-2 depending on how you read the case study."
+      },
+      {
+        "date": "2020-08-09T11:42:00.000Z",
+        "voteCount": 1,
+        "content": "Correction: It does show it (data tier is listed as \"a SQL Database\"), but the formatting is odd on this site and makes it look like it was put there by mistake and is not part of the tier list. If you read carefully, you would come up with 1-3. I obviously did not and came up with 1-2."
+      }
+    ],
+    "examNameCode": "az-103",
+    "topicNumber": "13"
+  }
+]

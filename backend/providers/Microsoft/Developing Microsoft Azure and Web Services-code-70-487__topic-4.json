@@ -1,0 +1,246 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30847-exam-70-487-topic-4-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to update the GetBook() method to retrieve book data by using ADO.NET.<br>You have the following code:<br><img src=\"/assets/media/exam-media/02826/0008400001.png\" class=\"in-exam-image\"><br>Which code segments should you include in Target 1, Target 2, Target 3, Target 4 and Target 5 to complete this code? (To answer, drag the appropriate code segments to the correct location in the answer area. Each segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.)<br>Select and Place:<br><img src=\"/assets/media/exam-media/02826/0008500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02826/0008600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Target 1: conn.Open();<br>Target 2: \"SELECT id, name FROM books WHERE id =@id\";<br>Example of how to use named parameters in CommandType.Text.<br>SELECT * FROM dbo.Customers WHERE CustomerID =@CustomerID<br>Target 3:cmd.Parameters.AddWithValue(\"@id\", id);<br>Examples of AddWithValue usage:<br>cmdSQL.Parameters.AddWithValue(\"@CustomerID\", CustomerID)<br>cmdSQL.Parameters.AddWithValue(\"@CartType\", cartType)<br>Target 4: Id=readerGetGuid(Reader.GetOrdinal(\"id\")),<br>Target 5: reader.GetString(Reader.GetOrdinal(\"name\"))<br>Example of usage of GetOrdinal. Call GetOrdinal and assign value to variable. int customerID = reader.GetOrdinal(\"CustomerID\");<br>References:<br>https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlconnection.createcommand(v=vs.110).aspx https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqlcommand.commandtext(v=vs.110).aspx https://msdn.microsoft.com/en-us/library/system.data.sqlclient.sqldatareader.getordinal(v=vs.110).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-08T00:44:00.000Z",
+        "voteCount": 1,
+        "content": "for the @id =id would it actually matter which way around that was?"
+      },
+      {
+        "date": "2020-09-10T03:52:00.000Z",
+        "voteCount": 2,
+        "content": "I think it matters because id is a column in the table which get the parameter value @id assigned to it. The @id parameter variable could be named any name for example @MyID as long as you configure the same name in the cmd.Parameters.Add, in contrast to this the id name must be named id because it references a column in the table..\n\n// 2. define parameters used in command object\nSqlParameter param  = new SqlParameter();\nparam.ParameterName = \"@MyID\";\nparam.Value         = myVariable;\n\n// 3. add new parameter to command object\ncmd.Parameters.Add(param);"
+      },
+      {
+        "date": "2020-09-21T06:32:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, id is a column name and @id is a parameter variable declaration. Column must come before variables '@id = id' is an incorrect sql statement."
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14242-exam-70-487-topic-4-question-3-discussion/",
+    "body": "DRAG DROP -<br>You need to configure the server to self-host the bookstore's Web API application.<br>You have the following code:<br><img src=\"/assets/media/exam-media/02826/0008900001.png\" class=\"in-exam-image\"><br>Which code segments should you include in Target 1 and Target 2 to complete the code? (To answer, drag the appropriate code segments to the correct location in the answer area. Each segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.)<br>Select and Place:<br><img src=\"/assets/media/exam-media/02826/0009000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02826/0009000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Use server.OpenAsync().Wait() to put the server into a zen state of acceptance of all connections on the address we specified earlier.<br>References:<br>http://notebookheavy.com/2012/03/13/integration-test-asp-net-web-api-with-structuremap/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-15T23:16:00.000Z",
+        "voteCount": 15,
+        "content": "The given URLs have no \"api/\" in it, so routeTemplate must be \"{controller}s/{id}\"."
+      },
+      {
+        "date": "2020-03-03T07:53:00.000Z",
+        "voteCount": 17,
+        "content": "there is an error on requirements here.\non exam was URI: api/books"
+      },
+      {
+        "date": "2021-01-29T18:41:00.000Z",
+        "voteCount": 1,
+        "content": "According to this link it is routeTemplate : \"api/{controller}/{id}\"\nhttps://theshravan.net/blog/self-hosting-asp-net-web-api/"
+      },
+      {
+        "date": "2020-11-27T08:39:00.000Z",
+        "voteCount": 1,
+        "content": "But, What about APIControler base class  for BookApi controller?!! , I think the map route should be begin with \"api/{controller}/{id} by default."
+      },
+      {
+        "date": "2020-09-08T01:54:00.000Z",
+        "voteCount": 3,
+        "content": "says BookApiController class so api/bookapi/id doesn't make sense"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9802-exam-70-487-topic-4-question-5-discussion/",
+    "body": "You are preparing to write the data access code for the children's book area of the web site.<br>You need to review the requirements and identify the appropriate data access technology.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse LINQ to SQL",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the WCF Data Services.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a Web Service.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse ADO.NET Entity Framework. D"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "Using the Entity Framework, developers issue queries using LINQ, then retrieve and manipulate data as strongly typed objects.<br>From scenario: The children's book area of the web application must get data directly from a local database. It must use a connection string. It must also support access to the stored procedures on a database. Further, it is required to have strongly typed objects. Finally, it will require access to databases from multiple vendors and needs to support more than one-to-one mapping of database tables.<br>References:<br>http://www.entityframeworktutorial.net/what-is-entityframework.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-05T13:54:00.000Z",
+        "voteCount": 16,
+        "content": "answer: D"
+      },
+      {
+        "date": "2020-07-23T16:07:00.000Z",
+        "voteCount": 5,
+        "content": "Agree. Because in requirements there is:\n* Connection string required;\n* Strongly typed entities."
+      },
+      {
+        "date": "2020-10-13T11:57:00.000Z",
+        "voteCount": 4,
+        "content": "Moderator, please fix the answer. The answer is showing at the end of the ques"
+      },
+      {
+        "date": "2020-12-07T08:01:00.000Z",
+        "voteCount": 4,
+        "content": "As in many other questions"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8548-exam-70-487-topic-4-question-7-discussion/",
+    "body": "You need to implement the Get() method in the bookstore Web API application to be able to find books by using an ad hoc query.<br>Which method should you use?<br>A.<br><img src=\"/assets/media/exam-media/02826/0009300001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/02826/0009300002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/02826/0009300003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/02826/0009300004.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "Compare to the Delete method from the scenario:<br><img src=\"/assets/media/exam-media/02826/0009400001.jpg\" class=\"in-exam-image\">",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-03T20:15:00.000Z",
+        "voteCount": 30,
+        "content": "Correct answer is A.\n1) We want to implement the Get() method (not the Get(int id) method).\n2) Use IQueryable if you have to run ad-hoc queries against a data source."
+      },
+      {
+        "date": "2019-12-01T02:09:00.000Z",
+        "voteCount": 25,
+        "content": "i think answer is A:\nhttps://vceguide.com/which-method-should-you-use-8/"
+      },
+      {
+        "date": "2019-12-04T04:16:00.000Z",
+        "voteCount": 10,
+        "content": "it's correct\nhttps://docs.microsoft.com/en-us/aspnet/web-api/overview/odata-support-in-aspnet-web-api/supporting-odata-query-options"
+      },
+      {
+        "date": "2020-11-14T20:59:00.000Z",
+        "voteCount": 3,
+        "content": "A is the answer"
+      },
+      {
+        "date": "2020-09-08T01:10:00.000Z",
+        "voteCount": 6,
+        "content": "\"A\" as need to be IQueryable if you have to run ad-hoc queries against a data source."
+      },
+      {
+        "date": "2020-07-23T16:17:00.000Z",
+        "voteCount": 7,
+        "content": "IMO answer A.\n\nI think that the most important thing here is requirement 'ad hoc query' which clearly suggests OData query expression and answer A.\n\nOther ones seem to be wrong for many reasons."
+      },
+      {
+        "date": "2020-03-18T02:22:00.000Z",
+        "voteCount": 2,
+        "content": "This question is weird since implementation from answer D is already listed in the code snippets of the assignment. So what is this question all about? For me, it should be a D option, but I am confused.."
+      },
+      {
+        "date": "2020-03-24T00:26:00.000Z",
+        "voteCount": 6,
+        "content": "I was wrtong, it's clearly A."
+      },
+      {
+        "date": "2020-02-07T22:00:00.000Z",
+        "voteCount": 10,
+        "content": "Answer clearly A hence only this represents ad-hoc query"
+      },
+      {
+        "date": "2020-01-28T00:00:00.000Z",
+        "voteCount": 5,
+        "content": "A is the right answer here since the question says books not a book or a particular book."
+      },
+      {
+        "date": "2019-11-23T08:05:00.000Z",
+        "voteCount": 12,
+        "content": "B is not the right answer. This method will give build errors because the return type of the method doesn't match the returned result (instance of Book and List&lt;Book&gt;). The correct answer is D."
+      },
+      {
+        "date": "2019-11-19T02:49:00.000Z",
+        "voteCount": 2,
+        "content": "D might be answer, please look at API return type"
+      },
+      {
+        "date": "2020-10-03T14:31:00.000Z",
+        "voteCount": 6,
+        "content": "need to support adHoq query, A should be the ansqer"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12896-exam-70-487-topic-4-question-10-discussion/",
+    "body": "You need to choose the appropriate data access technology for the children's book area of the web application.<br>Which data access technology should you choose?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tADO.NET Entity Framework",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWCF Data Services",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLINQ to SQL",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeb Service"
+    ],
+    "answer": "A",
+    "answerDescription": "Scenario: The children's book area of the web application must get data directly from a local database. It must use a connection string. It must also support access to the stored procedures on a database. Further, it is required to have strongly typed objects. Finally, it will require access to databases from multiple vendors and needs to support more than one-to-one mapping of database tables.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-28T00:32:00.000Z",
+        "voteCount": 6,
+        "content": "A is actually correct as data access to use. ADO.NET EF"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10713-exam-70-487-topic-4-question-11-discussion/",
+    "body": "You need to create an OData filter expression that returns bools that match the following characteristics:<br>\u2711 Published after 1/1/2000<br>\u2711 Have \"Science\" as the first word<br>Which filter statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/books?$filter=PublishDate gt datetime'2000-1-1' and startswith(Title, \"\u02dcScience')",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/books?$filter=PublishDate greaterthan datetime'2000-1-1' and startswith(Title, \"\u02dcScience')",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/search?$filter=PublishDate greaterthan datetime'2000-1-1' and beginswith (Title, \"\u02dcScience')",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/search?$filter=PublishDate gt datetime'2000-1-1' and beginswith(Title, \"\u02dcScience') A"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "The gt keyword is used for the greater than comparison.<br>The startswith keyword is used to compare the beginning of a string.<br>Example: Returns entry numbers611 and higher.<br>filter= Entry_No gt 610<br>Example: Returns all customers names beginning with \"S\".<br>filter=startswith(Name, 'S')<br>References:<br>https://msdn.microsoft.com/en-us/library/hh169248(v=nav.90).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-20T05:11:00.000Z",
+        "voteCount": 20,
+        "content": "answer is A"
+      },
+      {
+        "date": "2020-01-28T00:35:00.000Z",
+        "voteCount": 13,
+        "content": "I vote A as the correct. The correct for greater than is gt and the method startswith.."
+      },
+      {
+        "date": "2020-10-13T12:03:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is appearing at the end of quesiton"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "4"
+  }
+]

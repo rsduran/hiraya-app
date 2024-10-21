@@ -1,0 +1,1101 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19717-exam-az-300-topic-3-question-1-discussion/",
+    "body": "You have an Azure App Service API that allows users to upload documents to the cloud with a mobile device. A mobile app connects to the service by using<br>REST API calls.<br>When a new document is uploaded to the service, the service extracts the document metadata. Usage statistics for the app show significant increases in app usage.<br>The extraction process is CPU-intensive. You plan to modify the API to use a queue.<br>You need to ensure that the solution scales, handles request spikes, and reduces costs between request spikes.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a CPU Optimized virtual machine (VM) and install the Web App service on the new instance.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a series of CPU Optimized virtual machine (VM) instances and install extraction logic to process a queue.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the extraction logic into an Azure Function. Create a queue triggered function to process the queue.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure Container Service to retrieve items from a queue and run across a pool of virtual machine (VM) nodes using the extraction logic."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-05T17:50:00.000Z",
+        "voteCount": 8,
+        "content": "I will pick Option C.\nA single CPU Optimized VM cannot handle solution scale - the scale means horizontal scale, not vertical scale - so option A is out. A series CPU Optimized VMs doesn't fit 'reduce costs between request spikes' since they are always on. Turn some of VMs off cannot handle spike well. So option B is off. Option D are similar to Option B but Microsoft tried to loot you with ACS on VMs. Although ACS (deprecated?) might have quickier warm up time, but VMs scaling is still a problem related to cost. Also Option C will be cost less than Option D since the customer does not need to maintain a single VM at all."
+      },
+      {
+        "date": "2020-10-04T11:51:00.000Z",
+        "voteCount": 2,
+        "content": "c is correct to me as its expensive operation that is somehow independent fro the rest of the app - based on a lot of assumptions I am making :) but this is more of an application architecture question type that I deal with every day"
+      },
+      {
+        "date": "2020-09-16T10:45:00.000Z",
+        "voteCount": 2,
+        "content": "C is the correct answer - Azure function reduces cost as it is stateless"
+      },
+      {
+        "date": "2020-08-20T09:41:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is C\nREST API is called by the Mobile app. The REST API, just drops the request in an Azure queue. The Queue insertion triggers an Azure Function, which takes whatever time needed. After completion the success or failure response is captured and things are complete."
+      },
+      {
+        "date": "2020-06-18T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "Azure function app has time limit. It is mentioned that the process is CPU intensive. Is it right solution."
+      },
+      {
+        "date": "2020-07-25T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "Better than any other answer here from a cost perspective"
+      },
+      {
+        "date": "2020-09-21T07:18:00.000Z",
+        "voteCount": 2,
+        "content": "I'm mostly upvoting you for your name.\nBiggusJiggus... awesome"
+      },
+      {
+        "date": "2020-07-29T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "CPU intensive for possible a short period of time and hence Azure Function"
+      },
+      {
+        "date": "2020-08-21T04:45:00.000Z",
+        "voteCount": 1,
+        "content": "If you use a premium plan for your function you will have an unlimited execution time plus the auto scale feature"
+      },
+      {
+        "date": "2020-05-21T06:51:00.000Z",
+        "voteCount": 1,
+        "content": "Not an expert (yet), but my understanding would be: 1) a VM requirement is not mentioned, and serverless technology is built for Functions like this, 2) spikes in traffic are a fundamental advantage of serverless apps...they only \"cost money\" when they are triggered. A single VM or group of VM's present a continuous cost scenario."
+      },
+      {
+        "date": "2020-05-12T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "Azure function reduce costs as it is stateless"
+      },
+      {
+        "date": "2020-05-06T03:57:00.000Z",
+        "voteCount": 2,
+        "content": "Explain please"
+      },
+      {
+        "date": "2020-05-12T13:34:00.000Z",
+        "voteCount": 1,
+        "content": "I don't know a lot about the App Service, and I may be wrong in my explanation but here it is anyway. The only likely answer, IMO, is C. The others answer choices are about VMs, which don't present the scalable option the scenario's after. Azure Functions provides that true ability scale without the administrative overhead of VMs. So, it'd be best to move the logic into an AZ Function and let it do it."
+      },
+      {
+        "date": "2020-09-08T22:16:00.000Z",
+        "voteCount": 2,
+        "content": "C is ok"
+      },
+      {
+        "date": "2020-05-24T11:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15013-exam-az-300-topic-3-question-2-discussion/",
+    "body": "DRAG DROP -<br>Fourth Coffee has an ASP.Net Core web app that runs in Docker. The app is mapped to the www.fourthcoffee.com domain.<br>Fourth Coffee is migrating this application to Azure.<br>You need to provision an App Service Web App to host this docker image and map the custom domain to the App Service web app.<br>A resource group named FourthCofeePublicWebResourceGroup has been created in the WestUS region that contains an App Service Plan named<br>AppServiceLinuxDockerPlan.<br>Which order should the CLI commands be used to develop the solution? To answer, move all of the Azure CLI commands from the list of commands to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0036400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0036500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-24T11:54:00.000Z",
+        "voteCount": 18,
+        "content": "1.Configure environment variables\nSince we already have RG, App Service Plan move to create WebApp\n2.Create WebApp\n3. Binding hostname to WebApp with FQDN www.FourthCoffee.com.\n4. Configure Web App with a Custom Docker Container from Docker Hub\n\nhttps://docs.microsoft.com/en-us/azure/app-service/scripts/cli-linux-docker-aspnetcore\nhttps://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image\nhttps://docs.microsoft.com/en-us/cli/azure/webapp/config/hostname?view=azure-cli-latest"
+      },
+      {
+        "date": "2020-02-28T10:29:00.000Z",
+        "voteCount": 16,
+        "content": "Why does it matter the order of the last 2 items? hostname or container can be put in place in any either sequence"
+      },
+      {
+        "date": "2020-09-22T11:13:00.000Z",
+        "voteCount": 1,
+        "content": "since this one has multiple answers in one question, will Microsoft give partial credit for each correct one?"
+      },
+      {
+        "date": "2020-06-16T08:05:00.000Z",
+        "voteCount": 1,
+        "content": "Last 2 steps are in correct order. First add the hostname and then configure the container."
+      },
+      {
+        "date": "2020-06-04T14:24:00.000Z",
+        "voteCount": 3,
+        "content": "Shouldn't last 2 steps be swapped mapping hostname before deploying container will cause some downtime."
+      },
+      {
+        "date": "2020-05-21T07:00:00.000Z",
+        "voteCount": 2,
+        "content": "Answer 1 - Sets the variables for later commands, Answer 2 - Creates the app (using one of the variables from Answer 1...and so forth), Answer 3 - Creates the host for the container, &amp; Answer 4 - Creates the container itself."
+      },
+      {
+        "date": "2020-04-19T14:24:00.000Z",
+        "voteCount": 5,
+        "content": "Agree with ccarlton. Hostname can be created as the final step. It shouldn't matter."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13281-exam-az-300-topic-3-question-3-discussion/",
+    "body": "You create a social media application that users can use to upload images and other content.<br>Users report that adult content is being posted in an area of the site that is accessible to and intended for young children.<br>You need to automatically detect and flag potentially offensive content. The solution must not require any custom coding other than code to scan and evaluate images.<br>What should you implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBing Visual Search",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBing Image Search",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCustom Vision Search",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tComputer Vision API"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-02T07:10:00.000Z",
+        "voteCount": 14,
+        "content": "https://docs.microsoft.com/en-au/azure/cognitive-services/computer-vision/home"
+      },
+      {
+        "date": "2020-05-21T07:05:00.000Z",
+        "voteCount": 4,
+        "content": "\"Azure's Computer Vision service provides developers with access to advanced algorithms that process images and return information, depending on the visual features you're interested in. For example, Computer Vision can determine if an image contains adult content, or it can find all of the human faces in an image.\""
+      },
+      {
+        "date": "2020-04-19T14:28:00.000Z",
+        "voteCount": 9,
+        "content": "I think Cognitive services are not part of AZ-300 syllabus."
+      },
+      {
+        "date": "2021-06-06T12:40:00.000Z",
+        "voteCount": 1,
+        "content": "out of scope"
+      },
+      {
+        "date": "2020-09-16T10:50:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is D"
+      },
+      {
+        "date": "2020-07-28T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is correct it is under computer vision ( a service call Detect adult content )"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13131-exam-az-300-topic-3-question-4-discussion/",
+    "body": "DRAG DROP -<br>You plan to create a Docker image that runs an ASP.NET Core application named ContosoApp. You have a setup script named setupScript.ps1 and a series of application files including ContosoApp.dll.<br>You need to create a Dockerfile document that meets the following requirements:<br>\u2711 Call setupScript.ps1 when the container is built.<br>\u2711 Run ContosoApp.dll when the container starts.<br>The Dockerfile document must be created in the same folder where ContosoApp.dll and setupScript.ps1 are stored.<br>Which four commands should you use to develop the solution? To answer, move the appropriate commands from the list of commands to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0036700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0036800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-02T07:03:00.000Z",
+        "voteCount": 11,
+        "content": "The only source I've found from MS: https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/docker/building-net-docker-images?view=aspnetcore-3.1\nFor what i recall there are subtle differences between CMD and ENTRYPOINT, but I'll choice RUN/CMD because RUN it's used to setup and executes things. This was also useful https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/"
+      },
+      {
+        "date": "2020-07-06T13:17:00.000Z",
+        "voteCount": 4,
+        "content": "I would say the last suggested step in the provided answer is correct - that is NOT to use ENTRYPOINT, although I wouldn't use it like this myself. I guess the reason why the suggested answer is correct is because of the explenation given here: \nhttps://phoenixnap.com/kb/docker-cmd-vs-entrypoint#:~:text=CMD%20is%20an%20instruction%20that,container%20with%20a%20specific%20executable.\n\n\"Combine ENTRYPOINT with CMD if you need a container with a specified executable and a default parameter that can be modified easily\" - and that's not what we want here. So I'd say RUN and CMD as the last step is correct."
+      },
+      {
+        "date": "2020-09-02T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "i'd agree with this &gt;&gt; running CMD[\"dotnet\",\"ContosoApp.dll\"] is equal to running &gt;dotnet ContosoApp.dll which is valid and required as per the question being asked"
+      },
+      {
+        "date": "2020-06-17T10:53:00.000Z",
+        "voteCount": 3,
+        "content": "Consider Entrypoint as the last step."
+      },
+      {
+        "date": "2020-06-07T20:29:00.000Z",
+        "voteCount": 3,
+        "content": "The last instruction should be ENTRYPOINT[ ], https://code.visualstudio.com/docs/containers/quickstart-aspnet-core.\nSo the last step should be CMD/ENTRYPOINT"
+      },
+      {
+        "date": "2020-09-05T03:40:00.000Z",
+        "voteCount": 2,
+        "content": "yup, fully agree"
+      },
+      {
+        "date": "2020-05-31T04:54:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct. To clarify the last step, the question states \"when container is built\" hence RUN/ENTRYPOINT is correct"
+      },
+      {
+        "date": "2020-05-22T06:08:00.000Z",
+        "voteCount": 3,
+        "content": "Very easy: \"RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image\"\n\nThe command does not need to run at build time. Hence, it as to be CMD with ENTRYPOINT"
+      },
+      {
+        "date": "2020-05-18T04:59:00.000Z",
+        "voteCount": 1,
+        "content": "There is nothing in the question that states the  application layout, so why should we set the workdir in the docker file ? Is this related to the dotnet way of scalfolding the apps ?"
+      },
+      {
+        "date": "2020-08-10T19:15:00.000Z",
+        "voteCount": 1,
+        "content": "Aren't we doing this to appease:\n\nThe Dockerfile document must be created in the same folder where ContosoApp.dll and setupScript.ps1 are stored.\n??"
+      },
+      {
+        "date": "2020-05-04T21:28:00.000Z",
+        "voteCount": 3,
+        "content": "Question says \"\u2711 Call setupScript.ps1 when the container is built.\"  ---&gt; This is possible with 'RUN' instruction, not with 'CMD'. This is the reason last box is what it is."
+      },
+      {
+        "date": "2020-01-30T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-custom-docker-image"
+      },
+      {
+        "date": "2020-01-30T08:29:00.000Z",
+        "voteCount": 1,
+        "content": "I'm no expert at this, for sure. But when I look up references to this that include \"dotnet\" AND \"contosoapp.dll\" it seems that the last choice should be the CMD/Entrypoint option. Please advise."
+      },
+      {
+        "date": "2020-09-02T07:09:00.000Z",
+        "voteCount": 5,
+        "content": "if the last choice was cmd/entrypoint, this would mean that when the container is run, the CMD would be passed to the entry point as a parameter. when cmd and entrypoint are used together this is how they interact.\n The question does not ask for powershell to be passed to the dll at startup. The given answer is correct, the RUN command will execute once at build and the CMD command is the default command when the container starts."
+      },
+      {
+        "date": "2020-09-14T03:34:00.000Z",
+        "voteCount": 1,
+        "content": "The given answer is correct"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7900-exam-az-300-topic-3-question-5-discussion/",
+    "body": "DRAG DROP -<br>You have a web app named MainApp. You are developing a triggered App Service background task by using the WebJobs SDK.<br>This task automatically invokes a function in the code whenever any new data is received in a queue.<br>You need to configure the services.<br>Which service should you use for each scenario? To answer, drag the appropriate services to the correct scenarios. Each service may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0036900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0037000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-29T00:50:00.000Z",
+        "voteCount": 16,
+        "content": "From the mentioned link,\n\nHere are two scenarios for which WebJobs may be the best choice:\n\n    You need more control over the code that listens for events, the JobHost object. Functions offers a limited number of ways to customize JobHost behavior in the host.json file. Sometimes you need to do things that can't be specified by a string in a JSON file. For example, only the WebJobs SDK lets you configure a custom retry policy for Azure Storage.\n    You have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment."
+      },
+      {
+        "date": "2020-05-12T13:43:00.000Z",
+        "voteCount": 11,
+        "content": "This is the correct solution. WebJobs and WebJobs."
+      },
+      {
+        "date": "2020-01-19T11:54:00.000Z",
+        "voteCount": 15,
+        "content": "Both should be webjobs as per the reference link:\n\nou have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment."
+      },
+      {
+        "date": "2021-01-17T12:35:00.000Z",
+        "voteCount": 1,
+        "content": "webjob for both options as web job can be used for following \nTimer\nAzure Storage queues and blobs\nAzure Service Bus queues and topics\nAzure Cosmos DB\nAzure Event Hubs\nFile system\n\nand\nYou have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment."
+      },
+      {
+        "date": "2021-01-17T12:36:00.000Z",
+        "voteCount": 1,
+        "content": "webjob for both options as web job can be used for following \nTimer\nAzure Storage queues and blobs\nAzure Service Bus queues and topics\nAzure Cosmos DB\nAzure Event Hubs\nFile system\n\nand\nYou have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment.\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs"
+      },
+      {
+        "date": "2020-09-16T11:40:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is Webjobs for both scenarios"
+      },
+      {
+        "date": "2020-06-23T13:59:00.000Z",
+        "voteCount": 2,
+        "content": "answer is correct.Webjobs and Webjobs/  https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs"
+      },
+      {
+        "date": "2020-06-11T11:03:00.000Z",
+        "voteCount": 3,
+        "content": "Second Box is also WebJobs.\n\nCopied from:\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs\n\nSee link above in section \"Summary\":\nThere it says:\n...\nHere are two scenarios for which WebJobs may be the best choice:\n\n- You need more control over the code that listens for events, the JobHost object. Functions offers a limited number of ways to customize JobHost behavior in the host.json file. Sometimes you need to do things that can't be specified by a string in a JSON file. For example, only the WebJobs SDK lets you configure a custom retry policy for Azure Storage.\n\n- You have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment.\n..."
+      },
+      {
+        "date": "2021-02-20T09:42:00.000Z",
+        "voteCount": 1,
+        "content": "Totally Agree"
+      },
+      {
+        "date": "2020-05-24T12:52:00.000Z",
+        "voteCount": 2,
+        "content": "https://www.c-sharpcorner.com/article/creating-azure-webjobs-to-parse-messages-from-azure-storage-queues/\n\nWebJobs\nWebJobs"
+      },
+      {
+        "date": "2020-05-19T21:12:00.000Z",
+        "voteCount": 3,
+        "content": "Flow is technically a SaaS solution and it is rarely an answer in this exam. Flow is self-service while Logic Apps is for advanced integration. In the new software architecture models, it is recommended to use WebJobs only when the same Azure DevOps environment is required as Web Apps. For queue data processing, Logic Apps is more likely a solution that WebJobs.\nMy answers:\n[Logic Apps]\n[WebJobs]"
+      },
+      {
+        "date": "2020-05-21T01:23:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with logic Apps to process a queue data item : https://www.serverless360.com/azure-logic-apps"
+      },
+      {
+        "date": "2020-05-05T18:49:00.000Z",
+        "voteCount": 6,
+        "content": "logic apps and webjobs"
+      },
+      {
+        "date": "2020-03-06T23:13:00.000Z",
+        "voteCount": 3,
+        "content": "It should be Webjobs and logic apps"
+      },
+      {
+        "date": "2020-02-06T13:35:00.000Z",
+        "voteCount": 2,
+        "content": "regarding Azure DevOps, and paraphrasing the Microsoft document... \n   \"Here are two scenarios for which WebJobs may be the best choice:\n     You need more control over the code that listens for events, the JobHost object. Functions offers a limited number of ways to customize JobHost behavior in the host.json file. Sometimes you need to do things that can't be specified by a string in a JSON file. For example, only the WebJobs SDK lets you configure a custom retry policy for Azure Storage.\nYou have an App Service app for which you want to run code snippets, and you want to manage them together in the same Azure DevOps environment.\"\nso... for option 2 -&gt; Webjobs"
+      },
+      {
+        "date": "2020-02-06T13:38:00.000Z",
+        "voteCount": 1,
+        "content": "And also I would add for option 1 -&gt; Logic App, following this info: \nhttps://docs.microsoft.com/en-us/azure/connectors/connectors-create-api-servicebus"
+      },
+      {
+        "date": "2020-01-30T08:40:00.000Z",
+        "voteCount": 1,
+        "content": "See comparison table and summary"
+      },
+      {
+        "date": "2020-01-30T08:39:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs"
+      },
+      {
+        "date": "2019-12-19T22:25:00.000Z",
+        "voteCount": 4,
+        "content": "WebJobs and Logic Apps\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs\nLogic Apps --&gt; Azure DevOps: source control, testing, support, automation, and manageability in Azure Resource Manager"
+      },
+      {
+        "date": "2019-11-25T00:41:00.000Z",
+        "voteCount": 3,
+        "content": "It should be Webjobs and logic apps\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs"
+      },
+      {
+        "date": "2019-11-09T18:02:00.000Z",
+        "voteCount": 2,
+        "content": "Webjobs and Flow"
+      },
+      {
+        "date": "2020-09-08T22:43:00.000Z",
+        "voteCount": 1,
+        "content": "LogicApp\nWebjobs"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21492-exam-az-300-topic-3-question-6-discussion/",
+    "body": "DRAG DROP -<br>You are developing Azure WebJobs.<br>You need to recommend a WebJob type for each scenario.<br>Which WebJob type should you recommend? To answer, drag the appropriate WebJob types to the correct scenarios. Each WebJob type may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0037100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0037100002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/app-service/webjobs-create#webjob-types",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-27T22:23:00.000Z",
+        "voteCount": 17,
+        "content": "Given Answer is 100% correct.\nhttps://docs.microsoft.com/en-us/azure/app-service/webjobs-create#webjob-types"
+      },
+      {
+        "date": "2020-09-02T00:46:00.000Z",
+        "voteCount": 15,
+        "content": "WebJobs:\n1. Continuous\n\t\u2014&gt; Runs continuously\n\t\u2014&gt; Supports remote debugging\n\t\u2014&gt; Runs on all instances that the web app runs on, you can optionally restrict it to a single instance\n2. Triggered\n\t\u2014&gt; When triggered manually or schedule\n\t\u2014&gt; Remote debugging not supported.\n\t\u2014&gt; Runs on a single instance that Azure selects for load balancing"
+      },
+      {
+        "date": "2020-09-05T03:51:00.000Z",
+        "voteCount": 2,
+        "content": "nice, ty."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/16785-exam-az-300-topic-3-question-7-discussion/",
+    "body": "You have an Azure subscription named Subscription1. Subscription1 contains the resource groups in the following table.<br>RG1 has a web app named WebApp1. WebApp1 is located in West Europe.<br><img src=\"/assets/media/exam-media/02758/0037200001.png\" class=\"in-exam-image\"><br>You move WebApp1 to RG2.<br>What is the effect of the move?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe App Service plan for WebApp1 moves to North Europe. Policy1 applies to WebApp1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe App Service plan for WebApp1 remains in West Europe. Policy1 applies to WebApp1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe App Service plan for WebApp1 moves to North Europe. Policy2 applies to WebApp1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe App Service plan for WebApp1 remains in West Europe. Policy2 applies to WebApp1."
+    ],
+    "answer": "D",
+    "answerDescription": "You can move an app to another App Service plan, as long as the source plan and the target plan are in the same resource group and geographical region.<br>The region in which your app runs is the region of the App Service plan it's in. However, you cannot change an App Service plan's region.<br>References:<br>https://docs.microsoft.com/en-us/azure/app-service/app-service-plan-manage",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-28T22:02:00.000Z",
+        "voteCount": 10,
+        "content": "D is correct:\n\"The region in which your app runs is the region of the App Service plan it's in. However, you cannot change an App Service plan's region. If you want to run your app in a different region, one alternative is app cloning. Cloning makes a copy of your app in a new or existing App Service plan in any region.\"\n\nSo you can't move the service plan so it remains in its region, however you'll be creating a new service plan in the new region and clone your app to it; it will fall under the policy that is active in that region."
+      },
+      {
+        "date": "2020-07-05T03:00:00.000Z",
+        "voteCount": 7,
+        "content": "D. The App Service plan for WebApp1 remains in West Europe. Policy2 applies to WebApp1."
+      },
+      {
+        "date": "2020-09-05T05:06:00.000Z",
+        "voteCount": 1,
+        "content": "Yep, completely correct."
+      },
+      {
+        "date": "2020-09-16T11:45:00.000Z",
+        "voteCount": 2,
+        "content": "D is the correct answer"
+      },
+      {
+        "date": "2020-09-05T05:04:00.000Z",
+        "voteCount": 3,
+        "content": "The Web App can be moved to the new RG without issue, but it's simply a container. The Web App remains in the region it was created, and so does the App Service Plan..\n\nThe policies that applied to the old RG stop being applicable to the Web App as soon as it is moved, and the policies in the new RG will then apply - i have tested and validated this.\n\nThe question says nothing about moving the App Service Plans, so this will stay in the originally created location. It only talks about moving the Web App to a different RG, not about moving the Web App to another region.\n\nAll in, i believe the answer must be D."
+      },
+      {
+        "date": "2021-01-17T12:44:00.000Z",
+        "voteCount": 1,
+        "content": "yes D is the correct answer"
+      },
+      {
+        "date": "2020-08-06T03:31:00.000Z",
+        "voteCount": 1,
+        "content": "As we cannot move the app, answer should be B . \nThe plan under Resource Group ( RG2) won't even appear in the dropdown\n\"In the App Service plan dropdown, select an existing plan to move the app to. The dropdown shows only plans that are in the same resource group and geographical region as the current App Service plan.\""
+      },
+      {
+        "date": "2020-09-05T05:06:00.000Z",
+        "voteCount": 1,
+        "content": "You can move the App, why can't you move the app to another RG?"
+      },
+      {
+        "date": "2020-07-27T13:12:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct."
+      },
+      {
+        "date": "2020-06-25T09:39:00.000Z",
+        "voteCount": 3,
+        "content": "Given ans is correct only"
+      },
+      {
+        "date": "2020-06-23T05:04:00.000Z",
+        "voteCount": 1,
+        "content": "Answer B is correct according to the documentation : \n\nhttps://docs.microsoft.com/en-us/azure/app-service/app-service-plan-manage#move-an-app-to-a-different-region"
+      },
+      {
+        "date": "2020-05-24T11:06:00.000Z",
+        "voteCount": 3,
+        "content": "Azure App Service Plan is restricted to geographies and regions. Meaning it is allowed between East Europe and North Europe, but not France. OK.\ncoming to answer, while we are moving webapp1 to RG2 it asks us to select the moveable resources, if the adminstrator has not selected the APP service plan it will not migrate to the new RG2. So in this scenario, assuming App service Plan is not selected since there is no explanation of selecting the all resources, Answer would be B: \nThe App Service plan for WebApp1 remains in West Europe. Policy2 applies to WebApp1.\n\nWhere policies are applied on RG level, it will inherit to the applicable resources and they will not move when resources are migrated or moved between subscriptions or RG's..."
+      },
+      {
+        "date": "2021-02-17T22:15:00.000Z",
+        "voteCount": 1,
+        "content": "Agree...But typo Ans:D\nMore Info...\nAzure deploys each new App Service plan into a deployment unit, internally called a webspace. Each region can have many webspaces, but your app can only move between plans that are created in the same webspace. An App Service Environment is an isolated webspace, so apps can be moved between plans in the same App Service Environment, but not between plans in different App Service Environments.\n\nYou can\u2019t specify the webspace you want when creating a plan, but it\u2019s possible to ensure that a plan is created in the same webspace as an existing plan. In brief, all plans created with the same resource group and region combination are deployed into the same webspace. For example, if you created a plan in resource group A and region B, then any plan you subsequently create in resource group A and region B is deployed into the same webspace. Note that plans can\u2019t move webspaces after they\u2019re created, so you can\u2019t move a plan into \u201cthe same webspace\u201d as another plan by moving it to another resource group."
+      },
+      {
+        "date": "2021-02-17T22:18:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/app-service/app-service-plan-manage"
+      },
+      {
+        "date": "2020-04-21T02:38:00.000Z",
+        "voteCount": 2,
+        "content": "App servie plan is restricted to a geographical region and cannot move between regions.Period."
+      },
+      {
+        "date": "2020-05-05T19:06:00.000Z",
+        "voteCount": 2,
+        "content": "You can move an app to another App Service plan, as long as the source plan and the target plan are in the same resource group and geographical region.\nNone of the options are right."
+      },
+      {
+        "date": "2020-05-06T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "yes true!"
+      },
+      {
+        "date": "2020-05-09T01:36:00.000Z",
+        "voteCount": 1,
+        "content": "So, answer should be B"
+      },
+      {
+        "date": "2020-05-09T01:37:00.000Z",
+        "voteCount": 1,
+        "content": "Reason being - you don't mover both.. app service plan &amp; App."
+      },
+      {
+        "date": "2020-09-05T05:05:00.000Z",
+        "voteCount": 1,
+        "content": "Question does not ask you to move the App Service Plan.. ?"
+      },
+      {
+        "date": "2020-04-13T05:30:00.000Z",
+        "voteCount": 4,
+        "content": "D: correct answer"
+      },
+      {
+        "date": "2020-03-16T15:09:00.000Z",
+        "voteCount": 3,
+        "content": "Published solution is wrong. Correct is:\nB: The App Service plan for WebApp1 remains in West Europe. Policy2 applies to WebApp1."
+      },
+      {
+        "date": "2020-03-19T14:47:00.000Z",
+        "voteCount": 17,
+        "content": "but thats answer D"
+      },
+      {
+        "date": "2020-09-08T22:51:00.000Z",
+        "voteCount": 1,
+        "content": "D is ok"
+      },
+      {
+        "date": "2020-03-29T19:15:00.000Z",
+        "voteCount": 11,
+        "content": "answer D"
+      },
+      {
+        "date": "2020-04-17T06:39:00.000Z",
+        "voteCount": 2,
+        "content": "you did Typo :)"
+      },
+      {
+        "date": "2020-09-05T05:05:00.000Z",
+        "voteCount": 1,
+        "content": "It's D."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19134-exam-az-300-topic-3-question-8-discussion/",
+    "body": "You create the following Azure role definition.<br>{<br>\"Name\": \"Role1\",<br>\"Id\": \"80808080-8080-8080-8080-808080808080\",<br>IsCustom : false,<br>\"Description\": \"\",<br>\"Actions\" : [<br>\"Microsoft.Storage/*/read\",<br>\"Microsoft.Network/*/read\",<br>\"Microsoft.Compute/*/read\",<br>\"Microsoft.Compute/virtualMachines/start/action\",<br>\"Microsoft.Compute/virtualMachines/restart/action\",<br>\"Microsoft.Authorization/*/read\"],<br>\"NotActions\": [],<br>\"DataActions\": [],<br>\"NotDataActions\": [],<br>\"AssignableScopes\": []<br>}<br>You need to create Role1 by using the role definition.<br>Which two values should you modify before you create Role1? Each correct answer presents part of solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIsCustom",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDataActions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tId",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssignableScopes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDescription"
+    ],
+    "answer": "AD",
+    "answerDescription": "Part of example:<br>\"IsCustom\": true,<br>\"AssignableScopes\": [<br>\"/subscriptions/{subscriptionId1}\",<br>\"/subscriptions/{subscriptionId2}\",<br>\"/subscriptions/{subscriptionId3}\"<br>The following shows what a custom role looks like as displayed in JSON format. This custom role can be used for monitoring and restarting virtual machines.<br>{<br>\"Name\": \"Virtual Machine Operator\",<br>\"Id\": \"88888888-8888-8888-8888-888888888888\",<br>\"IsCustom\": true,<br>\"Description\": \"Can monitor and restart virtual machines.\",<br>\"Actions\": [<br>\"Microsoft.Storage/*/read\",<br>\"Microsoft.Network/*/read\",<br>\"Microsoft.Compute/*/read\",<br>\"Microsoft.Compute/virtualMachines/start/action\",<br>\"Microsoft.Compute/virtualMachines/restart/action\",<br>\"Microsoft.Authorization/*/read\",<br>\"Microsoft.ResourceHealth/availabilityStatuses/read\",<br>\"Microsoft.Resources/subscriptions/resourceGroups/read\",<br>\"Microsoft.Insights/alertRules/*\",<br>\"Microsoft.Insights/diagnosticSettings/*\",<br>\"Microsoft.Support/*\"<br>],<br>\"NotActions\": [],<br>\"DataActions\": [],<br>\"NotDataActions\": [],<br>\"AssignableScopes\": [<br>\"/subscriptions/{subscriptionId1}\",<br>\"/subscriptions/{subscriptionId2}\",<br>\"/subscriptions/{subscriptionId3}\"<br>]<br>}<br>References:<br>https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-26T16:43:00.000Z",
+        "voteCount": 15,
+        "content": "Not ID because  \"The unique ID of the custom role. For Azure PowerShell and Azure CLI, this ID is automatically generated when you create a new role.\"\nNot DataActions because there are actions in the example\nNot Description because it is set to NULL  (I.E. \"\")\n\nAnswers are:\nIsCustom because \"Indicates whether this is a custom role. Set to true for custom roles.\" and the question said it is a custom role\nAssignableScopes because it is a required field and is blank"
+      },
+      {
+        "date": "2020-09-17T18:57:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is: \nA. IsCustom\nD. AssignableScopes\nExplanation\nThe IsCustom property must be set to true. And a scope must be assigned to the role definition."
+      },
+      {
+        "date": "2020-09-16T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answers provided"
+      },
+      {
+        "date": "2020-06-03T04:26:00.000Z",
+        "voteCount": 2,
+        "content": "IsCustom - roleType -Indicates whether this is a custom role. Set to true or CustomRole for custom roles. Set to false or BuiltInRole for built-in roles.\nAssignableScopes -\nAn array of strings that specifies the scopes that the custom role is available for assignment. You can only define one management group in AssignableScopes of a custom role. Adding a management group to AssignableScopes is currently in preview"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15014-exam-az-300-topic-3-question-9-discussion/",
+    "body": "You have an Azure App Service named WebApp1.<br>You plan to add a WebJob named WebJob1 to WebApp1.<br>You need to ensure that WebJob1 is triggered every 15 minutes.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the Web.config file to include the 1-31 1-12 1-7 0*/15* CRON expression",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the properties of WebJob1, change the CRON expression to 0*/15****.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a file named Settings.job to the ZIP file that contains the WebJob script. Add the CRON expression to the JOB file 1-31 1-12 1-7 0*/15*",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an Azure Automation account and add a schedule to the account. Set the recurrence for the schedule"
+    ],
+    "answer": "B",
+    "answerDescription": "You can enter a CRON expression in the portal or include a settings.job file at the root of your WebJob .zip file, as in the following example:<br>{<br>\"schedule\": \"0 */15 * * * *\"<br>}<br>References:<br>https://docs.microsoft.com/en-us/azure/app-service/webjobs-create",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-28T10:32:00.000Z",
+        "voteCount": 8,
+        "content": "infp: https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp"
+      },
+      {
+        "date": "2020-08-20T02:48:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-timer?tabs=csharp#ncrontab-expressions"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10401-exam-az-300-topic-3-question-10-discussion/",
+    "body": "You have an on-premises virtual machine named VM1 configured as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/02758/0037600001.jpg\" class=\"in-exam-image\"><br>VM is started.<br>You need to create a new virtual machine image in Azure from VM1.<br>Which three actions should you perform before you create the new image? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the Backup (volume shadow copy) integration service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeneralize VM1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun Add-AzureRmVhd and specify a blob service container as the destination",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun Add-AzureRmVhd and specify a file share as the destination",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReduce the amount of memory to 16 GB"
+    ],
+    "answer": "ABC",
+    "answerDescription": "Sysprep removes all your personal account and security information, and then prepares the machine to be used as an image.<br>The Add-AzureRmVhd cmdlet uploads on-premises virtual hard disks, in .vhd file format, to a blob storage account as fixed virtual hard disks.<br>References:<br>https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/add-azurermvhd?view=azurermps-6.13.0 https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-06T14:13:00.000Z",
+        "voteCount": 56,
+        "content": "It seems googleing' for similar questions, that there is an \"F\" option:\nA. Remove the Backup (volume shadow copy) integration service\nB. Generalize VM1\nC. Run Add-AzureRmVhd and specify a blob service container as the destination\nD. Run Add-AzureRmVhd and specify a file share as the destination\nE. Reduce the amount of memory to 16 GB\nF. Convert the disk type to VHD\n\nin this case, it has sense and it would be B, C ad F"
+      },
+      {
+        "date": "2020-02-06T14:15:00.000Z",
+        "voteCount": 4,
+        "content": "and add that I didn't see any info in documentation about \"shadow copies\" removal as a problem or other integration services like those in the exhibit... so it makes sense F option as the disk appears as VHDX in the exhibit and it should be converted to VHD before uploading to Azure"
+      },
+      {
+        "date": "2020-03-01T13:08:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. More details at this article - https://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image"
+      },
+      {
+        "date": "2020-03-28T08:50:00.000Z",
+        "voteCount": 1,
+        "content": "both bellow articles mention the F option convert to vhd \nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json\nand\nhttps://docs.microsoft.com/en-us/powershell/module/azurerm.compute/add-azurermvhd?view=azurermps-6.13.0\nsays\nThe Add-AzureRmVhd cmdlet uploads on-premises virtual hard disks, in .vhd file format, to a blob storage account &gt;&gt;&gt;&gt; so i\u00b4ll go with mihlo options"
+      },
+      {
+        "date": "2020-07-18T14:38:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with milho.\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource"
+      },
+      {
+        "date": "2020-02-19T15:15:00.000Z",
+        "voteCount": 7,
+        "content": "ABC is correct:\nRemove the Backup (volume shadow copy) integration service\nRefernce: https://devblogs.microsoft.com/setup/delete-shadow-copies-to-compact-vhds-and-avhds/"
+      },
+      {
+        "date": "2020-04-30T22:29:00.000Z",
+        "voteCount": 3,
+        "content": "A is not correct. The existence of the backup integration service does not imply that shadow copies exist or that the existence of shadow copies is an issue for conversion of the VHDX to a VHD. Compacting the disk is not a requirement for this task."
+      },
+      {
+        "date": "2021-01-26T01:59:00.000Z",
+        "voteCount": 1,
+        "content": "what is F ?"
+      },
+      {
+        "date": "2021-01-17T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "answer is BCF as per below link it has misleading first line which says \"you must prepare the virtual hard disk (VHD or VHDX).\" but later on they are having steps\nto convert vhdx to vhd using Hyper-V Manager or Convert-VHD cmdlet in PowerShell hence given asnwer is correct\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image\nremoving option Integration services does not make sense as this are services that allow the virtual machine to communicate with the Hyper-V host. Many of these services are conveniences while others can be quite important to the virtual machine's ability to function correctly."
+      },
+      {
+        "date": "2020-08-03T14:22:00.000Z",
+        "voteCount": 3,
+        "content": "I agree, the answer will be: BCF.\nExplanation: Generalize, clean personal data and prepare your VM to be an image. Add-AzureRmVhd will have a Blob like destiny. You\u2019ll need to change HDD to VHD to be able to upload to azure, Azure support VHD disks.\nReference: \nhttps://www.starwindsoftware.com/blog/migrate-on-premises-vhd-files-to-azure\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/prepare-for-upload-vhd-image\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource"
+      },
+      {
+        "date": "2020-09-05T05:09:00.000Z",
+        "voteCount": 1,
+        "content": "yeah, nice summary."
+      },
+      {
+        "date": "2020-07-15T10:15:00.000Z",
+        "voteCount": 2,
+        "content": "B\nC\nF is the correct answer"
+      },
+      {
+        "date": "2020-06-16T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "with F. Convert the disk type to VHD as an addtional option the answer is BCF"
+      },
+      {
+        "date": "2020-06-15T08:31:00.000Z",
+        "voteCount": 2,
+        "content": "B,c,f is correct answer F - Convert the disk type to VHD"
+      },
+      {
+        "date": "2020-06-11T13:01:00.000Z",
+        "voteCount": 5,
+        "content": "Anwer option F is missing here.\nF. Convert the disk type to VHD.\nFrom my point of view: B, C, F.\nSee: e.g. https://vceguide.com/which-three-actions-should-you-perform-before-you-create-the-new-image/"
+      },
+      {
+        "date": "2020-03-10T15:01:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is BCF, F. Convert the disk type to VHD"
+      },
+      {
+        "date": "2020-01-13T19:38:00.000Z",
+        "voteCount": 1,
+        "content": "It says which three?"
+      },
+      {
+        "date": "2019-12-15T15:29:00.000Z",
+        "voteCount": 1,
+        "content": "Should be B and C"
+      },
+      {
+        "date": "2020-09-08T23:00:00.000Z",
+        "voteCount": 4,
+        "content": "B\nC\nF - change HDD to VHD"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24397-exam-az-300-topic-3-question-11-discussion/",
+    "body": "DRAG DROP -<br>You need to use an Azure logic app to receive a notification when an administrator modifies the settings of a virtual machine in a resource group named RG1.<br>Which three components should you create next in the Logic Apps Designer? To answer, move the appropriate components from the list of components to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0037800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0037800002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: an Azure Event Grid trigger<br>First add an Event grid trigger that monitors the resource group for your virtual machine.<br><br>Step 2: a conditional control -<br>To run your logic app workflow only when a specific event happens, add a condition that checks for virtual machine \"write\" operations.<br><br>Step 3: an action -<br>Now add an action so that you get an email when the specified condition is true.<br>References:<br>https://docs.microsoft.com/en-us/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-29T14:47:00.000Z",
+        "voteCount": 8,
+        "content": "Correct!"
+      },
+      {
+        "date": "2020-08-17T12:52:00.000Z",
+        "voteCount": 1,
+        "content": "correct trigger, condition and action in that order"
+      },
+      {
+        "date": "2020-08-09T02:06:00.000Z",
+        "voteCount": 1,
+        "content": "As it need trigger, condition and access"
+      },
+      {
+        "date": "2020-08-03T08:09:00.000Z",
+        "voteCount": 2,
+        "content": "Seems correct!"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10060-exam-az-300-topic-3-question-12-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure subscription that contains the resources shown in the following table.<br><img src=\"/assets/media/exam-media/02758/0037900001.png\" class=\"in-exam-image\"><br>You need to deploy a load-balancing solution for two Azure web apps named App1 and App2 to meet the following requirements:<br>\u2711 App1 must support command injection protection.<br>\u2711 App2 must be able to use a static public IP address.<br>\u2711 App1 must have a Service Level Agreement (SLA) of 99.99 percent.<br>Which resource should you use as the load-balancing solution for each app? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02758/0038000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0038100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: AGW1 -<br>Azure Application Gateway offers a web application firewall (WAF) that provides centralized protection of your web applications from common exploits and vulnerabilities. Web applications are increasingly targeted by malicious attacks that exploit commonly known vulnerabilities. SQL injection and cross-site scripting are among the most common attacks.<br><br>Box 2: ELB1 -<br>Public IP addresses allow Internet resources to communicate inbound to Azure resources. Public IP addresses also enable Azure resources to communicate outbound to Internet and public-facing Azure services with an IP address assigned to the resource.<br>Note: In Azure Resource Manager, a public IP address is a resource that has its own properties. Some of the resources you can associate a public IP address resource with are:<br>\u2711 Virtual machine network interfaces<br>\u2711 Internet-facing load balancers<br>\u2711 VPN gateways<br>\u2711 Application gateways<br>References:<br>https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-01T18:06:00.000Z",
+        "voteCount": 29,
+        "content": "I think the question has a typo. The Application Gateway (even v2) only has an SLA of 99.95 - https://azure.microsoft.com/en-in/support/legal/sla/application-gateway/v1_2/\n\nI'd suggest that the App Gateway with WAF meets App1 requirements (WAF gives the SQL injection protection) and the App2 can be done with a public load balancer. \n\nYou wouldn't use an App Gateway for App2 alone as it would be more costly than a public load balancer. Also you'd only use an internal load balancer for connectivity between say some web apps and back-end databases."
+      },
+      {
+        "date": "2020-08-01T11:15:00.000Z",
+        "voteCount": 18,
+        "content": "App1 is AGW1\nApp2 is AGW2\nThey are are both web apps. You can't deploy layer4 load balancer to an azure webapp"
+      },
+      {
+        "date": "2020-08-08T11:45:00.000Z",
+        "voteCount": 4,
+        "content": "Agree. It looks the best fit for this question."
+      },
+      {
+        "date": "2020-11-20T01:57:00.000Z",
+        "voteCount": 2,
+        "content": "I believe there is an error in question. If \"App2 must have a Service Level Agreement (SLA) of 99.99 percent\", then given answer is perfect."
+      },
+      {
+        "date": "2020-09-21T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "It should be \nAppGW1 and AppGW2 .\nrefer to link below\nhttps://azure.microsoft.com/en-us/blog/taking-advantage-of-the-new-azure-application-gateway-v2/"
+      },
+      {
+        "date": "2020-09-12T15:42:00.000Z",
+        "voteCount": 1,
+        "content": "Decision tree for load balancing:  1. Is it a web app? Yes - AG, No- LB\n\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview#decision-tree-for-load-balancing-in-azure"
+      },
+      {
+        "date": "2020-09-12T15:46:00.000Z",
+        "voteCount": 1,
+        "content": "Public IPs can be assigned to network interfaces, standard public load balancers, or Application Gateways. \nhttps://docs.microsoft.com/en-us/azure/virtual-network/public-ip-addresses#standard"
+      },
+      {
+        "date": "2020-09-10T12:44:00.000Z",
+        "voteCount": 1,
+        "content": "For both the apps, it should be Application Gateway Standard V2. \n\nRef from Microsoft: Application Gateway is available under a Standard_v2 SKU. Web Application Firewall (WAF) is available under a WAF_v2 SKU. The v2 SKU offers performance enhancements and adds support for critical new features like autoscaling, \nzone redundancy, and support for static VIPs\n\nhttps://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant"
+      },
+      {
+        "date": "2020-08-13T16:12:00.000Z",
+        "voteCount": 2,
+        "content": "HTTP(S) load-balancing services are Layer 7 load balancers that only accept HTTP(S) traffic. They are intended for web applications or other HTTP(S) endpoints\nWIth that info, it seems that App 1 is AGV2 and App 2 AGV1."
+      },
+      {
+        "date": "2020-07-25T05:45:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is \n1. AGW1 - since App1 supports command Injection protection. WAF protects that. So App GW with WAF (AGW1) is the answer.\nhttps://docs.microsoft.com/en-us/azure/web-application-firewall/ag/application-gateway-waf-faq#what-is-azure-waf\n\n2. ELB1 - External/Public load balancer requires Public IP address. It can be can be Basc/Standard SKU since both of them supports Static Public IP. (Standard SKU doesn't support Dynamic IP address assignment)\nhttps://docs.microsoft.com/en-us/azure/load-balancer/components#frontend-ip-configuration-"
+      },
+      {
+        "date": "2020-08-23T11:39:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answers,  as application gateway does not support static IP."
+      },
+      {
+        "date": "2020-09-21T13:13:00.000Z",
+        "voteCount": 1,
+        "content": "It does support if its Application Gateway v2 SKU\nhttps://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-faq"
+      },
+      {
+        "date": "2020-07-13T17:37:00.000Z",
+        "voteCount": 2,
+        "content": "This question is confusing.\nA standard and Basic Load Balancers can use Standard Public IP addresses"
+      },
+      {
+        "date": "2020-07-13T17:39:00.000Z",
+        "voteCount": 1,
+        "content": "Only the Standard APP-GATEWAY cant use Standard Public IP address"
+      },
+      {
+        "date": "2020-07-14T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "I meant to say static"
+      },
+      {
+        "date": "2020-06-18T07:41:00.000Z",
+        "voteCount": 1,
+        "content": "App2 requires just public ip. It can be done with basic load balancer as well, why do we need standard load balancer"
+      },
+      {
+        "date": "2020-07-03T09:34:00.000Z",
+        "voteCount": 1,
+        "content": "Given answers are correct. You cant use a load balancer with an application service."
+      },
+      {
+        "date": "2020-07-03T09:35:00.000Z",
+        "voteCount": 1,
+        "content": "*incorrect, app2 should use appw2"
+      },
+      {
+        "date": "2020-07-08T09:23:00.000Z",
+        "voteCount": 1,
+        "content": "I agree you can't use a load balancer with a web app so App2 must be appw2."
+      },
+      {
+        "date": "2020-05-27T14:40:00.000Z",
+        "voteCount": 4,
+        "content": "App 1: ELB1- only the standard load balancer has got 99.99% SLA \nApp 2: AGW2 - external load balancer and type 2 AG can get STATIC PUBLIC IP, App 1 got the external load balancer, so no other solution\nTop-level resource\tIP Address association\tDynamic\tStatic\nVirtual machine\tNetwork interface\tYes\tYes\nInternet-facing Load balancer\tFront-end configuration\tYes\tYes\nVPN gateway\tGateway IP configuration\tYes\tNo\nApplication gateway\tFront-end configuration\tYes (V1 only)\tYes (V2 only)"
+      },
+      {
+        "date": "2020-05-18T21:38:00.000Z",
+        "voteCount": 2,
+        "content": "App1 - agw1 ( supports waf)\napp2 - agw2 ( can be elb as well ) .. agw2 is v2 : https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-faq#does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"
+      },
+      {
+        "date": "2020-05-18T21:44:00.000Z",
+        "voteCount": 2,
+        "content": "on the 2nd thought,  agw1 - is standard and not v2, so sla of 99.99 cannot be achieved, on the other hand, load balancer cannot provide waf. so i don't see a solution for app1 unless there is multiselect option"
+      },
+      {
+        "date": "2020-05-18T10:30:00.000Z",
+        "voteCount": 3,
+        "content": "There must be a typo in this because you cannot have command injection protection (AG GW WAF) with an SLA of 99.99%.\n\nProbably for App1 you just require command injection protection which makes the answer AGW1.\n\nFor App2 you need static public IP &amp; SLA of 99.99% which the correct answer is ELB1"
+      },
+      {
+        "date": "2020-05-11T04:33:00.000Z",
+        "voteCount": 10,
+        "content": "App1 = AGW1 (WAF enabled to meet requirement injection protection)\nApp2 = ELB1 (Standard LB with SLA of 99,99%, AGW has SLA of 99,95)"
+      },
+      {
+        "date": "2019-12-20T11:43:00.000Z",
+        "voteCount": 1,
+        "content": "Based on SLA 99.95 for AG2, answer would be \nELB1\nILB1"
+      },
+      {
+        "date": "2019-12-19T06:18:00.000Z",
+        "voteCount": 2,
+        "content": "Why is App2 ELB? App gateway also supports external IPs."
+      },
+      {
+        "date": "2019-12-09T13:28:00.000Z",
+        "voteCount": 5,
+        "content": "Application Gateway is 99.95% SLA according o several Azure pages"
+      },
+      {
+        "date": "2019-12-19T08:15:00.000Z",
+        "voteCount": 7,
+        "content": "AG V2 is zone-reduntant based with SLA 99.99% to be used for APP1."
+      },
+      {
+        "date": "2020-02-28T10:59:00.000Z",
+        "voteCount": 1,
+        "content": "onlyfunmails is right. question is redundant now: https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant"
+      },
+      {
+        "date": "2020-03-01T08:54:00.000Z",
+        "voteCount": 1,
+        "content": "just to update on this. correct answers would be Box 1 :AGW2 and Box 2: ELB(internet facing - https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)"
+      },
+      {
+        "date": "2020-04-19T14:19:00.000Z",
+        "voteCount": 2,
+        "content": "AGW2 doesn't mention enabling WAF though?"
+      },
+      {
+        "date": "2020-09-08T23:14:00.000Z",
+        "voteCount": 3,
+        "content": "AGW\nAGW"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8192-exam-az-300-topic-3-question-13-discussion/",
+    "body": "HOTSPOT -<br>You have a task that includes a WebJob that should run continuously. The WebJob Log exhibit shows the text that is displayed when the WebJob runs. (Click the WebJob Log tab.)<br><img src=\"/assets/media/exam-media/02758/0038300001.png\" class=\"in-exam-image\"><br>The WebJob is configured as shown in the WebJob Configuration exhibit. (Click the WebJob Configuration tab.)<br><img src=\"/assets/media/exam-media/02758/0038400001.jpg\" class=\"in-exam-image\"><br>The WebJob is not functioning as expected. The WebJob Code exhibit has a comment that shows where code should be added. (Click the WebJob Code tab.)<br><img src=\"/assets/media/exam-media/02758/0038500001.jpg\" class=\"in-exam-image\"><br>You need to identify any issues with the WebJob. For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-02T02:52:00.000Z",
+        "voteCount": 57,
+        "content": "- The WebJob will run continuously as the code is written :                            No\n\n- The text  WebJob setup starting will output to the WebJob logs :                No\n\n- The timer-elapsed code will be invoked and run at least once:                     Yes\n\n- The WebJob settings are properly configured in the Azure portal:               Yes"
+      },
+      {
+        "date": "2020-01-26T22:02:00.000Z",
+        "voteCount": 3,
+        "content": "No - no while(true)\n?\nNo - the program will exit before the timer even executed once. Timers are background threads\nYes -"
+      },
+      {
+        "date": "2020-08-01T03:47:00.000Z",
+        "voteCount": 2,
+        "content": "The timer interval is set properly. So why it doesn't run continuously?"
+      },
+      {
+        "date": "2020-09-10T00:00:00.000Z",
+        "voteCount": 2,
+        "content": "like what bootyholeman mentioned, there is \"no while\" loop in main().  After console.writeline(webjobstarted), we can put console.readline or while loop to prevent the main thread from exiting."
+      },
+      {
+        "date": "2020-09-14T14:05:00.000Z",
+        "voteCount": 2,
+        "content": "Options below,\nhttps://vceguide.com/wp-content/uploads/2019/10/Microsoft-AZ-300-date-01-06-2019-00001_Page_301_Image_0001.jpg"
+      },
+      {
+        "date": "2022-09-17T14:40:00.000Z",
+        "voteCount": 1,
+        "content": "Why is this NO?\n- The text WebJob setup starting will output to the WebJob logs : No"
+      },
+      {
+        "date": "2020-04-04T01:06:00.000Z",
+        "voteCount": 8,
+        "content": "should be NO NO YES YES  look at  \nhttps://vceguide.com/when-the-webjob-runs-click-the-webjob-log-tab/"
+      },
+      {
+        "date": "2020-09-24T09:43:00.000Z",
+        "voteCount": 2,
+        "content": "Shouldnt it be NO NO NO YES.\n\nOn third question \"The timer-elapsed code will be invoked and run at least once\"\nthere is no output logs seem on the question. hence it didnt run."
+      },
+      {
+        "date": "2020-09-16T12:03:00.000Z",
+        "voteCount": 1,
+        "content": "No\nNo\nYes\nYes"
+      },
+      {
+        "date": "2020-09-15T10:24:00.000Z",
+        "voteCount": 1,
+        "content": "The WebJob will run continuously as the code is written : No\n\n- The text WebJob setup starting will output to the WebJob logs : No\n\n- The timer-elapsed code will be invoked and run at least once: No\nTimer code will be executed after 10 seconds but the web job has already stopped. See also the print screen of the log. There is no output of the timer event handler.\n\n- The WebJob settings are properly configured in the Azure portal: Yes"
+      },
+      {
+        "date": "2020-08-17T12:58:00.000Z",
+        "voteCount": 5,
+        "content": "Where is the full questions? I dont see it"
+      },
+      {
+        "date": "2020-08-06T18:01:00.000Z",
+        "voteCount": 4,
+        "content": "Why \" The text WebJob setup starting will output to the WebJob logs\" is marked as  'No'.\nIt is not talking about Console logs"
+      },
+      {
+        "date": "2020-08-02T06:48:00.000Z",
+        "voteCount": 1,
+        "content": "why i dint see the 4 options ?\nThe WebJob will run continuously as the code is written :                            No\n\n- The text  WebJob setup starting will output to the WebJob logs :                No\n\n- The timer-elapsed code will be invoked and run at least once:                     Yes\n\n- The WebJob settings are properly configured in the Azure portal:               Yes"
+      },
+      {
+        "date": "2020-07-15T20:00:00.000Z",
+        "voteCount": 2,
+        "content": "I'm going to say:\nNo, No, No, Yes\n\nThe timer-elapsed will not run because .Start() was never called.\nWe basically just instantiated the Timer, set some properties, but never did anything with it."
+      },
+      {
+        "date": "2020-08-14T12:00:00.000Z",
+        "voteCount": 2,
+        "content": "check the doc. \"You can also start timing by setting property \"Enabled\" to true.\"\nhttps://docs.microsoft.com/en-us/dotnet/api/system.timers.timer.start?view=netcore-3.1"
+      },
+      {
+        "date": "2020-07-04T15:09:00.000Z",
+        "voteCount": 4,
+        "content": "https://vceguide.com/when-the-webjob-runs-click-the-webjob-log-tab/"
+      },
+      {
+        "date": "2020-06-05T06:35:00.000Z",
+        "voteCount": 2,
+        "content": "NO NO YES YES"
+      },
+      {
+        "date": "2020-04-26T18:30:00.000Z",
+        "voteCount": 3,
+        "content": "NO,NO,NO,Yes"
+      },
+      {
+        "date": "2020-04-26T18:32:00.000Z",
+        "voteCount": 2,
+        "content": "because the process will stop immediately"
+      },
+      {
+        "date": "2019-12-01T08:34:00.000Z",
+        "voteCount": 4,
+        "content": "NO NO YES YES"
+      },
+      {
+        "date": "2019-11-14T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "Which is correct ?"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "3"
+  }
+]

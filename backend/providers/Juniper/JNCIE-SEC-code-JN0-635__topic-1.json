@@ -1,0 +1,768 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/juniper/view/64609-exam-jn0-635-topic-1-question-2-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0000400001.png\" class=\"in-exam-image\"><br>You have recently committed the IPS policy shown in the exhibit. When evaluating the expected behavior, you notice that you have a session that matches all the rules in your IPS policy.<br>In this scenario, which action would be taken?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdrop packet",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tno-action",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tclose-client-and-server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tignore-connection"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/security-idp-policy-rules-and-rulebases.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-04T23:10:00.000Z",
+        "voteCount": 1,
+        "content": "C. close-client-and-server \nif not terminate flagged then When traffic matches multiple rules, the most severe IP action of all matched rules is applied. The most severe IP action is the Close Session action, the next in severity is the Drop/Block Session action, and then the Notify action. (no-action)"
+      },
+      {
+        "date": "2022-04-21T08:58:00.000Z",
+        "voteCount": 1,
+        "content": "Since traffic matches all rules it will be dropped by the first rule\n\nAnswer - no action"
+      },
+      {
+        "date": "2022-01-27T10:23:00.000Z",
+        "voteCount": 2,
+        "content": "Ignore-Connection means the traffic will be permitted, but also that the IPS engine will ignore the rest of the connection and will not process it at all. This is useful for identifying connections (e.g., custom applications) that you do not want to inspect. After a session has been marked Ignore-Connection, the IPS engine will not process it. It\u2019s important to keep that in mind, because an attack could be present later in the connection, but the IPS would not see it. If you only want to ignore a specific attack, but not ignore the rest of the connection, either put that attack in the Exempt rulebase (recommended) or configure the rule with No-Action.\n\nCorrect response is D"
+      },
+      {
+        "date": "2021-11-01T00:03:00.000Z",
+        "voteCount": 1,
+        "content": "answer D is correct"
+      },
+      {
+        "date": "2021-10-24T08:53:00.000Z",
+        "voteCount": 1,
+        "content": "steps after ignore-connection will not be matched"
+      },
+      {
+        "date": "2021-10-24T08:27:00.000Z",
+        "voteCount": 1,
+        "content": "example:\nhttps://www.juniper.net/documentation/us/en/software/junos/idp-policy/topics/topic-map/security-idp-policies-overview.html#id-idp-policy-selection-for-unified-policies__d30629e398"
+      },
+      {
+        "date": "2021-10-24T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "\"A rulebase is an ordered set of rules that use a specific detection method to identify and prevent attacks. \n\nWhen traffic matches multiple rules, the most severe IP action of all matched rules is applied. The most severe IP action is the Close Session action, the next in severity is the Drop/Block Session action, and then the Notify action.\""
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/juniper/view/51002-exam-jn0-635-topic-1-question-4-discussion/",
+    "body": "You are asked to set up notifications if one of your collector traffic feeds drops below 100 kbps.<br>Which two configuration parameters must be set to accomplish this task? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet a traffic SNMP trap on the JATP appliance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet a logging notification on the JATP appliance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet a general triggered notification on the JATP appliance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet a traffic system alert on the JATP appliance"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-03-01T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "I Think B and D is correct.\nfound out this\nhttps://supportportal.juniper.net/s/article/How-can-I-check-my-JATP-appliance-is-collecting-traffic-properly?language=en_US"
+      },
+      {
+        "date": "2021-04-26T06:19:00.000Z",
+        "voteCount": 4,
+        "content": "Should be C &amp; D"
+      },
+      {
+        "date": "2021-11-20T07:35:00.000Z",
+        "voteCount": 2,
+        "content": "why do you think it is CD ?"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/juniper/view/66856-exam-jn0-635-topic-1-question-10-discussion/",
+    "body": "You have set up Security Director with Policy Enforcer and have configured 12 third-party feeds and a Sky ATP feed. You are also injecting 16 feeds using the available open API. You want to add another compatible feed using the available open API, but Policy Enforcer is not receiving the new feed.<br>What is the problem in this scenario?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou must wait 48 hours for the feed to update",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou cannot add more than 16 feeds through the available open API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou have reached the maximum limit of 29 total feeds",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou cannot add more than 16 feeds with the available open API"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/release-independent/sky-atp/information-products/pathway-pages/sky-atp-admin-guide.pdf page 110",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-27T19:54:00.000Z",
+        "voteCount": 3,
+        "content": "C\nThere is a limit to the number of feeds you can have. When you enable feeds from this\npage, they count toward your limit of 29 feeds. This is applicable if you are injecting additional\nfeeds using the available open API."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/juniper/view/54219-exam-jn0-635-topic-1-question-12-discussion/",
+    "body": "You are asked to configure a new SRX Series CPE device at a remote office. The device must participate in forwarding MPLS and IPsec traffic.<br>Which two statements are true regarding this implementation? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHost inbound traffic must not be processed by the flow module\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHost inbound traffic must be processed by the flow module",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe SRX Series device can process both MPLS and IPsec with default traffic handling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA firewall filter must be configured to enable packet mode forwarding\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AD",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/security-packet-based-forwarding.html",
+    "votes": [
+      {
+        "answer": "AD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-06-02T08:07:00.000Z",
+        "voteCount": 9,
+        "content": "It should be B and D."
+      },
+      {
+        "date": "2021-11-01T00:08:00.000Z",
+        "voteCount": 5,
+        "content": "B and D"
+      },
+      {
+        "date": "2024-04-15T14:17:00.000Z",
+        "voteCount": 1,
+        "content": "A. Host inbound traffic must not be processed by the flow module (in the context of MPLS) \nD. A firewall filter must be configured to enable packet mode forwarding (necessary for MPLS)"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/juniper/view/56212-exam-jn0-635-topic-1-question-17-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0001300001.png\" class=\"in-exam-image\"><br>Referring to the exhibit, which two statements are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData is transmitted across the link in plaintext",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe link is not protected against man-in-the-middle attacks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe link is protected against man-in-the-middle attacks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData is transmitted across the link in cyphertext"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-27T21:07:00.000Z",
+        "voteCount": 3,
+        "content": "B&amp;D   because replay protection  is off\nReplay protection is especially useful for fighting man-in-the-middle attacks. A packet that is replayed by a man-in-the-middle attacker on the Ethernet link will arrive on the receiving link out of sequence, so replay protection helps ensure the replayed packet is dropped instead of forwarded through the network.\n\nhttps://www.juniper.net/documentation/us/en/software/junos/security-services/topics/task/macsec.html"
+      },
+      {
+        "date": "2023-02-19T06:11:00.000Z",
+        "voteCount": 2,
+        "content": "as soon as there is encryption you are protected against the MiTM or am I wrong ? I think C and D"
+      },
+      {
+        "date": "2021-10-24T02:22:00.000Z",
+        "voteCount": 3,
+        "content": "https://nvlpubs.nist.gov/nistpubs/legacy/sp/nistspecialpublication800-38d.pdf\nGCM-AES-128 does not inherently prevent an adversary from intercepting the output of an invocation of authenticated  encryption  and  \u201creplaying\u201d  it  for  authenticated  decryption  at  a  later  time.\n\nThe fact that MACsec\n\"is capable of identifying and preventing most security threats, including denial of service, intrusion, man-in-the-middle(...).\"\nis not telling us anything about this specific config since we can configure MACsec without encryption - we still have to verify provided output.\n\n\"Reply protection: off\"\n\"Encryption: on\"\n so I guess:\nThe link is not protected against man-in-the-middle attacks \nData is transmitted across the link in cyphertext \n\nIs correct."
+      },
+      {
+        "date": "2021-06-28T05:03:00.000Z",
+        "voteCount": 3,
+        "content": "C &amp; D.\n\"(...)is capable of identifying and preventing most security threats, including denial of service, intrusion, man-in-the-middle(...).\nhttps://www.juniper.net/documentation/us/en/software/junos/security-services/topics/task/macsec.html"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/juniper/view/73842-exam-jn0-635-topic-1-question-19-discussion/",
+    "body": "You are asked to implement the session cache feature on an SRX5400.<br>In this scenario, what information does a session cache entry record? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe type of processing to do for ingress traffic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe type of processing to do for egress traffic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo which SPU the traffic of the session should be forwarded",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo which NPU the traffic of the session should be forwarded"
+    ],
+    "answer": "BC",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/security-packet-based-forwarding.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-18T16:03:00.000Z",
+        "voteCount": 3,
+        "content": "correct answers: \n\nA session cache entry records:\n\nTo which SPU the traffic of the conversion should be forwarded\n\nTo which egress port the traffic of the conversion should be forwarded in Express Path mode\n\nWhat processing to do for egress traffic, for example, NAT translation in Express Path mode"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/juniper/view/71238-exam-jn0-635-topic-1-question-21-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0001600001.png\" class=\"in-exam-image\"><br>Referring to the exhibit, which two statements are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe SRX Series device is enrolled and communicating with a JATP Appliance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe JATP Appliance cannot download the security feeds from the GSS servers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe SRX Series device cannot download the security feeds from the JATP Appliance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe SRX Series device is not enrolled but can communicate with the JATP Appliance"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-09T09:27:00.000Z",
+        "voteCount": 5,
+        "content": "Should be A and C.\nDevice is enrolled but cannot download all feeds. Once you add device to JATP the show services advanced-malware status will show the same output like here."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/juniper/view/52051-exam-jn0-635-topic-1-question-22-discussion/",
+    "body": "You are asked to configure an SRX Series device to bypass all security features for IP traffic from the engineering department.<br>Which firewall filter will accomplish this task?<br>A.<br><img src=\"/assets/media/exam-media/03730/0001700001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03730/0001800001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03730/0001800002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03730/0001900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-07T18:21:00.000Z",
+        "voteCount": 5,
+        "content": "Option B*****"
+      },
+      {
+        "date": "2021-10-08T07:18:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Config is B since having packet-mode"
+      },
+      {
+        "date": "2021-06-28T09:05:00.000Z",
+        "voteCount": 3,
+        "content": "The correct is B."
+      },
+      {
+        "date": "2021-05-06T23:15:00.000Z",
+        "voteCount": 2,
+        "content": "Option A due packet mode wont be applying security flow features"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/juniper/view/73843-exam-jn0-635-topic-1-question-25-discussion/",
+    "body": "You are trying to get a SSH honeypot set up on a Juniper ATP Appliance collector. The collector is running on hardware with two physical interfaces and two physical CPU cores. The honeypot feature is not working.<br>Which statement is true in this scenario?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe collector must have at least three physical interfaces",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe collector must have at least four physical cores",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe collector must have at least four physical interfaces",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe collector must have at least six physical cores"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-25T04:18:00.000Z",
+        "voteCount": 2,
+        "content": "If a Collector has less than three interfaces, then the honeypot feature cannot be enabled. An All-in-One device requires at least four interfaces for the honeypot feature, because the 3rd interface is already reserved as the analysis exhaust interface.\n\nCorrect answer C )4x interfaces"
+      },
+      {
+        "date": "2022-04-18T16:11:00.000Z",
+        "voteCount": 2,
+        "content": "A correct answer \n\nhttps://www.juniper.net/documentation/us/en/software/jatp/jatp-traffic-collector-quickstart/topics/task/jatp-traffic-collector-setting-ssh-honeypot-detection.html"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/juniper/view/115520-exam-jn0-635-topic-1-question-26-discussion/",
+    "body": "You correctly configured a security policy to deny certain traffic, but logs reveal that traffic is still allowed.<br>Which specific traceoption flag will help you troubleshoot this problem?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlookup",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tconfiguration",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trouting-socket",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trules\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-04-16T00:25:00.000Z",
+        "voteCount": 1,
+        "content": "The \"rules\" flag is used specifically to trace the evaluation of firewall rules (policies) in the SRX device. Enabling this flag will help you to determine how each packet is being processed against the configured security policies and understand why certain traffic is not being blocked as expected. This trace will show detailed information about how traffic matches (or does not match) the security rules set up in the device, providing insight into potential misconfigurations or other issues affecting the policy enforcement."
+      },
+      {
+        "date": "2023-07-17T08:05:00.000Z",
+        "voteCount": 1,
+        "content": "Is anyone sure that the correct answer is \"Rules\" ?"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/juniper/view/73844-exam-jn0-635-topic-1-question-28-discussion/",
+    "body": "When would you use the port-overloading-factor 1 setting?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto enable the port-overloading",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto disable the port-overloading",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto map ports with 1:1 ratio for port-overloading",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto set the maximum port-overloading capacity to 65,536"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/reference/configuration-statement/security-edit-port-overloading-interface-source-nat.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-18T16:31:00.000Z",
+        "voteCount": 2,
+        "content": "B correct answer \n\n if port-overloading has been set to off to disable interface port overloading, and subsequently the port-overloading-factor is configured with any value greater than 1, the port-overloading-factor setting will override the port-overloading setting. (Configuring port-overloading-factor 1 is equivalent to configuring port-overloading off.)"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/juniper/view/56223-exam-jn0-635-topic-1-question-32-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0002800001.png\" class=\"in-exam-image\"><br>You have configured tenant systems on your SRX Series device.<br>Referring to the exhibit, which two actions should you take to facilitate inter-TSYS communication? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPlace the logical tunnel interfaces in a virtual router routing instance in the interconnect switch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPlace the logical tunnel interfaces in a VPLS routing instance in the interconnect switch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnect each TSYS with the interconnect switch by configuring INET configured logical tunnel interfaces in the interconnect switch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnect each TSYS with the interconnect switch by configuring Ethernet VPLS configured logical tunnel interfaces in the interconnect switch"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-28T09:12:00.000Z",
+        "voteCount": 6,
+        "content": "Correct are B &amp; D."
+      },
+      {
+        "date": "2021-12-31T08:15:00.000Z",
+        "voteCount": 4,
+        "content": "B &amp; D : https://www.juniper.net/documentation/us/en/software/junos/logical-system-security/topics/topic-map/tenant-systems-overview.html"
+      },
+      {
+        "date": "2021-10-08T07:37:00.000Z",
+        "voteCount": 4,
+        "content": "B &amp; D = VPLS routing Instance into Switch and LT-0/0/0 ethernet-vpls type"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/juniper/view/52109-exam-jn0-635-topic-1-question-34-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0003000001.png\" class=\"in-exam-image\"><br>Your company has purchased a competitor and now must connect the new network to the existing one. The competitor's gateway device is receiving its ISP address using DHCP. Communication between the two sites must be secured; however, obtaining a static public IP address for the new site gateway is not an option at this time. The company has several requirements for this solution:<br>\u2711 A site-to-site IPsec VPN must be used to secure traffic between the two sites;<br>\u2711 The IKE identity on the new site gateway device must use the hostname option; and<br>\u2711 Internet traffic from each site should exit through its local Internet connection.<br>The configuration shown in the exhibit has been applied to the new site's SRX, but the secure tunnel is not working.<br>In this scenario, what configuration change is needed for the tunnel to come up?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the quotes around the hostname",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBind interface st0 to the gateway",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the IKE policy mode to aggressive",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApply a static address to ge-0/0/2"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-18T15:35:00.000Z",
+        "voteCount": 8,
+        "content": "C is the correct option. The quotes at hostname are generated by the system."
+      },
+      {
+        "date": "2021-05-07T18:54:00.000Z",
+        "voteCount": 7,
+        "content": "Using agressive would be another solution"
+      },
+      {
+        "date": "2022-04-06T13:51:00.000Z",
+        "voteCount": 4,
+        "content": "I'm a JTAC engineer C is the correct option"
+      },
+      {
+        "date": "2021-10-08T08:10:00.000Z",
+        "voteCount": 4,
+        "content": "Advance IPSec. with dynamic gateway. Must have Mode Aggressive. \nIf it was remove quotes, it will show double-quote each end. \nC is the correct answer"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/juniper/view/55576-exam-jn0-635-topic-1-question-35-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0003200001.png\" class=\"in-exam-image\"><br>Referring to the exhibit, which two statements are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can secure intra-VLAN traffic with a security policy on this device",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can secure inter-VLAN traffic with a security policy on this device",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe device can pass Layer 2 and Layer 3 traffic at the same time",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe device cannot pass Layer 2 and Layer 3 traffic at the same time"
+    ],
+    "answer": "AD",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/ethernet-port-switching-modes.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-18T09:19:00.000Z",
+        "voteCount": 7,
+        "content": "Correct answers should be B &amp; C. refer to https://www.juniper.net/documentation/us/en/software/junos/multicast-l2/multicast-l2.pdf page 1059 \n\nhttps://www.juniper.net/documentation/en_US/release-independent/solutions/information-products/pathway-pages/ethernet_switching_srx_app_note.pdf page  4 shows a diagram that indicates the life of a packet on switching mode."
+      },
+      {
+        "date": "2021-10-08T08:14:00.000Z",
+        "voteCount": 3,
+        "content": "B % C are correct. \nIt is showing mode Switching and not trasparent bridge. Please correct."
+      },
+      {
+        "date": "2021-06-28T09:26:00.000Z",
+        "voteCount": 4,
+        "content": "Correct are B&amp; C."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/juniper/view/56224-exam-jn0-635-topic-1-question-36-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0003300001.png\" class=\"in-exam-image\"><br>A user reports trouble when using SSH to a server outside your organization. The traffic traverses an SRX Series device that is performing NAT and applying security policies.<br>Referring to the exhibit, which configuration will allow you to see the bidirectional flow through the SRX Series device?<br>A.<br><img src=\"/assets/media/exam-media/03730/0003300002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03730/0003400001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03730/0003400002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03730/0003400003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-18T17:14:00.000Z",
+        "voteCount": 2,
+        "content": "Hi I'm from JTAC SRX team and in this case the correct answer is D \nwhy?\n\nWell the questions says \"bidirectional traffic\" ... what this means is that you want to check the out and the in bound traffic so two packet filters must be created specifying the IPs that you want to match  \n\nwhat is wrong in my perspective is the names of the packet filters, they should be upside down"
+      },
+      {
+        "date": "2022-01-29T09:53:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is C:\nhttps://kb.juniper.net/InfoCenter/index?page=content&amp;id=KB21757&amp;actp=METADATA"
+      },
+      {
+        "date": "2021-08-16T11:24:00.000Z",
+        "voteCount": 2,
+        "content": "OptionnA has wrong destination prefix for outbound filter and option D has wrong destination prefix for in filter"
+      },
+      {
+        "date": "2021-11-26T07:54:00.000Z",
+        "voteCount": 4,
+        "content": "i think its C\nmost logical answer"
+      },
+      {
+        "date": "2021-06-28T09:29:00.000Z",
+        "voteCount": 2,
+        "content": "'A' is correct. There is a NAT."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/juniper/view/56227-exam-jn0-635-topic-1-question-37-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"/assets/media/exam-media/03730/0003500001.png\" class=\"in-exam-image\"><br>Referring to the exhibit, what is the maximum number of zones that are able to be created within all logical systems?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t74",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t34",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t40",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t17"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-28T03:50:00.000Z",
+        "voteCount": 3,
+        "content": "C is correct\nhttps://www.juniper.net/documentation/us/en/software/junos/logical-system-security/topics/topic-map/security-zones-logical-systems.html\nThe primary administrator can configure a security profile for the primary logical system that specifies the maximum and reserved numbers of security zones applied to the primary logical system. The number of zones configured in the primary logical system count toward the maximum number of zones available on the device."
+      },
+      {
+        "date": "2021-10-08T08:21:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.juniper.net/documentation/us/en/software/junos/logical-system-security/topics/topic-map/security-zones-logical-systems.html \n\nroot logical system primes over  and toward all User LSYS."
+      },
+      {
+        "date": "2021-06-28T11:08:00.000Z",
+        "voteCount": 1,
+        "content": "The correct is A"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/juniper/view/73846-exam-jn0-635-topic-1-question-42-discussion/",
+    "body": "Which two statements are true about ADVPN members? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tADVPN members are authenticated using pre-shared keys",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tADVPN members are authenticated using certificates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tADVPN members can use IKEv2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tADVPN members can use IKEv1"
+    ],
+    "answer": "BC",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/security-auto-discovery-vpns.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-18T18:32:00.000Z",
+        "voteCount": 3,
+        "content": "B AND C correct answers"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/juniper/view/73847-exam-jn0-635-topic-1-question-43-discussion/",
+    "body": "Which two VPN features are supported with CoS-based IPsec VPNs? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIKEv2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVPN monitoring",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdead peer detection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIKEv1"
+    ],
+    "answer": "AC",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/secuirty-cos-based-ipsec-vpns.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-18T18:36:00.000Z",
+        "voteCount": 2,
+        "content": "The following VPN features are supported with CoS-based IPsec VPNs:\n\nRoute-based site-to-site VPNs. Policy-based VPNs are not supported.\n\nAutoVPN.\n\nTraffic selectors.\n\nAuto Discovery VPNs (ADVPNs).\n\nIKEv2. IKEv1 is not supported.\n\nDead peer detection (DPD). VPN monitoring is not supported."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/juniper/view/54249-exam-jn0-635-topic-1-question-50-discussion/",
+    "body": "An administrator wants to implement persistent NAT for an internal resource so that external hosts are able to initiate communications to the resource, with the internal resource having previously sent packets to the external hosts.<br>Which configuration setting is used to accomplish this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpersistent-nat permit any-remote-host",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpersistent-nat permit target-host-port",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taddress-persistent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpersistent-nat permit target-host"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-18T20:13:00.000Z",
+        "voteCount": 1,
+        "content": "based on the URL https://www.juniper.net/documentation/us/en/software/junos/nat/topics/ref/statement/security-edit-permit-persistent-nat.html\n\nB is the correct answer \n\ntarget-host-port\u2014All requests from a specific internal IP address and port are mapped to the same reflexive transport address. An external host can send a packet to an internal host by sending the packet to the reflexive transport address. The internal host must have previously sent a packet to the external host\u2019s IP address and port."
+      },
+      {
+        "date": "2022-06-10T19:46:00.000Z",
+        "voteCount": 2,
+        "content": "Mae estas mamando, deje de confundir a la gente. En varias preguntas he visto que pones la respuesta equivocada.\n\nEn ningun lado menciona que tambien tiene que usar el mismo puerto. \nO sea la respuesta es persistent-nat permit target-host\n \nAnswer should be D."
+      },
+      {
+        "date": "2021-08-17T09:29:00.000Z",
+        "voteCount": 3,
+        "content": "shd be D, https://www.juniper.net/documentation/us/en/software/junos/nat/topics/ref/statement/security-edit-permit-persistent-nat.html"
+      },
+      {
+        "date": "2021-06-02T09:46:00.000Z",
+        "voteCount": 4,
+        "content": "should be D"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/juniper/view/49219-exam-jn0-635-topic-1-question-54-discussion/",
+    "body": "You have downloaded and initiated the installation of the application package for the JATP Appliance on an SRX1500. You must confirm that the installation of the application package has completed successfully.<br>In this scenario, which command would you use to accomplish this task?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow services application-identification version",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow services application-identification application detail",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow services application-identification application version",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow services application-identification status\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/junos/topics/topic-map/security-application-identification-predefined-signatures.html",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-04-22T14:16:00.000Z",
+        "voteCount": 1,
+        "content": "show services application-identification statusThis command is used to verify the operational status of the application identification services on Juniper SRX devices, which includes checking whether the application package has been successfully installed and is currently active. This is crucial after installing updates or new application packages to ensure that everything is functioning correctly."
+      },
+      {
+        "date": "2022-11-24T04:28:00.000Z",
+        "voteCount": 2,
+        "content": "When we could expect dump for JN0-636 to be published?"
+      },
+      {
+        "date": "2023-03-02T12:21:00.000Z",
+        "voteCount": 1,
+        "content": "exactly.....when will the JNO-636 will be published??\n\nare these 635 Dumps still valid???"
+      },
+      {
+        "date": "2022-04-18T20:27:00.000Z",
+        "voteCount": 3,
+        "content": "D is the correct answer here \n\nPurpose\nVerify that the application identification configuration is working properly.\n\nAction\nFrom operational mode, enter the show services application-identification status command."
+      },
+      {
+        "date": "2022-06-11T14:22:00.000Z",
+        "voteCount": 1,
+        "content": "The question doesn't ask to verify the \"application identification configuration is working properly\". It asks to confirm that the installation of the application package was completed successfully. The only command that shows the application package version is \"show services application-identification version\". The \"status\" command shows the engine version, which is different. With this second command, you couldn't tell if the installation was successful.\n\nhttps://www.juniper.net/documentation/us/en/software/junos/application-identification/topics/ref/command/show-services-application-identification-version.html\n\nhttps://www.juniper.net/documentation/us/en/software/junos/application-identification/topics/ref/command/show-services-application-identification-status.html"
+      },
+      {
+        "date": "2021-04-05T08:51:00.000Z",
+        "voteCount": 3,
+        "content": "How about D? It is correct?"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/juniper/view/139386-exam-jn0-635-topic-1-question-58-discussion/",
+    "body": "Which two modes are supported on Juniper Sky ATP? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tprivate mode\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tglobal mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttap mode\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsecure wire mode"
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://www.juniper.net/documentation/en_US/release-independent/sky-atp/topics/concept/sky-atp-about.html",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-04-22T14:22:00.000Z",
+        "voteCount": 1,
+        "content": "A. Private mode - This mode is used when you want Sky ATP to analyze only traffic from your specific organization, ensuring that all data and analysis remains private and isolated from other users. It's commonly selected to maintain strict data privacy and integrity.C. Tap mode - In this mode, Sky ATP passively monitors the traffic flowing through a mirrored or spanned port. It analyzes traffic copies without actively being in-line, which means it doesn't block or modify the traffic directly. This is useful for threat detection without impacting network performance."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/juniper/view/64335-exam-jn0-635-topic-1-question-60-discussion/",
+    "body": "A user is unable to reach a necessary resource. You discover the path through the SRX Series device includes several security features. The traffic is not being evaluated by any security policies.<br>In this scenario, which two components within the flow module would affect the traffic? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tservices/ALG",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdestination NAT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsource NAT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\troute lookup"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-18T21:27:00.000Z",
+        "voteCount": 6,
+        "content": "it is actually destination nat and route lookup.\nQuestion is related to SRX packet flow order what will be processed before policy is dropping traffic."
+      },
+      {
+        "date": "2022-04-18T20:37:00.000Z",
+        "voteCount": 2,
+        "content": "in this case is destination NAT  and route lookup based on the SRX flow"
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/juniper/view/53698-exam-jn0-635-topic-1-question-63-discussion/",
+    "body": "You are configuring transparent mode on an SRX Series device. You must permit IP-based traffic only, and BPDUs must be restricted to the VLANs from which they originate.<br>Which configuration accomplishes these objectives?<br>A.<br><img src=\"/assets/media/exam-media/03730/0005600002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03730/0005700001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03730/0005700002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03730/0005700003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://www.oreilly.com/library/view/juniper-srx-series/9781449339029/ch06.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-02T10:36:00.000Z",
+        "voteCount": 7,
+        "content": "I think D. bypass-non-ip-unicast in B allows L2 non-IP traffic"
+      },
+      {
+        "date": "2021-10-18T21:46:00.000Z",
+        "voteCount": 3,
+        "content": "The block-non-ip-all and bypass-non-ip-unicast options cannot be configured at the same time."
+      }
+    ],
+    "examNameCode": "jn0-635",
+    "topicNumber": "1"
+  }
+]

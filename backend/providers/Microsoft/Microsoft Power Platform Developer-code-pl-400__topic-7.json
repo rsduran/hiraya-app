@@ -1,0 +1,1575 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41737-exam-pl-400-topic-7-question-1-discussion/",
+    "body": "HOTSPOT -<br>A company updates their client contact information periodically. The contact entity has alternate keys defined.<br>You have the following code. (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04332/0041800001.jpg\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0041900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0042000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/use-alternate-key-create-record",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-12T09:45:00.000Z",
+        "voteCount": 42,
+        "content": "No scenario can be yes, because the value of the lastname field is overwritten with the value of \"Doe\". All duplicate evaluation with the combination of alternate keys is done with the latter value."
+      },
+      {
+        "date": "2021-01-20T04:43:00.000Z",
+        "voteCount": 6,
+        "content": "True, Should be No for all."
+      },
+      {
+        "date": "2021-03-18T05:52:00.000Z",
+        "voteCount": 6,
+        "content": "3rd answer should be Yes. the system will throw error if multiple smiths are found and thus no change will happen in last name. So stored value will be smith"
+      },
+      {
+        "date": "2021-05-16T02:41:00.000Z",
+        "voteCount": 6,
+        "content": "all the answers should be No.\nalternate key can not be duplicated. they are getting the record by a combination of 2 attributes, so even if there are people with smith but there would be max 1 record the combination of last name and client number."
+      },
+      {
+        "date": "2021-05-30T22:29:00.000Z",
+        "voteCount": 1,
+        "content": "yes, completely agree. KeyAttribute is only for matching. Does not participate in update. 2nd would be corect if it was ... last name is Doe.."
+      },
+      {
+        "date": "2021-05-24T01:32:00.000Z",
+        "voteCount": 1,
+        "content": "Nothing changed, same value stay in Dataverse. Its Smith, actually. 3rd answer is Yes."
+      },
+      {
+        "date": "2023-05-16T02:33:00.000Z",
+        "voteCount": 2,
+        "content": "Also for me: NNYN"
+      },
+      {
+        "date": "2021-01-07T02:56:00.000Z",
+        "voteCount": 5,
+        "content": "The code is wrong in many ways. \n\nWorking code :\n\n            Entity contact = new Entity()\n            {\n                LogicalName = \"contact\",\n                KeyAttributes =\n                {\n                    {\"lastname\", \"Smith\" },\n                    {\"clientnumber\", \"abc123\" }\n                }\n            };\n\n            contact[\"lastname\"] = \"Doe\";\n\n            UpsertRequest updcontact = new UpsertRequest()\n            {\n                Target = contact\n            };\n\n            UpsertResponse response =  (UpsertResponse)crmService.Execute(updcontact);"
+      },
+      {
+        "date": "2021-04-27T13:24:00.000Z",
+        "voteCount": 2,
+        "content": "And the answer?"
+      },
+      {
+        "date": "2023-06-13T16:50:00.000Z",
+        "voteCount": 1,
+        "content": "For me its NNYN"
+      },
+      {
+        "date": "2023-01-15T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "So NO ONE just TEST it????\nThere will be an error if you use none-key-attribute in KeyAttribute only when xxx (try it plz). It is not the behavior said in MS doc, very disappointment."
+      },
+      {
+        "date": "2022-09-28T14:02:00.000Z",
+        "voteCount": 1,
+        "content": "Should be NO for all"
+      },
+      {
+        "date": "2022-09-12T03:46:00.000Z",
+        "voteCount": 3,
+        "content": "when created - Attribute is priority\nwhen updated - Key is priority\n\nNo - Create - attribute is priority, so Deo \nYes - Update - Key is priority - Smith\nYes - Update - Key is priority - Smith\nNo - Create - attribute is priority, so Deo"
+      },
+      {
+        "date": "2022-08-28T00:49:00.000Z",
+        "voteCount": 3,
+        "content": "1) NO: Record does not exist -&gt; CREATE -&gt; attributes have prio - last name will be doe\n2) YES: Record does exist -&gt; UPDATE -&gt; key-attributes have prio - last name will be Smith\n3) Undecided: For this to be possible at all, client number must be an alternate key too! So it clearly depends on wether the combination already existed (YES) or not (NO)\n4) NO: Record does not exist -&gt; CREATE -&gt; attributes have prio - last name will be doe"
+      },
+      {
+        "date": "2021-11-07T11:49:00.000Z",
+        "voteCount": 2,
+        "content": "No scenario can be yes"
+      },
+      {
+        "date": "2021-10-28T00:17:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer:\nNo: attributecollection has prio over keyattributes, so the created contact would have doe\nYes: No change to the exisitng contact, so same as before\nYes: one or multiple contacts found, doesn't matter, stored value stays the same\nNo: Same as first question, a newly created contact would be named Doe"
+      },
+      {
+        "date": "2021-10-31T14:46:00.000Z",
+        "voteCount": 1,
+        "content": "For the second, it says the key is client number and the matching data exists, then the last name will be updated as Doe correct?"
+      },
+      {
+        "date": "2021-09-22T16:38:00.000Z",
+        "voteCount": 5,
+        "content": "I would go with all No's because the lastname is overwritten to \"Doe\""
+      },
+      {
+        "date": "2021-08-10T05:02:00.000Z",
+        "voteCount": 1,
+        "content": "Whole code pobably crash on line 10 with \"There is no key in the dictionary:..."
+      },
+      {
+        "date": "2021-05-22T04:00:00.000Z",
+        "voteCount": 1,
+        "content": "&gt;&gt; If you specify a column set that is not defined as a unique key, an error will be thrown indicating that use of unique key columns is required.\n\nSo AK must consist of two columns for this code to work, doesn't it?"
+      },
+      {
+        "date": "2021-04-25T09:50:00.000Z",
+        "voteCount": 4,
+        "content": "Should the answer be YES, NO, NO, YES?\n\nThe reason https://docs.microsoft.com/en-us/powerapps/developer/data-platform/use-upsert-insert-update-record\nUnderstanding the Upsert process:\n1. Send UpsertRequest with enough data for a create or insert operation.\n2. Dataverse will look up the record targeted by the target table.\n3. If the record exists:\n    a. Set the ID property of the target table with the ID of the found record.\n    b. Call Update.\n    c. Set the RecordCreated to false.\n    ... \n4. If the record doesn\u2019t exist:\n    a. Copy any alternate key values into the target table columns.\n    b. Call Create.\n    c. Set the RecordCreated to true.\n    ...\n\nFinally in the scenarios where we do CREATE record - the lastname WILL BE \"Smith\"\nAnd where we do UPDATE record - lastname will be \"Doe\""
+      },
+      {
+        "date": "2022-08-28T00:51:00.000Z",
+        "voteCount": 2,
+        "content": "Well just the other way round"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/43709-exam-pl-400-topic-7-question-2-discussion/",
+    "body": "HOTSPOT -<br>A company is building a new model-driven app.<br>The app must integrate with a number of on-premises and cloud solutions. No VPNs are in place.<br>You need to determine the method for each integration.<br>Which methods should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0042100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0042200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Webhook -<br>With Dataverse, you can send data about events that occur on the service to a web app by using webhooks. A webhook is a lightweight HTTP pattern for connecting web APIs and services with a publish-and-subscribe model. Webhook senders notify receivers about events by making requests to receiver endpoints with some information about the events.<br>Webhooks enable developers and ISVs to integrate Dataverse data with their own custom code hosted on external services.<br><br>Box 2: Azure Service Bus -<br>Service Bus provides a secure and reliable communication channel between Dataverse runtime data and external, cloud-based line-of-business apps. This capability is especially useful in keeping disparate Dataverse systems or other Dataverse servers synchronized with business data changes.<br><br>Box 3: Azure Event hub -<br>Azure Event Hubs is a big data streaming platform and event ingestion service. It can receive and process millions of events per second. Data sent to an event hub can be transformed and stored by using any real-time analytics provider or batching/storage adapters.<br>Note: The most popular approaches in Dataverse involve webhooks, Azure messaging (Service Bus, Event Hubs), Azure Logic Apps, or Power Automate.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/maker/common-data-service/why-cds-any-type-app",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-30T11:41:00.000Z",
+        "voteCount": 34,
+        "content": "Correct Answer - Webhook, Azure Service Bus, Azure Event Hub.\n1. Webhook \n- We know the first one is not Azure service bus because they ask for synchronous. Service Bus is only asynchronous. \nhttps://docs.microsoft.com/en-us/powerapps/developer/common-data-service/use-webhooks#create-or-configure-a-service-to-consume-webhook-requests \n2. Azure Service bus \n- Azure Service Bus works for high scale processing, and provides a full queueing mechanism if Common Data Service is pushing many events. Webhook can only scale to the point at which your hosted web service can handle the messages. \n3. Azure Event Hub \n- They want a hybrid. Streaming and event-based solutions are supported, for both on-premises and Azure cloud processing. \nhttps://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about\nhttps://docs.microsoft.com/en-us/powerapps/developer/common-data-service/plug-ins"
+      },
+      {
+        "date": "2021-02-18T22:47:00.000Z",
+        "voteCount": 15,
+        "content": "Answer is Webhook, Azure Event Hub,  Plugin."
+      },
+      {
+        "date": "2021-02-28T09:51:00.000Z",
+        "voteCount": 2,
+        "content": "Why using Azure event hub, there is not big data, azure service hub will work. And plugin for third question \ud83d\udc4d"
+      },
+      {
+        "date": "2021-06-20T16:41:00.000Z",
+        "voteCount": 3,
+        "content": "Because of \"high peak loads\""
+      },
+      {
+        "date": "2021-02-23T13:32:00.000Z",
+        "voteCount": 1,
+        "content": "You are correct."
+      },
+      {
+        "date": "2024-07-18T23:46:00.000Z",
+        "voteCount": 2,
+        "content": "Webhook\n          Azure Service Bus\n\t\t  Azure Event Hub"
+      },
+      {
+        "date": "2023-10-03T14:08:00.000Z",
+        "voteCount": 1,
+        "content": "correct ans"
+      },
+      {
+        "date": "2022-02-10T23:01:00.000Z",
+        "voteCount": 2,
+        "content": "\u2460webhook\n\u2461Azure event hub\n\u2462plug-in"
+      },
+      {
+        "date": "2022-02-10T23:17:00.000Z",
+        "voteCount": 3,
+        "content": "sorry,\n\u2460webhook\n\u2461Azure  Service bus\n\u2462Azure event  hub"
+      },
+      {
+        "date": "2021-04-22T02:49:00.000Z",
+        "voteCount": 5,
+        "content": "1. webhook, 2.service bus 3.plug-in"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79617-exam-pl-400-topic-7-question-3-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You are designing a one-way integration from the Microsoft Dataverse to another system.<br>You must use an Azure Function to update the other system. The integration must send only newly created records to the other system. The solution must support scenarios where a component of the integration is unavailable for more than a few seconds to avoid data loss.<br>You need to design the integration solution.<br>Solution: Register a webhook in the Dataverse instance that connects to the Azure Function. Register a step on the webhook which runs synchronously on the record's Create message and in the post-operation stage.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use asynchronous communication.",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-21T10:10:00.000Z",
+        "voteCount": 2,
+        "content": "Would it be a better solution if Azure Service Bus is notified on PreOperation (as suppose to PostOperation), and also wait until Azure Service Bus to confirm before proceeding to the Creation of the record? In this scenario, if Azure Service Bus had a hiccup (it's not like google or microsoft has never had an outage), then the record created in dataverse would not be pushed to the external system."
+      },
+      {
+        "date": "2023-10-03T14:01:00.000Z",
+        "voteCount": 1,
+        "content": "B       ."
+      },
+      {
+        "date": "2023-09-29T02:26:00.000Z",
+        "voteCount": 1,
+        "content": "integration is unavailable for more than a few seconds\nsync or async does not matter. you should use something else then webhook"
+      },
+      {
+        "date": "2023-08-16T19:56:00.000Z",
+        "voteCount": 1,
+        "content": "It's no because Azure Functions don't support scenarios where the connection is inconsistent, right? So perhaps it would be better to use service bus"
+      },
+      {
+        "date": "2023-01-15T02:05:00.000Z",
+        "voteCount": 3,
+        "content": "B. But it is not about sync or async."
+      },
+      {
+        "date": "2022-09-02T16:16:00.000Z",
+        "voteCount": 4,
+        "content": "Correct: Webhooks can be used synchronously or asynchronously. The fact that a network can have a glitch (network resources temporarily unavailable) should suggest that Asynchronous operation is the better option.\nALSO, Asynchronous operation is better so that a user doesn't have to \"wait\" for this process to complete."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83119-exam-pl-400-topic-7-question-4-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You are designing a one-way integration from the Microsoft Dataverse to another system.<br>You must use an Azure Function to update the other system. The integration must send only newly created records to the other system. The solution must support scenarios where a component of the integration is unavailable for more than a few seconds to avoid data loss.<br>You need to design the integration solution.<br>Solution: Register a service endpoint in the Dataverse instance that connects to an Azure Service Bus queue.<br>Register a step at the endpoint which runs asynchronously on the record's Create message and in the post-operation stage.<br>Configure the Azure Function to process records as they are added to the queue.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 14,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-01-27T12:42:00.000Z",
+        "voteCount": 5,
+        "content": "The solution you have described meets the goal of using an Azure Function to update the other system with newly created records from the Dataverse, while also supporting scenarios where a component of the integration is unavailable for a short period of time. By using a service endpoint that is triggered by the \"Create\" message and runs asynchronously in the post-operation stage, the new record will be created in the Dataverse, and added to an Azure Service Bus queue.\n\nThe Azure Function can then process the records as they are added to the queue, this pattern ensure that even if the Azure Function or another component of the integration is temporarily unavailable, the new record will still be created in the Dataverse and added to the queue, and the Azure Function will be able to process it when it becomes available again.\n\nSo, this solution is appropriate to avoid data loss condition and meet the goal of one-way integration from the Microsoft Dataverse to another system."
+      },
+      {
+        "date": "2024-02-21T10:13:00.000Z",
+        "voteCount": 1,
+        "content": "Would it be a better solution if Azure Service Bus is notified on PreOperation (as suppose to PostOperation), and also wait until Azure Service Bus to confirm before proceeding to the Creation of the record? In this scenario, if Azure Service Bus had a hiccup (it's not like google or microsoft has never had an outage), then the record created in dataverse would not be pushed to the external system."
+      },
+      {
+        "date": "2023-10-03T14:00:00.000Z",
+        "voteCount": 1,
+        "content": "A                 ."
+      },
+      {
+        "date": "2023-08-14T20:38:00.000Z",
+        "voteCount": 1,
+        "content": "It should work. Endpoints register service endpoints including webhooks, Azure Service Bus, and Azure Event Hub."
+      },
+      {
+        "date": "2023-06-17T02:42:00.000Z",
+        "voteCount": 1,
+        "content": "Using service bus and Service bus Queue triggered function will solve the problem."
+      },
+      {
+        "date": "2023-05-10T04:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.examtopics.com/discussions/microsoft/view/63564-exam-pl-400-topic-7-question-9-discussion/"
+      },
+      {
+        "date": "2022-12-17T16:02:00.000Z",
+        "voteCount": 2,
+        "content": "A - Yes"
+      },
+      {
+        "date": "2022-09-25T05:26:00.000Z",
+        "voteCount": 3,
+        "content": "That is a good solution"
+      },
+      {
+        "date": "2022-09-21T10:54:00.000Z",
+        "voteCount": 4,
+        "content": "This will work, will work asynchronously, and will retry many times before giving up."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83120-exam-pl-400-topic-7-question-5-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You are designing a one-way integration from the Microsoft Dataverse to another system.<br>You must use an Azure Function to update the other system. The integration must send only newly created records to the other system. The solution must support scenarios where a component of the integration is unavailable for more than a few seconds to avoid data loss.<br>You need to design the integration solution.<br>Solution: Configure the Azure Function with a timer trigger that runs every five minutes. The function will query the Dataverse instance and process records created in the last five minutes.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use Azure Service Bus queue solution with asynchronous communication.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/azure-integration",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-03T13:59:00.000Z",
+        "voteCount": 1,
+        "content": "No               ."
+      },
+      {
+        "date": "2023-01-30T01:06:00.000Z",
+        "voteCount": 2,
+        "content": "Cant be yes"
+      },
+      {
+        "date": "2022-12-17T16:07:00.000Z",
+        "voteCount": 3,
+        "content": "B : No"
+      },
+      {
+        "date": "2022-09-21T10:55:00.000Z",
+        "voteCount": 1,
+        "content": "Yes this will work too"
+      },
+      {
+        "date": "2022-09-25T05:29:00.000Z",
+        "voteCount": 4,
+        "content": "It won't. You need change tracking, and that is not reliable."
+      },
+      {
+        "date": "2022-10-04T13:43:00.000Z",
+        "voteCount": 1,
+        "content": "Yes ur right"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/62581-exam-pl-400-topic-7-question-6-discussion/",
+    "body": "DRAG DROP -<br>An organization uses plug-ins to retrieve specific information from legacy data stores each time a new order is submitted.<br>You review the Microsoft Dataverse analytics page. The average plug-in execution time is increasing.<br>You need to replace the plug-in with another component, reusing as much of the current plug-in code as possible.<br>Which five actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04332/0042600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0042700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Create an Azure Function app<br>Azure Functions provide an excellent way to deliver a solution using WebHooks.<br>Step 2: Refactor the plug-in logic in the app.<br><br>Step 3: Publish the app -<br>You can publish your function app to Azure directly from Visual Studio.<br>Step 4: Register a webhook for the app in the Plug-in Registration tool<br>Use the Plug-in Registration tool to register a WebHook.<br>Step 5: Register a step in the webhook.<br>Registering a step for a WebHook is like registering a step for a plug-in.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/data-platform/use-webhooks https://docs.microsoft.com/en-us/powerapps/developer/data-platform/register-web-hook",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-22T17:00:00.000Z",
+        "voteCount": 14,
+        "content": "Correct I think"
+      },
+      {
+        "date": "2024-04-27T15:47:00.000Z",
+        "voteCount": 1,
+        "content": "was in exam 28/04/2024"
+      },
+      {
+        "date": "2023-10-03T13:44:00.000Z",
+        "voteCount": 1,
+        "content": "Create an Azure Function app\nRefactor the plugin-in logic in the app\nPublish the app\nRegister a webhook for the app in the Plugin-in Registration tool\nRegister a step in the webhook"
+      },
+      {
+        "date": "2022-07-28T06:09:00.000Z",
+        "voteCount": 2,
+        "content": "Was in my exam (28/07/2022)"
+      },
+      {
+        "date": "2022-07-10T08:56:00.000Z",
+        "voteCount": 4,
+        "content": "My answer is:\n1)\tCreate an Azure Function app\n2)\tRegister a webhook for the app in the Plugin-in Registration tool\n3)\tRegister a step in the webhook\n4)\tRefactor the plugin-in logic in the app\n5)\tPublish the app"
+      },
+      {
+        "date": "2022-09-18T02:38:00.000Z",
+        "voteCount": 2,
+        "content": "publish the app should be 2nd, to be able to have it while registering plugin"
+      },
+      {
+        "date": "2023-09-23T03:47:00.000Z",
+        "voteCount": 1,
+        "content": "@MarioM and @YFSun Please don't create confusions both are same"
+      },
+      {
+        "date": "2023-08-08T03:29:00.000Z",
+        "voteCount": 6,
+        "content": "you need to refactor the plug-in logic in the azure function app meaning you need to improve the code/logic. so it should be step#2 then you publish it.\n\nso the correct order is:\nCreate an Azure Function app\nRefactor the plugin-in logic in the app\nPublish the app\nRegister a webhook for the app in the Plugin-in Registration tool\nRegister a step in the webhook"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58071-exam-pl-400-topic-7-question-7-discussion/",
+    "body": "DRAG DROP -<br>You need to select the appropriate methods using Azure Event Grid.<br>Which method should you use for each requirement? To answer, drag the appropriate methods to the correct requirements. Each method may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04332/0042900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0042900002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Event handler -<br>An event handler is the place where the event is sent. The handler takes some further action to process the event.<br><br>Box 2: Event subscription -<br>Event subscriptions - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.<br>Incorrect Answers:<br>Events - What happened.<br>Event sources - Where the event took place.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/event-grid/event-handlers https://docs.microsoft.com/en-us/azure/event-grid/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-04T12:02:00.000Z",
+        "voteCount": 10,
+        "content": "Requirement 1: Notify the infrastructure team when a new virtual machine is created\n\nMethod: Event subscription\nExplanation: Create an event subscription for the virtual machine creation event source and specify the infrastructure team as the endpoint for the subscription. When a new virtual machine is created, Event Grid will send an event to the subscription and notify the infrastructure team.\nRequirement 2: Route orders over $500 to the credit department\n\nMethod: Event handler\nExplanation: Create an event handler to listen for incoming order events from the order system. When an order event is received, the event handler can check the order total and route orders over $500 to the credit department."
+      },
+      {
+        "date": "2023-05-08T17:48:00.000Z",
+        "voteCount": 1,
+        "content": "Google Bard and ChatGPT agrees"
+      },
+      {
+        "date": "2023-10-03T13:35:00.000Z",
+        "voteCount": 2,
+        "content": "2. Event Handler"
+      },
+      {
+        "date": "2023-10-03T13:34:00.000Z",
+        "voteCount": 2,
+        "content": "1. Event Subscription"
+      },
+      {
+        "date": "2023-09-14T20:07:00.000Z",
+        "voteCount": 1,
+        "content": "It should be 1,  Event sources;  2  Event handler"
+      },
+      {
+        "date": "2022-07-28T06:05:00.000Z",
+        "voteCount": 3,
+        "content": "Was in my exam (28/07/2022). I took provided answers"
+      },
+      {
+        "date": "2022-07-10T09:07:00.000Z",
+        "voteCount": 3,
+        "content": "I think:\n1.\tEvent\n2.\tEvent handler"
+      },
+      {
+        "date": "2022-07-25T18:34:00.000Z",
+        "voteCount": 1,
+        "content": "Update:\n1. Event Source\nCustom Topics or \"Topics\" for short. Use custom topics if your requirements resemble the following user story:\n\"As an owner of a system, I want to communicate my system's state changes by publishing events and routing those events to event handlers, under my control or otherwise, that can process my system's events in a way they see fit.\"\nRef: https://docs.microsoft.com/en-us/azure/event-grid/overview#event-sources\n2. Event Handler \nAn event handler is the place where the event is sent. The handler takes some further action to process the event. Several Azure services are automatically configured to handle events. You can also use any webhook for handling events. \nRef: https://docs.microsoft.com/en-us/azure/event-grid/event-handlers"
+      },
+      {
+        "date": "2021-07-24T08:12:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is correct\nAn event handler is the place where the event is sent."
+      },
+      {
+        "date": "2021-07-17T09:43:00.000Z",
+        "voteCount": 2,
+        "content": "No idea here but looks correct?"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/55120-exam-pl-400-topic-7-question-8-discussion/",
+    "body": "HOTSPOT -<br>You create a Power Platform solution to track purchasing requirements for bills of material (BOMs) and their subcomponents.<br>The solution must meet the following requirements:<br>\u2711 Ensure that the BOMs are enabled to include the necessary subcomponents.<br>\u2711 Report changes to the BOMs or their sub-components that are made by engineers.<br>You need to configure the solution.<br>What should you do to meet each requirement? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0043100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0043200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Configure entity relationship<br>Box 2: Configure entity change tracking<br>The change tracking feature in Microsoft Dataverse provides a way to keep the data synchronized in an efficient manner by detecting what data has changed since the data was initially extracted or last synchronized. Previously, without this new feature, it was difficult to build a reliable and efficient mechanism to determine what records had changed in Dataverse.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/data-platform/use-change-tracking-synchronize-data-external-systems",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-11T18:57:00.000Z",
+        "voteCount": 41,
+        "content": "The first is correct but second definitely looks wrong. The request is for audit the person who changed the data not data changes.  I assume second answer is \"Configure Auditing\""
+      },
+      {
+        "date": "2024-03-31T06:44:00.000Z",
+        "voteCount": 1,
+        "content": "I think you're right https://learn.microsoft.com/en-us/power-platform/admin/manage-dataverse-auditing"
+      },
+      {
+        "date": "2021-11-26T01:19:00.000Z",
+        "voteCount": 1,
+        "content": "You cannot report based on audit table in Dynamics, so you must do it using change tracking"
+      },
+      {
+        "date": "2023-09-24T05:30:00.000Z",
+        "voteCount": 1,
+        "content": "No, is not \"Track changes\" - if you look at the table/entity properties, \"Track changes\" info display: \"Help data stay synchronized in external systems.\u200b Required for tables that are available offline.\"\nSo the correct answer is \"Configure Auditing\" that will \"Log any data creation, changes, or deletion in this table. When turned on, all columns are audited by default.\""
+      },
+      {
+        "date": "2021-10-04T05:33:00.000Z",
+        "voteCount": 2,
+        "content": "You are right https://docs.microsoft.com/en-us/powerapps/maker/data-platform/data-platform-create-entity\n\nChange tracking is use to synchronize external systems"
+      },
+      {
+        "date": "2021-09-12T01:47:00.000Z",
+        "voteCount": 2,
+        "content": "Yes but that would be true for MS Dynamics solutions. In Dataverse the auditing is done with change tracking."
+      },
+      {
+        "date": "2021-11-17T08:30:00.000Z",
+        "voteCount": 1,
+        "content": "As per my knowledge, all cloud based out of the box dynamics solution settings (through classic interface) applies to Power Apps as well. Please acknowledge or correct me if I a wrong?"
+      },
+      {
+        "date": "2023-09-14T20:23:00.000Z",
+        "voteCount": 1,
+        "content": "1 correct\n2 Auditing\nbecause the question is Who and when, it should be entity auditing"
+      },
+      {
+        "date": "2023-04-04T12:14:00.000Z",
+        "voteCount": 3,
+        "content": "why the action 1.Configure entity change tracing is not the right answer for Requirement 2: Report who changed the BOM record and when the changes were made?\nThe action \"Configure entity change tracing\" is not the right answer for Requirement 2: Report who changed the BOM record and when the changes were made because entity change tracing is designed to trace the execution of platform-level operations that affect entities, such as creating or deleting an entity, rather than tracking changes to entity records.\n\nIn contrast, entity auditing is designed specifically for tracking changes to entity records, including changes made to specific fields in a record, who made the changes, and when the changes were made. Therefore, to meet the requirement of reporting who changed the BOM record and when the changes were made, it is more appropriate to use entity auditing."
+      },
+      {
+        "date": "2022-11-12T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-07-21T08:07:00.000Z",
+        "voteCount": 2,
+        "content": "in exam 2022.07.21"
+      },
+      {
+        "date": "2021-12-19T03:56:00.000Z",
+        "voteCount": 2,
+        "content": "Both are correct. The 2nd one has to be change tracking, because\n- \"Report changes ...\" is not posible with Auditing, no reports, visualisation, automated processing, etc. \n- deleted records would never be found with auditing"
+      },
+      {
+        "date": "2021-09-22T17:08:00.000Z",
+        "voteCount": 1,
+        "content": "Unsure about auditing or change tracking. I know both exist in Dataverse, but I think Change Tracking is best"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/63564-exam-pl-400-topic-7-question-9-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than once correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You are designing a one-way integration from the Microsoft Dataverse to another system.<br>You must use an Azure Function to update the other system. The integration must send only newly created records to the other system. The solution must support scenarios where a component of the integration is unavailable for more than a few seconds to avoid data loss.<br>You need to design the integration solution.<br>Solution: Register a service endpoint in the Dataverse instance that connects to an Azure Service Bus queue.<br>Create and register an Azure-aware plug-in that uses the service endpoint.<br>Register a step on the plug-in that runs asynchronously on the record's Create message and in the post-operation stage.<br>Configure the Azure Function to process records as they are added to the queue.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Plug-ins are one of two methods used to initiate posting the message containing the data context to the Azure Service Bus, the other method being a custom workflow activity.<br>Note: Microsoft Dataverse supports integration with Azure.<br>For the Dataverse and Azure connection to work, there must be at least one solution in an Azure Service Bus solution account, where the solution contains one or more service endpoints.<br>For a queue endpoint contract, a listener doesn't have to be actively listening.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/azure-integration",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-18T09:19:00.000Z",
+        "voteCount": 11,
+        "content": "Correct, \nwhy microsoft exam questions not all like these, clear, easy.\nif person never worked with Dataverse before then he/she will not know that.\nCreate 1000 easy questions and then : \n1) no need for dumps as they are easy to pass if you really know the system\n2) dumps are not in demand - everyone will be trying without them\n3) easy to create 1000 - hard to make dumps \n\nProfit. Microsoft is stupid"
+      },
+      {
+        "date": "2024-02-21T11:04:00.000Z",
+        "voteCount": 1,
+        "content": "what happens if azure service bus has a hiccup and goes line for a minute at the time the plugin sends a message?"
+      },
+      {
+        "date": "2021-10-07T07:12:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      },
+      {
+        "date": "2021-10-04T05:34:00.000Z",
+        "voteCount": 1,
+        "content": "Right answer ?"
+      },
+      {
+        "date": "2023-03-19T10:46:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/60924-exam-pl-400-topic-7-question-10-discussion/",
+    "body": "HOTSPOT -<br>You create an alternate key named AlternateKey1 on the Account entity. The definition for AlternateKey1 is shown in the following exhibit:<br><img src=\"/assets/media/exam-media/04332/0043400001.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that answers each question based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0043400002.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0043500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: The combination of Account Number and Account Name must be unique<br>With alternate keys you can now define a column in a Dataverse table to correspond to a unique identifier or unique combination of columns.<br>Box 2: Delete AlternateKey1 and re-create it with all three fields<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/data-platform/define-alternate-keys-entity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-15T07:58:00.000Z",
+        "voteCount": 5,
+        "content": "correct"
+      },
+      {
+        "date": "2021-09-22T17:09:00.000Z",
+        "voteCount": 2,
+        "content": "Correct. We have to delete alternate key, can't update them"
+      },
+      {
+        "date": "2021-08-28T13:25:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/61756-exam-pl-400-topic-7-question-11-discussion/",
+    "body": "HOTSPOT -<br>A delivery service uses a canvas app to track and deliver packages. The app uses SQL Server as a data store. The database includes the following tables:<br><img src=\"/assets/media/exam-media/04332/0043600001.png\" class=\"in-exam-image\"><br>The app includes the following code to save all required information. (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04332/0043600002.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0043700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0043700002.png\" class=\"in-exam-image\">",
+    "answerDescription": "The ClearCollect function deletes all the records from a collection.<br>Syntax: ClearCollect( Collection, Item, ... )<br>Collection \u05d2\u20ac\" Required. The collection that you want to clear and then add data to.<br>Item(s) - Required. One or more records or tables to add to the data source.<br><br>Box 1: Yes -<br>The Patch function in Power Apps modifies or creates one or more records in a data source, or merges records outside of a data source.<br>Use Patch with the Defaults function to create records.<br><br>Box 2: No -<br>The return value of Patch is the record that you modified or created. If you created a record, the return value may include properties that the data source generated automatically. However, the return value doesn't provide a value for fields of a related table.<br>For example, you use Set(MyAccount, Patch(Accounts, First(Account), 'Account Name': \"Example name\"); and then MyAccount.'Primary Contact'.'Full Name'. You can't yield a full name in this case. Instead, to access the fields of a related table, use a separate lookup such as:<br>LookUp(Accounts, Account = MyAccount.Account).'Primary Contact'.'Full Name<br><br>Box 3: Yes -<br><br>Box 4: Yes -<br>Merge records outside of a data source.<br>Specify two or more records that you want to merge. Records are processed in the order from the beginning of the argument list to the end, with later property values overriding earlier ones.<br>Patch returns the merged record and doesn't modify its arguments or records in any data sources.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-clear-collect-clearcollect",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-18T13:54:00.000Z",
+        "voteCount": 12,
+        "content": "The usage of LookUp function is to find the first record in a table based upon certain criteria. So, the third answer should also be NO.\n\nCorrect answers: \nYNNN"
+      },
+      {
+        "date": "2021-11-24T21:37:00.000Z",
+        "voteCount": 3,
+        "content": "Furthermore, (for question 3) &gt;&gt;&gt;\nNo need to use Lookup function to create reference to customer because the earlier Patch function already returns the generated customer ID.\n\nReference &gt;&gt;&gt;\nThe return value of Patch is the record that you modified or created. If you created a record, the return value may include properties that the data source generated automatically.\nhttps://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-patch#modify-or-create-a-record-in-a-data-source"
+      },
+      {
+        "date": "2021-09-09T11:56:00.000Z",
+        "voteCount": 12,
+        "content": "For the last question, the answer should be no, as the syntqx is still the one for creating/modifying a record in a data source and not for merging two recorda outside of the source:\n\nModify or create a record in a data source\nPatch( DataSource, BaseRecord, ChangeRecord1 [, ChangeRecord2, \u2026 ])\n\nMerge records\nPatch(&nbsp;Record1,&nbsp;Record2&nbsp;[, \u2026] )"
+      },
+      {
+        "date": "2022-03-14T09:01:00.000Z",
+        "voteCount": 4,
+        "content": "Last is 'no' because patch() with defaults() does not update but creates:\nhttps://docs.microsoft.com/en-us/powerapps/maker/canvas-apps/functions/function-patch#overview\n\"Use Patch with the Defaults function to create records. \""
+      },
+      {
+        "date": "2024-05-28T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "As always the whole set up + code does not make sense. The questions wording does not give enough information and leaves room for speculations.... \n\n1. N -No SBsqlid is not included in the patch object. Further we do not know if SBsqlid is an auto populated primary key column or a foreign key. \n2. N - Technically yes because SignedById should be a reference to the customer, but actually no because we do not know if it is true and if the customer already exists. \n3. Y - Without checking for the customer we cannot be sure if the customer exists. Lookup customer by SignedById, if empty do something else because reference is missing. \nThe reference to the receiver is worthless if the customer does not exist.\n4. No - Default(Packages) creates a new package. There is no indication the a merge  is required."
+      },
+      {
+        "date": "2024-05-28T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "For 1. \nTypo meant custom unique key instead of foreign key. So we do not know if SBsqlid values are generated by the system or of it just a unique column and requires unique informationen."
+      },
+      {
+        "date": "2023-10-11T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "11-oct-2023 in the first option was also \"line 03\" note on exam."
+      },
+      {
+        "date": "2023-10-03T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "YNYN it is"
+      },
+      {
+        "date": "2022-01-15T08:16:00.000Z",
+        "voteCount": 10,
+        "content": "answer should be YNYN"
+      },
+      {
+        "date": "2021-11-04T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "YYNN right?"
+      },
+      {
+        "date": "2021-11-05T00:53:00.000Z",
+        "voteCount": 3,
+        "content": "please ignore this"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/68162-exam-pl-400-topic-7-question-12-discussion/",
+    "body": "A company plans to replicate a Dynamics 365 Sales database into an Azure SQL Database instance for reporting purposes. The Data Export Service solution has been installed.<br>You need to configure the Data Export service.<br>Which three actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable auditing for all entities that must be replicated to Azure SQL Database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an export profile that specifies all the entities that must be replicated.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up server-based integration.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable change tracking for all entities that must be replicated to Azure SQL Database.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an Azure SQL Database service in the same tenant as the Dynamics 365 Sales environment.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BDE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BDE",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-12-16T22:42:00.000Z",
+        "voteCount": 28,
+        "content": "Answers Should be BDE."
+      },
+      {
+        "date": "2021-12-31T12:30:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/power-platform/admin/replicate-data-microsoft-azure-sql-database =&gt; The Azure SQL Database service can be in the same or a different tenant from the service."
+      },
+      {
+        "date": "2022-09-28T16:30:00.000Z",
+        "voteCount": 1,
+        "content": "Correct. should be BDE"
+      },
+      {
+        "date": "2022-03-03T07:56:00.000Z",
+        "voteCount": 3,
+        "content": "https://www.examtopics.com/discussions/microsoft/view/23395-exam-mb-400-topic-7-question-4-discussion/"
+      },
+      {
+        "date": "2024-05-04T20:19:00.000Z",
+        "voteCount": 1,
+        "content": "it's BDE"
+      },
+      {
+        "date": "2023-10-03T09:04:00.000Z",
+        "voteCount": 1,
+        "content": "BDE then"
+      },
+      {
+        "date": "2023-09-23T04:45:00.000Z",
+        "voteCount": 1,
+        "content": "Answer: BDE  (https://netwoven.com/dynamics-365/quick-steps-to-replicate-data-from-dynamics-365-online-to-azure-sql-database/)"
+      },
+      {
+        "date": "2022-09-18T03:20:00.000Z",
+        "voteCount": 2,
+        "content": "should be BDE"
+      },
+      {
+        "date": "2022-07-21T08:08:00.000Z",
+        "voteCount": 1,
+        "content": "in exam 2022.07.21"
+      },
+      {
+        "date": "2022-04-27T02:24:00.000Z",
+        "voteCount": 1,
+        "content": "So what's the answer?"
+      },
+      {
+        "date": "2022-03-09T22:59:00.000Z",
+        "voteCount": 3,
+        "content": "see explanation in the question"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/82480-exam-pl-400-topic-7-question-13-discussion/",
+    "body": "HOTSPOT -<br>A company must copy customer account data changes from a Microsoft Dataverse instance into an external system. Azure Storage Queues are used to pass the changes from Dataverse to the external system.<br>You have the following code. (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04332/0044000001.jpg\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0044100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0044200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 3: No -<br>Either new/updated or removed/deleted.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-03T15:01:00.000Z",
+        "voteCount": 1,
+        "content": "should first two be N because only entity id is added to the queue at line 20 ? not the actual changes."
+      },
+      {
+        "date": "2024-05-29T01:40:00.000Z",
+        "voteCount": 2,
+        "content": "I say its NYNN and here is why:\n1. No, because if the token is null it will return ALL records as documented in https://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.messages.retrieveentitychangesrequest?view=dataverse-sdk-latest\nNow it is a little bit up to a discussion, if this thing runs for the very first time or not (meaning the external system is empty). If it does, technically it's a changeset if you compare Dataverse to the external system. \n2. Yes, because here we use the token returned from the initial call on line 2. This means technically any changes made by us or anyone else since line 2 is a change.\n3. No, all there is in the changemessage in our queue is the Guid of newOrChangedEntity (line 20)\n4. Yes, as the token was created before the operations done on line 3"
+      },
+      {
+        "date": "2024-05-29T01:41:00.000Z",
+        "voteCount": 2,
+        "content": "* typo: NYNY as seen in my why"
+      },
+      {
+        "date": "2023-10-03T09:00:00.000Z",
+        "voteCount": 2,
+        "content": "YYNY the ans"
+      },
+      {
+        "date": "2023-08-08T04:03:00.000Z",
+        "voteCount": 3,
+        "content": "answers are correct.\nY, Y, N, Y\nFor #3: No, the provided code snippet does not explicitly specify whether the messages in the changeQueue correspond to new or updated accounts. The code processes changes to CRM entities of the \"account\" type and adds messages to the changeQueue whenever a new or updated account is detected. However, the snippet itself doesn't include code to differentiate between new and updated accounts in the messages added to the queue."
+      },
+      {
+        "date": "2023-05-26T05:16:00.000Z",
+        "voteCount": 1,
+        "content": "It's YNYY"
+      },
+      {
+        "date": "2023-05-28T02:37:00.000Z",
+        "voteCount": 2,
+        "content": "actually im wrong it should be NNYY"
+      },
+      {
+        "date": "2022-11-28T06:29:00.000Z",
+        "voteCount": 1,
+        "content": "The first is No because setting DataVersion to null will return all the records."
+      },
+      {
+        "date": "2023-02-04T20:52:00.000Z",
+        "voteCount": 2,
+        "content": "this is not true. Look at the link below\nhttps://learn.microsoft.com/en-us/previous-versions/dynamicscrm-2015/developers-guide/dn932130(v=crm.7)\n\"Only one entity will be tracked in retrieve changes. If retrieve changes is executed with no version / or token, the server will treat it as the system minimum version, returning all of the records as new. Deleted objects won\u2019t be returned.\""
+      },
+      {
+        "date": "2022-09-16T23:03:00.000Z",
+        "voteCount": 3,
+        "content": "shouldn't third one be Yes?\nIn line 16, the change is validated whether the change is NewOrUpdated. Then in line 21, the changemessage is being added to the changeQueue."
+      },
+      {
+        "date": "2022-09-21T11:08:00.000Z",
+        "voteCount": 1,
+        "content": "Ur right"
+      },
+      {
+        "date": "2022-09-25T05:52:00.000Z",
+        "voteCount": 3,
+        "content": "nope, because it doesn't classify new or updated. Falls into same bucket."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/80452-exam-pl-400-topic-7-question-14-discussion/",
+    "body": "You are creating a Power Automate flow.<br>You create an Azure Service Bus listener app that receives requests from a third-party application.<br>When the flow calls the message queue, it must delete the message as soon as it is read.<br>You need to ensure that the queue is cleared properly.<br>Which method or class should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReceiveMode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBrokeredMessage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEventHubReceiver",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEventHubSender"
+    ],
+    "answer": "A",
+    "answerDescription": "ReceiveMode enumerates the values for the receive mode. The default is PeekLock.<br>Fields:<br>PeekLock: Specifies the PeekLock receive mode. This is the default value for ReceiveMode.<br>ReceiveAndDelete: Specifies the ReceiveAndDelete receive mode.<br>Note: You can specify two different modes in which Service Bus receives messages.<br>\u2711 Receive and delete. In this mode, when Service Bus receives the request from the consumer, it marks the message as being consumed and returns it to the consumer application.<br>\u2711 Peek lock.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-queues-topics-subscriptions https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.receivemode",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-05T17:02:00.000Z",
+        "voteCount": 7,
+        "content": "Answer A makes sense as explained. Generally, a QUEUE (of any type) has 3 functions: 1) Enqueue (to collect a message); 2) Peek (to look at but not remove message from the queue); and 3) Dequeue (or Serve) (to remove a message from the queue).\n\nHaving a Mode with options to \"PEEK\" or \"DEQUEUE/SERVE\" or something similar should help figure this out."
+      },
+      {
+        "date": "2023-05-05T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "ChatGPT confirms that Answer A is correct:\n\n If the request is to delete the message as soon as it is read, regardless of whether it is processed successfully or not, then you should use the ReceiveMode property of the QueueClient or SubscriptionClient class to specify the behavior of the message receiver.\n\nThe ReceiveMode property can be set to either PeekLock or ReceiveAndDelete. If PeekLock mode is used, the message will be locked for processing when it is read, and the lock will be released when the message is completed, abandoned, or the lock expires. If ReceiveAndDelete mode is used, the message will be deleted from the queue as soon as it is read, regardless of whether it is processed successfully or not.\n\nTherefore, to ensure that the message queue is cleared properly when a message is read, you should use the ReceiveAndDelete mode of the QueueClient or SubscriptionClient class, rather than the BrokeredMessage class as I previously mentioned.\n\nThe correct answer is not B. BrokeredMessage, but A. ReceiveMode."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83121-exam-pl-400-topic-7-question-15-discussion/",
+    "body": "As part of the month-end financial closing process, a company uses a batch job to copy all orders into a staging database.<br>The staging database is used to calculate any outstanding amounts owed by clients, and must process all historical data.<br>You need to ensure that only the data affected during the month is included in the integration process.<br>What are two possible ways to achieve this goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse change tracking on the orders and run the integration to retrieve new orders and the orders that have the total amount changed in the last month.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a system view with the orders that have the Modified On field in the last month and run the integration on this subset.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse change tracking on the order lines and run the integration every week and retrieve only the order lines that have been created or deleted in the last month.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a system view with the order lines that have the Modified On field in the last month and run the integration on this subset.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "C: The change tracking feature in Microsoft Dataverse provides a way to keep the data synchronized in an efficient manner by detecting what data has changed since the data was initially extracted or last synchronized. Deletions and creations are tracked.<br>D: On modified Order Lines, not on Modified Orders.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/data-platform/use-change-tracking-synchronize-data-external-systems https://docs.microsoft.com/en-us/powerapps/developer/data-platform/behavior-format-date-time-attribute",
+    "votes": [
+      {
+        "answer": "AD",
+        "count": 2,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-07-26T04:21:00.000Z",
+        "voteCount": 1,
+        "content": "In C - about every week, we need every month, so it's not C.\nAs well as not D, because of order lines (that are only in C, in A and B - orders, not order lines)\n    C. Use change tracking on the order lines and run the integration every week and retrieve only the order lines that have been created or deleted in the last month.\n    D. Create a system view with the order lines that have the Modified On field in the last month and run the integration on this subset.\n\nSo we have only these options:\n    A. Use change tracking on the orders and run the integration to retrieve new orders and the orders that have the total amount changed in the last month.\n    B. Create a system view with the orders that have the Modified On field in the last month and run the integration on this subset.\n\nB - about orders in last month\nA - about orders in last month"
+      },
+      {
+        "date": "2024-01-14T04:19:00.000Z",
+        "voteCount": 2,
+        "content": "AB, from the lines you can't even access the client"
+      },
+      {
+        "date": "2023-10-03T08:45:00.000Z",
+        "voteCount": 1,
+        "content": "AB it is"
+      },
+      {
+        "date": "2023-08-31T06:36:00.000Z",
+        "voteCount": 2,
+        "content": "My guess AB!\nA: This option uses change tracking to track changes that have been made to orders. The integration can then be run to retrieve new orders and orders that have had their total amount changed in the last month. This will ensure that only the data affected during the month is included in the integration process.\nB: This option creates a system view with the orders that have been modified in the last month. The integration can then be run on this subset of orders. This will ensure that only the data affected during the month is included in the integration process."
+      },
+      {
+        "date": "2023-08-16T18:04:00.000Z",
+        "voteCount": 2,
+        "content": "Yeah, doesn't say that change tracking is just for 7 days. \nhttps://learn.microsoft.com/en-us/power-apps/developer/data-platform/use-change-tracking-synchronize-data-external-systems"
+      },
+      {
+        "date": "2023-02-21T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "Order lines. I suppose you could remove and add a new line for the same amount"
+      },
+      {
+        "date": "2022-09-21T11:14:00.000Z",
+        "voteCount": 4,
+        "content": "My guess is AB, can anyone elaborate why do we need lines instead of just looking at totals?"
+      },
+      {
+        "date": "2022-09-25T05:55:00.000Z",
+        "voteCount": 3,
+        "content": "change tracking is available for 7 days"
+      },
+      {
+        "date": "2023-01-15T07:07:00.000Z",
+        "voteCount": 2,
+        "content": "No. There's no such restriction, you can change it by ExpireChangeTrackingInDays."
+      },
+      {
+        "date": "2023-05-23T06:09:00.000Z",
+        "voteCount": 2,
+        "content": "I am assuming it says that all historical records need to be processed. Order line items may change hence, we need line items in order to capture all historical records."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/85327-exam-pl-400-topic-7-question-16-discussion/",
+    "body": "A company is creating a one-way integration from Microsoft Dataverse to an external system. Data will be sent from a webhook to an Azure Function.<br>You need to configure the Azure Function to handle data from the webhook.<br>Which class and data type must the Azure Function handle?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemoteExecutionContext in .NET binary format",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemoteExecutionContext in JSON format\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemoteExecutionContext in XML format",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIPluginExecutionContext in JSON format",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIPluginExecutionContext in XML format"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-12T17:37:00.000Z",
+        "voteCount": 7,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/122518-exam-pl-400-topic-7-question-17-discussion/",
+    "body": "HOTSPOT -<br>An online store has a custom web page that allows customers to place their orders against a Microsoft Dataverse database that uses custom products. The custom web page uses Web API patterns to create and update records.<br>Customers report that orders can be placed for out-of-stock items.<br>You need to update the page code to ensure that inventory is available before confirming an order.<br>Which pattern should you use for each step? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0044500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0044600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: IsOptimisticConcurrencyEnabled<br>On a multi-threaded and multi-user system like Power Apps, operations and data changes often happen in parallel. A problem arises when two or more update or delete operations on the same piece of data happen at the same time. This situation could potentially result in data loss. The optimistic concurrency feature provides the ability for your applications to detect whether a table record has changed on the server in the time between when your application retrieved the record and when it tries to update or delete that record.<br><br>Box 2: If-Match: Etag -<br>Use If-Match and If-None-Match headers with ETag values to check whether the current version of a resource matches the one last retrieved, matches any previous version or matches no version. These comparisons form the basis of conditional operation support. Dataverse provides ETags to support conditional retrievals, optimistic concurrency, and limited upsert operations.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/data-platform/optimistic-concurrency https://docs.microsoft.com/en-us/powerapps/developer/data-platform/webapi/perform-conditional-operations-using-web-api",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-05T06:26:00.000Z",
+        "voteCount": 5,
+        "content": "1. ChangeTrackingEnabled:track changes to records in the inventory table, including modifications to inventory quantities. By enabling change tracking, you can efficiently check the current inventory status before retrieving the inventory record.\n2.  If-Match: Etag.If-Match header with the Etag value when making a PATCH request to update the quantity on the inventory record. This ensures that the update is only applied if the inventory record's Etag (entity tag) matches the one you provide in the request header. If the Etag doesn't match, it means that the inventory record has been modified by someone else since you retrieved it, and the update will fail. This helps prevent concurrent updates and ensures data consistency."
+      },
+      {
+        "date": "2024-04-02T23:31:00.000Z",
+        "voteCount": 2,
+        "content": "the context here is concurrency requests, so I think the answer is correct\nIsOptimisticconcurrencyEnabled and If-Match eTag"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/89860-exam-pl-400-topic-7-question-18-discussion/",
+    "body": "HOTSPOT -<br>You need to package and deploy a Power Apps code component to an environment.<br>Which commands should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0044700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0044800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: pac solution init --publisher-name<br>Create a new solutions project using the following command. The solution project is used for bundling the code component into a solution zip file that is used for importing into Dataverse. pac solution init --publisher-name developer --publisher-prefix de<br><br>Box 2: pac auth create -<br>Connecting to your environment.<br>Auth commands are used to authenticate to Dataverse.<br>Creates the authentication profile for your organization by passing the url parameter. Shows AAD dialog if sign in credentials are not specified.<br>Example: pac auth create --url https://Myorg.crm.dynamics.com<br>Box 3: pac pcf push --publisher-prefix<br><br>Deploying code components -<br>After you have successfully created an authentication profile, you can start pushing the code components to the Dataverse instance with all the latest changes.<br>The push capability speeds up the inner-developer cycle development because it bypasses the code component versioning requirements and does not require that you build your solution (cdsproj) to import the code component.<br>To use the push capability, do the following:<br>1. Ensure that you have a valid authentication profile created.<br>2. Navigate to the directory where the sample component file is located.<br>3. Run the command.<br>pac pcf push --publisher-prefix &lt;your publisher prefix&gt;<br>Incorrect:<br>Commands for working with Dataverse solution projects include:<br><br>Parameter init -<br>Initializes the solution project. It has the following parameters: publisher-name: Publisher name of the organization. publisher-prefix: Publisher prefix of the organization.<br>Reference:<br>https://docs.microsoft.com/en-us/power-apps/developer/component-framework/import-custom-controls",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-15T21:31:00.000Z",
+        "voteCount": 6,
+        "content": "About package, IMO, it is pac solution add-reference.\npac solution init -&gt; create a empty project and it does not contain any pcf component yet.\npac solution add-reference -&gt; add the pac component to the project, means Package, I think..."
+      },
+      {
+        "date": "2023-08-09T23:22:00.000Z",
+        "voteCount": 1,
+        "content": "The answer given by exam topics for the first question is correct.\nRead https://learn.microsoft.com/en-us/power-apps/developer/component-framework/import-custom-controls"
+      },
+      {
+        "date": "2023-08-28T07:18:00.000Z",
+        "voteCount": 1,
+        "content": "wrong, your link says that creates the solution, they still then have to add the reference, no where does the question say that you have to create a solution as well.\nadd ref for the first answer"
+      },
+      {
+        "date": "2024-04-02T23:34:00.000Z",
+        "voteCount": 3,
+        "content": "IMO\n- Add Reference (The action is Package, not Create, so I don't think the Init empty solution is correct)\n- Auth\n- Push"
+      },
+      {
+        "date": "2023-10-03T08:14:00.000Z",
+        "voteCount": 1,
+        "content": "Solution Init\nAuth\nPush Publisher"
+      },
+      {
+        "date": "2022-12-03T05:33:00.000Z",
+        "voteCount": 3,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/99305-exam-pl-400-topic-7-question-19-discussion/",
+    "body": "You are creating an integration between Microsoft Dataverse and an external system.<br><br>Messages from Dataverse must be sent to Microsoft Azure Service Bus. An Azure Function will process the messages. Events must be published directly to the ServiceEndpoint for Azure Service Bus.<br><br>You need to create code for the messages.<br><br>Which class should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemoteExecutionContext",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIWorkflowContext",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIPluginExecutionContext",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIExecutionContext"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-22T12:37:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-09-22T12:38:00.000Z",
+        "voteCount": 1,
+        "content": "RemoteExecutionContext : contextual information sent to a remote service endpoint at run-time."
+      },
+      {
+        "date": "2023-02-15T10:09:00.000Z",
+        "voteCount": 3,
+        "content": "Correct\nhttps://learn.microsoft.com/en-us/dotnet/api/microsoft.xrm.sdk.remoteexecutioncontext?view=dataverse-sdk-latest"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121358-exam-pl-400-topic-7-question-20-discussion/",
+    "body": "You are developing a Power Platform solution. The solution connects to a third-party accounting system by using a Web API through a Power Apps app that automatically exchanges contacts with the sales data.<br><br>You have the following code: (Line numbers are included for reference only.)<br><br><img src=\"https://img.examtopics.com/pl-400/image396.png\"><br><br>You need to ensure that the code only synchronizes data that was not previously synchronized.<br><br>Which code segment should you insert at line 02?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrefer: odata.track-changes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrefer: odata.allow-entityreferences",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrefer: odata.include-annotations"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-04T07:01:00.000Z",
+        "voteCount": 2,
+        "content": "in exam 10/03/23"
+      },
+      {
+        "date": "2023-09-25T00:45:00.000Z",
+        "voteCount": 1,
+        "content": "We need changes, so it should be odata.track-changes"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110455-exam-pl-400-topic-7-question-21-discussion/",
+    "body": "A company uses a custom Power Platform app to create and manage programs. The company has a public website that uses TLS 1.0.<br><br>The public website is outside of the corporate domain. The website uses POST requests to save data.<br><br>You need to automate the transfer of data to the public website.<br><br>What should you use? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/pl-400/image414.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image415.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-28T12:54:00.000Z",
+        "voteCount": 10,
+        "content": "I think PreImage isn't available for Create Messages. I think should be \"Register a step \""
+      },
+      {
+        "date": "2023-08-15T03:04:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. preimage isn't available for Create message. https://learn.microsoft.com/en-us/power-apps/developer/data-platform/register-plug-in"
+      },
+      {
+        "date": "2024-08-31T02:46:00.000Z",
+        "voteCount": 3,
+        "content": "This question is ultra retarded. Nothing concrete just random shit and they expect for a right answer. Microsoft is a joke!!!"
+      },
+      {
+        "date": "2024-06-10T23:19:00.000Z",
+        "voteCount": 3,
+        "content": "It's \nA) Create a plug-in that uses a secure connection\nReason: As you can only choose one option, Create Az-Function and Async Webhook don't work as standalone. Power Automate is not an option as it is a \"instant\" trigger. We are looking for a automation as describe in the question. Only Plug-in is viable.\nB) Register a step for the program create message step by using the Plug-in Registration Tool\nReason: As we choose Plug-in in A) we have only two options left that concern Plug-ins. As others commented, there is no pre-image for create messages. So it has to be the other option."
+      },
+      {
+        "date": "2023-10-02T15:03:00.000Z",
+        "voteCount": 1,
+        "content": "Power Automate for both"
+      },
+      {
+        "date": "2023-12-15T15:29:00.000Z",
+        "voteCount": 1,
+        "content": "I don't think you can bypass TLS 1.0 issue with Power Automate"
+      },
+      {
+        "date": "2023-08-06T18:25:00.000Z",
+        "voteCount": 4,
+        "content": "why not use Power Automate?"
+      },
+      {
+        "date": "2023-09-25T01:01:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, but the option for the PA in the second question does not seams good to me. The only variant here is suitable for both answers (making a synergy is a plugin + step).\nAs for me - I think the best variant is to use Azure Function + WebHook + AsyncStep - but there are no such options except the first one. Therefore:\nPlugin + Step"
+      },
+      {
+        "date": "2023-12-15T15:30:00.000Z",
+        "voteCount": 1,
+        "content": "I don't think you can bypass TLS 1.0 issue with Power Automate"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109762-exam-pl-400-topic-7-question-22-discussion/",
+    "body": "The communication department for a company plans to add a publicly accessible survey page to the company\u2019s public website.<br><br>You must add the new survey page to the company\u2019s public website and capture data from the page to a Microsoft Dataverse environment.<br><br>Explicit user credentials must not be required to write survey data to Dataverse.<br><br>You need to implement authentication.<br><br>Which authentication mechanism should you implement?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClaims based",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft 365",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure guest account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClient secret\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-04-02T23:46:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct answer"
+      },
+      {
+        "date": "2023-11-01T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "D is the correct answer \nThe client secret is typically used for server-to-server communication and can provide the necessary authentication and authorization without involving explicit user credentials."
+      },
+      {
+        "date": "2023-09-24T06:26:00.000Z",
+        "voteCount": 2,
+        "content": "I guess is Client Secret"
+      },
+      {
+        "date": "2023-09-25T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "Agree - it is said explicit user credentials must not be required. The only way to provide it here is to sync on the s-to-s level (on the backend) using client secret for the Dataverse app client."
+      },
+      {
+        "date": "2023-09-05T01:55:00.000Z",
+        "voteCount": 1,
+        "content": "A guest account is also a explicit credential in my opinion? So it can't be the solution."
+      },
+      {
+        "date": "2023-06-17T05:22:00.000Z",
+        "voteCount": 3,
+        "content": "To me Client Secret looks correct"
+      },
+      {
+        "date": "2023-05-28T12:56:00.000Z",
+        "voteCount": 2,
+        "content": "I think is client secret the correct answer"
+      },
+      {
+        "date": "2023-05-20T01:26:00.000Z",
+        "voteCount": 4,
+        "content": "i think is client secret, becouse of no explicit credentials"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109481-exam-pl-400-topic-7-question-23-discussion/",
+    "body": "A company has a model-driven app that uses Microsoft Dataverse.<br><br>The company requires a web application that retrieves information from the model-driven app. The requirements for the web application include:<br><br>\u2022\tMust be a single-page web application that uses the Web API.<br>\u2022\tMust display the correct company information.<br>\u2022\tMust authenticate using OAuth without additional verification.<br><br>You need to configure the web application.<br><br>Which two methods should you use?<br><br>Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNTLM authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tKerberos Authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Azure Active Directory Authentication Libraries (ADAL)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Authentication Library (MSAL)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmultifactor authentication"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-04T20:37:00.000Z",
+        "voteCount": 1,
+        "content": "Both ADAL and MSAL are libraries provided by Microsoft for enabling OAuth authentication in applications. ADAL (Azure Active Directory Authentication Libraries) and MSAL (Microsoft Authentication Library) are used for implementing OAuth authentication flows with Azure Active Directory (Azure AD). They provide capabilities for securely obtaining tokens from Azure AD to authenticate users and enable access to protected resources like the Web API provided by the model-driven app."
+      },
+      {
+        "date": "2023-11-02T02:32:00.000Z",
+        "voteCount": 3,
+        "content": "ADAL has been decommissioned as of June 2023"
+      },
+      {
+        "date": "2023-07-13T19:23:00.000Z",
+        "voteCount": 4,
+        "content": "Looks correct to me."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/131115-exam-pl-400-topic-7-question-24-discussion/",
+    "body": "DRAG DROP<br> -<br><br><br>Case study<br> -<br><br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br><br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br><br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br><br>To start the case study<br> -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question.<br><br><br>Background<br> -<br><br>Northwind Traders uses Microsoft Dynamics 365 Sales to manage its sales process. To better understand its customers, Northwind Traders invests in a team of researchers who gather data from multiple sources. The company stores the data it collects in a Microsoft Azure SQL Database. The company plans to use the data to enrich account records and make the sales team more effective.<br><br><br>Current environment<br> -<br><br><br>Environment<br> -<br><br>\u2022\tThe company has three Microsoft Power Platform environments with Dynamics 365 Sales installed. The environments are named development, test, and production.<br>\u2022\tEach environment has an application user that can be used for integrations.<br>\u2022\tThe company must use solutions to perform all customization and configuration deployment.<br><br><br>Data<br> -<br><br>\u2022\tResearchers are responsible for creating account records.<br>\u2022\tResearchers have permissions on the Account table to create records, read all records, and update records they own.<br>\u2022\tA synchronous plug-in runs when an account record is created and could reassign the record to a different user.<br>\u2022\tUsers must access data as themselves to enforce security and audit changes.<br>\u2022\tA column named new_dataid is added to the Account table. The column uniquely identifies which data it should receive.<br>\u2022\tResearchers have researched only the top 20 percent of account records.<br><br><br>Web API<br> -<br><br>\u2022\tThe company creates an Azure Function to run a RESTful .NET Web API.<br>\u2022\tData can be retrieved by placing a GET request to the URL https://dataservice-[ENVIRONMENTNAME].azurewebsites.net/enrich/[DATAID].<br>\u2022\t[ENVIRONMENTNAME] is the name of the Microsoft Power Platform environment that requests the data.<br>\u2022\t[DATAID] is the new_dataid column in the Account table.<br>\u2022\tThe Web API response will return a 200 response plus data if the DataId is found. Otherwise, a 404 response is returned.<br>\u2022\tDevelopers plan to create a custom connector from the Web API to make it accessible from Microsoft Power Platform.<br><br><br>Requirements<br> -<br><br><br>Custom connector<br> -<br><br>\u2022\tThe Web API definition used to create the custom connector must be generated based on a low-code technology.<br>\u2022\tThe URL used by the custom connector must incorporate the current environment name without hardcoding values.<br>\u2022\tErrors generated by the custom connector must not cause downstream processes to fail.<br>\u2022\tText descriptions and field placeholder text that describe the use of the custom connector must appear for non-developers.<br><br><br>Process<br> -<br><br>\u2022\tAll account records must be updated with data from the Web API once automatically.<br>\u2022\tOnly account records that contain a DataId should be updated by the Web API.<br>\u2022\tResearchers must create Power Automate flows to specify data analysis priority.<br>\u2022\tThe researchers require a process that repurposes a set of identical steps of parameterized Microsoft Dataverse queries from a Power Automate flow for use in other flows that have different parameters. The researchers want to avoid recreating the steps manually each time they create a flow to save time and avoid errors.<br><br><br>Issues<br> -<br><br>\u2022\tA tester attempts to connect to the production instance of the Web API with a DataId that should return data. The tester receives an error stating that the remote name could not be resolved.<br>\u2022\tA missing component causes an error to occur when importing the solution that contains the Power Automate flow to update account records in a test environment.<br><br><br>You need to configure a Power Automate flow to update account records by using the response from the Web API.<br><br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/pl-400/image447.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image448.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-09T03:32:00.000Z",
+        "voteCount": 6,
+        "content": "Its asking to configure the flow to update the account record, so\n1) Add an initialise variable step and set the value to the response code from the custom connector\n2) Add a condition step to check if the variable value equals 200\n3) Add a dataverse update record step to update the Dataverse account record"
+      },
+      {
+        "date": "2024-04-02T23:50:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is wrong in step 2 and 3,\nShould be\n- Add intialize variable and set value response from custom connector\n- Check 200\n- Add dataversse update record"
+      },
+      {
+        "date": "2024-01-13T09:28:00.000Z",
+        "voteCount": 3,
+        "content": "1. Check if response code is 200\n2. Terminate if check fails\n3. Add action to update Dataverse"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/121527-exam-pl-400-topic-7-question-25-discussion/",
+    "body": "The communication department for a company plans to add a publicly accessible survey page to the company\u2019s public website.<br><br>You must add the new survey page to the company\u2019s public website and capture data from the page to a Microsoft Dataverse environment.<br><br>Explicit user credentials must not be required to write survey data to Dataverse.<br><br>You need to implement authentication.<br><br>Which authentication mechanism should you implement?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure AD Conditional Access",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure guest account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tX.509 certificate",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOAuth 2.0\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-04T20:42:00.000Z",
+        "voteCount": 1,
+        "content": "By implementing OAuth 2.0, the survey page on the company's public website can authenticate with Microsoft Dataverse using access tokens, allowing it to securely write survey data without needing explicit user credentials."
+      },
+      {
+        "date": "2024-04-02T23:51:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2023-11-18T09:14:00.000Z",
+        "voteCount": 2,
+        "content": "D is the Answer"
+      },
+      {
+        "date": "2023-10-28T19:14:00.000Z",
+        "voteCount": 3,
+        "content": "I think it should be D"
+      },
+      {
+        "date": "2023-10-02T15:25:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is\n D"
+      },
+      {
+        "date": "2023-09-26T23:09:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127146-exam-pl-400-topic-7-question-26-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You develop the following code as part of a plug-in that handles the Create message of the Account table.<br><br><img src=\"https://img.examtopics.com/pl-400/image453.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/pl-400/image454.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/pl-400/image455.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-25T01:56:00.000Z",
+        "voteCount": 3,
+        "content": "Correct. Agree."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127830-exam-pl-400-topic-7-question-27-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company requires custom validation when users save form records that use a synchronous plug-in.<br><br>If validation fails, a message that explains how to resolve the issue must be displayed on the form to the user.<br><br>You need to implement the custom validation.<br><br>Solution: Throw an InvalidPluginExecutionException with the message.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-04T20:45:00.000Z",
+        "voteCount": 1,
+        "content": "This option ensures that if validation fails, an exception is thrown with a descriptive message, which will be displayed to the user directly on the form. It provides a clear indication of what went wrong and how to resolve the issue, enhancing the user experience and aiding in resolving validation errors effectively."
+      },
+      {
+        "date": "2024-04-03T00:18:00.000Z",
+        "voteCount": 1,
+        "content": "A, I've tested it in Plugin code"
+      },
+      {
+        "date": "2023-12-25T12:11:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is A"
+      },
+      {
+        "date": "2023-12-04T15:34:00.000Z",
+        "voteCount": 1,
+        "content": "The Correct Answer Should be A. Yes\nTo achieve the goal of displaying a user-friendly message on the form when validation fails, you should consider using the OrganizationServiceContext.ThrowInvalidPluginException method with a custom error message."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/134375-exam-pl-400-topic-7-question-28-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company requires custom validation when users save form records that use a synchronous plug-in.<br><br>If validation fails, a message that explains how to resolve the issue must be displayed on the form to the user.<br><br>You need to implement the custom validation.<br><br>Solution: Include the message in the output parameters of the plug-in.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-12T11:56:00.000Z",
+        "voteCount": 1,
+        "content": "ChatGTP says it's No"
+      },
+      {
+        "date": "2024-02-22T08:35:00.000Z",
+        "voteCount": 2,
+        "content": "OutputParameter is the output of the CDS operation, not output to the form. Besides OutputParameter is only available to plugins registered to PostOperation step. \n\nhttps://learn.microsoft.com/en-us/power-apps/developer/data-platform/understand-the-data-context"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/142415-exam-pl-400-topic-7-question-29-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company requires custom validation when users save form records that use a synchronous plug-in.<br><br>If validation fails, a message that explains how to resolve the issue must be displayed on the form to the user.<br><br>You need to implement the custom validation.<br><br>Solution: Use the tracing service to log the message.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-12T11:57:00.000Z",
+        "voteCount": 2,
+        "content": "ChatGTP says it's No"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127782-exam-pl-400-topic-7-question-30-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company requires custom validation when users save form records that use a synchronous plug-in.<br><br>If validation fails, a message that explains how to resolve the issue must be displayed on the form to the user.<br><br>You need to implement the custom validation.<br><br>Solution: Throw a custom exception with the message.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-17T02:06:00.000Z",
+        "voteCount": 1,
+        "content": "Original answer is correct\nSolution: Throw an InvalidPluginExecutionException with the message.\nTo show a custom message you should use InvalidPluginExecutionException no a Custom Exception"
+      },
+      {
+        "date": "2023-12-03T17:11:00.000Z",
+        "voteCount": 3,
+        "content": "The Correct Answer Should be A. Yes\nTo achieve the goal of displaying a user-friendly message on the form when validation fails, you should consider using the OrganizationServiceContext.ThrowInvalidPluginException method with a custom error message."
+      },
+      {
+        "date": "2024-02-05T16:16:00.000Z",
+        "voteCount": 3,
+        "content": "I think the original answer is correct, because we need a custom message not a custom exception"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/134476-exam-pl-400-topic-7-question-31-discussion/",
+    "body": "You develop code that will perform an update to existing records in a table.<br><br>The update must occur based on the alternate key configured for the table.<br><br>You need to perform the update.<br><br>Which two requests should you use? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdateRequest",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpsertRequest",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreateRequest",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRetrieveRequest"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-23T15:34:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is UpdateRequest &amp; UpgradeRequest."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "7"
+  }
+]

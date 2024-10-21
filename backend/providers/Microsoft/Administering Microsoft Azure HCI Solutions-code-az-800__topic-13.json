@@ -1,0 +1,207 @@
+[
+  {
+    "topic": 13,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75396-exam-az-800-topic-13-question-1-discussion/",
+    "body": "You need to meet the technical requirements for VM3.<br>On which volumes can you enable Data Deduplication?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tC and D only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tD only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tC, D, E, and F",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tD and E only\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tD, E, and F only"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 21,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-05-12T15:09:00.000Z",
+        "voteCount": 17,
+        "content": "Wait! \nReFS - Data Deduplication is supported starting with Windows Server 2019.\n\nFrom: https://docs.microsoft.com/en-us/windows-server/storage/data-deduplication/interop\n\nD E"
+      },
+      {
+        "date": "2022-05-12T15:14:00.000Z",
+        "voteCount": 9,
+        "content": "More info why is D)     D and E only\n\nYou can't include C (Boot drive)\n\nhttps://docs.microsoft.com/en-us/previous-versions/windows/desktop/dedup/about-data-deduplication\n\nDeduplication is not supported on:\n\nSystem or boot volumes\nRemote mapped or remote mounted drives\nCluster shared volume file system (CSVFS) for non-VDI workloads or any workloads on Windows Server 2012\nFiles approaching or larger than 1 TB in size.\nVolumes approaching or larger than 64 TB in size."
+      },
+      {
+        "date": "2023-07-31T14:00:00.000Z",
+        "voteCount": 3,
+        "content": "Got this question on 7/31/23. Didn't have the option to choose D and E only. I even left feedback that ReFS now supports Data Deduplication at the end of the exam. So, I just chose D only."
+      },
+      {
+        "date": "2024-07-19T11:32:00.000Z",
+        "voteCount": 1,
+        "content": "Answer D. ''Data Deduplication is fully supported on Storage Spaces Direct with ReFS or NTFS-formatted volumes (mirror or parity). ReFS-formatted volumes are supported starting with Windows Server 2019. Deduplication is not supported on volumes with multiple tiers.''"
+      },
+      {
+        "date": "2024-05-08T13:56:00.000Z",
+        "voteCount": 2,
+        "content": "Data Dedup is supported starting with Server 2019 but how do we know Server 2019 is being used here? Am I missing something?"
+      },
+      {
+        "date": "2023-05-06T13:17:00.000Z",
+        "voteCount": 1,
+        "content": "Tricky question:\nIntroduction blog post stands that OS is not supported: https://techcommunity.microsoft.com/t5/storage-at-microsoft/introduction-to-data-deduplication-in-windows-server-2012/ba-p/424257\n\nDocumentation for 2012 R2 stands that is not supported: https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831700(v=ws.11)?redirectedfrom=MSDN#BKMK_Step1\n\nNew documentation \"Data Deduplication interoperability\" doesn't mention anything about the OS drive: https://learn.microsoft.com/en-us/windows-server/storage/data-deduplication/interop\n\nChatGPT says that it is possible but not recommended. \n\nD and E"
+      },
+      {
+        "date": "2023-04-01T00:27:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/windows-server/storage/data-deduplication/interop\n\nData Deduplication is fully supported on Storage Spaces Direct with ReFS or NTFS-formatted volumes\n\nhttps://learn.microsoft.com/en-us/previous-versions/windows/desktop/dedup/about-data-deduplication\n\nDeduplication is not supported on:\n\nSystem or boot volumes\n\nD is the answer"
+      },
+      {
+        "date": "2022-05-26T11:44:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/windows-server/storage/refs/refs-overview\nFunctionality\nThe following features are available with ReFS and NTFS:\nFeature \t                       ReFS \tNTFS\nBitLocker encryption \tYes \tYes\nData Deduplication \tYes1 \tYes\nnote 1 Available on Windows Server, version 1709 and later, Windows Server 2019 (1809) LTSC or later."
+      },
+      {
+        "date": "2022-05-18T05:36:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A. \nC &amp; D Only"
+      },
+      {
+        "date": "2022-06-05T09:47:00.000Z",
+        "voteCount": 9,
+        "content": "Wrong. You cannot dedup the OS volume, only data volume. Thats why its called DataDedup!\nSo many of your answers are incorrect."
+      },
+      {
+        "date": "2022-07-08T11:49:00.000Z",
+        "voteCount": 2,
+        "content": "Data deduplication is not supported on boot or system drives:\nDeduplication was built for NTFS data volumes and it does not support boot or system drives"
+      },
+      {
+        "date": "2022-08-04T04:01:00.000Z",
+        "voteCount": 1,
+        "content": "The kind of guys that show up at interviews with a Cert but cannot for their life answer a few simple questions about the area."
+      },
+      {
+        "date": "2022-05-11T07:09:00.000Z",
+        "voteCount": 1,
+        "content": "C and D because both of filesystems are NTFS"
+      },
+      {
+        "date": "2022-05-10T01:08:00.000Z",
+        "voteCount": 3,
+        "content": "C and D is the correct answer because both of filesystem are NTFS"
+      },
+      {
+        "date": "2022-06-02T09:02:00.000Z",
+        "voteCount": 6,
+        "content": "Wrong. You cannot dedup the OS volume, only data volume. Thats why its called DataDedup!"
+      },
+      {
+        "date": "2022-05-11T05:10:00.000Z",
+        "voteCount": 2,
+        "content": "Agree!\nhttps://docs.microsoft.com/en-us/windows-server/storage/data-deduplication/understand\n\nFile system\tThe file system is the software and on-disk data structure that the operating system uses to store files on storage media. Data Deduplication is supported on NTFS formatted volumes."
+      },
+      {
+        "date": "2023-10-09T15:09:00.000Z",
+        "voteCount": 2,
+        "content": "C is boot vol. You cannot dedupe the boot vol. Common guys. Ez question."
+      }
+    ],
+    "examNameCode": "az-800",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/82713-exam-az-800-topic-13-question-2-discussion/",
+    "body": "HOTSPOT -<br>For each of the following statements, select Yes if the statement is true. Otherwise. select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04225/0013500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04225/0013500002.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-18T12:45:00.000Z",
+        "voteCount": 24,
+        "content": "I am confused... I thought that the only place where you set the password policies is the default domain policy. And is applicable for all users. If you want to refine the password policies you can use Fine Grained Password policy. This should be enabled for specific users and groups. (NO OU's)\n\nSo that means the answers should be: NYN\n\nSo"
+      },
+      {
+        "date": "2022-11-06T20:23:00.000Z",
+        "voteCount": 6,
+        "content": "You're right.\n\nThe password settings in a group policy object (GPO) are applied at the domain level only. If you have multiple organizational units (OU or departments) or groups, you cannot enforce password settings at the OU or group level. That\u2019s why the fine-grained policy comes in.\n\nhttps://blogs.manageengine.com/corporate/general/2017/01/13/microsoft-password-policies-gpo-based-vs-fine-grained-policies.html"
+      },
+      {
+        "date": "2022-12-21T12:45:00.000Z",
+        "voteCount": 6,
+        "content": "i think you're right!\nPassword policy can only be changed in the efault domain policy, which needs to apply on the DC with the PDC emulator role\nhttp://woshub.com/password-policy-active-directory/"
+      },
+      {
+        "date": "2022-09-22T09:40:00.000Z",
+        "voteCount": 8,
+        "content": "Box1: No - Admin1 is a domain user, thus only password settings which are applied on DCs will work in this case. From given GPOs only Default Domain Policy are applied on DCs, so minimum passwords length = 10 -&gt; Admin1 does not have to use longer password\nBox2: Yes - User1 is a domain user too so we have same situation as above: minimum passwords length = 10 -&gt; User1 must use a password that has at least 10 characters\nBox3: Password settings for local users on Server1 are comming from GPO which is applied to Server1. Server1 is in OU=Member Servers. OU is linked with GPO2 thus local users on Server1 must use a password that has at least 8 characters"
+      },
+      {
+        "date": "2022-09-22T09:40:00.000Z",
+        "voteCount": 5,
+        "content": "I forgot to add: Box3: Yes"
+      },
+      {
+        "date": "2022-09-22T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "Maybe it's N Y N \nI agree with Admin1 &amp; User1, but Server1 is being promoted to a DC so it will probably get moved to the Domain Controllers OU, and no longer get GPO from Member Servers"
+      },
+      {
+        "date": "2022-11-06T20:01:00.000Z",
+        "voteCount": 2,
+        "content": "It's a trick. If you create a new user account before server1 is promoted, GPO2 applies.\nAnd you cannot create a \"local\" user after server1 is promoted.\nSo I prefer \"Yes.\""
+      },
+      {
+        "date": "2022-11-06T20:24:00.000Z",
+        "voteCount": 1,
+        "content": "Correction: NYN. not because Server1 is being promoted to a DC.\n\nThe password settings in a group policy object (GPO) are applied at the domain level only. If you have multiple organizational units (OU or departments) or groups, you cannot enforce password settings at the OU or group level. That\u2019s why the fine-grained policy comes in.\n\nhttps://blogs.manageengine.com/corporate/general/2017/01/13/microsoft-password-policies-gpo-based-vs-fine-grained-policies.html"
+      },
+      {
+        "date": "2023-01-09T04:27:00.000Z",
+        "voteCount": 7,
+        "content": "Basic stuff - GPO's are applied in the order Local, Site, Domain, OU. Local policy password length defaults to 8, but this is irrelevant because Server1 is in the domain, so it gets Default Domain policy.\nPoint 1 - password settings for anything that's in a domain can only be set in the Default Domain Policy. Trying to set different lengths at a lower level is a nice idea but simply does not work. Default Domain Policy states 10 character passwords, so Admin1/User1 get that setting.\nPoint 2 - if there's a need for (say) admins to have longer passwords, you need fine-grained password policies, as others here have pointed out. This is the only way!\nSo N, Y, N."
+      },
+      {
+        "date": "2024-08-18T23:39:00.000Z",
+        "voteCount": 1,
+        "content": "Had this on my exam recently."
+      },
+      {
+        "date": "2023-04-01T00:33:00.000Z",
+        "voteCount": 3,
+        "content": "You can only have one password policy in AD and that is the default domain policy\n\nhttps://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-\n\nYou can use fine-grained password policies to specify multiple password policies within a single domain and apply different restrictions for password and account lockout policies to different sets of users in a domain\n\nAnswer is\nNo\nYes\nNo"
+      },
+      {
+        "date": "2023-03-11T03:17:00.000Z",
+        "voteCount": 2,
+        "content": "NYN\nYou only can have more than 1 policy for password if you are using Policy Granular, so if you have 1 policy for password at domain level, the others doesn't do nothing.\nSo 1 and 2 question is No.The 3 question is about local user, so is N"
+      },
+      {
+        "date": "2023-02-03T07:58:00.000Z",
+        "voteCount": 2,
+        "content": "3. should be Yes. The GPO won't apply to Domain Users but it will apply to Local Users and that's what the question refers to."
+      },
+      {
+        "date": "2023-01-31T07:57:00.000Z",
+        "voteCount": 5,
+        "content": "Yes - Admin1 in OU1 = GPO1 = 14 (GPO1 overwrites Default Domain Policy)\nYes - NO GPO1 or GPO2 = Default Domain Policy = 10\nNo - New local User - Domain Policies not working - Need Local Policy = No password policy"
+      },
+      {
+        "date": "2022-11-06T20:28:00.000Z",
+        "voteCount": 5,
+        "content": "Wow this is all mixed up. -- ok simple talk - there is some basic information here we cant change - Admin1 and User 1 both have Password policies set in stone- so it Y and Y for the first 2. Only Default Password policy is applied to DC? LOL Admin1 is a domain user? LOL - Ok so any way Yes , yes and the last one would be Y as well accept for the fact that that server is becoming a DC -- so my bet is this is the final : \n\nY\nY \nN\nThe last one is up to your interpretation - its in the member servers ou unless it becomes a DC- then it wont be and that GPO would not apply. \n\nGood luck all"
+      }
+    ],
+    "examNameCode": "az-800",
+    "topicNumber": "13"
+  }
+]

@@ -1,0 +1,110 @@
+[
+  {
+    "topic": 13,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/28067-exam-dp-201-topic-13-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to design the authentication and authorization methods for sensors.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0023900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0024000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Sensor data must be stored in a Cosmos DB named treydata in a collection named SensorData<br>Sensors must have permission only to add items to the SensorData collection<br><br>Box 1: Resource Token -<br>Resource tokens provide access to the application resources within a Cosmos DB database.<br>Enable clients to read, write, and delete resources in the Cosmos DB account according to the permissions they've been granted.<br><br>Box 2: Cosmos DB user -<br>You can use a resource token (by creating Cosmos DB users and permissions) when you want to provide access to resources in your Cosmos DB account to a client that cannot be trusted with the master key.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-11T04:19:00.000Z",
+        "voteCount": 12,
+        "content": "I initially thought why not 'Azure managed identity', but realized that sensor is not an Azure service."
+      },
+      {
+        "date": "2020-12-10T04:19:00.000Z",
+        "voteCount": 7,
+        "content": "Answer is correct and provided link validates it"
+      },
+      {
+        "date": "2021-06-12T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-dev-guide-sas?tabs=node#create-a-token-service-to-integrate-existing-devices\n\nYou can use the IoT Hub identity registry to configure per-device/module security credentials and access control using tokens."
+      },
+      {
+        "date": "2021-06-06T07:13:00.000Z",
+        "voteCount": 2,
+        "content": "would sensors talk directly to cosmos db? I think Sensors should communicate to an IOT hub or event hub and then out put should be directed to cosmos db via analytic job."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18185-exam-dp-201-topic-13-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure that security policies for the unauthorized detection system are met.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0024200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0024300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Blob storage -<br>Configure blob storage for audit logs.<br>Scenario: Unauthorized usage of the Planning Assistance data must be detected as quickly as possible. Unauthorized usage is determined by looking for an unusual pattern of usage.<br>Data used for Planning Assistance must be stored in a sharded Azure SQL Database.<br><br>Box 2:  Web Apps -<br>SQL Advanced Threat Protection (ATP) is to be used.<br>One of Azure's most popular service is App Service which enables customers to build and host web applications in the programming language of their choice without managing infrastructure. App Service offers auto-scaling and high availability, supports both Windows and Linux. It also supports automated deployments from GitHub, Visual Studio Team Services or any Git repository. At RSA, we announced that Azure Security Center leverages the scale of the cloud to identify attacks targeting App Service applications.<br>Reference:<br>https://azure.microsoft.com/sv-se/blog/azure-security-center-can-identify-attacks-targeting-azure-app-service-applications/<br>Design for data security and compliance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-02T08:42:00.000Z",
+        "voteCount": 35,
+        "content": "Now Finally got it:\nTo make it \"as quick as possible\"  and \"minimize costs\" you  need to:\n1. Output the data to blob storage\n2. Deploy Function App  with Blob trigger"
+      },
+      {
+        "date": "2020-06-09T17:02:00.000Z",
+        "voteCount": 2,
+        "content": "Why Function App not Web App as mentioned in the explanation ?"
+      },
+      {
+        "date": "2020-06-11T08:13:00.000Z",
+        "voteCount": 3,
+        "content": "Source: https://docs.microsoft.com/en-us/azure/azure-sql/database/advanced-data-security \n\nAccording to this, you can use ATP or, and I quote, \"For a full investigation experience, it is recommended to enable auditing, which writes database events to an audit log in your Azure storage account. To enable auditing, see Auditing for Azure SQL Database and Azure Synapse or Auditing for Azure SQL Managed Instance.\"\n\nBased on this, I fully agree that we should use Blob storage to minimize costs and use a Function App with a Blob Trigger to analyse the logs and to make it as fast as possible."
+      },
+      {
+        "date": "2020-10-27T01:35:00.000Z",
+        "voteCount": 1,
+        "content": "Audit logs are written to append blobs, meaning the creation of logs happens in some long intervals, every day for instance. So Function App will not be triggered until the next day, so this solution is not very fast. I believe using Event Hub makes it more quickly. But regarding the detection app service, I couldn't find any relevant architecture to monitor SQL DB using app services. So I think this question is either old, or faulty."
+      },
+      {
+        "date": "2020-09-20T19:40:00.000Z",
+        "voteCount": 1,
+        "content": "As per Microsoft, if your function app is on the Consumption plan (which is assumed based on the \"minimize costs\" requirement), there can be up to a 10-minute delay in processing new blobs (via a blob trigger) if a function app has gone idle. This doesn't meet the \"quickly as possible\" requirement. Therefore, use Event Hub for immediate processing."
+      },
+      {
+        "date": "2021-01-14T12:18:00.000Z",
+        "voteCount": 1,
+        "content": "If the answer is correct about the web app, I can only say that the case study does not contain enough information. Planning Assistance data will be stored in a database, but nowhere is it mentioned that the front end will be created via App Service..."
+      },
+      {
+        "date": "2020-12-10T04:30:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview:\n\"Auditing for Azure SQL Database and Azure Synapse Analytics tracks database events and writes them to an audit log in your Azure storage account, Log Analytics workspace, or Event Hubs.\"\nI would pick event hubs since you want to detect unauthorized usage fast\nAs for app service, function app is the best answer out of the 3"
+      },
+      {
+        "date": "2020-09-20T19:37:00.000Z",
+        "voteCount": 3,
+        "content": "Case study requirement: \"Unauthorized usage of the Planning Assistance data must be detected as quickly as possible.\"\n\nAudit log destination = Event Hub\nDetection app service = Function App\n\nAs per Microsoft, if your function app is on the Consumption plan (which is assumed based on the case study requirement regarding minimizing costs), there can be up to a 10-minute delay in processing new blobs (via a blob trigger) if a function app has gone idle. Hence use Event Hub for immediate processing."
+      },
+      {
+        "date": "2020-06-10T15:49:00.000Z",
+        "voteCount": 2,
+        "content": "These options so confusing for Detection Service,  how is Web App a detection service? is ATP"
+      },
+      {
+        "date": "2020-04-10T12:57:00.000Z",
+        "voteCount": 1,
+        "content": "Why it is NOT using Event Hub which can steaming audit logs and then the unauthorized usage can be detected as quick as possible? The requirement is \"Unauthorized usage of the Planning Assistance data must be detected as quickly as possible.\""
+      },
+      {
+        "date": "2020-04-21T12:58:00.000Z",
+        "voteCount": 3,
+        "content": "I think the question is only asking for the destination of the logs. Event Hub is usually used for data ingestion or processing."
+      },
+      {
+        "date": "2020-05-02T08:36:00.000Z",
+        "voteCount": 1,
+        "content": "It's OK to use both - Event Hub &amp; Blob Storage - either by SQL Audit or ATP. So I don't get this question."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "13"
+  }
+]

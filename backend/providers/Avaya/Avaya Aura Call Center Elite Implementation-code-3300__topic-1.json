@@ -1,0 +1,151 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/avaya/view/33222-exam-3300-topic-1-question-2-discussion/",
+    "body": "A customer with Avaya Aura Contact Center has created a loop in a script application with the following parameters:<br>1. While the caller is in the loop, the customer wants an announcement to play every thirty seconds, and the queued status of the call and the In-service status of the skillset must be evaluated<br>2. If the call is not queued, and if the skillset is out of service, the call will be sent to an out of service announcement<br>3. If the call is not queued and the skillset is in service. It must be re-queued.<br>What is the proper script syntax to accomplish this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSection wait_loop IF NOT QUEUED THEN IF OUT OF SERVICE SKILLSET automotive THEN GIVE RAN out_of_service_ran_gv DISCONNECT END IF END IF GIVE RAN agts_stlll_busy_ran_gv WAIT 30 EXECTUTE wait_loop",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSection wait_loop IF NOT QUEUED THEN IF NOT OUT OF SERVICE automotive THEN QUEUE TO SKILLSET automotive WAIT 2 ELSE GIVE RAN out_of_service_ran_gv DISCONNECT END IF END IF GIVE RAN agts_still_busy_ran_gv WAIT 30 EXECTUTE wait_loop",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSection wait_loop IF QUEUED AND IF OUT OF SERVICE automotive THEN GIVE RAN out_of_service_ran_gv DISCONNECT END IF END IF GIVE RAN agts_still_busy_ran_gv WAIT 30 EXECTUTE wait_loop",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSection wait_loop IF NOT QUEUED AND IF NOT OUT OF SERVICE SKILLSET automotive THEN GIVE RAN out_of_service_ran_gv DISCONNECT END IF END IF GIVE RAN agts_still_ran_gv WAIT 30"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-12T23:32:00.000Z",
+        "voteCount": 1,
+        "content": "I guess it\u2019s B"
+      },
+      {
+        "date": "2020-09-29T10:45:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer is B."
+      }
+    ],
+    "examNameCode": "3300",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/avaya/view/26518-exam-3300-topic-1-question-3-discussion/",
+    "body": "A customer is using the intrinsic Call Rate in &amp; script. For what Information is the system looking when the Call Rate Intrinsic is used?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe number of contacts that entered the system in the last 10 minutes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe total number of active calls in the system",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe number of calls that entered the system in the last 10 minutes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe number of calls answered in the preceding 10 minutes"
+    ],
+    "answer": "A",
+    "answerDescription": "Avaya Aura ConfigurationOrchestration Designer Application Development page 435",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-23T12:02:00.000Z",
+        "voteCount": 1,
+        "content": "the answer is C page 478."
+      }
+    ],
+    "examNameCode": "3300",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/avaya/view/109551-exam-3300-topic-1-question-10-discussion/",
+    "body": "A supervisor with Avaya Aura Contact Center would like to create a custom Application Display   The data fields available are cumulative, fixed, and instantaneous.<br>What is an example of a cumulative data field?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication Name",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAverage Answered Delay",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCalls Waiting",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tService Level Threshold"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-17T07:49:00.000Z",
+        "voteCount": 1,
+        "content": "In other test exams the right answer is Average Answered Delay. where did you find that this is actually the right one?"
+      }
+    ],
+    "examNameCode": "3300",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/avaya/view/29268-exam-3300-topic-1-question-37-discussion/",
+    "body": "A customer with an Avaya Aura Contact Center has been notified that due to Inclement weather the contact center will not be opening today. The customer would like to remotely implement an announcement to explain the reason for the unscheduled closure and is going to use a Boolean variable to accomplish this.<br>Which two statements regarding a Boolean variable are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA Boolean variable is a variable of the type TRUE/FALSE.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA Boolean variable is a variable of the type ON/OFF.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA Boolean variable can be used on a Master Script, a Primary Script or a Secondary Script.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA Boolean variable cannot be used in a loop."
+    ],
+    "answer": "A",
+    "answerDescription": "ConfigurationOrchestration Designer Application Development Page 257",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-22T07:02:00.000Z",
+        "voteCount": 1,
+        "content": "A and c"
+      }
+    ],
+    "examNameCode": "3300",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/avaya/view/29270-exam-3300-topic-1-question-38-discussion/",
+    "body": "When more than one agent is available to receive a call, the agent with the highest priority In the skillset will receive the call. If more than one agent has the highest priority, the customer would like the call to be presented to the agent who has been idle the longest since their last Automatic Call Distribution/Control<br>Directory Number (ACD/CDN) call.<br>Where is this parameter configured?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHistorical Statistics  &gt;Parameters",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSkillset Definition &gt;Call Age Preference",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReal Time Statistics&gt;Agent Stat.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGlobal Setting &gt; Agent Order Preference"
+    ],
+    "answer": "D",
+    "answerDescription": "Page 132 Avaya Aura Contact Center AdministrationClient Administration",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-22T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is B, page 63 of the AACC student ebook."
+      }
+    ],
+    "examNameCode": "3300",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/avaya/view/30497-exam-3300-topic-1-question-39-discussion/",
+    "body": "The data in the exhibit are found In the Route Definition window under the Configuration component of Avaya Aura Contact Center.<br><img src=\"/assets/media/exam-media/01456/0002100001.png\" class=\"in-exam-image\"><br>Which two statements describe how the Name and Number fields are used? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe name must match a variable name In the Service Creation Environment.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe name must match a .wav file or a content group in the Avaya Media Server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe number must match a route created in the telephone system.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe route is used in scripting to reference a specific recording or music."
+    ],
+    "answer": "B",
+    "answerDescription": "Avaya Aura Contact Center AdministrationClient Administration page  127",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T08:40:00.000Z",
+        "voteCount": 1,
+        "content": "B and D pg 370 Avaya Aura\u00ae\n Configuration\u2014Orchestration Designer Application Development"
+      }
+    ],
+    "examNameCode": "3300",
+    "topicNumber": "1"
+  }
+]

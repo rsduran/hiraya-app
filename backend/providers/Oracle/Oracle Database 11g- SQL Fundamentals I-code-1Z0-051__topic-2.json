@@ -1,0 +1,51 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/oracle/view/7527-exam-1z0-051-topic-2-question-96-discussion/",
+    "body": "Examine the structure and data in the PRICE_LIST table:<br><br>Name Null Type -<br>----------------------<br>PROD_ID NOT NULL NUMBER(3)<br>PROD_PRICE VARCHAR2(10)<br><br>PROD_ID PROD_PRICE -<br>----------------------<br>100 $234.55<br>101 $6,509.75<br>102 $1,234<br>You plan to give a discount of 25% on the product price and need to display the discount amount in the same format as the PROD_PRICE.<br>Which SQL statement would give the required result?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT TO_CHAR(prod_price* .25,'$99,999.99')FROM PRICE_LIST;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT TO_CHAR(TO_NUMBER(prod_price)* .25,'$99,999.00')FROM PRICE_LIST;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT TO_CHAR(TO_NUMBER(prod_price,'$99,999.99')* .25,'$99,999.00') FROM PRICE_LIST;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT TO_NUMBER(TO_NUMBER(prod_price,'$99,999.99')* .25,'$99,999.00') FROM PRICE_LIST;"
+    ],
+    "answer": "B",
+    "answerDescription": "Use TO_NUMBER on the prod_price column to convert from char to number to be able to multiply it with 0.25. Then use the TO_CHAR function (with formatting'$99,999.00') to convert the number back to char.<br>Incorrect:<br>Not C: Use the formatting'$99,999.00' with the TO_CHAR function, not with the TO_NUMBER function.<br>Note:<br>* Using the TO_CHAR Function<br>The TO_CHAR function returns an item of data type VARCHAR2. When applied to items of type NUMBER, several formatting options are available. The syntax is as follows:<br>TO_CHAR(number1, [format], [nls_parameter]),<br>The number1 parameter is mandatory and must be a value that either is or can be implicitly converted into a number. The optional format parameter may be used to specify numeric formatting information like width, currency symbol, the position of a decimal point, and group (or thousands) separators and must be enclosed in single<br>* Syntax of Explicit Data Type Conversion<br><br>Functions -<br>TO_NUMBER(char1, [format mask], [nls_parameters]) = num1<br>TO_CHAR(num1, [format mask], [nls_parameters]) = char1<br>TO_DATE(char1, [format mask], [nls_parameters]) = date1<br>TO_CHAR(date1, [format mask], [nls_parameters]) = char1",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-10-31T04:40:00.000Z",
+        "voteCount": 1,
+        "content": "C should be correct, because Oracle can not implicit convert the '$' sign to number."
+      }
+    ],
+    "examNameCode": "1z0-051",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/oracle/view/14725-exam-1z0-051-topic-2-question-134-discussion/",
+    "body": "Which statement is true regarding transactions? (Choose all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA transaction can consist only of a set of DML and DDL statements.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA part or an entire transaction can be undone by using ROLLBACK command.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA transaction consists of a set of DML or DCL statements.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA part or an entire transaction can be made permanent with a COMMIT.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA transaction can consist of only a set of queries or DML or DDL statements."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-23T06:19:00.000Z",
+        "voteCount": 1,
+        "content": "B, D are correct"
+      }
+    ],
+    "examNameCode": "1z0-051",
+    "topicNumber": "2"
+  }
+]

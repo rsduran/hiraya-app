@@ -1,0 +1,393 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64618-exam-az-600-topic-4-question-1-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure Stack Hub integrated system that has syslog forwarding configured.<br>You need to remove syslog forwarding and the associated certificate.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03620/0006300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0006400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-integrate-security?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-06-24T15:57:00.000Z",
+        "voteCount": 1,
+        "content": "On the exam (06/24/2022) different format"
+      },
+      {
+        "date": "2022-02-01T13:53:00.000Z",
+        "voteCount": 3,
+        "content": "Correct \n\nConnect to PEP\nRun Set-SyslogServer -Remove\nRun Set-SyslogClient -RemoveCertificate\nConfiguring syslog forwarding requires access to the privileged endpoint (PEP). Two PowerShell cmdlets have been added to the PEP to configure the syslog forwarding:\n\nCopy\n### cmdlet to pass the syslog server information to the client and to configure the transport protocol, the encryption, and the authentication between the client and the server.\n\nSet-SyslogServer [-ServerName &lt;String&gt;] [-ServerPort &lt;UInt16&gt;] [-NoEncryption] [-SkipCertificateCheck] [-SkipCNCheck] [-UseUDP] [-Remove]\n\n### cmdlet to configure the certificate for the syslog client to authenticate with the server.\n\nSet-SyslogClient [-pfxBinary &lt;Byte[]&gt;] [-CertPassword &lt;SecureString&gt;] [-RemoveCertificate] [-OutputSeverity]\n\n\n\nhttps://docs.microsoft.com/en-gb/learn/modules/manage-system-health-azure-stack-hub/4-monitor-system-health-syslog-server"
+      },
+      {
+        "date": "2021-10-24T10:41:00.000Z",
+        "voteCount": 1,
+        "content": "as said in https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-integrate-security?view=azs-2008 \nans provided is corrct"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64816-exam-az-600-topic-4-question-2-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure Stack Hub integrated system that is disconnected from the Internet.<br>You need to collect diagnostic logs, but do not have access to an SMB share.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03620/0006500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0006600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-get-azurestacklog?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-01T14:16:00.000Z",
+        "voteCount": 4,
+        "content": "Correct\nCreate storage account and container\nGenerate SAS key\nConnect to PEP\nRun Get-AzureStackLog\n\nhttps://docs.microsoft.com/en-gb/learn/modules/manage-system-health-azure-stack-hub/9-send-azure-stack-hub-diagnostic-logs-privileged-endpoint"
+      },
+      {
+        "date": "2021-10-26T09:42:00.000Z",
+        "voteCount": 2,
+        "content": "looks coreect as said in\nhttps://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-get-azurestacklog?view=azs-2008"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56184-exam-az-600-topic-4-question-3-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Stack Hub integrated system that has 10 user subscriptions. Each subscription contains approximately 50 virtual machines.<br>You are planning a backup and restore strategy for the integrated system.<br>You need to identify which type of backup to use to back up specific resources.<br>What should you identify for each resource? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03620/0006700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0006800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-backup-enable-backup-console?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-01T14:26:00.000Z",
+        "voteCount": 5,
+        "content": "Correct \n1 &amp; 3 are backed up using Infrastructure backup. \nhttps://docs.microsoft.com/en-gb/learn/modules/plan-configure-business-continuity-disaster-recovery-azure-stack-hub/3-recommend-strategy-infrastructure-backups\n\n2 is backed up by IaaS backup tools. \nhttps://docs.microsoft.com/en-us/azure-stack/user/azure-stack-manage-vm-protect?view=azs-2008"
+      },
+      {
+        "date": "2021-10-26T10:00:00.000Z",
+        "voteCount": 2,
+        "content": "looks correct\n1&amp;3, i.e. RBAC&amp;Quotas = InfraBackup, includes:\nInternal identity service and root certificate.\nUser plans, offers, subscriptions.\nCompute, storage, and network user quotas.\nUser Key Vault secrets.\nUser RBAC roles and policies.\nUser storage accounts.\n2.OS Disks = VM(IaaS)Backup"
+      },
+      {
+        "date": "2021-06-27T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "first answer seems wrong, should be: RBAC backup -&gt; ARM template export"
+      },
+      {
+        "date": "2021-10-31T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "no way,rbac is a part if infra backup"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64818-exam-az-600-topic-4-question-4-discussion/",
+    "body": "You have an Azure Stack Hub integrated system.<br>You perform infrastructure backups twice daily.<br>User workloads are protected by using Azure Site Recovery.<br>The architect of the user workloads is planning a business continuity disaster recovery (BCDR) strategy.<br>You need to recommend to the architect which resources to include in the BCDR strategy.<br>Which two resources should you recommend? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Key Vault secrets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tplans, quotas, and offers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trole-based access control (RBAC) permissions and roles",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuser subscriptions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Resource Manager templates for resources used by Azure Stack Hub virtual machines",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Site Recovery workloads"
+    ],
+    "answer": "EF",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/hybrid/azure-stack-vm-dr",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-01T14:35:00.000Z",
+        "voteCount": 3,
+        "content": "Correct - E &amp; F. \n\nInfrastructure backup: You can enable the Infrastructure Backup Service from the administrator portal so that Azure Stack Hub can generate infrastructure backups. Users will have their subscriptions restored, including:\nRole-based access permissions and roles.\nOriginal plans and offers.\nPreviously defined compute, storage, and network quotas.\nKey Vault secrets.\n\nEverything else should be under BCDR. \nhttps://docs.microsoft.com/en-gb/learn/modules/plan-configure-business-continuity-disaster-recovery-azure-stack-hub/2-recommend-business-continuity-disaster-recovery-strategy"
+      },
+      {
+        "date": "2021-10-26T10:04:00.000Z",
+        "voteCount": 2,
+        "content": "looks correct,as other items backuped by AZStack Infrastructure Backup Service"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64912-exam-az-600-topic-4-question-5-discussion/",
+    "body": "You have an Azure Stack Hub integrated system that was recently moved to a new datacenter and powered on.<br>You need to verify whether the infrastructure components are fully operational.<br>Which three actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Start-AzureStack cmdlet",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Test-AzureStack cmdlet",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnect to the privileged endpoint (PEP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnect to the administrator portal",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Get-AzureStackStampInformation cmdlet"
+    ],
+    "answer": "ABC",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-diagnostic-test?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-01T14:36:00.000Z",
+        "voteCount": 5,
+        "content": "Correct - C -&gt; A -&gt; B."
+      },
+      {
+        "date": "2022-06-24T15:57:00.000Z",
+        "voteCount": 1,
+        "content": "On the exam (06/24/2022), different format"
+      },
+      {
+        "date": "2021-10-27T08:31:00.000Z",
+        "voteCount": 3,
+        "content": "looks correct\nC-&gt;A-&gt;B"
+      },
+      {
+        "date": "2021-11-01T08:04:00.000Z",
+        "voteCount": 3,
+        "content": "there is nice resourse by cisco(!)\nhttps://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/azure-stack/b_Azure_Stack_Operations_Guide_4-0/b_Azure_Stack_Operations_Guide_4-0_chapter_0110.html"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48890-exam-az-600-topic-4-question-6-discussion/",
+    "body": "You and a Microsoft Support Engineer are troubleshooting an Azure Stack Hub integrated system.<br>The security team at your company requires an audit trail whenever management actions are performed on the integrated system.<br>You unlock the privileged endpoint (PEP) and perform several troubleshooting tasks that resolve the issue.<br>Which cmdlet should you run next?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInvoke-AzureStackOnDemandLog",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClose-PrivilegedEndpoint\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-AzureStackLog",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExit-PSSession"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-04-02T21:36:00.000Z",
+        "voteCount": 5,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-10-31T09:15:00.000Z",
+        "voteCount": 1,
+        "content": "very correct"
+      },
+      {
+        "date": "2022-02-01T14:38:00.000Z",
+        "voteCount": 5,
+        "content": "Correct - B\n\nhttps://docs.microsoft.com/en-gb/learn/modules/manage-azure-stack-hub-use-privileged-endpoints/5-close-session-privileged-endpoint"
+      },
+      {
+        "date": "2022-06-24T15:57:00.000Z",
+        "voteCount": 1,
+        "content": "On the exam (06/24/2022)"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64819-exam-az-600-topic-4-question-7-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure Stack Hub integrated system.<br>You need to ensure that you can recover managed and unmanaged disks that are deleted from user subscriptions.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03620/0007100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0007200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-storage-accounts?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-26T10:11:00.000Z",
+        "voteCount": 3,
+        "content": "correct as we see from link provided"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65018-exam-az-600-topic-4-question-8-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure Stack Hub integrated system that is disconnected from the Internet.<br>During an update, an error occurs that prevents you from accessing the administrator portal.<br>While troubleshooting the issue, a Microsoft Support Engineer requests that you collect and send the relevant logs.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03620/0007300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0007400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-get-azurestacklog?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-28T07:58:00.000Z",
+        "voteCount": 3,
+        "content": "looks correct"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65020-exam-az-600-topic-4-question-9-discussion/",
+    "body": "HOTSPOT -<br>You start the update of an Azure Stack Hub integrated system. The Update run details are shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03620/0007500001.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03620/0007600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0007600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-apply-updates?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-03T12:30:00.000Z",
+        "voteCount": 3,
+        "content": "Section 1: Running with 3 errors \nSection 2: Process of elimination...\nCannot \"cancel the update\"\nShould never run Repair-AzsScaleUnitNode during an update\nShould not Stop and Start-AzureStack as this restarts all roles and nodes. \nRestart-AzsInfrastrucureRole would not resolve errors. \nThinking it does need to lean toward contacting MS support.\n\nhttps://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-troubleshooting?view=azs-2008#troubleshoot-azure-stack-hub-updates"
+      },
+      {
+        "date": "2021-10-28T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "looks correct"
+      },
+      {
+        "date": "2021-10-31T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "but..after considering 4-&gt;2 must be more correct)"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65021-exam-az-600-topic-4-question-10-discussion/",
+    "body": "You have an Azure Stack Hub integrated system.<br>A scale unit node has a hardware failure.<br>You replace the physical server based on the field replacement unit (FRU) documentation of the OEM hardware vendor.<br>You need to reintroduce the node to the scale unit.<br>Which PowerShell cmdlet should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable-AzsScaleUnitNode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRepair-AzsScaleUnitNode\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStart-AzsScaleUnitNode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestart-AzsInfrastructureRole",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd-AzsScaleUnitNode"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-02-15T15:59:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-node-actions?view=azs-2108&amp;tabs=az1#repair"
+      },
+      {
+        "date": "2022-02-04T04:02:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong. \nCorrect answer is E\n\n## Add a single Node\n  Add-AzsScaleUnitNode -BMCIPv4Address \"&lt;BMCIP_address_of_new_node&gt;\" -computername \"&lt;name_of_new_node&gt;\" -ScaleUnit \"&lt;name_of_scale_unit_cluster&gt;\"\n\nhttps://docs.microsoft.com/en-gb/learn/modules/manage-capacityfor-azure-stack-hub/4-add-nodes"
+      },
+      {
+        "date": "2022-02-15T15:59:00.000Z",
+        "voteCount": 1,
+        "content": "I was wrong - correct answer is B. \n\n\nhttps://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-replace-node?view=azs-2108#scale-unit-node-replacement-process"
+      },
+      {
+        "date": "2021-10-28T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "correct for sure"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65023-exam-az-600-topic-4-question-11-discussion/",
+    "body": "Which three components are required to configure an Azure Stack Hub infrastructure backup? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan SMB file share in the trusted network perimeter\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcredentials that have write access to storage\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Blob storage account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan encryption certificate\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan SMB file share in Azure"
+    ],
+    "answer": "ABD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "ABD",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-06-24T15:57:00.000Z",
+        "voteCount": 1,
+        "content": "On the exam (06/24/2022)"
+      },
+      {
+        "date": "2022-03-20T03:15:00.000Z",
+        "voteCount": 1,
+        "content": "Vote ABD"
+      },
+      {
+        "date": "2022-02-04T04:05:00.000Z",
+        "voteCount": 3,
+        "content": "Correct - A, B &amp; D\nhttps://docs.microsoft.com/en-gb/learn/modules/plan-configure-business-continuity-disaster-recovery-azure-stack-hub/4-enable-backup-azure-stack-hub"
+      },
+      {
+        "date": "2021-10-28T08:03:00.000Z",
+        "voteCount": 1,
+        "content": "looks correct as we see provided link"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65024-exam-az-600-topic-4-question-12-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Stack Hub integrated system that has 10 user subscriptions. Each subscription contains 30 storage accounts. Deleted storage accounts are purged automatically after seven days.<br>One of the user subscriptions has 10 storage accounts that are no longer used. The storage accounts contain a large amount of data.<br>You need to delete the unused storage accounts. The solution must increase the amount of available disk space in the integrated system as soon as possible.<br>Which two actions should you perform in the administrator portal and the user portal? To answer, drag the appropriate actions to the correct portals. Each action may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03620/0007900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03620/0007900002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-storage-accounts?view=azs-2008",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-15T16:07:00.000Z",
+        "voteCount": 3,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-02-15T16:07:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure-stack/operator/azure-stack-manage-storage-accounts?view=azs-2108#reclaim"
+      },
+      {
+        "date": "2021-10-28T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-600",
+    "topicNumber": "4"
+  }
+]

@@ -1,0 +1,450 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115928-exam-az-720-topic-4-question-1-discussion/",
+    "body": "Case study -<br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br>To start the case study -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. When you are ready to answer a question, click the Question button to return to the question.<br><br>Background -<br>Fabrikam Inc. runs an online reservation service that allows agents to manage online registrations for various hotels, vacation rentals, and customers.<br><br>Current environment -<br><br>Environments -<br>The company has on-premises infrastructure and services that are hosted in Azure. The on-premises infrastructure includes servers that run Active Directory Domain Services (AD DS). Azure services include virtual machines (VMs) that are in one subscription and the following environments: development, testing, and production. Each environment is located in a different virtual network (VNet).<br>The company has a perimeter network that supports connections to the internet. The perimeter network is also hosted in a separate VNet. All of the VNets are connected by using virtual network peering.<br><img src=\"https://img.examtopics.com/az-720/image11.png\"><br><br>Virtual machines -<br>The company's subscription contains the following Azure virtual machines (VMs):<br><img src=\"https://img.examtopics.com/az-720/image12.png\"><br>The Web Server (IIS) role is installed on VM4. The operating system firewall for each VM allows inbound ping requests.<br><br>Network security groups -<br>The company's subscription includes the following network security groups (NSGs):<br><img src=\"https://img.examtopics.com/az-720/image13.png\"><br><br>Security rules -<br>NSG1, NSG2, NSGS, and NSG5 use the default inbound security rules. NSG4, NSG5, and NSG10 use the default outbound security rules.<br>NSG4 has the following inbound security rule:<br><img src=\"https://img.examtopics.com/az-720/image14.png\"><br>NSG10 has the following inbound security rules:<br><img src=\"https://img.examtopics.com/az-720/image15.png\"><br><br>Virtual network peering -<br>The virtual network peering connections are in the following table:<br><img src=\"https://img.examtopics.com/az-720/image16.png\"><br><br>Virtual network gateway -<br>A virtual network gateway named VNetGW is provisioned in the perimeter network. The virtual network gateway will provide:<br>\u2022 Network routing to customer data centers using site-to-site VPN connections.<br>\u2022 Network routing to Azure for the scheduling agents and sales employees using a point-to-site VPN connection.<br>Information about the virtual network gateway is shown in the following table:<br><img src=\"https://img.examtopics.com/az-720/image17.png\"><br><br>Site-to-site VPN connections -<br>The company's site-to-site VPN connections with customers are shown in the following table:<br><img src=\"https://img.examtopics.com/az-720/image18.png\"><br><br>Point-to-site VPN configuration -<br>The point-to-site VPN is configured as shown in the following table:<br><img src=\"https://img.examtopics.com/az-720/image19.png\"><br><br>Users and groups -<br>The company's user and group memberships are shown in the following table:<br><img src=\"https://img.examtopics.com/az-720/image20.png\"><br>The scheduling agents, warehouse, and sales groups are members of the self-service password reset (SSPR) group named SSPR-group.<br><br>Azure AD Connect -<br>Azure AD Connect is installed on an on-premises server named SRV1. In addition:<br>\u2022 The server uses a pass-through authentication agent.<br>\u2022 The SSPR feature is enabled.<br>\u2022 The SSPR feature is applied only to a group named SSPR-group.<br><br>Network policy server -<br>Network Policy Server (NPS) is installed on an on-premises server named SRV2. The NPS extension for Azure AD multi-factor authentication (MFA) is configured on the server as well.<br><br>Requirements -<br><br>Business requirements -<br>\u2022 The scheduling agents' internet connectivity should be blocked when connected to the point-to-site VPN.<br>\u2022 Sales employees must use the default VPN client on MacOS computers to connect to Azure.<br>\u2022 Azure AD Connect must synchronize all user accounts from AD DS to Azure AD.<br><br>Technical requirements -<br>\u2022 Pass-through authentication is required for all users.<br>\u2022 Azure AD multi-factor authentication (MFA) is required for all users.<br>\u2022 All admin user accounts must be in an organizational unit (OU) named Admins.<br><br>Issues -<br><br>Resource issues -<br>\u2022 You discover during testing that scheduling agents are experiencing latency when accessing resources at the Alpine Ski House. You suspect that the issue is related to TCP latency.<br>\u2022 You receive reports that VM1 is unable to access resources at Contoso Suites.<br>\u2022 Users report issues connecting from VM3 to resources at Margie's Travel. The administrator for Margie's Travel has verified that their VPN gateway is working correctly. You need to verify whether the Fabrikam virtual network gateway is available.<br>\u2022 The administrator of a partner company named Blue Yonder Airlines reports VPN disconnections and IPSec failure to connect errors.<br>\u2022 You receive the following error on SRV1 only when trying to synchronize an administrator named Admin1: 8344 Insufficient access rights to perform the operation<br>\u2022 MFA requests on SRV2 are failing with a security token error.<br>\u2022 You are unable to ping VM10 from VM1.<br><br>User issues -<br>\u2022 A scheduling agent named User1 reports that they can access the internet when connected to the point-to-site VPN.<br>\u2022 A user named User2 reports the following error when registering for SSPR: Your administrator has not enabled you to use this feature.<br>\u2022 Sales team employees report that they are unable to connect by using point-to-site VPN.<br>\u2022 A scheduling agent named Agent1 reports issues authenticating to Azure AD.<br>\u2022 An administrator named Admin2 reports they cannot connect to the web server public IP address on VM4 from VM2.<br>You need to resolve the issue with Admin1.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStart a full import in Azure AD Connect.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReset the Azure AD Connect service account password in AD DS.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure AD Connect filtering to include the Admins organizational unit.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable security inheritance in Active Directory Domain Services (AD DS).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:38:00.000Z",
+        "voteCount": 1,
+        "content": "The error code 8344 is usually an indication of a lack of permission in Active Directory. The permissions required for Admin1 to carry out their operations might have been blocked due to disabled inheritance."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/102489-exam-az-720-topic-4-question-33-discussion/",
+    "body": "A company has an Azure Virtual Network gateway named VNetGW1. The company enables point-to-site connectivity on VNetGW1. An administrator configures VNetGW1 for the following:<br>\u2022 OpenVPN for the tunnel type.<br>\u2022 Azure certificate for the authentication type.<br>Users receive a certificate mismatch error when connecting by using a VPN client.<br>You need to resolve the certificate mismatch error.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReissue the client certificate with client authentication enabled.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a Secure Socket Tunneling Protocol (SSTP) VPN client on the users' computers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReissue the client certificate with server identity validation disabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure preshared key for authentication on the VPN profile."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:40:00.000Z",
+        "voteCount": 1,
+        "content": "A. Reissue the client certificate with client authentication enabled.\n\nOpenVPN relies on certificate-based authentication. If the users are seeing a certificate mismatch error, it might be because the client certificate was not properly issued with client authentication enabled.\n\nSo, reissuing the client certificates with client authentication enabled should resolve this error.\n\nOption B, installing a Secure Socket Tunneling Protocol (SSTP) VPN client on the users' computers, would not necessarily fix a certificate mismatch error with OpenVPN.\n\nOption C, reissuing the client certificate with server identity validation disabled, may bypass some checks but it's not a secure approach as it opens up potential vulnerabilities.\n\nOption D, configuring a preshared key for authentication on the VPN profile, would not address the certificate mismatch issue, as the error is related to certificate-based authentication, not preshared key authentication."
+      },
+      {
+        "date": "2023-04-22T06:38:00.000Z",
+        "voteCount": 1,
+        "content": "I say A.\n\n\"Make sure the client certificate is based on a user certificate template that has Client Authentication listed as the first item in the user list.\"\n\nhttps://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#generateclientcert"
+      },
+      {
+        "date": "2023-04-14T00:03:00.000Z",
+        "voteCount": 1,
+        "content": "I agree it should be A. Once you create a server certificate you need to issue the client certificate to the users. If a problem persists, then it should be reissued from the clients' side to resolve it."
+      },
+      {
+        "date": "2023-03-13T03:06:00.000Z",
+        "voteCount": 3,
+        "content": "Reissue the client certificate with client authentication enabled."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106979-exam-az-720-topic-4-question-34-discussion/",
+    "body": "HOTSPOT -<br>A company uses Azure Active Directory (Azure AD) with Azure role-based access control (RBAC) for access to resources.<br>Some users report that they are unable to grant RBAC roles to other users.<br>You need to troubleshoot the issue.<br>How should you complete the Azure Monitor query? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br><img src=\"https://img.examtopics.com/az-720/image67.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image68.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-22T06:59:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is AzureActivity with \"Microsoft.Authorization/roleAssignments/write\" - just tested it in my environment - query ran successful with no errors.\n\nAzureActivity\n| where Authorization contains \"Microsoft.Authorization/roleAssignments/write\" and ActivityStatus == \"Failed\""
+      },
+      {
+        "date": "2023-04-22T07:00:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/reference/tables/azureactivity"
+      },
+      {
+        "date": "2023-04-23T05:05:00.000Z",
+        "voteCount": 2,
+        "content": "Found an even better doc that shows this to be correct as above stated.\n\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/change-history-report#azure-monitor-logs"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107157-exam-az-720-topic-4-question-35-discussion/",
+    "body": "HOTSPOT -<br>A company uses Azure Active Directory (Azure AD) for authentication. The company synchronizes Azure AD with an on-premises Active Directory domain.<br>The company reports that an Azure AD object fails to sync.<br>You need to determine which objects are not syncing.<br>Which troubleshooting steps should you use to diagnose the failure? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br><img src=\"https://img.examtopics.com/az-720/image69.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image70.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-23T05:10:00.000Z",
+        "voteCount": 1,
+        "content": "I tend to agree with the given answer after reading this below doc. The last sentence specifically. \n\nhttps://learn.microsoft.com/en-us/azure/active-directory/hybrid/tshoot-connect-object-not-syncing#troubleshooting\n\n\"To find the errors, look at a few different places, in the following order:\n\nThe operation logs to find errors identified by the synchronization engine during import and synchronization.\nThe connector space to find missing objects and synchronization errors.\nThe metaverse to find data-related problems.\n\nStart Synchronization Service Manager before you begin these steps.\""
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96817-exam-az-720-topic-4-question-36-discussion/",
+    "body": "A company has an Azure Active Directory (Azure AD) tenant. The company provisions an Azure Active Directory Domain Services (Azure AD DS) instance.<br>Users report that they are unable to sign into Azure AD DS after being provisioned from Azure AD. You verify the user accounts exist in Azure AD DS.<br>You need to resolve the issue.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the Azure application named AzureActiveDirectoryDomainControllerServices and then enable Azure AD DS again.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct the users to change their password in Azure AD.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete the Azure application named Azure AD Domain Services Sync and then enable Azure AD DS again.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy Azure AD Connect."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:44:00.000Z",
+        "voteCount": 1,
+        "content": "B. Instruct the users to change their password in Azure AD.\n\nIn Azure Active Directory Domain Services (Azure AD DS), password hashes in a format suitable for NT LAN Manager (NTLM) and Kerberos authentication aren't synchronized from Azure AD. These NTLM and Kerberos password hashes are instead created in Azure AD DS when the user changes their password in Azure AD.\n\nSo, users who were created before Azure AD DS was enabled or those who haven't changed their passwords since Azure AD DS was enabled will not be able to sign in until they change their password. This generates the required password hash for Azure AD DS."
+      },
+      {
+        "date": "2023-04-23T05:18:00.000Z",
+        "voteCount": 1,
+        "content": "Yup, based on the shared doc, password change should fix this.\n\nhttps://learn.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#enable-user-accounts-for-azure-ad-ds\n\n\"For cloud-only user accounts, users must change their passwords before they can use Azure AD DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. The account isn't synchronized from Azure AD to Azure AD DS until the password is changed. Either expire the passwords for all cloud users in the tenant who need to use Azure AD DS, which forces a password change on next sign-in, or instruct cloud users to manually change their passwords.\""
+      },
+      {
+        "date": "2023-04-13T01:02:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the link that ADrem has provided, I agree with B."
+      },
+      {
+        "date": "2023-01-25T04:17:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be B. More info on: https://learn.microsoft.com/en-us/azure/active-directory-domain-services/tutorial-create-instance#enable-user-accounts-for-azure-ad-ds"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/97021-exam-az-720-topic-4-question-37-discussion/",
+    "body": "A company has users in Azure Active Directory (Azure AD). The company enables the users to use Azure AD multi-factor authentication (MFA).<br>A user named User1 reports they receive the following error while setting up additional security verification settings for MFA:<br>Sorry! We can't process your request. Your session is invalid or expired. There was an error processing your request because your session is invalid or expired. Please try again.<br>You need to help the user complete the MFA setup.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Microsoft 365 Admin portal, clear the Block this user from signing in option for the user.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct the user to complete the setup process within 10 minutes.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct the user to enter the correct verification code.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct the user to clear their web browser cache.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure AD portal, reset the users password."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:46:00.000Z",
+        "voteCount": 1,
+        "content": "D. Instruct the user to clear their web browser cache.\n\nThe error message that the user is encountering typically suggests a problem with their web browser session. Clearing the web browser cache can often resolve such issues. This is because the cache can sometimes contain outdated or corrupt files which can interfere with the correct operation of the site."
+      },
+      {
+        "date": "2023-07-21T11:41:00.000Z",
+        "voteCount": 1,
+        "content": "Disregard, MO_506 is correct about it, that trying again later is the answer."
+      },
+      {
+        "date": "2023-01-27T20:45:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct.\n\nhttps://learn.microsoft.com/en-us/microsoft-365/troubleshoot/active-directory/sorry-we-cant-process-your-request-error"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/102490-exam-az-720-topic-4-question-38-discussion/",
+    "body": "A company implements self-service password reset (SSPR).<br>After a firewall upgrade at the company's datacenter, SSPR stops working.<br>You need to resolve the issue.<br>Which two URLs must be present on the firewalls to allow SSPR to connect? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t*.update.microsoft.com",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t*.servicebus.windows.net\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t*.passwordreset.microsoftonline.com\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t*.svc.ms",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t*.adl.windows.com"
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 3,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AE",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:49:00.000Z",
+        "voteCount": 1,
+        "content": "as per below"
+      },
+      {
+        "date": "2023-07-21T03:49:00.000Z",
+        "voteCount": 1,
+        "content": "The *.passwordreset.microsoftonline.com is the endpoint for the password reset itself and *.svc.ms is used by Azure for various services including user sign-ins and authentication."
+      },
+      {
+        "date": "2023-04-22T07:37:00.000Z",
+        "voteCount": 1,
+        "content": "BC are correct. Bharat's link is correct."
+      },
+      {
+        "date": "2023-04-13T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the link that Bharat provided, I agree that it is B and C."
+      },
+      {
+        "date": "2023-04-10T11:22:00.000Z",
+        "voteCount": 2,
+        "content": "Provided answers are correct. See: https://techcommunity.microsoft.com/t5/azure/self-service-password-reset-urls-and-ip-address-ranges/m-p/443239"
+      },
+      {
+        "date": "2023-03-13T03:08:00.000Z",
+        "voteCount": 1,
+        "content": "imho A,E"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106985-exam-az-720-topic-4-question-39-discussion/",
+    "body": "A company has an Azure Active Directory (Azure AD) tenant. The company deploys Azure AD Connect to synchronize objects from their Active Directory Domain Services (AD DS) domain.<br>You observe that AD DS objects are not synchronizing to Azure AD.<br>You need to verify that the staging mode is enabled.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReview the history for the Azure AD Connect sync scheduled task.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReview the triggers for the Azure AD Connect sync scheduled task.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun this PowerShell cmdlet: Get-ADSyncScheduler\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun this PowerShell cmdlet: Get-ADSyncConnectorRunStatus"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:51:00.000Z",
+        "voteCount": 1,
+        "content": "C. Get-ADSyncScheduler\n\nThis command will show you the current status of Azure AD Connect sync scheduler, including the staging mode status. If staging mode is enabled, the \"StagingModeEnabled\" property will be set to \"True\". Staging mode is used in Azure AD Connect to validate and test object synchronization without affecting the production environment. This mode permits the synchronization process to import and synchronize data, but it does not export any data to Azure AD or your on-premises AD DS."
+      },
+      {
+        "date": "2023-04-22T07:42:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct, the command does show you if Staging is Enabled or not.\n\nhttps://learn.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler#scheduler-configuration"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115929-exam-az-720-topic-4-question-9-discussion/",
+    "body": "A company has two virtual networks (VNets) that reside in the same Azure region.<br><br>An administrator reports that virtual machines (VMs) in each VNet are unable to connect to VMs in the other VNet.<br><br>You need to configure a connection between the two networks that maximizes throughput and minimizes latency.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a point-to-site VPN connection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a VPN gateway.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a site-to-site VPN connection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure virtual network peering."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T03:53:00.000Z",
+        "voteCount": 1,
+        "content": "D. Configure virtual network peering.\n\nVirtual network peering in Azure allows for a low-latency, high-bandwidth connection between virtual networks in the same Azure region. This type of connection is optimal for connecting two VNets as it enables VMs in each network to communicate directly with each other as if they were in the same network.\n\nOn the other hand, VPN gateways and site-to-site or point-to-site VPN connections involve going through the public internet, which could increase latency and potentially limit bandwidth.\n\nTherefore, virtual network peering would be the best solution for maximizing throughput and minimizing latency between two VNets in the same Azure region."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115930-exam-az-720-topic-4-question-10-discussion/",
+    "body": "A company uses Azure AD Connect. The company plans to implement self-service password reset (SSPR).<br><br>An administrator receives an error that password writeback could not be enabled during the Azure AD Connect configuration. The administrator observes the following event log error:<br><br><br>Error getting auth token -<br><br>You need to resolve the issue.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure AD Connect using a global administrator account that is not federated.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure D Connect using a global administrator account with a password that is less than 256 characters.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestart the Azure AD Connect service.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable password writeback and then enable password writeback using the Azure AD Connect configuration."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T03:54:00.000Z",
+        "voteCount": 1,
+        "content": "A. Configure Azure AD Connect using a global administrator account that is not federated.\n\nTo enable the password writeback feature in Azure AD Connect, you must use a global administrator account that is sourced from Azure Active Directory (Azure AD). This is required to provide the necessary permissions to update passwords in Azure AD. If the account is federated, the federation service (for example, ADFS) would be responsible for authentication and Azure AD wouldn't be able to get the authentication token, resulting in the error observed. Hence, to resolve this issue, you should use a global administrator account that is not federated."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115952-exam-az-720-topic-4-question-11-discussion/",
+    "body": "HOTSPOT -<br><br>A company uses a service principal to assign RBAC roles for an application hosted in Azure.<br><br>The company attempts to create a role assignment. The following error displays: Insufficient privileges to complete the operation.<br><br>You need to resolve the issue.<br><br>How should you complete the CLI command? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-720/image122.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image123.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T05:48:00.000Z",
+        "voteCount": 1,
+        "content": "correct\n\n--assignee-object-id\nUse this parameter instead of '--assignee' to bypass Graph API invocation in case of insufficient privileges. This parameter only works with object ids for users, groups, service principals, and managed identities. For managed identities use the principal id. For service principals, use the object id and not the app id."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115958-exam-az-720-topic-4-question-13-discussion/",
+    "body": "DRAG DROP -<br><br>You manage an Azure point-to-site (P2S) VPN deployment. All users connect regularly from their personal Windows computer through a P2S VPN by using certificate-based authentication.<br><br>A new user attempts to establish s P2S VPN connection. The user receives the following error message:<br><br>A certificate could not be found that can be used with this Extensible Authentication Protocol. (Error 798)<br><br>You need to assist the user with resolving the certificate issue.<br><br>What should you do? To answer, drag the appropriate locations to the correct tasks. Each location may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-720/image126.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image127.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T06:09:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\nProvide a target certificate location for importing a client authentication key usage certificate file with the .pfc extension.\nLocation: Current user/Personal\n\nThe client authentication certificate should be imported into the \"Personal\" store of the user who is trying to establish the P2S VPN connection. It's important that the certificate is in the Current User's Personal store because the VPN software needs to access it, and it does this in the context of the user that's currently logged in.\n\nProvide the target certificate location for importing a certificate signing certificate key usage file with the .cer extension\nLocation: Local Computer/Trusted Root Certification Authorities\n\nThe certificate signing certificate (also known as a root certificate) should be installed into the \"Trusted Root Certification Authorities\" store on the local computer. This allows the system to trust certificates that were signed by this certificate. This is particularly important for VPN connections, where the trust relationship between the client and the server is crucial."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115960-exam-az-720-topic-4-question-14-discussion/",
+    "body": "A company has an Azure point-to-site virtual private network (VPN) that uses certificate-based authentication.<br><br>An error message appears when a user tries to connect to the VPN by using a VPN client on a Windows 11 machine:<br><br>A certificate could not be found.<br><br>You need to resolve the issue.<br><br>Which three actions should you perform? Each correct selection presents part of the solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a client certificate on the VPN gateway.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate a root certificate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a root certificate on the user\u2019s device.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure an Azure Active Directory (Azure AD) tenant.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate a client certificate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable Azure AD authentication on the gateway.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a client certificate on the user\u2019s device."
+    ],
+    "answer": "CEG",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T06:14:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\n\nC. Install a root certificate on the user\u2019s device.\nThe root certificate is used by the client machine to validate the VPN server's identity, ensuring that the server is trusted.\n\nE. Generate a client certificate.\nEach VPN client requires a client certificate for authentication. The client certificate is used by the VPN server to verify the client's identity.\n\nG. Install a client certificate on the user\u2019s device.\nThe client certificate, which is generated in step E, must be installed on the user's device to allow the VPN client software to use this certificate to authenticate with the VPN server."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115962-exam-az-720-topic-4-question-15-discussion/",
+    "body": "A company has an Azure Virtual Network gateway named VNetGW1. The company enables point-to-site connectivity on VNetGW1. An administrator configures VNetGW1 for the following:<br><br>\u2022 OpenVPN for the tunnel type.<br>\u2022 Azure certificate for the authentication type.<br><br>Users receive a certificate mismatch error when connecting by using a VPN client.<br><br>You need to resolve the certificate mismatch error.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReissue the client certificate with client authentication enabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a profile manually, add the server FQDN and reissue the client certificate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReissue the client certificate with server identity validation disabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure preshared key for authentication on the VPN profile."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T06:15:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\n\nThe certificate mismatch error usually occurs when the name on the certificate doesn't match the name that the server expected. When you're setting up a VPN with Azure certificate for authentication type, the client verifies the server's identity by checking the server's Fully Qualified Domain Name (FQDN) in the VPN client configuration against the name in the server certificate.\n\nTo resolve this issue, you need to manually create a profile, add the correct server FQDN to the profile, and then reissue the client certificate. This ensures that the name in the server certificate matches the server name that the VPN client expects."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "4"
+  }
+]

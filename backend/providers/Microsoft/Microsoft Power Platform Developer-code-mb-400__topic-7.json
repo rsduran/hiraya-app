@@ -1,0 +1,192 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23394-exam-mb-400-topic-7-question-1-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>An organization has an Azure SQL Database instance that must be synchronized daily with data from Dynamics 365 Sales. A large amount of data might need to be synchronized on some days.<br>You need to reduce the time required to synchronize data.<br>Solution:<br>\u2711 Enable change tracking for entities that will be synchronized.<br>\u2711 Implement a console application that queries for changes.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use the Data Export Service to sync data between the database and Dynamics 365 Sales.<br>References:<br>https://docs.microsoft.com/en-us/power-platform/admin/enable-change-tracking-control-data-synchronization",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-09T00:22:00.000Z",
+        "voteCount": 1,
+        "content": "The Solution is actually correct because when using this approach you can leverage \"RetrieveEntityChangesRequest\" in sdk but since the organization has an \"Azure SQL Database\" the better approach to leverage this is to use Data Export Service,"
+      },
+      {
+        "date": "2020-12-22T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "For this question the answer will still be No, because we need to minimize time and our console app *queries* and doesn't get pushed."
+      },
+      {
+        "date": "2020-06-26T03:44:00.000Z",
+        "voteCount": 1,
+        "content": "I am thinking that A maybe is the correct answer"
+      },
+      {
+        "date": "2020-06-26T04:02:00.000Z",
+        "voteCount": 9,
+        "content": "Sorry. I have changed my mind. The console application maybe works, but not stable and cannot push the changes synchronously.\n-&gt; B would be the correct one"
+      },
+      {
+        "date": "2020-07-12T06:41:00.000Z",
+        "voteCount": 2,
+        "content": "I agree..\nhttps://docs.microsoft.com/en-us/power-platform/admin/enable-change-tracking-control-data-synchronization"
+      },
+      {
+        "date": "2020-06-17T13:24:00.000Z",
+        "voteCount": 2,
+        "content": "Why A is not a correct answer?\nIt's possible to query for changes from a console application."
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26242-exam-mb-400-topic-7-question-2-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>An organization has an Azure SQL Database instance that must be synchronized daily with data from Dynamics 365 Sales. A large amount of data might need to be synchronized on some days.<br>You need to reduce the time required to synchronize data.<br>Solution:<br>Enable change tracking for entities that will be synchronized.<br>Use the Data Export Service to sync data between the database and Dynamics 365 Sales.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Large organizations that synchronize their data with external data sources can now enable entities for change tracking. You can export or retrieve a selected set of data, and then keep the external data warehouse in sync.<br>The Data Export Service is an add-on service made available on Microsoft AppSource that adds the ability to replicate data from Common Data Service database to an Azure SQL Database store in a customer-owned Azure subscription.<br>The Data Export Service intelligently synchronizes the entire data initially and thereafter synchronizes on a continuous basis as changes occur (delta changes) in the system.<br>You can use the Data Export Service with model-driven apps in Dynamics 365, such as Dynamics 365 Sales and Dynamics 365 Customer Service.<br>Reference:<br>https://docs.microsoft.com/en-us/power-platform/admin/enable-change-tracking-control-data-synchronization https://docs.microsoft.com/en-us/power-platform/admin/replicate-data-microsoft-azure-sql-database",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-20T08:31:00.000Z",
+        "voteCount": 7,
+        "content": "Correct \nhttps://blog.crgroup.com/dynamics-365-latest-feature-the-data-export-service/"
+      },
+      {
+        "date": "2020-12-07T14:42:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26243-exam-mb-400-topic-7-question-3-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>An organization has an Azure SQL Database instance that must be synchronized daily with data from Dynamics 365 Sales. A large amount of data might need to be synchronized on some days.<br>You need to reduce the time required to synchronize data.<br>Solution:<br>\u2711 Write a SSIS package to connect to the source and target.<br>\u2711 Develop the SSIS package to find the records by the Modified on field.<br>\u2711 Create or update the records in the database instance based on results.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead enable change tracking for entities that will be synchronized, and use the Data Export Service to sync data between the database and Dynamics 365<br>Sales.<br>Reference:<br>https://docs.microsoft.com/en-us/power-platform/admin/enable-change-tracking-control-data-synchronization https://docs.microsoft.com/en-us/power-platform/admin/replicate-data-microsoft-azure-sql-database",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-07T14:42:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      },
+      {
+        "date": "2020-07-24T06:38:00.000Z",
+        "voteCount": 2,
+        "content": "The \"You need to reduce the time required to synchronize data.\" is pretty open for interpertation, when is the time reduced enough for it to be solution that meets the goal?\n\nThis can be used for syncing data and you can control the interval.\nQuestion is not \"are there better solutions out there?\"\n\nSo I would say A but can be wrong cause maybe it does not reduce the time enought to be a valid solution."
+      },
+      {
+        "date": "2020-10-09T05:52:00.000Z",
+        "voteCount": 1,
+        "content": "The fact that we SSIS you can control the interval is irrilevant. The question says \"on some days\". So maybe the synchronisation happens once a month, by SSIS or by the DES. I am not an expert, but considering this I doubt that SSIS is faster than a tailored for Azure SQL Server solution as DES.\n\nSo I would say NO"
+      },
+      {
+        "date": "2020-12-27T05:29:00.000Z",
+        "voteCount": 1,
+        "content": "In an integration scenario you should also delete records removed from the original system, if you\n only create and update the solution is not complete"
+      },
+      {
+        "date": "2020-07-20T08:35:00.000Z",
+        "voteCount": 2,
+        "content": "Correct - need to use https://blog.crgroup.com/dynamics-365-latest-feature-the-data-export-service/"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23395-exam-mb-400-topic-7-question-4-discussion/",
+    "body": "A company plans to replicate a Dynamics 365 Customer Engagement database into an Azure SQL Database instance for reporting purposes. The Data Export<br>Service Solution has been installed.<br>You need to configure the Data Export service.<br>Which three actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable change tracking for all entities that must be replicated to Azure SQL Database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable auditing for all entities that must be replicated to Azure SQL Database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an Azure SQL Database service in the same tenant as the Dynamics 365 Customer Engagement environment.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up server-based integration.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an export profile that specifies all the entities that must be replicated."
+    ],
+    "answer": "ACE",
+    "answerDescription": "A: The entities that will be added to the Export Profile must be enabled with change tracking.<br><br>E: Create an Export Profile -<br>C: To use the Data Export Service the model-driven apps in Dynamics 365 and Azure Key Vault services must operate under the same tenant and within the same Azure Active Directory.<br>Reference:<br>https://docs.microsoft.com/en-us/power-platform/admin/replicate-data-microsoft-azure-sql-database",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-17T13:26:00.000Z",
+        "voteCount": 13,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-06-29T00:44:00.000Z",
+        "voteCount": 2,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-07-20T08:36:00.000Z",
+        "voteCount": 1,
+        "content": "Correct\nhttps://blog.crgroup.com/dynamics-365-latest-feature-the-data-export-service/"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24139-exam-mb-400-topic-7-question-5-discussion/",
+    "body": "DRAG DROP -<br>A company uses Dynamics 365 Sales.<br>Sales commission must be calculated when an order is placed. You create an Azure Function to perform the calculation. The Azure Function has an HTTP trigger.<br>You need to configure the Plug-in Registration tool to send data to the Azure Function when an order is placed. You open the Plug-in Registration tool and connect to Dynamics 365 Sales.<br>Which five actions should you perform? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0013300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0013300002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Select Register New Web Hook<br>You can register a Webhook that will trigger on Account Name update to fire off the Function App.<br>In Plugin Registration Tool, register a new Webhook.<br><img src=\"/assets/media/exam-media/03197/0013400001.jpg\" class=\"in-exam-image\"><br>Step 2: Set authentication to WebhookKey<br>Enter Webhook Details. Select Authentication type as WebhookKey.<br><img src=\"/assets/media/exam-media/03197/0013500001.png\" class=\"in-exam-image\"><br><br>Step 3: Enter the endpoint URL -<br>Step 4: Add the API Key Value of the Azure Function<br>Now, to get the key, go to the Function App in portal, and look &lt;/&gt; Get function URL link.<br><img src=\"/assets/media/exam-media/03197/0013600001.jpg\" class=\"in-exam-image\"><br>Copy the same and paste in Notepad, separate the code part from the main URL<br><img src=\"/assets/media/exam-media/03197/0013600002.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/03197/0013700001.png\" class=\"in-exam-image\"><br>Paste the URL part in Endpoint URL and key in the Value field. Click Save.<br><img src=\"/assets/media/exam-media/03197/0013800001.png\" class=\"in-exam-image\"><br>Step 5: Register a New Step for Create of SalesOrder<br>Now, add a Step to the Webhook.<br><img src=\"/assets/media/exam-media/03197/0013900001.png\" class=\"in-exam-image\"><br>And Register it.<br><img src=\"/assets/media/exam-media/03197/0013900002.jpg\" class=\"in-exam-image\"><br>Reference:<br>https://d365demystified.com/2020/03/19/call-azure-function-from-dynamics-365-crm-using-webhooks/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-26T09:51:00.000Z",
+        "voteCount": 7,
+        "content": "the answer is Correct"
+      },
+      {
+        "date": "2020-12-02T10:34:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-06-26T04:29:00.000Z",
+        "voteCount": 3,
+        "content": "the answer key should be both (doesn't matter if we swap between 2. and 3.) are correct since these two steps are on the same window when we register the web hook."
+      },
+      {
+        "date": "2021-05-19T13:07:00.000Z",
+        "voteCount": 1,
+        "content": "It comes down to how technical they want to be ... technically, anything above comes \"first\" (top-bottom, left-right is the norm usually). If it is displayed on the same page, but above another param, test could decide it comes \"first\""
+      },
+      {
+        "date": "2020-06-26T04:26:00.000Z",
+        "voteCount": 4,
+        "content": "Maybe a bit better solution is:\n- ...\n- enter the endpoint url\n- set authentication to WebhookKey.\n- ... (the same)\nRef: https://microsoftlearning.github.io/MB-400-Microsoft-PowerApps-Dynamics-365/Instructions/Labs/LAB%5BMB-400%5D_M03Lab01_Publishing_events.html"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "7"
+  }
+]

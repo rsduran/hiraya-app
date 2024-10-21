@@ -1,0 +1,245 @@
+[
+  {
+    "topic": 19,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40268-exam-dp-201-topic-19-question-1-discussion/",
+    "body": "You need to design a solution to meet the SQL Server storage requirements for CONT_SQL3.<br>Which type of disk should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStandard SSD Managed Disk",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPremium SSD Managed Disk",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUltra SSD Managed Disk"
+    ],
+    "answer": "C",
+    "answerDescription": "CONT_SQL3 requires an initial scale of 35000 IOPS.<br>Ultra SSD Managed Disk Offerings<br><img src=\"/assets/media/exam-media/03774/0002100005.jpg\" class=\"in-exam-image\"><br>The following table provides a comparison of ultra solid-state-drives (SSD) (preview), premium SSD, standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.<br><img src=\"/assets/media/exam-media/03774/0002200001.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-14T13:02:00.000Z",
+        "voteCount": 11,
+        "content": "The answer is correct, but it is interesting to note that data engineers are apparently supposed to know about hard disk selections for a VM."
+      },
+      {
+        "date": "2021-06-13T07:52:00.000Z",
+        "voteCount": 1,
+        "content": "True it is weird..."
+      },
+      {
+        "date": "2021-06-21T19:01:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "19"
+  },
+  {
+    "topic": 19,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8918-exam-dp-201-topic-19-question-2-discussion/",
+    "body": "You need to recommend an Azure SQL Database service tier.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBusiness Critical",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeneral Purpose",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPremium",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStandard",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBasic"
+    ],
+    "answer": "C",
+    "answerDescription": "The data engineers must set the SQL Data Warehouse compute resources to consume 300 DWUs.<br>Note: There are three architectural models that are used in Azure SQL Database:<br>\u2711 General Purpose/Standard<br>\u2711 Business Critical/Premium<br>\u2711 Hyperscale<br>Incorrect Answers:<br>A: Business Critical service tier is designed for the applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tier-business-critical",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-12T13:20:00.000Z",
+        "voteCount": 68,
+        "content": "1. \"CONT_SQL1 and CONT_SQL2 must use the vCore model\", so the answer would be either \"Business Critical\" or \"General Purpose\"\n2. \"replicas and zone redundancy are required\", so the final answer is \"Business Critical\", because it is the only option which offers \"zone redundancy storage\"."
+      },
+      {
+        "date": "2020-07-12T18:12:00.000Z",
+        "voteCount": 7,
+        "content": "In the vCore-based purchasing model, you can choose between the General Purpose and Business Critical service tiers for SQL Database and SQL Managed Instance.\n\n\nIn the DTU-based purchasing model, you can choose between the basic, standard, and premium service tiers for Azure SQL Database.\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/purchasing-models"
+      },
+      {
+        "date": "2021-01-18T07:49:00.000Z",
+        "voteCount": 1,
+        "content": "Zone redundancy storage is in preview for General Purpose. Answer is B."
+      },
+      {
+        "date": "2021-05-23T19:44:00.000Z",
+        "voteCount": 4,
+        "content": "Now General Purpose supports Zone Redundancy. And it has cost advantages. So the answer is CORRECT"
+      },
+      {
+        "date": "2019-11-22T15:41:00.000Z",
+        "voteCount": 32,
+        "content": "&gt;&gt;&gt; CONT_SQL1 and CONT_SQL2 must use the vCore model \n\nVCore allow only general purpose or business critical service tiers.\n\nSince one goal is to contain costs, I'd vote for B (General Purpose)"
+      },
+      {
+        "date": "2019-11-27T13:10:00.000Z",
+        "voteCount": 7,
+        "content": "There's also \"You must be able to independently scale compute and storage resources.\" so definitely only vCore. I vote for B as well."
+      },
+      {
+        "date": "2021-04-11T05:18:00.000Z",
+        "voteCount": 2,
+        "content": "There isn\u2019t any option in General purpose with 8000 iops. It should be Business critical."
+      },
+      {
+        "date": "2021-04-11T05:27:00.000Z",
+        "voteCount": 3,
+        "content": "My comment above is wrong, General Purpose limit is 12800 iops. Answer will be General purpose because also has zone redundancy since a few months ."
+      },
+      {
+        "date": "2021-04-29T14:29:00.000Z",
+        "voteCount": 3,
+        "content": "A. Business Critical"
+      },
+      {
+        "date": "2021-04-21T20:56:00.000Z",
+        "voteCount": 3,
+        "content": "the diagram on this page can be useful -\nhttps://www.mssqltips.com/sqlservertip/5571/whats-in-a-dtu-choosing-the-right-resource-model-and-service-tier-for-azure-db/"
+      },
+      {
+        "date": "2021-03-13T09:24:00.000Z",
+        "voteCount": 1,
+        "content": "VCore model doesn't have Standart/Premium It has General Purpose, Bus Critical, Hyper..\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-vcore?tabs=azure-portal\nanswer B - General purpose"
+      },
+      {
+        "date": "2021-03-13T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "The data engineers must set the SQL Data Warehouse compute resources to consume 300 DWUs.\nit's not related to SQL db"
+      },
+      {
+        "date": "2021-03-10T19:09:00.000Z",
+        "voteCount": 3,
+        "content": "Business critical because it is vCore model and supports 8500 IOP required:\nGeneral Purpose boasts 500 IOPS per vCore to a maximum of 7000, while Business Critical is 5000 per vCore up to a maximum of 200,000 IOPS. \nhttps://www.clicdata.com/blog/microsoft-azure-sql-database-vcore-versus-dtu-which-one-to-chose/"
+      },
+      {
+        "date": "2021-03-21T11:54:00.000Z",
+        "voteCount": 3,
+        "content": "General purpose supports up to 20,000 IOPS + 4 TB data."
+      },
+      {
+        "date": "2021-04-11T05:19:00.000Z",
+        "voteCount": 1,
+        "content": "Where do you see that. Any link?"
+      },
+      {
+        "date": "2021-03-01T07:33:00.000Z",
+        "voteCount": 1,
+        "content": "Premium gives up to 4 TB while Standard up to 1TB (databases given have 2TB)"
+      },
+      {
+        "date": "2020-12-06T00:46:00.000Z",
+        "voteCount": 2,
+        "content": "\"CONT_SQL1 and CONT_SQL2 must use the vCore model\"\nso C,D and E are out\nBetween A and B, I'd pick A\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/service-tier-business-critical#when-to-choose-this-service-tier\nFrom the above link, there is a segment on updates. Since \"The storage should be configured to optimized storage for database OLTP workloads.\", Business Critical is the answer"
+      },
+      {
+        "date": "2020-11-09T04:13:00.000Z",
+        "voteCount": 5,
+        "content": "Now even General Purpose supports Zone Redundancy."
+      },
+      {
+        "date": "2020-10-27T03:22:00.000Z",
+        "voteCount": 2,
+        "content": "vCore + zone redundant storage = business critical\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-vcore?tabs=azure-portal"
+      },
+      {
+        "date": "2020-10-02T19:19:00.000Z",
+        "voteCount": 1,
+        "content": "I think this question is outdated."
+      },
+      {
+        "date": "2020-09-28T02:38:00.000Z",
+        "voteCount": 2,
+        "content": "Basic, Standard &amp; Premium are all DTU models - so no!\nBoth, general purpose &amp; business critical are vCore models. Both support 2TB if you choose at least 12 vCores.\nBusiness critical has the option \"zone redundancy\", but the scenario asked for \"regional outage\", so \"zone redundancy\" isnt enough.\nI would take general purpose, because there is no option with a regional redundancy."
+      },
+      {
+        "date": "2020-05-19T08:31:00.000Z",
+        "voteCount": 2,
+        "content": "Due to vCore pricing model, the Business Critical type should be chosen. For number of vCores &gt;=12 you can have storage up to 3TB."
+      },
+      {
+        "date": "2020-05-13T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "By selecting a zone redundant configuration, you can make your Premium or Business Critical databases resilient to a much larger set of failures, including catastrophic datacenter outages, without any changes to the application logic. You can also convert any existing Premium or Business Critical databases or pools to the zone redundant configuration.\nhttps://docs.microsoft.com/en-us/azure/sql-database/sql-database-high-availability#zone-redundant-configuration\n\nPremium supports Zone redundant configuration"
+      },
+      {
+        "date": "2020-03-20T08:43:00.000Z",
+        "voteCount": 3,
+        "content": "Answer - B"
+      },
+      {
+        "date": "2020-02-14T00:33:00.000Z",
+        "voteCount": 25,
+        "content": "A. Business Critical -&gt; replicas and zone redundancy are required"
+      },
+      {
+        "date": "2020-12-27T15:33:00.000Z",
+        "voteCount": 3,
+        "content": "For General purpose zone redundancy is in preview"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "19"
+  },
+  {
+    "topic": 19,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8587-exam-dp-201-topic-19-question-3-discussion/",
+    "body": "You need to recommend the appropriate storage and processing solution?<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable auto-shrink on the database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFlush the blob cache using Windows PowerShell.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable Apache Spark RDD (RDD) caching.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable Databricks IO (DBIO) caching.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the reading speed using Azure Data Studio."
+    ],
+    "answer": "C",
+    "answerDescription": "Scenario: You must be able to use a file system view of data stored in a blob. You must build an architecture that will allow Contoso to use the DB FS filesystem layer over a blob store.<br>Databricks File System (DBFS) is a distributed file system installed on Azure Databricks clusters. Files in DBFS persist to Azure Blob storage, so you won't lose data even after you terminate a cluster.<br>The Databricks Delta cache, previously named Databricks IO (DBIO) caching, accelerates data reads by creating copies of remote files in nodes' local storage using a fast intermediate data format. The data is cached automatically whenever a file has to be fetched from a remote location. Successive reads of the same data are then performed locally, which results in significantly improved reading speed.<br>Reference:<br>https://docs.databricks.com/delta/delta-cache.html#delta-cache<br>Design Azure data storage solutions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-19T10:42:00.000Z",
+        "voteCount": 44,
+        "content": "Answer is D, not C"
+      },
+      {
+        "date": "2020-05-05T06:49:00.000Z",
+        "voteCount": 13,
+        "content": "The entire explanation supports D, answer should be D.  Dittos explanation below does not eliminate D, right?"
+      },
+      {
+        "date": "2021-04-29T14:30:00.000Z",
+        "voteCount": 2,
+        "content": "D. Enable Databricks IO (DBIO) caching."
+      },
+      {
+        "date": "2021-01-14T13:25:00.000Z",
+        "voteCount": 2,
+        "content": "Databricks IO cache, now Delta cache, is used in the context of a delta lake, which is not the case here. Apache RDD caching is to keep datasets in memory, which seems more fit to purpose? In the end I do not know for sure. What I do know, is that this business case and its questions excel in vagueness and inaccuracy of wording."
+      },
+      {
+        "date": "2020-12-15T07:48:00.000Z",
+        "voteCount": 1,
+        "content": "Answer ticked is C, but then the explanation below talks about D."
+      },
+      {
+        "date": "2020-12-10T05:14:00.000Z",
+        "voteCount": 2,
+        "content": "\"You must build an architecture that will allow Contoso to use the DB FS filesystem layer over a blob store\"\nAnswer is D for sure"
+      },
+      {
+        "date": "2020-01-21T17:40:00.000Z",
+        "voteCount": 3,
+        "content": "I think it's c because the different file formats acceptable. \n\nThe Delta cache supports reading Parquet files in DBFS, Amazon S3, HDFS, Azure Blob storage, Azure Data Lake Storage Gen1, and Azure Data Lake Storage Gen2 (on Databricks Runtime 5.1 and above). It does not support other storage formats such as CSV, JSON, and ORC.\nhttps://docs.databricks.com/delta/optimizations/delta-cache.html#delta-and-rdd-cache-comparison"
+      },
+      {
+        "date": "2020-01-01T10:35:00.000Z",
+        "voteCount": 5,
+        "content": "Correct, Answer here should be D, not C"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "19"
+  }
+]

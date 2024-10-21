@@ -1,0 +1,359 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109331-exam-az-220-topic-7-question-4-discussion/",
+    "body": "You have IoT devices that connect to an Azure IoT hub.<br><br>From IoT Hub, you create an Event subscription to be notified when devices are registered to IoT Hub. You select webhook endpoint as a handler for the Event subscription.<br><br>Which two types of Event Grid messages will be received by the webhook? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft.Devices.DeviceCreated",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft.Resources.ResourceWriteSuccess",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft.EventGrid.SubscriptionValidationEvent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft.Devices.DeviceConnected"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-30T09:55:00.000Z",
+        "voteCount": 3,
+        "content": "AC is correct.\n\nhttps://learn.microsoft.com/en-us/azure/event-grid/receive-events\n\nThe first thing you want to do is handle Microsoft.EventGrid.SubscriptionValidationEvent events. Every time someone subscribes to an event, Event Grid sends a validation event to the endpoint with a validationCode in the data payload. The endpoint is required to echo this back in the response body to prove the endpoint is valid and owned by you."
+      },
+      {
+        "date": "2023-05-15T11:52:00.000Z",
+        "voteCount": 1,
+        "content": "Shouldn't be AD?"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104092-exam-az-220-topic-7-question-8-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure IoT hub.<br><br>You have four Azure IoT Edge devices and the device twin code shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-220/image97.png\"><br><br>You have three deployments and the deployment code shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-220/image98.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image99.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image100.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-30T10:13:00.000Z",
+        "voteCount": 2,
+        "content": "Agree with others. Yes yes yes. \"London\" device is using Pri 30 deployment."
+      },
+      {
+        "date": "2023-05-15T11:59:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, Yes, Yes"
+      },
+      {
+        "date": "2023-04-05T00:52:00.000Z",
+        "voteCount": 4,
+        "content": "Yes; Yes; Yes\nHigher numeric value for \"priority\" has higher priority\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-automatic-device-management\n\"Enter a positive integer for the configuration Priority. The highest numerical value is considered the highest priority. If two configurations have the same priority number, the one that was created most recently wins.\""
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109628-exam-az-220-topic-7-question-9-discussion/",
+    "body": "You have a remote network that contains an IoT device named Device1 and a firewall named Firewall1.<br><br>You have an Azure subscription that contains an Azure IoT hub named Hub1. Device1 is registered to Hub1. Firewall1 only allows outbound traffic from Hub1 via TCP port 443.<br><br>You need to build an app that will connect to Device1 by using SSH on port 22. The solution must minimize costs.<br><br>What should you configure to connect to Device1?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIoT Hub message routing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshared access policies",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Private Link",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIoT Hub device streams"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-17T23:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct - IoT Hub Device Streams\n\"A device stream is mediated by an IoT Hub streaming endpoint which acts as a proxy between your device and service endpoints. This setup, depicted in the diagram below, is especially useful when devices are behind a network firewall or reside inside of a private network.\"\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-device-streams-overview#device-stream-workflows"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/103790-exam-az-220-topic-7-question-11-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You create an Azure IoT hub named Iothub1 as shown in the following exhibit. <br><br><img src=\"https://img.examtopics.com/az-220/image101.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No. <br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image102.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image103.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-18T03:57:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, No, No\n\u201cAfter you create your IoT hub, you can upgrade from the basic tier to the standard tier without interrupting your existing operations. You can't downgrade from standard tier to basic tier.\"\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-scaling#basic-and-standard-tiers"
+      },
+      {
+        "date": "2023-04-06T22:23:00.000Z",
+        "voteCount": 2,
+        "content": "Device twins, Module Twins are not available in Basic Tier"
+      },
+      {
+        "date": "2023-03-27T07:42:00.000Z",
+        "voteCount": 3,
+        "content": "You can upgrade from basic tier to the standard tier without interrupting your existing operations. You can't downgrade from Standard tier to Basic tier."
+      },
+      {
+        "date": "2023-03-24T09:55:00.000Z",
+        "voteCount": 2,
+        "content": "Seems like wrong answers here.  I checked and you can upgrade your tier unless you are using a free tier.  Secondly you can't use twins in B1only S1 and above."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104357-exam-az-220-topic-7-question-13-discussion/",
+    "body": "You plan to deploy an Azure IoT hub. The solution must ensure that when connecting to the IoT hub, IoT devices can only authenticate by presenting a certificate that is encrypted with a 256-bit AES key and uses a SHA384 hash.<br><br>You need to configure the Azure Resource Manager (ARM) template to deploy the IoT hub.<br><br>Which property should you configure?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdisableLocalAuth",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tauthenticationType",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tminTlsVersion",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tauthorizationPolicies"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-30T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "I'm not sure there IS a correct answer to this question!\n authenticationType is only used for routing connections to other services. \nhttps://learn.microsoft.com/en-us/azure/templates/microsoft.devices/iothubs?pivots=deployment-language-bicep#sharedaccesssignatureauthorizationrule\n\nmin TLS version 1.2 still allows the smaller keys\n\nIoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of the following recommended cipher suites:\n\n    TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256\n    TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384\n    TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256\n    TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384\n\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-tls-support"
+      },
+      {
+        "date": "2023-03-29T08:08:00.000Z",
+        "voteCount": 1,
+        "content": "I would C. minTlsversion"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107906-exam-az-220-topic-7-question-14-discussion/",
+    "body": "<img src=\"https://img.examtopics.com/az-220/image104.png\"><br><br>Which query should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$event.payload.Status = \"Running\" AND $event.payload.Alert = \"True\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$body.event.payload.Status = \"Running\" AND $body.event.payload.Alert = \"True\"\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMessageType.payload.Status = \"Running\" AND MessageType.event.payload.Alert = \"True\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$Status = \"Running\" AND $Alert = \"True\""
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-30T10:35:00.000Z",
+        "voteCount": 2,
+        "content": "Need $body for sure"
+      },
+      {
+        "date": "2023-05-15T12:24:00.000Z",
+        "voteCount": 3,
+        "content": "should be B - https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-body-query-expressions"
+      },
+      {
+        "date": "2023-05-18T04:43:00.000Z",
+        "voteCount": 1,
+        "content": "Agree, the \"Alert\" and \"Status\" are not System properties or Applications properties. They are part of the message body."
+      },
+      {
+        "date": "2023-04-29T12:23:00.000Z",
+        "voteCount": 1,
+        "content": "There was another question that had the answer as \" $event.payload.Status = \"Running\" AND $event.payload.Alert = \"True\"  what gives with these answers"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104836-exam-az-220-topic-7-question-16-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an Azure subscription that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-220/image105.png\"><br><br>You create a group enrollment in DPS1 and enroll 100 IoT devices. Each device is issued a leaf certificate from CA1.<br><br>You need to deprovision a single IoT device from the group enrollment. The solution must not affect the other devices.<br><br>Solution: You create a disabled symmetric key individual enrollment by using the device ID of the device.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-30T10:41:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the documentation in the other answer, does look like its \"A\". This isn't the way I'\nd probably do it, because we do still have the key, BUT the question only asks, does it meet the goal, which it does."
+      },
+      {
+        "date": "2023-04-02T03:01:00.000Z",
+        "voteCount": 1,
+        "content": "From documentation: https://learn.microsoft.com/en-us/azure/iot-dps/how-to-unprovision-devices\n\"If you don't have the device certificate, you can create a disabled symmetric key individual enrollment based on the device ID in the registration record for that device.\""
+      },
+      {
+        "date": "2023-07-11T03:12:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, but \"Each device is issued a leaf certificate from CA1\". Ans should be No."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105522-exam-az-220-topic-7-question-19-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have 20 IoT devices deployed across two floors of a building. The devices on the first floor must be set to 60 degrees. The devices on the second floor must be set to 80 degrees.<br><br>The device twins are configured to use a tag that identifies the floor on which the twins are located.<br><br>You create the following automatic configuration for the devices on the first floor.<br><br><img src=\"https://img.examtopics.com/az-220/image106.png\"><br><br>You create the following automatic configuration for the devices on the second floor.<br><br><img src=\"https://img.examtopics.com/az-220/image107.png\"><br><br>The IoT devices on the first floor report that the temperature is set to 80 degrees.<br><br>You need to ensure that the first-floor devices are set to the correct temperature.<br><br>Solution: In the automatic configuration for the first-floor devices, you set targetCondition to \u201ctags.floor=\u2018second\u2019\u201d.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-18T05:40:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct - NO.\nSet targetCondition to \"tags.floor='second'\" in the automatic configuration for the second-floor devices, not in the automatic configuration for the first-floor devices."
+      },
+      {
+        "date": "2023-05-02T12:59:00.000Z",
+        "voteCount": 1,
+        "content": "Another confusing answer.  Question #13 on topic 5 has the exact exhibit and the answer there is Yes... What gives with these answers.  Please take the time to verify the answers as people are paying and studying the misinformation you as a vendor are providing.  Can't believe this"
+      },
+      {
+        "date": "2023-05-18T05:48:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is different from Q13, Topic 5, because the solution is different:\nQ13, Topic 5: Q13, Topic 5: Solution: In the automatic configuration for the second-floor (!) devices, you set targetCondition to \"tags.floor='second'\"\nQ19, Topic 17: Solution: In the automatic configuration for the first-floor (!) devices, you set targetCondition to \u201ctags.floor=\u2018second\u2019\u201d."
+      },
+      {
+        "date": "2023-04-07T08:57:00.000Z",
+        "voteCount": 1,
+        "content": "Can someone explain why the answer is no?"
+      },
+      {
+        "date": "2023-05-18T05:51:00.000Z",
+        "voteCount": 1,
+        "content": "The target condition  to \"tags.floor='second'\" is to be set for second-floor devices, not for the first-floor devices.\nIn the current configured to * (meaning both first and second floors) with the highest priority."
+      },
+      {
+        "date": "2023-05-18T05:52:00.000Z",
+        "voteCount": 1,
+        "content": "In the current setting the target condition is configured to * (meaning both first and second floors) with the highest priority."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113632-exam-az-220-topic-7-question-21-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You are creating an Azure Digital Twins query.<br><br>You need to return all the digital twins that have a contains relationship with a digital twin that has an ID of twin1.<br><br>How should you complete the query? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image108.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image109.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-29T00:30:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\nhttps://learn.microsoft.com/en-us/azure/digital-twins/reference-query-clause-join"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104335-exam-az-220-topic-7-question-23-discussion/",
+    "body": "You have an Azure IoT hub and an IoT device that generates the following messages.<br><br><img src=\"https://img.examtopics.com/az-220/image120.png\"><br><br>You need to route the messages to a custom Azure Event Hubs endpoint. The solution must route only messages that have the following values.<br><br>\"Status\": \"Running\"<br>\"Alert\": \"True\"<br><br>Which query should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$body.event.payload.Status = \"Running\" AND $body.event.payload.Alert = \"True\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMessageType.payload.Status = \"Running\" AND MessageType.event.payload.Alert = \"True\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$Status = \"Running\" AND $Alert = \"True\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$event.payload.Status = \"Running\" AND $event.payload.Alert = \"True\""
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-15T12:36:00.000Z",
+        "voteCount": 4,
+        "content": "right, A is correct\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-body-query-expressions"
+      },
+      {
+        "date": "2023-05-18T23:59:00.000Z",
+        "voteCount": 2,
+        "content": "Agree, the \"Alert\" and \"Status\" are part of the message body (not System properties or Applications properties)."
+      },
+      {
+        "date": "2023-04-29T12:29:00.000Z",
+        "voteCount": 1,
+        "content": "D. $Status = \"Running\" AND $Alert = \"True\"  from question 14, what gives"
+      },
+      {
+        "date": "2023-04-10T13:02:00.000Z",
+        "voteCount": 1,
+        "content": "Yeah way to many mistakes in the editing of these answers. Do they even take the time to verify each one,  and yes the other question had the answer of Status running and true????"
+      },
+      {
+        "date": "2023-03-29T03:25:00.000Z",
+        "voteCount": 2,
+        "content": "Can some please confirm if this is the correct answer as a question 14 is the same question and over there the answer is C"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/116457-exam-az-220-topic-7-question-24-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure IoT solution that uses Azure Digital Twins.<br><br>You plan to ingest telemetry from an IoT device into a digital twin.<br><br>You need to create an Azure function that will process the telemetry messages received by the Azure IoT hub and update the digital twin of the IoT device with the new values.<br><br>How should you complete the code? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image124.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image125.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-25T21:33:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/digital-twins/how-to-ingest-iot-hub-data#create-the-azure-function"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "7"
+  }
+]

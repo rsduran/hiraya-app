@@ -1,0 +1,167 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33888-exam-da-100-topic-7-question-1-discussion/",
+    "body": "What is the minimum number of Power BI datasets needed to support the reports?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttwo imported datasets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta single DirectQuery dataset",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttwo DirectQuery datasets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta single imported dataset\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 13,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-10-15T13:14:00.000Z",
+        "voteCount": 48,
+        "content": "The dataset is not only one? If you use multiple data source and import all the tables, at the end when publish to Service is packed in one dataset, isn't it?"
+      },
+      {
+        "date": "2020-12-20T13:11:00.000Z",
+        "voteCount": 5,
+        "content": "Agree with you. in addition the question is about the minimum."
+      },
+      {
+        "date": "2021-10-15T01:59:00.000Z",
+        "voteCount": 1,
+        "content": "Each listed dataset is a source of data available for one or more reports, and the dataset may contain data that comes from one or more sources."
+      },
+      {
+        "date": "2021-05-07T02:49:00.000Z",
+        "voteCount": 2,
+        "content": "No, 1 dataset = 1 data source. \nsource: \nhttps://docs.microsoft.com/en-us/power-bi/fundamentals/service-basic-concepts#:~:text=now%20introduce%20datasets.-,Datasets,it%20together%20in%20one%20place.&amp;text=Datasets%20are%20associated%20with%20workspaces,be%20part%20of%20many%20workspaces.\n\nDatasets are associated with workspaces and a single dataset can be part of many workspaces. When you open a workspace, the associated datasets are listed under the Datasets tab. Each listed dataset represents a single source of data, for example, an Excel workbook on OneDrive, or an on-premises SSAS tabular dataset, or a Salesforce dataset."
+      },
+      {
+        "date": "2022-02-08T01:54:00.000Z",
+        "voteCount": 3,
+        "content": "That's not true. As we can read in the same webpage from Microsoft that you shared:\n\n\"the dataset may contain data that comes from one or more sources\""
+      },
+      {
+        "date": "2021-12-16T05:12:00.000Z",
+        "voteCount": 1,
+        "content": "\"A dataset is a collection of data that you import or connect to.\"\nhttps://docs.microsoft.com/en-us/power-bi/fundamentals/service-basic-concepts"
+      },
+      {
+        "date": "2021-06-24T04:05:00.000Z",
+        "voteCount": 1,
+        "content": "The doc stated one dataset can only connect to a single datasource, but if I try it in PowerBI Desktop, I was able to connect to 2 excel files and 1 direct SQL server within the dataset, and it published to powerbi.com without any issue."
+      },
+      {
+        "date": "2021-10-15T01:58:00.000Z",
+        "voteCount": 1,
+        "content": "I think you're right,\nlook at here: https://docs.microsoft.com/en-us/power-bi/connect-data/service-datasets-understand\n\nExcept for streaming datasets, the dataset represents a data model"
+      },
+      {
+        "date": "2020-10-14T19:06:00.000Z",
+        "voteCount": 31,
+        "content": "With direct query mode, because data is not loaded into a secondary storage, you can only connect to one single data source. If you are connected to a SQL Server database, then you cannot bring another query from another SQL Server database or any other data sources. Hence Answer is A. two imported datsets"
+      },
+      {
+        "date": "2020-12-19T14:14:00.000Z",
+        "voteCount": 5,
+        "content": "This answer is contradictory. It states the answer is A (two imported datasets) but then gives reasons based on DirectQuery limitations, which are only relevant to answer C."
+      },
+      {
+        "date": "2021-01-22T06:48:00.000Z",
+        "voteCount": 7,
+        "content": "No it is not contradictory. It explains it is answer A (two imported datasets), and also explains why it is not answer C (two DirectQuery datasets)."
+      },
+      {
+        "date": "2022-08-11T04:22:00.000Z",
+        "voteCount": 2,
+        "content": "The question states that there is a dataset called \"Profit and Loss Dataset\" to which the analysts have to be given access. That implies it is a separate dataset from the other sources. Hence, we should have 2 datasets is my understanding."
+      },
+      {
+        "date": "2022-07-17T07:40:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer is A.\n1 imported dataset for AZURE SQL data. These data cannot relate with the other data, business wise.\nAnd 1 more imported dataset with the data from  dynamics 365 &amp; SharePoint online list. From these 2 datasets we have to create a common model for several reports , not only for the boards reports."
+      },
+      {
+        "date": "2022-06-27T18:17:00.000Z",
+        "voteCount": 2,
+        "content": "I do accounting for a living, it would be answer A as P&amp;L data is line level data while balance sheet data would be like a group by query of the line data.  Therefore you would need two different data sources to do this."
+      },
+      {
+        "date": "2022-05-22T07:48:00.000Z",
+        "voteCount": 9,
+        "content": "this case study is ridiculously long and irrelevant"
+      },
+      {
+        "date": "2022-04-26T12:04:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D"
+      },
+      {
+        "date": "2022-03-18T02:21:00.000Z",
+        "voteCount": 2,
+        "content": "It should be one single import dataset connect to three different data resources"
+      },
+      {
+        "date": "2022-03-17T08:41:00.000Z",
+        "voteCount": 3,
+        "content": "I got it on my exam 03/17/2022. 90-95% questions were from here. 61 questions in 100 min. All 3 case studies that appeared in exam, where from here."
+      },
+      {
+        "date": "2022-03-17T08:41:00.000Z",
+        "voteCount": 6,
+        "content": "Answered: Single Imported"
+      },
+      {
+        "date": "2022-03-03T06:10:00.000Z",
+        "voteCount": 4,
+        "content": "A single imported dataset for the following sources (as I think they will be added as data sources for this single dataset):\n1-) Azure SQL database\n2-) Microsoft Dynamics 365 Business Central\n3-)  Microsoft SharePoint Online list"
+      },
+      {
+        "date": "2022-03-01T05:59:00.000Z",
+        "voteCount": 2,
+        "content": "To accomplish the report's requirement, we just need one Power BI dataset, consisted of the 3 data sources (MS Dynamics 365, Microsoft SharePoint Online list, Azure SQL DB).\nCorrect answer is D."
+      },
+      {
+        "date": "2021-12-29T14:02:00.000Z",
+        "voteCount": 1,
+        "content": "In exam 30/12/21"
+      },
+      {
+        "date": "2021-12-16T05:25:00.000Z",
+        "voteCount": 7,
+        "content": "SharePoint and Dynamics 365 Business Central don't support Direct query, SO not B nor C.\nAnd if we choose import mode, \"an Import model can integrate data from any number of supported data source types\"(https://docs.microsoft.com/en-us/power-bi/connect-data/service-dataset-modes-understand).\nSo answer is D."
+      },
+      {
+        "date": "2021-12-10T08:09:00.000Z",
+        "voteCount": 1,
+        "content": "on exam 12/10/2021"
+      },
+      {
+        "date": "2021-12-03T10:36:00.000Z",
+        "voteCount": 3,
+        "content": "I think"
+      },
+      {
+        "date": "2021-11-24T21:47:00.000Z",
+        "voteCount": 3,
+        "content": "D: \n\u2022\tYou can insert all the data sources in one dataset. \n\u2022\tYou can\u2019t use SharePoint with direct query.\n\nPlanned Changes\n\u2022\tThe company wants to create common logic for business units, products, and departments to be used across all reports, including, but not limited, to the quarterly reporting for the board. Best solution: Only one dataset.\nTechnical Requirements\n\u2022\tContoso wants the reports and datasets refreshed with minimal manual effort. Best solution: Only one dataset.\n\u2022\tThe company wants to provide a single package of reports to the board that contains custom navigation and links to supplementary information. Best solution: Only one dataset.\n\u2022\tMaintenance, including manually updating data and access, must be minimized as much as possible. Best solution: Only one dataset.\nData and Sources\n\u2022\tMonthly revenue and expense projections for the next quarter come from a Microsoft SharePoint Online list: Best solution: Imported (Direct Query on a SharePoint list is not possible)"
+      },
+      {
+        "date": "2021-11-18T22:24:00.000Z",
+        "voteCount": 1,
+        "content": "Hello, i believe the question here is how many tables can we place in one model? is it all of the tables? in which case we will have one model and one dataset. If we cannot link all of the tables between them in one datamodel, then we need to create another dataset. The question says that 2 tables are unrelated except for the date. So, can these 2 tables be connected via the date column? if yes, then we would need only one dataset."
+      }
+    ],
+    "examNameCode": "da-100",
+    "topicNumber": "7"
+  }
+]

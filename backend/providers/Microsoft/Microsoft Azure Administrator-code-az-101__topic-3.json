@@ -1,0 +1,245 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13593-exam-az-101-topic-3-question-12-discussion/",
+    "body": "You have an Azure subscription that contains a virtual network named VNet1. VNet 1 has two subnets named Subnet1 and Subnet2. VNet1 is in the West Europe<br>Azure region.<br>The subscription contains the virtual machines in the following table.<br><img src=\"/assets/media/exam-media/02519/0012400001.png\" class=\"in-exam-image\"><br>You need to deploy an application gateway named AppGW1 to VNet1.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a service endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a virtual network.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove VM3 to Subnet1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStop VM1 and VM2."
+    ],
+    "answer": "D",
+    "answerDescription": "If you have an existing virtual network, either select an existing empty subnet or create a new subnet in your existing virtual network solely for use by the application gateway.<br>Verify that you have a working virtual network with a valid subnet. Make sure that no virtual machines or cloud deployments are using the subnet. The application gateway must be by itself in a virtual network subnet.<br>References:<br>https://social.msdn.microsoft.com/Forums/azure/en-US/b09367f9-5d01-4cda-9127-b7a506a0a151/cant-create-application-gateway? forum=WAVirtualMachinesVirtualNetwork https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-03-19T05:38:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      },
+      {
+        "date": "2023-02-24T00:28:00.000Z",
+        "voteCount": 1,
+        "content": "I don't get it, why need to move VM3 to subnet1?"
+      },
+      {
+        "date": "2020-08-17T00:35:00.000Z",
+        "voteCount": 2,
+        "content": "It's clear that C is a lot better answer than D."
+      },
+      {
+        "date": "2020-02-25T06:44:00.000Z",
+        "voteCount": 3,
+        "content": "I think option C \"Move VM3 to Subnet1\" is only valid. Tested this movement (inside assigned NIC in section IPConfiguration, there is an option to change subnet, which restarted VM). After restart VM had new private IP from different subnet.\nI also tried to stop VM in subnet, where only this VM was assigned. Then I tried to create new AppGtw to this subnet and portal did not give me the option, selected subnet was not possible to use. Even if VM was stopped, it still had its privateID (public was released) what was probably the reason, why this subnet is not usable for AppGtw."
+      },
+      {
+        "date": "2020-02-08T02:15:00.000Z",
+        "voteCount": 1,
+        "content": "Why solution \"C\" is not valid?"
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13472-exam-az-101-topic-3-question-15-discussion/",
+    "body": "HOTSPOT -<br>You have an on-premises data center and an Azure subscription. The data center contains two VPN devices. The subscription contains an Azure virtual network named VNet1. VNet1 contains a gateway subnet.<br>You need to create a site-to-site VPN. The solution must ensure that is a single instance of an Azure VPN gateway fails, or a single on-premises VPN device fails, the failure will not cause an interruption that is longer than two minutes.<br>What is the minimum number of public IP addresses, virtual network gateways, and local network gateways required in Azure? To answer, select the appropriate options in the answer area.<br>Each correct selection is worth one point.<br>NOTE:<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box 1: 4 -<br>Two public IP addresses in the on-premises data center, and two public IP addresses in the VNET.<br>The most reliable option is to combine the active-active gateways on both your network and Azure, as shown in the diagram below.<br><img src=\"/assets/media/exam-media/02519/0013100001.png\" class=\"in-exam-image\"><br><br>Box 2: 2 -<br>Every Azure VPN gateway consists of two instances in an active-standby configuration. For any planned maintenance or unplanned disruption that happens to the active instance, the standby instance would take over (failover) automatically, and resume the S2S VPN or VNet-to-VNet connections.<br><br>Box 3: 2 -<br>Dual-redundancy: active-active VPN gateways for both Azure and on-premises networks<br>References:<br>https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-05T20:23:00.000Z",
+        "voteCount": 1,
+        "content": "The Number of public IP address in \"Azure: should be 2, not four. All the Public IP will be used four, 2 in Azure 2 @ On-Prem"
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41091-exam-az-101-topic-3-question-17-discussion/",
+    "body": "You have a public load balancer that balances ports 80 and 443 across three virtual machines.<br>You need to direct all the Remote Desktop Protocol (RDP) connections to VM3 only.<br>What should you configure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan inbound NAT rule",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta load balancing rule",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta new public load balancer for VM3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta frontend IP configuration"
+    ],
+    "answer": "A",
+    "answerDescription": "To port forward traffic to a specific port on specific VMs use an inbound network address translation (NAT) rule.<br>Incorrect Answers:<br>B: Load-balancing rule to distribute traffic that arrives at frontend to backend pool instances.<br>References:<br>https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-30T23:15:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer. Tested in LAB as well"
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14846-exam-az-101-topic-3-question-29-discussion/",
+    "body": "HOTSPOT -<br>You are creating an Azure load balancer.<br>You need to add an IPv6 load balancing rule to the load balancer.<br>How should you complete the Azure PowerShell script? To answer, select the appropriate options in the answer area.<br>Each correct selection is worth one point.<br>NOTE:<br>Hot Area:<br><img src=\"/assets/media/exam-media/02519/0014300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02519/0014400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-ipv6-internet-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-26T11:10:00.000Z",
+        "voteCount": 7,
+        "content": "The first part looks like a New-AzLoadBalancerRuleConfig\nThe second part is actually a New-AzLoadBalancer which uses the above\n\nSo the correct answers are:\n1. New-AzLoadBalancerRuleConfig\n2. LoadBalancingRule\n\nExplained in the following example:\n\n$lbrule1v6 = New-AzLoadBalancerRuleConfig -Name \"HTTPv6\" -FrontendIpConfiguration $FEIPConfigv6 -BackendAddressPool $backendpoolipv6 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 8080\n\n$inboundNATRule1v6 = New-AzLoadBalancerInboundNatRuleConfig -Name \"NicNatRulev6\" -FrontendIpConfiguration $FEIPConfigv6 -Protocol TCP -FrontendPort 443 -BackendPort 4443\n\n$NRPLB = New-AzLoadBalancer -ResourceGroupName NRP-RG -Name 'myNrpIPv6LB' -Location 'West US' -FrontendIpConfiguration $FEIPConfigv4,$FEIPConfigv6 -InboundNatRule $inboundNATRule1v6,$inboundNATRule1v4 -BackendAddressPool $backendpoolipv4,$backendpoolipv6 -Probe $healthProbe,$RDPprobe -LoadBalancingRule $lbrule1v4,$lbrule1v6,$RDPrule\n\nSource: https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-ipv6-internet-ps#create-lb-rules-nat-rules-a-probe-and-a-load-balancer"
+      },
+      {
+        "date": "2020-03-27T11:40:00.000Z",
+        "voteCount": 2,
+        "content": "i agree"
+      },
+      {
+        "date": "2020-07-04T13:42:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with redboris."
+      },
+      {
+        "date": "2020-07-05T10:45:00.000Z",
+        "voteCount": 1,
+        "content": "Slight correction -  Answers are :\nBox 1: New-AzureRMLoadBalancerRuleConfig\nBo2: -LoadBalancingRule"
+      },
+      {
+        "date": "2020-02-25T06:25:00.000Z",
+        "voteCount": 3,
+        "content": "incorrect because New-AzLoadBalancerInboundNatRuleConfig does not have parameters\nBackEndAddressPool and Probe\n\nIt should be new-azloadbalander and LoadbalanderRule"
+      },
+      {
+        "date": "2020-02-25T06:28:00.000Z",
+        "voteCount": 4,
+        "content": "It should be New-AzLoadBalancerRuleConfig and LoadBalancingRule"
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/29700-exam-az-101-topic-3-question-30-discussion/",
+    "body": "You have two Azure virtual networks named VNet1 and VNet2. VNet1 contains an Azure virtual machine named VM1. VNet2 contains an Azure virtual machine named VM2.<br>VM1 hosts a frontend application that connects to VM2 to retrieve data.<br>Users report that the frontend application is slower than usual.<br>You need to view the average round-trip time (RTT) of the packets from VM1 to VM2.<br>Which Azure Network Watcher feature should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIP flow verify",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnection monitor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnection troubleshoot",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNSG flow logs"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-27T07:20:00.000Z",
+        "voteCount": 1,
+        "content": "Answer B is Correct.\nThe Connection Monitor feature in Azure Network Watcher is now generally available in all public\nregions. Connection Monitor provides you RTT values on a per-minute granularity.You can monitor a\ndirect TCP connection from a virtual machine to a virtual machine, FQDN, URI, or IPv4 address."
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13068-exam-az-101-topic-3-question-31-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure virtual machine named VM1 that connects to a virtual network named VNet1. VM1 has the following configurations:<br>\u2711 Subnet: 10.0.0.0/24<br>\u2711 Availability set: AVSet<br>\u2711 Network security group (NSG): None<br>\u2711 Private IP address: 10.0.0.4 (dynamic)<br>\u2711 Public IP address: 40.90.219.6 (dynamic)<br>You deploy a standard, Internet-facing load balancer named slb1.<br>You need to configure slb1 to allow connectivity to VM1.<br>Which changes should you apply to VM1 as you configure slb1? To answer, select the appropriate options in the answer area.<br>Each correct selection is worth one point.<br>NOTE:<br>Hot Area:<br><img src=\"/assets/media/exam-media/02519/0014600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02519/0014600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-26T02:15:00.000Z",
+        "voteCount": 8,
+        "content": "I tested first question (Before you create a backend pool ...). \nI had 2 VMs (VM1 and VM2), both had privateIP as dynamic and publicIP was dynamic and basic SKU. \nBoth are in the same VNet. I created standard public load balancer.\nWhen I wanted to create backend pool, I was unable to list any VMs after selecting my VNet.\n1) I changed private IP adress of VM1 to static (in IPConfiguration of NIC assigned to the VM1) and nothing changed.\n2) I removed public IP address of VM2 (dissociated it in detail of public IP) and now VM2 is visible to select in pool creation.\nTherefore I think correct answear is \"Remove the public IP address from VM1\""
+      },
+      {
+        "date": "2020-07-05T12:45:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with Lubomir.\nEven I have tested this in my tenant.\nI am able to create backend pool in Load Balancer only after I remove Public IP from VM (dissociate Public IP with NIC)\nhttps://stackoverflow.com/questions/52882024/cannot-add-vm-to-standard-azure-load-balancer\n\nSo, answer for 1st question is \"Remove the public IP address from VM1\"\n\nTo connect to VM from load balancer, we need to ensure that the inbound security rules are configured in NSG.\nSo, answer for 2nd question is \"Create and configure NSG\""
+      },
+      {
+        "date": "2020-02-25T13:34:00.000Z",
+        "voteCount": 5,
+        "content": "The keyword was \"Standard\" :)\nThis is the message you can see when you create a Load Balancer with Standard SKU:\nStandard Load Balancer is secure by default.  This means Network Security Groups (NSGs) are used to explicitly permit and whitelist allowed traffic. If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. Please configure an NSG to ensure communication if needed.  For outbound communication, an explicit outbound rule is needed."
+      },
+      {
+        "date": "2020-06-03T18:03:00.000Z",
+        "voteCount": 3,
+        "content": "qwiklabs-gcp-04-1fbd35622c19\n\nSo, if we can't have public IP in this scenario, and we must have a NSG on the VM's NIC, answer should be:\nQuestion 1 - Remove the public IP (The question says BEFORE you can connect)\nIf you have a public IP, you can't list your VM on backend pool creation\nQuestion 2 - Create and assign a NSG to VM (The question says BEFORE you create the backend pool)\n\"Standard Load Balancer is secure by default. This means Network Security Groups (NSGs) are used to explicitly permit and whitelist allowed traffic. If you do not have an NSG on a subnet or NIC of your virtual machine resource, traffic is not allowed to reach this resource. Please configure an NSG to ensure communication if needed.\""
+      },
+      {
+        "date": "2020-02-25T14:26:00.000Z",
+        "voteCount": 1,
+        "content": "1. \"Change the private IP address of VM1 to static\"\n2. \"Create and configure an NSG\"\nExplanation in question #8 here:\nhttps://www.examtopics.com/exams/microsoft/az-103/view/13/"
+      },
+      {
+        "date": "2020-02-25T13:25:00.000Z",
+        "voteCount": 1,
+        "content": "I don't understand why these answers are selected. Does anyone have a link to an explanation?\nIt seems like you can create a backend pool without adding a VM to it, so the answer with NSG added to VM seems not correct.\nI just created a Load balancer and added a backend to it. Then I added a VM which already had a NIC public IP (static) and did not have NSG. There was no errors and it all succeeded."
+      },
+      {
+        "date": "2020-06-03T17:44:00.000Z",
+        "voteCount": 1,
+        "content": "The question is what you need to change on VM to assign on the LB, not what you need to do to create a LB"
+      },
+      {
+        "date": "2020-01-29T11:57:00.000Z",
+        "voteCount": 3,
+        "content": "1.  Create and Assign an NSG to VM1 (Correct)\n2.  Create and configure an NSG (Correct)"
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13528-exam-az-101-topic-3-question-33-discussion/",
+    "body": "You have the Azure virtual networks shown in the following table.<br><img src=\"/assets/media/exam-media/02519/0014700001.png\" class=\"in-exam-image\"><br>To which virtual networks can you establish a peering connection from VNet1?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVNet3 and VNet4 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVNet2 and VNet3 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVNet2 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVNet2, VNet3, and VNet4"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-07T22:22:00.000Z",
+        "voteCount": 5,
+        "content": "It's A: VNET 3 and 4 only.\nAll the IP's for the ranges\n10.11.0.1 - 10.11.255.254 VNET1\n10.11.0.1 - 10.11.127.254 VNET2\n10.10.0.1 - 10.10.3.254 VNET3\n192.168.16.0/22  VNET4 - not even same class\nVNET 2 is out. Others are OK. \nIf you're not strong with subnetting just remember the lower the number the more addresses. So a /16 will include all the address of /17, /18, 19... and so on up to /30. /16 is also the just the last 2 octets. That is why 10.10.0.0 is ok."
+      },
+      {
+        "date": "2020-02-10T05:08:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-02-06T16:25:00.000Z",
+        "voteCount": 1,
+        "content": "Vnet1 and Vnet2 are overlapping, arent they?"
+      }
+    ],
+    "examNameCode": "az-101",
+    "topicNumber": "3"
+  }
+]

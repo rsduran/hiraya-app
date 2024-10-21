@@ -1,0 +1,241 @@
+[
+  {
+    "topic": 9,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49482-exam-az-304-topic-9-question-1-discussion/",
+    "body": "What should you include in the identity management strategy to support the planned changes?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove all the domain controllers from corp.fabrikam.com to virtual networks in Azure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy domain controllers for the rd.fabrikam.com forest to virtual networks in Azure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy domain controllers for corp.fabrikam.com to virtual networks in Azure.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy a new Azure AD tenant for the authentication of new R&amp;D projects."
+    ],
+    "answer": "C",
+    "answerDescription": "Directory synchronization between Azure Active Directory (Azure AD) and corp.fabrikam.com must not be affected by a link failure between Azure and the on- premises network. (This requires domain controllers in Azure)<br>Users on the on-premises network must be able to authenticate to corp.fabrikam.com if an Internet link fails. (This requires domain controllers on-premises)",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-04-07T04:17:00.000Z",
+        "voteCount": 31,
+        "content": "C - Correct."
+      },
+      {
+        "date": "2021-09-20T04:39:00.000Z",
+        "voteCount": 7,
+        "content": "came in exam on 20-sep-21, I passed, I choose given one"
+      },
+      {
+        "date": "2022-07-30T17:19:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2022-06-11T08:56:00.000Z",
+        "voteCount": 1,
+        "content": "C\n\nActive Directory servers. These are domain controllers implementing directory services (AD DS) running as VMs in the cloud. These servers can provide authentication of components running in your Azure virtual network.\nIf your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate Active Directory Domain Services (AD DS) in Azure. This replication can reduce the latency caused by sending authentication requests from the cloud back to AD DS running on-premises.\nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain"
+      },
+      {
+        "date": "2021-12-24T03:47:00.000Z",
+        "voteCount": 1,
+        "content": "On exam 24.12.2021"
+      },
+      {
+        "date": "2021-12-23T05:28:00.000Z",
+        "voteCount": 1,
+        "content": "Appere on exam 23-dec-2021"
+      },
+      {
+        "date": "2021-12-22T02:54:00.000Z",
+        "voteCount": 2,
+        "content": "On exam today 22-Dec-21"
+      },
+      {
+        "date": "2021-10-04T03:31:00.000Z",
+        "voteCount": 4,
+        "content": "\"Users on the on-premises network must be able to authenticate to corp.fabrikam.com if an Internet link fails\"\n\nAnswer is C then"
+      },
+      {
+        "date": "2021-09-27T10:11:00.000Z",
+        "voteCount": 4,
+        "content": "The requirement says\n\"User on the on-prem must be able to authenticate to corp.fabrikam.com if an internet link fails\" --&gt; meaning, you could keep at least on DS in the on-prem. This invalidates (A)\n\"ALL R&amp;D remain on-prem\", this invalidates (B) (D)\n\n(C) is correct"
+      },
+      {
+        "date": "2021-08-26T10:21:00.000Z",
+        "voteCount": 4,
+        "content": "Given answer is correct but explanation is wrong. Dirsync has no bearing on weather the link between on-prem Azure goes down.\n\nSo process of elimation\n\nA - Wrong, no logic in moving all DC's to Azure when they still have on-premise workloads\nB - Wrong, no point in doing this as it sates R&amp;D are going to remain on-premise\nD - Again wrong, the R&amp;D is staying on-premise so why deploy an Azure AD tenant for it\n\nC - seems like a good idea if they are trying to migrate stuff to Azure"
+      },
+      {
+        "date": "2021-09-13T18:48:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain"
+      },
+      {
+        "date": "2021-07-01T23:16:00.000Z",
+        "voteCount": 4,
+        "content": "C is the only sensible answer"
+      }
+    ],
+    "examNameCode": "az-304",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47292-exam-az-304-topic-9-question-2-discussion/",
+    "body": "HOTSPOT -<br>To meet the authentication requirements of Fabrikam, what should you include in the solution? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04027/0004200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04027/0004300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: 2 -<br>The network contains two Active Directory forests named corp.fabrikam.com and rd.fabrikam.com. There are no trust relationships between the forests.<br><br>Box 2: 1 -<br><br>Box 3: 1 -<br>Scenario:<br>\u2711 Users on the on-premises network must be able to authenticate to corp.fabrikam.com if an Internet link fails.<br>\u2711 Administrators must be able authenticate to the Azure portal by using their corp.fabrikam.com credentials.<br>\u2711 All administrative access to the Azure portal must be secured by using multi-factor authentication.<br>Note:<br>Users must always authenticate by using their corp.fabrikam.com UPN identity.<br>The network contains two Active Directory forests named corp.fabrikam.com and rd.fabrikam.com. There are no trust relationships between the forests.<br>Corp.fabrikam.com is a production forest that contains identities used for internal user and computer authentication.<br>Rd.fabrikam.com is used by the research and development (R&amp;D) department only.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-16T02:28:00.000Z",
+        "voteCount": 21,
+        "content": "Just one AD-tenant, since R&amp;D works on-prem in main office only.\n\nI wasn't sure if there maybe is a default Azure AD tenant for the subscription and another for Office 365, where the default is not used (but also cannot be deleted)."
+      },
+      {
+        "date": "2021-03-17T13:05:00.000Z",
+        "voteCount": 7,
+        "content": "i think you are right as it's clearly stated that R&amp;D will remain on prem"
+      },
+      {
+        "date": "2021-05-06T15:31:00.000Z",
+        "voteCount": 19,
+        "content": "The answer is 1 1 0. Its one AD tenant. They want Admins to use MFA. That is enabled by default"
+      },
+      {
+        "date": "2021-08-25T22:54:00.000Z",
+        "voteCount": 3,
+        "content": "I don't think so, unless you enable Security Defaults. I'g go for 2 CA policies, one for enforcing MFA for admins and one for blocking access from outside the company network."
+      },
+      {
+        "date": "2021-08-26T10:32:00.000Z",
+        "voteCount": 2,
+        "content": "I would go 1 1 0, you can enable security defaults to enforce MFA so no CA technically required. I don't understand how you would block access to a web app through conditional access, it can only control access to cloud apps or Azure AD enterprise apps:\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/concept-conditional-access-cloud-apps#other-applications"
+      },
+      {
+        "date": "2021-10-20T07:32:00.000Z",
+        "voteCount": 1,
+        "content": "in the other questions, it Identity Protection should be used to configure MFA. So no need for an conditional access policy"
+      },
+      {
+        "date": "2021-05-04T08:40:00.000Z",
+        "voteCount": 15,
+        "content": "I will bet for 1,1,1 but I'm aware about \"create conditional access policy\", in reality you will not need to create that MFA policy, you only will activate that existing policy. Maybe Is a cheaty question, and the last one is 0. I don't know, I will put my feedback if I see this question on the exam."
+      },
+      {
+        "date": "2021-08-25T22:55:00.000Z",
+        "voteCount": 1,
+        "content": "In the other version of that question, 1 is not even an option, but it's about how many policies are 'required' (not how many you must 'create'). And 1 isn't even an option. I'd go for 2, 1 x MFA and 1 x block access from outside."
+      },
+      {
+        "date": "2022-01-19T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with 1 - 1 - 2 as there is at least one Conditional Access policy required in order to block access to the Test application from outside the network. And therefor MFA for Azure administrators cannot be Security Defaults but must be an additional Conditional Access policy. This drives a requirement for the business to include Azure AD Premium P2 licensing."
+      },
+      {
+        "date": "2021-12-24T03:47:00.000Z",
+        "voteCount": 2,
+        "content": "On exam 24.12.2021"
+      },
+      {
+        "date": "2021-12-23T05:29:00.000Z",
+        "voteCount": 3,
+        "content": "Appere on exam 23-dec-2021"
+      },
+      {
+        "date": "2021-12-13T19:03:00.000Z",
+        "voteCount": 1,
+        "content": "1,1,0. https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults Security Defaults should be sufficient?"
+      },
+      {
+        "date": "2021-10-31T05:04:00.000Z",
+        "voteCount": 1,
+        "content": "1, 1, 1"
+      },
+      {
+        "date": "2021-09-28T17:21:00.000Z",
+        "voteCount": 4,
+        "content": "https://docs.microsoft.com/en-us/azure/active-directory/hybrid/plan-connect-topologies\n\n\"The most common topology is a single on-premises forest, with one or multiple domains, and a single Azure AD tenant.\"\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain:\n\n\"Every new Azure AD tenant comes with an initial domain name, &lt;domainname&gt;.onmicrosoft.com. You can't change or delete the initial domain name, but you can add your organization's names\"\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/fundamentals/concept-fundamentals-security-defaults:\n\n\"Security defaults make it easier to help protect your organization from these attacks with preconfigured security settings:\n\nRequiring all users to register for Azure AD Multi-Factor Authentication.\"\n\n1 tenant 1 domain and 0 conditional access policies"
+      },
+      {
+        "date": "2021-11-26T03:31:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with you except for the last one. It's not required to force every user to MFA accessing the Azure Portal but only Administrators. The requirements explicitly says: \"ALL ADMINISTRATIVE ACCESS to the Azure portal must be secured by using multi-factor authentication.\" The reason is to secure the access for the accounts with the higher modification privileges. And you can do it by Conditional Access Policy. Please see the following:\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa"
+      },
+      {
+        "date": "2021-12-07T05:35:00.000Z",
+        "voteCount": 1,
+        "content": "In addition, if you look at conditional access policy licensing requirements you can find this: \"Customers with Microsoft 365 Business Premium licenses also have access to Conditional Access features.\"\n\nAnd this is our case.\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview#license-requirements"
+      },
+      {
+        "date": "2021-09-21T05:01:00.000Z",
+        "voteCount": 1,
+        "content": "1-1-1 : 1-Azure AD Tenant"
+      },
+      {
+        "date": "2021-08-25T22:53:00.000Z",
+        "voteCount": 10,
+        "content": "I vote for 1-1-2.\n\nThe 3rd part (number of Conditional Access policies) is identical to Topic 6 Question 12 (which seems to be translated from the German version of the exam). However, in that question, 1 isn't even an option. Also the question is how many CA policies are 'required', not how much you must 'create' (which would rule out the 'we must just enable an existing policy but not create one' discussion below).\n\nSince we have a second requirement, namely that \"company information including policies, templates, and data must be inaccessible to anyone outside the company\", I'd go for 2 as the answer.\n\n1 Conditional Access Policy to enforce MFA for administrative groups\n1 Conditional Access Policy to block access from outside company network\n\n\n\nhttps://www.examtopics.com/discussions/microsoft/view/60225-exam-az-304-topic-6-question-12-discussion/"
+      },
+      {
+        "date": "2021-08-10T01:37:00.000Z",
+        "voteCount": 5,
+        "content": "1,1,1. You need \"Conditional Access: Block access by location\"\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-location\nto meet this requirement \"Company information including policies, templates, and data must be inaccessible to anyone outside the company.\""
+      },
+      {
+        "date": "2021-07-30T19:06:00.000Z",
+        "voteCount": 1,
+        "content": "1,1,1\nR&amp;D works on-prem in main office only"
+      },
+      {
+        "date": "2021-05-23T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "it states users on prem can always access to the azure services, means even r&amp;d should be allowed, then 2 tenants are required."
+      },
+      {
+        "date": "2021-05-31T05:49:00.000Z",
+        "voteCount": 2,
+        "content": "Don't need a separate tenant for guests to access Azure since r&amp;d can be considered as such"
+      },
+      {
+        "date": "2021-05-21T01:12:00.000Z",
+        "voteCount": 3,
+        "content": "The answer should be 110"
+      },
+      {
+        "date": "2021-05-13T09:44:00.000Z",
+        "voteCount": 7,
+        "content": "1-1-1. It looks conditional access policy needs to be created for admins to enforce MFA.\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-admin-mfa"
+      },
+      {
+        "date": "2021-06-08T22:34:00.000Z",
+        "voteCount": 1,
+        "content": "Microsoft recommends you require MFA on the following roles at a minimum:\n\nAuthentication Administrator\nBilling administrator\nConditional Access administrator\nExchange administrator\nGlobal administrator\nHelpdesk administrator\nPassword administrator\nPrivileged Role Administrator\nSecurity administrator\nSharePoint administrator\nUser administrator\nOrganizations can choose to include or exclude roles as they see fit."
+      },
+      {
+        "date": "2021-05-12T12:39:00.000Z",
+        "voteCount": 3,
+        "content": "The third one is 1. You can use MFA registration policy of the Identification Protection feature. But that is a P2 feature. Conditional access policy is a P1 feature. There is no indication that the company has P2."
+      },
+      {
+        "date": "2021-05-10T14:17:00.000Z",
+        "voteCount": 2,
+        "content": "Conditional TO CREATE- Since we are not creating just enabling should be 1,1,0"
+      },
+      {
+        "date": "2021-04-27T00:44:00.000Z",
+        "voteCount": 3,
+        "content": "is 1 1 1\n\nfirst ad tenant are global, so 1\nthird I know that there are pre-built policies for MFA, but I don't think that questions coulb be so tricky(in general for all certs)"
+      }
+    ],
+    "examNameCode": "az-304",
+    "topicNumber": "9"
+  }
+]

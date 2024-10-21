@@ -1,0 +1,235 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83377-exam-pl-200-topic-7-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to address the executive's concerns regarding unnecessary data access.<br>Which security changes should you make? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04324/0007600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04324/0007600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Assign records to a service account and add the team member doing the verification by using an access team.<br><br>When to use access teams -<br>* The teams are dynamically formed and dissolved. This typically happens if the clear criteria for defining the teams, such as established territory, product, or volume aren't provided.<br>* The team members require different access rights on the records. You can share a record with several access teams, each team providing different access rights on the record. For example, one team is granted the Read access right on the account and another team, the Read, Write and Share access rights on the same account.<br>* A unique set of users requires access to a single record without having an ownership of the record.<br>Box 2: Assign records to the QV team when the service request is completed.<br>Issues: More employees than are required can access individual client information and continue to have access after a service request is completed.<br>Management has decided to create a new qualification verification (QV) role to help ensure that clients get the most accurate results. This role examines completed work to ensure that nothing is missed.<br>\u05d2\u20ac\u00a2    When users go on vacation, all their outstanding Service Request records are assigned to a substitute employee. The substitute employees are unable to see all the qualifications related to their service requests.<br>Reference:<br>https://docs.microsoft.com/en-us/power-apps/developer/data-platform/use-access-teams-owner-teams-collaborate-share-information",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-28T14:26:00.000Z",
+        "voteCount": 9,
+        "content": "Correct! In Exam on 28th January 2023\nScored 781"
+      },
+      {
+        "date": "2024-04-10T14:30:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      },
+      {
+        "date": "2024-02-07T09:12:00.000Z",
+        "voteCount": 2,
+        "content": "1)\na) what is table security basic (maybe owning user priv. only -&gt; on role, not table!)? create, read ? user? Business unit? I can see License Type can be set to Basic on the user record.  \nProblem: holiday absences for assigning to user directly.--&gt; the user manually makes reassign all?\nb) 'share with the team member' means how does it identify the 1 team member? \nc) 'add the team member' add to what (to the team? But if he is \u2018the team member\u2019 he is already member of the team), queue? and how is 'the team member' (the is 1) identified among the many team members? (1 team N members)\nthe assigned user is the user who is responsible to do something, usually. Assigning records to a default(?) service account is not a good idea (maybe a team?), is that not what queues are for??\n2) a) goes with the QV team as an owner team..."
+      },
+      {
+        "date": "2024-02-07T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "I would create a role which contains the table and add user privileges for crud. Then I would add the users to the private queue as queue members. So they can see the service request records. They would then have to pick the records from the queue and assign them to themselves removing the record from the queue and visibility of the users. Finally after completion, assigning to another queue where the queue members have final revision legitimation?"
+      },
+      {
+        "date": "2023-08-04T07:14:00.000Z",
+        "voteCount": 4,
+        "content": "on exam - 8/1/2023"
+      },
+      {
+        "date": "2023-06-20T03:56:00.000Z",
+        "voteCount": 2,
+        "content": "on 20th june 2023 exam"
+      },
+      {
+        "date": "2023-05-04T11:52:00.000Z",
+        "voteCount": 3,
+        "content": "on May 2023 exam"
+      },
+      {
+        "date": "2023-03-14T15:34:00.000Z",
+        "voteCount": 2,
+        "content": "on exam March 2023"
+      },
+      {
+        "date": "2022-09-24T13:43:00.000Z",
+        "voteCount": 1,
+        "content": "This question was on Sept 24th\nScored  712\nSelected the same answer"
+      },
+      {
+        "date": "2022-09-24T00:52:00.000Z",
+        "voteCount": 3,
+        "content": "I would select option 1... Currently the data for Service Requests are available to ALL team members, meaning the level of access is too open, and needs to be restricted. Access Teams will not restrict access, nor will sharing the record.\nThe only valid answer is option 1: Assign the record to a specific user who will work on the Service Request, and change the security role to basic level privileges (user level). That way only the user who the record has been assigned to will have access to the record. \nIf the record needs to be accessed by other team members, then the owner can share the record to the relevant team members."
+      },
+      {
+        "date": "2023-06-05T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "I read basic priviliges as the standard datavers role (self). In that case Basic User rights only works for standard (non custom) entities. As we are working with custom tables/entities I don't see this as a valid answer. If they would mention user permissions on the table, instead of the basic user then this could be a valid answer. I would go for access team even tough this question is not complete either because it doesn't mentioning limiting the permissions. However considering that basic user is wrong in my opinion in this case I would go for access teams."
+      },
+      {
+        "date": "2024-02-07T09:53:00.000Z",
+        "voteCount": 1,
+        "content": "maybe you are referrring to basic user license (on the user record). but indeed 'table security to basic' is not very clear.\n2) 'assign recordS' (plural) to a (1) service account and share the (1) record (not these, or the recordS), means sharing of the service-account .... werid... and how should this LIMIT access?\n3) smells a bit if ms wants to test our awareness of access teams\n\"assign (which) records to...\"\nalso, the sensible data is in the Qualification records (school degree, prof. qualifications) not in the service request nor (maybe) the name of the Account/Contact record (unless it is about patient of a med. psychiatrist you don't want everyone to know...)"
+      },
+      {
+        "date": "2022-09-24T00:52:00.000Z",
+        "voteCount": 1,
+        "content": "For Q1"
+      },
+      {
+        "date": "2022-10-27T05:00:00.000Z",
+        "voteCount": 4,
+        "content": "I believe the answer is correct.\nAdding the team user doing the verification implies that the user will be removed from the access team after the verification and therefore he will lose his rights."
+      }
+    ],
+    "examNameCode": "pl-200",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83459-exam-pl-200-topic-7-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to resolve the issue reported by substitute employees after they are assigned service requests.<br>How should you configure the system? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04324/0007800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04324/0007900001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Service Request 1:N Qualification<br>When users go on vacation, all their outstanding Service Request records are assigned to a substitute employee. The substitute employees are unable to see all the qualifications related to their service requests.<br><br>Box 2: Cascade All -<br>Cascade All - Perform the action on all referencing table records associated with the referenced table record.<br>Reference:<br>https://docs.microsoft.com/en-us/power-apps/developer/data-platform/configure-entity-relationship-cascading-behavior",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-24T13:43:00.000Z",
+        "voteCount": 8,
+        "content": "This question was on Sept 24th\nScored  712\nSelected the same answer"
+      },
+      {
+        "date": "2023-07-13T11:44:00.000Z",
+        "voteCount": 5,
+        "content": "This question was on July 7th\nScore 806\n1- service request 1:N qualification\n2- cascade all"
+      },
+      {
+        "date": "2024-06-26T13:45:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2024-04-07T13:37:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      },
+      {
+        "date": "2023-05-04T11:53:00.000Z",
+        "voteCount": 3,
+        "content": "on may 2023 exam"
+      },
+      {
+        "date": "2023-03-16T21:35:00.000Z",
+        "voteCount": 3,
+        "content": "Relationship \n1- service request 1:N qualification\nCascading rule\n2- cascade all"
+      },
+      {
+        "date": "2023-03-14T15:35:00.000Z",
+        "voteCount": 1,
+        "content": "On exam March 2023"
+      },
+      {
+        "date": "2023-01-24T19:45:00.000Z",
+        "voteCount": 1,
+        "content": "N:N, one service request (like background check for xxx) may have multiple qualifications (like education, work location, address, credit)\none qualification (like xxx's address) may associate with multiple service requests (banks, hiring companies)\n2nd Q: cascade none. If you want delete one service request, should just leave linked qualifications alone"
+      },
+      {
+        "date": "2023-03-22T20:43:00.000Z",
+        "voteCount": 4,
+        "content": "Casacade None?..... Try reading this again... it's cascade all.. must be       \"When users go on vacation, all their outstanding Service Request records are assigned to a substitute employee. The substitute employees are unable to see all the qualifications related to their service requests.\"   Assign Records via Cascade All"
+      },
+      {
+        "date": "2023-01-30T09:59:00.000Z",
+        "voteCount": 2,
+        "content": "Can you please explain why N:N because the essays says a service request can have 1 or more qualification records associated with it."
+      },
+      {
+        "date": "2023-10-11T02:20:00.000Z",
+        "voteCount": 1,
+        "content": "I initially thought 'Cascade None' for the same reason. Then I realised that cascading behaviour in Dataverse doesn't just apply to deleting records, but also to assigning, sharing, merging, etc. In which case, 'Cascade All' is correct.\n\nSee https://learn.microsoft.com/en-us/power-apps/developer/data-platform/configure-entity-relationship-cascading-behavior#using-sdk-for-net-to-configure-cascading-behavior"
+      },
+      {
+        "date": "2023-04-16T13:11:00.000Z",
+        "voteCount": 4,
+        "content": "Valid line of thinking BUT\nIt never mentions that Qualification records are RE-USED for multiple Service Requests.\nSo the assumption is that they are not. It says Clients enter their data in a website, which then uses a service account to create the records in the Dataverse database.\nNever says there is some sort of complex previous Service Request / Qualification re-use mechanism in place.\n  \nFurthermore it explicitly states: \nIn the rare event that results are questioned (by the client), a new service request is created and verified independently of the previous work that took place.\nINDEPENDENTLY OF PREVIOUS WORK - so again assumption is that a brand new Service Request and Qualification records are always created.\nAlso \nif you don't use Cascade All then there is no way (mentioned in the answer) to fix the issue of users not being able to see Qualification records."
+      }
+    ],
+    "examNameCode": "pl-200",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83460-exam-pl-200-topic-7-question-3-discussion/",
+    "body": "You need to implement the requirement for the VP of sales.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a test account with a base security role with QV security added.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the System Administrator security role to your user account.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a test account with only QV security added.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd QV security to your user account."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-24T13:43:00.000Z",
+        "voteCount": 13,
+        "content": "This question was on Sept 24th\nScored  712\nSelected the same answer"
+      },
+      {
+        "date": "2022-11-17T09:58:00.000Z",
+        "voteCount": 5,
+        "content": "We need to create a user for the VP of sales. B and D adding roles to my own user account is wrong. C is also wrong because without the basic user role the VP of sales won't be able to log into the system. Has to be A"
+      },
+      {
+        "date": "2023-08-10T10:38:00.000Z",
+        "voteCount": 4,
+        "content": "This case study was on my test - 8/23"
+      },
+      {
+        "date": "2023-05-04T11:54:00.000Z",
+        "voteCount": 1,
+        "content": "on may 2023 exam"
+      },
+      {
+        "date": "2023-04-12T10:43:00.000Z",
+        "voteCount": 1,
+        "content": "this case study was on the exam 11/04/2023"
+      },
+      {
+        "date": "2023-03-24T10:53:00.000Z",
+        "voteCount": 1,
+        "content": "used today 3/24/23"
+      },
+      {
+        "date": "2023-03-16T21:36:00.000Z",
+        "voteCount": 1,
+        "content": "A. Use a test account with a base security role with QV security added."
+      },
+      {
+        "date": "2023-03-14T15:36:00.000Z",
+        "voteCount": 1,
+        "content": "on exam march 2023"
+      },
+      {
+        "date": "2023-03-07T04:18:00.000Z",
+        "voteCount": 1,
+        "content": "This question was on exam 02.03.23"
+      },
+      {
+        "date": "2022-12-23T03:05:00.000Z",
+        "voteCount": 2,
+        "content": "This question was in exam 23/12/22"
+      }
+    ],
+    "examNameCode": "pl-200",
+    "topicNumber": "7"
+  }
+]

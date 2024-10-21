@@ -1,0 +1,163 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37575-exam-70-464-topic-3-question-3-discussion/",
+    "body": "You need to recommend a solution to ensure that SQL1 supports the auditing requirements of usp_UpdateSpeakerName.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Distributed Transaction Coordinator (DTC)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransactional replication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange data capture",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange tracking"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-22T14:34:00.000Z",
+        "voteCount": 4,
+        "content": "It should be Change data capture - it allows to track changes so we can replace the auditing insert in the procedure. If the auditing insert tracks only primary keys, we should use Change tracking (this tracks PKs only)"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39852-exam-70-464-topic-3-question-6-discussion/",
+    "body": "You need to add a new column named Confirmed to the Attendees table.<br>The solution must meet the following requirements:<br>\u2711 Have a default value of false.<br>\u2711 Minimize the amount of disk space used.<br>Which code block should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Attendees ADD Confirmed bit DEFAULT 0;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Attendees ADD Confirmed char(l) DEFAULT '1';",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Attendees ADD Confirmed bit DEFAULT 1;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE Attendees ADD Confirmed char(l) DEFAULT `1';"
+    ],
+    "answer": "A",
+    "answerDescription": "http://msdn.microsoft.com/en-us/library/ms177603.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-14T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "To be fair, a single bit column in a table takes as much space as a char(1) column."
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33906-exam-70-464-topic-3-question-8-discussion/",
+    "body": "Developers report that usp_UpdateSessionRoom periodically returns error 3960.<br>You need to prevent the error from occurring. The solution must ensure that the stored procedure returns the original values to all of the updated rows.<br>What should you configure in Procedures.sql?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace line 46 with the following code: SET TRANSACTION ISOLATION LEVEL SERIALIZABLE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace line 46 with the following code: SET TRANSACTION ISOLATION LEVEL REPEATABLE READ",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the SELECT statement at line 49 to line 57.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the SET statement at line 46 to line 53."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-07T05:15:00.000Z",
+        "voteCount": 1,
+        "content": "Serialization provides range lock. Repeatable Read itself will serve purpose."
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39853-exam-70-464-topic-3-question-9-discussion/",
+    "body": "You discover that usp.SelectSpeakersByName executes slowly if usp_UpdateSpeakerName executes simultaneously.<br>You need to minimize the execution time of usp.SelectSpeakersByName. The solution must not affect the performance of the other stored procedures.<br>What should you update?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsp_UpdateSpeakerName to use the NOLOCK query hint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsp_UpdateSpeakerName to use snapshot isolation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsp_SelectSpeakersByName to use the NOLOCK query hint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsp_SelectSpeakersByName to use snapshot isolation"
+    ],
+    "answer": "C",
+    "answerDescription": "NOLOCK -<br>Is equivalent to READUNCOMMITTED.<br><br>READUNCOMMITTED -<br>Specifies that dirty reads are allowed.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-14T06:59:00.000Z",
+        "voteCount": 1,
+        "content": "I would use snapshot isolation for the reading sproc. Snapshot is not blocking and you have committed data."
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33908-exam-70-464-topic-3-question-10-discussion/",
+    "body": "B\\Batch 1 -<br>While testing usp.GetFutureSessions, you discover that IX_Sessions is accessed by a scan rather than a seek.<br>You need to minimize the amount of time it takes to execute usp_GetFutureSessions.<br>What should you do? (Each correct answer presents part of the solution. Choose all that apply.)<br><img src=\"/assets/media/exam-media/03026/0003000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption A",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption B",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption C",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption D",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption E",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption F"
+    ],
+    "answer": "BE",
+    "answerDescription": "Future delivery dates.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-01T06:14:00.000Z",
+        "voteCount": 1,
+        "content": "B ERROR: Incorrect WHERE clause for filtered index 'IX_Sessions' on table 'dbo.Sessions'.\nC Cannot use SEEK because DeliveryTime is not ther first column of index\n\nShould be A and E"
+      },
+      {
+        "date": "2020-11-09T02:21:00.000Z",
+        "voteCount": 1,
+        "content": "C also is in the answer because it\u00b4s make a covering index."
+      },
+      {
+        "date": "2020-10-07T05:23:00.000Z",
+        "voteCount": 1,
+        "content": "BCE is the answer"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33910-exam-70-464-topic-3-question-12-discussion/",
+    "body": "You are evaluating the index design for the database.<br>You have the following requirements:<br>\u2711 minimize the amount of time it takes for usp_AttendeesReport to run<br>\u2711 minimize the amount of database fragmentation.<br>You need to recommend a change to Indexes.sql<br>Which line of code should you use to replace line 12 of Indexes.sql?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(LastName);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(FirstName) INCLUDE (LastName);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(LastName, FirstName);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(LastName) INCLUDE (FirstName);"
+    ],
+    "answer": "C",
+    "answerDescription": "Topic 3, Scenario 3",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-05T11:34:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: D as no FIRST_NAME in filter"
+      },
+      {
+        "date": "2020-10-07T05:36:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: D as no FIRST_NAME in filter"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "3"
+  }
+]

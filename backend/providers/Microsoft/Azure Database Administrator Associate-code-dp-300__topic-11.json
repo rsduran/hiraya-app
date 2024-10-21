@@ -1,0 +1,211 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65420-exam-dp-300-topic-11-question-1-discussion/",
+    "body": "You need to provide an implementation plan to configure data retention for ResearchDB1. The solution must meet the security and compliance requirements.<br>What should you include in the plan?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Deleted databases settings for ResearchSrv01.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy and configure an Azure Backup server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Advanced Data Security settings for ResearchDB1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Manage Backups settings for ResearchSrv01.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-11-03T14:36:00.000Z",
+        "voteCount": 6,
+        "content": "it looks good, what do you think?"
+      },
+      {
+        "date": "2024-10-16T05:03:00.000Z",
+        "voteCount": 1,
+        "content": "D. Configure the Manage Backups settings for ResearchSrv01\nHere's why:\n\u2022\tManage Backups settings allow you to configure automatic backups and retention policies for Azure SQL databases, which aligns with the requirement to retain backups for two months.\n\u2022\tIt provides a simple and cost-effective way to ensure that backups are automatically retained for the desired time period without needing additional infrastructure like an Azure Backup Server.\nOther options do not directly address the requirement for setting a backup retention period:"
+      },
+      {
+        "date": "2022-05-02T03:54:00.000Z",
+        "voteCount": 3,
+        "content": "D is correct.\nYou can configure SQL Database to retain automated backups for a period longer than the retention period for your service tier.\nIn the Azure portal, navigate to your server and then select Backups. Select the Retention policies tab to modify your backup retention settings."
+      },
+      {
+        "date": "2022-03-02T08:57:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is D:"
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47920-exam-dp-300-topic-11-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a configuration for ManufacturingSQLDb1 after the migration to Azure. The solution must meet the business requirements.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04275/0025700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04275/0025800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Node majority with witness<br>As a general rule when you configure a quorum, the voting elements in the cluster should be an odd number. Therefore, if the cluster contains an even number of voting nodes, you should configure a disk witness or a file share witness.<br>Note: Mode: Node majority with witness (disk or file share)<br>Nodes have votes. In addition, a quorum witness has a vote. The cluster quorum is the majority of voting nodes in the active cluster membership plus a witness vote. A quorum witness can be a designated disk witness or a designated file share witness.<br>Box 2: Azure Standard Load Balancer<br>Microsoft guarantees that a Load Balanced Endpoint using Azure Standard Load Balancer, serving two or more Healthy Virtual Machine Instances, will be available 99.99% of the time.<br><br>Scenario: Business Requirements -<br>Litware identifies business requirements include: meet an SLA of 99.99% availability for all Azure deployments.<br>Incorrect Aswers:<br>Basic Balancer: No SLA is provided for Basic Load Balancer.<br>Note: There are two main options for setting up your listener: external (public) or internal. The external (public) listener uses an internet facing load balancer and is associated with a public Virtual IP (VIP) that is accessible over the internet. An internal listener uses an internal load balancer and only supports clients within the same Virtual Network.<br>Reference:<br>https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness https://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-05T06:02:00.000Z",
+        "voteCount": 5,
+        "content": "Box 2: Azure Standard Load Balancer\n\nMicrosoft guarantees that a Load Balanced Endpoint using Azure Standard Load Balancer, serving two or more Healthy Virtual Machine Instances, will be available 99.99% of the time.\n\nScenario: Business Requirements\nLitware identifies business requirements include: meet an SLA of 99.99% availability for all Azure deployments.\n\nIncorrect Aswers:\nBasic Balancer: No SLA is provided for Basic Load Balancer.\n\nNote: There are two main options for setting up your listener: external (public) or internal. The external (public) listener uses an internet facing load balancer and is associated with a public Virtual IP (VIP) that is accessible over the internet. An internal listener uses an internal load balancer and only supports clients within the same Virtual Network.\n\nReference:\nhttps://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness\nhttps://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/"
+      },
+      {
+        "date": "2022-05-02T03:59:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct:\nQuorum mode: Node majority with witness\nAvailability Group: Standard LB"
+      },
+      {
+        "date": "2022-01-01T01:00:00.000Z",
+        "voteCount": 2,
+        "content": "Quorum mode: Node majority with witness\nAvailability Group: Standard LB"
+      },
+      {
+        "date": "2021-09-27T11:42:00.000Z",
+        "voteCount": 1,
+        "content": "No SLA is provided for Basic Load Balancer\nhttps://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/"
+      },
+      {
+        "date": "2021-03-22T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "I would say this is more about a better SLA as Standard Load Balancer is zone redundant, basic is not"
+      },
+      {
+        "date": "2021-12-09T10:43:00.000Z",
+        "voteCount": 1,
+        "content": "Litware identifies business requirements include: meet an SLA of 99.99% availability for all Azure deployments."
+      },
+      {
+        "date": "2021-03-21T21:13:00.000Z",
+        "voteCount": 3,
+        "content": "Standard Balancer is right option, they don't want public access for Azure machines, Basic load balancer is open to the internet by default"
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47921-exam-dp-300-topic-11-question-3-discussion/",
+    "body": "What should you do after a failover of SalesSQLDb1 to ensure that the database remains accessible to SalesSQLDb1App1?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure SalesSQLDb1 as writable.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the connection strings of SalesSQLDb1App1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the firewall rules of SalesSQLDb1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the users in SalesSQLDb1."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 9,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-03-23T08:09:00.000Z",
+        "voteCount": 27,
+        "content": "I say update connection strings.\n\nIt is a sort of given (as it's recommended by Microsoft) that firewall rules be the same for master &amp; secondary.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview#keeping-credentials-and-firewall-rules-in-sync"
+      },
+      {
+        "date": "2021-03-21T21:29:00.000Z",
+        "voteCount": 6,
+        "content": "application connection also need to update as Geo replication is being used, not automatic failover groups where you can have a listener"
+      },
+      {
+        "date": "2024-10-16T05:10:00.000Z",
+        "voteCount": 1,
+        "content": "B. Update the connection strings of SalesSQLDb1App1.\nHere\u2019s why:\n\nGeo-replicated Azure SQL Database setups typically require that the connection string be updated to point to the new primary database after a failover. Since SalesSQLDb1 is in a geo-replicated environment, the failover can cause the database role to switch, and the application\u2019s connection string must point to the correct replica (the new primary).\n\nUpdating the connection string ensures that the application (SalesSQLDb1App1) connects to the appropriate primary replica of SalesSQLDb1."
+      },
+      {
+        "date": "2022-07-09T05:38:00.000Z",
+        "voteCount": 2,
+        "content": "B is the correct answer. As per the case study scenario the database already has database -level firewall rules and the database is in geo-replication. No need to make changes in the firewall rules as they get replicated to the secondary replica."
+      },
+      {
+        "date": "2022-05-02T04:22:00.000Z",
+        "voteCount": 2,
+        "content": "https://azure.microsoft.com/en-us/blog/azure-sql-database-now-supports-transparent-geographic-failover-of-multiple-databases-featuring-automatic-activation/"
+      },
+      {
+        "date": "2022-05-02T04:21:00.000Z",
+        "voteCount": 1,
+        "content": "https://azure.microsoft.com/en-us/blog/azure-sql-database-now-supports-transparent-geographic-failover-of-multiple-databases-featuring-automatic-activation/"
+      },
+      {
+        "date": "2022-05-02T04:22:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry. B is correct!!!!!!!!!!!"
+      },
+      {
+        "date": "2022-05-02T04:18:00.000Z",
+        "voteCount": 3,
+        "content": "B is the correct answer\nGeo-replicated db  have to change the connection string for your application after a geo-failover."
+      },
+      {
+        "date": "2022-03-16T16:50:00.000Z",
+        "voteCount": 1,
+        "content": "The given answer is correct:\nC. Update the firewall rules of SalesSQLDb1.\nthere will be two listeners in the failover group that do not change:\nRead/write listener endpoint: &lt;sqlfailovergroup&gt;.database.windows.net\nRead-only listener endpoint: &lt;sqlfailovergroup&gt;.secondary.database.windows.net\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-sql-db?tabs=azure-powershell\nEndpoint redirection\n\nAuto-failover groups provide read-write and read-only listener end-points that remain unchanged during geo-failovers. This means you do not have to change the connection string for your application after a geo-failover, because connections are automatically routed to the current primary. Whether you use manual or automatic failover activation, a geo-failover switches all secondary databases in the group to the primary role. After the geo-failover is completed, the DNS record is automatically updated to redirect the endpoints to the new region."
+      },
+      {
+        "date": "2022-03-18T16:01:00.000Z",
+        "voteCount": 2,
+        "content": "I was wrong, I back-track from my above message, B is the correct answer as it is a geo-replicated db and not a db in an automatic failover group."
+      },
+      {
+        "date": "2022-02-28T12:55:00.000Z",
+        "voteCount": 2,
+        "content": "Update connection string in apps server"
+      },
+      {
+        "date": "2022-01-23T11:48:00.000Z",
+        "voteCount": 2,
+        "content": "Update connection string"
+      },
+      {
+        "date": "2022-01-01T01:02:00.000Z",
+        "voteCount": 1,
+        "content": "Update connection string is more reasonable"
+      },
+      {
+        "date": "2021-12-05T06:08:00.000Z",
+        "voteCount": 1,
+        "content": "this question is not well formed because you dont know if they are talking about the failover after or before the migration since geo replication has failover and auto failover groups too"
+      },
+      {
+        "date": "2021-03-22T10:41:00.000Z",
+        "voteCount": 5,
+        "content": "I think you are right, wouln't the firewall rules be there already, I would say update connection string is the correct answer"
+      },
+      {
+        "date": "2021-12-07T11:53:00.000Z",
+        "voteCount": 1,
+        "content": "I disagree Geo Replication does not require connection string changes."
+      },
+      {
+        "date": "2021-12-09T11:16:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry I am wrong on this :("
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "11"
+  }
+]

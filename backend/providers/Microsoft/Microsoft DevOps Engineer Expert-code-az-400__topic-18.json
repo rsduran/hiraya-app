@@ -1,0 +1,545 @@
+[
+  {
+    "topic": 18,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19762-exam-az-400-topic-18-question-1-discussion/",
+    "body": "<br>To resolve the current technical issue, what should you do to the Register-AzureRmAutomationDscNode command?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the value of the ConfigurationMode parameter.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the Register-AzureRmAutomationDscNode cmdlet with Register-AzureRmAutomationScheduledRunbook",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the AllowModuleOverwrite parameter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the DefaultProfile parameter."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-05-07T01:54:00.000Z",
+        "voteCount": 28,
+        "content": "more on this:\n\nSpecifies how the LCM actually applies the configuration to the target nodes. Possible values are \"ApplyOnly\",\"ApplyAndMonitor\", and \"ApplyAndAutoCorrect\".\nApplyOnly: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a service. After initial application of a new configuration, DSC does not check for drift from a previously configured state. Note that DSC will attempt to apply the configuration until it is successful before ApplyOnly takes effect.\nApplyAndMonitor: This is the default value. The LCM applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs. Note that DSC will attempt to apply the configuration until it is successful before ApplyAndMonitor takes effect.\nApplyAndAutoCorrect: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then re-applies the current configuration."
+      },
+      {
+        "date": "2020-08-20T03:57:00.000Z",
+        "voteCount": 12,
+        "content": "Change to ApplyAndAutoCorrect \nhttps://docs.microsoft.com/en-us/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0#parameters"
+      },
+      {
+        "date": "2023-12-25T06:08:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-06-07T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "A is the answer.\n\nhttps://learn.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1#basic-settings\nConfigurationMode\n- ApplyOnly: DSC applies the configuration and does nothing further unless a new configuration is pushed to the target node or when a new configuration is pulled from a service. After initial application of a new configuration, DSC does not check for drift from a previously configured state. Note that DSC will attempt to apply the configuration until it is successful before\n- ApplyAndAutoCorrect: DSC applies any new configurations. After initial application of a new configuration, if the target node drifts from the desired state, DSC reports the discrepancy in logs, and then re-applies the current configuration."
+      },
+      {
+        "date": "2023-04-28T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "A. Change the value of the ConfigurationMode parameter.\n\nThe current technical issue is that the test servers are experiencing configuration drift over time, and the Azure Automation State Configuration is failing to correct the configurations. The Register-AzureRmAutomationDscNode command is used to register the nodes with the Azure Automation State Configuration. One of the parameters of this command is the ConfigurationMode parameter, which specifies the mode in which the configuration should be applied. The ApplyOnly mode is currently being used, which means that the configuration will only be applied, but not checked or corrected. To resolve the current technical issue, the ConfigurationMode parameter should be changed to ApplyAndAutoCorrect, which will apply the configuration and also check and correct any drift. Therefore, option A is the correct answer."
+      },
+      {
+        "date": "2023-01-21T04:09:00.000Z",
+        "voteCount": 1,
+        "content": "100000000000000000000% A"
+      },
+      {
+        "date": "2023-01-09T01:19:00.000Z",
+        "voteCount": 1,
+        "content": "You should add scenario to the question.\n\"Scenario: Current Technical Issue\nThe test servers are configured correctly when first deployed, but they experience configuration drift over time. Azure Automation State Configuration fails to correct the configurations.\nAzure Automation State Configuration nodes are registered by using the following command.\nRegister-AzureRmAutomationDscNode\n  -ResourceGroupName 'TestResourceGroup'\n  -AutomationAccountName 'LitwareAutomationAccount'\n  -AzureVMName $vmanme\n  -ConfigurationMode 'ApplyOnly'\nTo resolve the current technical issue, what should you do to the Register-AzureRmAutomationDscNode\ncommand?\""
+      },
+      {
+        "date": "2022-08-07T04:39:00.000Z",
+        "voteCount": 1,
+        "content": "'\"Azure Automation State Configuration fails to correct the configurations\"\n\nhttps://docs.microsoft.com/en-us/powershell/module/azurerm.automation/register-azurermautomationdscnode?view=azurermps-6.13.0\n\n\"-ConfigurationMode\nSpecifies the DSC configuration mode. Valid values are:\n\nApplyAndMonitor\nApplyAndAutocorrect\nApplyOnly\"\n\nAnswer is A"
+      },
+      {
+        "date": "2022-05-21T12:09:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct answer."
+      },
+      {
+        "date": "2022-04-14T04:05:00.000Z",
+        "voteCount": 2,
+        "content": "Selected during exam. \nA. Change the value of the ConfigurationMode parameter."
+      },
+      {
+        "date": "2022-03-30T00:18:00.000Z",
+        "voteCount": 2,
+        "content": "correct answer"
+      },
+      {
+        "date": "2022-02-23T12:13:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/powershell/dsc/managing-nodes/metaconfig?view=dsc-1.1#:~:text=ConfigurationMode,applies%20the%20current%20configuration."
+      },
+      {
+        "date": "2022-01-24T21:54:00.000Z",
+        "voteCount": 1,
+        "content": "A. Change the value of the ConfigurationMode \nparameter to \"ApplyAndAutoCorrect\"."
+      },
+      {
+        "date": "2021-11-09T11:48:00.000Z",
+        "voteCount": 1,
+        "content": "This Q appeared on 5th Nov 2021"
+      },
+      {
+        "date": "2021-09-21T00:57:00.000Z",
+        "voteCount": 1,
+        "content": "ApplyAndAutocorrect option is all that we need  there, just see get-help  Register-AzAutomationDscNode"
+      },
+      {
+        "date": "2021-07-04T09:30:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct \nPossible values are \"ApplyOnly\",\"ApplyAndMonitor\", and \"ApplyAndAutoCorrect\". Here you can use ApplyAndAutoCorrect\n\nSachin Kadam"
+      },
+      {
+        "date": "2021-07-04T08:00:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is - Change the value of the ConfigurationMode parameter\nSachin Kadam"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "18"
+  },
+  {
+    "topic": 18,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22339-exam-az-400-topic-18-question-2-discussion/",
+    "body": "Which branching strategy should you recommend for the investment planning applications suite?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trelease isolation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmain only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdevelopment isolation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfeature isolation\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-11T18:48:00.000Z",
+        "voteCount": 36,
+        "content": "Tech req. --&gt; A branching strategy that supports developing new functionality in isolation must be used. \nSo answer is correct - Feature isolation."
+      },
+      {
+        "date": "2020-06-26T06:42:00.000Z",
+        "voteCount": 8,
+        "content": "\"Work can be isolated in development branches by feature, organization, or temporary collaboration.\"\nDevelopment isolation not necessarily isolated by features."
+      },
+      {
+        "date": "2023-06-07T06:19:00.000Z",
+        "voteCount": 3,
+        "content": "D is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops#feature-isolation\nFeature isolation is a special derivation of the development isolation, allowing you to branch one or more feature branches from main, as shown, or from your dev branches.\n\nWhen you need to work on a particular feature, it might be a good idea to create a feature branch.\n\nKeep the lifetime of feature work and the associated feature branch short-lived. Forward integrate (FI) changes from the parent branch frequently. Reverse integrate (RI) back to the parent only when some agreed team criteria, for example definition of done, is met. Rollback of features on main can be costly and may reset testing."
+      },
+      {
+        "date": "2023-04-28T10:37:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: D. feature isolation.\n\nExplanation:\n\nTo support developing new functionality in isolation, a branching strategy that isolates new feature development in branches should be used. This allows changes to be made to a feature without affecting other development efforts. Once a feature is completed, the changes can be merged back into the main branch."
+      },
+      {
+        "date": "2023-01-26T08:55:00.000Z",
+        "voteCount": 1,
+        "content": "The best branching strategy for the investment planning applications suite would be \"feature isolation.\" This strategy would allow for the development of new functionality in isolation, as required by the technical requirements. With feature isolation, developers can work on different features concurrently and merge them into the main branch when they are ready. This approach allows for better collaboration and faster development, while minimizing the risk of conflicts and bugs when merging code. Additionally, it allows the team to use the principle of least privilege, as well as giving the Team Leaders the ability to create new packages and edit the permissions of package feeds."
+      },
+      {
+        "date": "2022-12-08T21:39:00.000Z",
+        "voteCount": 4,
+        "content": "It was on my exam on December 7, 2022."
+      },
+      {
+        "date": "2022-08-07T05:03:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops#feature-isolation\n\n\"Feature isolation is a special derivation of the development isolation, allowing you to branch one or more feature branches from main, as shown, or from your dev branches.\"\n\nAnswer is D"
+      },
+      {
+        "date": "2022-05-21T12:11:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct answer."
+      },
+      {
+        "date": "2022-03-30T00:23:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer and explanation"
+      },
+      {
+        "date": "2022-01-24T21:55:00.000Z",
+        "voteCount": 1,
+        "content": "D. feature isolation"
+      },
+      {
+        "date": "2021-11-09T11:48:00.000Z",
+        "voteCount": 1,
+        "content": "This Q appeared on 5th Nov 2021"
+      },
+      {
+        "date": "2021-02-10T11:56:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is correct\nSince new functionality needs to be developed in isolation ,we need to use feature isolation."
+      },
+      {
+        "date": "2020-06-06T10:47:00.000Z",
+        "voteCount": 4,
+        "content": "Why not development isolation?"
+      },
+      {
+        "date": "2023-01-10T23:56:00.000Z",
+        "voteCount": 1,
+        "content": "I think that the question is not complete. It is a part of Litware questions with the described scenario (\"A branching strategy that supports developing new functionality in isolation must be used\")."
+      },
+      {
+        "date": "2020-06-11T11:48:00.000Z",
+        "voteCount": 2,
+        "content": "i agree"
+      },
+      {
+        "date": "2020-06-26T03:01:00.000Z",
+        "voteCount": 6,
+        "content": "Development isolation strategy have individual branches for development and Support changes. whereas feature isolation - branch will be used only for the functionality"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "18"
+  },
+  {
+    "topic": 18,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10425-exam-az-400-topic-18-question-3-discussion/",
+    "body": "What should you use to implement the code quality restriction on the release pipeline for the investment planning applications suite?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta pre-deployment approval",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta deployment gate\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta post-deployment approval",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta trigger"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 10,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2019-12-15T23:23:00.000Z",
+        "voteCount": 108,
+        "content": "Correct answer should be \"Deployment Gate\",  deployment gate can use workitem query to check if there any active bug exist."
+      },
+      {
+        "date": "2021-01-02T01:34:00.000Z",
+        "voteCount": 4,
+        "content": "Deployment gate - You want to ensure there are no active issues in the work item or problem management system before deploying a build to a stage - \"Pre-deployment gates\". https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/?view=azure-devops#:~:text=Deployments%20to%20each%20stage%20are,completion%20of%20the%20deployment%20pipeline.&amp;text=Some%20users%20must%20manually%20sign,is%20promoted%20to%20other%20stages."
+      },
+      {
+        "date": "2020-01-05T12:31:00.000Z",
+        "voteCount": 9,
+        "content": "\"Deployment Gate\" is correct answer as Approval has only adding users as capability"
+      },
+      {
+        "date": "2020-05-09T01:54:00.000Z",
+        "voteCount": 2,
+        "content": "nature of task is configuration drift... this cant be checked using Deployment Gate, and  requires manual intervention. \nRef: https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops"
+      },
+      {
+        "date": "2020-05-17T07:21:00.000Z",
+        "voteCount": 2,
+        "content": "\"During release, deployments must not proceed between stages if any active bugs are logged against the release.\" - so, the approvers should check active bugs that are logged? It's an automatic capability of a Deployment gate - Query Work Items, with defined parameters Query (for instance, Critical Bugs) and Upper threshold."
+      },
+      {
+        "date": "2020-06-21T21:07:00.000Z",
+        "voteCount": 8,
+        "content": "\"deployments must not proceed between stages if any active bugs are logged against the release\", it don't say \"work item of type bug\", for that reason I think the answer pre-deploy approval"
+      },
+      {
+        "date": "2022-04-03T08:58:00.000Z",
+        "voteCount": 1,
+        "content": "Litware focuses on writing new code for customers. No resources are provided to refactor or remove existing code. Changes to the code base take a long time, as dependencies are not obvious to individual developers.\nMerge operations of the code often take months and involve many developers. Code merging frequently introduces bugs that are difficult to locate and resolve.\nCustomers report that ownership costs of the retirement fund management system increase continually. The need to merge unrelated code makes even minor code changes expensive.\n--- Gates wont catch issues with dependencies and code merge because its a legacy system"
+      },
+      {
+        "date": "2024-01-20T11:50:00.000Z",
+        "voteCount": 1,
+        "content": "Deployment Gate is correct because Approval reduces efficiency due to manual intervention"
+      },
+      {
+        "date": "2023-12-25T06:30:00.000Z",
+        "voteCount": 1,
+        "content": "Needs deployment gate here with Query to verify if bug count is 0"
+      },
+      {
+        "date": "2023-08-01T23:10:00.000Z",
+        "voteCount": 1,
+        "content": "Code quality restrictions should not be manually approved or rejected, they should be fully automated and strictly standardized, not subjective. A deployment gate (B) will do that."
+      },
+      {
+        "date": "2023-06-07T06:23:00.000Z",
+        "voteCount": 3,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops\nGates allow automatic collection of health signals from external services and then promote the release when all the signals are successful or stop the deployment on timeout. Typically, gates are used in connection with incident management, problem management, change management, monitoring, and external approval systems.\n\nSome common use cases for deployment gates are:\nQuality validation: Query pipeline metrics such as pass rate or code coverage and deploy only if they are within a predefined threshold."
+      },
+      {
+        "date": "2023-04-28T10:36:00.000Z",
+        "voteCount": 2,
+        "content": "B. a deployment gate.\n\nA deployment gate is a release pipeline feature that blocks deployments between stages until certain conditions are met, such as passing tests or meeting code quality standards. In this case, the technical requirements state that deployments must not proceed between stages if any active bugs are logged against the release, making a deployment gate the appropriate choice to implement the code quality restriction."
+      },
+      {
+        "date": "2022-08-08T04:12:00.000Z",
+        "voteCount": 1,
+        "content": "\"Code quality and release quality are critical. During release, deployments must not proceed between stages if any active bugs are logged against the release.\"\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/?view=azure-devops\n\n\"A team wants to ensure there are no active issues in the work item or problem management system before deploying a build to a stage.\tPre-deployment gates\"\n\nAnswer is B"
+      },
+      {
+        "date": "2022-07-09T08:17:00.000Z",
+        "voteCount": 1,
+        "content": "Deployment gate \u2013 You want to ensure there are no active issues in the work item or problem management system before deploying a build to a stage \u2013 \u201cPre-deployment gates\u201d.\n\nReference: https://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/approvals"
+      },
+      {
+        "date": "2022-03-30T00:28:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer should be B. Use quality gates\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/gates?view=azure-devops"
+      },
+      {
+        "date": "2022-02-22T00:02:00.000Z",
+        "voteCount": 1,
+        "content": "B. Deployment gate"
+      },
+      {
+        "date": "2022-01-24T21:57:00.000Z",
+        "voteCount": 2,
+        "content": "B. a deployment gate"
+      },
+      {
+        "date": "2022-01-24T21:56:00.000Z",
+        "voteCount": 2,
+        "content": "B. a deployment gate"
+      },
+      {
+        "date": "2021-12-15T06:12:00.000Z",
+        "voteCount": 3,
+        "content": "In my addled brain, both an approval and a gate can be used. The gate is an automated process, while the approval requires human intervention. If this scenario is emphasizing criticality, I would trust the occasional (in inevitable) human error less than a computer...\nOn that basis, I would choose B - but with all this there is a \"right\" answer and a \"Microsoft right\" answer."
+      },
+      {
+        "date": "2021-11-13T00:04:00.000Z",
+        "voteCount": 1,
+        "content": "From the LAB\nPre-deployment approvals\nSelect the users who can approve or reject deployments to this stage\nSame for pre-deployment\n\nThe approvals is only for next step's (passed) approval :) If something involves to quality code check/security, the deployment gate should be implemented"
+      },
+      {
+        "date": "2021-11-13T00:06:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deploy-using-approvals?view=azure-devops"
+      },
+      {
+        "date": "2021-10-16T01:09:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A is correct. \nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/release/approvals/?view=azure-devops"
+      },
+      {
+        "date": "2021-07-04T09:36:00.000Z",
+        "voteCount": 2,
+        "content": "Quite Confusing \nDeployment Gate does Quality validation, which is automatic \nPre-Deployment approval is manual intervention, by checking appropriate work items and bugs"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "18"
+  },
+  {
+    "topic": 18,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30619-exam-az-400-topic-18-question-4-discussion/",
+    "body": "HOTSPOT -<br>How should you configure the release retention policy for the investment planning applications suite? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04257/0050100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0050200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: By default, all releases must remain available for 30 days, except for production releases, which must be kept for 60 days.<br>Box 1: Set the default retention policy to 30 days<br>The Global default retention policy sets the default retention values for all the build pipelines. Authors of build pipelines can override these values.<br>Box 2: Set the stage retention policy to 60 days<br>You may want to retain more releases that have been deployed to specific stages.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/devops/pipelines/policies/retention",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-05T00:08:00.000Z",
+        "voteCount": 30,
+        "content": "By default, all releases must remain available for 30 days, except for production releases, which must be kept for 60 days\n\ndefault=30d production stage=60"
+      },
+      {
+        "date": "2021-11-13T00:13:00.000Z",
+        "voteCount": 8,
+        "content": "Global retention is in Project tab and seems that it is \"grey\", you can't edit, default is 30 days\nFor PROD stage, on Azure DevOps, go to Retention tab, inside the setting stage configuration by clicking to each stage, you will see the retention for each stage, set it to 60 for PROD stage"
+      },
+      {
+        "date": "2023-06-07T06:35:00.000Z",
+        "voteCount": 6,
+        "content": "1. Set default retention policy to 30 days\n2. Set stage retention policy to 60 days\n\nhttps://learn.microsoft.com/en-us/azure/devops/pipelines/policies/retention?view=azure-devops&amp;tabs=yaml#global-release-retention-policy"
+      },
+      {
+        "date": "2022-08-06T18:33:00.000Z",
+        "voteCount": 3,
+        "content": "\"By default, all releases must remain available for 30 days, except for production releases, which must be kept for 60 days.\"\n\nGiven answer is correct and verified by practice question from Linux Academy (now Cloud Guru)"
+      },
+      {
+        "date": "2022-03-30T00:33:00.000Z",
+        "voteCount": 4,
+        "content": "answer is correct\n\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/policies/retention?view=azure-devops&amp;tabs=yaml"
+      },
+      {
+        "date": "2022-01-24T21:59:00.000Z",
+        "voteCount": 1,
+        "content": "the given answer is correct."
+      },
+      {
+        "date": "2021-07-22T06:11:00.000Z",
+        "voteCount": 6,
+        "content": "As per document it should be Maximum Retention Policy. I am confident because there is no 'Stage Policy'. Hence Second One should be Maximum retention with 60 days.\nhttps://docs.microsoft.com/en-us/azure/devops/pipelines/policies/retention?view=azure-devops&amp;tabs=yaml#set-release-retention-policies"
+      },
+      {
+        "date": "2021-11-13T00:12:00.000Z",
+        "voteCount": 7,
+        "content": "on Azure DevOps, go to Retention tab, inside the setting stage configuration by clicking to each stage, you will see the retention for each stage, set it to 60 for PROD stage"
+      },
+      {
+        "date": "2021-01-01T04:06:00.000Z",
+        "voteCount": 3,
+        "content": "Correctamundo dude"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "18"
+  },
+  {
+    "topic": 18,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17106-exam-az-400-topic-18-question-5-discussion/",
+    "body": "HOTSPOT -<br>Where should the build and release agents for the investment planning applications suite run? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04257/0050300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04257/0050400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: A source control system -<br>A source control system, also called a version control system, allows developers to collaborate on code and track changes. Source control is an essential tool for multi-developer projects.<br><br>Box 2: A hosted service -<br>To build and deploy Xcode apps or Xamarin.iOS projects, you'll need at least one macOS agent. If your pipelines are in Azure Pipelines and a Microsoft-hosted agent meets your needs, you can skip setting up a self-hosted macOS agent.<br>Scenario: The investment planning applications suite will include one multi-tier web application and two iOS mobile applications. One mobile application will be used by employees; the other will be used by customers.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-osx?view=azure-devops",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-21T07:26:00.000Z",
+        "voteCount": 144,
+        "content": "For both selections, the correct answer is hosted service\nThe build agent can't be hosted in the source control system :)"
+      },
+      {
+        "date": "2021-06-30T10:56:00.000Z",
+        "voteCount": 3,
+        "content": "Agree."
+      },
+      {
+        "date": "2021-11-13T00:14:00.000Z",
+        "voteCount": 1,
+        "content": "Agree, all the best !"
+      },
+      {
+        "date": "2020-04-14T12:03:00.000Z",
+        "voteCount": 4,
+        "content": "that's right"
+      },
+      {
+        "date": "2024-01-30T01:24:00.000Z",
+        "voteCount": 2,
+        "content": "Source control system in this question might mean server where it resides and installing build agent on this server is very much possible, allowing to keep build agent close to the source control system, which it will need and also avoiding firewall issues inbetween."
+      },
+      {
+        "date": "2021-01-01T04:07:00.000Z",
+        "voteCount": 25,
+        "content": "Hosted\nHosted\n\nDude"
+      },
+      {
+        "date": "2023-12-25T06:53:00.000Z",
+        "voteCount": 2,
+        "content": "Hosted\nHosted"
+      },
+      {
+        "date": "2023-08-01T23:14:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is \"hosted\" for both. Run a hosted agent everytime you can, if you cannot, retort to installing and configuring one on your dev machine and then registering it with the project. In some context, like GitLab, agents are called runners and you have shared (hosted) runners and specific (dev-machine) runners."
+      },
+      {
+        "date": "2023-06-01T14:36:00.000Z",
+        "voteCount": 11,
+        "content": "If you have gotten this far, congratulations and thanks for the amazing work that everyone has done to address these questions."
+      },
+      {
+        "date": "2022-12-08T21:40:00.000Z",
+        "voteCount": 7,
+        "content": "It was on my exam on December 7, 2022."
+      },
+      {
+        "date": "2022-08-06T18:41:00.000Z",
+        "voteCount": 4,
+        "content": "\"plans to use cloud-based services whenever suitable\"\n\nHosted for both"
+      },
+      {
+        "date": "2022-06-21T03:08:00.000Z",
+        "voteCount": 7,
+        "content": "Best luck! I have my exam in 5 days."
+      },
+      {
+        "date": "2022-05-21T12:16:00.000Z",
+        "voteCount": 6,
+        "content": "Hosted\nHosted.\n\nGood luck!"
+      },
+      {
+        "date": "2022-05-09T05:04:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is Hosted for both.\nFingers crossed to everybody. I've got my exam in 2 days."
+      },
+      {
+        "date": "2022-03-30T00:43:00.000Z",
+        "voteCount": 1,
+        "content": "Form correct answer is hosted for both build and release."
+      },
+      {
+        "date": "2022-02-11T07:16:00.000Z",
+        "voteCount": 14,
+        "content": "Got this case study in Feb-2022 exam. Scored 910+. Answered 'Hosted Service' for both. \nAll the best!"
+      },
+      {
+        "date": "2022-03-09T12:48:00.000Z",
+        "voteCount": 3,
+        "content": "Thanks for your comments for questions appeared in exam. Very helpful"
+      },
+      {
+        "date": "2023-12-25T06:53:00.000Z",
+        "voteCount": 1,
+        "content": "Thanks for your comments,  I have my exam, next week"
+      },
+      {
+        "date": "2022-02-06T02:19:00.000Z",
+        "voteCount": 4,
+        "content": "Good luck all"
+      },
+      {
+        "date": "2022-01-24T21:41:00.000Z",
+        "voteCount": 4,
+        "content": "Hosted\nHosted\nGood luck to all."
+      },
+      {
+        "date": "2021-12-26T06:43:00.000Z",
+        "voteCount": 2,
+        "content": "Enjoy exam !"
+      },
+      {
+        "date": "2021-11-13T00:15:00.000Z",
+        "voteCount": 3,
+        "content": "Good luck to all, I'll take the exam next week !"
+      },
+      {
+        "date": "2021-11-02T15:16:00.000Z",
+        "voteCount": 4,
+        "content": "Enjoy the exam"
+      }
+    ],
+    "examNameCode": "az-400",
+    "topicNumber": "18"
+  }
+]

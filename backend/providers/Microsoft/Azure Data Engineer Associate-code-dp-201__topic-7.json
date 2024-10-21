@@ -1,0 +1,534 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19269-exam-dp-201-topic-7-question-1-discussion/",
+    "body": "Inventory levels must be calculated by subtracting the current day's sales from the previous day's final inventory.<br>Which two options provide Litware with the ability to quickly calculate the current inventory levels by store and product? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsume the output of the event hub by using Azure Stream Analytics and aggregate the data by store and product. Output the resulting data directly to Azure Synapse Analytics. Use Transact-SQL to calculate the inventory levels.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOutput Event Hubs Avro files to Azure Blob storage. Use Transact-SQL to calculate the inventory levels by using PolyBase in Azure Synapse Analytics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsume the output of the event hub by using Databricks. Use Databricks to calculate the inventory levels and output the data to Azure Synapse Analytics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsume the output of the event hub by using Azure Stream Analytics and aggregate the data by store and product. Output the resulting data into Databricks. Calculate the inventory levels in Databricks and output the data to Azure Blob storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOutput Event Hubs Avro files to Azure Blob storage. Trigger an Azure Data Factory copy activity to run every 10 minutes to load the data into Azure Synapse Analytics. Use Transact-SQL to aggregate the data by store and product."
+    ],
+    "answer": "AE",
+    "answerDescription": "A: Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud.<br>You can use your Azure Synapse Analytics (SQL Data warehouse) database as an output sink for your Stream Analytics jobs.<br>E: Event Hubs Capture is the easiest way to get data into Azure. Using Azure Data Lake, Azure Data Factory, and Azure HDInsight, you can perform batch processing and other analytics using familiar tools and platforms of your choosing, at any scale you need.<br>Note: Event Hubs Capture creates files in Avro format.<br>Captured data is written in Apache Avro format: a compact, fast, binary format that provides rich data structures with inline schema. This format is widely used in the Hadoop ecosystem, Stream Analytics, and Azure Data Factory.<br>Scenario: The application development team will create an Azure event hub to receive real-time sales data, including store number, date, time, product ID, customer loyalty number, price, and discount amount, from the point of sale (POS) system and output the data to data storage in Azure.<br>Reference:<br>https://docs.microsoft.com/bs-latn-ba/azure/sql-data-warehouse/sql-data-warehouse-integrate-azure-stream-analytics https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-capture-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-21T07:32:00.000Z",
+        "voteCount": 21,
+        "content": "should be A &amp; C as the final result should result in synapse"
+      },
+      {
+        "date": "2020-08-14T20:37:00.000Z",
+        "voteCount": 13,
+        "content": "C is incorrect because there is no mention of a step that Azure DataBricks is connected to Azure Synapse to get the previous inventory level. Therefore, you cannot calculate the current inventory level from DataBricks. A &amp; E are the only options that output sales data to Azure Synapse and calculate the inventory level from Azure Synapse. I've noticed that many people in DP-201 imagine the steps that are not stated, causing a lot of confusion."
+      },
+      {
+        "date": "2020-11-13T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "but the inventory levels are not calculated in E"
+      },
+      {
+        "date": "2021-02-10T10:25:00.000Z",
+        "voteCount": 1,
+        "content": "Yes they are. You load the sales into synapse -upserts ( you will substract the sold items). Hence aggregating will give you Current Inventory"
+      },
+      {
+        "date": "2020-08-05T22:31:00.000Z",
+        "voteCount": 9,
+        "content": "I believe daily inventory data are going through ADLK Gen2 (As needed for staging) and go to to Analytical Data Store (Synapse).\nAnother thing is \"Daily inventory data comes from a Microsoft SQL server located on a private network\". I believe this is on prem server.\nThey didn't mentioned how this sql server consume the daily inventory data.\nPrevious day sales data which are already in Synapse (Assumption is daily inventory data migrated from sql server to\ndatalake and then to Synapse).\nCurrent Day's sales data can be ingested to Synapse directly through event hub by using Azure Stream Analytics.\nOR current day's sales data can be store to blob storage from Event Hub. You can use ADF to load those files to Synapse every 10 min.\nThen after you can create direct Power BI dashboard which can run T-SQL to calculate inventory level in Synapse and feed it to Power BI report.\nThis can be live report/dashboard which can be share to every store.\nAnswer should be A and E."
+      },
+      {
+        "date": "2021-03-02T12:29:00.000Z",
+        "voteCount": 1,
+        "content": "Some outputs types support partitioning, and output batch sizes vary to optimize throughput. The following table shows features that are supported for each output type:\n\nTABLE 1\nOutput type\tPartitioning\tSehttps://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-outputs\nASA cannot output to Databricks\nAzure Data Lake Storage Gen 1\tYes\tAzure Active Directory user\n, Managed Identity\nAzure SQL Database\tYes, optional.\tSQL user auth,\nManaged Identity (preview)\nAzure Synapse Analytics\tYes\tSQL user auth,\nManaged Identity (preview)\nBlob storage and Azure Data Lake Gen 2\tYes\tAccess key,\nManaged Identity (preview)\nAzure Event Hubs\tYes, need to set the partition key column in output configuration.\tAccess key,\nManaged Identity (preview)\nPower BI\tNo\tAzure Active Directory user,\nManaged Identity\nAzure Table storage\tYes\tAccount key\nAzure Service Bus queues\tYes\tAccess key\nAzure Service Bus topics\tYes\tAccess key\nAzure Cosmos DB\tYes\tAccess key\nAzure Functions\tYes\tAccess key"
+      },
+      {
+        "date": "2021-02-20T05:08:00.000Z",
+        "voteCount": 1,
+        "content": "Previous day's data will be in the DW so better to do the calculation on the DW.  Use Transact-SQL to calculate the inventory levels."
+      },
+      {
+        "date": "2021-02-18T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "I will not go for databricks because it is mentioned expressroute or VPN will not be there.\nhttps://docs.microsoft.com/en-us/azure/databricks/administration-guide/cloud-configurations/azure/on-prem-network"
+      },
+      {
+        "date": "2021-02-18T07:26:00.000Z",
+        "voteCount": 1,
+        "content": "So Polybase (not feasible on Avro format) and data bricks options are ruled out and given answer is correct."
+      },
+      {
+        "date": "2021-01-03T08:52:00.000Z",
+        "voteCount": 2,
+        "content": "E- using AVRO not useful as polybase does not support AVRO\nSo only left option is A and C"
+      },
+      {
+        "date": "2020-12-10T03:16:00.000Z",
+        "voteCount": 8,
+        "content": "\"Stage inventory data in Azure Data Lake Storage Gen2 before loading the data into the analytical data store\"\nD is out\nPolyBase does not support Avro\nB is out\nRunning DataFactory every 10 minutes is unncessary\nE is out\nA and C are therefore correct"
+      },
+      {
+        "date": "2020-10-26T04:46:00.000Z",
+        "voteCount": 2,
+        "content": "D is obviously not an option since it does not fulfil the requirement of calculating quickly! Option C should be selected instead - it receives the last day's inventory data from the Data lake which is mentioned in the case study (it is used for staging the data before it is loaded into the Data Warehouse.) -&gt; Answer: A &amp; C"
+      },
+      {
+        "date": "2020-10-26T05:15:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, I meant E is not an option."
+      },
+      {
+        "date": "2020-10-10T04:38:00.000Z",
+        "voteCount": 2,
+        "content": "If it is A and E , then aggregation by store and product is done twice, which may not give the right result. So , from a business perspective, A and C makes more sense."
+      },
+      {
+        "date": "2020-08-05T22:32:00.000Z",
+        "voteCount": 7,
+        "content": "B: is incorrect because Avro files doesn't support Polybase.\nC: is incorrect because first of all I am not sure you can output to result directly to Azure databrick. Even if you can then again you need to get\nprevious sales data from datalake or from synapse. Then calculate the inventory level by comparing both of them and send it to Synapse and feed the Power BI report. This doesn't make sense. In Synapse, based on right distribution key on large table, your join query works faster. I believe it will be fast and cheaper if you calculate the inventory level in Synapse compare to databrick.\nD: is incorrect because you don't want to store result in blob storage. It just doesn't make sense. With Synapse and Power BI, you can see historical inventory level by day, by store, by product etc if you configure it right way."
+      },
+      {
+        "date": "2020-07-17T19:22:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is A n E only as in the question it has been stated that \"Stage inventory data in Azure Data Lake Storage Gen2 before loading the data into the analytical data store\" , so the final output should go to analytical data store and azure storage should be used as staging which in question been told to remove the files from it as soon as data is uploaded into the final stage."
+      },
+      {
+        "date": "2020-07-14T08:01:00.000Z",
+        "voteCount": 4,
+        "content": "E can not be correct, because the use of an time scheduled trigger instead of an event blob-trigger. Update have to be done as close to real-time as possible!!"
+      },
+      {
+        "date": "2020-07-05T10:53:00.000Z",
+        "voteCount": 3,
+        "content": "Clearly the assumption is that the inventory of the day before is already in Synapse Analytics. On that basis the answer is correct: in A you aggregate the data, then load them into Synapse and there you use T-SQL statement to calculate the difference with the day before. In E you copy in Synapse the raw data, then use T-SQL to aggregate them and more T-SQL to calculate the difference with the day before"
+      },
+      {
+        "date": "2020-05-17T11:59:00.000Z",
+        "voteCount": 2,
+        "content": "A, B seems to be correct as well. with 10 minutes schedule using adf as mentioned in E option, there is a delay."
+      },
+      {
+        "date": "2020-05-18T22:55:00.000Z",
+        "voteCount": 5,
+        "content": "b is wrong as polybase does not support avr format. a, c seems to be correct"
+      },
+      {
+        "date": "2020-05-17T06:13:00.000Z",
+        "voteCount": 5,
+        "content": "Option E does not calculate the inventory. Only groups input by store and prodcut. Databricks can calculate the inventory by reading eventhub data and inventory data from data lake (staged) or synapse. Since this is neither mentioned nor left out of option C. I would suggest options A and C to be the correct answers."
+      },
+      {
+        "date": "2020-04-28T09:40:00.000Z",
+        "voteCount": 7,
+        "content": "Why not A, C?"
+      },
+      {
+        "date": "2020-05-15T01:58:00.000Z",
+        "voteCount": 5,
+        "content": "As I see the inventory dataas of prev date  is in Azure Synapse Analytics. So inventory level cant be calculated in Azure Databricks unless there's a feed back from Azure Synapse to Databricks"
+      },
+      {
+        "date": "2020-06-12T12:57:00.000Z",
+        "voteCount": 1,
+        "content": "It says they need to avoid VM. So datafactory is not suggested"
+      },
+      {
+        "date": "2020-06-12T12:58:00.000Z",
+        "voteCount": 1,
+        "content": "So C should be correct"
+      },
+      {
+        "date": "2020-08-21T09:28:00.000Z",
+        "voteCount": 1,
+        "content": "VM is a IAAS and ADF is a PAAS.. so it can be used."
+      },
+      {
+        "date": "2020-07-16T02:05:00.000Z",
+        "voteCount": 2,
+        "content": "databrick doesn't have source for eventhub https://docs.microsoft.com/en-us/azure/databricks/data/data-sources/"
+      },
+      {
+        "date": "2020-07-18T03:01:00.000Z",
+        "voteCount": 3,
+        "content": "Incorrect, https://docs.databricks.com/spark/latest/structured-streaming/streaming-event-hubs.html"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18877-exam-dp-201-topic-7-question-2-discussion/",
+    "body": "HOTSPOT -<br>Which Azure Data Factory components should you recommend using together to import the customer data from Salesforce to Data Lake Storage? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0012400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0012500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Self-hosted integration runtime<br>A self-hosted IR is capable of nunning copy activity between a cloud data stores and a data store in private network.<br><br>Box 2: Schedule trigger -<br><br>Schedule every 8 hours -<br><br>Box 3: Copy activity -<br>Scenario:<br>\u2711 Customer data, including name, contact information, and loyalty number, comes from Salesforce and can be imported into Azure once every eight hours. Row modified dates are not trusted in the source table.<br>\u2711 Product data, including product ID, name, and category, comes from Salesforce and can be imported into Azure once every eight hours. Row modified dates are not trusted in the source table.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-02T07:11:00.000Z",
+        "voteCount": 17,
+        "content": "Azure IR is perfectly capable of running Salesforce connection. No need for VM or SSIS runtime.\nTumbling trigger will serve better here.\nOnly the copy activity is the right answer."
+      },
+      {
+        "date": "2020-05-15T02:01:00.000Z",
+        "voteCount": 5,
+        "content": "why cant it be scheduled trigger ?"
+      },
+      {
+        "date": "2021-04-23T00:10:00.000Z",
+        "voteCount": 4,
+        "content": "it is scheduled trigger since modified dates are not reliable"
+      },
+      {
+        "date": "2020-07-07T18:37:00.000Z",
+        "voteCount": 13,
+        "content": "Agree with Azure IR as this is cloud to cloud. \n\nScheduled trigger makes more sense as we need to get data every 8 hours"
+      },
+      {
+        "date": "2020-10-11T00:25:00.000Z",
+        "voteCount": 9,
+        "content": "As modified dates are not reliable, tumbling windows should not be used, Scheduled trigger is the correct option"
+      },
+      {
+        "date": "2021-08-15T18:46:00.000Z",
+        "voteCount": 1,
+        "content": "Modified dates do not play any role here. In a tumbling window you just set up a starting date/time and set up a frequency and that's it. It will work exactly the same as with a scheduled trigger with recurrence every 8 hours. But tumbling windows are a bit safer because you don't need to set up the first date/time in the future."
+      },
+      {
+        "date": "2021-04-20T01:46:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/data-factory/connector-salesforce"
+      },
+      {
+        "date": "2020-12-09T16:26:00.000Z",
+        "voteCount": 9,
+        "content": "I am literally working a project right now where we ingest data from salesforce to data lake. Its the Azure IR."
+      },
+      {
+        "date": "2021-12-08T12:38:00.000Z",
+        "voteCount": 1,
+        "content": "As suggested it seems Azure IR is also possible and this is also the only solution, because it is mentioned to use PaaS and no VMs managed by Litware. Self-hosted IR requires managing VMs, therefore =&gt; Azure IR"
+      },
+      {
+        "date": "2021-06-05T02:16:00.000Z",
+        "voteCount": 1,
+        "content": "Based on reviewed information all the answers provided are correct."
+      },
+      {
+        "date": "2021-04-11T01:27:00.000Z",
+        "voteCount": 2,
+        "content": "I agree is azure IR because salesforce SaaS, but I don\u2019t know what trigger is better. Schedule with frequency 8h fit perfectly but, at the same time Tumbling with 8h window do the same. I think the first one always trigger at these hours independently if the process was cancelled or not, and tumbling may introduce delays if process fails and has to be relaunched because next window will be 8h later than this second try. Am I right?"
+      },
+      {
+        "date": "2021-05-19T10:20:00.000Z",
+        "voteCount": 1,
+        "content": "Schedule trigger: A trigger that invokes a pipeline on a wall-clock schedule.\n\nTumbling window trigger: A trigger that operates on a periodic interval, while also retaining state.\n\nEvent-based trigger: A trigger that responds to an event."
+      },
+      {
+        "date": "2021-01-14T11:16:00.000Z",
+        "voteCount": 8,
+        "content": "See https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats:\n\"When you're copying data between two data stores that are publicly accessible through the internet from any IP, you can use the Azure integration runtime for the copy activity. This integration runtime is secure, reliable, scalable, and globally available.\nWhen you're copying data to and from data stores that are located on-premises or in a network with access control (for example, an Azure virtual network), you need to set up a self-hosted integration runtime.\"\nFurther down on that page, Salesforce is listed as supported by Azure IR."
+      },
+      {
+        "date": "2020-12-10T03:51:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/data-factory/connector-salesforce-service-cloud:\n\"When you copy data into Salesforce Service Cloud, the default Azure Integration Runtime can't be used to execute copy. In other words, if your source linked service doesn't have a specified integration runtime, explicitly create an Azure Integration Runtime with a location near your Salesforce Service Cloud instance.\"\nIntegration runtime is Azure\nTrigger as schedule and activity as copy are correct"
+      },
+      {
+        "date": "2020-09-22T11:59:00.000Z",
+        "voteCount": 2,
+        "content": "we will need Self-hosted since the salesforce is an on-premise Source. \nref- https://docs.microsoft.com/en-us/azure/data-factory/connector-salesforce"
+      },
+      {
+        "date": "2020-08-19T16:36:00.000Z",
+        "voteCount": 2,
+        "content": "the answer should be tumbling window trigger isn't it?"
+      },
+      {
+        "date": "2020-09-20T18:04:00.000Z",
+        "voteCount": 1,
+        "content": "\"Row modified dates are not trusted in the source table.\""
+      },
+      {
+        "date": "2020-10-21T09:00:00.000Z",
+        "voteCount": 3,
+        "content": "You keep saying this but its not clear why this makes a difference.  Scheduled is time of day where as tumbling relates to every n hours.  How does differing triggers for 800/1400/2000 hrs eg have any bearing on the row modified date?  I'm not saying its wrong just you need to justify it better.  I believe tumbling is a better approach because you have 1 not 3 triggers."
+      },
+      {
+        "date": "2020-10-26T05:32:00.000Z",
+        "voteCount": 3,
+        "content": "Tumbling Window in ADF depends on a time field of the source data to determine if it should process it or not. In the case of Scheduled trigger, it keeps track of the processed date and time for each row externally. In case of the scheduled trigger, you only need one trigger, not 3."
+      },
+      {
+        "date": "2020-10-30T03:39:00.000Z",
+        "voteCount": 2,
+        "content": "I'm pretty sure that's not true.  I'm looking at it now and cannot see that dependency.  Also there is not mention of that requirement here:https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-tumbling-window-trigger"
+      },
+      {
+        "date": "2020-08-02T02:18:00.000Z",
+        "voteCount": 4,
+        "content": "As it's mentioned every 8 hrs why not tumbling window trigger rather scheduled.. ?"
+      },
+      {
+        "date": "2020-09-20T18:04:00.000Z",
+        "voteCount": 1,
+        "content": "\"Row modified dates are not trusted in the source table.\""
+      },
+      {
+        "date": "2020-07-18T03:07:00.000Z",
+        "voteCount": 5,
+        "content": "Important\n\nWhen you copy data into Salesforce, the default Azure Integration Runtime can't be used to execute copy. In other words, if your source linked service doesn't have a specified integration runtime, explicitly create an Azure Integration Runtime with a location near your Salesforce instance. Associate the Salesforce linked service as in the following example.\n\nSo the given answer is correct."
+      },
+      {
+        "date": "2020-07-20T12:11:00.000Z",
+        "voteCount": 9,
+        "content": "In the question its mentioned to copy data from salesforce not into salesforce. I feel Azure IR should be  correct here."
+      },
+      {
+        "date": "2020-07-18T01:22:00.000Z",
+        "voteCount": 1,
+        "content": "\"When you copy data into Salesforce, the default Azure Integration Runtime can't be used to execute copy. In other words, if your source linked service doesn't have a specified integration runtime, explicitly create an Azure Integration Runtime with a location near your Salesforce instance. Associate the Salesforce linked service as in the following example.\"\n\nhttps://docs.microsoft.com/en-us/azure/data-factory/connector-salesforce"
+      },
+      {
+        "date": "2020-07-05T11:00:00.000Z",
+        "voteCount": 2,
+        "content": "For box 1 both Azure IR and self hosted IR are correct as the data is in Salesforce and Salesforce supports both: https://docs.microsoft.com/en-us/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats"
+      },
+      {
+        "date": "2020-06-21T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "IR to be used is Azure IR as mentioned here --&gt; https://docs.microsoft.com/en-us/azure/data-factory/connector-salesforce \n\"The integration runtime to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime\""
+      },
+      {
+        "date": "2020-04-21T11:18:00.000Z",
+        "voteCount": 3,
+        "content": "Salesforce is a cloud data source even though there is no clear explanation from the question. Azure IR and Self-Hosted IR both will work via different approaches. Would prefer Azure IR as the answer due to simplicity.\nhttps://docs.microsoft.com/en-us/azure/data-factory/data-migration-guidance-s3-azure-storage"
+      },
+      {
+        "date": "2020-04-25T09:36:00.000Z",
+        "voteCount": 10,
+        "content": "Azure IR is recommended for Azure services only"
+      },
+      {
+        "date": "2021-02-18T07:34:00.000Z",
+        "voteCount": 1,
+        "content": "Any third party cloud or in fact Azure VM (or Azure IaaS) requires self-hosted IR"
+      },
+      {
+        "date": "2020-09-28T22:45:00.000Z",
+        "voteCount": 7,
+        "content": "I just completed the exam, the question is along the lines of: \"comes from Salesforce, a SaaS application\" if that helps"
+      },
+      {
+        "date": "2020-10-26T05:44:00.000Z",
+        "voteCount": 7,
+        "content": "If they say Salesforce SaaS, the answer should be: Azure IR (https://docs.microsoft.com/en-gb/azure/data-factory/copy-activity-overview - [Salesforce -&gt; Supported by Azure IR -&gt; \u2713])"
+      },
+      {
+        "date": "2020-04-30T05:54:00.000Z",
+        "voteCount": 13,
+        "content": "I agree on this. If you want to determine which IR to use you can read https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime#determining-which-ir-to-use. You need to look at the source and sink environment where you run the ADF pipeline. In case of salesForce, ADF has a SalesForce connector which does not have a source IR (https://docs.microsoft.com/en-gb/azure/data-factory/connector-salesforce). Instead it requires you to specify the IR of the sink. In this case the sink lies within Azure. Since the sink lies within Azure, the recommended IR is the Azure IR."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/34173-exam-dp-201-topic-7-question-3-discussion/",
+    "body": "HOTSPOT -<br>Which Azure Data Factory components should you recommend using together to import the daily inventory data from SQL to Azure Data Lake Storage? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0012700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0012800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Self-hosted integration runtime<br>A self-hosted IR is capable of nunning copy activity between a cloud data stores and a data store in private network.<br>Scenario: Daily inventory data comes from a Microsoft SQL server located on a private network.<br><br>Box 2: Schedule trigger -<br><br>Daily schedule -<br><br>Box 3: Copy activity -<br>Scenario:<br>Stage inventory data in Azure Data Lake Storage Gen2 before loading the data into the analytical data store. Litware wants to remove transient data from Data<br>Lake Storage once the data is no longer in use. Files that have a modified date that is older than 14 days must be removed.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-06T12:53:00.000Z",
+        "voteCount": 9,
+        "content": "Daily inventory data comes from a Microsoft SQL server located on a private network.\nself-hosted\nSee inventory levels across the stores. Data must be updated as close to real time as possible.\nevent-based trigger\nTo import the daily inventory data from SQL to Azure Data Lake Storage\ncopy activity"
+      },
+      {
+        "date": "2021-06-12T16:41:00.000Z",
+        "voteCount": 1,
+        "content": "completely agree with BobFar , since MS SQL server on pvt network the integration run time has to be self hosted and as far as the trigger type is concerned it has to be Event based since the inventory levels are expected to be updated closer to real time as possible"
+      },
+      {
+        "date": "2021-06-22T00:11:00.000Z",
+        "voteCount": 1,
+        "content": "Agree this is 100% correct."
+      },
+      {
+        "date": "2022-10-08T09:36:00.000Z",
+        "voteCount": 1,
+        "content": "the event based trigger can be scheduled for only storage events, and here we are moving data from sql to ADLS gen 2. so i think the given answers are correct."
+      },
+      {
+        "date": "2021-03-12T20:44:00.000Z",
+        "voteCount": 2,
+        "content": "From data lake to analytical store - Azure IR, \ndata must be updated as close to real time as possible - event base,\ncopy"
+      },
+      {
+        "date": "2021-04-24T09:14:00.000Z",
+        "voteCount": 11,
+        "content": "\"Daily inventory data comes from a Microsoft SQL server located on a private network.\" -&gt; self-hosted"
+      },
+      {
+        "date": "2021-06-22T00:11:00.000Z",
+        "voteCount": 1,
+        "content": "Agree its SELF-HOSTED the FIRST one, 100% Correct."
+      },
+      {
+        "date": "2020-10-11T00:40:00.000Z",
+        "voteCount": 2,
+        "content": "Shouldn't it be tumbling window as we should get daily inventory?"
+      },
+      {
+        "date": "2020-10-21T09:02:00.000Z",
+        "voteCount": 7,
+        "content": "Scheduled is fine as its daily its probably at a specific time hence daily as 0200 or similar suffices.  Compare to the previous where its every 8 hours.  That is a better model for tumbling than this."
+      },
+      {
+        "date": "2021-02-22T11:56:00.000Z",
+        "voteCount": 3,
+        "content": "It says: \"See inventory levels across the stores. Data must be updated as close to real time as possible.\" in the description."
+      },
+      {
+        "date": "2021-04-24T09:15:00.000Z",
+        "voteCount": 6,
+        "content": "I agree, should be event based"
+      },
+      {
+        "date": "2021-06-22T00:12:00.000Z",
+        "voteCount": 1,
+        "content": "AGREE, its EVENT-BASED TRIGGER 100%!"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17762-exam-dp-201-topic-7-question-4-discussion/",
+    "body": "HOTSPOT -<br>Which Azure service and feature should you recommend using to manage the transient data for Data Lake Storage? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0013000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0013100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Stage inventory data in Azure Data Lake Storage Gen2 before loading the data into the analytical data store. Litware wants to remove transient data from Data Lake Storage once the data is no longer in use. Files that have a modified date that is older than 14 days must be removed.<br><br>Service: Azure Data Factory -<br>Clean up files by built-in delete activity in Azure Data Factory (ADF).<br>ADF built-in delete activity, which can be part of your ETL workflow to deletes undesired files without writing code. You can use ADF to delete folder or files from<br>Azure Blob Storage, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, File System, FTP Server, sFTP Server, and Amazon S3.<br>You can delete expired files only rather than deleting all the files in one folder. For example, you may want to only delete the files which were last modified more than 13 days ago.<br><br>Feature: Delete Activity -<br>Reference:<br>https://azure.microsoft.com/sv-se/blog/clean-up-files-by-built-in-delete-activity-in-azure-data-factory/<br>Design data processing solutions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-28T11:26:00.000Z",
+        "voteCount": 24,
+        "content": "The question asked to remove files older than 14 days which i think ADF &amp; Delete could not do it, so the answer might be = (1) Azure Storage (2) Lifecycle management rule"
+      },
+      {
+        "date": "2020-10-29T23:12:00.000Z",
+        "voteCount": 5,
+        "content": "In ADF, the Metadata activity has the LastModified property through which we can delete the files I believe."
+      },
+      {
+        "date": "2020-05-02T11:15:00.000Z",
+        "voteCount": 23,
+        "content": "The files are stored in ADLS Gen2 which supports Life cycle management rules"
+      },
+      {
+        "date": "2021-06-23T12:53:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, This is correct."
+      },
+      {
+        "date": "2021-05-19T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "https://azure.microsoft.com/en-au/updates/lifecycle-management-for-azure-data-lake-storage-is-now-generally-available/"
+      },
+      {
+        "date": "2021-06-28T14:41:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct\n(1)ADF\n(2)Delete activity"
+      },
+      {
+        "date": "2021-06-24T20:10:00.000Z",
+        "voteCount": 3,
+        "content": "From older comments, ADF + Delete and Azure Storage + Lifecycle management rule seem to have similar functionality to remove files. However there is a difference: Liftcycle is defined based on the creation of the file, and in this question and context, it says:\" Files that have a modified date that is older than 14 days must be removed\". i.e. the file removal is based on the modified date. As BungyTex confirmed below, ADF + Delete can achieve this objective and the answer is correct."
+      },
+      {
+        "date": "2021-06-06T05:00:00.000Z",
+        "voteCount": 2,
+        "content": "Azure storage\nlifecycle management should be easier option"
+      },
+      {
+        "date": "2021-05-28T10:44:00.000Z",
+        "voteCount": 1,
+        "content": "The way i see this, if the inventory data is coming from a microsoft SQL server, it is being ingested by ADF and not in  Azure Storage, and if using ADF then the delete activity should be used. As per other comments this is proven to work"
+      },
+      {
+        "date": "2021-04-29T13:34:00.000Z",
+        "voteCount": 6,
+        "content": "Azure storage\n lifecycle management"
+      },
+      {
+        "date": "2021-03-12T18:56:00.000Z",
+        "voteCount": 4,
+        "content": "Azure Data Lake Storage lifecycle management is now generally available\nhttps://azure.microsoft.com/en-us/updates/lifecycle-management-for-azure-data-lake-storage-is-now-generally-available/"
+      },
+      {
+        "date": "2021-03-07T19:32:00.000Z",
+        "voteCount": 3,
+        "content": "The prefered option should be Az Storage and life cycle management rule"
+      },
+      {
+        "date": "2021-03-07T00:10:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer should be Az Store and Lifecycle ... because ADLSG2 lets delete any file, the unique exception is \"If you use the Delete Blob API to delete a directory, that directory will be deleted only if it's empty. This means that you can't use the Blob API delete directories recursively.\" and support all operation in lifecycle management except \"Lifecycle management policies with premium tier for Azure Data Lake Storage.\nYou can't move data that's stored in the premium tier between hot, cool, and archive tiers. However, you can copy data from the premium tier to the hot access tier in a different account.\"\n\nRef https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-known-issues"
+      },
+      {
+        "date": "2021-02-22T07:58:00.000Z",
+        "voteCount": 3,
+        "content": "lifecycle management is available in ADLS from July 31, 2020\nhttps://azure.microsoft.com/en-us/updates/lifecycle-management-for-azure-data-lake-storage-is-now-generally-available/"
+      },
+      {
+        "date": "2021-01-16T08:21:00.000Z",
+        "voteCount": 3,
+        "content": "Both ADF with delete or storage with lifecyle will work. I literally build the last one this week. I think that is the best solution as this is the cheapest and easiest. Doesn't cost anything to run, to build or to maintain."
+      },
+      {
+        "date": "2021-01-14T11:28:00.000Z",
+        "voteCount": 4,
+        "content": "Seems to me that there are two valid combinations: (Azure Data Factory, delete activity) and (Azure storage, Lifecycle management)"
+      },
+      {
+        "date": "2021-05-23T12:46:00.000Z",
+        "voteCount": 1,
+        "content": "and second one the easiest!!"
+      },
+      {
+        "date": "2020-12-18T06:58:00.000Z",
+        "voteCount": 2,
+        "content": "Lifecycle management policies (delete blob):\tGenerally available in Premium,\tGenerally available\t in Standard  https://docs.microsoft.com/pl-pl/azure/storage/blobs/data-lake-storage-supported-blob-storage-features"
+      },
+      {
+        "date": "2020-12-09T23:23:00.000Z",
+        "voteCount": 9,
+        "content": "https://azure.microsoft.com/en-us/updates/lifecycle-management-for-azure-data-lake-storage-is-now-generally-available/\nAzure storage and lifecycle management rule are the answers"
+      },
+      {
+        "date": "2020-12-09T16:32:00.000Z",
+        "voteCount": 6,
+        "content": "I just tested this in my ADL Gen 2, can set a rule to delete files last modifed more than 14 days ago."
+      },
+      {
+        "date": "2020-08-05T22:58:00.000Z",
+        "voteCount": 3,
+        "content": "Now, Lifecycle management is supported for accounts that have a hierarchical namespace for General-purpose V2.\nWith this, you can reduce the delete activity (less cost even it is negligible for a pipeline).\nHowever, I would prefer to use delete activity in ADF to make sure that they got deleted after I load them to database. Better than auto delete through lifecycle.\nFor me, given answer is correct based on requirement."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "7"
+  }
+]

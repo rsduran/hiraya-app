@@ -1,0 +1,88 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37147-exam-az-200-topic-2-question-5-discussion/",
+    "body": "You develop an app that allows users to upload photos and videos to Azure storage. The app uses a storage REST API call to upload the media to a blob storage account named Account1. You have blob storage containers named Container1 and Container2.<br>Uploading of videos occurs on an irregular basis.<br>You need to copy specific blobs from Container1 to Container2 in real time when specific requirements are met, excluding backup blob copies.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Azure PowerShell command Start-AzureStorageBlobCopy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse AzCopy with the Snapshot switch to copy blobs to Container2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCopy Blobs to Container2 by using the Put Blob operation of the Blob Service REST API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDownload the blob to a virtual machine and then upload the blob to Container2."
+    ],
+    "answer": "A",
+    "answerDescription": "The Start-AzureStorageBlobCopy cmdlet starts to copy a blob.<br><br>Example 1: Copy a named blob -<br>C:\\PS&gt;Start-AzureStorageBlobCopy -SrcBlob \"ContosoPlanning2015\" -DestContainer \"ContosoArchives\" -SrcContainer \"ContosoUploads\"<br>This command starts the copy operation of the blob named ContosoPlanning2015 from the container named ContosoUploads to the container named<br>ContosoArchives.<br>References:<br>https://docs.microsoft.com/en-us/powershell/module/azure.storage/start-azurestorageblobcopy?view=azurermps-6.13.0",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-17T00:35:00.000Z",
+        "voteCount": 1,
+        "content": "Is A really the correct answer? Execution of the command is manually triggered. The term \"in real time when specific conditions are met\" tells that it should rather be automated -&gt; Answer \"C\"?"
+      }
+    ],
+    "examNameCode": "az-200",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/27038-exam-az-200-topic-2-question-6-discussion/",
+    "body": "HOTSPOT -<br>You are developing a data storage solution for a social networking app.<br>The solution requires a mobile app that stores user information using Azure Table Storage.<br>You need to develop code that can insert multiple sets of user information.<br>How should you complete the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02521/0003700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02521/0003800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1, Box 2: TableBatchOperation<br>Create the batch operation.<br>TableBatchOperation op = new TableBatchOperation();<br><br>Box 3: ExecuteBatch -<br>/ Execute the batch operation.<br>table.ExecuteBatch(op);<br>Note: You can insert a batch of entities into a table in one write operation. Some other notes on batch operations:<br>You can perform updates, deletes, and inserts in the same single batch operation.<br>A single batch operation can include up to 100 entities.<br>All entities in a single batch operation must have the same partition key.<br>While it is possible to perform a query as a batch operation, it must be the only operation in the batch.<br>References:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-how-to-use-dotnet",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-31T03:30:00.000Z",
+        "voteCount": 2,
+        "content": "answer picture has incorrect selection. Explanation is correct."
+      }
+    ],
+    "examNameCode": "az-200",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/66580-exam-az-200-topic-2-question-8-discussion/",
+    "body": "HOTSPOT -<br>You are developing an app that manages users for a video game. You plan to store the region, email address, and phone number for the player. Some players may not have a phone number. The player's region will be used to load-balance data.<br>Data for the app must be stored in Azure Table Storage.<br>You need to develop code to retrieve data for an individual player.<br>How should you complete the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02521/0004300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02521/0004500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: region -<br>The player's region will be used to load-balance data.<br>Choosing the PartitionKey.<br>The core of any table's design is based on its scalability, the queries used to access it, and storage operation requirements. The PartitionKey values you choose will dictate how a table will be partitioned and the type of queries that can be used. Storage operations, in particular inserts, can also affect your choice of<br>PartitionKey values.<br><br>Box 2: email -<br>Not phone number some players may not have a phone number.<br><br>Box 3: CloudTable -<br>Box 4 : TableOperation query =..<br><br>Box 5: TableResult -<br>References:<br>https://docs.microsoft.com/en-us/rest/api/storageservices/designing-a-scalable-partitioning-strategy-for-azure-table-storage",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-23T05:58:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer given"
+      }
+    ],
+    "examNameCode": "az-200",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39648-exam-az-200-topic-2-question-11-discussion/",
+    "body": "HOTSPOT -<br>You have an app that stores player scores for an online game. The app stores data in Azure tables using a class named PlayerScore as the table entity. The table is populated with 100,000 records.<br>You are reviewing the following section of code that is intended to retrieve 20 records where the player score exceeds 15,000. (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/02521/0005100001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02521/0005200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02521/0005200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br><br>Box 2: Yes -<br>The TableQuery.Take method defines the upper bound for the number of entities the query returns.<br>Example:<br>query.Take(10);<br><br>Box 3: Yes -<br><br>Box 4: Yes -<br>References:<br>https://www.vkinfotek.com/azureqa/how-do-i-query-azure-table-storage-using-tablequery-class.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-12T00:33:00.000Z",
+        "voteCount": 1,
+        "content": "I think boxes 3 and 4 should be No.\n-Box 3: If the api is going to ignore the query and send all data to the client, what's the point?\n-Box4: It's not a field in the select so shouldn't be retrieved."
+      },
+      {
+        "date": "2021-07-10T20:09:00.000Z",
+        "voteCount": 1,
+        "content": "Agree Box3 is No, maximum 20 records will sent to client with condition score &gt;= 15000\nBox4:Yes, beacuse PlayerID is Key of KeyValuePairs"
+      }
+    ],
+    "examNameCode": "az-200",
+    "topicNumber": "2"
+  }
+]

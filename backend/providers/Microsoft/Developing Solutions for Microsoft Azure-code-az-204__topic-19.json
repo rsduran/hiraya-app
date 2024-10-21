@@ -1,0 +1,389 @@
+[
+  {
+    "topic": 19,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48932-exam-az-204-topic-19-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to implement the Log policy.<br>How should you complete the Azure Event Grid subscription? To answer, drag the appropriate JSON segments to the correct locations. Each JSON segment may be used once, more than once, or not at all. You may need to drag the split bar between panes to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04273/0043700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0043700002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:WebHook -<br>Scenario: If an anomaly is detected, an Azure Function that emails administrators is called by using an HTTP WebHook. endpointType: The type of endpoint for the subscription (webhook/HTTP, Event Hub, or queue).<br><br>Box 2: SubjectBeginsWith -<br>Box 3: Microsoft.Storage.BlobCreated<br><br>Scenario: Log Policy -<br>All Azure App Service Web Apps must write logs to Azure Blob storage. All log files should be saved to a container named logdrop. Logs must remain in the container for 15 days.<br><br>Example subscription schema -<br>{<br>\"properties\": {<br>\"destination\": {<br>\"endpointType\": \"webhook\",<br>\"properties\": {<br>\"endpointUrl\": \"https://example.azurewebsites.net/api/HttpTriggerCSharp1?code=VXbGWce53l48Mt8wuotr0GPmyJ/nDT4hgdFj9DpBiRt38qqnnm5OFg==\"<br>}<br>},<br>\"filter\": {<br>\"includedEventTypes\": [ \"Microsoft.Storage.BlobCreated\", \"Microsoft.Storage.BlobDeleted\" ],<br>\"subjectBeginsWith\": \"blobServices/default/containers/mycontainer/log\",<br>[1]<br>\"isSubjectCaseSensitive \": \"true\"<br>}<br>}<br>}<br>Reference:<br>https://docs.microsoft.com/en-us/azure/event-grid/subscription-creation-schema",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-13T10:59:00.000Z",
+        "voteCount": 27,
+        "content": "Looks correct based on the provided reference.\nhttps://docs.microsoft.com/en-us/azure/event-grid/subscription-creation-schema"
+      },
+      {
+        "date": "2022-10-02T03:06:00.000Z",
+        "voteCount": 3,
+        "content": "You mean to say that documentation link has eventType as \"Webhook\" as an example. But isn't that an example? Where is the reference to say it is a webhook? The question itself is not clear"
+      },
+      {
+        "date": "2024-06-27T17:51:00.000Z",
+        "voteCount": 1,
+        "content": "If an anomaly is detected, an Azure Function that emails administrators is called by using an HTTP WebHook."
+      },
+      {
+        "date": "2024-06-27T17:52:00.000Z",
+        "voteCount": 1,
+        "content": "Also, what was your alternative?"
+      },
+      {
+        "date": "2022-10-28T02:38:00.000Z",
+        "voteCount": 21,
+        "content": "To prevent reading the cases multiple times:\nPlease see the spots below where you can find the questions (page/topic/question/subject)\nProseware, Inc.\n53 19 1 ARM for Azure Event Grid subscription, enable + filter logging\n53 19 2 use Application Insights for scaling\n53 19 3 code : telemetry filter/  telemetry processor\n53 19 4 code : telemetry initializer\n55 25 1 code : if-then condition on properties of incomming event from GRID\n56 25 2 code : class for login event, properties needed\n56 25 3 code : programatically update application settings for blob\n56 26 1 azure function delay : always on and tier"
+      },
+      {
+        "date": "2022-12-10T02:40:00.000Z",
+        "voteCount": 2,
+        "content": "Thanks again for this great help!!"
+      },
+      {
+        "date": "2023-07-22T12:36:00.000Z",
+        "voteCount": 3,
+        "content": "Dude, you are awesome, Seems like you have provided this for all case study questions. Thanks a ton!"
+      },
+      {
+        "date": "2023-11-15T08:45:00.000Z",
+        "voteCount": 1,
+        "content": "By googling the case study i found more text that fits more appropriately:\n\nPolicies\nLog policy\nAll Azure App Service Web Apps must write logs to Azure Blob storage. All log files should be saved to a container named logdrop. Logs must remain in the container for 15 days."
+      },
+      {
+        "date": "2023-12-28T01:44:00.000Z",
+        "voteCount": 2,
+        "content": "this text is already in..."
+      },
+      {
+        "date": "2022-10-08T05:01:00.000Z",
+        "voteCount": 3,
+        "content": "It looks correct purely based on options and there is no need to read the big scenario. But I wonder why it is reacting on logdrop container events. That's where the service itself is writing log files to. Won't it create an endless loop?"
+      },
+      {
+        "date": "2022-11-06T23:44:00.000Z",
+        "voteCount": 2,
+        "content": "\"All Azure App Service Web Apps must write logs to Azure Blob storage\"\n-There are n (production) Web apps that write logs to a blob storage. \n-On that blob storage an event grid is put to trigger the event when blobs are written.\n-From that event a function is triggered, doing great thing with policies."
+      },
+      {
+        "date": "2022-10-08T05:04:00.000Z",
+        "voteCount": 12,
+        "content": "marvelous microsoftiness, probably this is for the subscription for the anomaly detection service and not the policy service where they expliclty mentioned event grid to confuse you. Once you pass this exam, the certification can be used when applying for a job at CSI new york. For finding clues where they do not exist."
+      },
+      {
+        "date": "2023-09-28T08:52:00.000Z",
+        "voteCount": 1,
+        "content": "hahaha gmishra88"
+      },
+      {
+        "date": "2022-01-22T23:13:00.000Z",
+        "voteCount": 3,
+        "content": "What is a webhook and how do you use it?\nWebhooks are automated messages sent from apps when something happens. They have a message\u2014or payload\u2014and are sent to a unique URL\u2014essentially the app's phone number or address. Webhooks are almost always faster than polling, and require less work on your end. They're much like SMS notifications."
+      },
+      {
+        "date": "2021-11-20T05:53:00.000Z",
+        "voteCount": 5,
+        "content": "The question is really worded poorly. The subscription is for events that are inserted into the container and a webhook is invoked when a log file is created in the storage container. I assume that the webhook point to a function (?) that analyze the log with a machine learning model and THEN if there is an anomaly call an azure function to notify adminstrator via mail. Am I missing something ?"
+      },
+      {
+        "date": "2022-10-23T02:32:00.000Z",
+        "voteCount": 1,
+        "content": "It's in the text:\n\"You develop and deploy a stateful ASP.NET Core 2.1 web application named Policy service to an Azure App Service Web App. The application reacts to events from Azure Event Grid and performs policy actions based on those events\"\nThe controller of \"Policy service\" is given in the code EventGridController.cs. \n\nSo the subscription in Grid triggers a webhook to the Policy service and executes the 'Process' controller function there ."
+      },
+      {
+        "date": "2021-08-16T04:25:00.000Z",
+        "voteCount": 3,
+        "content": "&gt; an Azure Function that emails administrators is called by using an HTTP WebHook\n\nThe question is about the EventGrid subscription, not how another Function is called. How do they fit together?"
+      },
+      {
+        "date": "2021-10-06T22:38:00.000Z",
+        "voteCount": 1,
+        "content": "I am missing \"properties\" section within \"destination\" key to define either \"endpointUrl\" or \"resourceId\".\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/subscription-creation-schema#example-subscription-schema\nhttps://docs.microsoft.com/en-us/azure/event-grid/handler-event-hubs#event-hub"
+      },
+      {
+        "date": "2021-10-06T22:41:00.000Z",
+        "voteCount": 1,
+        "content": "Endpoint properties based on the \"destination\" type:\nhttps://docs.microsoft.com/en-us/azure/templates/microsoft.eventgrid/eventsubscriptions?tabs=json#endpointproperties-object"
+      },
+      {
+        "date": "2021-05-22T10:56:00.000Z",
+        "voteCount": 2,
+        "content": "Correct !"
+      },
+      {
+        "date": "2021-05-22T02:47:00.000Z",
+        "voteCount": 2,
+        "content": "Correct !"
+      },
+      {
+        "date": "2021-04-03T06:51:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/templates/microsoft.eventgrid/eventsubscriptions?tabs=json#template-format"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "19"
+  },
+  {
+    "topic": 19,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/44383-exam-az-204-topic-19-question-2-discussion/",
+    "body": "You need to ensure that the solution can meet the scaling requirements for Policy Service.<br>Which Azure Application Insights data model should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Application Insights dependency",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Application Insights event",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Application Insights trace",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Application Insights metric\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-02-09T12:18:00.000Z",
+        "voteCount": 25,
+        "content": "Answer is correct. User can use metric telemetry to get different application metrics like: requestsPerSecond, requestsInQueue, and use these values to know when to scale \nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-metric-telemetry"
+      },
+      {
+        "date": "2021-06-01T08:58:00.000Z",
+        "voteCount": 18,
+        "content": "Application Insights provides three additional data types for custom telemetry:\n- Trace: used either directly, or through an adapter to implement diagnostics logging using an instrumentation framework that is familiar to you, such as Log4Net or System.Diagnostics.\n- Event: typically used to capture user interaction with your service, to analyze usage patterns.\n- Metric: used to report periodic scalar measurements.\n\nScenario:\nPolicy service must use Application Insights to automatically scale with the number of policy actions that it is performing.\n\nSo, it is D."
+      },
+      {
+        "date": "2021-06-01T08:58:00.000Z",
+        "voteCount": 5,
+        "content": "Reference:\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/data-model-metric-telemetry"
+      },
+      {
+        "date": "2023-02-19T09:01:00.000Z",
+        "voteCount": 5,
+        "content": "Always metric"
+      },
+      {
+        "date": "2022-11-18T06:40:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2022-10-23T02:55:00.000Z",
+        "voteCount": 1,
+        "content": "\"Policy service\" is a web app that needs to scale automatically depending on the usage\nI agree metrics will provide you the information (so answer D is best), but that is only part of the solution. What about the rest ? How is it scaled and how is it scaled automatically? \nI'm missing the words \"Monitor-respond-autoscale-rules\""
+      },
+      {
+        "date": "2023-09-03T05:23:00.000Z",
+        "voteCount": 1,
+        "content": "Agree, this is confusing as hell!"
+      },
+      {
+        "date": "2022-03-13T02:54:00.000Z",
+        "voteCount": 1,
+        "content": "\u00e7orrect answer provided:  Application Insights metric"
+      },
+      {
+        "date": "2021-05-22T02:51:00.000Z",
+        "voteCount": 2,
+        "content": "Correct and useful for Scaling requirements"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "19"
+  },
+  {
+    "topic": 19,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49850-exam-az-204-topic-19-question-3-discussion/",
+    "body": "DRAG DROP -<br>You need to implement telemetry for non-user actions.<br>How should you complete the Filter class? To answer, drag the appropriate code segments to the correct locations. Each code segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04273/0044000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0044100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Exclude non-user actions from Application Insights telemetry.<br><br>Box 1: ITelemetryProcessor -<br>To create a filter, implement ITelemetryProcessor.  This technique gives you more direct control over what is included or excluded from the telemetry stream.<br><br>Box 2: ITelemetryProcessor -<br><br>Box 3: ITelemetryProcessor -<br><br>Box 4: RequestTelemetry -<br><br>Box 5: /health -<br>To filter out an item, just terminate the chain.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-30T12:15:00.000Z",
+        "voteCount": 32,
+        "content": "(\u2229^o^)\u2283\u2501\u2606"
+      },
+      {
+        "date": "2021-04-24T07:11:00.000Z",
+        "voteCount": 15,
+        "content": "\"ITelemetryProcessor\" typo, no \"n\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling#create-a-telemetry-processor-c"
+      },
+      {
+        "date": "2022-01-06T04:30:00.000Z",
+        "voteCount": 11,
+        "content": "Also the constructor is incorrect. Should be \"public Filter(\" instead of \"public (Filter\"."
+      },
+      {
+        "date": "2022-01-15T02:10:00.000Z",
+        "voteCount": 5,
+        "content": "Yes, you are right. It should be;\npublic Filter (ITelemetryProcessor next)"
+      },
+      {
+        "date": "2024-08-02T07:45:00.000Z",
+        "voteCount": 1,
+        "content": "look at that s**t man , i've never seen a constructor like that."
+      },
+      {
+        "date": "2024-03-13T01:58:00.000Z",
+        "voteCount": 2,
+        "content": "1. public class Filter : ITelemetryProcessor\n2. private readonly ITelemetryProcessor _next;\n3. public (Filter ITelemetryProcessor next)\n4. var x = item as RequestTelemetry\n5. if(x?.Url.AbsolutePath == \"/health\")\n\n- https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling?tabs=javascriptwebsdkloaderscript#c\n\n- https://learn.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling?tabs=javascriptwebsdkloaderscript#create-a-telemetry-processor-c"
+      },
+      {
+        "date": "2024-02-08T00:46:00.000Z",
+        "voteCount": 2,
+        "content": "The question is not inline with the requirement in the case study text. It should be \"Exclude non-user actions from Application Insights telemetry.\" According to the requirement all health check requests, which is a RequestTelemetry type, for the api should be filtered out by setting the path to \"/health\" ."
+      },
+      {
+        "date": "2022-10-23T03:19:00.000Z",
+        "voteCount": 4,
+        "content": "The question is so wrong \n\"You need to implement telemetry for non-user actions\"\nthat MUST be:\n\"You need to implement telemetry to exclude non-user actions\" (according to the requirements).\n\nIn that case you have to exclude RequestTelemetry in combination with /health"
+      },
+      {
+        "date": "2022-10-08T05:18:00.000Z",
+        "voteCount": 3,
+        "content": "This is chaining of ITelemetryProcessors where the Filter (the one created here) is the first one. The ITelemetryProcessor instance passed in the constructor is the next in the chain. The code checks if the url is /health and it does not do anything otherwise it fowards to the next (which is the one passed in the Constructor). \n\nLook at the line: \"item as RequestTelemetry\" : What kind of people work in Microsoft that will do the casting without checking the instance of the item? No wonder Microsoft things are so buggy"
+      },
+      {
+        "date": "2022-10-23T03:22:00.000Z",
+        "voteCount": 2,
+        "content": "\"The as operator is used to perform conversion between compatible reference types or Nullable types. This operator returns the object when they are compatible with the given type and return null if the conversion is not possible instead of raising an exception\" \n\nSo the code is correct"
+      },
+      {
+        "date": "2022-06-20T03:59:00.000Z",
+        "voteCount": 3,
+        "content": "In code, public Filter() not public (Filter ...)"
+      },
+      {
+        "date": "2022-03-06T02:44:00.000Z",
+        "voteCount": 11,
+        "content": "Answer: ITelemetryProcessor, ITelemetryProcessor,ITelemetryProcessor,RequestTelemetry, /health\n\nReference: https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling\n\n\npublic class SuccessfulDependencyFilter : ITelemetryProcessor\n{\n    private ITelemetryProcessor Next { get; set; }\n\n    // next will point to the next TelemetryProcessor in the chain.\n    public SuccessfulDependencyFilter(ITelemetryProcessor next)\n    {\n        this.Next = next;\n    }\n} \n\nvar requestTelemetry = telemetry as RequestTelemetry;"
+      },
+      {
+        "date": "2022-01-15T02:10:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, you are right. It should be;\npublic Filter (ITelemetryProcessor  next)"
+      },
+      {
+        "date": "2022-01-14T12:08:00.000Z",
+        "voteCount": 3,
+        "content": "ITelemetryInitializer:\nUse telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules.\nFor example, the Application Insights for Web package collects telemetry about HTTP requests. By default, it flags as failed any request with a response code &gt;= 400. But if you want to treat 400 as a success, you can provide a telemetry initializer that sets the Success property.\n\nITelemetryProcessor:\nThis technique gives you more direct control over what is included or excluded from the telemetry stream. You can use it in conjunction with Sampling, or separately. To filter telemetry, you write a telemetry processor and register it with the SDK\n\nhttps://github.com/uglide/azure-content/blob/master/articles/application-insights/app-insights-api-filtering-sampling.md"
+      },
+      {
+        "date": "2021-04-10T17:06:00.000Z",
+        "voteCount": 8,
+        "content": "Looks Good"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "19"
+  },
+  {
+    "topic": 19,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/46868-exam-az-204-topic-19-question-4-discussion/",
+    "body": "DRAG DROP -<br>You need to ensure that PolicyLib requirements are met.<br>How should you complete the code segment? To answer, drag the appropriate code segments to the correct locations. Each code segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04273/0044200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0044200002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: You have a shared library named PolicyLib that contains functionality common to all ASP.NET Core web services and applications. The PolicyLib library must:<br>\u2711 Exclude non-user actions from Application Insights telemetry.<br>\u2711 Provide methods that allow a web service to scale itself.<br>\u2711 Ensure that scaling actions do not disrupt application usage.<br><br>Box 1: ITelemetryInitializer -<br>Use telemetry initializers to define global properties that are sent with all telemetry; and to override selected behavior of the standard telemetry modules.<br><br>Box 2: Initialize -<br><br>Box 3: Telemetry.Context -<br>Box 4: ((EventTelemetry)telemetry).Properties[\"EventID\"]<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-filtering-sampling",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-02T22:39:00.000Z",
+        "voteCount": 46,
+        "content": "* EventId is held by class EventGridController \n* You can add properties to telemetry by implementing ITelemetryInitializer which defines the Initialize method. \n* ITelemetry.Context.Properties is correct, but shouldnt be used any more as obsoloete \n\npublic class IncludeEventId : ITelemetryInitializer \n{\n\tpublic void Initialize (ITelemetry telemetry)\n\t{\n\t\ttelemetry.Context.Properties[\"EventId\"] = EventgridController.EventId.Value;\n\t}\n}\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics#sampling-filtering-and-processing-telemetry\nhttps://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.datacontracts.telemetrycontext.properties?view=azure-dotnet#Microsoft_ApplicationInsights_DataContracts_TelemetryContext_Properties"
+      },
+      {
+        "date": "2022-12-06T15:17:00.000Z",
+        "voteCount": 2,
+        "content": "the default answer's last line doesn't make sense... it use the property value to put inside it's context.property value within itself... \n\na meaningful piece of code is to set the propertie value with another Global Object value (that the only sense making value calling inside a local method of a class)... so setting the Eventgrid's value to the pass-by-reference argument is the only sensible piece of code."
+      },
+      {
+        "date": "2022-08-13T23:33:00.000Z",
+        "voteCount": 2,
+        "content": "good job buddy!"
+      },
+      {
+        "date": "2023-02-20T19:37:00.000Z",
+        "voteCount": 10,
+        "content": "Box 1: ITelemetryInitializer\nBox 2: Initialize\nBox 3: Telemetry.Context\nBox 4: EventGridController.EventId.Value\n\nScenario: The application reacts to events from Azure Event Grid and performs policy actions based on those events. The application must include the Event Grid Event ID field in all Application Insights telemetry.\n\n\\You can add properties to telemetry by implementing ITelemetryInitializer which defines the Initialize method.\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics#sampling-filtering-and-processing-telemetry"
+      },
+      {
+        "date": "2023-04-11T02:43:00.000Z",
+        "voteCount": 1,
+        "content": "\"Telemetry initializers are called before calling telemetry processors\". So EventId.Value is not initialized by Process method yet."
+      },
+      {
+        "date": "2024-03-13T02:01:00.000Z",
+        "voteCount": 1,
+        "content": "1. public class IncludeEventId: ITelemetryInitializer\n2. public void Initialize (ITelemetry telemetry)\n3. telemetry.Context.Properties[\"EventId\"]\n4. EventGridController.EventId.Value"
+      },
+      {
+        "date": "2022-12-10T04:48:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1: ITelemetryInitializer\nBox 2: Initialize \nBox 3: Telemetry.Context \nBox 4: ((EventTelemetry)telemetry).Properties[\"EventID\"]"
+      },
+      {
+        "date": "2022-11-18T06:55:00.000Z",
+        "voteCount": 2,
+        "content": "anyone got this case study in exam?"
+      },
+      {
+        "date": "2022-03-09T02:57:00.000Z",
+        "voteCount": 2,
+        "content": "The given answer is correct. Box 4 is inside a function which takes in a parameter called: telemetry. The telemetry parameter, serves a purpose: to be used in the function in: ((EventTelemetry)telemetry).Properties[\"EventID\"]."
+      },
+      {
+        "date": "2022-03-09T04:06:00.000Z",
+        "voteCount": 2,
+        "content": "The given answer is correct, except Box 4 should be: EventGridController.EventId.Value"
+      },
+      {
+        "date": "2023-11-15T04:57:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-05-22T03:16:00.000Z",
+        "voteCount": 4,
+        "content": "Not correct.\n = &gt; Use the EventId static prop of  EventgridController"
+      },
+      {
+        "date": "2021-04-26T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "How static is the content of Event Grid Event ID... I agree with atomicicebreaker, bt doubt between \"IProcess, Process, Context &amp; EventHub\"  and \"IInitialise, Initialise, Context &amp; EventHub\""
+      },
+      {
+        "date": "2021-03-13T04:03:00.000Z",
+        "voteCount": 4,
+        "content": "Box #4 is ok?"
+      },
+      {
+        "date": "2021-03-24T01:52:00.000Z",
+        "voteCount": 18,
+        "content": "No, in my opinion it has no sense assign event id to telemetry object from the same object itself. you should take in from other objects, and in this case the only option possible seems to be EventGridController class."
+      },
+      {
+        "date": "2021-03-30T23:42:00.000Z",
+        "voteCount": 4,
+        "content": "Agreed. It states that \"The application must include the Event Grid Event ID field in all Application Insights telemetry.\"."
+      },
+      {
+        "date": "2021-04-11T04:33:00.000Z",
+        "voteCount": 3,
+        "content": "Yup, and the property is indeed set in a controller"
+      },
+      {
+        "date": "2021-10-06T23:08:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, it is set here.\nController accepts JSON with the set of the events. The events are processed using foreach() and this is the place where EventGridController.EventId is set.\nThe trick is the EventId is defined as:\n    public static AsyncLocal&lt;string&gt; EventId = ...\nand AsyncLocal \"represents ambient data that is local to a given asynchronous control flow, such as an asynchronous method.\".\n\nhttps://docs.microsoft.com/en-us/dotnet/api/system.threading.asynclocal-1?view=net-5.0"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "19"
+  }
+]

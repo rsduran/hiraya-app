@@ -1,0 +1,135 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22294-exam-mb-400-topic-1-question-1-discussion/",
+    "body": "HOTSPOT -<br>A company is building a new model-driven app.<br>The app must integrate with a number of on-premises and cloud solutions. No VPNs are in place.<br>You need to determine the method for each integration.<br>Which methods should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03197/0000300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0000400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Webhook -<br>With Common Data Service, you can send data about events that occur on the server to a web application using webhooks. Webhooks is a lightweight HTTP pattern for connecting Web APIs and services with a publish/subscribe model.<br><br>Box 2: Azure Event Hub -<br>Azure Event Hubs is a big data pipeline. It facilitates the capture, retention, and replay of telemetry and event stream data. The data can come from many concurrent sources.<br>It has the following characteristics:<br>\u2711 low latency<br>\u2711 capable of receiving and processing millions of events per second<br>\u2711 at least once delivery<br><br>Box 3: Plugin -<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/use-webhooks https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-28T23:36:00.000Z",
+        "voteCount": 15,
+        "content": "So we know the first one is not Azure service bus because they ask for synchronous.Service Bus is only asynchronous.\n\n1.Webhook\n is the most obvious.\nhttps://docs.microsoft.com/en-us/powerapps/developer/common-data-service/use-webhooks#create-or-configure-a-service-to-consume-webhook-requests\n\n Next I would say \n2.Azure Service bus\n\nAzure Service Bus works for high scale processing, and provides a full queueing mechanism if Common Data Service is pushing many events.\n\nWebhooks can only scale to the point at which your hosted web service can handle the messages.\n\nLast one is Azure Event Hub\nThey want a hybrid.\nStreaming and event-based solutions are supported, for both on-premises and Azure cloud processing. \n\nhttps://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about\n\nhttps://docs.microsoft.com/en-us/powerapps/developer/common-data-service/plug-ins"
+      },
+      {
+        "date": "2020-11-03T08:39:00.000Z",
+        "voteCount": 5,
+        "content": "What is the correct answer guys, there is a lot of speculation in this discussion!"
+      },
+      {
+        "date": "2021-04-22T03:10:00.000Z",
+        "voteCount": 2,
+        "content": "1.webhook, 2.servicebus and 3.plug-in"
+      },
+      {
+        "date": "2021-03-19T06:31:00.000Z",
+        "voteCount": 4,
+        "content": "1. Webhook, this definitely seems to be the answer as the company is looking to build the app to have keyword synchronous calls which the Azure Service Bus is incapable of handling.\n\n2. Azure Event Hub, since the specifications said \"high peak load\", I would assume it would mean that there would be a lot of entries and data being ingested, and one of the key features of the event hubs are that they would be able to ingest millions of events relatively quickly.\n\n3. Plugins, I know the Azure Event Hub seems tempting, but given some overview it does not look to directly address giving notifications of changes within the app. Looking at plug-ins however, Plug-Ins have many oppurtunities through power automate as well as Service Busses and Webhooks to fully take advantage of notifying of \"address\" changes. IMO, it might even be more straightforward to use plug-ins."
+      },
+      {
+        "date": "2021-03-27T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "https://mail.yandex.ru/touch/folder/1/message/175358910490753089\nI see synchronous option for service bus there"
+      },
+      {
+        "date": "2021-03-27T12:50:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/learn/modules/integrate-common-data-service-azure-solutions/2-azure-service-bus\nSorry"
+      },
+      {
+        "date": "2020-12-10T08:29:00.000Z",
+        "voteCount": 2,
+        "content": "Webhook\nAzure service bus\nplugin"
+      },
+      {
+        "date": "2020-12-05T18:53:00.000Z",
+        "voteCount": 1,
+        "content": "Can some post correct answers ?"
+      },
+      {
+        "date": "2020-11-12T11:59:00.000Z",
+        "voteCount": 1,
+        "content": "2. Service Bus : the target systems have high peak loads. With the messages posted in a queue of the service bus, they will be able to pick up messages intended for them whenever they have free capacity.\n\n3. Event hub - where a message can be passed on to several recipient"
+      },
+      {
+        "date": "2020-08-05T02:50:00.000Z",
+        "voteCount": 4,
+        "content": "3 Needs to Be Azure Event Hubs. Plugins have a 2-minute execution window, and will not be the right solution for N system calls outside of the platform"
+      },
+      {
+        "date": "2020-07-23T02:05:00.000Z",
+        "voteCount": 2,
+        "content": "The second one i feel azure service bus is the better answer because it goes about \"calls\" so not events.\n\nThe third one i feel azure event hub is a better solution then a plugin.\nAzure Event hub also works on prem source: https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-about. \"streaming and event-based solutions are supported, for both on-premises and Azure cloud processing.\"\nDon't have alot experience with azure event hub, but i would think you still use a plugin to create the azure event hub message when the value is changed but you use the Azure Event Hub to distribute it to all the parties i feel thats whats the question is where do you distribute it, would be alot of a hassle to do this all in the plugin itself."
+      },
+      {
+        "date": "2020-07-14T12:42:00.000Z",
+        "voteCount": 2,
+        "content": "Azure Service Bus is the correct answer\nhttps://www.serverless360.com/blog/azure-event-hubs-vs-service-bus#:~:text=Azure%20Event%20Hubs%20focuses%20more,should%20use%20Azure%20Service%20Bus."
+      },
+      {
+        "date": "2020-07-07T23:41:00.000Z",
+        "voteCount": 1,
+        "content": "the second answer is \"Azure event hub\""
+      },
+      {
+        "date": "2020-07-07T23:23:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/developer/use-webhooks\n\nWebhooks enables synchronous and asynchronous steps. Azure Service Bus only allows for asynchronous steps.\n\nso this must be webhook, I will go with webhook."
+      },
+      {
+        "date": "2020-07-01T06:30:00.000Z",
+        "voteCount": 2,
+        "content": "I would agree, the second section should be Azure Service Bus"
+      },
+      {
+        "date": "2020-10-22T22:35:00.000Z",
+        "voteCount": 3,
+        "content": "no. Its said \"to and from\", Azure Service Bus is one-way street ,not both-way."
+      },
+      {
+        "date": "2020-06-24T03:22:00.000Z",
+        "voteCount": 3,
+        "content": "On https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/use-webhooks, it was mentioned that:\n\"Azure Service Bus works for high scale processing, and provides a full queueing mechanism if Common Data Service is pushing many events.\"\nShould not the second one is \"Azure Service Bus\" instead?"
+      },
+      {
+        "date": "2020-06-12T06:47:00.000Z",
+        "voteCount": 2,
+        "content": "The link provided is not longer valid.  Plug-ins are referenced here:  https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/plug-ins"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25074-exam-mb-400-topic-1-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to select the appropriate methods using the Azure Event Grid.<br>Which method should you use for each requirement? To answer, drag the appropriate methods to the correct requirements. Each method may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0000600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0000600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Event handler -<br>Event handlers - The app or service reacting to the event.<br><br>Box 2: Event subscriptions -<br>Event subscriptions - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.<br>Note:<br>There are five concepts in Azure Event Grid that let you get going:<br>Events - What happened.<br>Event sources - Where the event took place.<br>Topics - The endpoint where publishers send events.<br>Event subscriptions - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.<br>Event handlers - The app or service reacting to the event.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/event-grid/overview<br>Create a Technical Design",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-08T00:49:00.000Z",
+        "voteCount": 19,
+        "content": "Events - What happened.\nEvent sources - Where the event took place.\nTopics - The endpoint where publishers send events.\nEvent subscriptions - The endpoint or built-in mechanism to route events, sometimes to more than one handler. Subscriptions are also used by handlers to intelligently filter incoming events.\nEvent handlers - The app or service reacting to the event.\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/overview\n\nGiven answer is correct."
+      },
+      {
+        "date": "2020-12-11T08:00:00.000Z",
+        "voteCount": 2,
+        "content": "in 1, shouldnt be \"Event\"?\nrergarding to:\nEvent handlers - The app or service reacting to the event. \nNotify is a \"Event handler\"?"
+      },
+      {
+        "date": "2020-12-10T08:29:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "1"
+  }
+]

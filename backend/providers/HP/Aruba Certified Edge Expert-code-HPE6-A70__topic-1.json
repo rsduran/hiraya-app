@@ -1,0 +1,2491 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/hp/view/100188-exam-hpe6-a70-topic-1-question-1-discussion/",
+    "body": "A network administrator creates the role employees and adds this rule to it: user any any permit<br>The first several wireless clients assigned to the employees role are assigned IP addresses in the 10.10.10.0/24 subnet. Several other wireless clients with the employees role are then assigned IP addresses in the 10.10.20.0/24.<br>When the Aruba firewall matches traffic from these clients to the user any any permit rule, what does it do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits traffic from wireless clients in both the 10.10.10.0/24 and 10.10.20.0/24 subnet as long as the packet has a source IP.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits the traffic from wireless clients in the 10.10.20.0/24 subnet, but drops the traffic from wireless clients in the 10.10.10.0/24 subnet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt drops traffic from wireless clients in both the 10.10.10.0/24 and 10.10.20.0/24 subnet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits the traffic from wireless clients in the 10.10.10.0/24 subnet, but drops the traffic from wireless clients in the 10.10.20.0/24 subnet."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-04T03:32:00.000Z",
+        "voteCount": 1,
+        "content": "Both source addresses are assigned via employee roles, the rest is any, any, so A is the answer."
+      },
+      {
+        "date": "2023-02-21T00:41:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide\nthis firewall rule is made of 4 components : \n- user = source IP\n- any = destination IP\n- any = destination service / port\n- permit = action\n\n\"the alias user in a policy automatically applies to the IP\naddress assigned to a particular user\" (P.483)\n\nIn the question, the client of both subnet are assigned the employees role. So the same rule applies.\n\nQuestion is not fully clear as the administrator \"add this rule\". Is there a default rule in a new role ?"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/hp/view/71435-exam-hpe6-a70-topic-1-question-2-discussion/",
+    "body": "A company has many 7220 controllers in its Aruba wireless architecture. A network administrator wants to use the Traffic Analysis dashboard in order to monitor which type of applications are being used by wireless users.<br>What is required for this implementation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirMatch and ClientMatch must be enabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe solution must have active PEFNG licenses.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWLANs must use the decrypt-tunnel forwarding option.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFirewall policies must include application filtering rules."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T00:44:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p423\n\"The Traffic Analysis dashboard application visibility feature is supported only in 7000 Series, 7200 Series , and\nx86 managed devices, and requires WebCC and PEFNG license.\""
+      },
+      {
+        "date": "2022-02-15T08:35:00.000Z",
+        "voteCount": 1,
+        "content": "the cprrect"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/hp/view/100189-exam-hpe6-a70-topic-1-question-3-discussion/",
+    "body": "A network administrator configures an Aruba Mobility Master (MM)-based solution to provide wireless access to employees. The solution must meet these criteria:<br>\u2711 Authenticate users to a network RADIUS server<br>\u2711 Enforce different Aruba firewall rules based on the user department<br>How can the administrator meet these criteria in the simplest way?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a different WLAN and SSID for each department. Apply different firewall policies to each WLAN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHave the RADIUS server send different roles for users in different departments. Apply role-based firewall policies.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate multiple zones on the MM. Assign different departments are sets of firewall policies to different zones.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHave the RADIUS server assign users in different departments to different VLANs. Apply firewall policies based on IP ranges."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T00:47:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p484\n\"Role-based ACL is a feature available on Aruba controllers to apply policies to traffic matching a\nparticular user role.\"\nanswer is B"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/hp/view/20018-exam-hpe6-a70-topic-1-question-4-discussion/",
+    "body": "A network administrator configures this policy:<br><img src=\"/assets/media/exam-media/03072/0000300003.png\" class=\"in-exam-image\"><br>Users to which this policy apply are unable to receive IP addresses with DHCP. How should the administrator fix the issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the user any svc-dhcp permit rule to the bottom of the list.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the deny rule from the policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the correct service alias in the user any svc-dhcp permit rule.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange user to any in the user any svc-dhcp permit rule.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 10,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-24T09:41:00.000Z",
+        "voteCount": 17,
+        "content": "D, server is not \"user\" so change \"user\" to \"any\" will do the tricks"
+      },
+      {
+        "date": "2020-07-27T06:27:00.000Z",
+        "voteCount": 12,
+        "content": "Answer is D - the user is not getting an IP address since the server is not a user. A DHCP is a broadcast, so when the server sends a DHCP reply, it\u2019s a new packet from the server to the user. In this situation the server is not a user in the network."
+      },
+      {
+        "date": "2022-11-04T15:06:00.000Z",
+        "voteCount": 3,
+        "content": "At the point the client is requesting an IP address, it has no address and therefore does not match 'user'. It should be any any svc-dhcp permit"
+      },
+      {
+        "date": "2022-10-18T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "answer D"
+      },
+      {
+        "date": "2022-09-08T07:24:00.000Z",
+        "voteCount": 2,
+        "content": "D, the variable user contents an ip address, so the client has no IP address yet, so the variable have to be used is any."
+      },
+      {
+        "date": "2022-08-18T18:50:00.000Z",
+        "voteCount": 2,
+        "content": "d is the correct option, the alias type user is defined by having an ip address"
+      },
+      {
+        "date": "2022-08-11T01:36:00.000Z",
+        "voteCount": 1,
+        "content": "Do not receive DHCP credentials from the Source: User..."
+      },
+      {
+        "date": "2022-04-19T05:50:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D. DHCP is not user."
+      },
+      {
+        "date": "2021-06-15T13:38:00.000Z",
+        "voteCount": 3,
+        "content": "I have no idea why the answer is \"C\". (Insert eye roll). The correct answer should be \"D\" by changing \"user\" to \"any\"."
+      },
+      {
+        "date": "2021-02-25T23:12:00.000Z",
+        "voteCount": 3,
+        "content": "D. User means already authenticated.hence use any any svc dhcp"
+      },
+      {
+        "date": "2020-12-12T16:02:00.000Z",
+        "voteCount": 1,
+        "content": "For all DHCP transactions including User/Dhcp frames/packets =  any any svc-dhcp permit"
+      },
+      {
+        "date": "2020-12-12T16:01:00.000Z",
+        "voteCount": 1,
+        "content": "For all DHCP transactions including User/Dhcp frames/packets = any svc-dhcp permit"
+      },
+      {
+        "date": "2020-10-09T07:31:00.000Z",
+        "voteCount": 2,
+        "content": "D. Think of the user alias command takes away bi-directional communication. Example. PING-ICMP, which with the user can only be initiated from the source. Thus, the DHCP OFFER packet is not accepted because they are not from the source\u2014Need to change user to any."
+      },
+      {
+        "date": "2020-08-30T01:59:00.000Z",
+        "voteCount": 2,
+        "content": "it's D"
+      },
+      {
+        "date": "2020-05-12T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is A.\n//You can add several rules and they will execute in the order yo u load them. On the first match, the action is executed. Be aware of the hierarchy."
+      },
+      {
+        "date": "2020-05-07T23:38:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C makes no sense to me. \nThe service alias svc-dhcp exists."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/hp/view/28531-exam-hpe6-a70-topic-1-question-5-discussion/",
+    "body": "An Aruba solution runs ArubaOS 8 and uses a mobility master architecture. Which feature can network administrators use to balance wireless across APs on different channels?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAppRF",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tARM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClient Match\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirMatch"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-04-30T00:16:00.000Z",
+        "voteCount": 8,
+        "content": "C is the correct answer.\n\nClientMatch\nLoad Balancing: Client match balances clients across APs on different channels, based upon the client load on the APs and the SNR levels the client detects from an underutilized AP. If an AP&nbsp;radio can support additional clients, the AP will participate in client match load balancing and clients can be directed to that AP radio, subject to predefined SNR&nbsp;thresholds."
+      },
+      {
+        "date": "2020-08-26T14:15:00.000Z",
+        "voteCount": 5,
+        "content": "AirMatch is Aruba\u2019s next generation automatic RF planning service. This can replace the legacy solution\u2014ARM\u2019s automatic channel and power assignment.\n\nAirMatch only runs on the MM, running AOS 8.0 or higher. For a standalone MD, or Controllers, running in Master/Local mode ARM will perform the RF optimization.\n\nWhile ARM and AirMatch focus more on RF management at the AP level, Client Match (CM) focuses on the client level. For example, three clients were associated with AP 115. However, after the Client Match process, two of the clients were moved from AP 115 to AP 335. CM determined that better client services could be achieved with this change."
+      },
+      {
+        "date": "2023-02-21T01:13:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 567\n\"ClientMatch balances clients across APs on different channels\"\n\nI believe the word \"client\" is missing before \"accross\" in the question \"to balance wireless across\".\n\nAnswer is C"
+      },
+      {
+        "date": "2020-10-05T15:57:00.000Z",
+        "voteCount": 1,
+        "content": "AirMatch is only supported in Mobility Master architecture. ARM is used on stand-alone and Master -local set ups"
+      },
+      {
+        "date": "2020-10-02T05:38:00.000Z",
+        "voteCount": 3,
+        "content": "D is correct:\n\nWhile ARM and AirMatch focus more on RF management at the AP le vel, Client Match focuses on the client level. Aruba Client Match is an Aruba pa tented technology which provid es you these three main functions: 1. Load Balancing: Client match balances clients across APs on different channels based upon the client load. 2. Sticky Clients: Client match helps clients that tend to stay  associated to an AP despite low signal levels."
+      },
+      {
+        "date": "2020-09-28T11:52:00.000Z",
+        "voteCount": 1,
+        "content": "The key words are client and balance, which legacy client match manages client RF services, as well as balance clients across APs."
+      },
+      {
+        "date": "2020-08-13T19:33:00.000Z",
+        "voteCount": 2,
+        "content": "C makes sense if it means \"..balance wireless *CLIENTS* across APs on different channels\""
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/hp/view/100193-exam-hpe6-a70-topic-1-question-6-discussion/",
+    "body": "What is the difference between how a network administrator can monitor clients in the Mobility (MM) interface and in the AirWave Management Platform?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave shows trends for the past several minutes, while MM shows longer trends.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave combines information from more sources, such as RADIUS authenticating servers and APs.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave shows the current signal level for the client connection, while MM does not show RF statistics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMM shows user and role information associated with clients, while AirWave does not."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T01:37:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, \neach answer seems to be false\nA) \nchapter \"Dashboard Monitoring\" p 402-444\nFor each metric, the MM have a 15 minutes history\nB)\nAirwave is not in the path of authentication and AP monitoring, the MM is closer. isn't it ? Maybe we should understand that Airwave collect metrics from all gateways.\nC)\nchapter \"Dashboard Monitoring\", p408, we can see \"signal quality\" metric for an user\nD)\nBoth solutions give user and role information\n\nB is the \"less bad\" answer"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/hp/view/101398-exam-hpe6-a70-topic-1-question-7-discussion/",
+    "body": "An AP operates on channel 6. Which device causes the most significant and consistent interference with the signal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcellular phone",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAP operating on channel 11",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twireless security camera operating on channel 8\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tweather radar"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-03T01:43:00.000Z",
+        "voteCount": 1,
+        "content": "Wifi emission in a channel is source of \"co-channel interference\".\nYou must have a gap of 5 channels between 2 emitters in the same area.\n\nSo channel 11 is Ok (answer B is false)\nand channel 8 is to close.\n\nWeather radar can cause intermitent interference, bot not \"consistent\"\n\nWifi and cellular phone use completely different frequency bands; there is no interference.\n\nAnswer is C"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/hp/view/20019-exam-hpe6-a70-topic-1-question-8-discussion/",
+    "body": "What is a reason for a company to choose to deploy an Aruba 7024 Mobility Controller (MC) rather than an Aruba 7010 MC?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto support a faster firewall throughput rate",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto support 802.11ac APs rather than only 802.11n APs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto support more wireless users",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto support more POE devices directly connected to the MC\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-05-07T23:49:00.000Z",
+        "voteCount": 11,
+        "content": "Right! The difference between the models is that the 7024 has 24 instead of 12 PoE ports.\n7024 supports 24 PoE devices \n7010 only 12 PoE devices"
+      },
+      {
+        "date": "2023-02-21T01:48:00.000Z",
+        "voteCount": 1,
+        "content": "per datasheet\nboth 7010 and 7024 support 32 APs and 2k clients\n7024 have 24 Poe Ports and 7010 have 12.\nAnswser is D"
+      },
+      {
+        "date": "2022-12-14T14:41:00.000Z",
+        "voteCount": 2,
+        "content": "7024 support 450W (with PoE), 7010 support 190W (with PoE),  with 24 and 16 ports 10/100/1000BASE-T\t\nhttps://support.hpe.com/hpesc/public/docDisplay?docId=c05330564&amp;page=GUID-58924207-A51F-4C22-BAA6-A6044A27CEE0.html"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/hp/view/20020-exam-hpe6-a70-topic-1-question-9-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0000600001.jpg\" class=\"in-exam-image\"><br>The exhibit shows output from a Mobility Master (MM) dashboard. What is a valid reason for the administrator to click the akamai square under applications?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto see the break down for only the roles, destinations, WLANs, and devices that use this application\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto download a report about the usage of this application over time",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto create filter rules in order to control wireless user access to this application",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto set up bandwidth rule in order to control wireless user access to this application"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:23:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 425\ndetailed information of individual application\nsee picture and text, \"roles, destinations, WLANs, and devices\" are present in this dahsboard\n\nit is not said how to navigate from \"Traffic Analysis\" dashboard to \"detailed information of individual application\"\n\nThere is a way to create filtering rule from a dashboard, but it is from the \"application\" view.\n\nCan someone try to click on an application ?\n\nI think it's answer A"
+      },
+      {
+        "date": "2023-02-04T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A.\nC isn't correct, you can't control abything in this section."
+      },
+      {
+        "date": "2022-12-19T12:32:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is C: https://www.arubanetworks.com/techdocs/ArubaOS_80_Web_Help/Content/ArubaFrameStyles/Dashboard_Monitoring/AppRF.htm \nYou can click on any rectangle tile in a container and that filter is applied across all the containers."
+      },
+      {
+        "date": "2022-12-20T09:26:00.000Z",
+        "voteCount": 2,
+        "content": "For example: If you click on the Web rectangle in the App Categories container, application category = web filter is applied to all other containers (Roles, WLANs, Application, Destination and Devices)\nSo, still A.\n\nC means you can control things, by clicking on it, you don't control anything. IMO"
+      },
+      {
+        "date": "2022-09-12T04:08:00.000Z",
+        "voteCount": 1,
+        "content": "isn't A correct?"
+      },
+      {
+        "date": "2022-07-23T23:40:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      },
+      {
+        "date": "2020-05-07T23:51:00.000Z",
+        "voteCount": 3,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/hp/view/100199-exam-hpe6-a70-topic-1-question-10-discussion/",
+    "body": "A company has an Aruba solution that supports an employee WLAN. How can network administrators control in which subnets user receive IP addresses?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign switch ports connected to APs to VLANs associated with the desired subnets.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the VLANs associated with desired subnets in the WLAN settings.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure firewall policies that permit the desired subnet, and add them to the initial role for the WLAN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the WLAN settings, configure User role rules with the desired subnet addresses as match criteria."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:27:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 535\n\"Configuring the Virtual AP Profile\"\n\"From the All Profiles list, select Wireless LAN &gt; Virtual AP.\"\nparameter VLAN : \n\"\nThe VLAN(s) into which users are placed in order to obtain an IP address.\n\"\nanswer is B"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/hp/view/91619-exam-hpe6-a70-topic-1-question-11-discussion/",
+    "body": "A network manager wants to implement an Aruba wireless solution that accommodates 802.1X with EAP-TLS. All wireless users will utilize Active Directory (AD) accounts to authenticate.<br>Which device will the authenticator forward the authentication requests to in this type of solution?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMobility Master (MM)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMobility Controller (MC)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRADIUS server\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPs"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:33:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 261-263\n\"The authenticator is the gatekeeper to the network and permits or denies access to the supplicants.\", it's the controller.\nThe authenticator forward the EAP packet to the authentication server, which is RADIUS server.\n\nAnswer is C"
+      },
+      {
+        "date": "2022-12-14T14:53:00.000Z",
+        "voteCount": 1,
+        "content": "Rigth, User---802.1x---Wireless AP---Wireless controller---Radius Protocol--- Radius Server----AD Windows."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/hp/view/100203-exam-hpe6-a70-topic-1-question-12-discussion/",
+    "body": "A company wants to provide wireless access for guests with their Aruba solution. Which configuration feature requires the customer to purchase PEFNG licenses?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tredirection of guests to an external captive portal",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcustomization of the internal captive portal login page",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taddition of custom rules to control access for authenticated guests\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tprovision of DHCP services to unauthenticated guests"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:35:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 321\n\"The Policy Enforcement Firewall Next Generation License (PEFNG) license provides identity-based\nsecurity for wired and wireless users through user roles and firewall rules.\"\n\nanswer is C"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/hp/view/100205-exam-hpe6-a70-topic-1-question-13-discussion/",
+    "body": "What does an Aruba Mobility Master (MM) do before it deploys a configuration to a Mobility Controller (MC)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt synchronizes the configuration with templates on Aruba AirWave.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt removes any commands that are not supported on that MC or have dependency errors.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt obtains the current configuration, encrypts it, and backs it up to a secure archive.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt encrypts the configuration to be deployed and backs it up to a secure archive."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:41:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 32\n\"Validation Failures\nIf a command does not pass validation, it is rejected and will not be included in the pending configuration for that node\n\"\n\nanswer is B"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/hp/view/100206-exam-hpe6-a70-topic-1-question-14-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0000800001.jpg\" class=\"in-exam-image\"><br>Which role must AP 1 play?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemote AP (RAP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMesh Portal AP\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstant AP (IAP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMesh Point AP"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:43:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 731\n\"\nThe mesh portal is the gateway between the wireless mesh network and the enterprise wired LAN\n\"\nanswer is B"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/hp/view/20561-exam-hpe6-a70-topic-1-question-15-discussion/",
+    "body": "A company has an Aruba solution. The company wants to host a guest login portal with this solution, and the login portal must give guests the option to create their own login accounts.<br>How can a network administrator help meet these criteria?<br>option for the guest WLAN.<br>option for the guest WLAN.<br>C. Make sure to create a guest provisioning account for the guest WLAN.<br>D. Disable authentication in the captive portal profile for the guest WLAN.<br>",
+    "options": [],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-16T21:40:00.000Z",
+        "voteCount": 7,
+        "content": "(paste the wrong option in the previous post. This is the correct one)\nMissing options A and B are:\n A. Choose the Internal captive portal with email registration option for the guest WLAN.\nB. Choose ClearPass or the other external captive portal option for the guest WLAN."
+      },
+      {
+        "date": "2020-06-17T19:03:00.000Z",
+        "voteCount": 5,
+        "content": "B is answer"
+      },
+      {
+        "date": "2023-03-07T02:42:00.000Z",
+        "voteCount": 1,
+        "content": "B. Choose ClearPass or the other external captive portal option for the guest WLAN.\n\nper aruba official forum :\nhttps://community.arubanetworks.com/community-home/digestviewer/viewthread?MID=26138\n&lt;&lt;\nWith only the controller, there are no checks on email registration. It is merely a formality. You would need ClearPass for the guest feature you are seeking.\n&gt;&gt;\n\nanswer is B"
+      },
+      {
+        "date": "2023-02-28T14:23:00.000Z",
+        "voteCount": 1,
+        "content": "this question and answer is set wrong. has not been updated... the first two answers are incomplete and the last two do not fit the question"
+      },
+      {
+        "date": "2023-02-06T12:08:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is:\nChoose ClearPass or the other external captive portal option for the guest WLAN."
+      },
+      {
+        "date": "2022-04-19T05:56:00.000Z",
+        "voteCount": 1,
+        "content": "No answer in this question.\nShould be Guest provisioning account?"
+      },
+      {
+        "date": "2021-09-24T23:34:00.000Z",
+        "voteCount": 1,
+        "content": "Different variation of the question (answer is still clearpass)\n\nA company has an Aruba solution. The company wants to host a guest login portal with this solution, and\nthe login portal must gie guests the option to create their own login accounts. How can a network\nadministrator help meet these criteria?\nA. Choose the Internal captive portal with email registration option for the guest WLAN.\nB. Make sure to create a guest provisioning account for the guest WLAN.\nC. Disable authentication in the captive portal profile for the guest WLAN.\nD. Choose ClearPass or the other external captive portal option for the guest WLAN."
+      },
+      {
+        "date": "2020-11-05T01:11:00.000Z",
+        "voteCount": 4,
+        "content": "The very write answer is \"D\":\n\nIt\u2019s not A: An internal portal does not allow users to register themselves, an account needs to be created for them. (https://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Internal%20Captive%20Portal.htm)\n\nIt\u2019s not B: \u201cguest provisioning\u201d access allows one user to create new guest accounts. (https://www.arubanetworks.com/techdocs/ArubaOS_64_Web_Help/Content/ArubaFrameStyles/Management_Utilities/Guest_Provisioning.htm)\n\nIt\u2019s not C: The captive portal is required for guests to register\n\nIt is D: ClearPass allows users to register themselves and can be manually or automatically approved based on policy"
+      },
+      {
+        "date": "2020-06-24T09:51:00.000Z",
+        "voteCount": 2,
+        "content": "A, ClearPass still not required as local-CP with email auth can fulfill the requirements"
+      },
+      {
+        "date": "2020-05-16T21:38:00.000Z",
+        "voteCount": 2,
+        "content": "Missing options A and B are:\n    A. Upgrade Client Match as part of a global software upgrade, and upgrade AirMatch separately as a loadable service module (LSM).\n    B. Upgrade Client Match and AirMatch separately as loadable service modules (LSMs)."
+      },
+      {
+        "date": "2020-05-14T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "error in the answers to this question"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/hp/view/20026-exam-hpe6-a70-topic-1-question-16-discussion/",
+    "body": "How can network administrators upgrade AirMatch on an Aruba Mobility Master (MM)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade Client Match as part of a global software upgrade, and upgrade AirMatch separately as a loadable service module (LSM).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade Client Match and AirMatch separately as loadable service modules (LSMs).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade AirMatch and Client Match through a global software upgrade.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade AirMatch as part of a global software upgrade, and upgrade Client Match separately as a loadable service module (LSM)."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-23T16:36:00.000Z",
+        "voteCount": 1,
+        "content": "Cuando ejecutas: show packages, muestra los m\u00f3dulos LSM: arm_cm (default_arm_cm_pkg), el cual permite actualizar ARM Y CM (Client Match)."
+      },
+      {
+        "date": "2023-05-23T16:38:00.000Z",
+        "voteCount": 1,
+        "content": "Referencia: https://www.arubanetworks.com/techdocs/CLI-Bank/Content/aos8/sh-packages.htm"
+      },
+      {
+        "date": "2023-03-07T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 1060\n\n- Airmatch is in the service modules list.\n- Client Match is not\n\nAnswer is A"
+      },
+      {
+        "date": "2023-02-21T02:51:00.000Z",
+        "voteCount": 1,
+        "content": "B. Choose ClearPass or the other external captive portal option for the guest WLAN.\n\n\nper aruba official forum :\nhttps://community.arubanetworks.com/community-home/digestviewer/viewthread?MID=26138\n&lt;&lt;\nWith only the controller, there are no checks on email registration.  It is merely a formality.  You would need ClearPass for the guest feature you are seeking.\n&gt;&gt;\n\nanswer is B"
+      },
+      {
+        "date": "2023-01-27T09:52:00.000Z",
+        "voteCount": 1,
+        "content": "Best answer is A- Client Match is not an LSM but Air Match IS! Client Match is upgraded through an OS upgrade and Air Match is upgraded through a separate LSM. Even though the question does not mention Client Match A is really the best answer."
+      },
+      {
+        "date": "2022-12-26T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "ACMA Official Certification Study Guide (HPE-A42)\nPage 58/59: Shows that AirMatch is LSM.\nPage 232/233: Client Match is one of the LSM in the MM. Legacy CM is only 6.x, but there is also CM on the MM and RBCM on the MM and then it is a LSM module."
+      },
+      {
+        "date": "2022-04-19T06:04:00.000Z",
+        "voteCount": 3,
+        "content": "Answer A. Airmatch is LSM, Client Match global software."
+      },
+      {
+        "date": "2021-11-23T23:21:00.000Z",
+        "voteCount": 2,
+        "content": "Answer B is correct.  AirMatch and ARM (Client Match is part of ARM) are in the list of LSM."
+      },
+      {
+        "date": "2021-10-22T07:51:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A - here is the list of LSM modules:\nAirGroup\nAppRF\nARM\nAirMatch\nNorthbound API\nUnified communications manager\nWebCC\nWLAN management system"
+      },
+      {
+        "date": "2023-05-23T16:33:00.000Z",
+        "voteCount": 1,
+        "content": "Para el paquete ARM inclute tambien CM: arm_cm"
+      },
+      {
+        "date": "2021-09-13T00:18:00.000Z",
+        "voteCount": 4,
+        "content": "CORRECT ANSWER IS B. BOTH ARE LSM. PLEASE REFER ACMA GUIDE."
+      },
+      {
+        "date": "2021-07-07T18:33:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be B. I'm reading aruba mobility fundamentals and module 8-36 it say that client match is part of LSM. I know module 2 does not show it, but page 434 yes."
+      },
+      {
+        "date": "2021-05-19T09:48:00.000Z",
+        "voteCount": 1,
+        "content": "The Loadable Service Module (LSM) provides an infrastructure that allows users to dynamically upgrade or downgrade individual service modules without requiring an entire system reboot. Services are delivered as individual service packages containing the version and instructions for loading and running the service. LSM is introduced in ArubaOS 8.0.0.0."
+      },
+      {
+        "date": "2021-05-04T08:08:00.000Z",
+        "voteCount": 4,
+        "content": "The question specifically asks about upgrading AirMatch in Mobility Master. It does not mention master controller mode. Mobility Master does support LSM.\nClient Match is not an LSM while AirMatch is an LSM. Therefore, the answer cannot be B or D because Client Match is not an LSM. \nThe answer should be A (specific to upgrading AirMatch). It can also be C but that answer is more generic."
+      },
+      {
+        "date": "2021-04-30T00:46:00.000Z",
+        "voteCount": 2,
+        "content": "Since MM does not support LSM, the AirMatch will be upgraded in the bundle of the global software upgrade.\nSo, the Correct Answer is \"C\". \n\nArubaOS 8.x.x.x does not support LSM in master controller mode.\n\nReference:\nhttps://www.arubanetworks.com/techdocs/ArubaOS_81_Web_Help/Content/ArubaFrameStyles/LSM/LSM_overview.htm#:~:text=The%20Loadable%20Service%20Module%20(LSM,loading%20and%20running%20the%20service."
+      },
+      {
+        "date": "2020-11-13T12:40:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B -  Module 8 - 19 acma student guide"
+      },
+      {
+        "date": "2020-09-16T13:23:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2020-09-03T03:55:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct. Client Match is one of the Loadable Service Modules (LSM) in the Mobility Master, and so can be upgraded independently. (Chapter 8 Dynamic RF MAnagement, page 233 6th paragraph"
+      },
+      {
+        "date": "2020-06-24T09:53:00.000Z",
+        "voteCount": 1,
+        "content": "A, AirMatch features are contained in LSM."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/hp/view/76719-exam-hpe6-a70-topic-1-question-17-discussion/",
+    "body": "How does WPA2 protect wireless user traffic in the air?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt provides both data integrity and privacy with AES.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt provides data integrity with TKIP and data privacy with AES.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt provides data privacy with TKIP and no data integrity.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt provides data integrity with AES and no data privacy."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T02:56:00.000Z",
+        "voteCount": 2,
+        "content": "per wikipedia\nhttps://en.wikipedia.org/wiki/Wi-Fi_Protected_Access\n\"\nThe protocol used by WPA2, based on the Advanced Encryption Standard (AES) cipher along with strong message authenticity and integrity checking is significantly stronger in protection for both privacy and integrity\n\"\n\nanswer is A\n\n."
+      },
+      {
+        "date": "2022-06-11T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "a is correct"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/hp/view/27280-exam-hpe6-a70-topic-1-question-18-discussion/",
+    "body": "Which settings can a Mobility Master (MM) deploy to Mobility Controllers (MCs) but master controllers CANNOT deploy to local controllers?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tradio profiles",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWLAN settings",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterface settings\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAAA profiles"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-08-11T22:07:00.000Z",
+        "voteCount": 6,
+        "content": "C is correct. Master controller can push profiles and various other settings down to MCs but not interface config"
+      },
+      {
+        "date": "2023-02-21T03:04:00.000Z",
+        "voteCount": 1,
+        "content": "no clear answer\nI think interfaces settings are \"local config\" settings.\nAnd local configuration can be downloaded on the MM, not on MCs.\n\ni think answer is C"
+      },
+      {
+        "date": "2021-01-20T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "In partial configuration model MM cannot push the L2 and L3 configuration like\nVLANs, interface config and IP routing etc. on the other way in Hierarchical config model Mobility master can push full config including VLAN, Interface\nconfig, IP routing etc. to all the managed devices, so C may be correct or not idk.\nSource: Aruba Mobility Fundamentals Study Guide 20.11"
+      },
+      {
+        "date": "2020-08-04T02:09:00.000Z",
+        "voteCount": 3,
+        "content": "I find different answers to this depending on where i check. Anyone have the correct answer here?"
+      },
+      {
+        "date": "2020-12-13T04:07:00.000Z",
+        "voteCount": 2,
+        "content": "Yes. In exam it not show interface settings"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/hp/view/97142-exam-hpe6-a70-topic-1-question-19-discussion/",
+    "body": "Exhibit 1 -<br><img src=\"/assets/media/exam-media/03072/0001100001.jpg\" class=\"in-exam-image\"><br><br>Exhibit 2 -<br><img src=\"/assets/media/exam-media/03072/0001100002.jpg\" class=\"in-exam-image\"><br>A company has an Aruba Mobility Master (MM)-based solution and needs a new WLAN for the corporate campus. A network administrator completes the creation of this WLAN, as shown in Exhibit 1. When the administrator tries to test a connection to the WLAN in various locations, the WLAN sometimes shows up in the list of WLANs on the client but sometimes does not. The administrator can see the WLAN in the list, as shown in Exhibit 2.<br>What is the error?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe WLAN is configured at a lower level in the Managed Network hierarchy.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe configuration is not deployed to the Mobility Controller (MC).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Mobility Master (MM) does not have an active PEFNG license.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe WLAN is configured as a hidden SSID."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-05T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "The configuration has been completed on the single Managed Device not on the wider Managed Network which is were Global changes are made."
+      },
+      {
+        "date": "2023-02-21T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "I believe the new WLAN should be configured at the \"Building 1\" level.\n\nIn the exhibit we can see it is configured at the controller level, and that can explain why the network does not show at some places. WLAN is only broadcasted by APs configured by controller \"Aruba7030_12\"\n\nanswer is A"
+      },
+      {
+        "date": "2023-01-29T08:20:00.000Z",
+        "voteCount": 1,
+        "content": "If you want to test the configuration in other places it needs to be configured at a higher level ,"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/hp/view/100211-exam-hpe6-a70-topic-1-question-20-discussion/",
+    "body": "A company has an Aruba Mobility Master (MM)-based solution. Where can a network administrator look to find a list of alerts about a variety of issues on the MM or managed devices?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe top banner\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe MM Maintenance pages",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Performance dashboard",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Potential issues dashboard"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T03:17:00.000Z",
+        "voteCount": 1,
+        "content": "not sure\nper ArubaOS 8.7.1.0 user guide, p 34\n\"Each page of the Mobility Master UI is divided into the following sections:\nHeader, which includes the following:\n...\nNetwork Status Counters: Counters for reachable and unreachable controllers, reachable and\nunreachable access points, clients, and alerts.\n\"\n\ni think answer is A"
+      },
+      {
+        "date": "2023-03-09T13:25:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with you. Its the one that makes sense. My current Mobility Master does not have Performance, or Potential Issues as dashboard options. So that rules out C, and D. \n\nThen the MM Maintenance page is for doing things like code upgrades. Not a place to quickly find info. \n\nThe top shows Controllers, Access Points, Clients, and Alerts as options. Which are reachable or unreachable."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/hp/view/100226-exam-hpe6-a70-topic-1-question-21-discussion/",
+    "body": "A company has a Mobility Master (MM)-based solution. A network administrator wants to monitor the types of applications in use in the wireless network.<br>Which dashboard page in the MM interface should the administrator visit?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerformance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetwork",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTraffic Analysis\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSecurity"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T05:47:00.000Z",
+        "voteCount": 2,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 422\n\"The Traffic Analysis page provides the summary of APPLICATIONS, DESTINATIONS, HOSTS, and WEBSITES features.\"\n\nanswer is C\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/hp/view/31335-exam-hpe6-a70-topic-1-question-22-discussion/",
+    "body": "What is one difference between captive portal authentication and 802.1X authentication?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.1X authentication always authenticates the wireless client, while captive portal authentication always authenticates the wireless user.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.1X authentication is typically implemented without encryption, while captive authentication is often combined with WPA or WPA2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.1X authentication occurs at Layer 2, while captive portal authentication occurs at Layer 3.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.1X authentication must use an LDAP server, while captive portal authentication can use a RADIUS server or an LDAP server."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-19T07:20:00.000Z",
+        "voteCount": 3,
+        "content": "Answer C is a correct"
+      },
+      {
+        "date": "2020-11-08T10:01:00.000Z",
+        "voteCount": 4,
+        "content": "Answer A is nonsense. 802.1x can authenticate both users and clients. \nAnswer B is even more nonsense as it says that 802.1x never uses encryption which it always does.\nAnswer C is correct. 802.1x always uses EAP (authenticating either a user or client, can be either one of them). EAP is a layer 2 protocol."
+      },
+      {
+        "date": "2020-11-05T02:58:00.000Z",
+        "voteCount": 1,
+        "content": "Answer  is B: \n\nIn case of 802.1X Authentication , Client is authenticated before getting IP address.\nIn case of Captive Portal Authentication , Client is authenticated after getting IP address so that he can access the web Page (Captive Web Portal) for authenticating"
+      },
+      {
+        "date": "2020-09-29T00:01:00.000Z",
+        "voteCount": 2,
+        "content": "If you look at the MM, it shows the selection L2 and L3 authentication"
+      },
+      {
+        "date": "2020-09-15T05:42:00.000Z",
+        "voteCount": 2,
+        "content": "The answer should be A, that 802.1x will authenticate the client, and captive portal will authenticate the user"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/hp/view/100228-exam-hpe6-a70-topic-1-question-23-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0001400001.png\" class=\"in-exam-image\"><br>A network administrator needs to specify a RADIUS server for an employee WLAN on an Aruba solution. What must the administrator enter in the Shared key field?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe password defined for authorized wireless clients on the RADIUS server and also distributed to authorized wireless clients",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe password defined as the preshared key for the WLAN on the Mobility Master (MM) and on authorized wireless clients",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe password configured in a user account with administrative rights on the RADIUS server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe password configured for RADIUS clients on the RADIUS server\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T05:52:00.000Z",
+        "voteCount": 2,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 189\n\nThis key is only related to communications between the controller and the RADIUS server.\n\n\"Shared key :\nShared secret between the managed device and the authentication server.\"\n\nanswer is D\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/hp/view/27355-exam-hpe6-a70-topic-1-question-24-discussion/",
+    "body": "Exhibit 1 -<br><img src=\"/assets/media/exam-media/03072/0001500001.jpg\" class=\"in-exam-image\"><br><br>Exhibit 2 -<br><img src=\"/assets/media/exam-media/03072/0001500002.jpg\" class=\"in-exam-image\"><br>A company has a Mobility Master (MM)-based solution with a guest WLAN. Users can connect to the WLAN, but they receive the error shown in the Exhibit 1 then they open their browser rather than see login page. Exhibit 2 shows the status for one of the guest clients.<br>What is one issue that could cause the errors described?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe firewall blocks DHCP traffic between the guest clients and the DHCP server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Captive Portal is not enabled for the role to which these clients are assigned.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe DHCP pool for guests does not assign users a DNS server address.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MM and Mobility Controllers (MCs) have invalid certificates."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-08-09T15:41:00.000Z",
+        "voteCount": 7,
+        "content": "The error displayed indicates a DNS failure.\nClient has an IP address suggesting DHCP IP assignment was successful (eliminates option a). \nYou can see client is assigned Pre-auth Guest-logon role, which would redirect it to the Captive Portal page when they access a web browser ( This is not clear, but most likely not related to the error displayed Option B). \nHowever client cannot resolve the URL in the web browser, suggesting DNS issue ( suggests option C is correct).\nA certificate error returns a different error to what is displayed here (eliminates option D.)"
+      },
+      {
+        "date": "2023-02-06T12:39:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is C because you have IP address but you cannot resolve URL"
+      },
+      {
+        "date": "2021-05-20T05:49:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is C because you have IP address but you cannot resolve URL"
+      },
+      {
+        "date": "2021-04-30T01:06:00.000Z",
+        "voteCount": 1,
+        "content": "The user is able to acquire DHCP leased IP address, Pre-auth Guest-login role assigned and no certificate warning issues were observed.\nAnd the error message shows that the browser unable to resolve DNS.\nHence, it is either DNS server settings were not assigned by DHCP or the DNS servers assigned are not valid/down.\nThe correct answer should be \"C\"."
+      },
+      {
+        "date": "2020-08-04T15:05:00.000Z",
+        "voteCount": 1,
+        "content": "Unless I'm missing something, there's not enough information to answer this question. Can someone shed light on why the answer is D?"
+      },
+      {
+        "date": "2020-08-04T15:06:00.000Z",
+        "voteCount": 1,
+        "content": "I mean C"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/hp/view/97465-exam-hpe6-a70-topic-1-question-25-discussion/",
+    "body": "How can network administrator provide high availability for APs deployed in an Aruba Mobility Master (MM)-based architecture?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy all licenses locally to APs, so that they can continue to function if they lose contact with their controller.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure APs to convert to controller-less Instant AP mode during controller failure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEstablish clusters of Mobility Controllers (MCs).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure MM to provide backup AP tunnel termination in case of controller failure."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T05:59:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 366\n\"The goal of a cluster is to provide full redundancy to APs and wireless clients alike in case of a malfunction of one or more of its cluster members.\"\n\nanswer is C\n\n."
+      },
+      {
+        "date": "2023-01-31T10:17:00.000Z",
+        "voteCount": 1,
+        "content": "APs can load balance on multiple controllers. so establishing a controller cluster is the answer"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/hp/view/20030-exam-hpe6-a70-topic-1-question-26-discussion/",
+    "body": ". What should the administrator<br>conclude?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave has a communication issue with the controller and cannot check the configuration.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave detects a mismatch with the controller configuration and software version.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave determines that the controller configuration does not match the template for its group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAirWave checks the controller configuration and detects a syntax error."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-24T10:04:00.000Z",
+        "voteCount": 13,
+        "content": "A network administrator monitors an Aruba Mobility Controller with Aruba Mobility Controller with Aruba AirWave and sees the configuration status is Error. \nWhat should the administrator conclude?"
+      },
+      {
+        "date": "2022-02-22T16:43:00.000Z",
+        "voteCount": 5,
+        "content": "This question would be helpful if we weren't trying to conclude an empty question."
+      },
+      {
+        "date": "2023-02-28T14:52:00.000Z",
+        "voteCount": 1,
+        "content": "question is incomplete"
+      },
+      {
+        "date": "2023-02-06T12:55:00.000Z",
+        "voteCount": 2,
+        "content": "The cuestion correct is\nA network administrator monitors an Aruba Mobility Controller with Aruba AirWave and sees the configuration status is ERROR. What should the administrator conclude?\n\nThe answer is A"
+      },
+      {
+        "date": "2021-05-19T07:29:00.000Z",
+        "voteCount": 1,
+        "content": "The cuestion correct is \nA network administrator monitors an Aruba Mobility Controller with Aruba AirWave and sees the configuration status is ERROR. What should the administrator conclude?\n\nThe answer is A"
+      },
+      {
+        "date": "2020-10-16T05:01:00.000Z",
+        "voteCount": 2,
+        "content": "**** The Full question might is:****\nA network administrator monitors an Aruba Mobility Controller with Aruba AirWave and sees the configuration status is ERROR. What should the administrator conclude?"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/hp/view/62710-exam-hpe6-a70-topic-1-question-27-discussion/",
+    "body": "An Aruba Remote AP (RAP) operates in split-tunnel mode. How does the AP forward traffic?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt sends all user traffic in a GRE tunnel to a central Mobility Controller (MC), and it sends control traffic in an IPsec tunnel to the controller.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt sends user and control traffic in two separate IPsec tunnels to the Mobility Controller (MC).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt sends all employee and control traffic in a GRE tunnel to a central Mobility Controller (MC), and it bridges all guest traffic locally.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt sends traffic designed to the corporate network in an IPsec tunnel to a central Mobility Controller (MC), and it bridges other traffic locally.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T06:08:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 865\n\"Understanding Split Tunneling\nThe split tunneling feature allows you to optimize traffic flow by directing only corporate traffic back to the Managed Device, while local application traffic remains local.\"\n\nanswer is D\n\n."
+      },
+      {
+        "date": "2023-01-31T10:18:00.000Z",
+        "voteCount": 1,
+        "content": "D is the answer"
+      },
+      {
+        "date": "2021-11-05T13:33:00.000Z",
+        "voteCount": 1,
+        "content": "d is correct"
+      },
+      {
+        "date": "2021-09-25T09:27:00.000Z",
+        "voteCount": 1,
+        "content": "Most RAP/VIA deployments use a \u201cSplit-tunnel\u201d forwarding mode. Using this mode, corporate traffic\nis forwarded back to the controller via an IPsec VPN tunnel. Non-corporate traffic is locally bridged\ndirectly to local resources or the Internet."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/hp/view/65512-exam-hpe6-a70-topic-1-question-28-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0001800001.png\" class=\"in-exam-image\"><br>Network administrators need to set up a WLAN that uses WPA2 encryption and authenticates users with a preshared key (PSK) that is the same for all users.<br>Administrators do not see where they should specify the option for the preshared key.<br>What should the administrator do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClick the + icon in the Authentication server section.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReturn to the first page in the wizard, and select the guest option.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClick Personal in the side bar.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure an L3 authentication profile after the WLAN wizard is complete."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T06:11:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 529\nCreating a WLAN using the WLAN Wizard\n&gt; Personal &gt; Passphrase\n\nanswer is C\n\n."
+      },
+      {
+        "date": "2023-01-31T10:15:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2021-11-05T13:37:00.000Z",
+        "voteCount": 1,
+        "content": "c is correct because personal combines between pre-shared and mac authentication and you can use only pre-shared if you want or combine them to increase security"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/hp/view/18001-exam-hpe6-a70-topic-1-question-29-discussion/",
+    "body": "Exhibit 1 -<br><img src=\"/assets/media/exam-media/03072/0001900001.jpg\" class=\"in-exam-image\"><br><br>Exhibit 2 -<br><img src=\"/assets/media/exam-media/03072/0002000001.jpg\" class=\"in-exam-image\"><br>A company has an Aruba Mobility Master (MM)-based solution and needs a new WLAN for the corporate campus. A network administrator completes the creation of this WLAN, as shown in Exhibit 1. When administrators try to test a connection to the WLAN, the WLAN does not show up in the list of WLANs on the client.<br>The administrator can see the WLAN in the list, as shown in Exhibit 2.<br>What is the error?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe configuration is not deployed.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe WLAN is configured at a lower level in the Managed Network hierarchy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Mobility Master (MM) does not have an active PEFNG license.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe WLAN is configured as a hidden SSID."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-04-06T16:26:00.000Z",
+        "voteCount": 20,
+        "content": "the configuration is not disployed(pending changes)"
+      },
+      {
+        "date": "2020-04-27T07:13:00.000Z",
+        "voteCount": 9,
+        "content": "correct answer A"
+      },
+      {
+        "date": "2023-03-09T07:14:00.000Z",
+        "voteCount": 1,
+        "content": "Mangement Network is selected in the heirarchy, but pending config shows in top right corner of screen.  Correct answer is A"
+      },
+      {
+        "date": "2022-04-19T06:17:00.000Z",
+        "voteCount": 1,
+        "content": "A, changes pending"
+      },
+      {
+        "date": "2022-04-09T03:39:00.000Z",
+        "voteCount": 3,
+        "content": "correct answer A"
+      },
+      {
+        "date": "2022-04-07T10:02:00.000Z",
+        "voteCount": 2,
+        "content": "Pending changes"
+      },
+      {
+        "date": "2022-03-24T23:41:00.000Z",
+        "voteCount": 1,
+        "content": "Changes are pending"
+      },
+      {
+        "date": "2021-11-05T13:41:00.000Z",
+        "voteCount": 1,
+        "content": "a is correct , pending changes appears"
+      },
+      {
+        "date": "2021-05-20T05:54:00.000Z",
+        "voteCount": 1,
+        "content": "The answer would be A because in Exhibit 1 appears the message \"Pending Changes\""
+      },
+      {
+        "date": "2020-12-13T08:53:00.000Z",
+        "voteCount": 1,
+        "content": "A : \"pending changes\" in first snapshot...It means that configuration is not deployed."
+      },
+      {
+        "date": "2020-09-11T04:22:00.000Z",
+        "voteCount": 1,
+        "content": "it is answer A because the configuration has been done in managed network ant therfore answer B is not possible."
+      },
+      {
+        "date": "2020-08-30T12:47:00.000Z",
+        "voteCount": 2,
+        "content": "it's A"
+      },
+      {
+        "date": "2020-05-08T02:29:00.000Z",
+        "voteCount": 3,
+        "content": "correct answer A"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/hp/view/27210-exam-hpe6-a70-topic-1-question-30-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03072/0002100001.png\" class=\"in-exam-image\"><br>What describes the behavior for this WLAN?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo APs broadcast the SSID. Clients cannot connect to the WLAN until administrators activate it.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPs in the default group broadcast the SSID. Clients can connect to the WLAN on APs in any group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo APs broadcast the SSID. Clients can connect to the WLAN on APs in the default group only.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPs in the default group broadcast the SSID. Clients can connect to the WLAN on APs in the default group only.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-26T12:56:00.000Z",
+        "voteCount": 1,
+        "content": "Broadcast only to AP in default group\nso only connect to the APs in the default group"
+      },
+      {
+        "date": "2022-10-18T08:35:00.000Z",
+        "voteCount": 2,
+        "content": "answer is D"
+      },
+      {
+        "date": "2022-04-09T03:43:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer D"
+      },
+      {
+        "date": "2022-03-24T23:42:00.000Z",
+        "voteCount": 1,
+        "content": "default group mean first SSIDs configured in the controller so the answer is D"
+      },
+      {
+        "date": "2022-01-07T11:32:00.000Z",
+        "voteCount": 3,
+        "content": "HPE6-a42 Study guide says: Broadcast on\u2014Decide whether to broadcast the SSID on all APs associated with the MC or the MM, or only for select AP groups. If you choose the Select AP Groups option, you are prompted to select one or more AP groups.\n\nSo, the answer is D.."
+      },
+      {
+        "date": "2021-05-20T06:04:00.000Z",
+        "voteCount": 1,
+        "content": "It is missing the info related to Broadcast On option....... we see the only ap group selected is Default but it is not sure what is the Broadcast On selected"
+      },
+      {
+        "date": "2020-12-13T08:58:00.000Z",
+        "voteCount": 1,
+        "content": "D : SSID profile can not be created without any group...If we are not selecting any then default group will be used....and AP in default group will broadcast that SSID."
+      },
+      {
+        "date": "2020-10-11T02:09:00.000Z",
+        "voteCount": 1,
+        "content": "default group mean first SSIDs configured in the controller so the answer is D"
+      },
+      {
+        "date": "2020-09-11T04:26:00.000Z",
+        "voteCount": 1,
+        "content": "i think no one of the answers is right. becaus no ap group has been choosen. until there is no ap group choosen you can not go forward with the wizzard."
+      },
+      {
+        "date": "2020-08-30T12:48:00.000Z",
+        "voteCount": 2,
+        "content": "it's D"
+      },
+      {
+        "date": "2020-08-04T10:20:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is D"
+      },
+      {
+        "date": "2020-08-03T04:26:00.000Z",
+        "voteCount": 3,
+        "content": "I'm sure the correct answer is D..."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/hp/view/100235-exam-hpe6-a70-topic-1-question-31-discussion/",
+    "body": "A company has an Aruba solution. The company wants to support a guest WLAN with the internal captive portal, but the company also wants to develop their own custom portal pages.<br>What correctly describes the level of customization that the internal captive portal supports?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe internal captive portal must use the default pages without modification, but administrators can upload pages developed externally.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe internal captive portal must use the default pages without modification, and administrators cannot upload pages developed externally.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdministrators can modify the default internal captive portal pages, but cannot upload pages developed externally.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdministrators can modify the default internal captive portal pages or upload pages developed externally.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T06:26:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 349\n\"To upload Login or Welcome page, perform the following steps using Custom HTML link in the Captive Portal Options window:\"\n\nanswer is D\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/hp/view/23724-exam-hpe6-a70-topic-1-question-32-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0002200001.jpg\" class=\"in-exam-image\"><br>Based on the exhibit, what is the maximum number of APs that this Mobility Master (MM) solution can support?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t0",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t32",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t500"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-17T00:50:00.000Z",
+        "voteCount": 1,
+        "content": "It can support up to 500 but has licensees only for 32.. I believe that correct one is C but, my mind searching for a trick , hat it must be D"
+      },
+      {
+        "date": "2021-04-30T22:33:00.000Z",
+        "voteCount": 3,
+        "content": "AP = The number of AP licenses activated or loaded into the MM\nMM = The total number of Associated device (Controller/AP) that can be supported by the MM\n\nHence, the correct answer is \"C\""
+      },
+      {
+        "date": "2020-07-20T02:17:00.000Z",
+        "voteCount": 2,
+        "content": "At first, I thought that the correct answer was D.\nSince \"Based on the exhibit\" and there are only 32 AP licenses, the correct answer is C."
+      },
+      {
+        "date": "2020-06-22T07:29:00.000Z",
+        "voteCount": 1,
+        "content": "I think that correct answer is D"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/hp/view/100239-exam-hpe6-a70-topic-1-question-33-discussion/",
+    "body": "What is a key difference between an Aruba Air Monitor (AM) and an Aruba Spectrum Analyzer (SA)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn AM detects threats such as rogue APs, while an SA analyzes RF conditions.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn AM detects rogue APs and provides data services to clients, while an SA only detects rogue APs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn AM scans on only one 802.11 frequency band, while an SA scans on both 802.11 frequency bands.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn AM both detects wireless intrusion attempts and mitigates them, while an SA only detects wireless intrusion attempts."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T07:09:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 586\n\"Air Monitor enabled APs detect and mitigate possible security threats in a wireless network.\"\np 892\n\"[SA] examine the RF environment in which the Wi-Fi network is operating, identify interference and classify its sources.\"\n\nanswer is A\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/hp/view/19178-exam-hpe6-a70-topic-1-question-34-discussion/",
+    "body": "For which use should network administrators set up Aruba access points (APs) as multi-zone APs?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company requires high availability for its wireless services, and APs must be able to be controlled by more than once Mobility Controller (MC) in case a controller fails.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company has multiple small offices where APs at each branch office must forward internet traffic locally and corporate traffic over a secure tunnel to a centralized Mobility Controller (MC).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company has some devices that support both 5GHz and 2.4 GHz, and the APs must operate in both frequency bands.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company has a Mobility Manager (MM)-based solution that requires APs to terminate to multiple controllers that reside in different administrative domains."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-28T21:28:00.000Z",
+        "voteCount": 7,
+        "content": "Correct Answer is D.\nAnswer B would require \"split-tunneling\""
+      },
+      {
+        "date": "2020-12-13T09:32:00.000Z",
+        "voteCount": 2,
+        "content": "D : Think like airport APs where single AP is broadcasting multiple SSIDs from different airlines companies. This allows AP to terminate to multiple managed devices that reside in different zones."
+      },
+      {
+        "date": "2020-10-16T05:32:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is D:\n\nThe MultiZone feature allows organizations to have multiple and separate secure networks while using the same access point. It also allows AP to terminate to multiple managed devices that reside in different zones. A zone is a collection of managed devices under a single administration domain. The zone can have a single managed device or a cluster setup.\n\nhttps://www.arubanetworks.com/techdocs/ArubaOS_85_Web_Help/Content/arubaos-solutions/multizone/overview.htm?Highlight=multizone"
+      },
+      {
+        "date": "2020-10-06T21:08:00.000Z",
+        "voteCount": 1,
+        "content": "Yep, D is correct, B would be split tunneling, different administrative domains, like in an airport would require the AP to use Multizone as in D."
+      },
+      {
+        "date": "2020-05-08T02:49:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be B.\nD is not correct because: As long as it is one Mobility Master domain, there is no need to create a MultiZone to connect to specific controllers. \nThis is set in the relevant administrative level."
+      },
+      {
+        "date": "2020-04-27T17:12:00.000Z",
+        "voteCount": 2,
+        "content": "I think correct is B"
+      },
+      {
+        "date": "2020-05-15T13:46:00.000Z",
+        "voteCount": 1,
+        "content": "i think B also is right"
+      },
+      {
+        "date": "2020-06-06T05:55:00.000Z",
+        "voteCount": 6,
+        "content": "D Is right Answer , sorry guys , based on acma study book (A Multi-Zone AP is an AP that can terminate its tunnels on controllers in different zones\n)"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/hp/view/100240-exam-hpe6-a70-topic-1-question-35-discussion/",
+    "body": "Assume that administrators accept the default forwarding mode for WLANs. How does wireless user traffic flow in a master-local architecture, and how does it flow in a Mobility Master (MM) architecture?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the master-local architecture, traffic is tunneled to a local Mobility Controller (MC) to handle. In a MM architecture, all traffic is tunneled to the MM to handle.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the master-local architecture, all traffic is tunneled to the master controller to handle. In a MM architecture, all traffic is tunneled to the MM to handle.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn both architectures, traffic is tunneled to a Mobility Controller (MC) to handle.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn both architectures, APs forward corporate user traffic locally and tunnel guest user traffic to a Mobility Controller (MC) to handle."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "Default mode is \"Tunnel\", where data packets are sent to the MC. \n\n\"A 8.x Mobility Master cannot terminate any APs.\" (aruba forum)\n\nSo answer is C\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/hp/view/36139-exam-hpe6-a70-topic-1-question-36-discussion/",
+    "body": "A WLAN in an Aruba Mobility Master (MM)-based solution uses WPA2-Enterprise security. This WLAN currently authenticates users to Active Directory (AD), and users log in with their Windows domain credentials. Network administrators now want to authenticate the Windows clients as well, based on the client Computer<br>Names.<br>What should the administrator do on MM to achieve this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up MAC Authentication on the WLAN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up Machine Authentication on the WLAN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImport the computer names from AD to the MM internal database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBind individual Mobility Controllers (MCs) to AD at the device level."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:18:00.000Z",
+        "voteCount": 1,
+        "content": "per ArubaOS 8.7.1.0 user guide, p 271\n\n\"When a Windows device boots, it logs onto the network domain using a machine account. Within the domain, the device is authenticated before computer group policies and software settings can be executed; this process is known as machine authentication. \"\n\nanswer is B\n\n."
+      },
+      {
+        "date": "2020-12-17T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "\" now want to authenticate the Windows clients as well, based on the client Computer\nNames.\"\nCorrect Answer is B."
+      },
+      {
+        "date": "2020-12-13T10:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct option should be \"B\".\nhttps://www.arubanetworks.com/techdocs/ClearPass/6.7/Aruba_DeployGd_HTML/Content/Mobility%20Access%20Switch/MAS_802_Machine_Auth.htm"
+      },
+      {
+        "date": "2020-11-05T03:20:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is A.\nAD Authentication doesn't know about MAC addresses.  AD know about Computer names, User names, etc."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/hp/view/100241-exam-hpe6-a70-topic-1-question-37-discussion/",
+    "body": "A company has an Aruba Mobility Master (MM)-based solution that runs ArubaOS 8 and uses the default AirMatch and Client Match settings. The ARM profile has been disabled for 5GHz radios.<br>How are channel and transmit power settings managed for these radios?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twith AirMatch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twith Rule Based Client Match",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twith legacy ARM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twith legacy Client Match"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:20:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 564\n The AirMatch channel and EIRP optimization features deprecate the channel planning and EIRP\noptimization features in the legacy ARM feature\n\nanswer is A\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/hp/view/31026-exam-hpe6-a70-topic-1-question-38-discussion/",
+    "body": "A customer has a large campus that requires 400 Aruba 335 APs to support a total of 10,000 wireless users and 12Gbps of traffic. Although the customer wants two controllers for redundancy, each controller must be able to support all of the APs and users on its own.<br>Which Aruba Mobility Controller models meet the customer requirements and DO NOT unnecessarily exceed them?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7030 controllers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7024 controllers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7240 controllers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7210 controllers\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "pouet is a weird sound, answer is D"
+      },
+      {
+        "date": "2020-09-10T12:10:00.000Z",
+        "voteCount": 4,
+        "content": "A. 7030 - 64 AP - 4K Users - 8GBPs Gbps FW\nB. 7024 - 32 AP - 2K Users - 4GBPs Gbps FW\nC. 7240 - 2048 AP - 32K Users - 40 Gbps FW\nD. 7210 - 512 AP - 16K Users - 20 Gbps FW\n\nEach controller must be able to support all of the APs and users on its own\nIt should be C."
+      },
+      {
+        "date": "2020-09-11T00:03:00.000Z",
+        "voteCount": 6,
+        "content": "I mean D ! D is the right answer !"
+      },
+      {
+        "date": "2020-09-10T12:05:00.000Z",
+        "voteCount": 3,
+        "content": "7030 - 64 AP\n7024 - 32 AP\n7240 - 2048 AP\n7210 - 512 AP"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/hp/view/23735-exam-hpe6-a70-topic-1-question-39-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0002600001.png\" class=\"in-exam-image\"><br>The exhibit shows the AAA profile for a WLAN on an Aruba solution. This WLAN uses 802.1X authenticate users to a RADIUS server. A user successfully authenticates with 802.1X, but the RADIUS server does not send a role assignment.<br>How does the Aruba firewall handle the role assignment for this user?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt does not assign a role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt applies the Aruba VSA role, employee.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt assigns the logon role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt assigns the authenticated role."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-28T07:46:00.000Z",
+        "voteCount": 10,
+        "content": "Answer is D - user is successfully authenticated"
+      },
+      {
+        "date": "2020-09-26T22:13:00.000Z",
+        "voteCount": 7,
+        "content": "Note: If the RADIUS server returns with a derived role then the  user will be placed in that role. If the RADIUS server simply returns with an acknowledgment that  the user is good, then the user is placed in the 802.1x default role. - D is correct."
+      },
+      {
+        "date": "2020-06-22T09:25:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is C"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/hp/view/100242-exam-hpe6-a70-topic-1-question-40-discussion/",
+    "body": "A company currently uses Instant APs (IAPs), all managed by a virtual controller. The company expects to double in size within the next 18 months. The network manager wants to purchase additional APs to service the increased traffic load. The network manager also wants to deploy a Mobility Controller (MC) to manage all APs.<br>How should the network administrator adapt the current IAPs to a controlled architecture?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the IAPS to establish CPSec tunnels to the new MCs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the IAPS to Campus APs, controlled by the new MCs.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManage both the MCs and IAP clusters with Aruba Central.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManage both the MCs and IAP clusters with a Mobility Master (MM)."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-21T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "IAP (controller-less) can be converted in Campus AP (controlled).\nCustomer wants \"a Mobility Controller (MC) to manage all APs.\"\nSo ther will be no more iAP.\n\nSo answer is B"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/hp/view/100244-exam-hpe6-a70-topic-1-question-41-discussion/",
+    "body": "How does a high-gain omni-directional antenna compare to a typical omni-directional antenna?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tit provides more coverage in both the horizontal and vertical directions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tit provides more single-user spatial streams.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tit provides more coverage in the horizontal direction than in the vertical direction.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tit provides more multi-user spatial streams."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:35:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\n\nI think gain is related to radio coverage and not spatial streams which is related to the signal \"modulation\".\nSo answer should be A or C.\n\nI can't figure why vertical coverage is lower. \nSomeone could explain this ?\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/hp/view/100246-exam-hpe6-a70-topic-1-question-42-discussion/",
+    "body": "Which IEEE standard provides the highest transmission rates in the 2.4GHz frequency band?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.11a",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.11ac",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.11g",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.11n"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:39:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\n\n808.11ac is the most recent standard but does'n operate in th 2.5Ghz band.\nprevious standard is 802.11n\n\nAnswer is D\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/hp/view/100248-exam-hpe6-a70-topic-1-question-43-discussion/",
+    "body": "A network administrator wants to assign an authentication server group to the WPA2-Enterprise WLAN. Which profile should the administrator modify?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVirtual AP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSSID",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAAA",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tL2 Authentication"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:44:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 533\n\"AAA profile :\nthe AAA profile defines the type of authentication used by clients associating to a WLAN\"\n\nanswer is C\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/hp/view/100249-exam-hpe6-a70-topic-1-question-44-discussion/",
+    "body": "What is one reason for a network administrator to visit the Dashboard &gt; Usage window on an Aruba Mobility Master (MM)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto check license usage and determine the need for additional licenses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto generate reports about traffic patterns and network usage over the past several months",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto view system usage statistics for the MM and troubleshoot potential issues",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tto analyze short term trends in network usage by client, AP, and application"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T07:48:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 440\n\"The Usage page displays the usage summary\nof APs, Clients, Low Performing Wi-Fi, and Low Performing Clients on the managed devices in the network. \"\n\nThe answer D is sthe closest but add the word \"application\" that is not in the usage dashboard.\n\nclosest answer is D\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/hp/view/18013-exam-hpe6-a70-topic-1-question-45-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/03072/0002900001.jpg\" class=\"in-exam-image\"><br>A network administrator sets up the Exam_Employees WLAN on an Aruba solution with a default role of guest, as shown in the exhibit. To which users does the guest role apply?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tusers who have connected to the SSID, but have not yet attempted authentication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tusers who successfully authenticate and are assigned to the default role by the RADIUS server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tusers who successfully authenticate and are not assigned a different role by the RADIUS server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tusers who fall authentication"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-18T12:28:00.000Z",
+        "voteCount": 8,
+        "content": "C is correct.\nf the RADIUS Server returns with a derived role then the  user will be placed in that role. If the RADIUS server simply returns with an acknowledgment that the us er is good, then the user is placed in the 802.1x Default role."
+      },
+      {
+        "date": "2020-05-12T03:21:00.000Z",
+        "voteCount": 3,
+        "content": "C is correct."
+      },
+      {
+        "date": "2020-04-06T23:45:00.000Z",
+        "voteCount": 1,
+        "content": "D. users who fall authentication,"
+      },
+      {
+        "date": "2020-05-08T04:38:00.000Z",
+        "voteCount": 5,
+        "content": "I think C is correct. \nUsers will not be able to connect to the SSID if they are not correctly authenticated. \nIf the RADIUS server does not return role attributes, then the guest role is used."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/hp/view/100256-exam-hpe6-a70-topic-1-question-46-discussion/",
+    "body": "A network administrator creates an employee WLAN on an Aruba solution that uses WLAN WPA2-Enterprise security and an external RADIUS server. When the administrator tests the WLAN, the test client receives limited connectivity and cannot access any resources, but the RADIUS server shows that the user authenticated successfully.<br>What should the administrator check as a possible source of this issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe certificate on the RADIUS server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe connectivity between the AP that the client is associated to and the MC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe firewall role and policy that apply to this user",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe connectivity between the Master Controller (MC) for the client and the RADIUS server"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:20:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\n\nAuthentification is successfull so \n- no certificate issue, A is false\n- no connecti issue with Controller\n- no connectivity issu with RADIUS server, D is false\n\nAnswer is C\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/hp/view/19228-exam-hpe6-a70-topic-1-question-47-discussion/",
+    "body": "A network administrator examines a list of 2.4GHz clients with low performance in the Mobility Master (MM) dashboard. Which property should pose a concern as a potential performance issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRadio PHY of HT 20MHz",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGoodput data rate of 12Mbps\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMax speed of 72Mbps",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsage of 10 MB"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-05-27T07:48:00.000Z",
+        "voteCount": 7,
+        "content": "Correct answer is B\n\nLow goodput: Radios that have an average data rate of 24 Mbps or lower.\nLow goodput: Clients that have an average data rate of 24 Mbps or lower."
+      },
+      {
+        "date": "2023-03-01T01:28:00.000Z",
+        "voteCount": 1,
+        "content": "he property that could pose a concern as a potential performance issue for 2.4GHz clients with low performance in the Mobility Master dashboard is B. Goodput data rate of 12Mbps.\n\nGoodput is the actual throughput achieved by a communication system, after considering factors such as protocol overhead, retransmissions, and packet errors. A low goodput data rate indicates that the data transfer rate is slow and could be a potential performance issue for clients."
+      },
+      {
+        "date": "2022-12-26T13:20:00.000Z",
+        "voteCount": 1,
+        "content": "ACMA Official Certification Study Guide (Exam HPE6-A42)\nPage 281: Low good put, clients that have an average date rate of 24 Mbps or lower\nLow speed, clients that have a connection speed of 26 Mbps or lower\nSo, B\n\n20 MHz is the best practice so not A. D is incorrect because usage doesn't mean it is a bad connection; it can also be an IoT device for example."
+      },
+      {
+        "date": "2022-11-24T00:29:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is B.\nA Goodput of 12 Mbps = only 12Mbps can be transferred by the network to the client. Not very... Good...\nA usage of 10 MB is not a concern. If the client only demands 10MB, that's OK. If the network could only serve 10MB, that would be a problem.\n\nTL;DR - Low Usage OK as it's client side. Low Goodput BAD as it's network side."
+      },
+      {
+        "date": "2021-01-21T14:02:00.000Z",
+        "voteCount": 1,
+        "content": "Why you guys say B? 12Mbps is to low?? i know it sholud be as high as possible but in the study guide it shows an example of 17Mbps in a client with poor health, what is the recommended rate for goodput?"
+      },
+      {
+        "date": "2020-09-16T13:54:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2020-04-28T02:58:00.000Z",
+        "voteCount": 3,
+        "content": "Wouldn't (B) be a better answer?"
+      },
+      {
+        "date": "2020-05-08T05:11:00.000Z",
+        "voteCount": 1,
+        "content": "the higher the goodput, the better. So B is definitely not correct."
+      },
+      {
+        "date": "2020-05-15T14:01:00.000Z",
+        "voteCount": 1,
+        "content": "look like B is the answer"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/hp/view/100258-exam-hpe6-a70-topic-1-question-48-discussion/",
+    "body": "An Aruba Mobility Master (MM)-based solution has a WLAN that uses WPA2-Enterprise security. A test login on a wireless client fails.<br>How can a network administrator determine whether the RADIUS server rejected the credentials or another issue occurred?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the tools in the MM Dashboard &gt; Security window.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the MC AAA Server Test Diagnostic tool.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPing the IP address configured as the RADIUS server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tView Technical Support information for the MM."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:24:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 215\n\"Diagnostics &gt; Tools &gt; AAA Server Test \"\n\"This feature allows you to check a configured RADIUS authentication server or the internal database. You can use this feature to check for an \u201cout of service\u201d RADIUS server.\"\n\nanswer is B\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/hp/view/100261-exam-hpe6-a70-topic-1-question-49-discussion/",
+    "body": "A company plans to deploy a Mobility Master (MM) solution with two MM nodes. The MM solution will manage 10 Mobility Controller (MC) appliance that will control a total of 400 APs.<br>How should the network administrator install the AP licenses?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t40 AP licenses on the MM and no licenses on the MC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t400 AP licenses on the MM and no licenses on the MC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t800 AP licenses on each MC and no licenses on the MM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t800 AP licenses on the MM and 40 AP licenses on each MC"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:27:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper \"Aruba Mobility Master Licensing Guide\"\nYou can share licenses.\n&lt;&lt;\nCentralized Licensing\nArubaOS supports a centralized licensing architecture, which allows a group of managed devices to share a pool of licenses. A primary and backup Mobility Master can share a single set of licenses, eliminating the need for a redundant license set on the backup server. \n&gt;&gt;\n\nAnswer is B\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/hp/view/100262-exam-hpe6-a70-topic-1-question-50-discussion/",
+    "body": "A company has an Aruba Mobility Master (MM)-based solution. Under which circumstance will an AP radio change channel without the use of the Mobility Master<br>(MM)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen the MM detects that a different channel has significant better quality",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen the AP detects a large amount of interference on its channel",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen the Mobility Controller (MC) detects a rogue AP on the channel",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen the Client Match rules indicate that nearby clients do not support the current channel"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:30:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 565\n\" If an AP detects a radar event on its current operating channel, that AP automatically changes to another supported channel to avoid radar interference, and does not wait for the daily RF configuration update from the Mobility Master.\"\n\nanswer is B\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/hp/view/100266-exam-hpe6-a70-topic-1-question-51-discussion/",
+    "body": "Refer to the exhibits.<br><br>Exhibit 1 -<br><img src=\"/assets/media/exam-media/03072/0003200001.png\" class=\"in-exam-image\"><br><br>Exhibit 2 -<br><img src=\"/assets/media/exam-media/03072/0003300001.png\" class=\"in-exam-image\"><br><br>Exhibit 3 -<br><img src=\"/assets/media/exam-media/03072/0003300002.png\" class=\"in-exam-image\"><br>A network administrator creates a guest WLAN on an Aruba Mobility Manager (MM). The exhibits show some of the settings for the WLAN. The administrator does not change the policies for those roles.<br>How does the firewall control guest clients when they first connect to the WLAN?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits them to send any DHCP traffic and DNS and web traffic to the Internet. It redirects web traffic destined to the private network to a login portal.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt does not permit them to send any traffic until they are authenticated.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits them to send any DHCP and DNS traffic, and it redirects all web traffic to a login portal.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits them to send any DHCP and RADIUS traffic. It redirects all web traffic destined to the Internet to a login portal and drops web traffic destined to the private network."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:35:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 322\nwith \"base OS\" (without PEFNG license)\n\"This implicit user role allows only DNS and DHCP traffic between the client and network and directs all HTTP or HTTPS requests to the \ncaptive portal.\"\n\nI think that the behavior is the same with PEFG licenses.\n\nanswer is C\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 52,
+    "url": "https://www.examtopics.com/discussions/hp/view/60945-exam-hpe6-a70-topic-1-question-52-discussion/",
+    "body": "Which Aruba controller supports a maximum of 512 APs?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7210",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7240",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7010",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAruba 7030"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-29T04:14:00.000Z",
+        "voteCount": 4,
+        "content": "A.\t7210 - 512 AP - 16K Users - 20 Gbps FW\nB.     7240 - 2048 AP - 32K Users - 40 Gbps FW \nC.     7010 - 32 AP \u2013 2K Users - 4 Gbps FW\nD.     7030 - 64 AP - 4K Users - 8 Gbps FW"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 53,
+    "url": "https://www.examtopics.com/discussions/hp/view/25214-exam-hpe6-a70-topic-1-question-53-discussion/",
+    "body": "A Mobility Controller (MC) runs ArubaOS 8. What is a valid reason for an administrator to set the MC to master-local mode?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company needs to manage third-party network infrastructure devices with the use of the master controller interface.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company already has a partially hierarchical deployment based on the 6.x code and wants to keep the current architecture.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company requires a centralized licensing architecture that provides global license pools.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe company wants a deployment architecture that allows administrators to configure all MC settings from a single location."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-24T16:54:00.000Z",
+        "voteCount": 8,
+        "content": "B is correct.  \nThe answer states that they want to keep their current architecture, NOT import their 6.X configuration.\nD is incorrect because not all MC configuration can set from a single location, interface settings for instance cannot be set in the Master-Local mode."
+      },
+      {
+        "date": "2021-09-25T19:48:00.000Z",
+        "voteCount": 1,
+        "content": "A \u201cMaster-Local\u201d setup is used to migrate from AOS 6.x to AOS 8.x, without changes to existing infrastructure and topology. You can use HPE Aruba 72xx and 70xx for this Master-Local scenario (Figure 2-7).\n\n**This is the reference from Aruba Study Guide**\n**Agreed with B."
+      },
+      {
+        "date": "2020-09-26T22:43:00.000Z",
+        "voteCount": 2,
+        "content": "Standalone wi ll set up one MC independently while Managed by a Master Controller will set up talk to a Master MC in a master-local mode.  Managed by a Mobility master will setup this MC to communicate with the VM mobility master. D is correct."
+      },
+      {
+        "date": "2020-09-16T13:57:00.000Z",
+        "voteCount": 1,
+        "content": "answer is D"
+      },
+      {
+        "date": "2020-07-09T04:17:00.000Z",
+        "voteCount": 1,
+        "content": "Should be D.\nB is wrong as 6.x will not live together with 8.x"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 54,
+    "url": "https://www.examtopics.com/discussions/hp/view/100270-exam-hpe6-a70-topic-1-question-54-discussion/",
+    "body": "A company has a Mobility Master (MM)-based solution. There is a hardware issue with the MM appliance, and, as result, all connectivity is lost between the appliance and the network. The network manager is concerned about how this will impact licensing.<br>How will the Mobility Controller (MC) be affected?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MC maintains its current licenses for 30 days.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MC loses all licenses and cannot support APs or clients.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MC contacts Aruba Activate and uses the licensing limits defined there.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MC maintains only licenses that have been locally installed on it."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:40:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper \"Aruba Mobility Master Licensing Guide\"\n\"managed devices will retain the license limits sent to them by Mobility Master for 30 days.\"\n\nAnswer is A\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 55,
+    "url": "https://www.examtopics.com/discussions/hp/view/100273-exam-hpe6-a70-topic-1-question-55-discussion/",
+    "body": "What is an example of Layer 2 wireless threat that a wireless intrusion detection system (WIDS) should detect?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tspyware",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRF jamming",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBluetooth interference",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.11 association floods"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:44:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 599\nDetecting Rate Anomalies\n\nanswer is D\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 56,
+    "url": "https://www.examtopics.com/discussions/hp/view/100274-exam-hpe6-a70-topic-1-question-56-discussion/",
+    "body": "A company has an Aruba Mobility Master (MM)-based solution. A network administrator wants to collect and analyze information about clients and access points<br>(APs) over extended periods of time.<br>What should the administrator do to achieve this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun a Traffic Analysis report on the MM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd Aruba AirWave to the solution.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable archival from the MM interface Maintenance windows.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake sure that MM has sufficient AppRF licenses."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:47:00.000Z",
+        "voteCount": 2,
+        "content": ".\n\nMM has a 15 minutes hystory in all the dashboards.\nAirwave can collect long term datas.\n\nAnswer is B\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 57,
+    "url": "https://www.examtopics.com/discussions/hp/view/100275-exam-hpe6-a70-topic-1-question-57-discussion/",
+    "body": "A company deploys an Aruba wireless solution for the first time. In which deployment is clustering supported?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdeployment as Mobility Masters (MMs)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdeployment in 7000 Series standalone mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdeployment as a standalone VMC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdeployment in master-local mode"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-21T08:48:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nper ArubaOS 8.7.1.0 user guide, p 366\n\"Cluster is supported only on the Mobility Master and cluster members can only be managed devices.\"\n\nanswer is A\n\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 58,
+    "url": "https://www.examtopics.com/discussions/hp/view/100278-exam-hpe6-a70-topic-1-question-58-discussion/",
+    "body": "Refer to the exhibits.<br><br>Exhibit 1 -<br><img src=\"/assets/media/exam-media/03072/0003700001.png\" class=\"in-exam-image\"><br><br>Exhibit 2 -<br><img src=\"/assets/media/exam-media/03072/0003800001.png\" class=\"in-exam-image\"><br>A company has an Aruba solution. Client 1 is assigned to the users1 role, and Client 2 is assigned to the users2 role. The exhibits show current firewall rules for those roles. The network1 alias used to be 10.1.1.0/24, but the network administrator now changes the network1 alias to 172.16.1.0/24. Client 1 and Client 2 both then send a packet destined to 172.16.1.10.<br>How does the firewall handle these packets?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt denies both packets.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt denies the packet from Client 1 and permits the packet from Client 2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits both packets.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt permits the packet from Client 1 and denies the packet from Client 2."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-27T01:17:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A.\nIn first ACL there is a deny to that subnet, in second ACL the implicit deny any any match the packet"
+      },
+      {
+        "date": "2023-02-21T08:59:00.000Z",
+        "voteCount": 1,
+        "content": ".\n\nAruba Forum\n\"implicit deny all is apply at the bottom of the user role policy list.\"\nhttps://community.arubanetworks.com/community-home/digestviewer/viewthread?MID=5286\n\nAnswer is D\n."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 59,
+    "url": "https://www.examtopics.com/discussions/hp/view/19175-exam-hpe6-a70-topic-1-question-59-discussion/",
+    "body": "Which task can an Aruba Spectrum Monitor (SM) perform?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrevent client connections to rogue APs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAnalyze RF signals to determine the cause of non-802.11 interference.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOptimize RF through the AP channel and transmit power plans.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAnalyze wireless traffic patterns at the application level."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-04-27T15:42:00.000Z",
+        "voteCount": 10,
+        "content": "I think correct is B"
+      },
+      {
+        "date": "2020-05-12T06:40:00.000Z",
+        "voteCount": 7,
+        "content": "I think B references the Spectrum Analyzer (SA)"
+      },
+      {
+        "date": "2023-03-06T22:23:00.000Z",
+        "voteCount": 1,
+        "content": "B. Analyze RF signals to determine the cause of non-802.11 interference.\n\nThe Aruba Spectrum Monitor (SM) is a device designed to analyze the radio frequency (RF) spectrum for Wi-Fi networks. It can detect and analyze non-802.11 interference in the RF spectrum and identify sources of interference such as microwave ovens, Bluetooth devices, and cordless phones. It can help network administrators to troubleshoot Wi-Fi issues by providing detailed information about the RF environment and suggesting ways to optimize network performance."
+      },
+      {
+        "date": "2022-12-26T13:28:00.000Z",
+        "voteCount": 2,
+        "content": "ACMA Official Certification Study Guide (Exam HPE6-A42)\nPage 52: SA capture radio signal for analysis"
+      },
+      {
+        "date": "2021-05-20T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "The Anwers correct is B\nhttps://www.arubanetworks.com/techdocs/InstantWenger_Mobile/Advanced/Content/Instant%20User%20Guide%20-%20volumes/Spectrum%20Monitor.htm"
+      },
+      {
+        "date": "2021-05-19T14:40:00.000Z",
+        "voteCount": 1,
+        "content": "The correct Anwser is B \nhttps://www.arubanetworks.com/techdocs/ArubaOS_61/ArubaOS_61_UG/Spectrum_Analysis.php"
+      },
+      {
+        "date": "2020-12-16T06:19:00.000Z",
+        "voteCount": 2,
+        "content": "correct b"
+      },
+      {
+        "date": "2020-10-06T09:20:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is B"
+      },
+      {
+        "date": "2020-09-16T13:59:00.000Z",
+        "voteCount": 2,
+        "content": "answer is B"
+      },
+      {
+        "date": "2020-06-28T22:55:00.000Z",
+        "voteCount": 3,
+        "content": "I agree with B.\nAir Monitor (AM) handles L2\nSpectrum Analyzer (SA) handles L1"
+      },
+      {
+        "date": "2020-05-08T00:17:00.000Z",
+        "voteCount": 5,
+        "content": "B is correct. \nA would be correct if the question were as follows:\nWhich task can an Aruba Air Monitor (AM) perform?"
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 60,
+    "url": "https://www.examtopics.com/discussions/hp/view/24375-exam-hpe6-a70-topic-1-question-60-discussion/",
+    "body": "A company has an Aruba solution with a guest WLAN named exam_guest. A network administrator creates the guest WLAN with the wizard and does not change any of the default roles. The authentication server does not send particular role assignments for authorized users. The company wants to deny guests access to specific IP ranges after the guest authenticate.<br>For which role should the administrator create the rule to deny this traffic?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tguest",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tauthorized",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texam_guest-guest-logon\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tguest-logon"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 4,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-29T07:44:00.000Z",
+        "voteCount": 12,
+        "content": "I feel like the correct answer should be A because the question states \"after the guest has authenticated.\" \n\n\"guest-logon\" is used for pre-authentication (limited to DHCP &amp; DNS). The guest role is used post-authentication."
+      },
+      {
+        "date": "2023-03-08T19:32:00.000Z",
+        "voteCount": 1,
+        "content": "The administrator should create the rule to deny traffic for the \"guest\" role. This is because the guest WLAN is named \"exam_guest,\" and the administrator did not change any of the default roles, so guests will likely be assigned the default \"guest\" role. Additionally, the authentication server does not send particular role assignments for authorized users, which further supports using the \"guest\" role for the rule.\n\nTherefore, the correct answer is A. guest."
+      },
+      {
+        "date": "2023-03-06T22:21:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer should be A"
+      },
+      {
+        "date": "2022-12-26T13:30:00.000Z",
+        "voteCount": 2,
+        "content": "ACMA Officially Certification Study Guide (Exam HPE6-A42) page 270"
+      },
+      {
+        "date": "2022-12-26T13:35:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry wrong, C is the WLAN+guest-logon is the profile role name. Not the role after authenticate. So it is A."
+      },
+      {
+        "date": "2022-12-18T04:53:00.000Z",
+        "voteCount": 2,
+        "content": "The answer here is C because most of the below comments are right: after the guest has authenticated. The reason is not A is because when you create a WLAN with the wizard it creates automatically a role that is the WLAN+guest-logon in this case exam_guest-guest-logon."
+      },
+      {
+        "date": "2022-05-24T09:59:00.000Z",
+        "voteCount": 2,
+        "content": "A - by default fall into \"guest\" role, when RADIUS doesnt send any more specific roles"
+      },
+      {
+        "date": "2021-09-13T01:52:00.000Z",
+        "voteCount": 2,
+        "content": "Correct ANS is C\nWhile using wizard, by default a new Guest-Logon role created to support redirection. In this case SSID name is exam_guest, so the newly created default role will be exam_guest-guest-logon. To edit any firewall policies, administrator has to edit the firewall policies of exam_guest-guest-logon role."
+      },
+      {
+        "date": "2021-05-19T14:46:00.000Z",
+        "voteCount": 1,
+        "content": "Guest logon is the pre-authen role\nGuest is post-authen role, so modify the Guest role to deny guests access to specific IP ranges\n\nCorrect Answer : A"
+      },
+      {
+        "date": "2020-11-05T04:04:00.000Z",
+        "voteCount": 1,
+        "content": "Correct is \"A\"\nGuest logon is the pre-authen role\nGuest is post-authen role, so modify the Guest role to deny guests access to specific IP ranges\n\nCorrect Answer : A"
+      },
+      {
+        "date": "2020-09-16T14:00:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2020-09-10T12:33:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is A : Guest-logon is for preauthentication and guest is for postauthentication by default. Company wants to deny guests access to specific IP ranges after the guest authenticate"
+      },
+      {
+        "date": "2020-07-09T04:57:00.000Z",
+        "voteCount": 2,
+        "content": "Edit: guest-logon indeed is defualt role assigned to guest wifi. I would edit guest-logon and create rule in last section at very bottom of guest-logon role. So answer is D"
+      },
+      {
+        "date": "2020-07-09T04:43:00.000Z",
+        "voteCount": 1,
+        "content": "D is wrong, its for pre-auth with captive portal\nA is wrong as it allows http to any.\nB permits all.\nC is unknown.\nThis question is isn't clear....not enough info\nIn general to restrict something i would create new role, as editing default roles is not suggested."
+      }
+    ],
+    "examNameCode": "hpe6-a70",
+    "topicNumber": "1"
+  }
+]

@@ -1,0 +1,1557 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74789-exam-az-801-topic-5-question-1-discussion/",
+    "body": "You have an on-premises network and an Azure virtual network.<br>You establish a Site-to-Site VPN connection from the on-premises network to the Azure virtual network, but the connection frequently disconnects.<br>You need to debug the IPsec tunnel from Azure.<br>Which Azure VPN Gateway diagnostic log should you review?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGatewayDiagnosticLog",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRouteDiagnosticLog",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIKEDiagnosticLog\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTunnelDiagnosticLog"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-04-28T08:38:00.000Z",
+        "voteCount": 8,
+        "content": "Correct Answer\n\n\"TunnelDiagnosticLog \tContains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable.\""
+      },
+      {
+        "date": "2023-04-27T04:10:00.000Z",
+        "voteCount": 5,
+        "content": "I choose option C\n\nThe IKEDiagnosticLog table offers verbose debug logging for IKE/IPsec. This is very useful to review when troubleshooting disconnections, or failure to connect VPN scenarios."
+      },
+      {
+        "date": "2023-05-13T03:15:00.000Z",
+        "voteCount": 1,
+        "content": "Yeah, it looks C\nhttps://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log"
+      },
+      {
+        "date": "2024-09-18T15:26:00.000Z",
+        "voteCount": 2,
+        "content": "D. TunnelDiagnosticLog"
+      },
+      {
+        "date": "2024-06-13T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "The TunnelDiagnosticLog is useful to troubleshoot past events about unexpected VPN disconnections. Its lightweight nature offers the possibility to analyze large time ranges over several days with little effort. Only after you identify the timestamp of a disconnection, you can switch to the more detailed analysis of the IKEdiagnosticLog table to dig deeper into the reasoning of the disconnections shall those be IPsec related.\n\nYou need to debug the IPsec tunnel from Azure.\n\nOption C.\n\nhttps://learn.microsoft.com/en-us/azure/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics"
+      },
+      {
+        "date": "2024-05-25T05:17:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D\nTunnelDiagnosticLog: Contains tunnel state change events. Tunnel connect or disconnect events have a summarized reason for the state change if applicable."
+      },
+      {
+        "date": "2024-05-20T12:23:00.000Z",
+        "voteCount": 2,
+        "content": "TunnelDiagnosticLog\tContains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable.\n\nhttps://learn.microsoft.com/en-us/azure/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics"
+      },
+      {
+        "date": "2024-05-17T10:32:00.000Z",
+        "voteCount": 1,
+        "content": "As explained by several ppl below, TunnelDiagnosticLog is the first step if we don't want to miss anything and going ahead too quickly in a wrong direction"
+      },
+      {
+        "date": "2024-03-07T17:43:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct as per the below link (TunnelDiagnosticLog section). This article infers that the TunnelDiagnosticLog is your 1st stop diagnostic. Armed with these facts one would then move to the IKEdiagnosticLog to drill down further into the issue.\nhttps://learn.microsoft.com/en-us/azure/vpn-gateway/troubleshoot-vpn-with-azure-diagnostics"
+      },
+      {
+        "date": "2023-11-12T23:35:00.000Z",
+        "voteCount": 1,
+        "content": "The Azure VPN Gateway diagnostic log that should be reviewed to debug the IPsec tunnel from Azure is:\n\nOption C. IKEDiagnosticLog\n\nThis log specifically contains information about Internet Key Exchange (IKE), which is a fundamental part of setting up the IPsec tunnel for a Site-to-Site VPN connection. Reviewing the IKEDiagnosticLog can provide insights into the issues causing the frequent disconnections."
+      },
+      {
+        "date": "2023-07-23T01:44:00.000Z",
+        "voteCount": 2,
+        "content": "D, Yes, that's correct. Starting with the TunnelDiagnosticLog is a good approach because it gives a broader, higher-level view of the connectivity statuses over time. This can help identify patterns or specific instances when the disconnects occur. \n\nThis is beneficial because it could help to isolate whether the disconnects are happening at specific times, or under specific conditions, which can be extremely useful information for troubleshooting.\n\nOnce the time of a disconnection has been identified, then you can use the IKEDiagnosticLog to delve into the details of the IPsec protocol at the time of disconnection. This log will provide more specific information about the negotiation between the two ends of the tunnel and can help pinpoint the exact reason for the disconnection, especially if the issue is related to IPsec. \n\nTherefore, while it may seem more efficient to directly dive into the detailed IKEDiagnosticLog, beginning with the TunnelDiagnosticLog can provide valuable context and help to streamline the troubleshooting process."
+      },
+      {
+        "date": "2023-07-19T20:25:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D.\nYou can review the GatewayDiagnosticLog for Azure VPN Gateway diagnostics to troubleshoot the IPsec tunnel from Azure. This log contains diagnostic logs for gateway configuration events, primary changes, and maintenance events. It also contains resource logs for gateway configuration events, primary changes, and maintenance events1.\n\nYou can follow this procedure to learn how to set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics1:\n\nCreate a Log Analytics Workspace using this article.\nFind your VPN gateway on the Monitor &gt; Diagnostics settings blade.\nSelect the gateway and click on \u201cAdd Diagnostic Setting\u201d."
+      },
+      {
+        "date": "2023-06-08T11:28:00.000Z",
+        "voteCount": 1,
+        "content": "\"The TunnelDiagnosticLog is very useful to troubleshoot past events about unexpected VPN disconnections. Its lightweight nature offers the possibility to analyze large time ranges over several days with little effort. Only after you identify the timestamp of a disconnection, you can switch to the more detailed analysis of the IKEdiagnosticLog table to dig deeper into the reasoning of the disconnections shall those be IPsec related.\""
+      },
+      {
+        "date": "2022-08-20T05:16:00.000Z",
+        "voteCount": 2,
+        "content": "the answer is correct."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74790-exam-az-801-topic-5-question-2-discussion/",
+    "body": "You have an Azure virtual machine named VM1 that has the Web Server (IIS) server role installed. VM1 hosts a critical line-of-business (LOB) application.<br>After the security team at your company deploys a new security baseline to VM1, users begin reporting that the application is unresponsive.<br>You suspect that the security baseline has caused networking issues.<br>You need to perform a network trace on VM1.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom VM1, run netstat.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Performance Monitor on VM1, create a Data Collector Set.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, configure the Diagnostics settings for VM1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, configure the Performance diagnostics settings for VM1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-26T23:05:00.000Z",
+        "voteCount": 6,
+        "content": "Yes, correct.\nThe link provided says that Performance Analysis let's you do an Azure Files Analysis, which includes a network trace:\n\"Azure Files analysis\nIncludes all checks in the performance analysis, and captures a network trace and SMB counters.\""
+      },
+      {
+        "date": "2024-09-18T15:28:00.000Z",
+        "voteCount": 1,
+        "content": "From the Azure portal, configure the Performance diagnostics settings for VM1"
+      },
+      {
+        "date": "2023-11-13T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "To perform a network trace on VM1, especially in the context of Azure virtual machines and considering the need to diagnose network issues possibly caused by a new security baseline, the most suitable option among those provided would be:\n\nOption D: From the Azure portal, configure the Performance diagnostics settings for VM1.\n\nThe Azure Performance Diagnostics extension is a powerful tool for diagnosing and identifying performance issues with Azure VMs. It allows you to gather a wide range of performance data, including network traces, which can be invaluable in situations where you suspect networking issues. Configuring Performance Diagnostics on VM1 through the Azure portal will enable you to collect the necessary data to understand what's causing the application to become unresponsive."
+      },
+      {
+        "date": "2023-04-27T04:31:00.000Z",
+        "voteCount": 2,
+        "content": "Provided link supports D as the answer"
+      },
+      {
+        "date": "2022-12-22T13:56:00.000Z",
+        "voteCount": 3,
+        "content": "Among the given choices, D is the best one."
+      },
+      {
+        "date": "2022-04-28T08:49:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74792-exam-az-801-topic-5-question-3-discussion/",
+    "body": "You have an Azure virtual machine named VM1. Crash dumps for a process named Process1 are enabled for VM1.<br>When process1.exe on VM1 crashes, a technician must access the memory dump files on the virtual machine. The technician must be prevented from accessing the virtual machine.<br>To what should you provide the technician access?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure file share",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Log Analytics workspace",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Blob Storage container\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta managed disk"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-18T15:32:00.000Z",
+        "voteCount": 1,
+        "content": "C. BLOB"
+      },
+      {
+        "date": "2023-09-14T11:02:00.000Z",
+        "voteCount": 1,
+        "content": "chatgpt: \nTo provide the technician access to the memory dump files from the crashed process without allowing access to the virtual machine itself, you should store the memory dump files in an external location, such as Azure Blob Storage container. This way, the technician can access the dump files without accessing the VM.\n\nSo, the correct choice is:\n\nC. an Azure Blob Storage container"
+      },
+      {
+        "date": "2024-02-17T13:03:00.000Z",
+        "voteCount": 7,
+        "content": "This comment needs to be removed. Do not use ChatGPT as a justification here - it is very very frequently incorrect."
+      },
+      {
+        "date": "2024-01-08T11:18:00.000Z",
+        "voteCount": 9,
+        "content": "ChatGPT = Not a substitute for actual research."
+      },
+      {
+        "date": "2023-06-30T22:41:00.000Z",
+        "voteCount": 1,
+        "content": "Log analytics workspace, a raw storaged just contain data to be analyzed with some tool:\nhttps://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-logs#supported-data-types"
+      },
+      {
+        "date": "2023-04-27T04:36:00.000Z",
+        "voteCount": 3,
+        "content": "From the link given\n\nCrash dumps (logs)\tInformation about the state of the process if an application crashes.\n\nNo mention of file share, log analytics workspace and managed disk so C is correct"
+      },
+      {
+        "date": "2022-12-22T13:59:00.000Z",
+        "voteCount": 4,
+        "content": "Azure Diagnostics extension (Agent) is used.\nUse Azure Diagnostics extension if you need to send data to Azure Storage for archiving or to analyze it with tools such as Azure Storage Explorer."
+      },
+      {
+        "date": "2022-04-28T08:51:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74793-exam-az-801-topic-5-question-4-discussion/",
+    "body": "You have a server named Server1 that runs the Remote Desktop Session Host role service. Server1 has five custom applications installed.<br>Users who sign in to Server1 report that the server is slow. Task Manager shows that the average CPU usage on Server1 is above 90 percent. You suspect that a custom application on Server1 is consuming excessive processor capacity.<br>You plan to create a Data Collector Set in Performance Monitor to gather performance statistics from Server1.<br>You need to view the resources used by each of the five applications.<br>Which object should you add to the Data Collector Set?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProcessor information",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProcessor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProcess\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProcessor performance"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-27T04:40:00.000Z",
+        "voteCount": 2,
+        "content": "\"view the resources used by each of the five applications\"\n\nI would say C is correct"
+      },
+      {
+        "date": "2023-02-16T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "C \nhttps://help.tableau.com/current/server/en-us/perf_collect_perfmon.htm"
+      },
+      {
+        "date": "2022-04-28T08:58:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74794-exam-az-801-topic-5-question-5-discussion/",
+    "body": "You plan to deploy the Azure Monitor agent to 100 on-premises servers that run Windows Server.<br>Which parameters should you provide when you install the agent?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe client ID and the secret of an Azure service principal",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe name and the access key of an Azure Storage account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta connection string for an Azure SQL database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe ID and the key of an Azure Log Analytics workspace\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-27T04:38:00.000Z",
+        "voteCount": 2,
+        "content": "Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace\n\nAnswer is D"
+      },
+      {
+        "date": "2023-02-20T07:59:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/windows-server/storage/storage-spaces/configure-azure-monitor#obtain-workspace-id-and-key\nBefore installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace. This information is required by the setup wizard to properly configure the agent"
+      },
+      {
+        "date": "2022-10-20T11:08:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2022-04-28T08:59:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/77722-exam-az-801-topic-5-question-6-discussion/",
+    "body": "Your on-premises network contains two subnets. The subnets contain servers that run Windows Server as shown in the following table.<br><img src=\"/assets/media/exam-media/04226/0016200001.png\" class=\"in-exam-image\"><br>Server4 has the following IP configurations:<br>Ethernet adapter Ethernet:<br>Connection-specific DNS Suffix . . :<br>IPv4 Address . . . . . . . . . . . : 192.168.0.10<br>Subnet Mask  . . . . . . . . . . . : 255.255.255.0<br>Default Gateway  . . . . . . . . . : 192.168.0.1<br>From Server4, you can ping Server1 and Server2 successfully. When you ping Server3, you get a Request timed out response.<br>From Server2, you can ping Server1 and Server3 successfully.<br>The misconfiguration of which component on Server3 can cause the Request timed out response?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdefault gateway",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIP address",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsubnet mask\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDNS server"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 21,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-07-24T14:30:00.000Z",
+        "voteCount": 19,
+        "content": "I'm pretty rusty on my subnetting but I'll give it a shot- \n\nThe key here is we're told what works and what doesnt:\nS2 can ping to S1\nS2 can ping to S3 implies S2 and S3 are indeed on the same subnet\nS4 can ping to S1\nS4 can ping to S2\nbut S4 CANNOT ping S3 even though they should be on the same subnet\n\nQuestion implies a /24 mask is(or should be) in use for all since we're told there are \"two subnets\". 192.168.1.0/24 would cover S1 address, and 192.168.0.0/24 would cover S2/S3/S4.\n\nBut if S3 had a /26 mask.. 255.255.255.192, it would cause ONLY S2 and S3 to be on the same network. Since S4's fourth octet is so far away, it would be on a different subnet IF the /26 mask was in use.\n\nSo misconfigured mask would explain why S2 can ping S3 but S4 cannot ping S3."
+      },
+      {
+        "date": "2024-02-20T21:29:00.000Z",
+        "voteCount": 3,
+        "content": "measure^ says dns server.It is partnered with MS."
+      },
+      {
+        "date": "2024-02-21T22:17:00.000Z",
+        "voteCount": 2,
+        "content": "Can confirm Measure^ says it's the DNS server, but their explanation really makes no sense to me. I think in reality I'd be looking at the Subnet Mask. In addition their explanation confuses the server names. Just throw out this question honestly, or blindly choose DNS server if you get it on the test (since that really is the answer they're expecting...)"
+      },
+      {
+        "date": "2023-04-27T05:07:00.000Z",
+        "voteCount": 2,
+        "content": "B and D are definitely wrong; IP address misconfigured is just plain silly and DNS server is of no relevance\n\nA is wrong as default gateway has to be on same subnet as the host\n\nC is therefore correct"
+      },
+      {
+        "date": "2023-01-21T07:54:00.000Z",
+        "voteCount": 3,
+        "content": "I take it back!\nThe trick as always is to only consider the information provided. \nWe are only given the subnet mask for server4, and none of the other servers.\nWe are told that S2 can ping S1 and S3, so the subnet mask on S2 must be less than 24 or S2 and S1 would be in different subnets.\nDitto S4 to S1. S4 must have a subnet mask of less than 24 for this ping to work.\nReference: A subnet with 192.168.0.0/23 has an IP range of 191.168.0.1 - 191.168.1.254.\nErgo: if S4 also had a /23 subnet mask the ping to S3 would work.\nA long-winded way of saying that 51007's conclusion is correct, but maybe helps others to understand why :-)."
+      },
+      {
+        "date": "2023-01-21T05:59:00.000Z",
+        "voteCount": 2,
+        "content": "I think the actual question is wrong. 192.168.178.0/24 has a range of 192.168.0.1 - 192.168.0.254. Server3 and Server 4 are both within that range, so PING should work with a /24 mask as defined. PINGing Server1 from Server4 should not work as they are in different subnets!\nThere is something wrong with the information given - it's hard to guess what the writer's intent was. I hope I get this question in the actual exam then I can mentally note if it has been corrected."
+      },
+      {
+        "date": "2022-11-28T19:07:00.000Z",
+        "voteCount": 3,
+        "content": "Well done 5150 0r 51007. my head was foggy- glad to see it looks right"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74796-exam-az-801-topic-5-question-7-discussion/",
+    "body": "You have five Azure virtual machines.<br>You need to collect performance data and Windows Event logs from the virtual machines. The data collected must be sent to an Azure Storage account.<br>What should you install on the virtual machines?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Connected Machine agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Monitor agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Dependency agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Telegraf agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Diagnostics extension\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "E",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "E",
+        "count": 12,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-18T15:44:00.000Z",
+        "voteCount": 1,
+        "content": "E. the Azure Diagnostics extension"
+      },
+      {
+        "date": "2023-05-14T05:36:00.000Z",
+        "voteCount": 3,
+        "content": "If were on-premise i would say Azure Monitor, but for azure vm the answer looks ok.\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/windows/extensions-diagnostics"
+      },
+      {
+        "date": "2023-04-27T05:10:00.000Z",
+        "voteCount": 4,
+        "content": "Use Azure Diagnostics extension if you need to:\n\nSend data to Azure Storage for archiving or to analyze it with tools such as Azure Storage Explorer.\n\nAnswer is E"
+      },
+      {
+        "date": "2023-03-02T00:10:00.000Z",
+        "voteCount": 4,
+        "content": "\"Diagnostics extension: Sends data to Azure Monitor Metrics (Windows only), Azure Event Hubs, and Azure Storage. This is not consolidated yet.\" So, Diagnostics extension is a legacy extension that will be replaced completely by Azure Monitor agent in the near future but right now is the right answer. Moreover, the emphases is on the \"Send data to Azure Storage\" and the Diagnostics extension does exactly that."
+      },
+      {
+        "date": "2023-02-14T05:26:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Diagnostics extension is an agent in Azure Monitor that collects monitoring data from the guest operating system of Azure compute resources including virtual machines.\nFirst you need to install the Azure Monitor agent."
+      },
+      {
+        "date": "2022-12-05T21:21:00.000Z",
+        "voteCount": 4,
+        "content": "We are not monitoring here. monitoring does more then jsut collect performance. We are collecting performance information on azure vms. \nI see 2 choices and the diagnostic extension fits best. If the question changes -it could include Some on prem element, then it would be azure monitor instead\n\nThis means diagnostic extension to a storage account will work fine- \nAzure Diagnostics extension overview - Azure Monitor | Microsoft Learn\n\nComplexities on a test will ask around this vs log analytics. This is good for on prem or outside azure\n\nAzure monitor or arc agent might be mostly used in on prem or hybrid situations: \nAzure Monitor Agent overview - Azure Monitor | Microsoft Learn"
+      },
+      {
+        "date": "2022-04-28T09:05:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74798-exam-az-801-topic-5-question-8-discussion/",
+    "body": "HOTSPOT -<br>You have a server named Server1 that runs Windows Server.<br>On Server1, you create a Data Collector Set named CollectorSet1 based on the Basic template.<br>You need to configure CollectorSet1 to meet the following requirements:<br>\u2711 Older performance counter logs must be overwritten by new ones.<br>\u2711 Performance counter logging must stop if there is less than 500 MB of free disk space.<br>What should you configure for each requirement? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0016400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0016400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-22T14:57:00.000Z",
+        "voteCount": 5,
+        "content": "The answer given is correct. Tested."
+      },
+      {
+        "date": "2024-09-18T15:55:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-04-30T02:37:00.000Z",
+        "voteCount": 3,
+        "content": "And to conclude from my first 2 posts, answer is correct\n\nTry it yourself to believe it"
+      },
+      {
+        "date": "2023-04-30T02:37:00.000Z",
+        "voteCount": 3,
+        "content": "To overwrite older performance counter logs by new ones, select the \"Overwrite\" option for the \"File name\" setting in the data collector set properties. You can access the properties by right-clicking on the data collector set in Performance Monitor and selecting \"Properties\". In the \"Data Collector Set Properties\" dialog box, click the \"Log Files\" tab, and then select \"Overwrite\" for the \"File name\" setting"
+      },
+      {
+        "date": "2023-04-30T02:36:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc765998(v=ws.11)\n\nUnder Table \"Data Manager Properties\"\nThe amount of disk space that must be available on the drive where log data is stored. If selected, previous data will be deleted according to the Resource policy that you choose when the limit is reached."
+      },
+      {
+        "date": "2022-07-18T03:37:00.000Z",
+        "voteCount": 3,
+        "content": "2nd: Data Manager:\nChange the default settings when you configure a Data Collector Set on the Data Manager tab. For example, change the Minimum free disk space or Maximum folders setting\n\nhttps://docs.microsoft.com/en-us/troubleshoot/windows-server/performance/log-files-are-deleted"
+      },
+      {
+        "date": "2022-10-06T04:00:00.000Z",
+        "voteCount": 2,
+        "content": "Thanks for the link!\nActually, for box 1 the answer should be Data Manager properties, too:\n\"On the Data Manager tab, you can accept the default values or make changes according to your data retention policy. See the table below for details on each option.\n* When Minimum free disk or Maximum folders is selected, previous data will be deleted according to the Resource policy you choose (Delete largest or Delete oldest) when the limit is reached.\" (https://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc765998(v=ws.11))"
+      },
+      {
+        "date": "2022-10-31T07:53:00.000Z",
+        "voteCount": 2,
+        "content": "In my opinion 1st box should be \"Performance Counter properties\" - in these properties on tab \"File\" you find option \"Log mode\" with following checkboxes: Overwrite, Append, Circular. Settings which you make in Data Manager tab will be applied only when some conditions will be fulfilled (too big root dir, too many subfolders, too less free space on disk)"
+      },
+      {
+        "date": "2022-04-28T11:00:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74799-exam-az-801-topic-5-question-9-discussion/",
+    "body": "You have an Azure virtual machine named VM1.<br>You install an application on VM1, and then restart the virtual machine.<br>After the restart, you get the following error message: `Boot failure. Reboot and Select proper Boot Device or Insert Boot Media in selected Boot Device.`<br>You need to mount the operating system disk offline from VM1 to a temporary virtual machine to troubleshoot the issue.<br>Which command should you run in Azure CLI?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz vm repair create\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz vm boot-diagnostics enable",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz vm capture",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz vm disk attach"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-27T05:20:00.000Z",
+        "voteCount": 3,
+        "content": "The key here is \"operating system disk\"\n\nhttps://learn.microsoft.com/en-us/cli/azure/vm/repair?view=azure-cli-latest\n\nVM repair command will enable Azure users to self-repair non-bootable VMs by copying the source VM's OS disk and attaching it to a newly created repair VM.\n\nA is the answer"
+      },
+      {
+        "date": "2022-12-22T15:03:00.000Z",
+        "voteCount": 2,
+        "content": "az vm repair create - Create a new repair VM and attach the source VM's copied OS disk as a data disk."
+      },
+      {
+        "date": "2022-10-09T02:41:00.000Z",
+        "voteCount": 3,
+        "content": "Correct, see https://learn.microsoft.com/en-us/cli/azure/vm/repair?view=azure-cli-latest."
+      },
+      {
+        "date": "2022-04-28T11:01:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/95984-exam-az-801-topic-5-question-10-discussion/",
+    "body": "You have a Site-to-Site VPN between an on-premises network and an Azure VPN gateway. BGP is disabled for the Site-to-Site VPN.<br>You have an Azure virtual network named Vnet1 that contains a subnet named Subnet1. Subnet1 contains a virtual machine named Server1.<br>You can connect to Server1 from the on-premises network.<br>You extend the address space of Vnet1. You add a subnet named Subnet2 to Vnet1. Subnet2 uses the extended address space. You deploy an Azure virtual machine named Server2 to Subnet2.<br>You cannot connect to Server2 from the on-premises network. Server1 can connect to Server2.<br>You need to ensure that you can connect to Subnet2 from the on-premises network.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd an additional Site-to-Site VPN between the on-premises network and Vnet1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a private endpoint to Subnet2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo Subnet2, add a route table that contains a user-defined route.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the routing information on the on-premises routers.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-27T05:29:00.000Z",
+        "voteCount": 3,
+        "content": "By default, Azure VPN gateway advertises the virtual network address space to the on-premises VPN device using the Border Gateway Protocol (BGP). However, in this scenario, BGP is disabled for the Site-to-Site VPN. Therefore, you need to manually update the on-premises VPN device with the new extended address space of Vnet1 and create a new route for it.\n\nAnswer is D"
+      },
+      {
+        "date": "2023-01-19T04:41:00.000Z",
+        "voteCount": 4,
+        "content": "Correct. Your on-prem needs to know that the new subnet is part of the VPN tunnel, and to send traffic to the tunnel."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74803-exam-az-801-topic-5-question-11-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure virtual machine named VM1 that runs Windows Server. VM1 has boot diagnostics configured to use a managed storage account.<br>You are troubleshooting connectivity issue on VM1.<br>You need to run a PowerShell cmdlet on VM1 by using the Azure Serial Console.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04226/0016600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0016700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-overview https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-08T11:37:00.000Z",
+        "voteCount": 1,
+        "content": "The answers do seem weird because the requirements are to run a PowerShell cmdlet and after the last answer step, you still can't run one lol. You would still need to type powershell at the cmd prompt. Also like others have said, there isn't a requirement for a custom storage for boot diagnostics. So its unclear if this is correct but seems like making the best of what is available."
+      },
+      {
+        "date": "2023-05-17T06:54:00.000Z",
+        "voteCount": 1,
+        "content": "Does anyone have any justification to change the boot diagnostics settings to a Custom storage account?  I am not finding any justification to do this in the question.  Changing to custom appears to be an unnecessary step without any value to me."
+      },
+      {
+        "date": "2023-04-30T02:55:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows\n\nYour account that uses serial console must have the Virtual Machine Contributor role for the VM and the boot diagnostics storage account (Prerequisites)\n\nUnder Use Serial Console\nEnter cmd to create a channel that has a CMD instance.\nEnter ch -si 1 or press the &lt;esc&gt;+&lt;tab&gt; shortcut keys to switch to the channel that's running the CMD instance.\n\nAnswer is correct"
+      },
+      {
+        "date": "2022-12-22T15:15:00.000Z",
+        "voteCount": 3,
+        "content": "The answer given is the best four because other two are completely wrong."
+      },
+      {
+        "date": "2022-12-05T21:48:00.000Z",
+        "voteCount": 3,
+        "content": "In fact this article says that managed is the one to use with serial connection so that would make the first answer totally wrong- use managed stroage account for serial connection https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows"
+      },
+      {
+        "date": "2022-12-05T21:44:00.000Z",
+        "voteCount": 3,
+        "content": "Troubleshooting boot diagnostics- \n\t#1 - May use a CUSTOM Storage account or a managed storage account- This will likley not be one of the answers\n\t\n\tBoot diagnostics for VMs in Azure - Virtual Machines | Microsoft Learn\n\t#2 From the azure portal, open the serial console blade of vm1\n\t#3 from the serial console run cmd\n#4 from the serial console run ch -si and sign in using a local account"
+      },
+      {
+        "date": "2022-09-13T11:53:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows"
+      },
+      {
+        "date": "2022-10-06T04:12:00.000Z",
+        "voteCount": 3,
+        "content": "For the last two items:\n1. Connect to the serial console. If you successfully connect, the prompt is SAC&gt;:\n2. Enter cmd to create a channel that has a CMD instance.\n3. Enter ch -si 1 or press the &lt;esc&gt;+&lt;tab&gt; shortcut keys to switch to the channel that's running the CMD instance.\n4. Press Enter, and then enter sign-in credentials with administrative permissions.\n5. After you've entered valid credentials, the CMD instance opens.\n6. To start a PowerShell instance, enter PowerShell in the CMD instance, and then press Enter.\n(https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/serial-console-windows)"
+      },
+      {
+        "date": "2022-04-28T11:33:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83802-exam-az-801-topic-5-question-12-discussion/",
+    "body": "HOTSPOT -<br>You have an on-premises server named Server1 and a Microsoft Sentinel instance.<br>You plan to collect Windows Defender Firewall events from Server1 and analyze the event data by using Microsoft Sentinel.<br>What should you install on Server1, and which information should you provide during the installation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0016800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0016900001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Azure Monitor agent -<br>The Azure Monitor agent supports Log Analytics, Metrics explorer, and Microsoft Sentinel.<br>Note: The Azure Monitor agent is meant to replace the Log Analytics agent, Azure Diagnostic extension and Telegraf agent for both Windows and Linux machines. It can send data to both Azure Monitor Logs and Azure Monitor Metrics and uses Data Collection Rules (DCR) which provide a more scalable method of configuring data collection and destinations for each agent.<br>Use the Azure Monitor agent if you need to:<br>* Collect guest logs and metrics from any machine in Azure, in other clouds, or on-premises. (Azure Arc-enabled servers required for machines outside of Azure.)<br>* Manage data collection configuration centrally, using data collection rules and use Azure Resource Manager (ARM) templates or policies for management overall.<br>* Send data to Azure Monitor Logs and Azure Monitor Metrics (preview) for analysis with Azure Monitor.<br>* Use Windows event filtering or multi-homing for logs on Windows and Linux.<br>Box 2: The Azure Log Analytics workspace ID and workspace key<br>The Azure Monitor agent sends data to Azure Monitor Metrics (preview) or a Log Analytics workspace supporting Azure Monitor Logs.<br>Enable Microsoft Defender for Cloud monitoring of on-premises Windows computers.<br>1. In the Azure portal on the Defender for Cloud - Overview blade, select the Get Started tab.<br>2. Select Configure under Add new non-Azure computers. A list of your Log Analytics workspaces displays, and should include the Defender for Cloud-<br>SentinelWorkspace.<br>3. Select this workspace. The Direct Agent blade opens with a link for downloading a Windows agent and keys for your workspace identification (ID) to use when you configure the agent.<br>4. Select the Download Windows Agent link applicable to your computer processor type to download the setup file.<br>5. To the right of Workspace ID, select Copy, and then paste the ID into Notepad.<br>6. To the right of Primary Key, select Copy, and then paste the key into Notepad.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/hybrid/hybrid-security-monitoring https://docs.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-09-18T16:08:00.000Z",
+        "voteCount": 1,
+        "content": "Naturally Correct"
+      },
+      {
+        "date": "2023-04-30T02:59:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agent-windows?tabs=setup-wizard\n\nRegardless of the installation method used, you'll require the workspace ID and key for the Log Analytics workspace that the agent will connect to\n\nProvided answer is right"
+      },
+      {
+        "date": "2023-02-16T23:52:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agent-windows?tabs=setup-wizard"
+      },
+      {
+        "date": "2023-02-16T23:51:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview?tabs=CLI1%2CCLI2"
+      },
+      {
+        "date": "2022-09-27T10:54:00.000Z",
+        "voteCount": 4,
+        "content": "Definitely correct."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83804-exam-az-801-topic-5-question-13-discussion/",
+    "body": "Your network contains an Active Directory Domain Services (AD DS) domain named contoso.com. The domain contains three domain controllers named DC1,<br>DC2, and DC3.<br>You connect a Microsoft Defender for Identity instance to the domain.<br>You need to onboard all the domain controllers to Defender for Identity.<br>What should you run on the domain controllers?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure ATP Sensor Setup.exe\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzureConnectedMachineAgent.msi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMARSAgentInstaller.exe",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMMASetup-AMD64.exe"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-27T05:31:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/defender-for-identity/install-sensor\n\nRun Azure ATP sensor setup.exe \n\nA is correct"
+      },
+      {
+        "date": "2022-12-22T16:23:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/defender-for-identity/install-sensor"
+      },
+      {
+        "date": "2022-10-20T11:48:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2022-09-27T10:56:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, correct."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/92514-exam-az-801-topic-5-question-14-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Active Directory Domain Services (Azure AD DS) domain named aadds.contoso.com.<br>You have an Azure virtual network named Vnet1. Vnet1 contains two virtual machines named VM1 and VM2 that run Windows Server. VM1 and VM2 are joined to aadds.contoso.com.<br>You create a new Azure virtual network named Vnet2. You add a new server named VM3 to Vnet2.<br>When you attempt to join VM3 to aadds.contoso.com, you get an error message that the domain cannot be found.<br>You need to ensure that you can join VM3 to aadds.contoso.com.<br>What should you do? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0017200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0017200002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Configure virtual network peering between Vnet1 and Vnet2.<br>Connectivity issues for domain-join.<br>If the VM can't find the managed domain, there's usually a network connection or configuration issue. Review the following troubleshooting steps to locate and resolve the issue:<br>1. Ensure the VM is connected to the same, or a peered, virtual network as the managed domain. If not, the VM can't find and connect to the domain in order to join.<br>If the VM isn't connected to the same virtual network, confirm that the virtual networking peering or VPN connection is Active or Connected to allow the traffic to flow correctly.<br>2. Try to ping the domain using the domain name of the managed domain, such as ping aaddscontoso.com.<br>* If the ping response fails, try to ping the IP addresses for the domain displayed on the overview page in the portal for your managed domain, such as ping<br>10.0.0.4.<br>* If you can successfully ping the IP address but not the domain, DNS may be incorrectly configured. Make sure that you've configured the managed domain DNS servers for the virtual network.<br>Box 2: Add a virtual network link to an existing Azure private DNS zone.<br>The private DNS zone already exists.<br>After you create a private DNS zone in Azure, you'll need to link a virtual network to it. Once linked, VMs hosted in that virtual network can access the private DNS zone. Every private DNS zone has a collection of virtual network link child resources. Each one of these resources represents a connection to a virtual network. A virtual network can be linked to private DNS zone as a registration or as a resolution virtual network.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory-domain-services/troubleshoot-domain-join https://docs.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-24T04:45:00.000Z",
+        "voteCount": 11,
+        "content": "for second part, I prefer adding custom DNS to vnet2. All you need to do, is to add the AAD instance's IP address to vnet2. The question did not say anything about already having a private DNS zone in place."
+      },
+      {
+        "date": "2023-01-24T04:51:00.000Z",
+        "voteCount": 2,
+        "content": "You just have DNS like an on-prem AD DS server. You just use any other server to install DNS management tools, and point to the AAD DS instance to manage. Private DNS zone does not automatically get configured as part of AAD DS setup.\nhttps://learn.microsoft.com/en-us/azure/active-directory-domain-services/manage-dns"
+      },
+      {
+        "date": "2023-02-21T06:33:00.000Z",
+        "voteCount": 2,
+        "content": "I\u00b4m no Azure expert, but if VM1 and VM2 are joined to aadds.contoso.com then you think that it should have been set up \"correctly\" and wouldn't that include setting up a private DNS Zone. \n\"To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone.\""
+      },
+      {
+        "date": "2024-03-27T08:07:00.000Z",
+        "voteCount": 2,
+        "content": "Answer:\n\nBox 1: Network configuration\n\nConfigure virtual network peering between Vnet1 and Vnet 2\n\n\nBox 2: DNS Configuration\n\nAdd a custom DNS Server to Vnet 2\nAnswer:\n\nBox 1: Network configuration\n\nConfigure virtual network peering between Vnet1 and Vnet 2\n\n\nBox 2: DNS Configuration\n\nAdd a custom DNS Server to Vnet 2\n\nhttps://learn.microsoft.com/en-us/entra/identity/domain-services/tutorial-configure-networking"
+      },
+      {
+        "date": "2023-12-09T06:14:00.000Z",
+        "voteCount": 1,
+        "content": "Its, peering &amp; enter dns server on vnet\n\nhttps://learn.microsoft.com/en-us/entra/identity/domain-services/tutorial-configure-networking#configure-virtual-network-peering\n\nYou may have an existing Azure virtual network for VMs, or wish to keep your managed domain virtual network separate. To use the managed domain, VMs in other virtual networks need a way to communicate with the Domain Services domain controllers. This connectivity can be provided using Azure virtual network peering.\n\nFor VMs and applications in the peered virtual network to successfully talk to the managed domain, the DNS settings must be updated. The IP addresses of the Domain Services domain controllers must be configured as the DNS servers on the peered virtual network. There are two ways to configure the domain controllers as DNS servers for the peered virtual network:\n\n    Configure the Azure virtual network DNS servers to use the Domain Services domain controllers."
+      },
+      {
+        "date": "2023-07-23T05:24:00.000Z",
+        "voteCount": 4,
+        "content": "Second is adding custom dns to vnet2 https://learn.microsoft.com/en-us/azure/active-directory-domain-services/manage-dns"
+      },
+      {
+        "date": "2023-05-14T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "It seems correct"
+      },
+      {
+        "date": "2023-04-30T03:07:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory-domain-services/troubleshoot-domain-join\n\nEnsure the VM is connected to the same, or a peered, virtual network as the managed domain.\n\nhttps://learn.microsoft.com/en-us/azure/dns/private-dns-virtual-network-links\n\nAfter you create a private DNS zone in Azure, you'll need to link a virtual network to it\n\nAnswer is correct"
+      },
+      {
+        "date": "2022-12-22T16:47:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83968-exam-az-801-topic-5-question-15-discussion/",
+    "body": "You have five Azure virtual machines. You have a dedicated Azure Storage account to collect performance data.<br>You need to send the collected data directly to the Azure Storage account.<br>What should you install on the virtual machines?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Connected Machine agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Telegraf agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Dependency agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Monitor agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Diagnostics extension\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "E",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "E",
+        "count": 28,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-09T02:53:00.000Z",
+        "voteCount": 12,
+        "content": "This is almost literally the same question as in topic 5, question 7.\nThere the Azure Diagnostics Extension was given as the correct answer. I believe that is correct - because the link provided there proves it: https://docs.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-overview"
+      },
+      {
+        "date": "2022-09-28T17:10:00.000Z",
+        "voteCount": 6,
+        "content": "Not sure answer D is correct, possibly E since only the diagnostics extension can send data to Azure Storage: https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview"
+      },
+      {
+        "date": "2024-08-14T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-overview\nComparison to Log Analytics agent\nThe Log Analytics agent in Azure Monitor can also be used to collect monitoring data from the guest operating system of virtual machines. You can choose to use either or both depending on your requirements. For a comparison of the Azure Monitor agents, see Overview of the Azure Monitor agents.\n\nThe key differences to consider are:\n\nAzure Diagnostics Extension can be used only with Azure virtual machines. The Log Analytics agent can be used with virtual machines in Azure, other clouds, and on-premises.\nAzure Diagnostics extension sends data to Azure Storage, Azure Monitor Metrics (Windows only) and Azure Event Hubs. The Log Analytics agent collects data to Azure Monitor Logs.\nThe Log Analytics agent is required for retired solutions, VM insights, and other services such as Microsoft Defender for Cloud.\nSo, to send [performance] collected data to Storage Account must use Azure Diagnostics Extension."
+      },
+      {
+        "date": "2024-04-26T08:15:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct.\n\nThe Azure Diagnostics extension is deprecated and is no longer recommended for new deployments.\n\nIt was previously used to collect diagnostic data and logs from Azure virtual machines, but its functionality has been replaced by the Azure Monitor agent.\n\nUsing the Azure Diagnostics extension for new deployments is not recommended, and it does not support sending data directly to Azure Storage accounts.\n\nIn summary, options A, B, C, and E are incorrect because they either do not support collecting performance data from Azure virtual machines or are not recommended for new deployments. \n\nThe Azure Monitor agent (option D) is the appropriate choice for this scenario as it is specifically designed for collecting performance data from Azure virtual machines and sending it directly to Azure Storage accounts."
+      },
+      {
+        "date": "2023-11-14T04:16:00.000Z",
+        "voteCount": 1,
+        "content": "For sending collected performance data directly to an Azure Storage account from Azure virtual machines, you should use the Azure Diagnostics extension. This extension enables the collection of monitoring data from the guest operating system of virtual machines and additional data from Azure resources. It is specifically designed for such purposes and integrates well with Azure Storage accounts for data storage.\n\nTherefore, the correct option is:\n\nOption E. the Azure Diagnostics extension"
+      },
+      {
+        "date": "2023-10-26T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "At time of writing the Monitoring agent does not support Azure Storage which is a requirement in the question therefor answer should be the Diagnostics Extension eventho the Monitoring agent will replace the Diagnostics Extension. Supported by the Comapre to legacy agents overvier in this link:\nhttps://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview#supported-services-and-features"
+      },
+      {
+        "date": "2023-07-18T07:39:00.000Z",
+        "voteCount": 2,
+        "content": "Per the documenation:\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-overview\n\n \"Azure Diagnostics extension sends data to Azure Storage, Azure Monitor Metrics (Windows only) and Azure Event Hubs. The Log Analytics agent collects data to Azure Monitor Logs.\""
+      },
+      {
+        "date": "2023-04-26T01:55:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/diagnostics-extension-overview\n\nUse Azure Diagnostics extension if you need to:\n\nSend data to Azure Storage for archiving\n\nAnswer is E"
+      },
+      {
+        "date": "2023-02-14T05:51:00.000Z",
+        "voteCount": 2,
+        "content": "In the future Answere D is correct\nhttps://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview#consolidating-legacy-agents"
+      },
+      {
+        "date": "2022-12-22T16:48:00.000Z",
+        "voteCount": 4,
+        "content": "E is the correct answer."
+      },
+      {
+        "date": "2022-11-22T02:23:00.000Z",
+        "voteCount": 3,
+        "content": "E is the correct answer, as stated in an earlier question in this list."
+      },
+      {
+        "date": "2022-10-03T04:39:00.000Z",
+        "voteCount": 3,
+        "content": "Diagnostic extension is required to send data directly to Azure Storage"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84200-exam-az-801-topic-5-question-16-discussion/",
+    "body": "You have an Azure virtual machine named VM1 that runs Windows Server.<br>When you attempt to install the Azure Performance Diagnostics extension on VM1, the installation fails.<br>You need to identify the cause of the installation failure.<br>What are two possible ways to achieve the goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSign in to VM1 and verify the MonitoringAgent.log file.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSign in to VM1 and verify the WaAppAgent.log file.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, view the alerts for VM1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, view the activity log for VM1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AB",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-17T06:21:00.000Z",
+        "voteCount": 7,
+        "content": "Doesn't the MonitoringAgent.log file have to do with Azure Monitoring Agent?  If so, there is no reference to the monitoring agent being installed on the VM, so A cannot be part of the answer.  Am I missing something?"
+      },
+      {
+        "date": "2023-04-27T05:46:00.000Z",
+        "voteCount": 3,
+        "content": "I would take A and B\n\nhttps://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows-azure-guest-agent\n\nAbove supports B\n\nhttps://learn.microsoft.com/en-us/azure/azure-monitor/agents/agent-windows?tabs=setup-wizard#troubleshoot-agent-installation-and-connectivity-problems\n\nAbove supports A"
+      },
+      {
+        "date": "2022-10-01T20:51:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106052-exam-az-801-topic-5-question-17-discussion/",
+    "body": "Your network contains an Active Directory Domain Services (AD DS) domain. The domain contains 20 Active Directory sites. All user management is performed from a central site.<br>You add users to a group.<br>You discover that group changes do NOT appear on a domain controller in a remote site.<br>You need to identify whether the group changes appear on other domain controllers.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive Directory Sites and Services",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive Directory Replication Status Tool\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Support and Recovery Assistant",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFile Replication Service (FRS) Status Viewer"
+    ],
+    "answer": "B",
+    "answerDescription": "The Active Directory Replication Status Tool (ADREPLSTATUS) analyzes the replication status for domain controllers in an Active Directory domain or forest.<br>The Active Directory Replication Status Tool (ADREPLSTATUS) analyzes the replication status for domain controllers in an Active Directory domain or forest.<br>ADREPLSTATUS displays data in a format that is similar to REPADMIN /SHOWREPL * /CSV imported into Excel but with significant enhancements.<br>Specific capabilities for this tool include:<br>\u05d2\u20ac\u00a2 Expose Active Directory replication errors occurring in a domain or forest<br>\u05d2\u20ac\u00a2 Prioritize errors that need to be resolved in order to avoid the creation of lingering objects in Active Directory forests<br>\u05d2\u20ac\u00a2 Help administrators and support professionals resolve replication errors by linking to Active Directory replication troubleshooting content on Microsoft TechNet<br>\u05d2\u20ac\u00a2 Allow replication data to be exported to source or destination domain administrators or support professionals for offline analysis<br>Reference:<br>https://www.microsoft.com/en-us/download/details.aspx",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-08T02:50:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct. BUT --&gt; As of June 2nd, 2023, the Active Directory Replication Status Tool is no longer available for download. The following article is provided for historical purposes only.\n\nhttps://learn.microsoft.com/en-us/troubleshoot/windows-server/identity/get-use-active-directory-replication-status-tool"
+      },
+      {
+        "date": "2023-05-14T07:54:00.000Z",
+        "voteCount": 1,
+        "content": "answer correct"
+      },
+      {
+        "date": "2023-04-27T05:47:00.000Z",
+        "voteCount": 2,
+        "content": "This is about replication so B is 100% correct"
+      },
+      {
+        "date": "2023-04-12T11:46:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, reapadmin is the right tool"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79121-exam-az-801-topic-5-question-18-discussion/",
+    "body": "You have an Azure virtual machine named VM1 that runs Windows Server.<br>You plan to deploy a new line-of-business (LOB) application to VM1.<br>You need to prevent the application from creating child processes.<br>What should you configure on VM1?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender Credential Guard",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender Application Control",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender SmartScreen",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExploit protection\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 32,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-21T15:47:00.000Z",
+        "voteCount": 8,
+        "content": "Must be D. Same question in AZ-800."
+      },
+      {
+        "date": "2022-09-09T07:18:00.000Z",
+        "voteCount": 5,
+        "content": "D Exploit protection"
+      },
+      {
+        "date": "2024-04-14T10:25:00.000Z",
+        "voteCount": 1,
+        "content": "Configuration\\Administrative Templates\\Windows Components\\Microsoft Defender Antivirus \\Microsoft Defender Exploit Guard\\Attack Surface Reduction\\Exclude files and paths from Attack Surface Reduction Rules"
+      },
+      {
+        "date": "2023-07-12T09:52:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2023-06-17T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "I Agree it should be D"
+      },
+      {
+        "date": "2023-05-14T07:55:00.000Z",
+        "voteCount": 1,
+        "content": "D, exploit protection"
+      },
+      {
+        "date": "2023-05-04T00:27:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/customize-exploit-protection?view=o365-worldwide\n\n\"Prevents an app from creating child processes.\"\n\nD is 100% correct"
+      },
+      {
+        "date": "2023-02-17T08:09:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/customize-exploit-protection?view=o365-worldwide#powershell-reference-table"
+      },
+      {
+        "date": "2022-12-22T16:51:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct."
+      },
+      {
+        "date": "2022-11-22T02:25:00.000Z",
+        "voteCount": 3,
+        "content": "Has to be D"
+      },
+      {
+        "date": "2022-09-27T11:21:00.000Z",
+        "voteCount": 4,
+        "content": "Anything apart from D doesn't make much sense here."
+      },
+      {
+        "date": "2022-09-25T03:48:00.000Z",
+        "voteCount": 4,
+        "content": "Exploit protection"
+      },
+      {
+        "date": "2022-09-03T07:55:00.000Z",
+        "voteCount": 3,
+        "content": "It should be D, Exploit Protection"
+      },
+      {
+        "date": "2022-09-02T16:44:00.000Z",
+        "voteCount": 4,
+        "content": "Thinking also Exploit Protection\n\nhttps://docs.microsoft.com/en-us/microsoft-365/security/defender-endpoint/customize-exploit-protection?view=o365-worldwide\n\nDon't allow child processes\tPrevents an app from creating child processes.\tApp-level only\tYes"
+      },
+      {
+        "date": "2022-09-01T12:00:00.000Z",
+        "voteCount": 3,
+        "content": "I think this should be D, Exploit Protection"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96368-exam-az-801-topic-5-question-19-discussion/",
+    "body": "Your network contains an Active Directory Domain Services (AD DS) domain. All domain members have Microsoft Defender Credential Guard with UEFI lock configured.<br>In the domain, you deploy a server named Server1 that runs Windows Server. You disable Credential Guard on Server1.<br>You need to ensure that Server1 is NOT subject to Credential Guard restrictions.<br>What should you do next?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the Turn on Virtualization Based Security group policy setting.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun dism and specify the /Disable-Feature and /FeatureName:IsolatedUserMode parameters.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Device Guard and Credential Guard hardware readiness tool."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-28T01:13:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-manage\n\nIf Windows Defender Credential Guard was enabled via Group Policy without UEFI Lock, Windows Defender Credential Guard should be disabled via Group Policy.\n\nAnswer is A"
+      },
+      {
+        "date": "2023-01-21T09:09:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/credential-guard-manage#disabling-windows-defender-credential-guard-using-group-policy"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84069-exam-az-801-topic-5-question-20-discussion/",
+    "body": "You have three servers named Server1, Server2, and Server3 that run Windows Server. The servers have the Hyper-V server role installed and are configured in a Storage Spaces Direct cluster named Cluster1.<br>Cluster1 hosts a virtual machine named VM1 that has Windows Admin Center installed.<br>You manage all servers and clusters by using Windows Admin Center.<br>You purchase an Azure subscription.<br>You need to configure email alerts in Azure Monitor for the following:<br>\u2711 Disk Capacity Utilization Over 80 % for 10 Minutes<br>\u2711 Any critical alert in the cluster system event log<br>\u2711 Memory Utilization over 95 % for 10 Minutes<br>\u2711 Heartbeat fewer than 5 beats for 5 Minutes<br>\u2711 CPU Utilization over 85 % for 10 Minutes<br>\u2711 Any health service faults for the cluster<br>The solution must use the minimum amount of administrative effort.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, configure Azure Monitor and onboard Cluster1 by using Azure Arc.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Windows Admin Center, configure Azure Monitor and onboard Cluster1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure Monitor and manually install the Microsoft Monitoring Agent on Server1 Server2, and Server3"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 15,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-09T03:08:00.000Z",
+        "voteCount": 5,
+        "content": "You can certainly onboard a cluster to Azure Monitor using Windows Admin Center, see the link that dieymir has provided: https://learn.microsoft.com/en-us/windows-server/storage/storage-spaces/configure-azure-monitor\nBut as far as the configuration of the Azure Monitor settings goes, Windows Admin Center is limited to two options, not the ones that this question is about:\n\"From within Windows Admin Center, you can enable two monitoring solutions:\nAzure Update Management (in the Updates tool)\nAzure Monitor for VMs (in server Settings), also known as Virtual Machines insights\"\n(https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/azure-monitor)"
+      },
+      {
+        "date": "2024-05-29T07:22:00.000Z",
+        "voteCount": 1,
+        "content": "I say its B due to -&gt; https://learn.microsoft.com/en-us/windows-server/storage/storage-spaces/configure-azure-monitor\n\n\nDuring this onboarding flow, the steps below are happening under the hood. We detail how to configure them in detail in case you want to manually setup your cluster."
+      },
+      {
+        "date": "2024-02-13T09:54:00.000Z",
+        "voteCount": 2,
+        "content": "While it is possible to configure Azure Monitor and onboard a server to Azure Monitor from Windows Admin Center, the question specifically asks for a solution that requires the minimum amount of administrative effort.\n\nOnboarding each server individually through Windows Admin Center could be more time-consuming and administratively intensive, especially if there are many servers in the cluster1.\n\nOn the other hand, using Azure Arc allows you to manage and monitor your on-premises servers from the Azure portal. This provides a centralized management experience and reduces the need for manual configuration on each server. Therefore, option A is considered to require less administrative effort compared to option B"
+      },
+      {
+        "date": "2023-05-14T08:05:00.000Z",
+        "voteCount": 1,
+        "content": "B seems the easiest way.In internet the same question with B answer\nhttps://vceguide.com/what-should-you-do-7737/"
+      },
+      {
+        "date": "2023-04-28T01:19:00.000Z",
+        "voteCount": 2,
+        "content": "Windows Admin Center provides a centralized web-based management interface for Windows Server environments. It includes built-in integration with Azure services, such as Azure Monitor. By configuring Azure Monitor directly from Windows Admin Center, you can onboard your entire cluster and virtual machines with minimal administrative effort.\n\nAnswer is B for sure"
+      },
+      {
+        "date": "2023-01-12T18:15:00.000Z",
+        "voteCount": 2,
+        "content": "B) The solution must use the minimum amount of administrative effort.\n\nWindows Admin Center is capable of meeting these requirements and least amount of effort compared to A.\n\nhttps://www.virtualizationhowto.com/2019/06/manage-storage-spaces-direct-with-windows-admin-center/\n\nhttps://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/azure-monitor"
+      },
+      {
+        "date": "2022-12-22T17:39:00.000Z",
+        "voteCount": 2,
+        "content": "B is the better one for now."
+      },
+      {
+        "date": "2022-12-05T22:13:00.000Z",
+        "voteCount": 2,
+        "content": "IF a is on the test then its A - if B is on the test its B- i would say B will be on their for a while- https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/azure-monitor"
+      },
+      {
+        "date": "2022-10-13T05:22:00.000Z",
+        "voteCount": 4,
+        "content": "A question which won't age well. MMA via WAC's Azure Monitor for VMs (Insights) does support all the requirements and doesn't need Arc &amp; AMA separately deploying, so is a valid option at the time the question was written (noting least administrative overhead), but given MMA has a finite life (Aug 2024), the only recommended method will soon fall back to 'A'."
+      },
+      {
+        "date": "2022-10-02T00:28:00.000Z",
+        "voteCount": 2,
+        "content": "I think correct answer is B\n\nhttps://learn.microsoft.com/en-us/windows-server/storage/storage-spaces/configure-azure-monitor"
+      },
+      {
+        "date": "2022-09-29T16:18:00.000Z",
+        "voteCount": 4,
+        "content": "This one is confusing because it says \"You manage all servers and clusters by using Windows Admin Center\" which suggests that needs to be part of the answer. But it doesn't say \"You MUST manage all servers and clusters by using Windows Admin Center\"."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86185-exam-az-801-topic-5-question-21-discussion/",
+    "body": "You have three servers named Server1, Server2, and Server3 that run Windows Server and have the Hyper-V server role installed. Server1 hosts an Azure<br>Migrate appliance named Migrate1.<br>You plan to migrate virtual machines to Azure.<br>You need to ensure that any new virtual machines created on Server1, Server2, and Server3 are available in Azure Migrate.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn the network that has Migrate1 deployed, deploy a WINS server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn Migrate1, set the Startup Type of the Computer Browser service to Automatic.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn the DNS server used by Migrate1, create a GlobalName zone.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn Migrate1, add a discovery source.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-29T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "agree according to \nhttps://learn.microsoft.com/en-us/azure/migrate/tutorial-discover-hyper-v"
+      },
+      {
+        "date": "2023-04-28T01:26:00.000Z",
+        "voteCount": 4,
+        "content": "Option A is incorrect because deploying a WINS server is not necessary for this scenario.\n\nOption B is incorrect because setting the Startup Type of the Computer Browser service to Automatic will not ensure that new virtual machines are automatically discovered and added to Azure Migrate.\n\nOption C is incorrect because creating a GlobalName zone on the DNS server used by Migrate1 is not necessary for this scenario.\n\nA discovery source specifies the Hyper-V hosts that Azure Migrate will discover and assess for migration. When you add a discovery source, Azure Migrate automatically detects and adds any new virtual machines that are created on the specified Hyper-V hosts.\n\nD is correct"
+      },
+      {
+        "date": "2023-02-21T07:31:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/migrate/tutorial-discover-hyper-v\nIn Step 2: Provide Hyper-V host/cluster details, select Add discovery source to specify the Hyper-V host/cluster IP address/FQDN and the friendly name for credentials to connect to the host/cluster."
+      },
+      {
+        "date": "2022-10-22T03:56:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96919-exam-az-801-topic-5-question-22-discussion/",
+    "body": "You have an Azure subscription. The subscription contains a virtual machine named VM1 that runs Windows Server. The subscription contains the storage accounts shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-801/image10.png\"><br><br>You plan to enable boot diagnostics for VM1.<br><br>You need to configure storage for the boot diagnostics logs and snapshots.<br><br>Which storage account should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage4"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 29,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 16,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-07T16:28:00.000Z",
+        "voteCount": 23,
+        "content": "Should be A,  \nBoot diagnostics doesn't support premium storage accounts or zone redundant storage accounts. If either of these are used for boot diagnostics users will receive an StorageAccountTypeNotSupported error when starting the VM."
+      },
+      {
+        "date": "2023-01-26T06:00:00.000Z",
+        "voteCount": 10,
+        "content": "Standard type is required. Can either be Standard LRS or Standard ZRS.\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics#boot-diagnostics-storage-account"
+      },
+      {
+        "date": "2023-02-17T00:24:00.000Z",
+        "voteCount": 3,
+        "content": "no...Boot diagnostics doesn't support premium storage accounts or zone redundant storage accounts. If either of these are used for boot diagnostics users will receive an StorageAccountTypeNotSupported error when starting the VM."
+      },
+      {
+        "date": "2023-03-01T04:45:00.000Z",
+        "voteCount": 2,
+        "content": "B. The link provided states \"Because the managed accounts are created on either Standard LRS or Standard ZRS, customers will be charged at $0.05/GB per month for the size of their diagnostic data blobs only\"."
+      },
+      {
+        "date": "2023-03-02T02:15:00.000Z",
+        "voteCount": 3,
+        "content": "I stand corrected.  I just labbed this and was unable to use ZRS but I was able to use GRS so the Answer is B."
+      },
+      {
+        "date": "2023-08-21T14:26:00.000Z",
+        "voteCount": 3,
+        "content": "You correction doesn't make any sense, you were unable to use ZRS but you choosed B? B is ZRS!"
+      },
+      {
+        "date": "2024-09-07T04:59:00.000Z",
+        "voteCount": 1,
+        "content": "The Boot diagnostics feature does not support premium storage account or Zone Redundant Storage Account Types. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM."
+      },
+      {
+        "date": "2024-08-14T11:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/boot-diagnostics\n Note\n\nThe Boot diagnostics feature does not support premium storage account or Zone Redundant Storage Account Types. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.\nSo, A - storage1"
+      },
+      {
+        "date": "2024-08-07T19:04:00.000Z",
+        "voteCount": 1,
+        "content": "Answer: A (storage1)\nAccount kind : StorageV2 (general purpose v2)\nReplication : Read-access geo-redundant storage (RA-GRS)\n\nTested in lab.\nFailed to add a Standard StorageV2, Zone-redundant storage (ZRS)"
+      },
+      {
+        "date": "2024-06-13T12:38:00.000Z",
+        "voteCount": 1,
+        "content": "A. Storage1\n\nThe Boot diagnostics feature does not support premium storage account or Zone Redundant Storage Account Types.\n\nhttps://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/windows/boot-diagnostics"
+      },
+      {
+        "date": "2024-05-29T17:58:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A\nBoot diagnostics doesn't support premium storage accounts or zone redundant storage"
+      },
+      {
+        "date": "2024-05-29T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "A that's correct. Boot diagnostics does not support premium storage accounts or zone-redundant storage accounts. You should use a standard storage account that is either a General-purpose v1 (GPv1) or General-purpose v2 (GPv2) for boot diagnostics.\n\nHere is the summary of the types of storage accounts you should use:\n\nStandard General-purpose v2 (GPv2): Recommended for most scenarios, including boot diagnostics.\nStandard General-purpose v1 (GPv1): Also supports boot diagnostics, but it is less common to use compared to GPv2.\nPremium and zone-redundant storage accounts are not supported for boot diagnostics. Therefore, make sure to choose a standard storage account."
+      },
+      {
+        "date": "2024-05-13T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics#limitations\n\nBoot diagnostics doesn't support premium storage accounts or zone redundant storage accounts."
+      },
+      {
+        "date": "2024-03-09T21:29:00.000Z",
+        "voteCount": 1,
+        "content": "Multiple MS documents have the following Statements: \n\"\" Important\nBoot diagnostics doesn't support premium storage accounts or zone-redundant storage accounts. When either premium or zone-redundant storage accounts are used for boot diagnostics, users receive a StorageAccountTypeNotSupported error upon starting their virtual machine (VM).\"\"\nTherefore A (Storage1) is the only possible option left."
+      },
+      {
+        "date": "2024-02-21T17:33:00.000Z",
+        "voteCount": 1,
+        "content": "Boot diagnostics doesn't support premium storage accounts or zone redundant storage accounts. If either of these are used for boot diagnostics users receive an StorageAccountTypeNotSupported error when starting the VM.\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics"
+      },
+      {
+        "date": "2024-02-21T05:40:00.000Z",
+        "voteCount": 1,
+        "content": "watson_n, jecawi9630 posted already."
+      },
+      {
+        "date": "2024-01-07T18:06:00.000Z",
+        "voteCount": 1,
+        "content": "Should be A, The Azure Startup Diagnostics feature requires a standard storage account. Premium storage accounts (such as storage3 and storage4) are not supported. In addition, zone redundancy (as in storage2) is also not supported for boot diagnostics. Therefore, storage1, which is a standard storage account with geo-redundant storage (GRS), is the most suitable option for storing the boot diagnostic logs and snapshots."
+      },
+      {
+        "date": "2023-08-21T14:30:00.000Z",
+        "voteCount": 2,
+        "content": "Based on this:\nhttps://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/boot-diagnostics\nhe Boot diagnostics feature does not support premium storage account or Zone Redundant Storage Account Types. If you use the premium storage account for Boot diagnostics, you might receive the StorageAccountTypeNotSupported error when you start the VM.\n\nEven documented in GitHub: https://github.com/MicrosoftDocs/azure-docs/issues/63225\n\nIt has to be A!"
+      },
+      {
+        "date": "2023-08-11T08:06:00.000Z",
+        "voteCount": 2,
+        "content": "Has to be B as per link provided. I also wouldn't want to use GEO replication storage for logs."
+      },
+      {
+        "date": "2023-06-26T01:30:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct: https://learn.microsoft.com/en-us/azure/virtual-machines/boot-diagnostics#boot-diagnostics-storage-account:~:text=Boot%20diagnostics%20doesn%27t%20support%20premium%20storage%20accounts%20or%20zone%20redundant%20storage%20accounts.%20If%20either%20of%20these%20are%20used%20for%20boot%20diagnostics%20users%20receive%20an%20StorageAccountTypeNotSupported%20error%20when%20starting%20the%20VM."
+      },
+      {
+        "date": "2023-06-25T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "I don't need to explain again jecawi9630 already provided the supporting link."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/140800-exam-az-801-topic-5-question-23-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an on-premises server named Server1 that runs Windows Server.<br><br>You have a Microsoft Sentinel instance.<br><br>You add the Windows Firewall data connector in Microsoft Sentinel.<br><br>You need to ensure that Microsoft Sentinel can collect Windows Firewall logs from Server1.<br><br>Solution: You install the Log Analytics agent on Server1.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-29T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "answer is A.\nAzure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services, such as Microsoft Sentinel and Microsoft Defender for Cloud. Azure Monitor Agent replaces Azure Monitor's legacy monitoring agents (MMA/OMS)."
+      },
+      {
+        "date": "2024-05-17T11:14:00.000Z",
+        "voteCount": 1,
+        "content": "For me, it's A. Yes, but I didn't find proof of it on the Internet"
+      },
+      {
+        "date": "2024-05-17T11:28:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-monitor/agents/agents-overview\n\nthis page does mention that Azure Monitor Agent allow \"Firewall logs from the local disk of a Windows Machine\" gathering (second table from the top)\n\nAs Azure Monitoring Agent replaces the legacy Log Analytics Agent, I guess the right answer is A.\n\nThe question will be definitely out of date on Aug. 2024 as Log Analytics Agent will be deprecated as mentionned on https://learn.microsoft.com/en-us/azure/azure-monitor/agents/log-analytics-agent : \"The Log Analytics agent is on a deprecation path and won't be supported after August 31, 2024. Any new data centers brought online after January 1 2024 will not support the Log Analytics agent. If you use the Log Analytics agent to ingest data to Azure Monitor, migrate to the new Azure Monitor agent prior to that date.\""
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/140801-exam-az-801-topic-5-question-24-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an on-premises server named Server1 that runs Windows Server.<br><br>You have a Microsoft Sentinel instance.<br><br>You add the Windows Firewall data connector in Microsoft Sentinel.<br><br>You need to ensure that Microsoft Sentinel can collect Windows Firewall logs from Server1.<br><br>Solution: You onboard Server1 to Microsoft Defender for Endpoint.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-17T11:16:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/defender-endpoint/microsoft-defender-endpoint\n\nNo mention to firewall logs or anything close, so B. No"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/140802-exam-az-801-topic-5-question-25-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an on-premises server named Server1 that runs Windows Server.<br><br>You have a Microsoft Sentinel instance.<br><br>You add the Windows Firewall data connector in Microsoft Sentinel.<br><br>You need to ensure that Microsoft Sentinel can collect Windows Firewall logs from Server1.<br><br>Solution: You install the Microsoft Integration Runtime on Server1.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-17T11:17:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, the question is not related to Microsoft Integration Runtime\n\nhttps://www.microsoft.com/en-us/download/details.aspx?id=39717"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/139969-exam-az-801-topic-5-question-26-discussion/",
+    "body": "You have an Azure virtual machine named VM1 that runs Windows Server.<br><br>The operating system on VM1 fails to fully initialize its network stack, and you cannot establish a network connection.<br><br>You need to establish an interactive shell session.<br><br>What should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Bastion",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSerial console\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tjust-in-time (JIT) VM access"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-17T11:18:00.000Z",
+        "voteCount": 1,
+        "content": "As already explained by NazerRazer, right answer is B. Serial console"
+      },
+      {
+        "date": "2024-05-03T08:08:00.000Z",
+        "voteCount": 3,
+        "content": "A and C are wrong because of the following:\n\nA. Azure Bastion: Azure Bastion provides secure RDP and SSH connectivity to virtual machines through the Azure portal over SSL. However, it requires the VM to have a functional network stack to establish a connection, which is not the case in this scenario where the network stack fails to initialize.\n\nC. Just-in-time (JIT) VM access: JIT VM access is a feature that allows controlled access to VMs by opening up inbound network connectivity for a limited period of time. Similar to Azure Bastion, it relies on the VM having a functional network stack, which is not possible when the network stack fails to initialize.\n\ntherefore option B is the correct answer\nthe Serial Console provides direct access to the VM's console without relying on a functional network stack, which is essential in this scenario where the network stack fails to initialize."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/144869-exam-az-801-topic-5-question-27-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an on-premises server named Server1 that runs Windows Server.<br><br>You have a Microsoft Sentinel instance.<br><br>You add the Windows Firewall data connector in Microsoft Sentinel.<br><br>You need to ensure that Microsoft Sentinel can collect Windows Firewall logs from Server1.<br><br>Solution: You install the Azure Connected Machine agent on Server1.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-01T07:09:00.000Z",
+        "voteCount": 1,
+        "content": "It's plainly irrelevant. Azure Connected Machine agent is for use with Azure ARC."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/138617-exam-az-801-topic-5-question-28-discussion/",
+    "body": "HOTSPOT<br> -<br><br>Your on-premises network contains an Active Directory Domain Services (AD DS) domain. The domain contains 10 servers that run Windows Server.<br><br>You have an Azure subscription. The subscription contains 10 virtual machines that run Windows Server.<br><br>You need to install the Azure Monitor Agent on the Azure virtual machines and the on-premises servers.<br><br>What should you use? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-801/image43.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-801/image44.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-08-01T07:21:00.000Z",
+        "voteCount": 2,
+        "content": "First option is correct. Virtual Machine Extensions are designed for Azure VMs and provide a way to install and manage agents like the Azure Monitor Agent.\n\nBut, for the On-Premises Servers, use The Windows Installer (MSI) package.\nThe Azure Connected Machine agent is not the installer for Azure Monitor Agent. You'd still need to use the MSI package for the actual installation of the Azure Monitor Agent."
+      },
+      {
+        "date": "2024-04-13T07:39:00.000Z",
+        "voteCount": 2,
+        "content": "VM Azure = Virtual machine extension\nVM On-Premise = Virtual machine extension (after installing the Azure Arc agent)"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/135757-exam-az-801-topic-5-question-29-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure virtual machine named VM1 that runs Windows Server.<br><br>You need to perform the following tasks on VM1:<br><br>\u2022\tConfigure Windows Defender Firewall to allow Remote Desktop connections,<br>\u2022\tConfigure where to store the logs of the virtual machine console.<br><br>Which two settings should you use? To answer, select the settings in the answer area.<br><br>NOTE: Each correct selection is worth one point,<br><br><img src=\"https://img.examtopics.com/az-801/image45.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-801/image46.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-26T20:32:00.000Z",
+        "voteCount": 1,
+        "content": "Certainly an odd question - Serial console is not going to be anyone's go-to solution for making changes to the local firewall on an Azure VM.  It is, however, the only option in the list where this task could be accomplished.  I agree with the answer provided."
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "5"
+  }
+]

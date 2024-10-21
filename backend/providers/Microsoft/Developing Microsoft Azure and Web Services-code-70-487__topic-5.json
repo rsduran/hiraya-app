@@ -1,0 +1,248 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9474-exam-70-487-topic-5-question-1-discussion/",
+    "body": "HOTSPOT -<br>Based on the security requirements, which line of code should you insert into the WebApiConfig file? To answer, select the appropriate options in the answer area.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02826/0009800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02826/0009800002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: The Web API must only accept one data format.<br>The MVC front-end layer and the Web API will communicate by using JSON.<br>The most common approach to support JSON only is to clear other formatters and leave only JsonMediaTypeFormatter around.<br>Given an instance of HttpConfiguration you'd simply clear all and re-add JsonMediaTypeFormatter: configuration.Formatters.Clear(); configuration.Formatters.Add(new JsonMediaTypeFormatter());<br>References:<br>http://www.strathweb.com/2013/06/supporting-only-json-in-asp-net-web-api-the-right-way/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-01T02:15:00.000Z",
+        "voteCount": 34,
+        "content": "Wrong answer.\n1. Formatter\n2. Remove\n3. Formatter\n4. XML\n\nsource:\nhttps://vceguide.com/which-line-of-code-should-you-insert-into-the-webapiconfig-file/"
+      },
+      {
+        "date": "2019-12-02T07:17:00.000Z",
+        "voteCount": 11,
+        "content": "Agree - https://docs.microsoft.com/en-us/aspnet/web-api/overview/formats-and-model-binding/json-and-xml-serialization#removing-the-json-or-xml-formatter"
+      },
+      {
+        "date": "2020-11-14T21:31:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer is correct, but is not the full solution.\nThe full solution is to remove all format first before adding only Json back.\nGiven an instance of HttpConfiguration you'd simply clear all and re-add JsonMediaTypeFormatter: configuration.Formatters.Clear(); configuration.Formatters.Add(new JsonMediaTypeFormatter());"
+      },
+      {
+        "date": "2020-04-19T02:11:00.000Z",
+        "voteCount": 2,
+        "content": "In https://docs.microsoft.com/de-de/aspnet/core/web-api/advanced/custom-formatters?view=aspnetcore-3.1 I found\n\"The framework provides built-in input and output formatters for JSON and XML. \"\nTo fullfill the  security requrement that only one media type is allowed  and that the communication should be by JSON it shoud be\n1. Formatter\n2. Remove\n3.Formatters\n4.JsonFormatter"
+      },
+      {
+        "date": "2020-05-15T23:00:00.000Z",
+        "voteCount": 7,
+        "content": "And you just removed it"
+      },
+      {
+        "date": "2020-09-01T09:38:00.000Z",
+        "voteCount": 4,
+        "content": "I think you mean 4.XmlFormatter"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9227-exam-70-487-topic-5-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to identify the return types for the car year, price, brand and model. The solution must minimize the number of round trips between the clients and the web servers.<br>What should you identify? To answer, drag the appropriate return types to the correct objects. Each return type may be used once, more than once, or not at all.<br>You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02826/0009900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02826/0010000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Note: A round trip occurs when an object is deserialized and re-serialized in one operation.<br>From scenario: The application will provide users with the ability to search for a car by using advanced filtering options, such as the car brand, model, year, and price. All of this information will be stored as strings and will be displayed as drop-down lists.<br>The brand and model lists that will be displayed on the home page of the web application will be retrieved from Windows Communication Foundation (WCF) services hosted in the on-premises environment.<br>Target 1: Task&lt;String&gt;<br>Though Performance blocking and Sluggishness are the tailbacks for any application, we can easily overcome these bottlenecks by using asynchronous programming. But old-style practice for asynchronous programming is not way easy enou<br>Target 2: Task&lt;String&gt;<br><br>Target 3: String -<br><br>Target 4: String -<br>References:<br>https://rashimuddin.wordpress.com/2013/05/07/task-based-asynchronous-operation-in-wcf/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-27T10:43:00.000Z",
+        "voteCount": 51,
+        "content": "Doesn't seem right to me.\n\n\"The action in the Web API that returns the car brand must be asynchronous, while all other actions must be synchronous\". So \"brand\" should be the only one that uses a Task&lt;&gt;.\n\n\"All of this information will be stored as strings and will be displayed as drop-down lists.\". That seems to me like they should be using List&lt;string&gt; instead of just string.\n\nTask&lt;List&lt;string&gt;&gt;\nList&lt;string&gt;\nList&lt;string&gt;\nList&lt;string&gt;"
+      },
+      {
+        "date": "2020-02-07T23:05:00.000Z",
+        "voteCount": 2,
+        "content": "agreed"
+      },
+      {
+        "date": "2020-08-26T08:23:00.000Z",
+        "voteCount": 1,
+        "content": "agreed top show"
+      },
+      {
+        "date": "2020-08-28T21:34:00.000Z",
+        "voteCount": 5,
+        "content": "Confirmed in different dumps, Answer is \n\nTask&lt;List&lt;string&gt;&gt;\nList&lt;string&gt;\nList&lt;string&gt;\nList&lt;string&gt;\n\nhttps://vceguide.com/what-should-you-identify-193/"
+      },
+      {
+        "date": "2020-02-20T10:34:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed."
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37350-exam-70-487-topic-5-question-3-discussion/",
+    "body": "You need to implement a solution that meets the logging requirements.<br>Which class should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRouteAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRoutePrefixAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAcceptVerbsAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActionFilterAttribute"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-19T16:36:00.000Z",
+        "voteCount": 4,
+        "content": "answer is correct.\n\nRequirement: \"Before any action in CarController is executed, the following line of code must execute first. Debug.WriteLine(\"pre-processing logging\");\"\n\nOnActionExecuting would do this: Called by the ASP.NET MVC framework before the action method executes.\n\nhttps://docs.microsoft.com/en-us/dotnet/api/system.web.mvc.actionfilterattribute?view=aspnet-mvc-5.2"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30451-exam-70-487-topic-5-question-5-discussion/",
+    "body": "You need to compile CarBusinesLogic.dll by using Microsoft Visual Studio.<br>Which attribute should you add before you compile the dynamic-link library (DLL)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSystem.Reflection.AssemblyConfigurationAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSystem.Reflection.AssemblyKeyFileAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssemblyFlagsAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSystem.Reflection.AssemblyAlgorithmIdAttribute"
+    ],
+    "answer": "B",
+    "answerDescription": "Scenario: The CarBusinessLogic.dll assembly must be strongly-named.<br>One way to sign an assembly with a strong name is by using assembly attributes to insert the strong name information into your code. You can use either the<br>AssemblyKeyFileAttribute or the AssemblyKeyNameAttribute attribute, depending on where the key file to be used is located.<br>Note: To sign an assembly with a strong name by using attributes<br>\u2711 Add the System.Reflection.AssemblyKeyFileAttribute or AssemblyKeyNameAttribute attribute to your source code file, and specify the name of the file or container that contains the key pair to use when signing the assembly with a strong name.<br>\u2711 Compile the source code file normally.<br>References:<br>https://msdn.microsoft.com/en-us/library/xc31ft41(v=vs.110).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-03T02:02:00.000Z",
+        "voteCount": 1,
+        "content": "I think this question is complete and missing info that the assembly must be strongly named. If that was listed, only solution would be B."
+      },
+      {
+        "date": "2020-12-05T05:18:00.000Z",
+        "voteCount": 1,
+        "content": "Question is complete. Information is here."
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9736-exam-70-487-topic-5-question-6-discussion/",
+    "body": "You need to identify a solution to display the car brands.<br>What should you include in the solution?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Automation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure RemoteApp",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Service Bus queue",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta virtual private network (VPN)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Service Bus topics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Service Bus relay",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExpressRoute C"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "Azure Service Bus Messaging can safely use the QueueClient object for sending messages from concurrent asynchronous operations and multiple threads.<br>Scenario: The action in the Web API that returns the car brand must be asynchronous, while all other actions must be synchronous.<br>References:<br>https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-performance-improvements",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-04T12:40:00.000Z",
+        "voteCount": 11,
+        "content": "Wrong: Should be F (Azure Service Bus Relay)\n\n\"The Azure Service Bus Relay uses a port forwarding technology which allows your on  premise service to open up an outbound bi-directional connection from your on premise server to the cloud.\""
+      },
+      {
+        "date": "2020-07-24T02:43:00.000Z",
+        "voteCount": 3,
+        "content": "I think you are right, because WCF service is deployed in on-prem environment and that is the key here."
+      },
+      {
+        "date": "2020-01-28T09:04:00.000Z",
+        "voteCount": 11,
+        "content": "C. Service Bus Queue. The Correct Answer for the scenario described in the Action of the WebApi bcos Azure Service Bus Messaging can safely use the QueueClient object for sending messages from concurrent asynchronous operations and multiple threads.\n\nReferences: https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-performance- improvements"
+      },
+      {
+        "date": "2020-09-21T07:18:00.000Z",
+        "voteCount": 2,
+        "content": "But why? There are no messages to be read, only a list of car brands to be retrieved:\n\n\"The brand and model lists that will be displayed on the home page of the web application will be retrieved from\nWindows Communication Foundation (WCF) services hosted in the on-premises environment.\"\n\nquestion states that the WCF service is deployed in the on premise environment, so I think we have to use Service Bus Relay here to call that WCF service and retrieve the car brand list."
+      },
+      {
+        "date": "2020-10-13T12:25:00.000Z",
+        "voteCount": 4,
+        "content": "\"The brand and model lists that will be displayed on the home page of the web application will be retrieved from the Windows Communication Foundation (WCF) services hosted in the on-premises environment.\" I believe, Sevice Bus Relay is the best option to connect on-premise server to the cloud"
+      },
+      {
+        "date": "2020-08-27T18:34:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be service bus queue\n\nhttps://vceguide.com/what-should-you-include-in-the-solution-40/"
+      },
+      {
+        "date": "2020-08-14T14:05:00.000Z",
+        "voteCount": 4,
+        "content": "The answer should be F - Azure Service Bus relay. more info about Azure Service Relay \nhttps://microsoftintegration.info/technologies/azure-service-bus-relay/"
+      },
+      {
+        "date": "2020-06-16T03:09:00.000Z",
+        "voteCount": 4,
+        "content": "So, C is valid answer?"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14535-exam-70-487-topic-5-question-7-discussion/",
+    "body": "You need to perform the initial deployment of the web application. You must ensure that the application meets the performance requirements.<br>Which file should you modify before you deploy the application?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe service definition file (.csdef)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe application configuration file (app.config)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe packages configuration file (packages.config)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Global.asax file (.asax)"
+    ],
+    "answer": "A",
+    "answerDescription": "You use cscfg file to define various settings related to your cloud application (in ConfigurationSettings section). Like app.config file, you get to define other things<br>(e.g.number of instances of your cloud application) in the cscfg file. You could change the settings in a cscfg file on the fly using either the portal or Service<br>Management API without having to repackage and redeploy the application.<br>Scenario: After the initial deployment, any changes to the business logic of the Web API must cause minimal downtime to the web application in the production environment.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-20T10:38:00.000Z",
+        "voteCount": 7,
+        "content": "A is correct."
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12960-exam-70-487-topic-5-question-8-discussion/",
+    "body": "You need to recommend a solution to meet the performance requirements for home.aspx.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tViewState",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMemoryCache",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOutputCache",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplicationCache"
+    ],
+    "answer": "C",
+    "answerDescription": "Scenario: When home.aspx is displayed, the rendered page must be cached for 10 minutes.<br><br>Page output caching -<br>The output of an action method on a controller can be cached using the [OutputCache]attribute on the method. Actions methods that return views will have the rendered page cached, while methods returning JSON data will have that data saved. A number of properties on the OutputCacheAttribute class control how data is cached.<br>CacheProfile- If a number of methods will have the same cache settings, it makes sense to use the web.config file to create a cache profile that can be used across all these methods.<br>The Duration attribute of the CacheProfile determines how long, in seconds, the output should be cached. To save an item for 10 minutes, duration would be set to<br>600.<br>[OutputCache(Duration=600)]<br>References:<br>http://failedturing.blogspot.se/2014/10/microsoft-70-486-design-caching-strategy.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-28T09:17:00.000Z",
+        "voteCount": 8,
+        "content": "C. Output Cache is best used in this case."
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "5"
+  }
+]

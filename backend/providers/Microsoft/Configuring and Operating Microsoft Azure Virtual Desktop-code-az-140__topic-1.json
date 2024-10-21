@@ -1,0 +1,1936 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74532-exam-az-140-topic-1-question-1-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Virtual Desktop deployment.<br>Many users have iOS devices that have the Remote Desktop Mobile app installed.<br>You need to ensure that the users can connect to the feed URL by using email discovery instead of entering the feed URL manually.<br>How should you configure the _msradc DNS record? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0000200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0000300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://jenzushsu.medium.com/configure-email-discovery-to-subscribe-to-your-windows-virtual-desktop-feed-49dbb8db553c https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-ios",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-01T18:30:00.000Z",
+        "voteCount": 5,
+        "content": "As per Microsoft's documentation.\n\"If you're using Azure Virtual Desktop instead of Remote Desktop, you'll want to use these URLs instead:\nIf you're using Azure Virtual Desktop (classic): https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx\nIf you're using Azure Virtual Desktop: https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\"\n\nSource https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2024-05-21T02:59:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2024-04-10T12:04:00.000Z",
+        "voteCount": 3,
+        "content": "Record value not correct (2024. April)\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/users/connect-ios-ipados\n\nAzure environment\tWorkspace URL\nAzure cloud (most common)\thttps://rdweb.wvd.microsoft.com\nAzure for US Government\thttps://rdweb.wvd.azure.us/api/arm/feeddiscovery\nAzure operated by 21Vianet\thttps://rdweb.wvd.azure.cn/api/arm/feeddiscovery"
+      },
+      {
+        "date": "2023-02-20T04:30:00.000Z",
+        "voteCount": 3,
+        "content": "it should be this, it speaks about IOS \nhttps://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/virtual-desktop-fall-2019/connect-ios-2019\nbut I tried it and did not work on my andorid (same link suggested), after the error it has suggested me to use the arm link\nhttps://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\nI believe it is an obsolete question, they may have upgraded the links to connect via the devices"
+      },
+      {
+        "date": "2023-01-29T15:42:00.000Z",
+        "voteCount": 1,
+        "content": "TXT\nhttps://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\nSource:\nhttps://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2023-01-15T20:57:00.000Z",
+        "voteCount": 1,
+        "content": "Reading the path be itself wont help you find the answer to this question as its not even a mentioned in all learning paths for az140. should be added to learning path, answer is true."
+      },
+      {
+        "date": "2022-10-28T00:34:00.000Z",
+        "voteCount": 4,
+        "content": "Correct.\n\nTXT record named _msradc.&lt;domain_name&gt; (such as _msradc.contoso.com) that has a value of the full RD Web feed\n\nIf you're using Azure Virtual Desktop: https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\n\nResource: https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2022-08-29T08:00:00.000Z",
+        "voteCount": 2,
+        "content": "Need to look carefully at the URLs, one is close to correct but is missing /arm/. Correct URL as seen in MSDocs is https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\n\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/connect-ios"
+      },
+      {
+        "date": "2022-08-29T06:43:00.000Z",
+        "voteCount": 2,
+        "content": "TXT\nhttps://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\nSource:\nhttps://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2022-07-19T01:02:00.000Z",
+        "voteCount": 1,
+        "content": "the right answer is \nTXT\nhttps://rdweb.contoso.com/RDWeb/Feed/webfeed.aspx\n\nreference: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2022-06-12T23:59:00.000Z",
+        "voteCount": 3,
+        "content": "\u2022\tMake sure you have permission to add a TXT record to the domain associated with your email (for example, if your users have @contoso.com email addresses, you would need permissions for the contoso.com domain)\n\u2022\tCreate an RD Web feed URL (https://&lt;rdweb-dns-name&gt;.domain/RDWeb/Feed/webfeed.aspx, such as https://rdweb.contoso.com/RDWeb/Feed/webfeed.aspx)\n\nNote:\n\nIf you're using Azure Virtual Desktop instead of Remote Desktop, you'll want to use these URLs instead:\n\no\tIf you're using Azure Virtual Desktop (classic): https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx\no\tIf you're using Azure Virtual Desktop: https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery\n\nhttps://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery"
+      },
+      {
+        "date": "2022-06-07T05:54:00.000Z",
+        "voteCount": 1,
+        "content": "Txt, https://rdweb.wvd.microsoft.com/api/feeddiscovery"
+      },
+      {
+        "date": "2022-04-25T16:59:00.000Z",
+        "voteCount": 2,
+        "content": "Correct:\nTxt, https://rdweb.wvd.microsoft.com/api/feeddiscovery"
+      },
+      {
+        "date": "2022-05-18T12:33:00.000Z",
+        "voteCount": 4,
+        "content": "TXT and https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery"
+      },
+      {
+        "date": "2022-07-10T11:22:00.000Z",
+        "voteCount": 1,
+        "content": "Per https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-email-discovery, the URL includes /arm/ as in tipper\u2019s answer."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81549-exam-az-140-topic-1-question-2-discussion/",
+    "body": "You have an Azure Active Directory (Azure AD) tenant named contoso.com and an Azure virtual network named VNET1.<br>To VNET1, you deploy an Azure Active Directory Domain Services (Azure AD DS) managed domain named litwareinc.com.<br>To VNET1, you plan to deploy a Azure Virtual Desktop host pool named Pool1.<br>You need to ensure that you can deploy Windows 10 Enterprise session hosts to Pool1.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the settings of the litwareinc.com DNS zone.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the DNS settings of VNET1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a custom domain name to contoso.com.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement Azure AD Connect cloud sync."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-10T06:43:00.000Z",
+        "voteCount": 5,
+        "content": "You should configure DNS to point to your Domain Servers otherwise your Session Hosts can not domain join. B is the best answer."
+      },
+      {
+        "date": "2024-07-17T21:45:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct"
+      },
+      {
+        "date": "2024-06-26T13:47:00.000Z",
+        "voteCount": 1,
+        "content": "Windows 8.1 Professional cannot connect to Azure Virtual Desktop using the modern Remote Desktop client. Microsoft has specific requirements for connecting to Azure Virtual Desktop:\n\nThe modern Remote Desktop client, which is required for Azure Virtual Desktop, is supported on Windows 10 and later versions.\nWindows 8.1 reached its end of support on January 10, 2023, and is no longer officially supported for new features or connections to modern cloud services like Azure Virtual Desktop.\nWhile Windows 8.1 can use an older version of Remote Desktop Protocol (RDP) for traditional remote desktop connections, it's not compatible with the specific client required for Azure Virtual Desktop.\n\nGiven this information, the correct answer to the original question would be:\nB. Device1 and Device3 only"
+      },
+      {
+        "date": "2024-06-26T13:42:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, Windows 8.1 Professional edition supports the Remote Desktop client for both outgoing and incoming connections."
+      },
+      {
+        "date": "2023-12-06T14:33:00.000Z",
+        "voteCount": 1,
+        "content": "B. Modify the DNS settings of VNET1."
+      },
+      {
+        "date": "2023-08-23T23:33:00.000Z",
+        "voteCount": 1,
+        "content": "With Azure AD DS successfully deployed, now configure the virtual network to allow other connected VMs and applications to use the managed domain. To provide this connectivity, update the DNS server settings for your virtual network to point to the two IP addresses where the managed domain is deployed."
+      },
+      {
+        "date": "2022-09-21T03:39:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64849-exam-az-140-topic-1-question-3-discussion/",
+    "body": "You have the devices shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0000400001.png\" class=\"in-exam-image\"><br>You plan to deploy Azure Virtual Desktop for client access to remove virtualized apps.<br>Which devices support the Remote Desktop client?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice1 and Device2 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice1 and Device3 only\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice1, Device2, and Device3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevice1 only"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 12,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-12-06T06:35:00.000Z",
+        "voteCount": 7,
+        "content": "Applies to: Windows Server 2022, Windows Server 2019, Windows 11, Windows 10, Windows 10 IoT Enterprise, and Windows 7"
+      },
+      {
+        "date": "2023-10-19T11:37:00.000Z",
+        "voteCount": 2,
+        "content": "no windows 7"
+      },
+      {
+        "date": "2024-06-26T13:48:00.000Z",
+        "voteCount": 1,
+        "content": "Windows 8.1 Professional cannot connect to Azure Virtual Desktop using the modern Remote Desktop client. Microsoft has specific requirements for connecting to Azure Virtual Desktop:\n\nThe modern Remote Desktop client, which is required for Azure Virtual Desktop, is supported on Windows 10 and later versions.\nWindows 8.1 reached its end of support on January 10, 2023, and is no longer officially supported for new features or connections to modern cloud services like Azure Virtual Desktop.\nWhile Windows 8.1 can use an older version of Remote Desktop Protocol (RDP) for traditional remote desktop connections, it's not compatible with the specific client required for Azure Virtual Desktop.\n\nGiven this information, the correct answer to the original question would be:\nB. Device1 and Device3 only"
+      },
+      {
+        "date": "2023-12-08T03:08:00.000Z",
+        "voteCount": 1,
+        "content": "B. Device1 and Device3 only"
+      },
+      {
+        "date": "2023-11-09T09:26:00.000Z",
+        "voteCount": 1,
+        "content": "Support for Windows 7 ended on January 10, 2023.\nSupport for Windows Server 2012 R2 ended on October 10, 2023. For more information, \nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/users/connect-windows?tabs=subscribe#install-the-client"
+      },
+      {
+        "date": "2023-08-23T23:40:00.000Z",
+        "voteCount": 1,
+        "content": "supported versions of Windows: win10-11, srv 2012p2, 2016-19"
+      },
+      {
+        "date": "2023-02-06T13:21:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer: B\nBefore you can access your resources, you'll need to meet the prerequisites:\n\nInternet access.\n\nA device running one of the following supported versions of Windows:\n\nWindows 11\nWindows 11 IoT Enterprise\nWindows 10\nWindows 10 IoT Enterprise\nWindows Server 2019\nWindows Server 2016\nWindows Server 2012 R2"
+      },
+      {
+        "date": "2023-01-17T10:21:00.000Z",
+        "voteCount": 1,
+        "content": "No Windows 8.1"
+      },
+      {
+        "date": "2022-10-28T00:46:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\n\nhttps://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop-supported-config"
+      },
+      {
+        "date": "2022-08-29T08:17:00.000Z",
+        "voteCount": 1,
+        "content": "The new Remote Desktop client (MSRDC) supports Windows 11, Windows 10, Windows 10 IoT Enterprise, and Windows 7 client devices.\n\nhttps://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop#install-the-client"
+      },
+      {
+        "date": "2022-08-29T06:48:00.000Z",
+        "voteCount": 1,
+        "content": "B is Correct\nhttps://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/windowsdesktop"
+      },
+      {
+        "date": "2022-04-04T10:07:00.000Z",
+        "voteCount": 4,
+        "content": "B is correct answer."
+      },
+      {
+        "date": "2022-03-02T06:50:00.000Z",
+        "voteCount": 4,
+        "content": "It\u00b4s B."
+      },
+      {
+        "date": "2021-11-19T08:07:00.000Z",
+        "voteCount": 2,
+        "content": "The link is broken, do anyone has a proper link saying Windows 8.1 is not supported or anything relevant to this question?"
+      },
+      {
+        "date": "2021-12-18T21:49:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-windows-7-10  there is the link which Windows 8.1 is not supported."
+      },
+      {
+        "date": "2021-10-26T13:17:00.000Z",
+        "voteCount": 2,
+        "content": "Correct~\nWin 10 and old Win 7 support by Azure"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64851-exam-az-140-topic-1-question-4-discussion/",
+    "body": "HOTSPOT -<br>You plan to deploy Azure Virtual Desktop.<br>Users have the devices shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0000500001.png\" class=\"in-exam-image\"><br>From which device types can the users connect to Azure Virtual Desktop resources by using the Remote Desktop client app and the Remote Desktop web client?<br>To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0000600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0000700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-web https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-android https://docs.microsoft.com/en-us/azure/virtual-desktop/connect-macos",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-28T01:00:00.000Z",
+        "voteCount": 7,
+        "content": "Correct.\n\nThere are RDC apps in Windows, Android, and MacOS stores.\n\nFor the web client, you'll need a PC running Windows, macOS, ChromeOS, or Linux. Mobile devices aren't supported at this time.\nhttps://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client"
+      },
+      {
+        "date": "2024-10-15T13:08:00.000Z",
+        "voteCount": 1,
+        "content": "I can access Web client from my Android mobile phone and table just now...\nThe answer must be..\n\n(1) Tablet, Phone and laptop\n(2) Tablet, Phone and laptop"
+      },
+      {
+        "date": "2023-09-25T22:50:00.000Z",
+        "voteCount": 1,
+        "content": "I was very confused by this question. What is considered a tablet? just noticed that it says in the question that the tabled is running Windows 10. so given answer should be correct.  I Think."
+      },
+      {
+        "date": "2023-09-07T01:38:00.000Z",
+        "voteCount": 4,
+        "content": "Remote Desktop Client  Tablet, phone &amp; laptop\nWeb Client Tablet and laptop only\n\nRemote Desktop Client \nhttps://learn.microsoft.com/azure/virtual-desktop/users/remote-desktop-clients-overview\nWeb Client\nhttps://learn.microsoft.com/ja-jp/azure/virtual-desktop/users/connect-web#prerequisites"
+      },
+      {
+        "date": "2023-07-23T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "i am not sure about the web client. I am right now testing it and i can use mon android phone(pixel 7 pro) to acces the remote desktop from the browser(Chrome). I can interact with it like normal and i can even use a mouse if i connect it to it. Is it an exception or something ? Because it look like i am not suppose to be able to do it."
+      },
+      {
+        "date": "2023-06-04T03:48:00.000Z",
+        "voteCount": 1,
+        "content": "No Android and iOS for the web client.\n\nWeb browser\tSupported operating system\tNotes\nMicrosoft Edge\tWindows, macOS, Linux, Chrome OS\tVersion 79 or later\nGoogle Chrome\tWindows, macOS, Linux, Chrome OS\tVersion 57 or later\nApple Safari\tmacOS\tVersion 11 or later\nMozilla Firefox\tWindows, macOS, Linux\tVersion 55 or later"
+      },
+      {
+        "date": "2022-06-06T02:28:00.000Z",
+        "voteCount": 2,
+        "content": "Here you\u00b4ll find the link\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web\nanswer is correct"
+      },
+      {
+        "date": "2022-05-14T05:01:00.000Z",
+        "voteCount": 1,
+        "content": "Tablet also has mobile OS , isn't it ?"
+      },
+      {
+        "date": "2022-04-04T10:08:00.000Z",
+        "voteCount": 1,
+        "content": "Tablet, phone &amp; laptop\nTablet and phone only."
+      },
+      {
+        "date": "2022-04-04T10:08:00.000Z",
+        "voteCount": 5,
+        "content": "Correction:\nTablet, phone &amp; laptop\nTablet and laptop only"
+      },
+      {
+        "date": "2022-03-03T05:18:00.000Z",
+        "voteCount": 3,
+        "content": "The given answers are correct"
+      },
+      {
+        "date": "2021-12-18T21:52:00.000Z",
+        "voteCount": 2,
+        "content": "The web client doesn't currently have mobile OS support.\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/user-documentation/connect-web"
+      },
+      {
+        "date": "2021-10-26T13:49:00.000Z",
+        "voteCount": 4,
+        "content": "Client apps for everyone! \nWeb connect for Win 10, MacOS, Linux"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52356-exam-az-140-topic-1-question-5-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Virtual Desktop deployment.<br>You plan to create the host pools shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0000800001.png\" class=\"in-exam-image\"><br>You need to recommend the virtual machine size for each host pool. The solution must minimize costs.<br>Which size should you recommend for each pool? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0000900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0001000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/sizes https://docs.microsoft.com/en-us/azure/virtual-machines/nvv3-series https://docs.microsoft.com/en-us/azure/virtual-machines/dv4-dsv4-series",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-15T03:04:00.000Z",
+        "voteCount": 22,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-machines/nv-series\nThese virtual machines are targeted for GPU accelerated graphics applications and virtual desktops.\nThese virtual machines can run single precision workloads such as encoding and rendering.\nNVv3 virtual machines support Premium Storage.\n\nEach GPU in NVv3 instances comes with a GRID license.\nThis license gives you the flexibility to use an NV instance as a virtual workstation for a single user\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/dv4-dsv4-series\nThe Dv4-series sizes offer a combination of vCPU, memory and remote storage options for most production workloads.\nPremium Storage: Supported"
+      },
+      {
+        "date": "2022-10-28T01:06:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct. Good explanation."
+      },
+      {
+        "date": "2021-05-11T01:50:00.000Z",
+        "voteCount": 5,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-01-17T10:31:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer\nAv-2 series doesn't support Premium Storage"
+      },
+      {
+        "date": "2022-05-31T19:14:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answe"
+      },
+      {
+        "date": "2022-05-07T13:04:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answers are correct"
+      },
+      {
+        "date": "2022-04-04T10:09:00.000Z",
+        "voteCount": 2,
+        "content": "Pool 1 - Nv series\nPool 2 - DS series"
+      },
+      {
+        "date": "2021-10-26T20:12:00.000Z",
+        "voteCount": 1,
+        "content": "correcto~"
+      },
+      {
+        "date": "2021-05-10T23:29:00.000Z",
+        "voteCount": 4,
+        "content": "correct.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/sizes"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64857-exam-az-140-topic-1-question-6-discussion/",
+    "body": "You plan to deploy Azure Virtual Desktop to meet the department requirements shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0001100001.png\" class=\"in-exam-image\"><br>You plan to use Azure Virtual Desktop host pools with load balancing and autoscaling.<br>You need to recommend a host pool design that meets the requirements. The solution must minimize costs.<br>What is the minimum number of host pools you should recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t3\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t4"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 10,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-11-06T21:55:00.000Z",
+        "voteCount": 22,
+        "content": "Correct .. 1 for single session, 1 for Multi with GPU &amp; 1 for multi without GPU and apps to tal 3 HPs"
+      },
+      {
+        "date": "2024-04-05T06:15:00.000Z",
+        "voteCount": 1,
+        "content": "Since Personas are different we can assume they are in different subnets - so ideally it should be 4 pools"
+      },
+      {
+        "date": "2023-12-08T03:11:00.000Z",
+        "voteCount": 2,
+        "content": "C. 3\n1 for single session\n1 for Multi with GPU\n1 for multi without GPU and apps to tal 3 HPs"
+      },
+      {
+        "date": "2023-09-22T02:29:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct. The most voted answer is the correct explanation."
+      },
+      {
+        "date": "2023-09-07T04:30:00.000Z",
+        "voteCount": 2,
+        "content": "The solution must minimize costs.\nWhat is the minimum number of host pools you should recommend?\n\nI feel like the key word is recommend. yes you can do it with 3. but then Finance would be borrowing compute resources from IT. and the IT virtual desktop needs the finance software installed. \n\nI would recommend 4 (D)\nBut minimum cost/minimum required is 3 (C)"
+      },
+      {
+        "date": "2022-11-30T09:50:00.000Z",
+        "voteCount": 2,
+        "content": "Why does the RemoteApps not need its own pool? Wouldn't it have to be associated with a separate app group?"
+      },
+      {
+        "date": "2023-01-16T18:34:00.000Z",
+        "voteCount": 3,
+        "content": "Yes it would be ideal to have 4, but tecnically you can get by adding the remoteapps to either multisession pool even the one with the gpu, cleaner would be the one without it."
+      },
+      {
+        "date": "2023-01-18T21:35:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, it would be ideal to have 4, but the question is the minimum Host pool required so the answer is Correct."
+      },
+      {
+        "date": "2022-05-14T05:13:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      },
+      {
+        "date": "2022-05-07T13:07:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct answer"
+      },
+      {
+        "date": "2022-04-04T10:10:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct answer."
+      },
+      {
+        "date": "2022-03-17T10:14:00.000Z",
+        "voteCount": 1,
+        "content": "3 required"
+      },
+      {
+        "date": "2022-01-24T08:40:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-01-20T15:18:00.000Z",
+        "voteCount": 1,
+        "content": "as stated, 3 required"
+      },
+      {
+        "date": "2021-11-26T08:21:00.000Z",
+        "voteCount": 3,
+        "content": "3 host pools are needed."
+      },
+      {
+        "date": "2021-10-26T20:41:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed~"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64690-exam-az-140-topic-1-question-7-discussion/",
+    "body": "Your company has a main office and two branch offices. Each office connects directly to the internet. The router in each branch office is configured as an endpoint for the following VPNs:<br>\u2711 A VPN connection to the main office<br>\u2711 A site-to-site VPN to Azure<br>The routers in each branch office have the Quality of Service (QoS) rules shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0001200001.png\" class=\"in-exam-image\"><br>Users in the branch office report slow responses and connection errors when they attempt to connect to Azure Virtual Desktop resources.<br>You need to modify the QoS rules on the branch office routers to improve Azure Virtual Desktop performance.<br>For which rule should you increase the bandwidth allocation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRule2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRule3\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRule4",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRule1"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 22,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 9,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-10-25T05:36:00.000Z",
+        "voteCount": 28,
+        "content": "Correct answer is Rule 3"
+      },
+      {
+        "date": "2024-09-24T22:53:00.000Z",
+        "voteCount": 3,
+        "content": "I think most of the posts are missing the point (and please do correct me if I'm wrong); the point of the Site-Azure VPN is not to carry the AVD connection traffic - normally you would connect to the external interface of AVD over the internet - if you were working remotely you wouldn't be going over the VPN.\n\nThat aside why would you route user sessions over a bandwidth-limited VPN pipe when you can use the effectively unlimited (in terms of user session purposes) internet connection?\n\nModifying the HTTP/HTTPS traffic to Azure would make sense in that case.\n\nI'm not saying you couldn;t use the VPN - you absolutely could, but I'm not convinced its best to congest that when there is no practical reason to (e.g. it's for processing highly sensitive data) in this scenario."
+      },
+      {
+        "date": "2024-08-08T18:35:00.000Z",
+        "voteCount": 1,
+        "content": "Here is my take:  If not detailed in the question, assume it has not been changed from the default values.  RDP SP works over both Managed (VPN) and Public (Internet, via STUN or TURN) links.  Public RDP SP works by default unless you block the traffic, but on a Managed link it requires you you must enable a UDP listener on your session hosts.  This is NOT detailed as having being done.\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-shortpath\n\nAs such, in this scenario, RDP SP is connecting via the Public internet, so Rule 3 needs to be increased, hence Answer B."
+      },
+      {
+        "date": "2023-12-08T03:13:00.000Z",
+        "voteCount": 3,
+        "content": "A. Rule2"
+      },
+      {
+        "date": "2023-12-05T09:50:00.000Z",
+        "voteCount": 1,
+        "content": "RDP Shortpath is not mentioned, nor is ExpressRoute."
+      },
+      {
+        "date": "2023-10-02T08:30:00.000Z",
+        "voteCount": 2,
+        "content": "\"Each office connects directly to the internet.\"\nThis sentece says it all. If it goes through the internet, the Rule 3 is the correct answer."
+      },
+      {
+        "date": "2023-09-27T08:01:00.000Z",
+        "voteCount": 2,
+        "content": "They don't give you enough info stating if RDP shortpath is used or not."
+      },
+      {
+        "date": "2023-09-06T23:06:00.000Z",
+        "voteCount": 3,
+        "content": "It is Rule 3. Unless using Express Route and Microsoft Peering, the connection between the client and the AVD desktop is via the Internet. Therefore, Rule 3 for Azure-bound Internet is correct."
+      },
+      {
+        "date": "2023-08-10T08:23:00.000Z",
+        "voteCount": 2,
+        "content": "It is A. QoS doesn't affect internet traffic. Increasing the bandwidth on the S2S connection to Azure would be the answer"
+      },
+      {
+        "date": "2023-06-29T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "AVD va por HTTPS"
+      },
+      {
+        "date": "2023-06-01T00:43:00.000Z",
+        "voteCount": 1,
+        "content": "should be Rule 3, why you want to increase all s2s vpn qos? even for other trafic?"
+      },
+      {
+        "date": "2023-05-18T11:35:00.000Z",
+        "voteCount": 1,
+        "content": "Less overheads through the public Internet."
+      },
+      {
+        "date": "2023-03-02T06:48:00.000Z",
+        "voteCount": 2,
+        "content": "QoS implementation checklist\nAt a high level, do the following to implement QoS:\nMake sure your network is ready\nMake sure that RDP Shortpath for managed networks is enabled - QoS policies are not supported for reverse connect transport\n\nFor RDP Shortpath for managed networks you need direct line of site between client and session host over a VPN\nBased on this I would go for A\nI did previously think B prior to looking into QOS and RDP Shortpath more thoroughly"
+      },
+      {
+        "date": "2023-03-27T13:00:00.000Z",
+        "voteCount": 1,
+        "content": "agree clearly A"
+      },
+      {
+        "date": "2023-02-21T02:12:00.000Z",
+        "voteCount": 1,
+        "content": "B Rule 3. ChatGPT approves"
+      },
+      {
+        "date": "2023-03-04T03:12:00.000Z",
+        "voteCount": 2,
+        "content": "I have checked the answer again today on ChatGPT it is showing rule 2."
+      },
+      {
+        "date": "2023-06-11T11:03:00.000Z",
+        "voteCount": 2,
+        "content": "checked today over ChtGPT it's Rule3"
+      },
+      {
+        "date": "2023-01-13T08:20:00.000Z",
+        "voteCount": 1,
+        "content": "RDP Shortpath can be used in two ways:\n\nManaged networks, where direct connectivity is established between the client and the session host when using a private connection, such as a virtual private network (VPN).\n\nPublic networks, where direct connectivity is established between the client and the session host through a NAT gateway, provided as part of the Azure Desktop service, when using a public connection.\nal parecer ambas son correctas\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-shortpath"
+      },
+      {
+        "date": "2022-11-30T10:00:00.000Z",
+        "voteCount": 1,
+        "content": "Issues with connection would be related to the initial traffic over HTTPS, not infrastructure in Azure. For the comments related to \"QoS requires shortpath\", to me that article reads that the type of QoS that requires shortpath is within AVD, not router-based QoS, which would be completely separate from AVD."
+      },
+      {
+        "date": "2023-01-16T18:59:00.000Z",
+        "voteCount": 1,
+        "content": "yes i agree it does say invoke the initial traffic.. if it said it was unstable or dropped out ect... it would be A"
+      },
+      {
+        "date": "2022-10-21T21:49:00.000Z",
+        "voteCount": 2,
+        "content": "B  Rule3 Correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64670-exam-az-140-topic-1-question-8-discussion/",
+    "body": "You plan to deploy Azure Virtual Desktop. The deployment will use existing virtual machines.<br>You create a Azure Virtual Desktop host pool.<br>You need to ensure that you can add the virtual machines to the host pool.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegister the Microsoft.DesktopVirtualization provider.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate a registration key.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Invoke-AzVMRunCommand cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a role assignment."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-06T14:48:00.000Z",
+        "voteCount": 5,
+        "content": "Answer B is correct: \n\nRegistering the virtual machines to a Azure Virtual Desktop host pool is as simple as installing the Azure Virtual Desktop agents.\n\nTo register the Azure Virtual Desktop agents, do the following on each virtual machine:\n\nConnect to the virtual machine with the credentials you provided when creating the virtual machine.\nDownload and install the Azure Virtual Desktop Agent.\nDownload the Azure Virtual Desktop Agent.\nRun the installer. When the installer asks you for the registration token, enter the value you got from the Get-AzWvdRegistrationInfo cmdlet."
+      },
+      {
+        "date": "2023-12-27T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "I say answer is A: https://learn.microsoft.com/en-us/azure/virtual-desktop/prerequisites?tabs=portal"
+      },
+      {
+        "date": "2023-12-08T10:43:00.000Z",
+        "voteCount": 1,
+        "content": "B. Generate a registration key."
+      },
+      {
+        "date": "2023-02-20T04:38:00.000Z",
+        "voteCount": 2,
+        "content": "It should be B, tried in lab"
+      },
+      {
+        "date": "2022-11-11T07:59:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct - \nhttps://learn.microsoft.com/en-us/answers/questions/110851/add-existing-azure-vm-to-session-host-pool-azure-w.html"
+      },
+      {
+        "date": "2022-10-28T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\n\nStep 1 - Create Pool. This is done.\nStep 2 - Run the next cmdlet to create a registration token to authorize a session host to join the host pool and save it to a new file on your local computer. You can specify how long the registration token is valid by using the -ExpirationTime parameter.\n\nNew-AzWvdRegistrationInfo -ResourceGroupName &lt;resourcegroupname&gt; -HostPoolName &lt;hostpoolname&gt; -ExpirationTime $((get-date).ToUniversalTime().AddDays(1).ToString('yyyy-MM-ddTHH:mm:ss.fffffffZ'))"
+      },
+      {
+        "date": "2022-05-05T06:44:00.000Z",
+        "voteCount": 2,
+        "content": "Registration Key is useful to register existing VM to a host pool : https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell?WT.mc_id=Portal-Microsoft_Azure_WVD&amp;tabs=azure-powershell#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool"
+      },
+      {
+        "date": "2022-04-04T10:16:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer. \n\nhttps://docs.microsoft.com/en-gb/learn/modules/create-configure-host-pools-session-hosts/2-automate-creation-host-pool-powershell"
+      },
+      {
+        "date": "2022-03-17T10:29:00.000Z",
+        "voteCount": 1,
+        "content": "Create a registration key. period"
+      },
+      {
+        "date": "2021-12-06T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "[B] Listed answer is correct: https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell?tabs=azure-powershell#register-the-virtual-machines-to-the-azure-virtual-desktop-host-pool"
+      },
+      {
+        "date": "2021-11-22T01:09:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is [B] \nhttps://www.anoopcnair.com/avd-add-new-session-hosts-to-host-pool-wvd-v2/"
+      },
+      {
+        "date": "2021-11-15T03:06:00.000Z",
+        "voteCount": 1,
+        "content": "Guys answer should be A, check https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace?tabs=azure-portal"
+      },
+      {
+        "date": "2021-11-21T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "When you create host pool, resource provider Microsoft.DesktopVirtualization is automatically registered, hence answer is B."
+      },
+      {
+        "date": "2021-11-08T12:40:00.000Z",
+        "voteCount": 2,
+        "content": "Not reading a question carefully gents lol\n\"You need to ensure that you can add the virtual machines to the host pool\" \n1. You'd register with third party \"provider prior\" setting up WVD lol"
+      },
+      {
+        "date": "2022-08-05T22:38:00.000Z",
+        "voteCount": 1,
+        "content": "Don't believe his comments.\nFor the rest of the questions"
+      },
+      {
+        "date": "2021-11-07T02:15:00.000Z",
+        "voteCount": 1,
+        "content": "Generate a registration key is correct. You register the provider before creating the host pool"
+      },
+      {
+        "date": "2021-10-29T10:09:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is A.  \"Finally, make sure you've registered the Microsoft.DesktopVirtualization resource provider. If you haven't already, go to Subscriptions, select the name of your subscription, and then select Resource providers. Search for DesktopVirtualization, select Microsoft.DesktopVirtualization, and then select Register.\"\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-azure-marketplace"
+      },
+      {
+        "date": "2021-10-28T00:02:00.000Z",
+        "voteCount": 2,
+        "content": "Who is for A:  Microsoft.DesktopVirtualization provider?"
+      },
+      {
+        "date": "2021-10-28T00:05:00.000Z",
+        "voteCount": 1,
+        "content": "Also, this could be permission thing. What a question!?"
+      },
+      {
+        "date": "2021-10-25T02:01:00.000Z",
+        "voteCount": 2,
+        "content": "Generate a registration key, correct answer"
+      },
+      {
+        "date": "2021-10-28T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "Incorrect. You'd use \"access key\" or \"generate key\" for FSLogic (file share creation)."
+      },
+      {
+        "date": "2021-11-06T22:09:00.000Z",
+        "voteCount": 2,
+        "content": "Yup without Reg Keys you won't be able to add VM later test in lab.. correct answer is B"
+      },
+      {
+        "date": "2021-12-18T09:00:00.000Z",
+        "voteCount": 3,
+        "content": "wtf man? 90% of your replies are off the topic. You're mostly confusing people here."
+      },
+      {
+        "date": "2021-10-29T11:25:00.000Z",
+        "voteCount": 5,
+        "content": "SCT is correct, you click on the host pool and click on overview, in the top left, you'll see \"Registration Key\" and if you click on it, this is what it will say: \"Use a registration key to add additional virtual machines to this host pool.\" Answer is B."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64671-exam-az-140-topic-1-question-9-discussion/",
+    "body": "You are designing an Azure Virtual Desktop deployment.<br>You identify the network latency between the locations where users reside and the planned deployment.<br>What should you use to identify the best Azure region to deploy the host pool?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Traffic Manager",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Virtual Desktop Experience Estimator\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Monitor for Azure Virtual Desktop",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Advisor"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-08T10:44:00.000Z",
+        "voteCount": 1,
+        "content": "B. Azure Virtual Desktop Experience Estimator"
+      },
+      {
+        "date": "2023-04-25T00:10:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-10-28T01:31:00.000Z",
+        "voteCount": 2,
+        "content": "Correct.\n\nAzure Virtual Desktop Experience Estimator estimates the connection round trip time (RTT) from your current location, through the Azure Virtual Desktop service, to each Azure region in which you can deploy virtual machines.\n\nhttps://azure.microsoft.com/en-us/products/virtual-desktop/assessment/#estimation-tool"
+      },
+      {
+        "date": "2022-05-07T13:18:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct"
+      },
+      {
+        "date": "2022-04-04T10:16:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer."
+      },
+      {
+        "date": "2022-03-17T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "Estimator Tool"
+      },
+      {
+        "date": "2021-10-29T10:13:00.000Z",
+        "voteCount": 2,
+        "content": "correct - https://azure.microsoft.com/en-us/services/virtual-desktop/assessment/#estimation-tool"
+      },
+      {
+        "date": "2021-10-26T21:04:00.000Z",
+        "voteCount": 1,
+        "content": "Correcto~"
+      },
+      {
+        "date": "2021-10-25T02:02:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64672-exam-az-140-topic-1-question-10-discussion/",
+    "body": "You have an Azure Virtual Desktop host pool named Pool1 in the East US region.<br>You have a storage account named storage1 that contains FSLogix profile containers. In the East US region, you have a shared image gallery named SIG1 that contains a virtual machine image named Image1. Image1 is used to create new session hosts in Pool1.<br>You plan to deploy a new Azure Virtual Desktop host pool named Pool2 to the South India region.<br>You need to implement a session host deployment solution for Pool2 that meets the following requirements:<br>\u2711 Image1 must replicate in the South India region.<br>\u2711 The session hosts in Pool2 must be based on Image1.<br>\u2711 Changes to Image1 must be available in the South India and East US regions.<br>What should you include in the solution?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new shared image gallery named SIG2 in the South India region. Upload a copy of Image1 to SIG2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new Azure Storage account named storage2 in the South India region. Copy Image1 to a shared folder in storage2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom SIG1, update the replication for the latest image version of Image1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure geo-redundant storage (GRS) replication for storage1. Copy the VHD file of Image1 to the FSLogix profile container."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 15,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-04-05T01:21:00.000Z",
+        "voteCount": 6,
+        "content": "C is the correct answer. \nhttps://docs.microsoft.com/en-gb/learn/modules/create-manage-session-host-image/4-plan-for-image-update-management"
+      },
+      {
+        "date": "2024-01-11T00:38:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      },
+      {
+        "date": "2023-12-20T08:19:00.000Z",
+        "voteCount": 2,
+        "content": "C. From SIG1, update the replication for the latest image version of Image1."
+      },
+      {
+        "date": "2022-12-23T07:44:00.000Z",
+        "voteCount": 3,
+        "content": "C is correct. All the other options won't replicate changes automatically."
+      },
+      {
+        "date": "2022-03-29T16:19:00.000Z",
+        "voteCount": 1,
+        "content": "In the exam \"compute image gallery\" is used instead of \"shared image gallery\".  They mean the same thing"
+      },
+      {
+        "date": "2022-03-27T01:27:00.000Z",
+        "voteCount": 3,
+        "content": "One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for image versions."
+      },
+      {
+        "date": "2021-10-29T10:20:00.000Z",
+        "voteCount": 3,
+        "content": "yes - correct - https://docs.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries"
+      },
+      {
+        "date": "2021-10-25T02:02:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74422-exam-az-140-topic-1-question-11-discussion/",
+    "body": "HOTSPOT -<br>You have an on-premises network.<br>All users have computers that run Windows 10 Pro.<br>You plan to deploy Azure Virtual Desktop to meet the department requirements shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0001400004.png\" class=\"in-exam-image\"><br>You need to recommend licenses for the departments. The solution must minimize costs.<br>Which license should you recommend for each department? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0001500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0001600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-desktop/windows-10-multisession-faq https://azure.microsoft.com/en-us/pricing/details/virtual-desktop/#pricing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-14T19:37:00.000Z",
+        "voteCount": 4,
+        "content": "1. RDS CAL -&gt; correct but not complete, need  RDS CAL + Software Assurance (SA)\n2. Correct."
+      },
+      {
+        "date": "2022-07-10T11:57:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is RDS CAL for the first scenario because of the server OS.  M365 E3 or Win 10 E3 both work but Win 10 is the answer due to least cost requirement."
+      },
+      {
+        "date": "2022-05-17T16:29:00.000Z",
+        "voteCount": 2,
+        "content": "https://azure.microsoft.com/en-gb/pricing/details/virtual-desktop/\n\nLicence entitlement: There is no additional cost if you have an eligible Windows, Microsoft 365 or Microsoft Remote Desktop Services (RDS) Client Access Licence (CAL)."
+      },
+      {
+        "date": "2022-05-01T00:29:00.000Z",
+        "voteCount": 1,
+        "content": "For the first box, Provided answer is incorret.\nIt is ovbiously clear that you cannot create AVD using RDS Cal.\nhttps://azure.microsoft.com/en-us/pricing/details/virtual-desktop/#pricing\n\nFor box2, it should be Win10 enterprise E3."
+      },
+      {
+        "date": "2022-07-10T11:56:00.000Z",
+        "voteCount": 3,
+        "content": "Not true.  Using a server OS with AVD requires an RDS CAL.  https://azure.microsoft.com/en-us/pricing/details/virtual-desktop/"
+      },
+      {
+        "date": "2022-04-25T17:18:00.000Z",
+        "voteCount": 3,
+        "content": "Correct: RDS CAL, Win 10 E3"
+      },
+      {
+        "date": "2022-04-25T02:12:00.000Z",
+        "voteCount": 1,
+        "content": "The list of eligible licenses include Microsoft 365 E3/E5 or Windows 10 Enterprise E3/E5 but NOT Microsoft 365 Enterprise. So given answer is correct."
+      },
+      {
+        "date": "2022-05-08T13:31:00.000Z",
+        "voteCount": 3,
+        "content": "In M365 E3/E5 the E literally stands for enterprise. Given anwer is correct but for a different reason"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74534-exam-az-140-topic-1-question-12-discussion/",
+    "body": "Your company has 60,000 users.<br>You plan to deploy Azure Virtual Desktop.<br>You need to recommend a storage solution for the FSLogix profile containers. The solution must provide the highest possible IOPS and the lowest latency desktop experience.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Lake Storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure NetApp Files\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Blob Storage Premium",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Files Standard"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-01-11T00:43:00.000Z",
+        "voteCount": 1,
+        "content": "B. Azure NetApp Files"
+      },
+      {
+        "date": "2024-01-05T01:06:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with trashbox explanation"
+      },
+      {
+        "date": "2023-12-08T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "B. Azure NetApp Files"
+      },
+      {
+        "date": "2023-10-02T08:33:00.000Z",
+        "voteCount": 1,
+        "content": "Azure NetApp Files  has the max IOPS and the lowest latency."
+      },
+      {
+        "date": "2023-09-07T04:57:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Files has a 3-ms latency, whereas Azure NetApp Files has a 1-ms latency. Therefore, among the options, Azure NetApp Files is the solution with the lowest latency for FSLogix profile containers.\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/store-fslogix-profile"
+      },
+      {
+        "date": "2023-08-27T05:49:00.000Z",
+        "voteCount": 1,
+        "content": "Azure NetApp Files - Up to max 460K IOPS"
+      },
+      {
+        "date": "2023-08-26T03:31:00.000Z",
+        "voteCount": 1,
+        "content": "Azure NetApp Files\n\nhttps://azure.microsoft.com/en-us/products/netapp"
+      },
+      {
+        "date": "2023-02-06T15:53:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: B\n\nRun your most demanding Linux and Windows file workloads in Azure\nRunning performance-intensive and latency-sensitive file workloads in the cloud can be hard. Azure NetApp Files makes it easy for enterprise line-of-business (LOB) and storage professionals to migrate and run complex, file-based applications with no code change. Azure NetApp Files is widely used as the underlying shared file-storage service in various scenarios. These include migration (lift and shift) of POSIX-compliant Linux and Windows applications, SAP HANA, databases, high-performance compute (HPC) infrastructure and apps, and enterprise web applications."
+      },
+      {
+        "date": "2022-10-31T05:34:00.000Z",
+        "voteCount": 1,
+        "content": "Undoubtedly, It is ANF. So option B is 200% Correct!"
+      },
+      {
+        "date": "2022-10-05T20:30:00.000Z",
+        "voteCount": 1,
+        "content": "correct, NetApp Files"
+      },
+      {
+        "date": "2022-09-21T04:05:00.000Z",
+        "voteCount": 1,
+        "content": "Correct B: Better IOPS"
+      },
+      {
+        "date": "2022-04-25T17:19:00.000Z",
+        "voteCount": 2,
+        "content": "Correct: B"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74535-exam-az-140-topic-1-question-13-discussion/",
+    "body": "Your company has a single office and has 40 employees.<br>You are planning an Azure Virtual Desktop deployment. The estimated user workloads are shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0001700001.png\" class=\"in-exam-image\"><br>Half the users of each workload type work from home. All the users who work from home do NOT establish a VPN connection to the office.<br>Approximately how much bandwidth is needed between the office and Azure to support the planned workloads?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t9.5 Mbps",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t55 Mbps\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t110 Mbps",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t220 Mbps"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-06-27T01:13:00.000Z",
+        "voteCount": 22,
+        "content": "10 * 1,5 = 15\n5 x 3 = 15\n5 x 5 = 25\n\nTotal: 15 + 15 + 25 = 55 mbps\nHalf of each group is working from home. B is the correct answer!"
+      },
+      {
+        "date": "2022-07-05T21:55:00.000Z",
+        "voteCount": 1,
+        "content": "Thanks for the workings"
+      },
+      {
+        "date": "2022-11-23T05:29:00.000Z",
+        "voteCount": 9,
+        "content": "Another way to calculate this question:\n20 * 1,5 = 30\n10 * 3 = 30\n5 * 5 = 25\nTotal: 30 + 30 + 50  = 110 mbps\nHalf of each group is working from home 110/2 = 55 mbps. B is the correct one."
+      },
+      {
+        "date": "2023-12-08T10:53:00.000Z",
+        "voteCount": 1,
+        "content": "B. 55 Mbps"
+      },
+      {
+        "date": "2023-10-02T08:35:00.000Z",
+        "voteCount": 1,
+        "content": "55 is the correct answer."
+      },
+      {
+        "date": "2023-09-07T05:21:00.000Z",
+        "voteCount": 3,
+        "content": "this is just a maths question :D ??!?"
+      },
+      {
+        "date": "2023-01-17T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "55mbps"
+      },
+      {
+        "date": "2022-09-26T00:29:00.000Z",
+        "voteCount": 1,
+        "content": "Now it's C"
+      },
+      {
+        "date": "2022-08-05T13:47:00.000Z",
+        "voteCount": 1,
+        "content": "thanks for explanation."
+      },
+      {
+        "date": "2022-06-11T05:03:00.000Z",
+        "voteCount": 1,
+        "content": "Correct: B"
+      },
+      {
+        "date": "2022-06-06T02:34:00.000Z",
+        "voteCount": 2,
+        "content": "look for the home user (50%)"
+      },
+      {
+        "date": "2022-06-04T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "How B?"
+      },
+      {
+        "date": "2022-06-06T02:34:00.000Z",
+        "voteCount": 2,
+        "content": "Important information - half of the users are working from home - therefore 50%"
+      },
+      {
+        "date": "2022-04-25T17:21:00.000Z",
+        "voteCount": 3,
+        "content": "Correct: B"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74935-exam-az-140-topic-1-question-14-discussion/",
+    "body": "Your network contains an on-premises Active Directory domain that syncs to an Azure Active Directory (Azure AD) tenant. The domain contains the domain controllers shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0001800001.png\" class=\"in-exam-image\"><br>The DNS servers are configured to forward requests to an external DNS service.<br>You create a new virtual network named VNET2 that is peered to VNET1 and has gateway transit enabled.<br>You plan to implement an Azure Virtual Desktop host pool in VNET2. The session hosts will be joined to the Active Directory domain.<br>You need to configure DNS to meet the following requirements:<br>\u2711 Ensure that Azure Virtual Desktop users can resolve on-premises servers and Azure resources.<br>\u2711 Ensure that azure Virtual Desktop remains operational if a DNS server fails.<br>\u2711 Minimize administrative effort.<br>What should you configure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe DNS settings of VNET2 to use Server2 and Server1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe DNS settings of VNET2 to use the Azure DNS service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe DNS settings of the virtual machines to use Server2 and Server1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe DNS settings of the virtual machines to use the Azure DNS service"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 55,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-08-10T07:23:00.000Z",
+        "voteCount": 20,
+        "content": "In azure, never configure network settings inside the VM, always via the VNET or the NIC"
+      },
+      {
+        "date": "2023-07-05T22:41:00.000Z",
+        "voteCount": 11,
+        "content": "The question requires a solution that keeps Azure Virtual Desktop operational even if a DNS server fails. Therefore, it would make sense to provide two DNS servers for redundancy, instead of relying on a single server.\n\nAlso, to minimize administrative effort, it would be best to set these at the network level rather than individually on each virtual machine.\n\nTherefore, the correct answer should be:\n\nA. the DNS settings of VNET2 to use Server2 and Server1\n\nThis configuration allows the VMs in VNET2 to resolve both on-premises servers (through Server1) and Azure resources (through Server2). And if one DNS server fails, the other server can still handle the DNS requests, ensuring Azure Virtual Desktop remains operational. Also, setting the DNS servers at the VNET level simplifies management and reduces administrative effort."
+      },
+      {
+        "date": "2024-02-19T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "At first, like everyone else, I selected A as the answer because the right thing to do is to add a DNS server in VNet2. \n\nHowever, the question never mentioned VNet2 with its own DNS server. Strictly going by on how the question was formulated, C is the correct answer.\n\nWhat do you think?"
+      },
+      {
+        "date": "2023-12-08T11:03:00.000Z",
+        "voteCount": 2,
+        "content": "A. the DNS settings of VNET2 to use Server2 and Server1"
+      },
+      {
+        "date": "2023-11-29T06:57:00.000Z",
+        "voteCount": 1,
+        "content": "The key is minimize administrative effort, should be A."
+      },
+      {
+        "date": "2023-11-07T03:34:00.000Z",
+        "voteCount": 1,
+        "content": "In azure, never configure network settings inside the VM"
+      },
+      {
+        "date": "2023-05-23T04:24:00.000Z",
+        "voteCount": 1,
+        "content": "Minimize Effort."
+      },
+      {
+        "date": "2023-05-19T11:07:00.000Z",
+        "voteCount": 1,
+        "content": "Minimize administrative effort."
+      },
+      {
+        "date": "2023-04-25T00:22:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is too much work, A is correct"
+      },
+      {
+        "date": "2023-02-21T02:26:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A\n\nYou should configure the DNS settings of VNET2 to use Server2 and Server1 to meet the requirements.\n\nBy configuring the DNS settings of VNET2 to use Server2 and Server1, the Azure Virtual Desktop users will be able to resolve on-premises servers and Azure resources. Since VNET2 is peered with VNET1 and has gateway transit enabled, the DNS servers in VNET1 will automatically be available in VNET2. This will ensure that Azure Virtual Desktop remains operational if a DNS server fails.\n\nConfiguring the DNS settings at the VNET level will also minimize administrative effort, as you only need to make the change once instead of for each individual virtual machine."
+      },
+      {
+        "date": "2023-02-14T09:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct is A"
+      },
+      {
+        "date": "2023-01-23T23:40:00.000Z",
+        "voteCount": 2,
+        "content": "Should be A because you never touch the VM Nic for such things"
+      },
+      {
+        "date": "2022-11-10T04:38:00.000Z",
+        "voteCount": 1,
+        "content": "Configure via VNET to reduce administrative effort"
+      },
+      {
+        "date": "2022-10-29T03:28:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A. I am using similar configuration in my organisation.\n\nYou can setup it in a way desctribed in ansver C as well but you would have to do additional administration actions and it would be against requirement \"Minimize administrative effort\"."
+      },
+      {
+        "date": "2022-10-20T12:44:00.000Z",
+        "voteCount": 3,
+        "content": "You should define DNS on VNet Level"
+      },
+      {
+        "date": "2022-10-13T12:15:00.000Z",
+        "voteCount": 3,
+        "content": "In Azure you'll define DNS on vNET level"
+      },
+      {
+        "date": "2022-09-30T00:57:00.000Z",
+        "voteCount": 3,
+        "content": "A is correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74936-exam-az-140-topic-1-question-15-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure subscription that contains a hybrid Azure Active Directory (Azure AD) tenant and two domain-joined Azure virtual machines. The virtual machines run Windows Server 2019 and contain managed disks.<br>You plan to deploy an Azure Virtual Desktop host pool that will use a Storage Spaces Direct Scale-Out File Server to host user profiles.<br>You need to ensure that the virtual machines can host the Storage Spaces Direct deployment. The solution must meet the following requirements:<br>\u2711 Ensure that the user profiles are available if a single server fails.<br>\u2711 Minimize administrative effort.<br>What should you do? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0001900003.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0002000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/deploy-storage-spaces-direct",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-04T10:25:00.000Z",
+        "voteCount": 25,
+        "content": "My vote: \"The Failover Clustering feature\" + \"An Azure storage account\" (for witness)\n\nSource #1: https://docs.microsoft.com/en-us/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-34-configure-a-cluster-witness\n\"A two-server deployment requires a cluster witness, otherwise either server going offline causes the other to become unavailable as well.\"\n\nSource #2 https://docs.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness\n\"Uses standard available Azure Blob Storage (no extra maintenance overhead of virtual machines hosted in public cloud).\"\n\"Same Azure Storage Account can be used for multiple clusters (one blob file per cluster; cluster unique ID used as blob file name).\"\n\nWe already have the \"two domain joined azure virtual machines\"\nAzure NetApp Files share (I assume) have more administrative effort than an azure storage account\nShared disk is not supported by storage spaces direct + 2 VM already contain managed disks"
+      },
+      {
+        "date": "2022-09-05T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "this is exactly right and supported by the links."
+      },
+      {
+        "date": "2022-06-07T03:37:00.000Z",
+        "voteCount": 9,
+        "content": "Storage Spaces Direct doesn't use shared disks.\nWhat you require is something to use as quorum witness for the cluster; a storage account is the right answer here."
+      },
+      {
+        "date": "2022-06-26T05:25:00.000Z",
+        "voteCount": 1,
+        "content": "Have to agree.\n\nThe specific article addressing the steps/requirements of this question is here: https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment. It describes creating a two-node SSD SOFS with a cloud witness which requires creating an Azure Storage Account (https://docs.microsoft.com/en-us/windows-server/failover-clustering/deploy-cloud-witness#create-an-azure-storage-account-to-use-as-a-cloud-witness)"
+      },
+      {
+        "date": "2022-07-01T16:54:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure-stack/hci/concepts/storage-spaces-direct-overview\n\"Deploying Storage Spaces Direct on VM guest clusters delivers virtual shared storage across a set of VMs on top of a private or public cloud. In production environments, this deployment is supported only in Windows Server. \""
+      },
+      {
+        "date": "2023-06-04T04:01:00.000Z",
+        "voteCount": 2,
+        "content": "We just need to create an Azure storage account as the witness of the cluster."
+      },
+      {
+        "date": "2023-02-22T23:14:00.000Z",
+        "voteCount": 1,
+        "content": "this link states you need two storage accounts\nhttps://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment\nWe recommend deploying your SOFS with DS-series VMs and premium storage data disks, where there are the same number and size of data disks on each VM. You will need a minimum of two storage accounts. \n\nI stick with the two shared disks that are essential in a cluster configuration"
+      },
+      {
+        "date": "2023-01-30T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "Took the exam last Jan 28, 2023 and this question is not included"
+      },
+      {
+        "date": "2022-10-29T04:29:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer: The Failover Clustering feature\" + \"An Azure storage account\".\n\nStorage account setup is first step as it is used in FC setup (not only for witness configuration).\n\nMore details here: https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment"
+      },
+      {
+        "date": "2022-08-22T22:34:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is Failover Clustering Feature and an additional Azure Virtual Machine.\n\nWe have two servers available and we can configure two-way mirroring to ensure that the user profiles are available if a single server fails. If we add an additional server, we can configure three-way mirroring or single parity fault tolerance mode. An Azure NetApp Files share or an Azure storage account is not needed for Storage Spaces Direct. Shared disks can provide storage for a guest failover cluster, but not for Storage Spaces Direct."
+      },
+      {
+        "date": "2022-08-17T19:31:00.000Z",
+        "voteCount": 4,
+        "content": "Requirement states \"Ensure that the user profiles are available if a single server fails\" therefore you need a 2nd server."
+      },
+      {
+        "date": "2022-07-10T12:09:00.000Z",
+        "voteCount": 3,
+        "content": "Provided answer is not correct.   Failover cluster and storage account for the quorum.  The whole point of storage spaces is that disks do not need to be shared.  See https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment for reference."
+      },
+      {
+        "date": "2022-06-05T00:21:00.000Z",
+        "voteCount": 1,
+        "content": "you already have the azure domain joined servers, so the only appropriate answer for the second point is 2 shared disks."
+      },
+      {
+        "date": "2022-04-29T18:37:00.000Z",
+        "voteCount": 1,
+        "content": "Provided Answer is seems correct."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74536-exam-az-140-topic-1-question-16-discussion/",
+    "body": "You have the Azure Virtual Desktop deployment shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0002000002.png\" class=\"in-exam-image\"><br>You plan to deploy a new host pool as shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0002100001.png\" class=\"in-exam-image\"><br>You need to ensure that you can deploy the host pool.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a lock to the existing host pool.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStop and deallocate one of the currently deployed virtual machines.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSubmit a support request for service and subscription limits.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the proposed virtual machine size for the session hosts to D4s_v3."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 16,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-06-26T05:31:00.000Z",
+        "voteCount": 11,
+        "content": "There are only 10 vCPUs left in the current region (West US). The plan to deploy four hosts of D8s_v3 spec requires an additional 32 vCPUs (4 x 8 vCPU) which exceeds the remaining quota of 10."
+      },
+      {
+        "date": "2023-12-22T12:34:00.000Z",
+        "voteCount": 1,
+        "content": "C. Submit a support request for service and subscription limits."
+      },
+      {
+        "date": "2023-09-23T10:45:00.000Z",
+        "voteCount": 2,
+        "content": "exam on 25/09/2023"
+      },
+      {
+        "date": "2023-05-11T02:00:00.000Z",
+        "voteCount": 4,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2023-01-18T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "Need to increase the regional quota above 50"
+      },
+      {
+        "date": "2022-12-01T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "Staring at the question for a while I get around to the fact it is asking for the Quota for the region, though curious as to why they don't make that clear that the first table is the Quota."
+      },
+      {
+        "date": "2022-10-29T04:44:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct 100 %\n\nD4s_v3 is incorrect as well as it would come with 4 vCPU per VM and 4 x 4 =16 &gt; 10."
+      },
+      {
+        "date": "2022-08-24T10:43:00.000Z",
+        "voteCount": 1,
+        "content": "Request an increase for adjustable quotas ..... : C"
+      },
+      {
+        "date": "2022-06-24T09:25:00.000Z",
+        "voteCount": 2,
+        "content": "C - support ticket"
+      },
+      {
+        "date": "2022-05-14T20:27:00.000Z",
+        "voteCount": 1,
+        "content": "Since the Regional CPU quota is already 80% we need to submit a request to raise the limit"
+      },
+      {
+        "date": "2022-04-25T17:27:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct: C"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/82411-exam-az-140-topic-1-question-17-discussion/",
+    "body": "You have an Azure subscription that contains 500 users. The users are assigned Microsoft Office 365 E1 licenses.<br>You deploy an Azure Virtual Desktop solution that contains Windows 10 multi-session hosts and streams a custom remote app named App1.<br>You need to ensure that the users are licensed to stream App1. The solution must minimize costs.<br>Which license should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft 365 E5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOffice 365 E3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Remote Desktop Services (RDS) client access license (CAL)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWindows 10 Enterprise E3\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 8,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-10-02T08:15:00.000Z",
+        "voteCount": 1,
+        "content": "Windows 10 Enterprise E3 includes the necessary licensing for Azure Virtual Desktop (AVD) usage. It allows users to access Windows 10 multi-session hosts, which is essential for your deployment1.\nCost Efficiency: Upgrading from Office 365 E1 to Windows 10 Enterprise E3 is generally more cost-effective than upgrading to Microsoft 365 E5 or Office 365 E3, which include additional features that may not be necessary for your specific use case2.\nThe other options do not align as well with your requirements:\n\nOption A (Microsoft 365 E5): This includes a wide range of advanced security, compliance, and productivity features, but it is more expensive and may include features you do not need.\nOption B (Office 365 E3): While it provides more features than E1, it does not include the necessary licensing for AVD.\nOption C (Remote Desktop Services (RDS) CAL): This is typically used for accessing Windows Server-based environments and does not cover Windows 10 multi-session hosts."
+      },
+      {
+        "date": "2023-12-26T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "D. Windows 10 Enterprise E3"
+      },
+      {
+        "date": "2023-11-20T04:01:00.000Z",
+        "voteCount": 1,
+        "content": "RDS licenses are for Server OS\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/prerequisites?tabs=portal#operating-systems-and-licenses"
+      },
+      {
+        "date": "2023-06-04T04:05:00.000Z",
+        "voteCount": 3,
+        "content": "Windows 10 Enterprise E3 is the right choice to minimize the cost."
+      },
+      {
+        "date": "2023-03-28T05:01:00.000Z",
+        "voteCount": 2,
+        "content": "no rds cal needed, due to windows 10"
+      },
+      {
+        "date": "2023-03-27T13:05:00.000Z",
+        "voteCount": 2,
+        "content": "Windows 10 multi session"
+      },
+      {
+        "date": "2023-02-23T19:13:00.000Z",
+        "voteCount": 1,
+        "content": "To license users to stream App1 in an Azure Virtual Desktop solution that contains Windows 10 multi-session hosts, the appropriate license to use would be a Remote Desktop Services (RDS) client access license (CAL).\n\nThe RDS CAL allows users to access the remote desktop or application hosted on a server running Remote Desktop Services. In this case, the RDS CAL would allow users to access and stream the custom remote app named App1 from the Windows 10 multi-session hosts in the Azure Virtual Desktop solution.\n\nUsing an RDS CAL would be the most cost-effective solution since it allows users to access the specific remote app without requiring a full license for Windows 10 Enterprise or Microsoft 365 E5, which includes additional features that may not be necessary for this use case.\n\nTherefore, the correct answer is option C - a Remote Desktop Services (RDS) client access license (CAL)."
+      },
+      {
+        "date": "2023-03-02T21:37:00.000Z",
+        "voteCount": 6,
+        "content": "RDS CALs are not required for rdping into Windows 10 multisession, only for rdping into Windows Server..."
+      },
+      {
+        "date": "2023-10-06T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "you should read the question carefully."
+      },
+      {
+        "date": "2023-02-21T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "C is the answer:\nIn terms of cost, using the Microsoft 365 E3 or E5 licenses with the Windows E3 add-on would likely be more expensive than purchasing RDS CALs. Therefore, if you need to minimize costs, the RDS CAL option would be the better choice.\nAnd yes, you can use Remote Desktop Services (RDS) client access license (CAL) on a Windows 10 multi-session host, such as those used in Azure Virtual Desktop. The RDS CAL allows users to access the RDS infrastructure, including the virtual machines that host the remote apps."
+      },
+      {
+        "date": "2023-02-21T02:42:00.000Z",
+        "voteCount": 1,
+        "content": "https://azure.microsoft.com/en-us/pricing/details/virtual-desktop/"
+      },
+      {
+        "date": "2022-12-08T02:02:00.000Z",
+        "voteCount": 1,
+        "content": "You only need RDS CALs for virtual desktops using Windows Server. Azure WVD runs on Windows 11 and doesn't require RDS CALs."
+      },
+      {
+        "date": "2022-11-10T13:52:00.000Z",
+        "voteCount": 1,
+        "content": "Windows Enterprise E3, E5 gives you the user right for windows 10 Enterprise multisession host. You only need the RDS CALS for Windows server OS session Hosts. \nRef:\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/prerequisites"
+      },
+      {
+        "date": "2022-09-16T05:09:00.000Z",
+        "voteCount": 1,
+        "content": "Windows 10 Enterprise E3 license is correct, and it keeps the costs down.\n\nhttps://azure.microsoft.com/en-us/pricing/details/virtual-desktop/"
+      },
+      {
+        "date": "2022-10-29T05:34:00.000Z",
+        "voteCount": 1,
+        "content": "I am not so sure about this one. Based on my calculations cheapest option would be RDS CALs.\n\nMicrosoft 365 e5 prise - $57 per user\nOffice 365 E3 - $23 per user\nRDS CALs - ~$15 per user\nWindows 10 Enterprise E3 - $32 per user"
+      },
+      {
+        "date": "2022-11-10T06:25:00.000Z",
+        "voteCount": 9,
+        "content": "Remote Desktop Services (RDS) client access license (CAL) can only be used with Windows Server Remote Desktop Services. In this case the session hosts are Windows 10 multi session, so you need to use one of the following licenses:\nMicrosoft 365 E3/E5\nMicrosoft 365 A3/A5/Student Use Benefits\nMicrosoft 365 F3\nMicrosoft 365 Business Premium**\nWindows 10 Enterprise E3/E5\nWindows 10 Education A3/A5\nWindows 10 VDA per user"
+      },
+      {
+        "date": "2023-08-14T10:54:00.000Z",
+        "voteCount": 1,
+        "content": "You're quoting the pricing for M365 E3 and it's since increased to $36. However, the pricing for Windows Ent E3 is currently $7.00 \n\nCheck the pricing in your offers: \nhttps://admin.microsoft.com/#/catalog/m/offer-details/windows-10-11-enterprise-e3/CFQ7TTC0LGTX"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86635-exam-az-140-topic-1-question-18-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure subscription that contains a virtual machine named VM1. VM1 runs a customized version of Windows 10 Enterprise.<br>You generalize the operating system on VM1 and shut down the virtual machine.<br>You need to deploy additional virtual machines based on an image of VM1 by using the Azure portal.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04272/0002200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0002300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Create a managed image from a snapshot using PowerShell.<br>You can create a managed image from a snapshot of a generalized VM by following these steps:<br>1. Create an image of a VM in the portal, capture a VM in the portal<br>2. Go to the Azure portal, then search for and select Virtual machines.<br>3. Select your VM from the list.<br>4. On the page for the VM, on the upper menu, select Capture.<br>5. The Create an image page appears.<br>6. For Resource group, either select Create new and enter a name, or select a resource group to use from the drop-down list. If you want to use an existing gallery, select the resource group for the gallery you want to use.<br>7. To create the image in a gallery, select Yes, share it to a gallery as an image version.<br>8. To only create a managed image, select No, capture only a managed image. The VM must have been generalized to create a managed image. The only other required information is a name for the image.<br>9. If you want to delete the source VM after the image has been created, select Automatically delete this virtual machine after creating the image. This is not recommended.<br>10.For Gallery details, select the gallery or create a new gallery by selecting Create new. (Step 1)<br>11.In Operating system state select generalized or specialized. For more information, see Generalized and specialized images.<br>12.Select an image definition or select create new and provide a name and information for a new Image definition. (Step 2)<br>13.Enter an image version number. If this is the first version of this image, type 1.0.0. (Step 3)<br>14.If you want this version to be included when you specify latest for the image version, then leave Exclude from latest unchecked.<br>15.Select an End of life date. This date can be used to track when older images need to be retired.<br>16.Under Replication, select a default replica count and then select any additional regions where you would like your image replicated.<br>17.When you are done, select Review + create.<br>18.After validation passes, select Create to create the image.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/capture-image-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-29T05:42:00.000Z",
+        "voteCount": 14,
+        "content": "Provided answer is correct.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli"
+      },
+      {
+        "date": "2023-01-14T16:16:00.000Z",
+        "voteCount": 10,
+        "content": "Hi folks,\n\nWhen you create the Image Gallery - within the Image Gallery are steps to create the Definition, Then Image Version, then select the Source Image. \nThis means the Snap Shot needs to be completed first (to be able to select it within the Image Version of the Gallery).\n\nCorrect Answer should be:\n\n1. Create Snap Snot.\n2. Create Image Gallery\n3. Create Definition"
+      },
+      {
+        "date": "2024-07-07T12:14:00.000Z",
+        "voteCount": 2,
+        "content": "This is WRONG. Read through https://learn.microsoft.com/en-us/training/modules/create-manage-session-host-image/4-plan-for-image-update-management\nYou will see that a Snap Shot has already been created and the VM turned off. What is needed now is an Image Gallery to store the image, an image definition to describe the image and give information to someone that will be using it, and an image version which is the VHD that will be used to create vm's."
+      },
+      {
+        "date": "2023-01-14T16:32:00.000Z",
+        "voteCount": 1,
+        "content": "Also, don't get creating an Image confused with creating an Image Version. Image creation is done after Snap Shot, and Image Version is done in the Image Gallery."
+      },
+      {
+        "date": "2024-08-28T02:27:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/virtual-machines/capture-image-portal\n1. Generate a snapshot of VM\n2. Create an Azure compute gallery\n3. Create an image definition"
+      },
+      {
+        "date": "2024-04-28T07:48:00.000Z",
+        "voteCount": 2,
+        "content": "The Correct order will be:\n\nCreating an Azure Compute Gallery\nCreating an Image Definition\nCreating an Image Version\n\nSnapshot cannot be taken after sysprep."
+      },
+      {
+        "date": "2023-10-19T02:12:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli#generalized-and-specialized-images\nI think the given answer is correct."
+      },
+      {
+        "date": "2023-10-02T08:45:00.000Z",
+        "voteCount": 3,
+        "content": "The VM was already sysprep and generalized. What will the snapshot do now?\nThe provided answer is correct."
+      },
+      {
+        "date": "2023-09-23T02:55:00.000Z",
+        "voteCount": 1,
+        "content": "BTW: Hyper-V checkpoints and snapshots are the same. A Hyper-V snapshot is the outdated name of a point-in-time copy of a VM. That name is relevant for Windows Server 2008, 2008 R2, and 2012. In version 2012 R2, Microsoft renamed Hyper-V snapshots to checkpoints."
+      },
+      {
+        "date": "2023-05-11T02:00:00.000Z",
+        "voteCount": 3,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2023-08-14T05:28:00.000Z",
+        "voteCount": 1,
+        "content": "What is the answer"
+      },
+      {
+        "date": "2023-03-30T06:19:00.000Z",
+        "voteCount": 4,
+        "content": "if we read it carefully it says in the question - You need to deploy additional virtual machines based on an image of VM1 by using the Azure portal.\nImage is already there - no need for snapshost"
+      },
+      {
+        "date": "2023-01-26T08:07:00.000Z",
+        "voteCount": 1,
+        "content": "I thnink answer is correct.\nNo need to do snapshost because sysprep is already done and vm is power off"
+      },
+      {
+        "date": "2023-02-08T04:13:00.000Z",
+        "voteCount": 4,
+        "content": "The whole process itself starts with taking capture snapshot then we will be moving to Image portal so steps would be: \n\nCreate a snapshot of VM1\nCreate an Azure compute gallery\nCreate an image definition"
+      },
+      {
+        "date": "2023-02-09T14:33:00.000Z",
+        "voteCount": 1,
+        "content": "SysPrep is already done, but that in itself does not actually create an image, right?  You still need to do that as one of the steps"
+      },
+      {
+        "date": "2023-01-05T15:23:00.000Z",
+        "voteCount": 3,
+        "content": "The first step in the explanation is:\n\"Create a managed image from a snapshot using PowerShell.\"\nSo I think the first step should be to create a snapshot"
+      },
+      {
+        "date": "2023-01-05T15:24:00.000Z",
+        "voteCount": 1,
+        "content": "Extra information:\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/set-up-golden-image"
+      },
+      {
+        "date": "2023-01-05T15:27:00.000Z",
+        "voteCount": 4,
+        "content": "I reckon an Image version is automatically created when you create an image definition, so I think the correct answers are:\nCreate a snapshot of VM1\nCreate an Azure compute gallery\nCreate an image definition"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83325-exam-az-140-topic-1-question-19-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment that contains an Azure compute gallery. The Azure compute gallery contains an image definition named<br>Definitions Definitionl contains the following image versions:<br>* 1.0.0<br>* 1.1.0<br>* 1.2.0<br>You need to ensure that when a virtual machine is created from the Azure compute gallery, the 1.1.0 image version is used by default.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect Exclude from latest for image version 1.0.0.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect Exclude from latest for image version 1.2.0.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApply a lock to image version 1.1.0.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApply a tag named default to image version 1.1.0."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 8,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-26T06:33:00.000Z",
+        "voteCount": 1,
+        "content": "From Gemini:\nAzure Virtual Desktop uses the latest image version by default when creating a virtual machine from an Azure compute gallery.\nTo override this behavior and use a specific image version, you need to apply a tag named \"default\" to that image version.\nOption B would prevent the 1.2.0 image version from being used as the default, but it wouldn't make the 1.1.0 image version the default."
+      },
+      {
+        "date": "2023-12-26T06:20:00.000Z",
+        "voteCount": 2,
+        "content": "B. Select Exclude from latest for image version 1.2.0."
+      },
+      {
+        "date": "2023-05-11T02:00:00.000Z",
+        "voteCount": 3,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2022-12-08T02:08:00.000Z",
+        "voteCount": 2,
+        "content": "11. If you want this version to be included when you specify latest for the image version, then leave Exclude from latest unchecked.\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/capture-image-portal"
+      },
+      {
+        "date": "2022-10-29T05:48:00.000Z",
+        "voteCount": 3,
+        "content": "Correct.\n\nExclude from latest. You can keep a version from being used as the latest image version.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/shared-image-galleries?tabs=azure-cli"
+      },
+      {
+        "date": "2022-09-23T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/97051-exam-az-140-topic-1-question-20-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Virtual Desktop deployment and two Azure Active Directory groups named Group1 and Group2.<br><br>You create two Conditional Access policies named Policy1 and Policy2. Policy1 is assigned to Group1. Policy2 is assigned to Group2. Both policies include Azure Virtual Desktop as a cloud app.<br><br>You need to meet the following requirements:<br><br>\u2022\tThe users in Group1 must be prompted for multi-factor authentication (MFA) when they connect to Azure Virtual Desktop.<br>\u2022\tThe users in Group2 must reauthenticate every eight hours while they are connected to Azure Virtual Desktop.<br><br>Which settings should you configure in Policy1 and Policy2? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image165.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image166.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-29T15:07:00.000Z",
+        "voteCount": 6,
+        "content": "Policy 1:\nAccess controls &gt; Grant &gt; Require multifactor authentication\nPolicy 2:\nAccess controls &gt; Session &gt; Sign-in Frequency -&gt; Periodic reauthentication -&gt; 8 Hours"
+      },
+      {
+        "date": "2023-09-07T08:41:00.000Z",
+        "voteCount": 1,
+        "content": "The answers are correct.\n\nPolicy 1:\n Access controls &gt; Grant &gt;  Require multifactor authentication\nPolicy 2:\n Access controls &gt; Session &gt; Sign-in Frequency -&gt; Periodic reauthentication -&gt; 8 Hours"
+      },
+      {
+        "date": "2023-04-30T20:02:00.000Z",
+        "voteCount": 2,
+        "content": "Answers seems to be correct\nhttps://learn.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-policy-all-users-mfa\nhttps://learn.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime"
+      },
+      {
+        "date": "2023-01-28T06:22:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/95832-exam-az-140-topic-1-question-21-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to deploy two Azure file shares named Share1 and Share2 that will be used with Azure Virtual Desktop. Share1 will contain at least 100 GB of data and must be stored on SSDs. Share2 must be able to switch between Transaction optimized and Cool storage tiers and must be stored on HDDs.<br><br>You need to recommend which type of storage accounts to use for the shares. The solution must minimize costs.<br><br>What should you recommend for each share? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image167.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image168.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-30T06:18:00.000Z",
+        "voteCount": 11,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      },
+      {
+        "date": "2023-01-18T05:01:00.000Z",
+        "voteCount": 6,
+        "content": "Correct:\n\nhttps://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal"
+      },
+      {
+        "date": "2024-04-08T03:40:00.000Z",
+        "voteCount": 2,
+        "content": "Given answers are correct"
+      },
+      {
+        "date": "2023-12-30T14:04:00.000Z",
+        "voteCount": 1,
+        "content": "Share1: Premium file shares\nShare2: Standard general-purpose v2"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96453-exam-az-140-topic-1-question-22-discussion/",
+    "body": "DRAG DROP<br> -<br><br>Your on-premises network contains an Active Directory domain that syncs with an Azure AD tenant.<br><br>You have an Azure Virtual Desktop host pool that contains Windows 11 session hosts joined to the domain.<br><br>You need to configure Azure NetApp Files to store user profile containers.<br><br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br>NOTE: More than one order of answer choices is correct. You will receive credit for any of the correct orders you select.<br><br><img src=\"https://img.examtopics.com/az-140/image169.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image170.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-22T14:13:00.000Z",
+        "voteCount": 1,
+        "content": "The only thing that trips me up here is whether I could do On Prem active directory or Azure Active Directory. I think they want to use the one closest to the environment when I suppose we should assume is the Azure Active Directory?"
+      },
+      {
+        "date": "2023-12-30T14:06:00.000Z",
+        "voteCount": 2,
+        "content": "1. Create a new Azure NetApp Files Account\n2. Create a Capacity Pool\n3. Configure an Active Directory Connection to the Azure AD Tenant\n4. Create a New SMB Volume"
+      },
+      {
+        "date": "2024-03-14T15:49:00.000Z",
+        "voteCount": 2,
+        "content": "the best answer !\n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container"
+      },
+      {
+        "date": "2023-12-27T04:03:00.000Z",
+        "voteCount": 3,
+        "content": "1. Create a new Azure NetApp Files account\n2. Configure an Active Directory connection to the on-premises domain\n3. Create a capacity pool\n4. Create a new SMB volume\n\n2 and 3 can be switched in order, as long as both are done before creating a SMB volume.\nI would prefer to configure the Active Directory connection in the Azure NetApp Files account, before creating a capacity pool / anything else."
+      },
+      {
+        "date": "2023-09-27T10:22:00.000Z",
+        "voteCount": 2,
+        "content": "update to my previous comment. The AD connection should be on-prem AD and not azure AD, or entra as they call it now."
+      },
+      {
+        "date": "2023-09-27T09:53:00.000Z",
+        "voteCount": 1,
+        "content": "I agree that the provided answer is correct. The reason for the AD connection is to create a machine account in AD for the netapp filer. Like most of these storage appliances, the share and file permissions can be managed through server manager in the same way as a windows host would be managed. Only you would launch server manager on your local computer and the target the netapp.\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container"
+      },
+      {
+        "date": "2023-09-13T19:40:00.000Z",
+        "voteCount": 1,
+        "content": "provided answer correct\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container\n\nFor those talking about ADDS. I have never used it but on prem active directory and ADDS should be the same."
+      },
+      {
+        "date": "2023-09-17T03:23:00.000Z",
+        "voteCount": 1,
+        "content": "correction the AD connection should be to the on prem servers (or ADDS)"
+      },
+      {
+        "date": "2023-09-07T07:03:00.000Z",
+        "voteCount": 2,
+        "content": "1.Create a new Azure NetApp Files account.\n2.Create a capacity pool.\n3.Create a new NFS volume.\n4.Configure an Active Directory connection to the on-premises domain."
+      },
+      {
+        "date": "2024-01-15T14:55:00.000Z",
+        "voteCount": 1,
+        "content": "Windows doesn't use NFS.  You must use a SMB share. As stated in previous comments, you'll want to create the active directory connection prior to creating any shares."
+      },
+      {
+        "date": "2023-08-14T11:18:00.000Z",
+        "voteCount": 4,
+        "content": "I'm going to lean towards the 3rd step being \"configure an Active Directory connection to the on-premises domain. \n\nThe documentation steps you though providing all the info for the on-prem domain. \nDNS Server1 - Capable of resolving the domain Name\nDNS Server2 - For the On-Prem Domain\nADDS Domain Name - FQDN\nADDS Site Name (Limiting access to the DCs in that site)\nSMB Server Name Prefix\nOU\n\nNothing is mentioned about Azure AD. And Azure AD DS would be written as such in the answer if it were correct\n\nSo Configure AD Connection for On-Premises seems correct. \n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container"
+      },
+      {
+        "date": "2023-06-04T04:17:00.000Z",
+        "voteCount": 1,
+        "content": "The 3rd step should be the ADDS rather than the Azure AD tenant."
+      },
+      {
+        "date": "2023-01-22T00:50:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is probably OK, this is the link: https://learn.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container. Only, I'm not sure about the third step: configure AD connection to Azure AD tenant or to on-premises domain?"
+      },
+      {
+        "date": "2023-01-30T21:52:00.000Z",
+        "voteCount": 3,
+        "content": "actually I believe the 3rd should be the ADDS rather than Azure tenant.\nFrom the reading, it will be either ADDS for AADDS\nalso in the steps, it require the information for ADDS but nothing to do with tenant\nref:\nhttps://learn.microsoft.com/en-us/azure/azure-netapp-files/create-active-directory-connections#create-an-active-directory-connection"
+      },
+      {
+        "date": "2023-01-31T14:40:00.000Z",
+        "voteCount": 2,
+        "content": "Its ok, 3rd  Join an Active Directory connection"
+      },
+      {
+        "date": "2023-05-19T12:24:00.000Z",
+        "voteCount": 1,
+        "content": "You must follow guidelines described in Understand guidelines for Active Directory Domain Services site design and planning for Azure NetApp Files for Active Directory Domain Services (AD DS) or Azure Active Directory Domain Services (Azure AD DS) used with Azure NetApp Files."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/95833-exam-az-140-topic-1-question-23-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have an Azure Virtual Desktop deployment.<br><br>You plan to create the host pools shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image171.png\"><br><br>You need to recommend the virtual machine size for each host pool to meet the session host requirements.<br><br><img src=\"https://img.examtopics.com/az-140/image172.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image173.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-18T05:06:00.000Z",
+        "voteCount": 11,
+        "content": "Correct:\n\nF-series are VMs optimized to process, with a higher CPU-per-memory.\nE-series are optimized for heavy memory usage.\nN-series have GPU funcionalities."
+      },
+      {
+        "date": "2023-03-28T05:53:00.000Z",
+        "voteCount": 7,
+        "content": "https://azure.microsoft.com/en-us/pricing/details/virtual-machines/series/"
+      },
+      {
+        "date": "2023-12-30T14:08:00.000Z",
+        "voteCount": 1,
+        "content": "HostPool1: F-Series\nHostPool2: E-Series\nHostPool3: N-Series"
+      },
+      {
+        "date": "2023-09-07T09:55:00.000Z",
+        "voteCount": 5,
+        "content": "The answers are correct.\n\nDuring the exam, you can quickly find the answer by looking up the \"Sizes for virtual machines in Azure\" page, using the Open Book function.\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/sizes"
+      },
+      {
+        "date": "2023-01-31T16:11:00.000Z",
+        "voteCount": 3,
+        "content": "Correcto"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/117465-exam-az-140-topic-1-question-24-discussion/",
+    "body": "HOTSPOT<br> -<br><br><br>Case study<br> -<br><br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br><br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br><br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br><br>To start the case study<br> -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. If the case study has an All Information tab, note that the information displayed is identical to the information displayed on the subsequent tabs. When you are ready to answer a question, click the Question button to return to the question.<br><br><br>Overview<br> -<br><br>Litware, Inc. is a pharmaceutical company that has a main office in Boston, United States, and a remote office in Chennai, India.<br><br>Existing Environment. Identity Environment<br><br>The network contains an on-premises Active Directory domain named litware.com that syncs to an Azure Active Directory (Azure AD) tenant named litware.com.<br><br>The Azure AD tenant contains the users shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image232.png\"><br><br>All users are registered for Azure Multi-Factor Authentication (MFA).<br><br>Existing Environment. Cloud Services<br><br>Litware has a Microsoft 365 E5 subscription associated to the Azure AD tenant. All users are assigned Microsoft 365 Enterprise E5 licenses.<br><br>Litware has an Azure subscription associated to the Azure AD tenant. The subscription contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image233.png\"><br><br>Litware uses custom virtual machine images and custom scripts to automatically provision Azure virtual machines and join the virtual machines to the on-premises Active Directory domain.<br><br>Existing Environment. Network and DNS<br><br>The offices connect to each other by using a WAN link. Each office connects directly to the internet.<br><br>All DNS queries for internet hosts are resolved by using DNS servers in the Boston office, which point to root servers on the internet. The Chennai office has caching-only DNS servers that forward queries to the DNS servers in the Boston office.<br><br><br>Requirements. Planned Changes<br> -<br><br>Litware plans to implement the following changes:<br><br>\u2022\tDeploy Azure Virtual Desktop environments to the East US Azure region for the users in the Boston office and to the South India Azure region for the users in the Chennai office.<br>\u2022\tImplement FSLogix profile containers.<br>\u2022\tOptimize the custom virtual machine images for the Azure Virtual Desktop session hosts.<br>\u2022\tUse PowerShell to automate the addition of virtual machines to the Azure Virtual Desktop host pools.<br><br>Requirements. Performance Requirements<br><br>Litware identifies the following performance requirements:<br><br>\u2022\tMinimize network latency of the Azure Virtual Desktop connections from the Boston and Chennai offices.<br>\u2022\tMinimize latency of the Azure Virtual Desktop host authentication in each Azure region.<br>\u2022\tMinimize how long it takes to sign in to the Azure Virtual Desktop session hosts.<br><br>Requirements. Authentication Requirements<br><br>Litware identifies the following authentication requirements:<br><br>\u2022\tEnforce Azure MFA when accessing Azure Virtual Desktop apps.<br>\u2022\tForce users to reauthenticate if their Azure Virtual Desktop session lasts more than eight hours.<br><br>Requirements. Security Requirements<br><br>Litware identifies the following security requirements:<br><br>\u2022\tExplicitly allow traffic between the Azure Virtual Desktop session hosts and Microsoft 365.<br>\u2022\tExplicitly allow traffic between the Azure Virtual Desktop session hosts and the Azure Virtual Desktop infrastructure.<br>\u2022\tUse built-in groups for delegation.<br>\u2022\tDelegate the management of app groups to Admin2, including the ability to publish app groups to users and user groups.<br>\u2022\tGrant Admin1 permissions to manage workspaces, including listing which apps are assigned to the app groups.<br>\u2022\tMinimize administrative effort to manage network security.<br>\u2022\tUse the principle of least privilege.<br><br>Requirements. Deployment Requirements<br><br>Litware identifies the following deployment requirements:<br><br>\u2022\tUse PowerShell to generate the token used to add the virtual machines as session hosts to an Azure Virtual Desktop host pool.<br>\u2022\tMinimize how long it takes to provision the Azure Virtual Desktop session hosts based on the custom virtual machine images.<br>\u2022\tWhenever possible, preinstall agents and apps in the custom virtual machine images.<br><br><br>User Profile Requirements<br> -<br><br>Litware identifies the following user profile requirements:<br><br>\u2022\tIn storage1, store user profiles for the Boston office users.<br>\u2022\tEnsure that the user profiles for the Boston office users replicate synchronously between two Azure regions.<br>\u2022\tEnsure that Admin1 uses a local profile only when signing in to the Azure Virtual Desktop session hosts.<br><br><br>You need to configure a conditional access policy to meet the authentication requirements.<br><br>What should you include in the policy configuration? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image234.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image235.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-14T11:41:00.000Z",
+        "voteCount": 8,
+        "content": "The App name may differ in the question versions. Windows Virtual Desktop (Old app Name) or Azure Virtual Desktop (New App Name)\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa\n\nRequire reauth after 8 hours using Sign-in frequency\nhttps://learn.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime#policy-1-sign-in-frequency-control"
+      },
+      {
+        "date": "2024-08-08T22:21:00.000Z",
+        "voteCount": 2,
+        "content": "You really want to read the question before reviewing all the data first don't you.  So much of it is irrelevant to the question (in this case anyway)."
+      },
+      {
+        "date": "2023-08-06T02:28:00.000Z",
+        "voteCount": 4,
+        "content": "I think the provided answer is correct"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "1"
+  }
+]

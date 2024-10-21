@@ -1,0 +1,67 @@
+[
+  {
+    "topic": 18,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39180-exam-dp-201-topic-18-question-1-discussion/",
+    "body": "You need to recommend a backup strategy for CONT_SQL1 and CONT_SQL2.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse AzCopy and store the data in Azure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure SQL Database long-term retention for all databases.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Accelerated Database Recovery.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse DWLoader."
+    ],
+    "answer": "B",
+    "answerDescription": "Scenario: The database backups have regulatory purposes and must be retained for seven years.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-08T01:15:00.000Z",
+        "voteCount": 14,
+        "content": "Answer is 100% correct"
+      },
+      {
+        "date": "2020-12-21T16:01:00.000Z",
+        "voteCount": 1,
+        "content": "yes, thank you"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "18"
+  },
+  {
+    "topic": 18,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21368-exam-dp-201-topic-18-question-2-discussion/",
+    "body": "You need to design the disaster recovery solution for customer sales data analytics.<br>Which three actions should you recommend? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvision multiple Azure Databricks workspaces in separate Azure regions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMigrate users, notebooks, and cluster configurations from one workspace to another in the same region.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse zone redundant storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMigrate users, notebooks, and cluster configurations from one region to another.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Geo-redundant storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvision a second Azure Databricks workspace in the same region."
+    ],
+    "answer": "ADE",
+    "answerDescription": "Scenario: The analytics solution for customer sales data must be available during a regional outage.<br>To create your own regional disaster recovery topology for databricks, follow these requirements:<br>1. Provision multiple Azure Databricks workspaces in separate Azure regions<br>2. Use Geo-redundant storage.<br>3. Once the secondary region is created, you must migrate the users, user folders, notebooks, cluster configuration, jobs configuration, libraries, storage, init scripts, and reconfigure access control.<br>Note: Geo-redundant storage (GRS) is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year by replicating your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs<br>Design for high availability and disaster recovery",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-26T03:28:00.000Z",
+        "voteCount": 11,
+        "content": "https://docs.microsoft.com/de-de/azure/azure-databricks/howto-regional-disaster-recovery"
+      },
+      {
+        "date": "2020-12-08T01:24:00.000Z",
+        "voteCount": 11,
+        "content": "Translated from the link:\nDeploy multiple Azure Databricks workspaces in separate Azure regions\nUse geo-redundant storage . \nAfter creating the secondary region, you will need to migrate users, home folders, notebooks, cluster configuration, job configuration, libraries, storage, initialization scripts, and reconfigure access control"
+      },
+      {
+        "date": "2021-06-13T07:43:00.000Z",
+        "voteCount": 3,
+        "content": "CORRECT !"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "18"
+  }
+]

@@ -1,0 +1,146 @@
+[
+  {
+    "topic": 12,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9045-exam-az-300-topic-12-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to implement App2 to meet the application requirements. What should you include in the implementation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02758/0039000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0039100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://azure.microsoft.com/en-us/pricing/details/app-service/plans/ https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-30T03:48:00.000Z",
+        "voteCount": 34,
+        "content": "So the correct answer is ( Isolated &amp; Always ON )"
+      },
+      {
+        "date": "2020-04-14T15:29:00.000Z",
+        "voteCount": 15,
+        "content": "Isolated and Standard both support Always On feature but, in order to fulfil the requirement - \"The cost of App1 and App2 must be minimized\", the choice has to be Standard. Isolated app service tier is the most expensive!"
+      },
+      {
+        "date": "2020-06-04T10:40:00.000Z",
+        "voteCount": 9,
+        "content": "Why don't you read the technical documentation before you put random thoughts here?\nYou need to use NSG's to control both inbound and outbound traffic. With the App Service Standard plan you can use NSG for outbound traffic only. You need the isolated tier to control inbound traffic as well. MS quote: \"you can't use VNet Integration to provide inbound access to your app.\""
+      },
+      {
+        "date": "2020-06-05T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "The question states \"You need to implement App2 to meet the application requirements.\" App1 is not mentioned, and the NSG requirement applies only to App1. So it would seem that the published answer of Standard is correct."
+      },
+      {
+        "date": "2020-06-18T09:47:00.000Z",
+        "voteCount": 2,
+        "content": "Correction: key term - \"App2 will be deployed directly to an Azure virtual network.\" Reading the following doc, I'm changing my answer to Isolated.\nhttps://docs.microsoft.com/en-us/azure/app-service/networking-features"
+      },
+      {
+        "date": "2020-08-10T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "totally agree  with your comment."
+      },
+      {
+        "date": "2024-03-19T01:43:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is right"
+      },
+      {
+        "date": "2024-03-14T04:45:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is right"
+      },
+      {
+        "date": "2020-09-22T08:14:00.000Z",
+        "voteCount": 1,
+        "content": "if you want to Put App directly to Vnet then Only through Isolation App service plan is providing option for networking while you are creating webapp."
+      },
+      {
+        "date": "2020-09-02T22:14:00.000Z",
+        "voteCount": 1,
+        "content": "Requirement \"App2 must be able to connect directly to the private IP addresses of the Azure virtual machines. App2 will be deployed directly to an Azure virtual network.\"\n\nFrom MS - https://docs.microsoft.com/en-us/azure/app-service/environment/intro\nAn ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network.\nAn ASE can be either internet-facing with a public IP address or internal-facing with only an Azure internal load balancer (ILB) address.\n\nFrom MS \nThe Isolated plan allows customers to run their apps in a private, dedicated environment in an Azure data centre using Dv2-series VMs with faster processors, SSD storage and double the memory-to-core ratio compared to Standard.\n\nThere is no such requirement for dedicated ASE. \n\nBasic and standard has \"Always On\" feature which is required here. So correct answer is \"Standard\""
+      },
+      {
+        "date": "2020-08-19T06:58:00.000Z",
+        "voteCount": 1,
+        "content": "Answer: \n- Isolate\n- Always On\nExplanation:\nThe Tricky question here is: deployed directly to an Azure virtual network... The only way to do it is in an ASE, Ase needs an Isolate tier.\n* The cost of App1 and App2 must be minimized: The Plans Free, Shared and Basic haven\u2019t Virtual Network connectivity, so we only have Standard, Premium and Isolate that support it. Therefore Standard the cheaper, Premium and Isolated app service tier is the more expensive, But only Isolate is able to deploy in a VN.\n* Connection Private on a VM and deployed directly to an Azure virtual network: An ASE always exists in a virtual network, and more precisely, within a subnet of a virtual network. You can use the security features of virtual networks to control inbound and outbound network communications for your apps. So we\u2019ll need Isolate to use ASE.\nReferences:\nhttps://azure.microsoft.com/en-us/pricing/details/app-service/plans/\nhttps://docs.microsoft.com/en-us/azure/app-service/environment/intro#virtual-network-support"
+      },
+      {
+        "date": "2020-09-20T16:31:00.000Z",
+        "voteCount": 1,
+        "content": "This is not true. You can deploy a standard App Service to a vnet using vnet integration. I know this because I configured it for a client last week.\nhttps://docs.microsoft.com/en-us/azure/app-service/web-sites-integrate-with-vnet\nSee the section: \"The VNet Integration features\""
+      },
+      {
+        "date": "2020-08-16T01:06:00.000Z",
+        "voteCount": 2,
+        "content": "az func in a vnet &gt; app service plan (not consumption nor prenium)\noptimize cost  &gt; standard (not isolated)\nwarm up &gt; in a app serv plan must use always on"
+      },
+      {
+        "date": "2020-08-14T13:03:00.000Z",
+        "voteCount": 2,
+        "content": "app2 req:/considerations:\nApp2 must be able to connect directly to the private IP addresses of the Azure virtual machines. App2 will be deployed directly to an Azure virtual network.\nThe cost of App1 and App2 must be minimized.\nA newly developed API must be implemented as an Azure function named App2. App2 will use a blob storage trigger. App2 must process new blobs immediately.\n===&gt; \nApp service plan tier- standard ( answers all requirements: immediate processing--&gt; production, API support, lower cost, connection to vnet,..)\nenable feature--&gt; always on (needs to be on to be triggered??)"
+      },
+      {
+        "date": "2020-08-07T06:09:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is Incorrect.\n1 - Isolated \n(you need App Service Environment -within VNET/lock using NSGs- there can't be more hints)\n2 - Always On \n(App 2 is a function; functions deployed on App Service Plans need Always on)\n\nCost factors, as many have mentioned, should only come in when there are multiple correct answers, which does not apply here."
+      },
+      {
+        "date": "2020-07-27T00:01:00.000Z",
+        "voteCount": 10,
+        "content": "MS documentation does not leave much room for confusion: \"There are two primary deployment types for the Azure App Service. There is the multi-tenant public service, which hosts App Service plans in the Free, Shared, Basic, Standard, Premium, and Premiumv2 pricing SKUs. Then there is the single tenant App Service Environment(ASE), which hosts Isolated SKU App Service plans directly in your Azure Virtual Network (VNet)\".\n\nThus, ISOLATED = deployment directly on VNet, which is a requirement, which means that the answer given is INCORRECT! It does make sense because since, in the other plans, you'd be on a shared instance, you wouldn't be in position to decide on which VNet the app will be available. \n\nAutoswap is a feature that allows setting up staging environments for the deployments of App updates and Webjobs refer to background jobs to be run by the App. Therefore, unrelated to the requirements. What it is required is for the App to process the Blobs immediately and this cannot be met if the App is put to sleep (it takes some time to wake up). Always On it is then."
+      },
+      {
+        "date": "2020-08-16T07:14:00.000Z",
+        "voteCount": 1,
+        "content": "Regarding Isolated, just adding the link to the MS documentation https://docs.microsoft.com/en-au/azure/app-service/web-sites-integrate-with-vnet"
+      },
+      {
+        "date": "2020-07-14T14:11:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct. \nVNET integration is also available for Standard plans\n\nhttps://azure.microsoft.com/en-us/pricing/details/app-service/plans/"
+      },
+      {
+        "date": "2020-07-14T14:24:00.000Z",
+        "voteCount": 1,
+        "content": "Maybe Isolated sku is correct\n\nIsolated Service Plan\nThe Isolated service plan is designed to run mission critical workloads, that are required to run in a virtual network"
+      },
+      {
+        "date": "2020-07-14T15:13:00.000Z",
+        "voteCount": 3,
+        "content": "Since the question says \"deployed directly to an Azure virtual network\" and not integrate with VNET.\n\nThe answer should be\n\nIsolated\nAlways ON"
+      },
+      {
+        "date": "2020-06-22T21:22:00.000Z",
+        "voteCount": 1,
+        "content": "ASEv2 includes upgraded VMs that are used to host your apps. The workers for ASEv2 are built on the Dv2-series VMs and outperform the workers used in the multi-tenant app service. To distinguish between ASPs that are in an ASE and those in the multi-tenant service, a new pricing SKU was created. The name of this SKU is Isolated, as shown in&nbsp;Figure 4. When you pick an Isolated SKU it means you want the associated ASP to be created in an ASEv2.\n\nAnswer is Isolated .\nVNet integration is not the same as ASE, you need ASE to meet the requirements. \nhttps://docs.microsoft.com/en-us/archive/msdn-magazine/2017/april/azure-the-new-azure-app-service-environment"
+      },
+      {
+        "date": "2020-08-16T07:12:00.000Z",
+        "voteCount": 1,
+        "content": "I believe Isolated is the only option to fit the requirements for App2 as well. As you have pointed out, the requirement is to \"deployed directly to an Azure virtual network\". This means you cannot use a VNET integration environment since in this deployment option, the APP service sits outside the VNet. It simply uses an integration subnet inside a VNet to access other resources. \n\nOnly an Isolated ASE instance will provide direct deployment into a Virtual Network. \n\u201cThe VNet Integration feature is used in multitenant apps. If your app is in App Service Environment, then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet.\u201d\n\nRationale and referenced text above is documented here: \nhttps://docs.microsoft.com/en-au/azure/app-service/web-sites-integrate-with-vnet"
+      },
+      {
+        "date": "2020-06-20T16:39:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct.\nApplication Requirements -\nA newly developed API must be implemented as an Azure function named App2. App2 will use a blob storage trigger. App2 must process new blobs immediately.\nA - Always On\n\nApp2 must be able to connect directly to the private IP addresses of the Azure virtual machines. App2 will be deployed directly to an Azure virtual network.\nVnet Integration or App Service Environment aloows you to deploy your app directly into a VNET. Both are available on standard pricing tier\n\n\nhttps://docs.microsoft.com/en-us/azure/app-service/networking-features#app-service-environment\nhttps://azure.microsoft.com/en-us/pricing/details/app-service/plans/"
+      },
+      {
+        "date": "2020-06-19T21:45:00.000Z",
+        "voteCount": 2,
+        "content": "since they have already mentioned that there is an app service environment, so it wuld be isolated only..see the below text from the link :https://docs.microsoft.com/en-us/azure/app-service/environment/intro\n\n\nThe Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. This capability can host your:"
+      },
+      {
+        "date": "2020-06-07T05:12:00.000Z",
+        "voteCount": 3,
+        "content": "It would be isolated"
+      },
+      {
+        "date": "2020-06-06T16:05:00.000Z",
+        "voteCount": 2,
+        "content": "Isolated &amp; Always On"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "12"
+  }
+]

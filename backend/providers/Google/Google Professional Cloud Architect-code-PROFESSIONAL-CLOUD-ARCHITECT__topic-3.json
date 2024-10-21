@@ -1,0 +1,801 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/google/view/65937-exam-professional-cloud-architect-topic-3-question-1/",
+    "body": "For this question, refer to the Helicopter Racing League (HRL) case study. Your team is in charge of creating a payment card data vault for card numbers used to bill tens of thousands of viewers, merchandise consumers, and season ticket holders. You need to implement a custom card tokenization service that meets the following requirements:<br>*    It must provide low latency at minimal cost.<br>*    It must be able to identify duplicate credit cards and must not store plaintext card numbers.<br>*    It should support annual key rotation.<br>Which storage approach should you adopt for your tokenization service?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStore the card data in Secret Manager after running a query to identify duplicates.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEncrypt the card data with a deterministic algorithm stored in Firestore using Datastore mode.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEncrypt the card data with a deterministic algorithm and shard it across multiple Memorystore instances.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse column-level encryption to store the data in Cloud SQL."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 35,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-11-15T09:30:00.000Z",
+        "voteCount": 38,
+        "content": "Answer would be B\n\nhttps://cloud.google.com/community/tutorials/pci-tokenizer\n\nDeterministic output means that a given set of inputs (card number, expiration, and userID) will always generate the same token. This is useful if you want to rely on the token value to deduplicate your token stores. You can simply match a newly generated token to your existing catalog of tokens to determine whether the card has been previously stored. Depending on your application architecture, this can be a very useful feature. However, this could also be accomplished using a salted hash of the input values.\n\n\n\nhttps://cloud.google.com/architecture/tokenizing-sensitive-cardholder-data-for-pci-dss\nFirestore is the next major version of Datastore. Firestore can run in Datastore mode, which uses the same API as Datastore and scales to millions of writes per second,"
+      },
+      {
+        "date": "2022-01-19T09:34:00.000Z",
+        "voteCount": 19,
+        "content": "Got this question in my exam, answered B"
+      },
+      {
+        "date": "2024-01-18T02:33:00.000Z",
+        "voteCount": 2,
+        "content": "A's SecretManager and C's Memorystore are absolutely different because their purposes are different. D is different because it does not mention duplication. What remains is B."
+      },
+      {
+        "date": "2023-09-24T11:44:00.000Z",
+        "voteCount": 2,
+        "content": "Why isn't it C since Firestore doesn't meet the low latency requirement as someone said before? Bard thinks the answer is C for low latency and even cost because you're only paying for what you use. Thoughts?"
+      },
+      {
+        "date": "2023-06-28T18:31:00.000Z",
+        "voteCount": 4,
+        "content": "Between B (firestore in datastore mode)and D (Cloud SQL) B is better solution since firestore is preferred for low latency queries, also since firestore is in datastore mode (does not include real time capabilities supported in native mode - i.e mobile updates) it's cost effective."
+      },
+      {
+        "date": "2023-06-18T01:26:00.000Z",
+        "voteCount": 2,
+        "content": "Why not C ?"
+      },
+      {
+        "date": "2024-02-14T04:47:00.000Z",
+        "voteCount": 2,
+        "content": "if we choose C, the card number can be duplicated, since we are using multiple memorystore"
+      },
+      {
+        "date": "2023-06-17T04:56:00.000Z",
+        "voteCount": 2,
+        "content": "From what I can work out column level encryption needs to be implemented by the client in Cloud SQL.\n\nSo both B &amp; D are identical solutions except for the database type?\n\nCloud SQL seems to do a better job of the avoiding duplicates requirement &amp; seems a better fit. \n\nDon't see why B seems to be so popular, would have expect a bigger split on the vote.  Am I missing something"
+      },
+      {
+        "date": "2023-07-17T12:21:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, both answers would fit the bill but I think B just shades it due to low latency requirements."
+      },
+      {
+        "date": "2023-01-15T12:12:00.000Z",
+        "voteCount": 2,
+        "content": "B fits the case"
+      },
+      {
+        "date": "2022-12-16T07:11:00.000Z",
+        "voteCount": 2,
+        "content": "B Is the Correct Answer"
+      },
+      {
+        "date": "2022-11-12T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "B is ok"
+      },
+      {
+        "date": "2022-10-20T09:33:00.000Z",
+        "voteCount": 4,
+        "content": "B as its clear in the example by google https://cloud.google.com/architecture/tokenizing-sensitive-cardholder-data-for-pci-dss"
+      },
+      {
+        "date": "2022-09-03T03:48:00.000Z",
+        "voteCount": 4,
+        "content": "B, but should be reworded as follows for clarify.\n\n\"B. Encrypt the card data with a deterministic algorithm and store in Firestore using Datastore mode.\"\n\nhttps://cloud.google.com/architecture/tokenizing-sensitive-cardholder-data-for-pci-dss#a_service_for_handling_sensitive_information"
+      },
+      {
+        "date": "2022-07-04T20:57:00.000Z",
+        "voteCount": 1,
+        "content": "I would go with B."
+      },
+      {
+        "date": "2022-05-29T03:51:00.000Z",
+        "voteCount": 2,
+        "content": "Hmmm. What is about the very first point low latency? Firefstore is not the one with best latency values...\n\nhttps://cloud.google.com/architecture/building-scalable-apps-with-cloud-firestore#latency"
+      },
+      {
+        "date": "2022-05-07T01:25:00.000Z",
+        "voteCount": 1,
+        "content": "ans is D"
+      },
+      {
+        "date": "2022-04-25T04:16:00.000Z",
+        "voteCount": 5,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-04-05T03:10:00.000Z",
+        "voteCount": 2,
+        "content": "Considering low latency and minimal cost, will go with D."
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/google/view/68709-exam-professional-cloud-architect-topic-3-question-2/",
+    "body": "For this question, refer to the Helicopter Racing League (HRL) case study. Recently HRL started a new regional racing league in Cape Town, South Africa. In an effort to give customers in Cape Town a better user experience, HRL has partnered with the Content Delivery Network provider, Fastly. HRL needs to allow traffic coming from all of the Fastly IP address ranges into their Virtual Private Cloud network (VPC network). You are a member of the HRL security team and you need to configure the update that will allow only the Fastly IP address ranges through the External HTTP(S) load balancer. Which command should you use?<br>A.<br><img src=\"/assets/media/exam-media/04339/0006100001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/04339/0006100002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/04339/0006100003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/04339/0006100004.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://cloud.google.com/load-balancing/docs/https",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-19T09:34:00.000Z",
+        "voteCount": 42,
+        "content": "Got this question in my exam, answered D"
+      },
+      {
+        "date": "2022-04-07T02:25:00.000Z",
+        "voteCount": 29,
+        "content": "Is D:\nIn the GCP doc can see the same example\nhttps://cloud.google.com/armor/docs/configure-security-policies#gcloud_11\n\"gcloud compute security-policies rules create 1000 \\\n    --security-policy my-policy \\\n    --expression \"evaluatePreconfiguredExpr('sourceiplist-fastly')\" \\\n    --action \"allow\"\n\""
+      },
+      {
+        "date": "2023-12-01T09:15:00.000Z",
+        "voteCount": 1,
+        "content": "I can not see the same example in that document and I saw \"evaluatePreconfiguredExpr\" is for preconfigure WAF rules https://cloud.google.com/armor/docs/rule-tuning"
+      },
+      {
+        "date": "2024-10-16T11:10:00.000Z",
+        "voteCount": 1,
+        "content": "It's D"
+      },
+      {
+        "date": "2024-09-25T00:05:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is D. The syntax for command must include --Security-policy, --expression or --src-in-ranges ( for option A IP range is wild card) hence correct answer is D."
+      },
+      {
+        "date": "2024-09-24T23:45:00.000Z",
+        "voteCount": 1,
+        "content": "The most appropriate command for allowing traffic from all Fastly IP address ranges into the HRL Virtual Private Cloud (VPC) network through the External HTTP(S) load balancer would be:\n\nA. Create Cloud Armor Security Policy with the source IP ranges.\nExplanation:\nCloud Armor is the tool designed specifically for protecting HTTP(S) load balancers and controlling access based on IP address ranges. It allows you to create security policies to allow or deny traffic from specific IP ranges, which is what you need to do for Fastly IPs.\nThis approach is specifically designed for managing traffic to HTTP(S) load balancers, providing an additional layer of security that fits this scenario perfectly."
+      },
+      {
+        "date": "2024-09-24T23:45:00.000Z",
+        "voteCount": 1,
+        "content": "Why Not the Other Options?\nB. Create Cloud Armor Security Policy with the source IP list: Cloud Armor requires IP ranges, not a simple list of IPs.\n\nC. Create firewall rule to allow source IP list: Firewall rules operate at the VPC network level, and while they control network access, they are not specifically tied to HTTP(S) load balancers and would not efficiently apply to this context.\n\nD. Create firewall rule to allow source IP range: Firewall rules can allow traffic from IP ranges, but again, they are applied at the VPC level. For HTTP(S) load balancer traffic, Cloud Armor is the correct tool to manage IP range access control."
+      },
+      {
+        "date": "2024-04-28T12:02:00.000Z",
+        "voteCount": 3,
+        "content": "(D), or \"Create Cloud Armor Security Policy with the source ip list\" (considering @hashi's comment) looks correct.\nhttps://codelabs.developers.google.com/codelabs/cloud-cloudarmor#0"
+      },
+      {
+        "date": "2024-04-21T23:38:00.000Z",
+        "voteCount": 1,
+        "content": "Totally agree with D"
+      },
+      {
+        "date": "2024-03-19T19:11:00.000Z",
+        "voteCount": 12,
+        "content": "I got this question in March 2024.  \nAs someone pointed out answers are reworked. \nInstead of asking for the command, the choices were given in wordings - something like the below. (Not the exact words)\nA. Create Cloud Armor Security Policy with the source ip ranges.\nB. Create Cloud Armor Security Policy with the source ip list\nC. Create firewall rule to allow source ip list\nD. Create firewall rule to allow source ip range\n\nBased on the answers for this question I went with \"Create Cloud Armor Security Policy with the source ip list\""
+      },
+      {
+        "date": "2024-06-23T05:40:00.000Z",
+        "voteCount": 1,
+        "content": "what's the difference between options A &amp; B, i.e. source IP \"ranges\" and \"list\" ? what's the reason for choosing one over another ? I've been through the documentation and these terms are used intermittently."
+      },
+      {
+        "date": "2024-06-29T00:52:00.000Z",
+        "voteCount": 1,
+        "content": "If the question really makes a distinction between ranges and lists as specified above, I'm quite disappointed with Google. It looks like they're more interested in throwing the examinee off-balance by confusing them with useless jargon rather than evaluating the actual skills."
+      },
+      {
+        "date": "2024-06-10T09:49:00.000Z",
+        "voteCount": 2,
+        "content": "Thank you for the info, but for me, in your question, I would choose D. Firewall rule. Firewalls are designed to efficiently manage network traffic. Allowing IP ranges simplifies administration and enhances performance by handling access from multiple IP addresses effectively."
+      },
+      {
+        "date": "2024-02-21T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "D is right"
+      },
+      {
+        "date": "2024-02-02T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "should be D"
+      },
+      {
+        "date": "2024-01-29T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "D is the solution"
+      },
+      {
+        "date": "2024-01-20T03:54:00.000Z",
+        "voteCount": 1,
+        "content": "D d d d"
+      },
+      {
+        "date": "2024-01-09T20:54:00.000Z",
+        "voteCount": 1,
+        "content": "D is the ans"
+      },
+      {
+        "date": "2023-12-11T17:55:00.000Z",
+        "voteCount": 1,
+        "content": "I guess D"
+      },
+      {
+        "date": "2023-11-19T05:06:00.000Z",
+        "voteCount": 2,
+        "content": "D -&gt; https://cloud.google.com/armor/docs/configure-security-policies#create-rules"
+      },
+      {
+        "date": "2023-09-22T02:25:00.000Z",
+        "voteCount": 2,
+        "content": "D for sure"
+      },
+      {
+        "date": "2023-06-17T07:58:00.000Z",
+        "voteCount": 2,
+        "content": "A. Looks like it opens to all IPs\n\nB. Incorrect syntax \"ACTION must be one of: allow, deny, goto_next.\"\n\nC. Incorrect syntax \"ACTION must be one of: allow, deny, goto_next.\"\n\nD.  Assuming the preconfigured expression is good then its right."
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/google/view/56890-exam-professional-cloud-architect-topic-3-question-3/",
+    "body": "For this question, refer to the Helicopter Racing League (HRL) case study. The HRL development team releases a new version of their predictive capability application every Tuesday evening at 3 a.m. UTC to a repository. The security team at HRL has developed an in-house penetration test Cloud Function called<br>Airwolf. The security team wants to run Airwolf against the predictive capability application as soon as it is released every Tuesday. You need to set up Airwolf to run at the recurring weekly cadence. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up Cloud Tasks and a Cloud Storage bucket that triggers a Cloud Function.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up a Cloud Logging sink and a Cloud Storage bucket that triggers a Cloud Function.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the deployment job to notify a Pub/Sub queue that triggers a Cloud Function.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up Identity and Access Management (IAM) and Confidential Computing to trigger a Cloud Function."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 34,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": false
+      },
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-05T19:18:00.000Z",
+        "voteCount": 58,
+        "content": "Answer C seems to be ok. Triggering Pub/Sub to invoke Cloud Functions seems to be relevant. Cloud Storage doesn't make any sense. It would have been straight forward if Cloud Scheduler is mentioned in Option C instead of Deployment Job. But if you make a bit of research on deployment jobs, it's pointing me to cron jobs which is making perfect sense.\nhttps://cloud.google.com/appengine/docs/flexible/nodejs/scheduling-jobs-with-cron-yaml\nhttps://cloud.google.com/scheduler/docs/tut-pub-sub"
+      },
+      {
+        "date": "2021-10-24T09:12:00.000Z",
+        "voteCount": 5,
+        "content": "But the question requires a scheduled execution, not one triggered by the deployment job. Shouldn\u2019t A be the correct answer?"
+      },
+      {
+        "date": "2024-05-01T01:20:00.000Z",
+        "voteCount": 2,
+        "content": "Teh question requires recurring not scheduled execution"
+      },
+      {
+        "date": "2021-12-02T06:13:00.000Z",
+        "voteCount": 3,
+        "content": "I think no because question mentions \"as soon as it is released every Tuesday.\""
+      },
+      {
+        "date": "2022-06-17T06:51:00.000Z",
+        "voteCount": 6,
+        "content": "Cannot understand why push CICD event to pub/sub... which is only one event, why need pub/sub"
+      },
+      {
+        "date": "2021-07-08T04:34:00.000Z",
+        "voteCount": 18,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2023-04-18T09:31:00.000Z",
+        "voteCount": 3,
+        "content": "Please elaborate."
+      },
+      {
+        "date": "2024-04-12T01:51:00.000Z",
+        "voteCount": 1,
+        "content": "Totally agree with C"
+      },
+      {
+        "date": "2023-12-07T13:31:00.000Z",
+        "voteCount": 7,
+        "content": "Passed the GCP test today, answer is C\nThe key is to use google's native tools"
+      },
+      {
+        "date": "2023-12-03T09:44:00.000Z",
+        "voteCount": 1,
+        "content": "How is A even an option? What do you use cloud storage for? A good architecture is event driven, as it would be more resilient to failures, change in time, error and it is easier to debung, log and scale. That is what Pub/Sub is for."
+      },
+      {
+        "date": "2023-11-27T22:02:00.000Z",
+        "voteCount": 1,
+        "content": "A is simple and clean compared to the other options provided."
+      },
+      {
+        "date": "2023-12-11T17:31:00.000Z",
+        "voteCount": 2,
+        "content": "Where does a Cloud Storage bucket come into play here? Nothing in the question implies anything about storage. If they needed a place to store the results of the Airwolf job, then sure. But that isn't mentioned anywhere."
+      },
+      {
+        "date": "2023-10-22T04:37:00.000Z",
+        "voteCount": 2,
+        "content": "Answer C seems to be right.  There are 2 requirements here, \n1. Run every time it is released on Tuesday\n2. Set Airwolf to run weekly\nSince  a new version of the predictive capability application is released every tuesday evening at 3.00 am, the deployment job would run every time its released which is every week recurring.  So both the requirements above are satisfied"
+      },
+      {
+        "date": "2023-06-28T18:44:00.000Z",
+        "voteCount": 3,
+        "content": "Should be C. Cannot be A, to schedule cloud task you need to know when the deployment is complete, deployments usually are unpredictable and do not meet scheduled time. With option C, CICD pipeline which deploys the code and publish a message to pub/sub to trigger cloud function - better solution to trigger via http endpoint if that is an option. pub/sub is till okay."
+      },
+      {
+        "date": "2023-03-15T02:00:00.000Z",
+        "voteCount": 2,
+        "content": "To run Airwolf against the predictive capability application as soon as it is released every Tuesday, you should configure the deployment job to notify a Pub/Sub queue that triggers a Cloud Function."
+      },
+      {
+        "date": "2023-02-02T20:34:00.000Z",
+        "voteCount": 1,
+        "content": "Cloud task is supports scheduling"
+      },
+      {
+        "date": "2023-01-15T12:26:00.000Z",
+        "voteCount": 1,
+        "content": "c fits scenario"
+      },
+      {
+        "date": "2022-12-28T23:51:00.000Z",
+        "voteCount": 2,
+        "content": "Answer A seems correct since cloud tasks support scheduled delivery but pub/sub doesn't\nsee https://cloud.google.com/pubsub/docs/choosing-pubsub-or-cloud-tasks"
+      },
+      {
+        "date": "2023-06-19T07:58:00.000Z",
+        "voteCount": 1,
+        "content": "https://cloud.google.com/tasks/docs/comp-tasks-sched\nit seems to be scheduling of task ahead of time, not scheduling at fixed time interval."
+      },
+      {
+        "date": "2022-12-28T00:33:00.000Z",
+        "voteCount": 4,
+        "content": "To set up Airwolf to run at a recurring weekly cadence, the correct option would be C: Configure the deployment job to notify a Pub/Sub queue that triggers a Cloud Function.\n\nTo set up Airwolf to run at the desired weekly cadence, you can configure the deployment job to send a notification to a Pub/Sub queue when a new version of the predictive capability application is released. Then, you can set up a Cloud Function that is triggered by messages in the Pub/Sub queue and runs the Airwolf penetration test. This way, the Cloud Function will be triggered every time a new message is published to the queue, which will occur every Tuesday evening at 3 a.m. UTC when a new version of the application is released."
+      },
+      {
+        "date": "2022-12-28T00:34:00.000Z",
+        "voteCount": 3,
+        "content": "Option A, Set up Cloud Tasks and a Cloud Storage bucket that triggers a Cloud Function, would not be the correct solution because Cloud Tasks is a service for creating and managing asynchronous tasks that are executed later, but it does not support recurring schedules.\n\nOption B, Set up a Cloud Logging sink and a Cloud Storage bucket that triggers a Cloud Function, would not be the correct solution because Cloud Logging is a service for collecting, viewing, and analyzing logs, but it does not support triggering Cloud Functions on a recurring basis.\n\nOption D, Set up Identity and Access Management (IAM) and Confidential Computing to trigger a Cloud Function, would not be the correct solution because IAM is a service for managing access to Google Cloud resources and Confidential Computing is a service for running sensitive workloads in hardware-isolated environments, but neither of these services can be used to trigger Cloud Functions on a recurring basis."
+      },
+      {
+        "date": "2023-01-03T19:37:00.000Z",
+        "voteCount": 1,
+        "content": "This conflicts with your earlier statements?  Is this statement intended as a correction?"
+      },
+      {
+        "date": "2023-04-18T09:36:00.000Z",
+        "voteCount": 1,
+        "content": "how I see it, the first post is the correct answer explanation, the second post is why the other 3 answers are wrong."
+      },
+      {
+        "date": "2022-12-26T12:24:00.000Z",
+        "voteCount": 2,
+        "content": "answer A does not make sense why put a cloud task and check a storage (which is never updated) for cloud function? If the release has some late the task run for nothing.\nPub sub + cloud function is best practice"
+      },
+      {
+        "date": "2023-03-01T07:11:00.000Z",
+        "voteCount": 2,
+        "content": "That's what I taught too. \"Why do I need Cloud Storage?\""
+      },
+      {
+        "date": "2022-12-26T08:55:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is A: Set up Cloud Tasks and a Cloud Storage bucket that triggers a Cloud Function.\n\nTo set up Airwolf to run at a recurring weekly cadence, you should set up Cloud Tasks and a Cloud Storage bucket that triggers a Cloud Function.\n\nCloud Tasks is a fully managed service that allows you to schedule and execute background jobs in a scalable and reliable way. You can use Cloud Tasks to create a recurring task that runs at a specified interval (e.g., every week). When the task is triggered, it can send a message to a Cloud Storage bucket, which can then trigger a Cloud Function to run the Airwolf penetration test.\n\nOption B: Setting up a Cloud Logging sink and a Cloud Storage bucket would not allow you to schedule the task to run at a recurring weekly cadence.\n\nOption C: Configuring the deployment job to notify a Pub/Sub queue would not allow you to schedule the task to run at a recurring weekly cadence.\n\nOption D: Setting up Identity and Access Management (IAM) and Confidential Computing would not allow you to schedule the task to run at a recurring weekly cadence."
+      },
+      {
+        "date": "2022-12-16T07:43:00.000Z",
+        "voteCount": 1,
+        "content": "C Is the Correct Answer"
+      },
+      {
+        "date": "2022-11-27T07:50:00.000Z",
+        "voteCount": 2,
+        "content": "I vote on A\ncloud task can trigger CF ... with limit to 30 days - here it is weekly - so far so good\nhowever not sure why it would need any cloud storage .. potentially to store results of dony by CF\n\nanswer C - has no schedule option \n\nexample:\nhttps://cloud.google.com/tasks/docs/tutorial-gcf"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/google/view/56322-exam-professional-cloud-architect-topic-3-question-4/",
+    "body": "For this question, refer to the Helicopter Racing League (HRL) case study. HRL wants better prediction accuracy from their ML prediction models. They want you to use Google's AI Platform so HRL can understand and interpret the predictions. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Explainable AI.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Vision AI.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Google Cloud's operations suite.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Jupyter Notebooks."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 24,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-05T19:34:00.000Z",
+        "voteCount": 29,
+        "content": "Answer A \nAI Explanations helps you understand your model's outputs for classification and regression tasks. Whenever you request a prediction on AI Platform, AI Explanations tells you how much each feature in the data contributed to the predicted result. You can then use this information to verify that the model is behaving as expected, recognize bias in your models, and get ideas for ways to improve your model and your training data.\nhttps://cloud.google.com/ai-platform/prediction/docs/ai-explanations/overview"
+      },
+      {
+        "date": "2022-01-19T09:35:00.000Z",
+        "voteCount": 11,
+        "content": "Got this question in my exam, answered A"
+      },
+      {
+        "date": "2024-06-10T12:09:00.000Z",
+        "voteCount": 2,
+        "content": "Answer A,\nBUT: \"This legacy version of AI Platform Prediction is deprecated and will no longer be available on Google Cloud after January 31, 2025. All models, associated metadata, and deployments will be deleted after January 31, 2025. Migrate your resources to Vertex AI to get new machine learning features that are unavailable in AI Platform.\""
+      },
+      {
+        "date": "2024-03-18T14:15:00.000Z",
+        "voteCount": 4,
+        "content": "Option A - Now its Vertex AI"
+      },
+      {
+        "date": "2023-10-21T04:59:00.000Z",
+        "voteCount": 7,
+        "content": "It's now Vertex AI"
+      },
+      {
+        "date": "2023-09-13T23:48:00.000Z",
+        "voteCount": 3,
+        "content": "Answer A is almost correct ;). Not it should be Vertex AI."
+      },
+      {
+        "date": "2022-12-26T09:01:00.000Z",
+        "voteCount": 4,
+        "content": "The correct answer is A: Use Explainable AI.\n\nTo understand and interpret the predictions made by HRL's ML prediction models, you should use Explainable AI. Explainable AI, also known as XAI, is a suite of tools and techniques that helps you understand and interpret the predictions made by machine learning models. With Explainable AI, you can get insights into how the model made a particular prediction, which can help you understand the underlying factors that influenced the prediction. This can help HRL improve the accuracy of their predictions and make more informed decisions based on the output of their models.\n\nOption B: Vision AI is a suite of tools and services that helps you build and deploy computer vision applications. It is not relevant to understanding and interpreting the predictions made by HRL's ML prediction models."
+      },
+      {
+        "date": "2022-12-26T09:01:00.000Z",
+        "voteCount": 1,
+        "content": "Option C: Google Cloud's operations suite is a set of tools and services that helps you monitor, troubleshoot, and optimize your Google Cloud resources. It is not relevant to understanding and interpreting the predictions made by HRL's ML prediction models.\n\nOption D: Jupyter Notebooks is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations, and narrative text. It is not relevant to understanding and interpreting the predictions made by HRL's ML prediction models."
+      },
+      {
+        "date": "2022-11-12T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "A is ok"
+      },
+      {
+        "date": "2022-09-11T09:35:00.000Z",
+        "voteCount": 3,
+        "content": "Explainable AI now included with Vertex AI\nhttps://cloud.google.com/explainable-ai"
+      },
+      {
+        "date": "2022-07-04T21:14:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A. \n\nhttps://cloud.google.com/explainable-ai"
+      },
+      {
+        "date": "2022-07-04T21:15:00.000Z",
+        "voteCount": 1,
+        "content": "https://cloud.google.com/aiplatform/prediction/docs/ai-explanations/overview"
+      },
+      {
+        "date": "2022-04-25T04:20:00.000Z",
+        "voteCount": 2,
+        "content": "Had this quection on my exam."
+      },
+      {
+        "date": "2021-12-28T18:28:00.000Z",
+        "voteCount": 1,
+        "content": "A is Correct"
+      },
+      {
+        "date": "2021-12-20T21:23:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      },
+      {
+        "date": "2021-11-26T19:34:00.000Z",
+        "voteCount": 4,
+        "content": "vote A"
+      },
+      {
+        "date": "2021-07-18T06:40:00.000Z",
+        "voteCount": 1,
+        "content": "hey guys new Qs posted as of July 12th, 2021, All 21 new Qs in Question #152"
+      },
+      {
+        "date": "2021-07-17T02:51:00.000Z",
+        "voteCount": 2,
+        "content": "A. Use Explainable AI."
+      },
+      {
+        "date": "2021-07-08T04:35:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is A"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/google/view/56326-exam-professional-cloud-architect-topic-3-question-5/",
+    "body": "For this question, refer to the Helicopter Racing League (HRL) case study. HRL is looking for a cost-effective approach for storing their race data such as telemetry. They want to keep all historical records, train models using only the previous season's data, and plan for data growth in terms of volume and information collected. You need to propose a data solution. Considering HRL business requirements and the goals expressed by CEO S. Hawke, what should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Firestore for its scalable and flexible document-based database. Use collections to aggregate race data by season and event.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Cloud Spanner for its scalability and ability to version schemas with zero downtime. Split race data using season as a primary key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse BigQuery for its scalability and ability to add columns to a schema. Partition race data based on season.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Cloud SQL for its ability to automatically manage storage increases and compatibility with MySQL. Use separate database instances for each season."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 17,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-08T04:38:00.000Z",
+        "voteCount": 17,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2022-01-19T09:30:00.000Z",
+        "voteCount": 3,
+        "content": "These questions are sounding too simple, are these really coming in exam or these are mocked up?"
+      },
+      {
+        "date": "2022-11-21T04:26:00.000Z",
+        "voteCount": 6,
+        "content": "In exam actually :)"
+      },
+      {
+        "date": "2021-07-17T02:50:00.000Z",
+        "voteCount": 6,
+        "content": "C. Use BigQuery for its scalability and ability to add columns to a schema. Partition race data based on season."
+      },
+      {
+        "date": "2024-05-01T01:29:00.000Z",
+        "voteCount": 1,
+        "content": "Vote for C"
+      },
+      {
+        "date": "2023-10-05T23:28:00.000Z",
+        "voteCount": 1,
+        "content": "How can it be C because BigQuery only support timestamp based partitions?"
+      },
+      {
+        "date": "2023-12-24T05:55:00.000Z",
+        "voteCount": 2,
+        "content": "Exactly. That means it will use timestamp of season for partition"
+      },
+      {
+        "date": "2023-09-13T23:56:00.000Z",
+        "voteCount": 4,
+        "content": "C looks good.  Remember Telemetry would be stored and used for predictions later\nA. would be good if it would be stored only, as documents. \nB. Spanner is over kill. It is too expensive and we have no need to serve this data outside\nD. Cloud SQL is too simple solution and use multiple db's is only complicating architecture."
+      },
+      {
+        "date": "2023-01-19T18:22:00.000Z",
+        "voteCount": 5,
+        "content": "C is the correct Answer,\nWe can use BigQuery for making Predictions with live and trained data with Cloud ML Engine, and BigQuery can handle large amounts of data.\n\nRefer to the Link for more details on Game Predictions,\n\nhttps://cloud.google.com/blog/products/gcp/architecting-live-ncaa-predictions-from-archives-to-insights"
+      },
+      {
+        "date": "2022-12-26T09:02:00.000Z",
+        "voteCount": 3,
+        "content": "For HRL's data storage needs, it is recommended to use BigQuery due to its scalability and ability to handle large amounts of data. By partitioning the race data based on season, HRL can easily access and query specific seasons' data while also taking into consideration future data growth. BigQuery also allows for the flexibility to add new columns to the schema as needed, making it easier to adapt to changes in the data being collected. Additionally, BigQuery's pay-per-use pricing model allows HRL to only pay for the data storage and querying they use, making it a cost-effective solution."
+      },
+      {
+        "date": "2022-12-17T01:13:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2022-12-16T22:29:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2022-11-12T02:51:00.000Z",
+        "voteCount": 1,
+        "content": "C is ok"
+      },
+      {
+        "date": "2022-09-07T07:04:00.000Z",
+        "voteCount": 1,
+        "content": "C it is"
+      },
+      {
+        "date": "2022-07-21T04:03:00.000Z",
+        "voteCount": 1,
+        "content": "c C C c"
+      },
+      {
+        "date": "2022-07-04T21:18:00.000Z",
+        "voteCount": 1,
+        "content": "C most obvious when data is growing day by day."
+      },
+      {
+        "date": "2022-04-25T04:21:00.000Z",
+        "voteCount": 2,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-03-25T05:02:00.000Z",
+        "voteCount": 3,
+        "content": "Telemetry data in a relational table..what?? Why they gave firestore then"
+      },
+      {
+        "date": "2022-01-19T09:35:00.000Z",
+        "voteCount": 3,
+        "content": "Got this question in my exam, answered C"
+      },
+      {
+        "date": "2021-12-28T08:15:00.000Z",
+        "voteCount": 4,
+        "content": "to me it's C -&gt; https://cloud.google.com/architecture/mobile-gaming-analysis-telemetry"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/google/view/56328-exam-professional-cloud-architect-topic-3-question-6/",
+    "body": "For this question, refer to the Helicopter Racing League (HRL) case study. A recent finance audit of cloud infrastructure noted an exceptionally high number of<br>Compute Engine instances are allocated to do video encoding and transcoding. You suspect that these Virtual Machines are zombie machines that were not deleted after their workloads completed. You need to quickly get a list of which VM instances are idle. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLog into each Compute Engine instance and collect disk, CPU, memory, and network usage statistics for analysis.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the gcloud compute instances list to list the virtual machine instances that have the idle: true label set.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the gcloud recommender command to list the idle virtual machine instances.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Google Console, identify which Compute Engine instances in the managed instance groups are no longer responding to health check probes."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 28,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-08T04:43:00.000Z",
+        "voteCount": 21,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2022-09-10T01:51:00.000Z",
+        "voteCount": 9,
+        "content": "I too got this question in 10-09-22 exam with similar option and result is pass"
+      },
+      {
+        "date": "2021-07-01T02:02:00.000Z",
+        "voteCount": 19,
+        "content": "C is the Correct answer \nC. Use the gcloud recommender command to list the idle virtual machine instances.\nhttps://cloud.google.com/compute/docs/instances/viewing-and-applying-idle-vm-recommendations"
+      },
+      {
+        "date": "2024-05-01T01:34:00.000Z",
+        "voteCount": 2,
+        "content": "C i scorrect"
+      },
+      {
+        "date": "2023-01-15T12:35:00.000Z",
+        "voteCount": 3,
+        "content": "answer C\ncheck here : \nhttps://cloud.google.com/compute/docs/instances/viewing-and-applying-idle-vm-recommendations#viewing_idle_vm_instance_recommendations"
+      },
+      {
+        "date": "2022-12-17T01:14:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2022-11-12T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "C is ok"
+      },
+      {
+        "date": "2022-09-13T08:02:00.000Z",
+        "voteCount": 1,
+        "content": "C is the answer which is to use recommender.\nhttps://www.youtube.com/watch?v=VBsLG4jCHJk"
+      },
+      {
+        "date": "2022-08-01T09:48:00.000Z",
+        "voteCount": 1,
+        "content": "Some one who can explain me why A is an answer? is it deliberate?"
+      },
+      {
+        "date": "2022-08-04T05:25:00.000Z",
+        "voteCount": 8,
+        "content": "Don't pay too much attention to the \"correct answer\", the \"most voted\" is much more reliable."
+      },
+      {
+        "date": "2023-07-12T23:55:00.000Z",
+        "voteCount": 1,
+        "content": "because the questions says \"quickly\""
+      },
+      {
+        "date": "2022-07-20T06:27:00.000Z",
+        "voteCount": 2,
+        "content": "C looks decent as identification has to be done quickly. Manually checking each machines will take lot of time. Moreover--- even option A says \"CPUs\"  and not GPUs \n\"Log into each Compute Engine instance and collect disk, CPU, memory, and network usage statistics for analysis.\""
+      },
+      {
+        "date": "2022-07-04T21:21:00.000Z",
+        "voteCount": 2,
+        "content": "C is right"
+      },
+      {
+        "date": "2022-06-14T06:01:00.000Z",
+        "voteCount": 3,
+        "content": "All the quesrions had come from this site , especially couple of case studies and answer is C"
+      },
+      {
+        "date": "2022-04-25T04:22:00.000Z",
+        "voteCount": 5,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-01-19T09:35:00.000Z",
+        "voteCount": 4,
+        "content": "Got this question in my exam, answered C"
+      },
+      {
+        "date": "2022-01-23T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "Did all the questions in the exam come from this site?"
+      },
+      {
+        "date": "2021-12-28T08:13:00.000Z",
+        "voteCount": 2,
+        "content": "to me should be C -&gt; https://cloud.google.com/compute/docs/instances/viewing-and-applying-idle-vm-recommendations#before-you-begin"
+      },
+      {
+        "date": "2021-12-20T23:53:00.000Z",
+        "voteCount": 2,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2021-12-16T13:55:00.000Z",
+        "voteCount": 2,
+        "content": "https://cloud.google.com/compute/docs/instances/viewing-and-applying-idle-vm-recommendations"
+      },
+      {
+        "date": "2021-12-15T11:14:00.000Z",
+        "voteCount": 2,
+        "content": "https://cloud.google.com/compute/docs/instances/viewing-and-applying-idle-vm-recommendations"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "3"
+  }
+]

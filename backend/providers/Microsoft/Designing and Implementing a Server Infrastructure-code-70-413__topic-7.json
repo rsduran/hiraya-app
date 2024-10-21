@@ -1,0 +1,114 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33273-exam-70-413-topic-7-question-2-discussion/",
+    "body": "You need to plan the expansion of the Los Angeles office.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a read-only domain controller in Los Angeles.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a domain controller in Los Angeles.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate and apply a filtered attribute set to the Los Angeles site.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate and apply a Group Policy object to the Los Angeles site."
+    ],
+    "answer": "B",
+    "answerDescription": "\u2711 All authentication requests must first be attempted in the same location as the client device that is being authenticated<br>\u2711 Any server placed in the Los Angeles office must not contain cached passwords",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-12T10:36:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is B and not A. \n\n-Any server placed in the Los Angeles office must not contain cached passwords \n\nThe Domain controller does not make use of caching but does use a copy of AD DS database (including account credentials for all accounts in the domain) that is stored on the server it self."
+      },
+      {
+        "date": "2020-09-30T08:01:00.000Z",
+        "voteCount": 2,
+        "content": "It seems to be answer A - RODC. Writable DC have password any time with RODC we might control password replication (and caching)."
+      },
+      {
+        "date": "2020-10-28T19:53:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. We need RODC to go along with statement \"Any server placed in the Los Angeles office must not contain cached passwords.\""
+      }
+    ],
+    "examNameCode": "70-413",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/35403-exam-70-413-topic-7-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to design the acquisition strategy for Margie's Travel.<br>What should you do? To answer, select the appropriate option for each action in the answer area.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03655/0006000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03655/0006100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://sites.google.com/a/moh10ly.com/tech/blog/active-directory/active-directory-cross-forest-migration/ad-cross-forest-migration/domain-controller-cross-forest- migration-part-3-admt-installation",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-06T23:28:00.000Z",
+        "voteCount": 3,
+        "content": "Accord this link:https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/admt-3dot2-installation-incomplete\nIt point \"The standard practice is to install ADMT on a member computer in the target domain. \" \nThere are 4 DCs and 1 member server, there is only one answer.\nSo the answer is ALP-CA01."
+      },
+      {
+        "date": "2020-10-28T19:58:00.000Z",
+        "voteCount": 2,
+        "content": "Why on ALP-CA01? Don't find any prerequisites about it."
+      }
+    ],
+    "examNameCode": "70-413",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/35404-exam-70-413-topic-7-question-4-discussion/",
+    "body": "DRAG DROP -<br>You need to design the file management solution.<br>What should you do? To answer, drag the appropriate technology to the correct office. Each technology may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03655/0006200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03655/0006200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "New York: Hosted mode creates a central location for caching data frequently used at this site in addition to allowing other connected offices to pull from it. It will also speed up the sharing of data.<br>Denver: DFS, because this location is in close proximity to LA and connected to the remote office via a link.<br>Montreal: This is most likely an office with less than 100 users since it is a 'branch' office and close to New York and the HQ. Therefore, Distributed mode.<br>LA: Direct access, because they don't have any servers at that location, it makes sense that DA would be used so that they are always connected to the domain.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-28T20:01:00.000Z",
+        "voteCount": 1,
+        "content": "A key difference at this point is that DFS-R has all the data within a folder target available locally (which means you need to know what data is required ahead of time and ensure it's replicated) and can be accessed even when the branch is disconnected from the primary location. BranchCache only has the data that has been used by clients at the location (or data that has been pre-cached) but can only be accessed providing the primary server can be contacted, which means the branch can't be disconnected from the primary location. If you need data available even if the connection to the primary data center is unavailable, you need to use DFS-R. If you simply want to provide caching to improve performance for frequently accessed data, then BranchCache is a great solution.\n\nhttps://www.itprotoday.com/windows-78/dfs-r-vs-branchcache-branch-offices"
+      }
+    ],
+    "examNameCode": "70-413",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20360-exam-70-413-topic-7-question-6-discussion/",
+    "body": "You need to perform the directory synchronization with Office 365.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the domain functional level to Windows Server 2012.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade the Office 365 licenses to Enterprise E4.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the forest functional level to Windows Server 2012.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a site-to-site VPN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall the DirSync utility in the on-premises environment."
+    ],
+    "answer": "D",
+    "answerDescription": "There are two major steps when you deploy this solution:<br>\u2711 Create an Azure virtual network and establish a site-to-site VPN connection to your on-premises network.<br>\u2711 Install Azure AD Connect on a domain-joined virtual machine in Azure<br>Reference:<br>https://docs.microsoft.com/en-us/microsoft-365/enterprise/deploy-microsoft-365-directory-synchronization-dirsync-in-microsoft-azure?view=o365-worldwide",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-24T03:43:00.000Z",
+        "voteCount": 2,
+        "content": "Tech requirements state dirsync must be installed on virtual machine in Azure.  That machine will need to be able to query domain controllers on premise which is why it needs a VPN to be deployed first."
+      },
+      {
+        "date": "2020-05-12T03:02:00.000Z",
+        "voteCount": 1,
+        "content": "sorry I mean E Install the DirSync utility in the on-premises environment."
+      },
+      {
+        "date": "2020-05-12T03:01:00.000Z",
+        "voteCount": 1,
+        "content": "D is the correct answer - Install the DirSync utility in the on-premises environment."
+      }
+    ],
+    "examNameCode": "70-413",
+    "topicNumber": "7"
+  }
+]

@@ -1,0 +1,117 @@
+[
+  {
+    "topic": 16,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8733-exam-dp-200-topic-16-question-1-discussion/",
+    "body": "You need to process and query ingested Tier 9 data.<br>Which two options should you use? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Notification Hub",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransact-SQL statements",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Cache for Redis",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApache Kafka statements",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Event Grid",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Stream Analytics"
+    ],
+    "answer": "EF",
+    "answerDescription": "Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster.<br>You can stream data into Kafka-enabled Event Hubs and process it with Azure Stream Analytics, in the following steps:<br>\u2711 Create a Kafka enabled Event Hubs namespace.<br>\u2711 Create a Kafka client that sends messages to the event hub.<br>\u2711 Create a Stream Analytics job that copies data from the event hub into an Azure blob storage.<br>Scenario:<br><img src=\"/assets/media/exam-media/03872/0027600004.png\" class=\"in-exam-image\"><br>Tier 9 reporting must be moved to Event Hubs, queried, and persisted in the same Azure region as the company's main office<br>References:<br>https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-kafka-stream-analytics",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-17T08:45:00.000Z",
+        "voteCount": 43,
+        "content": "B &amp; F ...check the skill set of the team"
+      },
+      {
+        "date": "2020-07-23T02:04:00.000Z",
+        "voteCount": 4,
+        "content": "B &amp; F: Stream Analytics query language is a subset of standard T-SQL syntax for doing Streaming computations [offered in Azure Stream Analytics].\n\nhttps://docs.microsoft.com/en-us/stream-analytics-query/stream-analytics-query-language-reference"
+      },
+      {
+        "date": "2020-02-17T03:49:00.000Z",
+        "voteCount": 7,
+        "content": "Where is it obvious this is concerning streaming data. I've read this question multiple times, but I'm not seeing anything leading to this. Exept that it states that it's internally used and internally mostly SQL developers are present."
+      },
+      {
+        "date": "2020-05-14T11:29:00.000Z",
+        "voteCount": 2,
+        "content": "it says \"Tier 9 reporting must be moved to Event Hubs, queried, and persisted in the same Azure region as the company's main office\"   i think given answer is correct. but who really knows?  it's not like you can argue your point during the test..."
+      },
+      {
+        "date": "2021-03-16T02:42:00.000Z",
+        "voteCount": 1,
+        "content": "processo and query, so it's T-sql + stream job \n--&gt; B + F"
+      },
+      {
+        "date": "2020-12-12T01:27:00.000Z",
+        "voteCount": 3,
+        "content": "hi to all,\n\n\"Integration with Event Grid\nYou can create an Azure Event Grid subscription with an Event Hubs namespace as its source. The following tutorial shows you how to create an Event Grid subscription with an event hub as a source and an Azure Functions app as a sink: Process and migrate captured Event Hubs data to a Azure Synapse Analytics using Event Grid and Azure Functions.\"\n\nhttps://docs.microsoft.com/pt-pt/azure/event-hubs/event-hubs-capture-overview\n\nEF\n\nregards"
+      },
+      {
+        "date": "2020-06-05T23:54:00.000Z",
+        "voteCount": 1,
+        "content": "Event Grid connects your app with other services. For example, create an application topic to send your app's event data to Event Grid and take advantage of its reliable delivery, advanced routing, and direct integration with Azure.\nhttps://docs.microsoft.com/en-us/azure/architecture/solution-ideas/articles/application-integration-using-event-grid"
+      },
+      {
+        "date": "2020-02-18T05:27:00.000Z",
+        "voteCount": 2,
+        "content": "Stream Analytic Query is not the same with T-SQL. It is indeed a subset of T-SQL, but not the same.\nOn the other hand an EventHub provides a Kafka endpoint, so you can use Kafka statements."
+      },
+      {
+        "date": "2019-11-28T15:21:00.000Z",
+        "voteCount": 5,
+        "content": "Event Grid filter a specific event and Stream analytic does aggregation"
+      },
+      {
+        "date": "2019-11-20T12:44:00.000Z",
+        "voteCount": 3,
+        "content": "Event Grid and Event Hub is not the same thing"
+      },
+      {
+        "date": "2019-11-22T14:38:00.000Z",
+        "voteCount": 11,
+        "content": "So it's D and F"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37912-exam-dp-200-topic-16-question-3-discussion/",
+    "body": "You need to set up Azure Data Factory pipelines to meet data movement requirements.<br>Which integration runtime should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tself-hosted integration runtime",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure-SSIS Integration Runtime",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t.NET Common Language Runtime (CLR)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure integration runtime"
+    ],
+    "answer": "A",
+    "answerDescription": "The following table describes the capabilities and network support for each of the integration runtime types:<br><img src=\"/assets/media/exam-media/03872/0027900001.png\" class=\"in-exam-image\"><br>Scenario: The solution must support migrating databases that support external and internal application to Azure SQL Database. The migrated databases will be supported by Azure Data Factory pipelines for the continued movement, migration and updating of data both in the cloud and from local core business systems and repositories.<br>References:<br>https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-27T06:45:00.000Z",
+        "voteCount": 10,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2021-06-23T17:36:00.000Z",
+        "voteCount": 1,
+        "content": "Please delete my answeres, cannot edit."
+      },
+      {
+        "date": "2021-06-23T17:35:00.000Z",
+        "voteCount": 1,
+        "content": "I mean C"
+      },
+      {
+        "date": "2021-06-23T17:34:00.000Z",
+        "voteCount": 1,
+        "content": "The answer should be Azure Integration runtime. B"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "16"
+  }
+]

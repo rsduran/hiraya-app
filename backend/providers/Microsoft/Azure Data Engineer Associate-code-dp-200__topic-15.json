@@ -1,0 +1,100 @@
+[
+  {
+    "topic": 15,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19549-exam-dp-200-topic-15-question-1-discussion/",
+    "body": "You need to ensure that phone-based poling data can be analyzed in the PollingData database.<br>How should you configure Azure Data Factory?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a tumbling schedule trigger",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an event-based trigger",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a schedule trigger",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse manual execution"
+    ],
+    "answer": "C",
+    "answerDescription": "When creating a schedule trigger, you specify a schedule (start date, recurrence, end date etc.) for the trigger, and associate with a Data Factory pipeline.<br>Scenario:<br>All data migration processes must use Azure Data Factory<br>All data migrations must run automatically during non-business hours<br>References:<br>https://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-18T15:10:00.000Z",
+        "voteCount": 20,
+        "content": "Asked for Retry when needed but not automatic retry. Tumbling window trigger retry automatically after the number of minutes configured. So Scheduling Trigger might be correct answer."
+      },
+      {
+        "date": "2020-05-11T05:29:00.000Z",
+        "voteCount": 8,
+        "content": "Scheduled trigger does not support retry\nhttps://docs.microsoft.com/en-us/azure/data-factory/concepts-pipeline-execution-triggers#trigger-type-comparison"
+      },
+      {
+        "date": "2020-07-12T00:50:00.000Z",
+        "voteCount": 2,
+        "content": "It does, when creating a schedule trigger, you specify a schedule (start date, recurrence, end date etc.)\nhttps://docs.microsoft.com/en-us/azure/data-factory/how-to-create-schedule-trigger"
+      },
+      {
+        "date": "2020-12-12T01:17:00.000Z",
+        "voteCount": 2,
+        "content": "hi to all,\nanswer A\nwhy ? because the text says \"...retry...\" so this link says it all:\nhttps://docs.microsoft.com/pt-pt/azure/data-factory/how-to-create-tumbling-window-trigger\n\numbling window triggers are a type of trigger that fires at a periodic time interval from a specified start time, while retaining state. Tumbling windows are a series of fixed-sized, non-overlapping, and contiguous time intervals. A tumbling window trigger has a one-to-one relationship with a pipeline and can only reference a singular pipeline. Tumbling window trigger is a more heavy weight alternative for schedule trigger offering a suite of features for complex scenarios(dependency on other tumbling window triggers, rerunning a failed job and set user retry for pipelines). \n\nonly with this type we can retry in case of failure, with just a scheduled trigger nope.\nthats it.\n\nregards"
+      },
+      {
+        "date": "2020-11-27T05:54:00.000Z",
+        "voteCount": 2,
+        "content": "When you create a schedule trigger, you specify scheduling and recurrence by using a JSON definition.\nAnswer is C"
+      },
+      {
+        "date": "2020-11-02T09:05:00.000Z",
+        "voteCount": 1,
+        "content": "With Tumbling window trigger, you have to define the run in the intervals of Minutes &amp; Hours and no way you can schedule it at a specific time. That's the basic requirement to run it in non business hours."
+      },
+      {
+        "date": "2020-07-13T16:01:00.000Z",
+        "voteCount": 3,
+        "content": "The option is Tumbling \"schedule\" trigger and not tumbling \"window\" trigger, so schedule trigger might be best fit in this case."
+      },
+      {
+        "date": "2020-07-06T06:26:00.000Z",
+        "voteCount": 5,
+        "content": "Answer: C. Use a schedule trigger"
+      },
+      {
+        "date": "2020-05-03T21:36:00.000Z",
+        "voteCount": 1,
+        "content": "However, All data migrations must run automatically during non-business hours is also mentioned so I got confused now and help me understand the right answer."
+      },
+      {
+        "date": "2020-05-03T21:34:00.000Z",
+        "voteCount": 7,
+        "content": "Data migrations must be reliable and retry when needed. This is mentioned in question so I think Tumbling Window trigger is the answer."
+      },
+      {
+        "date": "2020-05-12T20:19:00.000Z",
+        "voteCount": 6,
+        "content": "As \"Use a tumbling schedule trigger\" is not a real possibility, schedule trigger is the best option (unless the options have been recorded incorrectly)"
+      },
+      {
+        "date": "2020-05-18T13:40:00.000Z",
+        "voteCount": 3,
+        "content": "I think Tumbling Window is more useful for time-based data. The requirement said \"retry when needed\" but not \"automatically retry\"."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "15"
+  },
+  {
+    "topic": 15,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/35792-exam-dp-200-topic-15-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure that Azure Data Factory pipelines can be deployed. How should you configure authentication and authorization for deployments? To answer, select the appropriate options in the answer choices.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0027000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0027100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "The way you control access to resources using RBAC is to create role assignments. This is a key concept to understand \u05d2\u20ac\" it's how permissions are enforced. A role assignment consists of three elements: security principal, role definition, and scope.<br>Scenario:<br>No credentials or secrets should be used during deployments<br>Phone-based poll data must only be uploaded by authorized users from authorized devices<br>Contractors must not have access to any polling data other than their own<br>Access to polling data must set on a per-active directory user basis<br>References:<br>https://docs.microsoft.com/en-us/azure/role-based-access-control/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-02T09:08:00.000Z",
+        "voteCount": 6,
+        "content": "Answer mentioned is correct."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "15"
+  }
+]

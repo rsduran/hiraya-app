@@ -1,0 +1,244 @@
+[
+  {
+    "topic": 10,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79510-exam-sc-100-topic-9-question-1-discussion/",
+    "body": "You need to recommend a strategy for routing internet-bound traffic from the landing zones. The solution must meet the landing zone requirements.<br>What should you recommend as part of the landing zone deployment?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlocal network gateways",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tforced tunneling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tservice chaining\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 38,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 21,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-02T11:26:00.000Z",
+        "voteCount": 21,
+        "content": "https://docs.microsoft.com/en-us/learn/modules/configure-vnet-peering/5-determine-service-chaining-uses"
+      },
+      {
+        "date": "2024-09-09T06:01:00.000Z",
+        "voteCount": 1,
+        "content": "To meet the requirement of routing internet-bound traffic from landing zones through Azure Firewall, forced tunneling remains the most appropriate solution. UDRs and service chaining could be used to manage traffic within peered networks or direct traffic through specific virtual appliances within the hub and spoke architecture, but they would still complement rather than replace the need for forced tunneling to control outbound traffic."
+      },
+      {
+        "date": "2022-11-21T14:20:00.000Z",
+        "voteCount": 8,
+        "content": "When you refer to https://learn.microsoft.com/en-us/training/modules/configure-vnet-peering/5-determine-service-chaining-uses answer is there :)"
+      },
+      {
+        "date": "2024-06-27T01:25:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B\nIn a forced-tunneling scenario, all internet-bound traffic that originates on Azure virtual machines (VMs) is routed, or forced, to go through an inspection and auditing appliance. Unauthorized internet access can potentially lead to information disclosure or other types of security breaches without the traffic inspection or audit.\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/azure-virtual-desktop/eslz-network-topology-and-connectivity"
+      },
+      {
+        "date": "2024-09-08T01:42:00.000Z",
+        "voteCount": 1,
+        "content": "Why service chaining is incorrect:\n\n    Service chaining refers to a process where multiple network services (like firewalls, load balancers, intrusion detection systems, etc.) are connected in a sequence, with traffic flowing through each service in the chain. It's more relevant when you're implementing complex security or traffic processing sequences across multiple services."
+      },
+      {
+        "date": "2024-09-08T01:43:00.000Z",
+        "voteCount": 1,
+        "content": "In the context of your requirements, the goal is specifically to route all internet-bound traffic from the landing zones through Azure Firewall in a dedicated subscription. This needs a direct control mechanism that enforces secure routing (i.e., forced tunneling) rather than the sequential processing of services.\n\nSo ill go with B, forced tunneling (due to the requierment stated)"
+      },
+      {
+        "date": "2024-03-06T12:24:00.000Z",
+        "voteCount": 1,
+        "content": "Answer:C ; Service chaining"
+      },
+      {
+        "date": "2024-02-25T08:31:00.000Z",
+        "voteCount": 4,
+        "content": "adding a UDR/s to force 0.0.0.0/0 (internet traffic or all traffic) to NVAs (or in our case AZFW) is what Service Chaining means."
+      },
+      {
+        "date": "2024-02-04T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "Forced tunneling is specifically about redirecting internet-bound traffic to on-premises for inspection and compliance reasons, which is often a requirement for landing zones in enterprises with stringent security policies."
+      },
+      {
+        "date": "2024-01-13T17:40:00.000Z",
+        "voteCount": 1,
+        "content": "service chaining"
+      },
+      {
+        "date": "2024-01-07T18:02:00.000Z",
+        "voteCount": 1,
+        "content": "Local network gateways (A) are not optimal for internet routing, and service chaining (C) adds unnecessary complexity and cost in this scenario.\nTherefore, the correct answer is B. forced tunneling"
+      },
+      {
+        "date": "2024-01-06T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "service chaining is the correct answer"
+      },
+      {
+        "date": "2023-10-06T05:28:00.000Z",
+        "voteCount": 3,
+        "content": "got this in exam 6oct23. passed with 896 marks. I answered C"
+      },
+      {
+        "date": "2023-09-20T23:58:00.000Z",
+        "voteCount": 1,
+        "content": "Selected Answer: C\nhttps://www.youtube.com/watch?v=YJqZjdzC9xE&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=7\nQuestion 96"
+      },
+      {
+        "date": "2023-09-17T11:07:00.000Z",
+        "voteCount": 1,
+        "content": "forced tunneling for me"
+      },
+      {
+        "date": "2023-09-10T20:44:00.000Z",
+        "voteCount": 2,
+        "content": "Definitely not forced tunneling. Forced tunneling routes traffic from the firewall to a specified next hop device. This question is about the traffic being routed to the firewall from all vents. Service chaining is correct."
+      },
+      {
+        "date": "2023-05-21T08:35:00.000Z",
+        "voteCount": 1,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/firewall/forced-tunneling"
+      },
+      {
+        "date": "2023-05-24T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "When you configure a new Azure Firewall, you can route all Internet-bound traffic to a designated next hop instead of going directly to the Internet. For example, you may have a default route advertised via BGP or using User Defined Route (UDR) to force traffic to an on-premises edge firewall or other network virtual appliance (NVA) to process network traffic before it's passed to the Internet. To support this configuration, you must create Azure Firewall with Forced Tunnel configuration enabled."
+      },
+      {
+        "date": "2023-05-24T06:12:00.000Z",
+        "voteCount": 4,
+        "content": "C should be the correct answer instead.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview#service-chaining\nService chaining enables you to direct traffic from one virtual network to a virtual appliance or gateway in a peered network through user-defined routes.\nTo enable service chaining, configure user-defined routes that point to virtual machines in peered virtual networks as the next hop IP address. User-defined routes could also point to virtual network gateways to enable service chaining."
+      },
+      {
+        "date": "2023-04-27T06:48:00.000Z",
+        "voteCount": 2,
+        "content": "Chatgpt explanation for using Forced tunneling:\nAccording to the requirements for the landing zone architecture, all internet-bound traffic from landing zones should be routed through Azure Firewall in a dedicated Azure subscription. To meet this requirement, you can use forced tunneling which is a feature of Azure VPN gateways. Forced tunneling sends all traffic through the VPN tunnel, regardless of the destination address. This ensures that all traffic is subjected to the security provided by the VPN gateway. Service chaining is not the correct option because it is used to direct traffic from one virtual network to a virtual appliance, or virtual network gateway, in a peered virtual network, through another virtual appliance or virtual network gateway. It is not used for routing internet-bound traffic from landing zones through Azure Firewall in a dedicated Azure subscription. Forced tunneling is used to direct traffic from a virtual network to an on-premises location.  However, it can also be used to route internet-bound traffic from landing zones through Azure Firewall in a dedicated Azure subscription."
+      },
+      {
+        "date": "2023-03-19T22:58:00.000Z",
+        "voteCount": 5,
+        "content": "The key is that traffic needs to be directed to an Azure FW to achieve the sought outcome. For this specific case a FW with Forced tunneling is the way to go according to the below links:\nhttps://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2Fazure%2Fvirtual-network%2Ftoc.json&amp;tabs=cli\nhttps://learn.microsoft.com/en-us/azure/firewall/forced-tunneling"
+      },
+      {
+        "date": "2023-02-26T08:36:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed with AnonymousJhb. The requirements talks about using Azure Firewall and that tips the scale for me. The requirements stated \"Route all internet-bound traffic from landing zones through Azure Firewall in a dedicated Azure subscription.\" Kinda clear cut in my opinion."
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 10,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81358-exam-sc-100-topic-9-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a strategy for App Service web app connectivity. The solution must meet the landing zone requirements.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04228/0010500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04228/0010600001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Virtual network integration<br>Integrate your app with an Azure virtual network.<br>With Azure virtual networks, you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network.<br><br>Box 2: Private endpoints -<br>Ensure that the Azure virtual machines in each landing zone communicate with Azure App Service web apps in the same zone over the Microsoft backbone network, rather than over public endpoints.<br>A virtual machine can connect to the web app across the private endpoint.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/app-service/overview-vnet-integration https://docs.microsoft.com/en-us/azure/private-link/tutorial-private-endpoint-webapp-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-09T05:19:00.000Z",
+        "voteCount": 34,
+        "content": "Box 1: Virtual Network Integration - correct\nVirtual network integration gives your app access to resources in your virtual network, but it doesn't grant inbound private access to your app from the virtual network.\n\nBox 2: Private Endpoints. - correct\nYou can use Private Endpoint for your Azure Web App to allow clients located in your private network to securely access the app over Private Link."
+      },
+      {
+        "date": "2023-10-06T05:28:00.000Z",
+        "voteCount": 5,
+        "content": "got this in exam 6oct23. passed with 896 marks. I answered as per given answer"
+      },
+      {
+        "date": "2023-09-21T00:03:00.000Z",
+        "voteCount": 2,
+        "content": "Box1: Virtual network integration\nBox2: Private endpoints\nhttps://www.youtube.com/watch?v=YJqZjdzC9xE&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=7\nQuestion 97"
+      },
+      {
+        "date": "2023-09-13T06:21:00.000Z",
+        "voteCount": 3,
+        "content": "The answer for second question should be service endpoints. The question mentions Microsoft backbone which indicates service endpoints, not vNet private IP which would have suggested private endpoints.\nhttps://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview"
+      },
+      {
+        "date": "2023-05-21T08:39:00.000Z",
+        "voteCount": 4,
+        "content": "1. Virtual network integration\n2. Private endpoints\n\nhttps://learn.microsoft.com/en-us/azure/app-service/overview-vnet-integration\nWith Azure virtual networks, you can place many of your Azure resources in a non-internet-routable network. The App Service virtual network integration feature enables your apps to access resources in or through a virtual network.\n\nhttps://learn.microsoft.com/en-us/azure/app-service/networking/private-endpoint\nYou can use private endpoint for your App Service apps to allow clients located in your private network to securely access the app over Azure Private Link. The private endpoint uses an IP address from your Azure virtual network address space. Network traffic between a client on your private network and the app traverses over the virtual network and a Private Link on the Microsoft backbone network, eliminating exposure from the public Internet."
+      },
+      {
+        "date": "2023-04-28T08:22:00.000Z",
+        "voteCount": 1,
+        "content": "I would consider box 1 to be virtual network integration as it involves using an app service web app. But it must also be noted that virtual network integration doesn't work without a service endpoint. Network integration uses the service endpoint to further lockdown the public access to the web app."
+      },
+      {
+        "date": "2023-01-29T08:34:00.000Z",
+        "voteCount": 1,
+        "content": "Service endpoint doesn't have VM, so Virtual Network Integration is the only choice.\nhttps://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview"
+      },
+      {
+        "date": "2022-12-29T07:25:00.000Z",
+        "voteCount": 1,
+        "content": "perfect correct answers given"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 10,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81653-exam-sc-100-topic-9-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend an identity security solution for the Azure AD tenant of Litware. The solution must meet the identity requirements and the regulatory compliance requirements.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04228/0010700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04228/0010800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Azure AD administrative units<br>Implement delegated management of users and groups in the Azure AD tenant of Litware, including support for:<br>* The delegation of user management based on business units<br>Without Azure AD administrative units, assigning a user to the User Administrator role in Azure AD gives them rights to manage all Azure AD users. With administrative units, the user is delegated the same role, User Administrator, but that role only applies to the specified administrative unit. The administrative unit contains the users and groups that are under the scope of management.<br>Box 2: Enable password hash synchronization in the Azure AD Connect deployment<br>Existing environment: Azure AD Connect is used to implement pass-through authentication.<br><br>Password hash synchronization -<br>Risk detections like leaked credentials require the presence of password hashes for detection to occur.<br>Reference:<br>https://4sysops.com/archives/an-introduction-to-azure-ad-administrative-units/ https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#password-hash-synchronization",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-11T05:18:00.000Z",
+        "voteCount": 18,
+        "content": "Agree with the answer.\nLeaked pass -&gt; https://docs.microsoft.com/en-us/azure/security/fundamentals/steps-secure-identity#protect-against-leaked-credentials-and-add-resilience-against-outages"
+      },
+      {
+        "date": "2022-09-29T19:44:00.000Z",
+        "voteCount": 11,
+        "content": "Answers are correct."
+      },
+      {
+        "date": "2024-01-06T18:37:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with the given answers."
+      },
+      {
+        "date": "2023-10-06T05:29:00.000Z",
+        "voteCount": 6,
+        "content": "got this in exam 6oct23. passed with 896 marks. I answered as per given answer"
+      },
+      {
+        "date": "2023-05-21T08:42:00.000Z",
+        "voteCount": 5,
+        "content": "1. Azure AD AU\n2. Password synchronization in Azure AD connect\n\nhttps://learn.microsoft.com/en-us/azure/active-directory/roles/administrative-units\nAn administrative unit is an Azure AD resource that can be a container for other Azure AD resources. An administrative unit can contain only users, groups, or devices.\n\nAdministrative units restrict permissions in a role to any portion of your organization that you define. You could, for example, use administrative units to delegate the Helpdesk Administrator role to regional support specialists, so they can manage users only in the region that they support."
+      },
+      {
+        "date": "2023-05-21T08:43:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory/hybrid/connect/whatis-phs\nPassword hash synchronization is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash of a user's password from an on-premises Active Directory instance to a cloud-based Azure AD instance.\n\nPassword Hash Sync also enables leaked credential detection for your hybrid accounts. Microsoft works alongside dark web researchers and law enforcement agencies to find publicly available username/password pairs. If any of these pairs match those of our users, the associated account is moved to high risk."
+      },
+      {
+        "date": "2022-12-29T07:25:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answers given"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "9"
+  }
+]

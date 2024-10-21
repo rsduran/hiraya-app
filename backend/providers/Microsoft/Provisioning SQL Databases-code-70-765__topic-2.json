@@ -1,0 +1,265 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13249-exam-70-765-topic-2-question-4-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets stated goals.<br>You manage a Microsoft SQL Server environment with several databases.<br>You need to ensure that queries use statistical data and do not initialize values for local variables.<br>Solution: You enable the PARAMETER_SNIFFING option for the databases.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "PARAMETER_SNIFFING = { ON | OFF | PRIMARY} enables or disables parameter sniffing. This is equivalent to Trace Flag 4136.<br>SQL server uses a process called parameter sniffing when executing queries or stored procedures that use parameters. During compilation, the value passed into the parameter is evaluated and used to create an execution plan. That value is also stored with the execution plan in the plan cache. Future executions of the plan will re-use the plan that was compiled with that reference value.<br>References:<br>https://msdn.microsoft.com/en-us/library/mt629158.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-13T05:25:00.000Z",
+        "voteCount": 3,
+        "content": "This is the most confusing topic: In short answer for this question is Yes. Parameter sniffing  default setting is: NO(PARAMETER_SNIFFING=Yes), this means SQL server sniffs the parameter at the time of first execution. If you make this option to Yes (PARAMETER_SNIFFING=Yes) SQL server uses statistical data for plan. hope this makes sense..:-)"
+      },
+      {
+        "date": "2021-01-16T04:01:00.000Z",
+        "voteCount": 1,
+        "content": "I think you\u2019re confused there, the default is ON, not NO. The below is from the manual\n\nPARAMETER_SNIFFING = { ON | OFF | PRIMARY}\nEnables or disables parameter sniffing. The default is ON. Setting PARAMETER_SNIFFING to OFF is equivalent to enabling Trace Flag 4136."
+      },
+      {
+        "date": "2020-10-08T03:02:00.000Z",
+        "voteCount": 2,
+        "content": "PARAMETER_SNIFFING means that it will use statistical data and not initialise value. Because if it will initialise values, we will always have a new plan for new values hence will never need parameter sniffing. So answer is A."
+      },
+      {
+        "date": "2020-04-10T01:57:00.000Z",
+        "voteCount": 3,
+        "content": "I would stick with YES as this option is mentioned in all studies. All other questions similar to this were obviously wrong. Using the parameter to build your execution plan would be a better idea; additionally it the source states the value would be stored which is the same as \"do not initialize values for local variables\""
+      },
+      {
+        "date": "2020-02-01T12:00:00.000Z",
+        "voteCount": 3,
+        "content": "I think the correct answer is NO. When you disable PARAMETER_SNIFFING optimizer will use its statistical data instead looking for a variable, initialize it and pass it to optimizer.\nAn article for reference.\nhttps://blog.sqlauthority.com/2019/12/20/sql-server-parameter-sniffing-and-local-variable-in-sp/"
+      }
+    ],
+    "examNameCode": "70-765",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30801-exam-70-765-topic-2-question-5-discussion/",
+    "body": "You manage a Microsoft SQL Server environment in a Microsoft Azure virtual machine.<br>You must enable Always Encrypted for columns in a database.<br>You need to configure the key store provider.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManually specify the column master key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the connection string for applications.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuto-generate a column master key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Windows certificate store."
+    ],
+    "answer": "D",
+    "answerDescription": "Always Encrypted supports multiple key stores for storing Always Encrypted column master keys. A column master key can be a certificate stored in Windows<br>Certificate Store.<br>References:<br>https://msdn.microsoft.com/en-us/library/mt723359.aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T08:13:00.000Z",
+        "voteCount": 2,
+        "content": "Is correct: Always Encrypted can use external trusted\nkey stores such as Azure Key Value, Windows Certifcate Store on a client machine, or a thirdparty hardware security module."
+      }
+    ],
+    "examNameCode": "70-765",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/634-exam-70-765-topic-2-question-7-discussion/",
+    "body": "Note: This questions is part of a series of questions that use the same or similar answer choices. An answer choice may be correct for more than one question in the series. Each question is independent of the other questions in this series. Information and details provided in a question apply only to that question.<br>You manage on-premises and Microsoft Azure SQL Database instances for a company. Your environment must support the Microsoft SQL Server 2012 ODBS driver.<br>You need to encrypt only specific columns in the database.<br>What should you implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttransport-level encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcell-level encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransparent Data Encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEncrypting File System",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBitLocker",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdynamic data masking"
+    ],
+    "answer": "D",
+    "answerDescription": "To encrypt columns you can configure Always Encrypted.<br>SQL Server Management Studio (SSMS) provides a wizard that helps you easily configure Always Encrypted by setting up the column master key, column encryption key, and encrypted columns for you.<br>Always Encrypted allows client applications to encrypt sensitive data and never reveal the data or the encryption keys to SQL Server or Azure SQL Database. An<br>Always Encrypted enabled driver, such as the ODBC Driver 13.1 for SQL Server, achieves this by transparently encrypting and decrypting sensitive data in the client application.<br>Note: The ODBC driver automatically determines which query parameters correspond to sensitive database columns (protected using Always Encrypted), and encrypts the values of those parameters before passing the data to SQL Server or Azure SQL Database. Similarly, the driver transparently decrypts data retrieved from encrypted database columns in query results.<br>References:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-always-encrypted-azure-key-vault#encrypt-columns-configure-always-encrypted https://msdn.microsoft.com/en-us/library/mt637351(v=sql.110).aspx",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-04T00:01:00.000Z",
+        "voteCount": 4,
+        "content": "I also think that due to using \"Azure SQL DB\" and proper odbc driver, Always Encrypted is the correct answer. Driver encrypts or decrypts data before sending it to database engine.\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15\nhttps://docs.microsoft.com/en-us/sql/connect/odbc/windows/system-requirements-installation-and-driver-files?view=sql-server-ver15"
+      },
+      {
+        "date": "2020-06-14T00:14:00.000Z",
+        "voteCount": 2,
+        "content": "I think I agree: Microsoft ODBC Driver 13.1 for SQL Server is a single dynamic-link library (DLL) containing run-time support for applications using native-code APIs to connect to Microsoft SQL Server 2008, SQL Server 2008 R2, SQL Server 2012, SQL Server 2014, SQL Server 2016, Analytics Platform System, Azure SQL Database and Azure SQL Data Warehouse. Microsoft ODBC Driver 13 for SQL Server should be used to create new applications or enhance existing applications that need to take advantage of new SQL Server 2016 features.https://www.microsoft.com/en-us/download/details.aspx?id=53339"
+      },
+      {
+        "date": "2020-08-14T07:22:00.000Z",
+        "voteCount": 1,
+        "content": "If you have ODBC Driver 13.1, you can connect to SQL 2012, but this not mean that you can use Always encrypted feature, because this is new and it requires sever side implementation also which is available only on SQL server 2016 onward, so I think that the answer is cell level for SQL 2012-."
+      },
+      {
+        "date": "2020-04-16T01:45:00.000Z",
+        "voteCount": 1,
+        "content": "I'm slightly confused. \nThe question states your using an \"Azure SQL Database\" which is essentially SQL server 2016.\nSo Always Encrypted is a valid option - it's whether you can use it to support a previous version of SQL server?"
+      },
+      {
+        "date": "2021-01-17T09:51:00.000Z",
+        "voteCount": 1,
+        "content": "You have to support a SQL2012 ODBC driver. Always Encrypted is done by the driver, so wouldn't work with SQL 2012 ODBC driver."
+      },
+      {
+        "date": "2020-04-10T02:10:00.000Z",
+        "voteCount": 2,
+        "content": "due to the 2012 requirement, I would choose cell level. Available in all editions of SQL Server, cell-level encryption can be enabled on columns that contain sensitive data. The data is encrypted on disk and remains encrypted in memory until the DECRYPTBYKEY function is used to decrypt it. Therefore, although the SQL data is encrypted, it is not secure beyond simply using a function in the user context to decrypt it. Additionally, because a function is needed to decrypt the data, client applications must be modified to work with cell-level encryption.\nAlways Encrypted is available in SQL Server 2016 and later, but only in Enterprise editions. Because of the extra client-side requirements, Always Encrypted is best suited to situations in which separation of data owners and managers is a primary requirement."
+      },
+      {
+        "date": "2019-11-10T18:10:00.000Z",
+        "voteCount": 3,
+        "content": "It should be cell level encryption. Because always encryption is not a featured in 2012 version"
+      },
+      {
+        "date": "2019-10-26T14:21:00.000Z",
+        "voteCount": 4,
+        "content": "\"ALWAYS ENCRYPTED\" is the correct answer. \nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15"
+      },
+      {
+        "date": "2020-12-08T14:40:00.000Z",
+        "voteCount": 1,
+        "content": "But that isn't available with the SQL 2012 ODBC Driver"
+      },
+      {
+        "date": "2019-03-21T11:49:00.000Z",
+        "voteCount": 1,
+        "content": "wouldn't this be cell-level encryption if only encrypting specific columns in a database?"
+      },
+      {
+        "date": "2021-01-17T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is Cell-level encryption as Always Encrypted cannot be used in this case\nThe requirement is to use the SQL 2012 ODBC driver, but AE was introduced SQL 2014. Always Encrypted is client side encryption so required a client driver 2014 or later."
+      }
+    ],
+    "examNameCode": "70-765",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12856-exam-70-765-topic-2-question-8-discussion/",
+    "body": "Note: This questions is part of a series of questions that use the same or similar answer choices. An answer choice may be correct for more than one question in the series. Each question is independent of the other questions in this series. Information and details provided in a question apply only to that question.<br>Your company has several Microsoft Azure SQL Database instances.<br>Data encryption should be allowed to be implemented by the client applications that access the data. Encryption keys should not be made available to the database engine.<br>You need to configure the database.<br>What should you implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttransport-level encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcell-level encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransparent Data Encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEncrypting File System",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBitLocker",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdynamic data masking"
+    ],
+    "answer": "A",
+    "answerDescription": "Using encryption during transit with Azure File Shares<br>Azure File Storage supports HTTPS when using the REST API, but is more commonly used as an SMB file share attached to a VM.<br>HTTPS is a transport-level security protocol.<br>Incorrect Answers:<br>C: TDE encrypts the storage of an entire database by using a symmetric key called the database encryption key. In SQL Database the database encryption key is protected by a built-in server certificate.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/storage-security-guide#encryption-in-transit",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-10T02:17:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is D due to the encryption key requirement. Always Encrypted encrypts sensitive data in client applications without revealing the encryption keys to the database engine, providing separation between data owners and data managers. For example, with Always Encrypted enabled, you can be sure that your database administrators won\u2019t be able to read sensitive data. As the name suggests, data is encrypted at rest and if used in a third-party system, such as Azure.\n\nAlways Encrypted can be configured for individual database columns. Two kinds of keys are used: column encryption keys and column master keys. Column encryption keys protect data in a column and column master keys are \u2018key-protecting keys\u2019 that encrypt one or more column encryption keys. Column master keys are stored in external trusted key stores, like Azure Key Vault.\n\nThe encryption process is transparent to client applications but requires a special driver on client computers. Always Encrypted is available in SQL Server 2016 and later, but only in Enterprise editions. Because of the extra client-side requirements, Always Encrypted is best suited to situations in which separation of data owners and managers is a primary requirement."
+      },
+      {
+        "date": "2021-01-17T10:42:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is not A, Transport-level encryption. For that you have a certificate in the server (deployed or self-signed) which is used by the SQL server to establish the encrypted connection. This does not meet the requirements of (1), Encryption by the client (2) SQL Server not have the encryption key\n\nThe only option to meet these 2 requirements is D, Always Encrypted"
+      },
+      {
+        "date": "2021-01-01T23:52:00.000Z",
+        "voteCount": 1,
+        "content": "I think it will be \"Always Encrypted\".\nhttps://azure.microsoft.com/en-us/blog/transparent-data-encryption-or-always-encrypted/"
+      },
+      {
+        "date": "2020-04-11T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "TLS can not be applied to Azure Databases so correct answer is Always Encrypted."
+      },
+      {
+        "date": "2020-11-04T02:17:00.000Z",
+        "voteCount": 1,
+        "content": "oh really? https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/minimal-tls-version-configure\n\nThe Minimal Transport Layer Security (TLS) Version setting allows customers to control the version of TLS used by their Azure SQL Managed Instance."
+      },
+      {
+        "date": "2020-04-03T01:10:00.000Z",
+        "voteCount": 4,
+        "content": "The answer should be Always Encrypted. Here is an excerpt from Microsoft about Always Encrypted....Always Encrypted is a feature designed to protect sensitive data, such as credit card numbers or national identification numbers (for example, U.S. social security numbers), stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the Database Engine (SQL Database or SQL Server)."
+      },
+      {
+        "date": "2020-01-27T07:12:00.000Z",
+        "voteCount": 2,
+        "content": "TDE or TransportLevel?"
+      },
+      {
+        "date": "2021-01-17T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "The requirement is \"Encryption keys should not be made available to the database engine.\"\nFor TDE the entire data file is encrypted, and SQL Server has the key."
+      }
+    ],
+    "examNameCode": "70-765",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39362-exam-70-765-topic-2-question-10-discussion/",
+    "body": "DRAG DROP -<br>You deploy a new Microsoft Azure SQL Database instance to support a variety of mobile applications and public websites. You plan to create a new security principal named User1.<br>The principal must have access to select all current and future objects in a database named Reporting. The activity and authentication of the database user must be limited to the Reporting database.<br>You need to create the new security principal.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02202/0003000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02202/0003200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1, Step 2:<br>First you need to create a login for SQL Azure, it's syntax is as follows:<br>CREATE LOGIN username WITH password='password';<br>This command needs to run in master db. Only afterwards can you run commands to create a user in the database.<br>Step 3:<br>Users are created per database and are associated with logins. You must be connected to the database in where you want to create the user. In most cases, this is not the master database. Here is some sample Transact-SQL that creates a user:<br>CREATE USER readonlyuser FROM LOGIN readonlylogin;<br>References:<br>https://azure.microsoft.com/en-us/blog/adding-users-to-your-sql-azure-database/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-09T02:31:00.000Z",
+        "voteCount": 4,
+        "content": "Correctn answer is (assuming Reorting database is contained )\n\n1.  ...create connection to to the Reporting database \n2. create run CREATE USER User1 WITH pasword = 'Pa$$w0rd'\n3. exec sp_addrolemember 'db_datareader', 'User1' \n\nsource:\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/contained-database-users-making-your-database-portable?view=sql-server-2016"
+      },
+      {
+        "date": "2020-12-13T18:19:00.000Z",
+        "voteCount": 2,
+        "content": "Agree, because of \"The activity and authentication of the database user must be limited to the Reporting database\", *authentication* won't be limited to Reporting DB unless it's a contained DB."
+      },
+      {
+        "date": "2021-01-28T10:05:00.000Z",
+        "voteCount": 1,
+        "content": "No agree, read again the answer and you will see. \"select reporting db and run exec sp_add......\" read again"
+      }
+    ],
+    "examNameCode": "70-765",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13251-exam-70-765-topic-2-question-11-discussion/",
+    "body": "DRAG DROP -<br>A new Azure Active Directory security principal named ReportUser@contoso.onmicrosoft.com should have access to select all current and future objects in the<br>Reporting database. You should not grant the principal any other permissions. You should use your Active Directory Domain Services (AD DS) account to authenticate to the Azure SQL database.<br>You need to create the new security principal.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02202/0003400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02202/0003600001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1:<br>To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database (here the<br>Reporting database) with an Azure AD identity (not with a SQL Server account) that has access to the database.<br>Step 2: CREATE USER ... FROM EXTERNAL PROVIDER<br>To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the ALTER ANY USER permission. Then use the following Transact-SQL syntax:<br>CREATE USER &lt;Azure_AD_principal_name&gt;<br>FROM EXTERNAL PROVIDER;<br>Step 3:<br>Grant the proper reading permissions.<br>References:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-aad-authentication",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-14T00:58:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer is slightly off. there is a typo in the sp. It should be sp_addrolemember . Then I believe there is another issue that the user should be able to select, not just read, the database."
+      },
+      {
+        "date": "2020-11-04T02:54:00.000Z",
+        "voteCount": 1,
+        "content": "The db_datareader role allows a user to be able to issue a SELECT statement against all tables and views in the database.\nhttps://www.mssqltips.com/sqlservertip/1900/understanding-sql-server-fixed-database-roles/"
+      },
+      {
+        "date": "2020-02-01T12:51:00.000Z",
+        "voteCount": 2,
+        "content": "Detailed article \nhttps://www.sqlshack.com/working-azure-active-directory-azure-sql-database/"
+      }
+    ],
+    "examNameCode": "70-765",
+    "topicNumber": "2"
+  }
+]

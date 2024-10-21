@@ -1,0 +1,311 @@
+[
+  {
+    "topic": 9,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33640-exam-da-100-topic-9-question-1-discussion/",
+    "body": "Which DAX expression should you use to get the ending balances in the balance sheet reports?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCALCULATE ( SUM( BalanceSheet [BalanceAmount] ), DATESQTD( 'Date'[Date] ) )",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCALCULATE ( SUM( BalanceSheet [BalanceAmount] ), LASTDATE( 'Date'[Date] ) )\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFIRSTNONBLANK ( 'Date' [Date] SUM( BalanceSheet[BalanceAmount] ) )",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCALCULATE ( MAX( BalanceSheet[BalanceAmount] ), LASTDATE( 'Date' [Date] ) )"
+    ],
+    "answer": "A",
+    "answerDescription": "Scenario: At least one of the balance sheet reports in the quarterly reporting package must show the ending balances for the quarter, as well as for the previous quarter.<br>DATESQTD returns a table that contains a column of the dates for the quarter to date, in the current context.<br>Reference:<br>https://docs.microsoft.com/en-us/dax/datesqtd-function-dax",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-10-04T20:14:00.000Z",
+        "voteCount": 96,
+        "content": "Ans - CALCULATE ( SUM( BalanceSheet [BalanceAmount] ), LASTDATE( 'Date'[Date] ) )\nhttps://docs.microsoft.com/en-us/learn/modules/create-measures-dax-power-bi/5-semi-additive-measures"
+      },
+      {
+        "date": "2020-10-07T20:16:00.000Z",
+        "voteCount": 8,
+        "content": "We have to add all months in a quarter as the each month shows amounts for that month  alone, thus a sum of all months is needed and not just Incremental addition. A should be the answer."
+      },
+      {
+        "date": "2020-10-15T13:25:00.000Z",
+        "voteCount": 5,
+        "content": "It's not the case. The amount is a balance that take in consideration the movements of each month, but already aggregated."
+      },
+      {
+        "date": "2021-02-04T15:16:00.000Z",
+        "voteCount": 7,
+        "content": "be careful read the following action requirements \" At least one of the balance sheet reports in the quarterly reporting package must show the ending balances for the quarter, as well as for the previous quarter.\" so i think that answer A is the right one"
+      },
+      {
+        "date": "2020-10-18T16:49:00.000Z",
+        "voteCount": 29,
+        "content": "Ans. is A.\nAt least one of the balance sheet reports in the quarterly reporting package must show the ending balances for the quarter, as well as for the previous quarter."
+      },
+      {
+        "date": "2020-12-19T15:20:00.000Z",
+        "voteCount": 30,
+        "content": "Incorrect. A will sum the balances across all months in the current quarter to date, which is not how balance sheets are designed to work. A balance sheet is a position at a moment in time, so you need to look for the latest one(s) only to get the position in the current quarter. Answer B is correct."
+      },
+      {
+        "date": "2022-05-23T12:04:00.000Z",
+        "voteCount": 1,
+        "content": "That is correct, if you ues the DatesQTD fuction as a filter, the calculation fuction is going to sum up all the date of balance included in the range of dates."
+      },
+      {
+        "date": "2022-08-25T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "Quarterly reporting of balance sheet accounts should refer to the value of the last month of the quarter. So it should use semi-additive measure"
+      },
+      {
+        "date": "2022-06-04T02:56:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct answer"
+      },
+      {
+        "date": "2022-03-17T08:44:00.000Z",
+        "voteCount": 1,
+        "content": "I got it on my exam 03/17/2022. 90-95% questions were from here. 61 questions in 100 min. All 3 case studies that appeared in exam, where from here."
+      },
+      {
+        "date": "2022-03-17T08:44:00.000Z",
+        "voteCount": 3,
+        "content": "Answered: B"
+      },
+      {
+        "date": "2022-02-08T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "I understand that SUM is the perfect function combined with LASTDATE, but I have a problem with the sign. The balance is showing two asset accounts and one liability account. We can't make the direct sum of things that are the opposite.\nThe assets minus liabilities and net worth are always equal to zero, but the example does not show all the accounts.\n\nSome good question would be:\n1* which is the Balance Amount for the assets every month, quarter, etc.? In this case we should sum only the asset accounts (cash and inventories)\n2* which is the working capital? This are short term assets minus short term liabilities. But there are two problems. They are giving us long-term liabilities, not short-term ones. And we need to change the sign before summing."
+      },
+      {
+        "date": "2022-01-19T22:50:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer should be \nD. CALCULATE ( MAX( BalanceSheet[BalanceAmount] ), LASTDATE( 'Date' [Date] ) )"
+      },
+      {
+        "date": "2021-12-29T14:05:00.000Z",
+        "voteCount": 1,
+        "content": "In exam"
+      },
+      {
+        "date": "2021-12-10T08:11:00.000Z",
+        "voteCount": 1,
+        "content": "on exam 12/10/2021"
+      },
+      {
+        "date": "2021-12-22T21:36:00.000Z",
+        "voteCount": 1,
+        "content": "What was your answer for this and Did you pass ?"
+      },
+      {
+        "date": "2021-11-25T08:41:00.000Z",
+        "voteCount": 3,
+        "content": "DATESQTD is going to return multiple dates and you don't want to sum all of those dates b/c the value you have for each date is the balance on that date, so it's LASTDATE (IMO)."
+      },
+      {
+        "date": "2021-11-24T23:43:00.000Z",
+        "voteCount": 4,
+        "content": "A: \nYou must not sum balance values. They are already sums. Every following balance value includes the previous values. \nDATESQTD: Delivers a table of dates including every (used) date of the current quarter of the filter context. -&gt; sums every monthly balance value of a quarter -&gt; bad\nLASTDATE: Delivers a table of exactly one date. The last (used) date in the filter context. -&gt; sums the last balance value a quarter -&gt; nice"
+      },
+      {
+        "date": "2021-11-19T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "At least one of the balance sheet reports in the quarterly reporting package must show the ending balances for the quarter, as well as for the previous quarter. - https://docs.microsoft.com/en-us/dax/datesqtd-function-dax#example"
+      },
+      {
+        "date": "2021-11-11T13:36:00.000Z",
+        "voteCount": 1,
+        "content": "on exam - Nov 11, 2021. \nmy answer:\nCALCULATE ( SUM( BalanceSheet [BalanceAmount] ), DATESQTD( 'Date'[Date] ) )"
+      },
+      {
+        "date": "2021-10-14T07:23:00.000Z",
+        "voteCount": 2,
+        "content": "On exam 10/14/21"
+      },
+      {
+        "date": "2021-07-20T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "https://community.powerbi.com/t5/Desktop/Power-Pivot-DAX-Balance-sheet-averages/td-p/473904"
+      },
+      {
+        "date": "2021-06-15T07:00:00.000Z",
+        "voteCount": 1,
+        "content": "I am very confused - is there even any relationship that has been established between the balance sheet table and the date table??"
+      },
+      {
+        "date": "2021-06-19T14:56:00.000Z",
+        "voteCount": 1,
+        "content": "I have same question. No date column in balance sheet table. How it link with data table to get last date? No description in the question to explain it."
+      },
+      {
+        "date": "2021-06-26T21:03:00.000Z",
+        "voteCount": 2,
+        "content": "Read this line in the question \"You plan to relate the balance sheet to a standard date table in Power BI in a many-to-one relationship based on the last day of the month. \""
+      },
+      {
+        "date": "2021-06-15T06:55:00.000Z",
+        "voteCount": 1,
+        "content": "What is the purpose of using the SUM function here?"
+      },
+      {
+        "date": "2021-06-19T14:57:00.000Z",
+        "voteCount": 2,
+        "content": "Feel that Sum is to get total balance from different AccountCategorys."
+      }
+    ],
+    "examNameCode": "da-100",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33637-exam-da-100-topic-9-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to calculate the last day of the month in the balance sheet data to ensure that you can relate the balance sheet data to the Date table.<br>Which type of calculation and which formula should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04207/0005200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04207/0005300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: A DAX Calculated measure -<br>Box 2: Date.EndofQuarter(#date([Year],[Mont],1))<br>ENDOFQUARTER returns the last date of the quarter in the current context for the specified column of dates.<br>The following sample formula creates a measure that returns the end of the quarter, for the current context.<br>= ENDOFQUARTER(DateTime[DateKey])<br>Reference:<br>https://docs.microsoft.com/en-us/dax/endofquarter-function-dax<br>Model the Data",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-04T19:09:00.000Z",
+        "voteCount": 168,
+        "content": "Type of calculation - M Custom Column\nFormula - Date.EndOfMonth"
+      },
+      {
+        "date": "2022-05-23T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "Thats is right bro!"
+      },
+      {
+        "date": "2021-07-18T14:47:00.000Z",
+        "voteCount": 2,
+        "content": "Supported"
+      },
+      {
+        "date": "2021-04-08T15:33:00.000Z",
+        "voteCount": 5,
+        "content": "Agree, see reference \n\nhttps://docs.microsoft.com/en-us/powerquery-m/date-endofmonth"
+      },
+      {
+        "date": "2020-10-09T11:44:00.000Z",
+        "voteCount": 22,
+        "content": "C and A"
+      },
+      {
+        "date": "2022-10-07T16:59:00.000Z",
+        "voteCount": 2,
+        "content": "It must be end of month, so Formula must include Endofmonth. There is only one Endofmonth formula which is a M formula, so it has to be an M custom column."
+      },
+      {
+        "date": "2022-03-17T08:45:00.000Z",
+        "voteCount": 1,
+        "content": "I got it on my exam 03/17/2022. 90-95% questions were from here. 61 questions in 100 min. All 3 case studies that appeared in exam, where from here."
+      },
+      {
+        "date": "2022-03-17T08:46:00.000Z",
+        "voteCount": 1,
+        "content": "Answered: M custom and EndOfMonth"
+      },
+      {
+        "date": "2021-12-25T23:18:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer: A\nScenario: At least one of the balance sheet reports in the quarterly reporting package must show the ending balances for the\nquarter, as well as for the previous quarter.\nDATESQTD returns a table that contains a column of the dates for the quarter to date, in the current context.\nReference:\nhttps://docs.microsoft.com/en-us/dax/datesqtd-function-dax"
+      },
+      {
+        "date": "2021-12-10T08:11:00.000Z",
+        "voteCount": 1,
+        "content": "on exam 12/10/2021"
+      },
+      {
+        "date": "2021-11-11T13:37:00.000Z",
+        "voteCount": 1,
+        "content": "on exam - Nov 11, 2021. \nmy answers:\nAn M custom column\nDate.EndOfMonth"
+      },
+      {
+        "date": "2021-10-14T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "On exam 10/14/21"
+      },
+      {
+        "date": "2021-08-19T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "So why not DAX column?"
+      },
+      {
+        "date": "2021-06-24T07:49:00.000Z",
+        "voteCount": 1,
+        "content": "We can't relate using Calculated measure"
+      },
+      {
+        "date": "2021-05-20T07:22:00.000Z",
+        "voteCount": 2,
+        "content": "You can't relate using a measure? by the nature of measures they change, so wouldn't be able to provide a value to relate the tables on"
+      },
+      {
+        "date": "2021-05-07T11:57:00.000Z",
+        "voteCount": 2,
+        "content": "C and A;"
+      },
+      {
+        "date": "2021-05-02T04:30:00.000Z",
+        "voteCount": 2,
+        "content": "answer is correct"
+      },
+      {
+        "date": "2021-05-09T06:06:00.000Z",
+        "voteCount": 4,
+        "content": "answer is wrong, because the formula indicated is an M formula..."
+      },
+      {
+        "date": "2021-04-02T00:00:00.000Z",
+        "voteCount": 13,
+        "content": "According to the answer provided by my Power BI instructor in Taiwan, Linda Wu\uff08\u5433\u7fe0\u9cf3\uff09, the answer must be\uff1a\n\n    An M custom column\n    Date.EndOfMonth(#date([Year], [Month], 1))"
+      },
+      {
+        "date": "2022-03-24T14:18:00.000Z",
+        "voteCount": 1,
+        "content": "Linda Wu rules. Send her my greetings"
+      },
+      {
+        "date": "2021-05-07T03:37:00.000Z",
+        "voteCount": 1,
+        "content": "So 2nd one must be A"
+      },
+      {
+        "date": "2021-02-20T03:44:00.000Z",
+        "voteCount": 3,
+        "content": "C &amp; A. The balancesheet contains data for every month, it is not a quarterly fact"
+      },
+      {
+        "date": "2020-12-17T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "The reports are quarterly not monthly. I think the given answer works."
+      },
+      {
+        "date": "2020-12-18T01:29:00.000Z",
+        "voteCount": 1,
+        "content": "are you sure on this as many evidence above indicates M and end ofMonth"
+      },
+      {
+        "date": "2020-12-31T10:00:00.000Z",
+        "voteCount": 3,
+        "content": "The question specifically asks for end of month. The only formula that makes sense is the M syntax (Date.EndOfMonth), and thus the method is M. VR1's first response is correct IMO."
+      },
+      {
+        "date": "2020-12-10T14:50:00.000Z",
+        "voteCount": 8,
+        "content": "Tested. 3/1\nM custom column + Date.EndOfMonth(#date([Year], [Month], 1))"
+      },
+      {
+        "date": "2020-12-10T14:53:00.000Z",
+        "voteCount": 12,
+        "content": "Code FYI.\n\nlet\n    Source = Excel.CurrentWorkbook(){[Name=\"DateYearQ\"]}[Content],\n    #\"Changed Type\" = Table.TransformColumnTypes(Source,{{\"Month\", Int64.Type}, {\"Year\", Int64.Type}}),\n    #\"Added Custom\" = Table.AddColumn(#\"Changed Type\", \"Custom\", each Date.EndOfMonth(#date([Year], [Month], 1))),\n    #\"Changed Type1\" = Table.TransformColumnTypes(#\"Added Custom\",{{\"Custom\", type date}})\nin\n    #\"Changed Type1\""
+      }
+    ],
+    "examNameCode": "da-100",
+    "topicNumber": "9"
+  }
+]

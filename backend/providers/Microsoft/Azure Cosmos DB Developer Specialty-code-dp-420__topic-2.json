@@ -1,0 +1,686 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/77970-exam-dp-420-topic-2-question-1-discussion/",
+    "body": "DRAG DROP -<br>You have an Azure Cosmos DB Core (SQL) API account that is configured for multi-region writes. The account contains a database that has two containers named container1 and container2.<br>The following is a sample of a document in container1:<br>{<br>\"customerId\": 1234,<br>\"firstName\": \"John\",<br>\"lastName\": \"Smith\",<br>\"policyYear\": 2021<br>}<br>The following is a sample of a document in container2:<br>{<br>\"gpsId\": 1234,<br>\"latitude\": 38.8951,<br>\"longitude\": -77.0364<br>}<br>You need to configure conflict resolution to meet the following requirements:<br>\u2711 For container1 you must resolve conflicts by using the highest value for policyYear.<br>\u2711 For container2 you must resolve conflicts by accepting the distance closest to latitude: 40.730610 and longitude: -73.935242.<br>\u2711 Administrative effort must be minimized to implement the solution.<br>What should you configure for each container? To answer, drag the appropriate configurations to the correct containers. Each configuration may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04276/0005900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0005900002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Last Write Wins (LWW) (default) mode<br>Last Write Wins (LWW): This resolution policy, by default, uses a system-defined timestamp property. It's based on the time-synchronization clock protocol.<br>Box 2: Merge Procedures (custom) mode<br>Custom: This resolution policy is designed for application-defined semantics for reconciliation of conflicts. When you set this policy on your Azure Cosmos container, you also need to register a merge stored procedure. This procedure is automatically invoked when conflicts are detected under a database transaction on the server. The system provides exactly once guarantee for the execution of a merge procedure as part of the commitment protocol.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies https://docs.microsoft.com/en-us/azure/cosmos-db/sql/how-to-manage-conflicts",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-02T19:57:00.000Z",
+        "voteCount": 8,
+        "content": "For the highest value wins, there is one description relate to LWW.\nFor API for NoSQL, this may also be set to a user-defined path with a numeric type. In a conflict, the highest value wins. https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-conflicts?tabs=dotnetv2%2Capi-async%2Casync"
+      },
+      {
+        "date": "2023-06-11T12:15:00.000Z",
+        "voteCount": 6,
+        "content": "Answer\n\nContainer1:\nLast Write Wins (default) mode\n\nContainer2:\nMerge Procedures (custom) mode"
+      },
+      {
+        "date": "2022-10-17T21:42:00.000Z",
+        "voteCount": 1,
+        "content": "what is the correct order Procedure and applicant?"
+      },
+      {
+        "date": "2022-09-29T10:43:00.000Z",
+        "voteCount": 3,
+        "content": "it is explicitly stated that LWW used the DEFAULT (timestamp) mode, so increasing policyYear will not be used by LWW"
+      },
+      {
+        "date": "2022-08-08T00:27:00.000Z",
+        "voteCount": 3,
+        "content": "I don't see how the default (last one to write wins) would handle \"the highest value for policyYear\" if there was a conflict. Both should be procedures."
+      },
+      {
+        "date": "2022-08-15T04:39:00.000Z",
+        "voteCount": 4,
+        "content": "Both answers are correct, remember that a LWW policy can be configured to use any numeric path, not just the timestamp, so it can be configured with the /policyYear path where the highest number will win and it would satisfy the requirement"
+      },
+      {
+        "date": "2022-09-23T14:43:00.000Z",
+        "voteCount": 3,
+        "content": "Not really, default mode for LWW is based on timestamp.\n\"Last Write Wins (LWW): This resolution policy, by default, uses a system-defined timestamp property. It's based on the time-synchronization clock protocol. If you use the SQL API, you can specify any other custom numerical property (e.g., your own notion of a timestamp) to be used for conflict resolution. A custom numerical property is also referred to as the conflict resolution path.\"\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/conflict-resolution-policies\nFor Merge Procedures (custom) mode it's also not possible because you should set this policy during container creation. You can't do this for existing container.\n\"Custom conflict resolution policy is available only for SQL API accounts and can be set only at creation time. It is not possible to set a custom resolution policy on an existing container.\"\n\nSo the correct options for both containers is the last one - \"an application that reads from the conflict feed."
+      },
+      {
+        "date": "2022-09-23T14:58:00.000Z",
+        "voteCount": 1,
+        "content": "In general, you can't modify conflict policy after container creation."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/78036-exam-dp-420-topic-2-question-2-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Cosmos DB Core (SQL) API account named storage1 that uses provisioned throughput capacity mode.<br>The storage1 account contains the databases shown in the following table.<br><img src=\"/assets/media/exam-media/04276/0006000001.png\" class=\"in-exam-image\"><br>The databases contain the containers shown in the following table.<br><img src=\"/assets/media/exam-media/04276/0006100001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0006200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0006200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>Four containers with 1000 RU/s each.<br><br>Box 2: No -<br>Max 8000 RU/s for db2. 8 containers, so 1000 RU/s for each container.<br><br>Box 3: Yes -<br>Max 8000 RU/s for db2. 8 containers, so 1000 RU/s for each container. Can very well add an additional container.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/plan-manage-costs https://azure.microsoft.com/en-us/pricing/details/cosmos-db/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-15T04:51:00.000Z",
+        "voteCount": 19,
+        "content": "Answers are correct but the reasoning for the first answer makes no sense - at minimum you will be charged 10% x 5000 = 500 (db autoscale) + 10% x 10,000 (container 1 autoscale) = 1500 in total"
+      },
+      {
+        "date": "2023-04-21T15:43:00.000Z",
+        "voteCount": 2,
+        "content": "You are only counting one container. If you had the four left on db1, you get 4000+1500= 5500 minimum."
+      },
+      {
+        "date": "2024-06-26T06:48:00.000Z",
+        "voteCount": 1,
+        "content": "it's not correct i think. \nthe count is:\n5000 ru for db1 and 5 container, so 1000 run x container. \nWe know that the minimun billed is 0.1 x Tmax:\nEach hour, you're billed for the highest throughput T the system scaled to within that hour. If your resource had no requests during the hour or didn't scale beyond 0.1 \u00d7 Tmax, you're billed for the minimum of 0.1 \u00d7 Tmax.\n\nSo the count is: 0.1 x 1000 ru (x container) x 5 = 500. \nAutoscale is 10.000 ru so 0.1 x 10.000 = 1000.\ntotal is 1500."
+      },
+      {
+        "date": "2023-10-04T23:17:00.000Z",
+        "voteCount": 1,
+        "content": "For db1 minimum RUs 1500 will be billed. 500 RU at database level and 1000 at container level."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75368-exam-dp-420-topic-2-question-3-discussion/",
+    "body": "HOTSPOT -<br>You have a database named telemetry in an Azure Cosmos DB Core (SQL) API account that stores IoT data. The database contains two containers named readings and devices.<br>Documents in readings have the following structure.<br>\u2711 id<br>\u2711 deviceid<br>\u2711 timestamp<br>\u2711 ownerid<br>\u2711 measures (array)<br>- type<br>- value<br>- metricid<br>Documents in devices have the following structure.<br>\u2711 id<br>\u2711 deviceid<br>\u2711 owner<br>- ownerid<br>- emailaddress<br>- name<br>\u2711 brand<br>\u2711 model<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0006400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0006400002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Need to join readings and devices.<br><br>Box 2: No -<br>Only readings is required. All required fields are in readings.<br><br>Box 3: No -<br>Only devices is required. All required fields are in devices.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-17T03:55:00.000Z",
+        "voteCount": 19,
+        "content": "Answer is NYN.\n\n1. N: The readings container does not need to be read to return all deviceids associated with a particular emailaddress, so only one query is needed:\nSELECT *\nFROM devices d\nWHERE d.owner.emailaddress = ________\n\n2. Y: measures is an array, and to filter or project fields from an array, you need to use join to create a cross join with the array.\nSELECT r.deviceid, r.ownerid, r.timestamp, m.value\nFROM readings r\nJOIN m IN r.measures\nWHERE m.metricid = ________\n\n3. N: owner is an object, not an array, so you can directly access the properties. deviceid, ownerid, emailaddress and model all exist in the devices container, so the readings container is not needed.\nSELECT d.deviceid, d.owner.ownerid, d.owner.emailaddress, d.model\nFROM devices d"
+      },
+      {
+        "date": "2023-11-12T13:25:00.000Z",
+        "voteCount": 1,
+        "content": "Awesome explanation"
+      },
+      {
+        "date": "2022-07-15T06:53:00.000Z",
+        "voteCount": 16,
+        "content": "Who ever wrote the suggested responses has no idea of what a JOIN does in a document database... it has nothing to do with joining documents, but is an inner-document join.\n\nIt's NYN if the first questions means returning only devices, and none of the readings. It's YYN otherwise, because readings are in a separate container, and should be fetched using a second query."
+      },
+      {
+        "date": "2024-08-24T23:22:00.000Z",
+        "voteCount": 1,
+        "content": "1. No.\nGiven the structure of your Cosmos DB containers and the documents, if you want to return all devices owned by a specific emailaddress, you might be able to do this with a single query depending on the structure and indexing of your Cosmos DB.\nHowever, if you're joining data across the readings and devices containers, and if the data is not normalized or if specific data exists in one container but not the other, you may need to execute multiple queries\n\n2. No.\nSince all the required data (deviceid, ownerid, timestamp, and value for a specific metricid) is located within the same container (readings), there is no need to perform a join across multiple containers. You can retrieve all this data with a single query on the readings container.\n\n3. No.\nAll the requried data (deviceid, ownerid, emailaddress, and model) is located within the same container (device), there is no need to perform a join across multiple containers. You can retrieve all this data with a single query on the readings container."
+      },
+      {
+        "date": "2023-08-18T04:09:00.000Z",
+        "voteCount": 4,
+        "content": "N - Device container has all required info. \nN - In Reading container we have everything. \nY - Need to join 2 containers."
+      },
+      {
+        "date": "2023-06-28T02:17:00.000Z",
+        "voteCount": 1,
+        "content": "Answer YYN"
+      },
+      {
+        "date": "2022-12-20T17:01:00.000Z",
+        "voteCount": 4,
+        "content": "Y - requires 2 requests to get from 2 containers\nY - need join to get 'value' in measures array\nY - need join to get 'ownerid' and 'emailaddress' in owner array\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query/join"
+      },
+      {
+        "date": "2023-01-24T07:47:00.000Z",
+        "voteCount": 1,
+        "content": "Third - No; Devices container: select c.deviceId, c.owner.ownerId, c.owner.emailaddress, c.model from c"
+      },
+      {
+        "date": "2022-09-25T02:57:00.000Z",
+        "voteCount": 9,
+        "content": "No. Yes. Yes.\n\n====================\nFirst: No\n\nSELECT *\nFROM d\nWHERE d.emailaddress =\n\n\"To return (?) for all devices ...\". Sounds like the word \"metrics\" might be missing. If so, the answer is Yes and a second query must be added.\n===========\nSELECT d.deviceid\nFROM d\nWHERE d.emailaddress = ?\n\nSELECT *\nFROM m\nWHERE m.deviceid = @deviceid\n\n====================\nSecond: Yes\n\nSELECT m.deviceid\nFROM m\nWHERE m.metricid = ?\n\nSELECT d.deviceid, o.ownerid, d.timestamp\nFROM d\nJOIN o IN d.owner\nWHERE d.deviceid = @deviceid\n\n====================\nThird: Yes\n\nSELECT d.deviceid, o.ownerid, d.emailaddress, d.model\nFROM d\nJOIN o IN d.owner"
+      },
+      {
+        "date": "2022-11-22T15:24:00.000Z",
+        "voteCount": 1,
+        "content": "i think like you."
+      },
+      {
+        "date": "2022-12-18T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "I disagree on the second one. All fields to return are in the Readings container, why would you need to join the second container ? FK are sufficients here"
+      },
+      {
+        "date": "2022-05-09T10:24:00.000Z",
+        "voteCount": 7,
+        "content": "The correct answer is YYN\n- Yes: you need 2 requests, because the data is in 2 different containers.\n- Yes: you need join to get the data from Array\n- No: No joins required"
+      },
+      {
+        "date": "2022-08-15T05:04:00.000Z",
+        "voteCount": 3,
+        "content": "Why would the second one be yes ? We dont need any data from the array."
+      },
+      {
+        "date": "2023-01-24T07:40:00.000Z",
+        "voteCount": 1,
+        "content": "Because you need value and metricid properties from the measures array."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/111927-exam-dp-420-topic-2-question-4-discussion/",
+    "body": "The settings for a container in an Azure Cosmos DB Core (SQL) API account are configured as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/04276/0006500001.png\" class=\"in-exam-image\"><br>Which statement describes the configuration of the container?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll items will be deleted after one year.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tItems stored in the collection will be retained always, regardless of the items time to live value.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tItems stored in the collection will expire only if the item has a time to live value.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll items will be deleted after one hour."
+    ],
+    "answer": "C",
+    "answerDescription": "When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)<br>Time to Live on a container, if present and the value is set to \"-1\", it is equal to infinity, and items don't expire by default.<br>Time to Live on an item:<br>This Property is applicable only if DefaultTimeToLive is present and it is not set to null for the parent container.<br>If present, it overrides the DefaultTimeToLive value of the parent container.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/sql/time-to-live",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-11T12:33:00.000Z",
+        "voteCount": 7,
+        "content": "C. Items stored in the collection will expire only if the item has a time to live value."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/80371-exam-dp-420-topic-2-question-5-discussion/",
+    "body": "You have an Azure Cosmos DB Core (SQL) API account named account1 that is configured for automatic failover. The account1 account has a single read-write region in West US and a read region in East US.<br>You run the following PowerShell command.<br>Update-AzCosmosDBAccountFailoverPriority -ResourceGroupName `rg1` -Name `account1` -FailoverPolicy @(`East US`, `West<br>US`)<br>What is the effect of running the command?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe account will be unavailable to writes during the change",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe provisioned throughput for account1 will increase",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe account will be configured for multi-region writes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA manual failover will occur\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-06T01:21:00.000Z",
+        "voteCount": 19,
+        "content": "I think is D  - West US is the failoverPriority=0 right?\n\nAny change to a region with failoverPriority=0 triggers a manual failover and can only be done to an account configured for manual failover. Changes to all other regions simply changes the failover priority for an Azure Cosmos DB account.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update"
+      },
+      {
+        "date": "2023-09-08T22:27:00.000Z",
+        "voteCount": 2,
+        "content": "This answer is incorrect because changing all regions will only change the priority.\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update\n(Changes to all other regions simply changes the failover priority for an Azure Cosmos DB account.)\nNo failover will occur because the powershell command change will trigger all regions."
+      },
+      {
+        "date": "2022-09-05T09:14:00.000Z",
+        "voteCount": 8,
+        "content": "I think its worng, the answer is D\n\nBecouse just have 2 failover regions, if u flip this 2 this gona make a Manual Failover\n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/sql/manage-with-powershell"
+      },
+      {
+        "date": "2022-11-18T10:18:00.000Z",
+        "voteCount": 1,
+        "content": "you are not performing the failover, just deciding the autofailovr policy"
+      },
+      {
+        "date": "2023-02-01T01:31:00.000Z",
+        "voteCount": 2,
+        "content": "According to the link below, a manual failover is performed if you change one of the regions to priority = 0. \n\nhttps://learn.microsoft.com/en-us/training/modules/write-scripts-for-azure-cosmos-db-sql-api/7-initiate-failovers"
+      },
+      {
+        "date": "2023-09-22T00:48:00.000Z",
+        "voteCount": 1,
+        "content": "The accounts are configured for automatic failover. In order for manual failover to happen, the account with priority 0 must be configured for manual failover.\n\n\"Any change to a region with failoverPriority=0 triggers a manual failover and can only be done to an account configured for manual failover.\"\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update"
+      },
+      {
+        "date": "2023-09-08T22:25:00.000Z",
+        "voteCount": 1,
+        "content": "This answer is incorrect because changing all regions will only change the priority.\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update\n(Changes to all other regions simply changes the failover priority for an Azure Cosmos DB account.)"
+      },
+      {
+        "date": "2024-06-20T23:17:00.000Z",
+        "voteCount": 1,
+        "content": "A. The account will be unavailable to writes during the change:\n\nThis is partially true. During the change, there might be a brief period where writes are unavailable as the system transitions the write region. However, this downtime is usually minimal.\nB. The provisioned throughput for account1 will increase:\n\nNo, changing the failover priority does not affect the provisioned throughput.\nC. The account will be configured for multi-region writes:\n\nNo, the command does not configure the account for multi-region writes. Multi-region writes need to be explicitly configured.\nD. A manual failover will occur:\n\nYes, the command triggers a failover process by changing the priority, effectively causing a manual failover to the new region."
+      },
+      {
+        "date": "2024-06-20T02:11:00.000Z",
+        "voteCount": 1,
+        "content": "By changing the failover priority, you are effectively initiating a manual failover to the new primary region."
+      },
+      {
+        "date": "2023-12-29T01:31:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct, setting failover priority 0 means it\u00b4s the new write region"
+      },
+      {
+        "date": "2023-09-13T08:40:00.000Z",
+        "voteCount": 1,
+        "content": "It can't be D cause the account is configured for automatic failover.\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update\nThe right option is C. \nThe command Update-AzCosmosDBAccountFailoverPriority with the specified failover policy updates the failover priority of the Cosmos DB account. In this case, the failover policy includes both 'East US' and 'West US' regions, indicating that the account will be configured for multi-region writes.\nThe command does not make the account unavailable for writes during the change, increase the provisioned throughput, or trigger a manual failover."
+      },
+      {
+        "date": "2023-09-09T11:53:00.000Z",
+        "voteCount": 1,
+        "content": "The failover occurs, but D's answer says that a manual failover occurs. In this case, the failover that occurred was a service-managed failover, not a manual failover, so D is not an answer.\nI also did not find the same results with answers B and C.\nThe correct answer should be A."
+      },
+      {
+        "date": "2023-09-09T11:55:00.000Z",
+        "voteCount": 1,
+        "content": "This answer reflects the results of testing after configuring the environment."
+      },
+      {
+        "date": "2023-08-19T21:06:00.000Z",
+        "voteCount": 2,
+        "content": "It is D"
+      },
+      {
+        "date": "2023-09-08T22:26:00.000Z",
+        "voteCount": 1,
+        "content": "This answer is incorrect because changing all regions will only change the priority.\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update\n(Changes to all other regions simply changes the failover priority for an Azure Cosmos DB account.)"
+      },
+      {
+        "date": "2023-06-25T05:21:00.000Z",
+        "voteCount": 2,
+        "content": "Selected Answer: C"
+      },
+      {
+        "date": "2023-06-11T12:37:00.000Z",
+        "voteCount": 1,
+        "content": "Selected Answer: C"
+      },
+      {
+        "date": "2023-05-30T08:24:00.000Z",
+        "voteCount": 3,
+        "content": "Its A as an anwser"
+      },
+      {
+        "date": "2023-03-30T07:30:00.000Z",
+        "voteCount": 3,
+        "content": "C. The account will be configured for multi-region writes.\nThe Update-AzCosmosDBAccountFailoverPriority command with the -FailoverPolicy parameter updates the failover policy for the Cosmos DB account by specifying the order in which the regions are selected for failover.\nIn this case, the command updates the failover policy for account1 to include both West US and East US regions, in that order. This means that if the primary (read-write) region in West US becomes unavailable, Cosmos DB will automatically failover to the secondary (read-only) region in East US.\nThe command does not affect the availability of the account or the provisioned throughput. It only updates the failover policy to allow for multi-region writes in case of a failover.\nOption C is correct because the command enables multi-region writes in the failover policy. Options A and B are incorrect because the command does not affect the account's availability or provisioned throughput. Option D is incorrect because the command does not trigger a manual failover."
+      },
+      {
+        "date": "2023-02-27T20:40:00.000Z",
+        "voteCount": 2,
+        "content": "IMO its A , The Azure Cosmos DB account must be configured for manual failover for manual failover to succeed"
+      },
+      {
+        "date": "2023-03-01T23:51:00.000Z",
+        "voteCount": 1,
+        "content": "according to https://learn.microsoft.com/en-us/azure/cosmos-db/scripts/powershell/common/failover-priority-update, thats what i believe to.\n\"Any change to a region with failoverPriority=0 triggers a manual failover and can only be done to an account configured for manual failover. Changes to all other regions simply changes the failover priority for an Azure Cosmos DB account.\""
+      },
+      {
+        "date": "2022-09-25T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "As per exact example on the source:\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/sql/manage-with-powershell#trigger-manual-failover\n\nFrom this website and according to A:\n\"If you perform a manual failover operation while an asynchronous throughput scaling operation is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover operation is complete.\"\n\n1. Has to be an asynchronous throughput scaling operation\n2. It will continue after failover completes."
+      },
+      {
+        "date": "2022-09-20T06:25:00.000Z",
+        "voteCount": 1,
+        "content": "They said: \"a single read-write region in West US and a read region in East US\"\nIf you flip the FailoverPolicy to \"East US\" you can't write because it's a read region. So i think A is a correct answer."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/120888-exam-dp-420-topic-2-question-6-discussion/",
+    "body": "HOTSPOT -<br>You are developing an application that will connect to an Azure Cosmos DB Core (SQL) API account. The account has a single read-write region and one additional read region. The regions are configured for automatic failover.<br>The account has the following connection strings. (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04276/0006700001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0006800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0006800002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>The same connection string can still be used.<br>Azure Cosmos DB Core read write region connection strings<br>Azure Cosmos DB \"primary write region\" failover \"connection string\"<br><br>Box 2: No -<br>The AccountEndpoint for both are the same.<br><br>Box 3: Yes -<br>The ConnectionPolicy.PreferredLocations property gets and sets the preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. For example, \"East US\" as the preferred location.<br>When EnableEndpointDiscovery is true and the value of this property is non-empty, the SDK uses the locations in the collection in the order they are specified to perform operations, otherwise if the value of this property is not specified, the SDK uses the write region as the preferred location for all operations.<br>Reference:<br>https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-17T23:14:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, I think answer is correct - No, No, Yes"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/101336-exam-dp-420-topic-2-question-7-discussion/",
+    "body": "You have a global ecommerce application that stores data in an Azure Cosmos DB Core (SQL) API account. The account is configured for multi-region writes.<br>You need to create a stored procedure for a custom conflict resolution policy for a new container. In the event of a conflict caused by a deletion, the deletion must always take priority.<br>Which parameter should you check in the stored procedure function?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tisTombstone\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tconflictingItems",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texistingItem",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tincomingItem"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-11T12:47:00.000Z",
+        "voteCount": 5,
+        "content": "A. isTombstone"
+      },
+      {
+        "date": "2023-12-29T04:21:00.000Z",
+        "voteCount": 3,
+        "content": "A isTombstone"
+      },
+      {
+        "date": "2023-03-02T00:53:00.000Z",
+        "voteCount": 2,
+        "content": "A is the correct answer.\nSee https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-conflicts?tabs=dotnetv2%2Capi-async%2Casync"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104484-exam-dp-420-topic-2-question-8-discussion/",
+    "body": "You have an Azure Cosmos DB Core (SQL) API account named account1 that supports an application named App1. App1 uses the consistent prefix consistency level.<br>You configure account1 to use a dedicated gateway and integrated cache.<br>You need to ensure that App1 can use the integrated cache.<br>Which two actions should you perform for App1? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the consistency level of requests to session.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the account endpoint to http://account1.documents.azure.com.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the account endpoint to http://account1.sqlx.cosmos.azure.com.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the connection mode to direct.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the consistency level of requests to strong."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AD",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-30T01:01:00.000Z",
+        "voteCount": 11,
+        "content": "All dedicated gateway connection strings follow the same pattern. Remove documents.azure.com from your original connection string and replace it with sqlx.cosmos.azure.com\n\nA\nC"
+      },
+      {
+        "date": "2023-12-29T01:33:00.000Z",
+        "voteCount": 3,
+        "content": "A and C is correct. The endpoint needs to change and only Session and eventual consistency levels are supported"
+      },
+      {
+        "date": "2023-09-22T02:06:00.000Z",
+        "voteCount": 4,
+        "content": "It's A and C. D is not an aswer because if you choose to connect with direct mode your requests will not use the dedicated gateway or the integrated cache.\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/dedicated-gateway#connect-to-azure-cosmos-db-using-direct-mode"
+      },
+      {
+        "date": "2023-09-02T04:24:00.000Z",
+        "voteCount": 4,
+        "content": "The answer is correct A and C"
+      },
+      {
+        "date": "2023-08-26T13:32:00.000Z",
+        "voteCount": 4,
+        "content": "*\"All dedicated gateway connection strings follow the same pattern. Remove documents.azure.com from your original connection string and replace it with sqlx.cosmos.azure.com\"\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-integrated-cache?tabs=dotnet#configuring-the-integrated-cache\n*\"You must ensure the request consistency is session or eventual\"\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-integrated-cache?tabs=dotnet#adjust-request-consistency\n*Connection for dedicated gateway is \"gateway\" mode\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/dedicated-gateway#connect-to-azure-cosmos-db-using-gateway-mode\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/how-to-configure-integrated-cache?tabs=dotnet#verify-cache-hits"
+      },
+      {
+        "date": "2023-06-25T05:24:00.000Z",
+        "voteCount": 1,
+        "content": "Selected Answer: AD"
+      },
+      {
+        "date": "2023-06-11T12:53:00.000Z",
+        "voteCount": 1,
+        "content": "Selected Answer: AD"
+      },
+      {
+        "date": "2023-04-27T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "To use the integrated cache with an Azure Cosmos DB Core (SQL) API account, you need to use the \"Gateway\" connection mode and the \"Session\" or \"Consistent Prefix\" consistency levels. Therefore, you should perform the following actions for App1:\n\nA. Change the consistency level of requests to session.\nD. Change the connection mode."
+      },
+      {
+        "date": "2023-03-30T07:33:00.000Z",
+        "voteCount": 1,
+        "content": "To ensure that App1 can use the integrated cache, you need to configure the Cosmos DB client SDK to use the Direct connection mode and set the consistency level to session. This is because the integrated cache is available only in the Direct connection mode and the session consistency level is recommended to maximize cache hit rates."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107937-exam-dp-420-topic-2-question-9-discussion/",
+    "body": "You have an Azure Cosmos DB Core (SQL) API account named account1 that has a single read-write region and one additional read region. Account1 uses the strong default consistency level.<br>You have an application that uses the eventual consistency level when submitting requests to account1.<br>How will writes from the application be handled?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWrites will use the eventual consistency level.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Cosmos DB will reject writes from the application.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWrites will use the strong consistency level.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe write order is not guaranteed during replication."
+    ],
+    "answer": "C",
+    "answerDescription": "Overriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-30T01:04:00.000Z",
+        "voteCount": 7,
+        "content": "C\n\nOverriding the default consistency level only applies to reads within the SDK client. An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-consistency?tabs=portal%2Cdotnetv2%2Capi-async#override-the-default-consistency-level"
+      },
+      {
+        "date": "2023-12-29T01:34:00.000Z",
+        "voteCount": 2,
+        "content": "C, Overriding the default consistency level only applies to reads"
+      },
+      {
+        "date": "2023-06-11T12:55:00.000Z",
+        "voteCount": 4,
+        "content": "C. Writes will use the strong consistency level."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113773-exam-dp-420-topic-2-question-10-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have a multi-region Azure Cosmos DB account named account1 that has a default consistency level of strong.<br><br>You have an app named App1 that is configured to request a consistency level of session.<br><br>How will the read and write operations of App1 be handled? To answer, select the appropriate options in the answer area.<br><br><img src=\"https://img.examtopics.com/dp-420/image126.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image127.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-30T11:28:00.000Z",
+        "voteCount": 9,
+        "content": "Answers\n\nWrite and replicate data to every region synchronously.\n\nTo which App1 is connected."
+      },
+      {
+        "date": "2023-07-04T12:53:00.000Z",
+        "voteCount": 1,
+        "content": "Be applied only to the replica to which App1 is connected\n\nand\n\nTo which App1 is connected"
+      },
+      {
+        "date": "2023-12-29T03:17:00.000Z",
+        "voteCount": 1,
+        "content": "If it will only write to this one replica, that would mean, there is no consistency at all...\nIt\u00b4s writing synchronously because the strong consistency mode can\u00b4t be overridden for writes"
+      },
+      {
+        "date": "2023-07-07T04:34:00.000Z",
+        "voteCount": 5,
+        "content": "\"An account configured for strong consistency by default will still write and replicate data synchronously to every region in the account. When the SDK client instance or request overrides this with Session or weaker consistency, reads will be performed using a single replica.\"\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125730-exam-dp-420-topic-2-question-11-discussion/",
+    "body": "You plan to create an Azure Cosmos DB account that will use the NoSQL API.<br><br>You need to create a grouping strategy for items that will be stored in the account. The solution must ensure that write and read operations on the items can be performed within the same transaction.<br><br>What should you use to group the items?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlogical partitions\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tphysical partitions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdatabases",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcontainers"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-29T01:36:00.000Z",
+        "voteCount": 2,
+        "content": "A, transactional batches only work within the same logical partition"
+      },
+      {
+        "date": "2023-11-13T20:15:00.000Z",
+        "voteCount": 2,
+        "content": "Azure Cosmos DB supports full ACID compliant transactions with snapshot isolation for operations within the same logical partition key.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-consistency?tabs=portal%2Cdotnetv2%2Capi-async#override-the-default-consistency-level"
+      },
+      {
+        "date": "2023-11-10T12:06:00.000Z",
+        "voteCount": 2,
+        "content": "A selected"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125731-exam-dp-420-topic-2-question-12-discussion/",
+    "body": "You have an Azure Cosmos DB database that contains a container named container1. The container1 container is configured with a maximum of 20,000 RU/s and currently contains 240 GB of data.<br><br>You need to estimate the costs of container1 based on the current usage.<br><br>How many RU/s will be charged?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t240",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t4,000",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t20,000\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t24,000"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-27T02:14:00.000Z",
+        "voteCount": 2,
+        "content": "C selected"
+      },
+      {
+        "date": "2023-12-29T01:39:00.000Z",
+        "voteCount": 2,
+        "content": "C, if 20 000 RU/s are fixed (no autoscaling), then its 20 000 RU/s. Storage would need to be higher than 20 000 GB to beat the 20 000 RU/s."
+      },
+      {
+        "date": "2023-11-10T12:08:00.000Z",
+        "voteCount": 2,
+        "content": "C selected"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/136004-exam-dp-420-topic-2-question-13-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Cosmos DB for NoSQL account named account1 in a resource group named RG1. The Azure regions for account1 are shown in the following table.<br><br><img src=\"https://img.examtopics.com/dp-420/image166.png\"><br><br>You need to fail over account1 from the East US region to the Central US region by using Azure Command-Line Interface (CLI).<br><br>How should you complete the command? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image167.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image168.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-23T01:09:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/146211-exam-dp-420-topic-2-question-14-discussion/",
+    "body": "You have an Azure Cosmos DB for NoSQL account that uses the default consistency level.<br><br>How can the consistency level be modified as part of a query request?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstronger consistency for write operations",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tweaker consistency for write operations",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstronger consistency for read operations\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tweaker consistency for read operations"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-08-21T00:10:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "2"
+  }
+]

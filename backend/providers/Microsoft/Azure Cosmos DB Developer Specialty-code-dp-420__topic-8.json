@@ -1,0 +1,106 @@
+[
+  {
+    "topic": 8,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113345-exam-dp-420-topic-8-question-1-discussion/",
+    "body": "You configure multi-region writes for account1.<br>You need to ensure that App1 supports the new configuration for account1. The solution must meet the business requirements and the product catalog requirements.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the default consistency level of account1 to bounded staleness.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a private endpoint connection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the connection policy of App1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the number of request units per second (RU/s) allocated to the con-product and con-productVendor containers."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 10,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-02T01:04:00.000Z",
+        "voteCount": 8,
+        "content": "After you enable your account for multiple write regions, you must make two changes in your application to the ConnectionPolicy. Within the ConnectionPolicy, set UseMultipleWriteLocations to true and pass the name of the region where the application is deployed to ApplicationRegion.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-multi-master?tabs=api-async"
+      },
+      {
+        "date": "2023-08-25T05:39:00.000Z",
+        "voteCount": 2,
+        "content": "\"Whenever there are multiple solutions for a requirement, select the solution that provides the best performance, as long as there are no additional costs associated.\"\n\nWith this in mind, increasing throughput would be a more expensive\n\nTo ensure that App1 supports this new configuration, you need to update its connection policy to be aware of the multiple write regions. This allows App1 to direct write operations to the appropriate write region based on the configuration."
+      },
+      {
+        "date": "2023-07-24T01:59:00.000Z",
+        "voteCount": 1,
+        "content": "A or D. I have conflict with this question https://www.examtopics.com/discussions/microsoft/view/78219-exam-dp-420-topic-6-question-1-discussion/"
+      },
+      {
+        "date": "2023-06-26T12:14:00.000Z",
+        "voteCount": 2,
+        "content": "Answer"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113427-exam-dp-420-topic-8-question-2-discussion/",
+    "body": "You need to provide a solution for the Azure Functions notifications following updates to con-product. The solution must meet the business requirements and the product catalog requirements.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the trigger for each function to use a different leaseCollectionPrefix\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the trigger for each function to use the same leaseCollectionName\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the trigger for each function to use a different leaseCollectionName",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the trigger for each function to use the same leaseCollectionPrefix"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-27T12:10:00.000Z",
+        "voteCount": 5,
+        "content": "Answer"
+      },
+      {
+        "date": "2024-01-26T11:14:00.000Z",
+        "voteCount": 2,
+        "content": "Resource: https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-trigger?tabs=python-v2%2Cisolated-process%2Cextensionv4%2Cnodejs-v4&amp;pivots=programming-language-csharp#usage"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113428-exam-dp-420-topic-8-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend indexes for con-product and con-productVendor. The solution must meet the product catalog requirements and the business requirements.<br>Which type of index should you recommend for each container? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0009500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0009600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Range on con-productVendor<br>Range index is based on an ordered tree-like structure. The range index type is used for:<br>Equality queries:<br>SELECT * FROM container c WHERE c.property = 'value'<br>SELECT * FROM c WHERE c.property IN (\"value1\", \"value2\", \"value3\")<br>Note:<br>The con-product container stores the company's product catalog data. Each document in con-product includes a con-productvendor value. Most queries targeting the data in con-product are in the following format.<br>SELECT * FROM con-product p WHERE p.con-productVendor - 'name'<br>Box 2: Composite in creditRating and yearFounded<br>Composite indexes increase the efficiency when you are performing operations on multiple fields. The composite index type is used for:<br>ORDER BY queries on multiple properties:<br>SELECT * FROM container c ORDER BY c.property1, c.property2<br>Note: Most queries targeting the data in the con-productVendor container are in the following format<br>SELECT * FROM con-productVendor pv<br>ORDER BY pv.creditRating, pv.yearFounded<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/index-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-27T12:15:00.000Z",
+        "voteCount": 7,
+        "content": "Given answer is correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "8"
+  }
+]

@@ -1,0 +1,870 @@
+[
+  {
+    "topic": 9,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4525-exam-ms-201-topic-1-question-2-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 hybrid deployment.<br>You are migrating mailboxes from the on-premises organization to Exchange Online.<br>From the Exchange admin center, you create a new migration batch that includes 25 mailboxes, and then select Manual Complete the batch.<br>Later, you must complete the migration of a mailbox named user1@litware.com in the batch as soon as possible. You discover that the status of the migration batch is Syncing, but the status of the move request for user1@litware.com is Synced.<br>You need to complete the migration of the user1@litware.com mailbox to Exchange Online as soon as possible.<br>How should you complete the command? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/powershell/module/exchange/move-and-migration/set-moverequest?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-04T04:02:00.000Z",
+        "voteCount": 7,
+        "content": "1. Set-MoveRequest -Identity user1@litware.com -CompleteAfter (Get-Date)\n2. Resume-MoveRequest -Identity user1@litware.com\nlink: http://365ology.com/completing-individual-moves-in-a-migration-batch/"
+      },
+      {
+        "date": "2019-12-12T23:18:00.000Z",
+        "voteCount": 1,
+        "content": "you are the correct 1.\nhttps://blogs.technet.microsoft.com/fasttracktips/2018/03/15/completing-individual-move-requests-from-a-migration-batch-changed-behavior/"
+      },
+      {
+        "date": "2019-12-18T21:02:00.000Z",
+        "voteCount": 1,
+        "content": "sorry. ellichen's reply is the correct one. the question requires completing ASAP. so preventcompletion $false = auto complete, which is the right answer."
+      },
+      {
+        "date": "2020-10-22T04:25:00.000Z",
+        "voteCount": 1,
+        "content": "No, that's not correct. preventcompletion $false is not the same as autocomplete. It only makes a completing possible, not when this will occur. That's being controlled by the CompleteAfter property."
+      },
+      {
+        "date": "2020-05-07T12:36:00.000Z",
+        "voteCount": 1,
+        "content": "tested and confirmed."
+      },
+      {
+        "date": "2021-01-31T16:47:00.000Z",
+        "voteCount": 1,
+        "content": "View the missing exhibit here: https://vceguide.com/how-should-you-complete-the-command-12/"
+      },
+      {
+        "date": "2020-10-04T21:37:00.000Z",
+        "voteCount": 1,
+        "content": "Make use of the Set-MoveRequest cmdlet, including the -CompleteAfter parameter, with the value of 1. That will trigger the complete mailbox move immediately. After running the command, it will show the status InProgress. The mailbox will sync for the last time and complete it."
+      },
+      {
+        "date": "2020-10-03T15:00:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.alitajran.com/complete-individual-mailbox-move-request-from-migration-batch/#:~:text=%20Complete%20individual%20mailbox%20move%20request%20from%20migration,Make%20use%20of%20the%20Set-MoveRequest%20cmdlet%2C...%20More%20"
+      },
+      {
+        "date": "2020-10-03T14:57:00.000Z",
+        "voteCount": 1,
+        "content": "https://practical365.com/exchange-server/completing-individual-move-requests-migration-batch/"
+      },
+      {
+        "date": "2020-03-23T23:00:00.000Z",
+        "voteCount": 3,
+        "content": "sorry it's in polish. i'm using this method since a long time - tested thousands times in practice http://w-files.pl/migracja-w-hybrydzie-zakonczenie-pojedynczej-skrzynki-w-zadaniu-synchronizacji/  \nset-migrationUser &lt;user-email&gt; -CompleteAfter ((get-date).ToUniversalTime())"
+      },
+      {
+        "date": "2019-09-02T03:15:00.000Z",
+        "voteCount": 4,
+        "content": "Set-MoveRequest -PreventCompletion $false\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/move-and-migration/set-moverequest?view=exchange-ps"
+      },
+      {
+        "date": "2020-10-22T04:26:00.000Z",
+        "voteCount": 1,
+        "content": "Incorrect, this parameter only allows a moverequest to complete, not when this when happen. That's being managed by Completeafter."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 9,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7781-exam-ms-201-topic-1-question-15-discussion/",
+    "body": "DRAG DROP -<br>Your company named Contoso, Ltd. has a Microsoft Exchange Server 2019 hybrid deployment.<br>A partner company named Fabrikam, Inc. uses an Exchange Online subscription for email.<br>You need to ensure that all the users at Fabrikam can view the free/busy information of the users at Contoso.<br>What should you configure? To answer, drag the appropriate components to the correct companies. Each component may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/sharing/organization-relationships/create-an-organization-relationship https://docs.microsoft.com/en-us/exchange/sharing/sharing-policies/sharing-policies",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-07T06:01:00.000Z",
+        "voteCount": 7,
+        "content": "For Fabrikam: An organization Relationship\nfor Contoso: A Sharing policy"
+      },
+      {
+        "date": "2021-01-31T16:48:00.000Z",
+        "voteCount": 1,
+        "content": "View the missing exihbit here: https://www.exam4training.com/what-should-you-configure-152/"
+      },
+      {
+        "date": "2021-01-28T17:05:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be \n-Federated Trust \n-Organization RelationShip"
+      },
+      {
+        "date": "2020-01-07T21:44:00.000Z",
+        "voteCount": 3,
+        "content": "Org relationship both side."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 9,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33550-exam-ms-201-topic-1-question-18-discussion/",
+    "body": "Your company has a Microsoft Exchange Server 2019 organization that contains two servers in a database availability group (DAG).<br>The customer service department at the company uses public folders to receive customer communications. Only users in the customer service department can read items in the folders.<br>For a new customer, you create a mail-enabled public folder that has the default settings.<br>The customer reports that when she sends an email message to the email address of the public folder, she receives a non-delivery report (NDR).<br>You need to ensure that the public folder can receive email.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGrant the Author permission to the Default group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGrant the Create items permission to the Default group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGrant the Author permission to the Anonymous group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGrant the Create items permission to the Anonymous group"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/collaboration/public-folders/mail-enable-or-disable?view=exchserver-2019#allow-anonymous-users-to-send-email-to- a-mail-enabled-public-folder",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-30T02:57:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2020-10-03T17:53:00.000Z",
+        "voteCount": 1,
+        "content": "Add-PublicFolderClientPermission \"\\Customer Feedback\" -AccessRights CreateItems -User Anonymous"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/3551-exam-ms-201-topic-1-question-3-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You purchase an Exchange Online subscription.<br>You plan to implement an Exchange hybrid deployment that supports the following features:<br>\u2711 Federated sharing of free/busy information between organizations.<br>\u2711 Single-sign on (SSO) access to both on-premises and Exchange Online mailboxes.<br>\u2711 Secured access to mailboxes by using Microsoft Azure Active Directory (Azure AD) conditional access policies.<br>\u2711 A unified global address list (GAL) that contains all the mailboxes in the on-premises and Exchange Online organizations.<br>You plan to run the Microsoft Office 365 Hybrid Configuration wizard.<br>You are evaluating whether to use Exchange Classic Hybrid or Exchange Modern Hybrid.<br>Which requirement can only be met by using the Exchange Modern Hybrid connection option?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe federated sharing of free/busy information between organizations",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSSO access to both on-premises and Exchange Online mailboxes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta unified GAL list that contains all the mailboxes in the on-premises and Exchange Online organizations",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsecured access to mailboxes by using Azure AD conditional access policies."
+    ],
+    "answer": "A",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-15T03:16:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2019-08-13T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "Classic Exchange Hybrid still allows for federated sharing, it just needs to be configured via EWS endpoint"
+      },
+      {
+        "date": "2019-08-26T00:04:00.000Z",
+        "voteCount": 2,
+        "content": "This answer is right. They asked: Which requirement can only be met by using the Exchange Modern Hybrid connection option. It means ONLY ONE thing can be done with Exchange Modern Hybrid. And it`s ree/busy  sharing."
+      },
+      {
+        "date": "2019-09-02T03:17:00.000Z",
+        "voteCount": 2,
+        "content": "what a messed-up way of phrasing questions. But the answer is correct."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/35776-exam-ms-201-topic-1-question-4-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft Exchange Server 2019 hybrid deployment that contains the users shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0000600001.png\" class=\"in-exam-image\"><br>You need to provide each user with an archive mailbox that is stored in Exchange Online.<br>Which admin center should you use to perform the configuration for each user? To answer, drag the appropriate admin centers to the correct users. Each admin center may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03480/0000600002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0000600003.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/securitycompliance/enable-archive-mailboxes https://docs.microsoft.com/en-us/exchange/hybrid-deployment/create-cloud-based-archive",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-02T05:56:00.000Z",
+        "voteCount": 5,
+        "content": "Both should be EAC in a hybrid scenario."
+      },
+      {
+        "date": "2020-11-19T07:37:00.000Z",
+        "voteCount": 1,
+        "content": "All user and mailbox changes happen on premise for hybrid scenarios"
+      },
+      {
+        "date": "2021-03-07T18:54:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with Ronnie123, both are in EAC Exchange On-Premises using enable-remotemailbox cmdlet available only in Exchange On-Premises.\nhttps://social.technet.microsoft.com/wiki/contents/articles/51966.office-365-hybrid-enabling-in-place-archive-with-powershell.aspx\nhttp://cloudexchangers.com/enable-archive-mailbox-in-exchange-hybrid/"
+      },
+      {
+        "date": "2020-12-30T00:07:00.000Z",
+        "voteCount": 1,
+        "content": "Both are enabled on the on-premise server.\nSince the question did not state, I assume that both user identity is synced from on-prem which means the archive must be enabled on-prem where the identity is based in. If the user is only on the cloud then the EXO EAC should be used."
+      },
+      {
+        "date": "2020-12-02T05:11:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/microsoft-365/compliance/enable-archive-mailboxes?view=o365-worldwide"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 9,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/16375-exam-ms-201-topic-1-question-20-discussion/",
+    "body": "HOTSPOT -<br>Your company named Contoso, Ltd. has a Microsoft Exchange Online subscription that uses a domain named contoso.com.<br>Contoso works with a partner company named A.Datum Corporation. A.Datum has an Exchange Server 2016 organization that uses a domain named adatum.com.<br>You need to ensure that users at Contoso can share their free/busy information with the users at A.Datum.<br>What should you do for each company? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/sharing/organization-relationships/organization-relationships",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-19T03:52:00.000Z",
+        "voteCount": 2,
+        "content": "Key point is \"users at Contoso can share their free/busy information\", so not an org relationship, but sharing policy. We don't want to share all calendars, only give the ability to our users.\n\n\nA.Datum: Create a federation trust between Exchange and Microsoft Office 365\nContoso: Create an sharing policy"
+      },
+      {
+        "date": "2020-06-11T10:42:00.000Z",
+        "voteCount": 1,
+        "content": "A.Datum: Create a federation trust between Exchange and Microsoft Office 365\nContoso: Create an organization relationship"
+      },
+      {
+        "date": "2020-03-12T02:23:00.000Z",
+        "voteCount": 2,
+        "content": "Create a federation trust between Exchange and Microsoft Office 365\nCreate an organization relationship"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41126-exam-ms-201-topic-1-question-6-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 hybrid deployment.<br>You have the on-premises mailboxes shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0000900001.png\" class=\"in-exam-image\"><br>You add the mailbox permissions shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0000900002.png\" class=\"in-exam-image\"><br>You plan to migrate the mailboxes to Exchange Online by using remote mailbox move requests. The mailboxes will be migrated according to the schedule shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0000900003.png\" class=\"in-exam-image\"><br>Mailboxes migrated the same week will have their mailbox move requests included in the same batch and will be cut over simultaneously.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0001000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0001000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/exchange-hybrid<br>https://practical365.com/exchange-online/configuring-exchange-hybrid-cross-forest-permissions/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-29T05:36:00.000Z",
+        "voteCount": 1,
+        "content": "No-No-Yes is correct"
+      },
+      {
+        "date": "2020-12-31T15:51:00.000Z",
+        "voteCount": 4,
+        "content": "N: The forwarding configuration isn't copied to Exchange Online when the mailbox is migrated there. \nN: User4 is not yet migrated and hence the permissions needs to be explicitly added after the migration.\nY: Because user3 is already migrated, the permissions will stay when migrated.\nhttps://docs.microsoft.com/en-us/exchange/exchange-hybrid"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4532-exam-ms-201-topic-1-question-7-discussion/",
+    "body": "Your network contains an Active Directory domain named fabrikam.com.<br>You have a Microsoft Exchange Server 2019 organization that contains two Mailbox servers in a database availability group (DAG).<br>You plan to implement a hybrid deployment by using the Exchange Modern Hybrid connection option.<br>Which three configurations will be transferred automatically from the on-premises organization to Exchange Online? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe device access rules",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe address lists",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe address book policies (ABPs)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Messaging Records Management (MRM) settings",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe mail flow rules"
+    ],
+    "answer": "ABE",
+    "answerDescription": "References:<br>https://practical365.com/exchange-online/hybrid-exchange-making-it-easier-and-faster-to-move-to-the-cloud/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-02T03:29:00.000Z",
+        "voteCount": 6,
+        "content": "Mail Flow Rules is incorrect, correct answer is ABD (MRM)"
+      },
+      {
+        "date": "2020-04-28T05:52:00.000Z",
+        "voteCount": 3,
+        "content": "'A', 'B' and 'D' are correct. https://docs.microsoft.com/en-us/exchange/org-config-transfer-attributes/org-config-transfer-attributes"
+      },
+      {
+        "date": "2021-04-15T07:51:00.000Z",
+        "voteCount": 1,
+        "content": "ABD is correct based on link!"
+      },
+      {
+        "date": "2020-11-22T07:57:00.000Z",
+        "voteCount": 2,
+        "content": "link for reference is correct, but based on that link correct answers are ABD"
+      },
+      {
+        "date": "2020-03-23T23:18:00.000Z",
+        "voteCount": 2,
+        "content": "it's ABC. definitely not E! mailflows are 'logic' and must be local. copying them could have serious consequences."
+      },
+      {
+        "date": "2020-01-07T21:13:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is AB. MRM can be transfer using import/export PS1 script. \nhttps://techcommunity.microsoft.com/t5/exchange-team-blog/released-hybrid-organization-configuration-transfer-v2/ba-p/608762"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/3429-exam-ms-201-topic-1-question-8-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization that contains 5,000 mailboxes.<br>You purchase a Microsoft 365 E5 subscription and create a hybrid deployment. You configure all MX records to point to Exchange Online.<br>You purchase 2,000 Microsoft 365 E5 licenses, and you migrate 2,000 mailboxes to Exchange Online.<br>You need to identify which additional licenses must be purchased. The solution must minimize costs.<br>Which licenses should you identify?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnterprise Mobility + Security E5 licenses for the Exchange Online users",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Office 365 Enterprise E1 licenses for the on-premises users",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Azure Active Directory Premium P2 licenses for all users",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Exchange Online Protection (EOP) license for each on-premises mailbox"
+    ],
+    "answer": "C",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-08-10T10:59:00.000Z",
+        "voteCount": 17,
+        "content": "Answer C is incorrect, and the link you reference does not mention this specific scenario.  According to my research, answer D is correct as per this reference:\nIf I have some users hosted in Exchange Online, and some users on-premises, can I point my MX record at Office 365 instead of my on-premises servers? If so, do I need Exchange Online Protection subscriptions for the on-premises users?\nYou can point your MX record to Exchange Online in a hybrid deployment. In this scenario, Exchange Online Protection (EOP) provides anti-spam and anti-malware filtering on inbound mail for the on-premises users, so these on-premises users require EOP subscriptions. \n\nFrom &lt;https://products.office.com/en/exchange/microsoft-exchange-licensing-faq-email-for-business&gt;"
+      },
+      {
+        "date": "2019-09-02T03:31:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed"
+      },
+      {
+        "date": "2020-04-28T05:54:00.000Z",
+        "voteCount": 3,
+        "content": "Awesome! Agreed. 'D' is correct"
+      },
+      {
+        "date": "2021-01-14T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "Yes I think D is the right answer"
+      },
+      {
+        "date": "2020-10-23T13:45:00.000Z",
+        "voteCount": 1,
+        "content": "There is no need to purchase P2. EOP licenses would suffice and costs less."
+      },
+      {
+        "date": "2020-10-22T06:18:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct: https://www.microsoft.com/en/microsoft-365/exchange/microsoft-exchange-licensing-faq-email-for-business\n\nYou can point your MX record to Exchange Online in a hybrid deployment. In this scenario, Exchange Online Protection (EOP) provides anti-spam and anti-malware filtering on inbound mail for the on-premises users, so these on-premises users require EOP subscriptions."
+      },
+      {
+        "date": "2020-06-22T07:44:00.000Z",
+        "voteCount": 1,
+        "content": "If you have an on-premises Exchange organization where you've purchased additional Exchange Enterprise CAL with Services licenses, EOP is part of the included services."
+      },
+      {
+        "date": "2020-05-07T13:09:00.000Z",
+        "voteCount": 1,
+        "content": "Not necessary to purchase P2 as only 5,000 users. And to modify MX better to use EOP."
+      },
+      {
+        "date": "2020-02-10T07:05:00.000Z",
+        "voteCount": 3,
+        "content": "correct aswer D"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/3354-exam-ms-201-topic-1-question-9-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You plan to purchase a Microsoft 365 E5 subscription and create a hybrid deployment.<br>You are evaluating the security requirements for communication between the on-premises organization and Exchange Online.<br>You need to ensure that Exchange Online services can access the necessary on-premises virtual directories.<br>Which two on-premises virtual directories should be accessible to Exchange Online services? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRpc",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEWS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPowerShell",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tecp",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmapi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAutodiscover"
+    ],
+    "answer": "EF",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-08-07T19:30:00.000Z",
+        "voteCount": 11,
+        "content": "According to this Microsoft article -  https://docs.microsoft.com/en-us/Exchange/hybrid-deployment-prerequisites#hybrid-deployment-protocols-ports-and-endpoints, the two on-premises virtual directories that should be accessible to Exchange online are EWS and Autodiscover."
+      },
+      {
+        "date": "2019-09-02T03:32:00.000Z",
+        "voteCount": 4,
+        "content": "Agreed here as well, there is no mention of HMA in the question statement, so the logical answer would be EWS/AutoD for Free/Busy, Hybrid Mailflow, etc."
+      },
+      {
+        "date": "2020-04-28T05:44:00.000Z",
+        "voteCount": 4,
+        "content": "Correct. 'B' and 'F' (definitely not 'D')"
+      },
+      {
+        "date": "2021-04-20T02:20:00.000Z",
+        "voteCount": 1,
+        "content": "EWS and Autodiscover, please correct!"
+      },
+      {
+        "date": "2020-10-23T13:46:00.000Z",
+        "voteCount": 2,
+        "content": "EWS and Autodiscover."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41436-exam-ms-201-topic-1-question-10-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 hybrid deployment.<br>You plan to enable Hybrid Modern Authentication (HMA).<br>You run the Get-MapiVirtualDirectory cmdlet and receive the output shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03480/0001300001.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0001400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0001400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-03T15:18:00.000Z",
+        "voteCount": 1,
+        "content": "OAuth and https://mail.contoso.com/mapi\nhttps://docs.microsoft.com/en-us/microsoft-365/enterprise/configure-exchange-server-for-hybrid-modern-authentication?view=o365-worldwide#add-on-premises-web-service-urls-as-spns-in-azure-ad"
+      },
+      {
+        "date": "2021-01-13T09:55:00.000Z",
+        "voteCount": 1,
+        "content": "No, the question asks about SPN in the cloud. Then, it should be https://mail.contoso.com not mapi."
+      },
+      {
+        "date": "2021-02-02T21:04:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry you are right"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41445-exam-ms-201-topic-1-question-12-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft Exchange Server 2019 hybrid deployment.<br>All user mailboxes are migrated to Exchange Online.<br>You need to migrate the public folders from the on-premises organization to Exchange Online.<br>Which three actions should you perform in sequence before you create the migration batch? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03480/0001800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0001800002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/Exchange/collaboration/public-folders/migrate-to-exchange-online?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-14T18:58:00.000Z",
+        "voteCount": 2,
+        "content": "According to source cited, given answer is correct:\n1. Run Export-ModernPublicFolderStatistics.ps1\n2. Run ModerPublicFolderToMailboxMapGenerator.ps1\n3. From Exchange Online, create the target public folder mailboxes\nAll of these steps are listed in the document and precede creating the migration batch."
+      },
+      {
+        "date": "2021-02-09T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "Same question in https://www.examtopics.com/exams/microsoft/ms-203/view/17/, different solution, please correct"
+      },
+      {
+        "date": "2021-01-03T17:07:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/Exchange/collaboration/public-folders/migrate-to-exchange-online?view=exchserver-2019#step-3-generate-the-csv-files \nhttps://docs.microsoft.com/en-us/Exchange/collaboration/public-folders/migrate-to-exchange-online?view=exchserver-2019#step-4-create-the-public-folder-mailboxes-in-exchange-online"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4099-exam-ms-201-topic-1-question-13-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You purchase a Microsoft 365 subscription and configure Active Directory synchronization.<br>You use a smart host for all communication between the organization and the Internet. The smart host performs email hygiene and alters message headers.<br>You plan to run the Hybrid Configuration wizard to create an Exchange hybrid deployment and change the MX record to point to Exchange Online.<br>You need to decommission the smart host from the organization.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the InternalSmtpServer value by running the Set-TransportConfig cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the Send connector to use DNS delivery.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the TLSReceiveDomainSecureList value by running the Set-TransportConfig cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Receive connector that allows anonymous authentication."
+    ],
+    "answer": "C",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/powershell/module/exchange/mail-flow/set-transportconfig?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-08-26T03:05:00.000Z",
+        "voteCount": 10,
+        "content": "The right answer is B."
+      },
+      {
+        "date": "2019-09-02T03:39:00.000Z",
+        "voteCount": 1,
+        "content": "agreed, C makes no sense since we are not talking about enabling domain security"
+      },
+      {
+        "date": "2020-04-27T20:11:00.000Z",
+        "voteCount": 2,
+        "content": "Yeah, makes sense - 'B'. Before the smart host (next hop server) can be decommissioned internal servers must be pointed to a valid next hop server - MS EOP servers (ideally), since the subscription is already purchased. But here it is direct DNS ..."
+      },
+      {
+        "date": "2021-01-03T17:30:00.000Z",
+        "voteCount": 2,
+        "content": "The question is asking for email hygiene and alters message headers which means that it\u2019s talking about the incoming emails which is the receive connector.\nA: The InternalSMTPServers parameter specifies a list of internal SMTP server IP addresses or IP address ranges that should be ignored by Sender ID and connection filtering.\nB: Should be receive connector not the send connector.\nD: You should be modifying not creating a new one.\nhttps://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/use-connectors-to-configure-mail-flow/set-up-connectors-to-route-mail#how-do-connectors-route-mail-between-microsoft-365-or-office-365-and-my-own-email-server"
+      },
+      {
+        "date": "2020-10-23T13:52:00.000Z",
+        "voteCount": 1,
+        "content": "B  - DNS Delivery."
+      },
+      {
+        "date": "2020-06-22T09:44:00.000Z",
+        "voteCount": 2,
+        "content": "correct. TLSReceiveDomainSecureList parameter specifies the domains from which you want to send domain secured email by using mutual TLS authentication."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7779-exam-ms-201-topic-1-question-14-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 hybrid deployment.<br>You are migrating public folder data to Exchange Online by using a migration batch of the PublicFolder type.<br>You need to identify the sync of each move request in the batch.<br>Which cmdlet should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-PublicFolderMailboxMigrationRequests",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-MoveRequest",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-PublicFolderMoveRequest",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-PublicFolderMigrationRequest"
+    ],
+    "answer": "C",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/Exchange/collaboration/public-folders/migrate-to-exchange-online?view=exchserver-2019 https://docs.microsoft.com/en-us/powershell/module/exchange/move-and-migration/get-publicfoldermoverequest?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-07T05:42:00.000Z",
+        "voteCount": 8,
+        "content": "Shouldn't the right answer be A ? C is for on-premise moves..\n\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/move-and-migration/get-publicfoldermailboxmigrationrequest?view=exchange-ps\n\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/move-and-migration/get-publicfoldermoverequest?view=exchange-ps"
+      },
+      {
+        "date": "2020-04-27T20:12:00.000Z",
+        "voteCount": 4,
+        "content": "Agreed. Correct answer is 'A'."
+      },
+      {
+        "date": "2023-11-21T04:43:00.000Z",
+        "voteCount": 1,
+        "content": "Right answer is A"
+      },
+      {
+        "date": "2021-01-01T04:29:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct without the (s).\nUse the Get-PublicFolderMailboxMigrationRequest cmdlet to view the status of individual jobs in public folder migration batches that were created by using the New-MigrationBatch cmdlet.\nWhile\nUse the Get-PublicFolderMoveRequest cmdlet to view the detailed status of an ongoing public folder move that was initiated using the New-PublicFolderMoveRequest cmdlet."
+      },
+      {
+        "date": "2020-11-19T00:21:00.000Z",
+        "voteCount": 1,
+        "content": "Use the Get-PublicFolderMoveRequest cmdlet to view the detailed status of an ongoing public folder move that was initiated using the New-PublicFolderMoveRequest cmdlet."
+      },
+      {
+        "date": "2020-08-04T14:27:00.000Z",
+        "voteCount": 2,
+        "content": "Well i would also vote for A but there is no cmdlet Get-PublicFolderMailboxMigrationRequests. The correct one is Get-PublicFolderMailboxMigrationRequest without the \"s\" at the end. Could it be a typo? \nhttps://docs.microsoft.com/en-us/powershell/module/exchange/get-publicfoldermailboxmigrationrequest?view=exchange-ps"
+      },
+      {
+        "date": "2020-05-03T15:11:00.000Z",
+        "voteCount": 3,
+        "content": "the correct answer is A; \nD was for Ex 10/13 which had been replaced by A.\nxxxMovexxx is to move the contents of PF not to do migration"
+      },
+      {
+        "date": "2020-03-04T08:57:00.000Z",
+        "voteCount": 1,
+        "content": "the correct answer is A?\nthe answer is correct also for the exam or I have to answer anyway C?"
+      },
+      {
+        "date": "2020-01-07T21:43:00.000Z",
+        "voteCount": 2,
+        "content": "Its A. https://docs.microsoft.com/en-us/Exchange/collaboration/public-folders/migrate-to-exchange-online?redirectedfrom=MSDN&amp;view=exchserver-2019"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/43882-exam-ms-201-topic-1-question-16-discussion/",
+    "body": "DRAG DROP -<br>Your company named Contoso, Ltd. has a Microsoft Exchange Server 2019 hybrid deployment.<br>A partner company named Fabrikam, Inc. uses an Exchange Online subscription for email.<br>You need to ensure that all the users at Fabrikam can view the free/busy information of the users at Contoso.<br>What should you configure? To answer, drag the appropriate components to the correct companies. Each component may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03480/0002100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0002200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/sharing/organization-relationships/create-an-organization-relationship https://docs.microsoft.com/en-us/exchange/sharing/sharing-policies/sharing-policies",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-02T23:50:00.000Z",
+        "voteCount": 1,
+        "content": "Fabrikam needs to view Contoso. Hence, Contoso needs to create a share and Fabrikam setup the organization relationship. If this is two way then bot sides needs both a sharing policy and the organization relationship."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41683-exam-ms-201-topic-1-question-18-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>An administrator configures Microsoft Azure Active Directory (Azure AD) synchronization.<br>You purchase a Microsoft 365 subscription.<br>You configure several users in the on-premises organization to use archive mailboxes in Exchange Online.<br>The users report that their archive mailbox does not appear in Microsoft Outlook.<br>You need to ensure that the users can access their archive mailbox.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRerun the Microsoft Office 365 Hybrid Configuration wizard",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReconfigure the sharing policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReconfigure the organization relationship",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRerun Azure AD Connect and select Exchange hybrid deployment"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-06T18:32:00.000Z",
+        "voteCount": 2,
+        "content": "D\nhttp://arnaudpain.com/2019/07/17/azure-ad-connect-step-by-step-part-3/#sthash.5x0ZJa5y.dpbs\nThe Exchange Hybrid Deployment feature allows for the co-existence of Exchange mailboxes both on-premises and in Office 365. Azure AD Connect is synchronizing a specific set of attributes from Azure AD back into your on-premises directory."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41707-exam-ms-201-topic-1-question-21-discussion/",
+    "body": "You use an IMAP-based email system.<br>You purchase a Microsoft 365 subscription.<br>In Exchange Online, you create mailboxes for all users.<br>You need to migrate all the email accounts of all the users to Exchange Online.<br>Which three components should you create? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan accepted domain",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta remote domain",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta migration endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan inbound connector",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta CSV migration file",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta migration batch"
+    ],
+    "answer": "ACE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-09T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "ACE is correct, you need the domain for IMAP migration. https://docs.microsoft.com/en-us/exchange/mailbox-migration/migrating-imap-mailboxes/migrate-other-types-of-imap-mailboxes"
+      },
+      {
+        "date": "2021-01-06T20:38:00.000Z",
+        "voteCount": 3,
+        "content": "CEF\nhttps://docs.microsoft.com/en-us/exchange/mailbox-migration/migrating-imap-mailboxes/migrate-g-suite-mailboxes#step-3-create-a-list-of-gmail-mailboxes-to-migrate"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19184-exam-ms-201-topic-1-question-22-discussion/",
+    "body": "Your network contains an Active Directory domain named fabrikam.com.<br>You have a Microsoft Exchange Server 2019 organization that contains two Mailbox servers. The servers are members of a database availability group (DAG).<br>You plan to implement an Exchange hybrid deployment.<br>You are evaluating the use of the Exchange Modern Hybrid connection option during the hybrid deployment.<br>What are two benefits of using Exchange Modern Hybrid instead of Exchange Classic Hybrid? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tallows federated sharing between the on-premises organization and Exchange Online",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\teliminates the need to purchase publicly trusted certificates for communication between the on-premises organization and Exchange Online",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpreserves mailbox quotas when mailboxes are moved between the on-premises organization and Exchange Online",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuses Organization Configuration Transfer to configure Exchange Online",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tallows the use of Microsoft Azure Multi-Factor Authentication (MFA) for on-premises users"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-27T20:02:00.000Z",
+        "voteCount": 5,
+        "content": "Correct answers should be 'A' and 'B'. Again, one of those questions lacking clarity.\n'D' is incorrect, as the 'OCT' is available with the 'Hybrid Classic'. OCT is a one-time configuration copy. And it is not relevant to the hybrid agent/modern.\n'A' is correct in the context of not needing to open up firewall for free/busy sharing."
+      },
+      {
+        "date": "2021-01-06T20:44:00.000Z",
+        "voteCount": 1,
+        "content": "BD\nThe Hybrid Agent removes some of the challenges you can face when you configure an Exchange Hybrid environment. The agent, which is built on the same technology as the Azure Application Proxy, removes some requirements for external DNS entries, certificate updates and inbound network connections through your firewall to enable Exchange hybrid features.\nA: Exchange Modern Hybrid does not use federation.\nC: This is irrelevant no matter which you chose.\nE: Modern Hybrid does not support Modern Authentication which uses MFA.\nhttps://practical365.com/exchange-server/hybrid-agent-exchange-modern-hybrid-now-available-as-a-public-preview/\nhttps://docs.microsoft.com/en-us/exchange/hybrid-deployment/hybrid-agent"
+      },
+      {
+        "date": "2021-03-10T21:47:00.000Z",
+        "voteCount": 1,
+        "content": "A: Sorry it does use federation but there is no benefit which is what the question is asking."
+      },
+      {
+        "date": "2020-05-03T21:40:00.000Z",
+        "voteCount": 4,
+        "content": "Finally, for me the correct answer is AB"
+      },
+      {
+        "date": "2020-08-05T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "The Question lacks clarity indeed. The table on this article states that OCT is available on all Hybrid options https://docs.microsoft.com/en-us/exchange/hybrid-configuration-wizard-options \n\nSo since D i available on all options there is now advantage. A on the other can be achieved easier with Full Modern Hybrid."
+      },
+      {
+        "date": "2020-08-05T02:40:00.000Z",
+        "voteCount": 1,
+        "content": "*there is no advantage"
+      },
+      {
+        "date": "2020-04-27T21:12:00.000Z",
+        "voteCount": 1,
+        "content": "BD\nhttps://blog.expta.com/2019/05/hcw-organization-configuration-transfer_2.html"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41708-exam-ms-201-topic-1-question-23-discussion/",
+    "body": "HOTSPOT -<br>Your company named Contoso, Ltd. has a Microsoft Exchange Online subscription that uses a domain named contoso.com.<br>Contoso works with a partner company named A.Datum Corporation. A.Datum has an Exchange Server 2016 organization that uses a domain named adatum.com.<br>You need to ensure that users at Contoso can share their free/busy information with the users at A.Datum.<br>What should you do for each company? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0002800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0002800002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/sharing/organization-relationships/organization-relationships",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-29T05:32:00.000Z",
+        "voteCount": 1,
+        "content": "Is correct"
+      },
+      {
+        "date": "2021-04-20T02:37:00.000Z",
+        "voteCount": 2,
+        "content": "\"You need to ensure that users at Contoso can share their free/busy information with the users at A.Datum.\" The answer is correct!"
+      },
+      {
+        "date": "2021-01-06T20:47:00.000Z",
+        "voteCount": 1,
+        "content": "A.Datum: sharing policy\nContoso: organization relationship\nhttps://docs.microsoft.com/en-us/exchange/sharing/organization-relationships/create-an-organization-relationship\nhttps://docs.microsoft.com/en-us/exchange/sharing/sharing-policies/sharing-policies"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41713-exam-ms-201-topic-1-question-30-discussion/",
+    "body": "Your network contains an Active Directory forest. The forest functional level is Windows Server 2012 R2. The forest contains a Microsoft Exchange Server 2019 organization. Users access their mailbox by using Microsoft Outlook 2016.<br>You purchase a Microsoft 365 E5 subscription.<br>You plan to move 20 mailboxes to Exchange Online.<br>From Exchange Online, you attempt to perform a remote move migration. When you are prompted to select the users, you discover that there are no users to select.<br>You need to ensure that you can migrate the users to Exchange Online by using a remote move migration.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new certificate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade the forest functional level.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrepare the Active Directory schema.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement Active Directory synchronization."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-06T23:50:00.000Z",
+        "voteCount": 1,
+        "content": "You need to sync the AD accounts to Azure AD before you can select them."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41715-exam-ms-201-topic-1-question-33-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 hybrid deployment. The on-premises Exchange organization contains 500 mailboxes. The Exchange Online tenant contains 200 mailboxes.<br>You need to ensure that all users can use the Microsoft Outlook mobile app to access their mailbox.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFor each on-premises user, purchase a Microsoft Office 365 Enterprise E1 license.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Exchange Online, create a mobile device access policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a TXT record to the public DNS zone of the Exchange organization.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the on-premises organization, create a mobile device access policy."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-30T12:44:00.000Z",
+        "voteCount": 1,
+        "content": "License is needed. Look at point 5 - https://docs.microsoft.com/en-us/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019#technical-and-licensing-requirements"
+      },
+      {
+        "date": "2021-01-07T00:24:00.000Z",
+        "voteCount": 2,
+        "content": "B\nThe identities are on-premise for both EXO and on-prem but most likely you will want to configure the mobile access to utilize modern authentication which has MFA. Also this will allow you to have conditional access and ability to use app policies to protect your data. Hence, the device policy should be setup in EXO.\nhttps://docs.microsoft.com/en-us/exchange/clients/outlook-for-ios-and-android/use-hybrid-modern-auth?view=exchserver-2019"
+      },
+      {
+        "date": "2021-01-26T06:57:00.000Z",
+        "voteCount": 1,
+        "content": "I think that it is on-prem because if you create an exchange online mobile device access policy the users who are on-prem will not be affected. Isn't it"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41932-exam-ms-201-topic-1-question-36-discussion/",
+    "body": "Your company has a Microsoft Exchange Server 2019 hybrid deployment.<br>The company has a finance department.<br>You need to move all the on-premises mailboxes of the finance department to Exchange Online. The bulk of the move operation must occur during a weekend when the company's Internet traffic is lowest. The move must then be finalized the following Monday. The solution must minimize disruption to end users.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the New-MigrationBatch cmdlet and specify the StartAfter parameter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a batch migration and select the Automatically complete the migration batch check box.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the New-MigrationBatch cmdlet and specify the CompleteAfter parameter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a script that moves most of the mailboxes on Friday at 22:00 and the remaining mailboxes on Monday at 09:00."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-09T15:36:00.000Z",
+        "voteCount": 1,
+        "content": "A\nB: This would start and end immediately which is not what we wanted.\nC: This will means the \u201cBulk\u201d of the actions will start immediately during office hours which is wrong. This is often used when the bandwidth isn\u2019t a imitation.\nD: Then the mailboxes would not have time to go live and cause disruption to the users.\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/new-migrationbatch?view=exchange-ps"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41934-exam-ms-201-topic-1-question-39-discussion/",
+    "body": "HOTSPOT -<br>You run the Get-WebServicesVirtualDirectory cmdlet as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03480/0004600001.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0004600002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0004700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Mailbox replication service (MRS) proxy is used for cross forest mailbox move and remote move migration between on premise exchange and exchange online<br>(Office 365)<br>Reference:<br>https://docs.microsoft.com/en-us/Exchange/architecture/mailbox-servers/mrs-proxy-endpoint?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-09T16:45:00.000Z",
+        "voteCount": 5,
+        "content": "\u2022\tEnable the MRS proxy endpoint on all servers.\n\u2022\tConfigure the SMTP to use a third-party certificate.\nYou need to enable MRS proxy on all server not just 1.\nIMAP is only used for Gmail or legacy third party migrations. Also emails are delivered using SMTP not IMAP. Exchange online uses third-party certificate where it can verify the connection. Only federation uses self-signed certificate which the HCW creates automatically."
+      },
+      {
+        "date": "2021-01-12T10:23:00.000Z",
+        "voteCount": 1,
+        "content": "Totally agreed, the answer should be changed"
+      },
+      {
+        "date": "2021-01-09T16:45:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/exchange/certificate-requirements \nhttp://techgenix.com/exchange-online-migration-endpoints/ \nhttps://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/use-connectors-to-configure-mail-flow/set-up-connectors-to-route-mail"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "1"
+  }
+]

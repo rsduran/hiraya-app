@@ -1,0 +1,101 @@
+[
+  {
+    "topic": 9,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11190-exam-dp-200-topic-9-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure phone-based polling data upload reliability requirements are met. How should you configure monitoring? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0045600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0045700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: FileCapacity -<br>FileCapacity is the amount of storage used by the storage account's File service in bytes.<br><br>Box 2: Avg -<br>The aggregation type of the FileCapacity metric is Avg.<br>Scenario:<br>All services and processes must be resilient to a regional Azure outage.<br>All Azure services must be monitored by using Azure Monitor. On-premises SQL Server performance must be monitored.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/metrics-supported",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-01T03:36:00.000Z",
+        "voteCount": 12,
+        "content": "For reliablity FileCount should be taken into consideration"
+      },
+      {
+        "date": "2020-05-08T01:04:00.000Z",
+        "voteCount": 3,
+        "content": "Yes\nIt should be FileCount and Avg as the answer"
+      },
+      {
+        "date": "2020-07-18T05:06:00.000Z",
+        "voteCount": 5,
+        "content": "I agree with FileCount since you want a way to make sure you got everything.  counts are more reliable than sizes since compression can change things.  also, sum is necessary to get the total.  Why would you want avg?"
+      },
+      {
+        "date": "2020-09-28T22:41:00.000Z",
+        "voteCount": 1,
+        "content": "AVG(Filecount) would drop  relative to other periods if there have been any outages within  the period ?"
+      },
+      {
+        "date": "2020-11-06T07:54:00.000Z",
+        "voteCount": 2,
+        "content": "the correct answer would be \"BlobCapacity\" as the raw poll data will be storing in a blob. the \"FileCount\" is a number of the files, which loses track of the storage capacity in blob."
+      },
+      {
+        "date": "2020-11-06T07:57:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/storage/files/storage-files-monitoring-reference"
+      },
+      {
+        "date": "2020-07-13T16:35:00.000Z",
+        "voteCount": 10,
+        "content": "Since it is stored in datalake (blob), it should be \"BlobCapacity\""
+      },
+      {
+        "date": "2021-09-29T12:30:00.000Z",
+        "voteCount": 1,
+        "content": "It looks like phone-based data are part of polling data. Polling data are stored in Azure Data Lake Gen2, which is basically Azure Blob with additional features. So the BlobCapacity looks like a promising answer. \n\nAggregation to BlobCapacity is avg because it is mentioned here:\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-supported#microsoftstoragestorageaccountsfileservices"
+      },
+      {
+        "date": "2021-01-08T14:37:00.000Z",
+        "voteCount": 1,
+        "content": "Answers are correct.\nFileCount and FileCapacity applies on FileShare ; not on blob tier."
+      },
+      {
+        "date": "2021-01-08T14:39:00.000Z",
+        "voteCount": 1,
+        "content": "I meant: BlobCapacity and AVG is the right answer.\nFileCount and FileCapacity applies on FileShare ; not on blob tier."
+      },
+      {
+        "date": "2020-11-27T07:41:00.000Z",
+        "voteCount": 1,
+        "content": "Aggregation as Avg is correct since it is about reliability\nI would go for Blob since storage is in Data Lake"
+      },
+      {
+        "date": "2020-09-26T09:48:00.000Z",
+        "voteCount": 1,
+        "content": "Why do we need Avg here?"
+      },
+      {
+        "date": "2020-11-05T00:18:00.000Z",
+        "voteCount": 3,
+        "content": "Avg is the only option available for the Capacity metrics, its the total storage used in the storage account, it wouldn't make any sense to use sum."
+      },
+      {
+        "date": "2020-06-23T04:18:00.000Z",
+        "voteCount": 3,
+        "content": "Any supporting reference for data upload reliability - FileCount"
+      },
+      {
+        "date": "2020-07-23T03:56:00.000Z",
+        "voteCount": 1,
+        "content": "I haven't found any. My reasoning for Filecount plus AVG is that the question is about \"phone-based polling data upload\" and I understand that it first comes as an \"upload\" from the different sources and is stored in SQL Server On-Premise and only after six months archived into the data lake. Therefore FileCount AVG in Azure Monitoring. \n\nData lake can later be monitored by BlobCapacity - AVG, but this is not in question here to my understanding."
+      },
+      {
+        "date": "2020-06-15T04:08:00.000Z",
+        "voteCount": 1,
+        "content": "i see polling data should be stored in a datalake, i don't see any requirement for a fileservice."
+      },
+      {
+        "date": "2020-05-25T12:55:00.000Z",
+        "voteCount": 1,
+        "content": "Agree to Rahul. Reliability should be in related to FileCount."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "9"
+  }
+]

@@ -1,0 +1,1814 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36903-exam-dp-200-topic-4-question-1-discussion/",
+    "body": "You configure monitoring for an Azure Synapse Analytics implementation. The implementation uses PolyBase to load data from comma-separated value (CSV) files stored in Azure Data Lake Storage Gen 2 using an external table.<br>Files with an invalid schema cause errors to occur.<br>You need to monitor for an invalid schema error.<br>For which error should you monitor?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEXTERNAL TABLE access failed due to internal error: 'Java exception raised on call to HdfsBridge_Connect: Error [com.microsoft.polybase.client.KerberosSecureLogin] occurred while accessing external file.'",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEXTERNAL TABLE access failed due to internal error: 'Java exception raised on call to HdfsBridge_Connect: Error [No FileSystem for scheme: wasbs] occurred while accessing external file.'",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCannot execute the query \"Remote Query\" against OLE DB provider \"SQLNCLI11\" for linked server \"(null)\", Query aborted- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEXTERNAL TABLE access failed due to internal error: 'Java exception raised on call to HdfsBridge_Connect: Error [Unable to instantiate LoginClass] occurred while accessing external file.'"
+    ],
+    "answer": "C",
+    "answerDescription": "Customer Scenario:<br>SQL Server 2016 or SQL DW connected to Azure blob storage. The CREATE EXTERNAL TABLE DDL points to a directory (and not a specific file) and the directory contains files with different schemas.<br>SSMS Error:<br>Select query on the external table gives the following error:<br>Msg 7320, Level 16, State 110, Line 14<br>Cannot execute the query \"Remote Query\" against OLE DB provider \"SQLNCLI11\" for linked server \"(null)\". Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 1 rows processed.<br>Possible Reason:<br>The reason this error happens is because each file has different schema. The PolyBase external table DDL when pointed to a directory recursively reads all the files in that directory. When a column or data type mismatch happens, this error could be seen in SSMS.<br>Possible Solution:<br>If the data for each table consists of one file, then use the filename in the LOCATION section prepended by the directory of the external files. If there are multiple files per table, put each set of files into different directories in Azure Blob Storage and then you can point LOCATION to the directory instead of a particular file.<br>The latter suggestion is the best practices recommended by SQLCAT even if you have one file per table.<br>Incorrect Answers:<br>A: Possible Reason: Kerberos is not enabled in Hadoop Cluster.<br>References:<br>https://techcommunity.microsoft.com/t5/DataCAT/PolyBase-Setup-Errors-and-Possible-Solutions/ba-p/305297",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-12T20:54:00.000Z",
+        "voteCount": 7,
+        "content": "it's a correct answer"
+      },
+      {
+        "date": "2020-11-13T07:26:00.000Z",
+        "voteCount": 3,
+        "content": "Have you cleared DP-200? Can you please guide on how to clear it"
+      },
+      {
+        "date": "2021-05-31T02:59:00.000Z",
+        "voteCount": 2,
+        "content": "Have you already written and didn't pass?"
+      },
+      {
+        "date": "2021-05-17T18:35:00.000Z",
+        "voteCount": 2,
+        "content": "Why not B?"
+      },
+      {
+        "date": "2021-06-12T19:28:00.000Z",
+        "voteCount": 1,
+        "content": "C are correct answer after I check this \nPossible Reason:\nThe reason this error happens is because each file has different schema. The PolyBase external table DDL when pointed to a directory recursively reads all the files in that directory. When a column or data type mismatch happens, this error could be seen in SSMS.\nhttps://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-errors-and-possible-solutions?view=sql-server-ver15"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40776-exam-dp-200-topic-4-question-2-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>A company uses Azure Data Lake Gen 1 Storage to store big data related to consumer behavior.<br>You need to implement logging.<br>Solution: Use information stored in Azure Active Directory reports.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead configure Azure Data Lake Storage diagnostics to store logs and metrics in a storage account.<br>Note:<br>You can enable diagnostic logging for your Azure Data Lake Storage Gen1 accounts, blobs, files, queues and tables.<br>Diagnostic logs aren't available for Data Lake Storage Gen2 accounts [as of August 2019].<br>References:<br>https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs https://github.com/MicrosoftDocs/azure-docs/issues/34286",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-28T00:47:00.000Z",
+        "voteCount": 1,
+        "content": "Gen1 question are not being asked anymore!"
+      },
+      {
+        "date": "2021-04-27T14:11:00.000Z",
+        "voteCount": 4,
+        "content": "then answer is correct"
+      },
+      {
+        "date": "2020-12-25T12:35:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48782-exam-dp-200-topic-4-question-3-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a container named Sales in an Azure Cosmos DB database. Sales has 120 GB of data. Each entry in Sales has the following structure.<br><img src=\"/assets/media/exam-media/03872/0037400001.png\" class=\"in-exam-image\"><br>The partition key is set to the OrderId attribute.<br>Users report that when they perform queries that retrieve data by ProductName, the queries take longer than expected to complete.<br>You need to reduce the amount of time it takes to execute the problematic queries.<br>Solution: You increase the Request Units (RUs) for the database.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "To scale the provisioned throughput for your application, you can increase or decrease the number of RUs at any time.<br>Note: The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). You can think of RUs per second as the currency for throughput. RUs per second is a rate-based currency. It abstracts the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/request-units",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-25T07:59:00.000Z",
+        "voteCount": 3,
+        "content": "I think \"no\" should be the answer. As said in the CosmosDB doc, \"The same query on the same data will always costs the same number of RUs on repeated executions\". If the query needs more RU than the ones availabile, the request is rate-limited and will have to be tried again. \nIn this case we have queries that are consistently slow but are not being rate-limite, which means that the number of RU already provisioned is enough. Increasing the RU only ensures that more queries can be executed at the same time, but does not improve the performance of the slow queries.\n\nSource: https://docs.microsoft.com/en-us/azure/cosmos-db/request-units"
+      },
+      {
+        "date": "2021-05-19T03:59:00.000Z",
+        "voteCount": 4,
+        "content": "increase RU and lookupcollection are 2 possible answers. So;\nanswer is CORRECT"
+      },
+      {
+        "date": "2021-05-17T18:39:00.000Z",
+        "voteCount": 3,
+        "content": "The better solution should have index on ProductName"
+      },
+      {
+        "date": "2021-04-02T04:28:00.000Z",
+        "voteCount": 2,
+        "content": "answer is wrong. we should use lookupcollection on ProductName."
+      },
+      {
+        "date": "2021-04-11T04:24:00.000Z",
+        "voteCount": 11,
+        "content": "I disagree. Having a look up collection is another correct option, but increasing RUs could be another way to reduce latency, IMHO."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37830-exam-dp-200-topic-4-question-4-discussion/",
+    "body": "You are monitoring an Azure Stream Analytics job.<br>You discover that the Backlogged Input Events metric is increasing slowly and is consistently non-zero.<br>You need to ensure that the job can handle all the events.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the compatibility level of the Stream Analytics job.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the number of streaming units (SUs).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an additional output stream for the existing input stream.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove any named consumer groups from the connection and use $default."
+    ],
+    "answer": "B",
+    "answerDescription": "Backlogged Input Events: Number of input events that are backlogged. A non-zero value for this metric implies that your job isn't able to keep up with the number of incoming events. If this value is slowly increasing or consistently non-zero, you should scale out your job. You should increase the Streaming Units.<br>Note: Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more<br>CPU and memory resources are allocated for your job.<br>Reference:<br>https://docs.microsoft.com/bs-cyrl-ba/azure/stream-analytics/stream-analytics-monitoring",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-02T13:43:00.000Z",
+        "voteCount": 6,
+        "content": "correct"
+      },
+      {
+        "date": "2020-11-26T04:55:00.000Z",
+        "voteCount": 2,
+        "content": "Link provided supports B as the answer"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52927-exam-dp-200-topic-4-question-6-discussion/",
+    "body": "SIMULATION -<br>Use the following login credentials as needed:<br><br>Azure Username: xxxxx -<br><br>Azure Password: xxxxx -<br>The following information is for technical support purposes only:<br><br>Lab Instance: 10543936 -<br><img src=\"/assets/media/exam-media/03872/0038000001.jpg\" class=\"in-exam-image\"><br>Your company's security policy states that administrators must be able to review a list of the failed logins to an Azure SQL database named db1 during the previous 30 days.<br>You need to modify your Azure environment to meet the security policy requirements.<br>To complete this task, sign in to the Azure portal.<br>",
+    "options": [],
+    "answer": "See the explanation below.",
+    "answerDescription": "Set up auditing for your database<br>The following section describes the configuration of auditing using the Azure portal.<br>1. Go to the Azure portal.<br>2. Navigate to Auditing under the Security heading in your SQL database db1/server pane<br><img src=\"/assets/media/exam-media/03872/0038100001.jpg\" class=\"in-exam-image\"><br>3. If you prefer to enable auditing on the database level, switch Auditing to ON.<br><img src=\"/assets/media/exam-media/03872/0038200001.jpg\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-17T00:00:00.000Z",
+        "voteCount": 1,
+        "content": "I don't agree with the explanation. According to this \nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/auditing-overview\n\"...When using Azure AD Authentication, failed logins records will not appear in the SQL audit log. To view failed login audit records, you need to visit the Azure Active Directory portal, which logs details of these events...\"\nYou can log failed login events from AAD portal."
+      },
+      {
+        "date": "2021-05-25T08:23:00.000Z",
+        "voteCount": 2,
+        "content": "Unfortunately it is not mentioned if Azure AD authentication is used to login. Maybe user are just using the standard username and password created in the SQL database. Moreover, the lab asks to do something, and if they were using Azure AD authentication there would be nothing to do. So I think that the provided answer (enable auditing) is correct."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30732-exam-dp-200-topic-4-question-8-discussion/",
+    "body": "You have an Azure Stream Analytics job.<br>You need to ensure that the job has enough streaming units provisioned.<br>You configure monitoring of the SU% Utilization metric.<br>Which two additional metrics should you monitor? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWatermark Delay",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLate Input Events",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOut of order Events",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBacklogged Input Events",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFunction Events"
+    ],
+    "answer": "BD",
+    "answerDescription": "B: Late Input Events: events that arrived later than the configured late arrival tolerance window.<br>Note: While comparing utilization over a period of time, use event rate metrics. InputEvents and OutputEvents metrics show how many events were read and processed.<br>D: In job diagram, there is a per partition backlog event metric for each input. If the backlog event metric keeps increasing, it's also an indicator that the system resource is constrained (either because of output sink throttling, or high CPU).<br>Reference:<br>https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-jobs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-06T18:31:00.000Z",
+        "voteCount": 36,
+        "content": "The correct answer is A, D.\nB, C, E are unrelated to resource constraints.\nhttps://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-monitoring\nhttps://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-time-handling"
+      },
+      {
+        "date": "2020-09-27T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. According to the docs, Arrival time is set on the source, so unrelated to the performance of ASA. It will be better to monitor Watermark Delay that indicates \"the delay of the streaming data processing job\""
+      },
+      {
+        "date": "2020-12-11T04:11:00.000Z",
+        "voteCount": 4,
+        "content": "Your first link well supports A, D. \n\"If resource utilization is consistently over 80%, the watermark delay is rising, and the number of backlogged events is rising, consider increasing streaming units.\""
+      },
+      {
+        "date": "2021-12-02T08:39:00.000Z",
+        "voteCount": 2,
+        "content": "the same question is in dp300 and the correct answer is A and D"
+      },
+      {
+        "date": "2021-06-19T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "It's A &amp; D."
+      },
+      {
+        "date": "2021-06-13T03:25:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-streaming-unit-consumption"
+      },
+      {
+        "date": "2021-04-28T04:23:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with A &amp; D"
+      },
+      {
+        "date": "2021-04-26T18:03:00.000Z",
+        "voteCount": 1,
+        "content": "it should be AD"
+      },
+      {
+        "date": "2020-10-14T08:04:00.000Z",
+        "voteCount": 4,
+        "content": "AD should be selected\nIdentifying Bottlenecks\n\nUse the Metrics pane in your Azure Stream Analytics job to identify bottlenecks in your pipeline. Review Input/Output Events for throughput and \"Watermark Delay\" or Backlogged Events to see if the job is keeping up with the input rate. For Event Hub metrics, look for Throttled Requests and adjust the Threshold Units accordingly. For Cosmos DB metrics, review Max consumed RU/s per partition key range under Throughput to ensure your partition key ranges are uniformly consumed. For Azure SQL DB, monitor Log IO and CPU.\nhttps://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#identifying-bottlenecks"
+      },
+      {
+        "date": "2020-10-01T06:32:00.000Z",
+        "voteCount": 3,
+        "content": "AD should be selected"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53110-exam-dp-200-topic-4-question-10-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>A company uses Azure Data Lake Gen 1 Storage to store big data related to consumer behavior.<br>You need to implement logging.<br>Solution: Configure Azure Data Lake Storage diagnostics to store logs and metrics in a storage account.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "From the Azure Storage account that contains log data, open the Azure Storage account blade associated with Data Lake Storage Gen1 for logging, and then click Blobs. The Blob service blade lists two containers.<br><img src=\"/assets/media/exam-media/03872/0039300001.png\" class=\"in-exam-image\"><br>Note:<br>You can enable diagnostic logging for your Azure Data Lake Storage Gen1 accounts, blobs, files, queues and tables.<br>Diagnostic logs aren't available for Data Lake Storage Gen2 accounts [as of August 2019].<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs https://github.com/MicrosoftDocs/azure-docs/issues/34286",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-19T04:05:00.000Z",
+        "voteCount": 3,
+        "content": "yes, CORRECT"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20555-exam-dp-200-topic-4-question-12-discussion/",
+    "body": "Your company uses several Azure HDInsight clusters.<br>The data engineering team reports several errors with some applications using these clusters.<br>You need to recommend a solution to review the health of the clusters.<br>What should you include in your recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Automation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLog Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication Insights"
+    ],
+    "answer": "B",
+    "answerDescription": "Azure Monitor logs integration. Azure Monitor logs enables data generated by multiple resources such as HDInsight clusters, to be collected and aggregated in one place to achieve a unified monitoring experience.<br>As a prerequisite, you will need a Log Analytics Workspace to store the collected data. If you have not already created one, you can follow the instructions for creating a Log Analytics Workspace.<br>You can then easily configure an HDInsight cluster to send many workload-specific metrics to Log Analytics.<br>References:<br>https://azure.microsoft.com/sv-se/blog/monitoring-on-azure-hdinsight-part-2-cluster-health-and-availability/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-14T06:01:00.000Z",
+        "voteCount": 24,
+        "content": "I'm glad Ambari was not one of the answers!"
+      },
+      {
+        "date": "2020-07-13T08:58:00.000Z",
+        "voteCount": 1,
+        "content": "I think Ambari cannot recommend solution"
+      },
+      {
+        "date": "2020-09-11T04:39:00.000Z",
+        "voteCount": 4,
+        "content": "correct answer is B"
+      },
+      {
+        "date": "2020-06-19T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "In a real world scenario, using App Insights would be highly recommended in addition to Azure Monitor for correct error diagnosis. Since the question points to \"review health of clusters\" Azure Monitor should be the correct one."
+      },
+      {
+        "date": "2020-05-25T12:12:00.000Z",
+        "voteCount": 1,
+        "content": "Application Insights is right one"
+      },
+      {
+        "date": "2020-05-26T00:28:00.000Z",
+        "voteCount": 10,
+        "content": "I don't think so. \nApplication Insights is used to monitor applications. \n\n\"Application Insights, a feature of Azure Monitor, is an extensible Application Performance Management (APM) service for developers and DevOps professionals. Use it to monitor your live applications. It will automatically detect performance anomalies, and includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.\"\n\nThe question is about the health of the clusters. \nFor this you can use Azure Monitor, for which you need a Log Analytics Workspace, like in the explanation.\n\nSources:\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview\nhttps://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17735-exam-dp-200-topic-4-question-13-discussion/",
+    "body": "DRAG DROP -<br>Your company uses Microsoft Azure SQL Database configured with Elastic pools. You use Elastic Database jobs to run queries across all databases in the pool.<br>You need to analyze, troubleshoot, and report on components responsible for running Elastic Database jobs.<br>You need to determine the component responsible for running job service tasks.<br>Which components should you use for each Elastic pool job services task? To answer, drag the appropriate component to the correct task. Each component may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03872/0039600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0039700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Execution results and diagnostics: Azure Storage<br>Job launcher and tracker: Job Service<br>Job metadata and state:  Control database<br>The Job database is used for defining jobs and tracking the status and history of job executions. The Job database is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures, and other database objects, for creating, running, and managing jobs using T-SQL.<br>References:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-job-automation-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-31T08:23:00.000Z",
+        "voteCount": 49,
+        "content": "I think the first and third boxes on this one should both be Control Database as per the documentation https://docs.microsoft.com/en-us/azure/sql-database/sql-database-job-automation-overview#job-database\n\nThe Job database is used for defining jobs and tracking the status and history of job executions. The Job database is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures and other database objects for creating, running, and managing jobs using T-SQL."
+      },
+      {
+        "date": "2021-05-15T04:28:00.000Z",
+        "voteCount": 1,
+        "content": "Agree that both first and third box should be Control Database.\n\n- First box: \n\"The Job database is also used to store agent metadata, logs, results, job definitions, and also contains many useful stored procedures and other database objects for creating, running, and managing jobs using T-SQL.\"\n\n- Third box:\n\"Job output\nThe outcome of a job's steps on each target database are recorded in detail, and script output can be captured to a specified table. You can specify a database to save any data returned from a job.\"\n\nReference: https://docs.microsoft.com/en-us/azure/azure-sql/database/job-automation-overview#job-database"
+      },
+      {
+        "date": "2020-07-21T22:03:00.000Z",
+        "voteCount": 7,
+        "content": "How can the result after execution be stored in the control database? \nIt should be Azure storage. Hence the answers given are correct"
+      },
+      {
+        "date": "2020-11-28T05:37:00.000Z",
+        "voteCount": 2,
+        "content": "I would say:\nAzure storage for execution\nControl database for the jobs"
+      },
+      {
+        "date": "2021-02-01T00:18:00.000Z",
+        "voteCount": 2,
+        "content": "you are wrong on execution. how you execute on azure storage?"
+      },
+      {
+        "date": "2020-09-30T03:23:00.000Z",
+        "voteCount": 1,
+        "content": "A should be Azure storage as Control database can have logs but to do diagnostics the log need to be stored somewhere so that they can be diagnosed."
+      },
+      {
+        "date": "2020-09-15T05:36:00.000Z",
+        "voteCount": 4,
+        "content": "Should the answer be like below if referred the below documentation?\nhttps://docs.microsoft.com/en-us/azure/sql-database/sql-database-job-automation-overview#job-database     \n1)Job database\n2)Job agent\n3)Job database"
+      },
+      {
+        "date": "2020-07-13T00:11:00.000Z",
+        "voteCount": 3,
+        "content": "true.. no storage required.. 1st one is control database"
+      },
+      {
+        "date": "2020-05-25T02:13:00.000Z",
+        "voteCount": 5,
+        "content": "Both first and third boxes should have Control Date\nbase"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37248-exam-dp-200-topic-4-question-14-discussion/",
+    "body": "Contoso, Ltd. plans to configure existing applications to use Azure SQL Database.<br>When security-related operations occur, the security team must be informed.<br>You need to configure Azure Monitor while minimizing administrative efforts.<br>Which three actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new action group to email alerts@contoso.com.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse alerts@contoso.com as an alert email address.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse all security operations as a condition.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse all Azure SQL Database servers as a resource.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tQuery audit log entries as a condition."
+    ],
+    "answer": "ACD",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-action-rules",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-18T13:45:00.000Z",
+        "voteCount": 13,
+        "content": "I think the correct answer is A, D and E.\nIf you try to create a new alert rule there is no \"Security Operations\" for SQL Azure Database. \nIf you enable diagnostic settings you can send to Log Analytics and create an alert using these:\nSQLInsights\nAutomaticTuning\nQueryStoreRuntimeStatistics\nQueryStoreWaitStatistics\nErrors\nDatabaseWaitStatistics\nTimeouts\nBlocks\nDeadlocks\nBasic\nInstanceAndAppAdvanced\nWorkloadManagement"
+      },
+      {
+        "date": "2020-11-25T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "I agree."
+      },
+      {
+        "date": "2020-11-26T08:16:00.000Z",
+        "voteCount": 1,
+        "content": "I aslo agree"
+      },
+      {
+        "date": "2021-06-07T13:00:00.000Z",
+        "voteCount": 4,
+        "content": "I think the given answer is correct: \n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/alerts-insights-configure-portal"
+      },
+      {
+        "date": "2021-04-20T12:39:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer is ACD"
+      },
+      {
+        "date": "2021-02-21T17:22:00.000Z",
+        "voteCount": 1,
+        "content": "A,C,E are answers"
+      },
+      {
+        "date": "2020-11-27T12:31:00.000Z",
+        "voteCount": 3,
+        "content": "Agree.\nThere is no \"Security\" alert condition in the Monitoring.\nThere is a Security Category for the Log in the Diagnostic Setting"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52978-exam-dp-200-topic-4-question-16-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a container named Sales in an Azure Cosmos DB database. Sales has 120 GB of data. Each entry in Sales has the following structure.<br><img src=\"/assets/media/exam-media/03872/0039900001.jpg\" class=\"in-exam-image\"><br>The partition key is set to the OrderId attribute.<br>Users report that when they perform queries that retrieve data by ProductName, the queries take longer than expected to complete.<br>You need to reduce the amount of time it takes to execute the problematic queries.<br>Solution: You create a lookup collection that uses ProductName as a partition key.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "One option is to have a lookup collection \u05d2\u20acProductName\u05d2\u20ac for the mapping of \u05d2\u20acProductName\u05d2\u20ac to \u05d2\u20acOrderId\u05d2\u20ac.<br>References:<br>https://azure.microsoft.com/sv-se/blog/azure-cosmos-db-partitioning-design-patterns-part-1/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-17T19:06:00.000Z",
+        "voteCount": 8,
+        "content": "Correct Answer: A\nOne option is to have one lookup collections \"ProductName\" for the mapping of \"ProductName\" to \u201cOrderId\u201d \nReference: https://azure.microsoft.com/sv-se/blog/azure-cosmos-db-partitioning-design-patterns-part-1/"
+      },
+      {
+        "date": "2021-06-28T15:29:00.000Z",
+        "voteCount": 1,
+        "content": "Question is tricky because it doesn't say that is mapped to \"OrderID\". Correct answer is B, and the next question is the same but with the mapping to \"OrderID\" (no doubts there). Really tricky!"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22014-exam-dp-200-topic-4-question-17-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a container named Sales in an Azure Cosmos DB database. Sales has 120 GB of data. Each entry in Sales has the following structure.<br><img src=\"/assets/media/exam-media/03872/0040000001.png\" class=\"in-exam-image\"><br>The partition key is set to the OrderId attribute.<br>Users report that when they perform queries that retrieve data by ProductName, the queries take longer than expected to complete.<br>You need to reduce the amount of time it takes to execute the problematic queries.<br>Solution: You create a lookup collection that uses ProductName as a partition key and OrderId as a value.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "One option is to have a lookup collection \u05d2\u20acProductName\u05d2\u20ac for the mapping of \u05d2\u20acProductName\u05d2\u20ac to \u05d2\u20acOrderId\u05d2\u20ac.<br>References:<br>https://azure.microsoft.com/sv-se/blog/azure-cosmos-db-partitioning-design-patterns-part-1/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-03T08:22:00.000Z",
+        "voteCount": 12,
+        "content": "Question looks bit ambiguous. When you create look-up collection, it should have \"productName\" as the partition key. In addition it will have \"row key\" and  value as Order Id. \n\nSo answer is Yes considering the question is not complete."
+      },
+      {
+        "date": "2020-12-21T05:48:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is \"No\". See the next question, where more information is added."
+      },
+      {
+        "date": "2020-12-10T13:36:00.000Z",
+        "voteCount": 3,
+        "content": "hi to all,\nthe answer is no. in another exam the same question but now complete \"...The partition key is set to the OrderId attribute.\nUsers report that when they perform queries that retrieve data by ProductName, the queries take longer than expected to complete.\nYou need to reduce the amount of time it takes to execute the problematic queries.\nSolution: You create a lookup collection that uses ProductName as a partition key and OrderId as a value....\"  that states well the use of OrderId as value and this is correct. So using this we can say the other is incomplete and is false\n\nregards"
+      },
+      {
+        "date": "2021-06-28T15:33:00.000Z",
+        "voteCount": 1,
+        "content": "You are describing exactly this one. The previous one had the \"orderID as a value\" missing."
+      },
+      {
+        "date": "2020-11-20T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "Ans should be Yes"
+      },
+      {
+        "date": "2020-07-11T08:05:00.000Z",
+        "voteCount": 4,
+        "content": "The Question is NOT complete. We can consider the value as Order Id. In that case it would be 'YES'."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39016-exam-dp-200-topic-4-question-18-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a container named Sales in an Azure Cosmos DB database. Sales has 120 GB of data. Each entry in Sales has the following structure.<br><img src=\"/assets/media/exam-media/03872/0040200001.png\" class=\"in-exam-image\"><br>The partition key is set to the OrderId attribute.<br>Users report that when they perform queries that retrieve data by ProductName, the queries take longer than expected to complete.<br>You need to reduce the amount of time it takes to execute the problematic queries.<br>Solution: You change the partition key to include ProductName.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "One option is to have a lookup collection \u05d2\u20acProductName\u05d2\u20ac for the mapping of \u05d2\u20acProductName\u05d2\u20ac to \u05d2\u20acOrderId\u05d2\u20ac.<br>References:<br>https://azure.microsoft.com/sv-se/blog/azure-cosmos-db-partitioning-design-patterns-part-1/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-06T08:11:00.000Z",
+        "voteCount": 6,
+        "content": "It is not possible to change partition key after Container is created. Correct answer is B. No"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15123-exam-dp-200-topic-4-question-19-discussion/",
+    "body": "HOTSPOT -<br>You have a new Azure Data Factory environment.<br>You need to periodically analyze pipeline executions from the last 60 days to identify trends in execution durations. The solution must use Azure Log Analytics to query the data and create charts.<br>Which diagnostic settings should you configure in Data Factory? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0040300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0040400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Log type: PipelineRuns -<br>A pipeline run in Azure Data Factory defines an instance of a pipeline execution.<br>Storage location: An Azure Storage account<br>Data Factory stores pipeline-run data for only 45 days. Use Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis. You can also keep them in a storage account so that you have factory information for your chosen duration.<br>Save your diagnostic logs to a storage account for auditing or manual inspection. You can use the diagnostic settings to specify the retention time in days.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/concepts-pipeline-execution-triggers https://docs.microsoft.com/en-us/azure/data-factory/monitor-using-azure-monitor",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-01T22:52:00.000Z",
+        "voteCount": 25,
+        "content": "Should it be sent to Azure Log Analytics? Considering \"The solution must use Azure Log Analytics to query the data and create charts.\"?"
+      },
+      {
+        "date": "2020-03-08T07:24:00.000Z",
+        "voteCount": 14,
+        "content": "You need to send your data to storage account in order to query your logs and create charts via Log Analytics. But instead, You can directly store it in Log Analytics. Question is still tricky though."
+      },
+      {
+        "date": "2021-04-01T04:59:00.000Z",
+        "voteCount": 1,
+        "content": "I don't know if it's possible to choose \"Azure Logs Analytics\" as sink in Data Factory. If my thought is correct, the correct answer is Storage account."
+      },
+      {
+        "date": "2021-03-09T12:15:00.000Z",
+        "voteCount": 6,
+        "content": "It should be log analytics :\n\nhttps://docs.microsoft.com/en-us/answers/questions/214414/data-factory-diagnostic-settings.html"
+      },
+      {
+        "date": "2021-01-21T19:48:00.000Z",
+        "voteCount": 2,
+        "content": "Log analytics should be the correct answer since it can retain data for longer periods of times which in turn means that you can query the data in the past 60 days.\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#log-analytics-and-security-center"
+      },
+      {
+        "date": "2021-09-28T03:34:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed with Retention but where in link it said ADF can directly store those info in log Analytics ?"
+      },
+      {
+        "date": "2021-01-06T15:10:00.000Z",
+        "voteCount": 1,
+        "content": "Since  pipeline executions have to be analyzed beyond 45 days , which is 60 in this case , the \"Azure Log Analytics\" will be incorrect answer choice and the right answer should be as \"Azure Storage Account\" which is already correctly selected out here , the catch is to read the question\nUsing Azure Monitor you can route it to multiple different targets \nhttps://docs.microsoft.com/en-us/azure/data-factory/monitor-using-azure-monitor"
+      },
+      {
+        "date": "2021-01-21T19:47:00.000Z",
+        "voteCount": 1,
+        "content": "That is incorrect, Log analytics can retain data for a cost."
+      },
+      {
+        "date": "2021-05-17T19:12:00.000Z",
+        "voteCount": 2,
+        "content": "Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis to multiple different targets."
+      },
+      {
+        "date": "2020-12-19T05:42:00.000Z",
+        "voteCount": 1,
+        "content": "Should be Azure Log Analytics"
+      },
+      {
+        "date": "2020-11-28T05:43:00.000Z",
+        "voteCount": 1,
+        "content": "Question already gave the answer for the storage location"
+      },
+      {
+        "date": "2020-12-07T15:10:00.000Z",
+        "voteCount": 1,
+        "content": "hi to all,\nno. krisspark is correct. you must pay attention to the retention period =&gt; 60 days and azure log does not keep for 60 days, so you must use an storage account.\nregards"
+      },
+      {
+        "date": "2020-08-29T03:12:00.000Z",
+        "voteCount": 1,
+        "content": "It should be Azure Log Analytics."
+      },
+      {
+        "date": "2020-06-28T00:35:00.000Z",
+        "voteCount": 10,
+        "content": "The correct answer is \"storage account\" as the question asked for explicit \"60 days\" retention which is not available in Azure Log Analytics &amp; Event hub configs.."
+      },
+      {
+        "date": "2020-07-09T04:28:00.000Z",
+        "voteCount": 6,
+        "content": "Azure Monitor - It is also possible to specify different retention settings for individual data types from 30 to 730 days\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#retention-by-data-type"
+      },
+      {
+        "date": "2020-06-20T03:34:00.000Z",
+        "voteCount": 6,
+        "content": "Storage Account is correct as using Storage Account one can specify retention days but same is not with Log Analytics."
+      },
+      {
+        "date": "2020-06-30T19:18:00.000Z",
+        "voteCount": 2,
+        "content": "Retention period is no where mentioned in question ."
+      },
+      {
+        "date": "2020-06-30T19:19:00.000Z",
+        "voteCount": 1,
+        "content": "its just what time period you want to query on"
+      },
+      {
+        "date": "2020-03-07T04:05:00.000Z",
+        "voteCount": 9,
+        "content": "Yes..it should be Azure Log analytics"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/16652-exam-dp-200-topic-4-question-20-discussion/",
+    "body": "HOTSPOT -<br>You are implementing automatic tuning mode for Azure SQL databases.<br>Automatic tuning mode is configured as shown in the following table.<br><img src=\"/assets/media/exam-media/03872/0040500001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0040600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0040600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Automatic tuning options can be independently enabled or disabled per database, or they can be configured on SQL Database servers and applied on every database that inherits settings from the server. SQL Database servers can inherit Azure defaults for Automatic tuning settings. Azure defaults at this time are set to FORCE_LAST_GOOD_PLAN is enabled, CREATE_INDEX is enabled, and DROP_INDEX is disabled.<br>References:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-15T03:29:00.000Z",
+        "voteCount": 93,
+        "content": "Since March 2020, defaults have changed. Force plan is ON, Create Index is OFF, Drop index is OFF"
+      },
+      {
+        "date": "2020-07-03T13:09:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/automatic-tuning-overview#automatic-tuning-options"
+      },
+      {
+        "date": "2020-03-15T06:38:00.000Z",
+        "voteCount": 20,
+        "content": "As of March, 2020 changes to Azure defaults for automatic tuning will take effect as follows:\nNew Azure defaults will be FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled."
+      },
+      {
+        "date": "2021-03-18T20:27:00.000Z",
+        "voteCount": 1,
+        "content": "Answer: Y,N,N. Check out the link provided in the solution itself."
+      },
+      {
+        "date": "2021-02-01T20:07:00.000Z",
+        "voteCount": 1,
+        "content": "Haha. I was wondering how can sql create objects. Yeah may be they did it earlier but it might have outraged some people"
+      },
+      {
+        "date": "2020-12-20T23:21:00.000Z",
+        "voteCount": 2,
+        "content": "Did anyone check it? When set to \"inherit from azure defaults\" on database level it sets ON, ON, OFF. But when I set it on server level is sets ON, OFF, OFF. So it seems new defaults are for server not database. Can anyone confirm that?"
+      },
+      {
+        "date": "2021-01-06T15:13:00.000Z",
+        "voteCount": 2,
+        "content": "yes you're right Rdk , https://docs.microsoft.com/en-us/azure/azure-sql/database/automatic-tuning-overview , starting March 2020 the new defaults are in effect and hence the answer choices privided here should be incorrect and the correct ones are ON OFF OFF as you mentioned and in terms of the answer choices translates to \"YES\" , \"NO\", \"NO\""
+      },
+      {
+        "date": "2020-11-24T22:15:00.000Z",
+        "voteCount": 2,
+        "content": "yes - Since March 2020, defaults have changed. Force plan is ON, Create Index is OFF, Drop index is OFF.. Answer is Y,N,N"
+      },
+      {
+        "date": "2020-07-26T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "From 31 March 2020, defaults have been changed\nFORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled"
+      },
+      {
+        "date": "2020-09-19T23:17:00.000Z",
+        "voteCount": 2,
+        "content": "This setup is only for SQL instance right? For SQL DB, everythin is ON as per the document https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning \nCan someone clarify? Thanks."
+      },
+      {
+        "date": "2020-09-25T18:50:00.000Z",
+        "voteCount": 1,
+        "content": "No, it's for Azure SQL Database. For Azure Managed Instance, only FORCE_LAST_GOOD_PLAN is supported as per your referenced link."
+      },
+      {
+        "date": "2021-04-21T20:32:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, that seems to be correct as per documentation:\nFor SQL Managed Instance: Yes, No, No\nFor Azure SQL DB: Yes, Yes, Yes"
+      },
+      {
+        "date": "2020-06-28T02:26:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, answer should be changed.. only FORCE PLAN=YES, CREATE INDX = NO, DROP INDX=NO"
+      },
+      {
+        "date": "2020-04-16T08:36:00.000Z",
+        "voteCount": 8,
+        "content": "As of March, 2020 changes to Azure defaults for automatic tuning will take effect as follows:\n\nNew Azure defaults will be FORCE_LAST_GOOD_PLAN = enabled, CREATE_INDEX = disabled, and DROP_INDEX = disabled."
+      },
+      {
+        "date": "2020-03-26T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "question is not what is the defaults, it is about what settings can be changed at db level and server level"
+      },
+      {
+        "date": "2020-06-14T06:12:00.000Z",
+        "voteCount": 2,
+        "content": "the question *do* asks about defaults!\nThe `INHERIT` option for Server means it gets automatic tuning from Azure defaults and the latter has been changed after March 2020. So the answer should be corrected."
+      },
+      {
+        "date": "2020-09-16T11:04:00.000Z",
+        "voteCount": 1,
+        "content": "Agree the answers should be corrected. But has MS communicated the change to the testing party?\n\nIf not then the old setting will be treated as correct answers"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49887-exam-dp-200-topic-4-question-21-discussion/",
+    "body": "HOTSPOT -<br>You need to receive an alert when Azure Synapse Analytics consumes the maximum allotted resources.<br>Which resource type and signal should you use to create the alert in Azure Monitor? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0040700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0040800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Resource type: SQL data warehouse<br>DWU limit belongs to the SQL data warehouse resource type.<br><br>Signal: DWU limit -<br>SQL Data Warehouse capacity limits are maximum values allowed for various components of Azure SQL Data Warehouse.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-insights-alerts-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-11T04:57:00.000Z",
+        "voteCount": 13,
+        "content": "For me, the answer of the second box should be DWU used...DWU limit is a static value."
+      },
+      {
+        "date": "2021-05-15T06:00:00.000Z",
+        "voteCount": 2,
+        "content": "Agree on \"DWU used\".\n\nReference: https://azure.microsoft.com/nb-no/blog/azure-sql-data-warehouse-february-2016-update/"
+      },
+      {
+        "date": "2021-05-15T06:31:00.000Z",
+        "voteCount": 2,
+        "content": "DWU limit is a static value that tells you how many resources you have allocated for your DWH.\nIf you set an alert for DWU limit, you will get alerted if the DWU limit is greater than xx. \nIt means you will get alerted if someone changes DWU limit to something greater than xx, i.e. if someone allocates more resources for your DWH .\nBut if you set an alert for DWU used, you get alerted when DWU consumption becomes greater than XX. And you set that XX as a maximum alotted space =&gt; you  receive an alert when Azure Synapse Analytics consumes the maximum allotted resources."
+      },
+      {
+        "date": "2021-05-01T23:35:00.000Z",
+        "voteCount": 1,
+        "content": "As per me, the Signal should be DWU used greater than \"X\". So the 2nd answer should be DWU used rather than DWU Limit."
+      },
+      {
+        "date": "2021-04-28T05:42:00.000Z",
+        "voteCount": 2,
+        "content": "You can configure an alert for a specific percentage of the DWU limit, e.g. when DWUs used reach 80% of the limit. But the answer is still a bit ambiguous."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20023-exam-dp-200-topic-4-question-22-discussion/",
+    "body": "You have an Azure SQL database that has masked columns.<br>You need to identify when a user attempts to infer data from the masked columns.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Advanced Threat Protection (ATP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcustom masking rules",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransparent Data Encryption (TDE)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tauditing"
+    ],
+    "answer": "D",
+    "answerDescription": "Dynamic Data Masking is designed to simplify application development by limiting data exposure in a set of pre-defined queries used by the application. While<br>Dynamic Data Masking can also be useful to prevent accidental exposure of sensitive data when accessing a production database directly, it is important to note that unprivileged users with ad-hoc query permissions can apply techniques to gain access to the actual data. If there is a need to grant such ad-hoc access,<br>Auditing should be used to monitor all database activity and mitigate this scenario.<br>References:<br>https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-11T19:33:00.000Z",
+        "voteCount": 15,
+        "content": "While Dynamic Data Masking can also be useful to prevent accidental exposure of sensitive data when accessing a production database directly, it is important to note that unprivileged users with ad-hoc query permissions can apply techniques to gain access to the actual data. If there is a need to grant such ad-hoc access, Auditing should be used to monitor all database activity and mitigate this scenario."
+      },
+      {
+        "date": "2020-05-08T00:17:00.000Z",
+        "voteCount": 13,
+        "content": "It says \"when a user attempts to infer\" which is futuristic and not analysis of events that have occured. In that case I think it should be Advance Threat Detection and not Auditing.\nAuditing only enables us to review the events that have happened before"
+      },
+      {
+        "date": "2021-02-05T06:06:00.000Z",
+        "voteCount": 2,
+        "content": "Why isn't it A?"
+      },
+      {
+        "date": "2020-11-25T06:25:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is D"
+      },
+      {
+        "date": "2020-12-07T15:22:00.000Z",
+        "voteCount": 1,
+        "content": "yes.  https://docs.microsoft.com/pt-pt/azure/azure-sql/database/auditing-overview"
+      },
+      {
+        "date": "2020-11-03T15:16:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/sql/relational-databases/security/dynamic-data-masking?view=sql-server-ver15#security-note-bypassing-masking-using-inference-or-brute-force-techniques"
+      },
+      {
+        "date": "2020-10-29T06:50:00.000Z",
+        "voteCount": 2,
+        "content": "I tend to agree with the answer. In addition to everything written here, the other options don't seem to make sense."
+      },
+      {
+        "date": "2020-08-05T23:19:00.000Z",
+        "voteCount": 8,
+        "content": "Security Note: Bypassing masking using inference or brute-force techniques\nDynamic Data Masking is designed to simplify application development by limiting data exposure in a set of pre-defined queries used by the application. While Dynamic Data Masking can also be useful to prevent accidental exposure of sensitive data when accessing a production database directly, it is important to note that unprivileged users with ad-hoc query permissions can apply techniques to gain access to the actual data. If there is a need to grant such ad-hoc access, Auditing should be used to monitor all database activity and mitigate this scenario."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40777-exam-dp-200-topic-4-question-23-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>A company uses Azure Data Lake Gen 1 Storage to store big data related to consumer behavior.<br>You need to implement logging.<br>Solution: Create an Azure Automation runbook to copy events.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead configure Azure Data Lake Storage diagnostics to store logs and metrics in a storage account.<br>Note:<br>You can enable diagnostic logging for your Azure Data Lake Storage Gen1 accounts, blobs, files, queues and tables.<br>Diagnostic logs aren't available for Data Lake Storage Gen2 accounts [as of August 2019].<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs https://github.com/MicrosoftDocs/azure-docs/issues/34286",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-25T12:40:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is correct"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/62148-exam-dp-200-topic-4-question-24-discussion/",
+    "body": "You have an Azure data solution that contains an enterprise data warehouse in Azure Synapse Analytics named DW1.<br>Several users execute adhoc queries to DW1 concurrently.<br>You regularly perform automated data loads to DW1.<br>You need to ensure that the automated data loads have enough memory available to complete quickly and successfully when the adhoc queries run.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHash distribute the large fact tables in DW1 before performing the automated data loads.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign a larger resource class to the automated data load queries.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate sampled statistics for every column in each table of DW1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign a smaller resource class to the automated data load queries."
+    ],
+    "answer": "B",
+    "answerDescription": "To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/guidance-for-loading-data",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-15T20:51:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer!"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49854-exam-dp-200-topic-4-question-25-discussion/",
+    "body": "DRAG DROP -<br>You plan to monitor an Azure data factory by using the Monitor &amp; Manage app.<br>You need to identify the status and duration of activities that reference a table in a source database.<br>Which three actions should you perform in sequence? To answer, move the actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03872/0041100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0041200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: From the Data Factory authoring UI, generate a user property for Source on all activities.<br>Step 2:  From the Data Factory monitoring app, add the Source user property to Activity Runs table.<br>You can promote any pipeline activity property as a user property so that it becomes an entity that you can monitor. For example, you can promote the Source and<br>Destination properties of the copy activity in your pipeline as user properties. You can also select Auto Generate to generate the Source and Destination user properties for a copy activity.<br>Step 3: From the Data Factory authoring UI, publish the pipelines<br>Publish output data to data stores such as Azure SQL Data Warehouse for business intelligence (BI) applications to consume.<br>References:<br>https://docs.microsoft.com/en-us/azure/data-factory/monitor-visually",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-10T19:23:00.000Z",
+        "voteCount": 13,
+        "content": "Step 2: From the Data Factory monitoring app, add the Source user property to Activity Runs table."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/45938-exam-dp-200-topic-4-question-27-discussion/",
+    "body": "You have a SQL pool in Azure Synapse.<br>You discover that some queries fail or take a long time to complete.<br>You need to monitor for transactions that have rolled back.<br>Which dynamic management view should you query?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsys.dm_pdw_nodes_tran_database_transactions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsys.dm_pdw_waits",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsys.dm_pdw_request_steps",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsys.dm_pdw_exec_sessions"
+    ],
+    "answer": "A",
+    "answerDescription": "You can use Dynamic Management Views (DMVs) to monitor your workload including investigating query execution in SQL pool.<br>If your queries are failing or taking a long time to proceed, you can check and monitor if you have any transactions rolling back.<br>Example:<br>-- Monitor rollback<br><br>SELECT -<br>SUM(CASE WHEN t.database_transaction_next_undo_lsn IS NOT NULL THEN 1 ELSE 0 END), t.pdw_node_id, nod.[type]<br>FROM sys.dm_pdw_nodes_tran_database_transactions t<br>JOIN sys.dm_pdw_nodes nod ON t.pdw_node_id = nod.pdw_node_id<br>GROUP BY t.pdw_node_id, nod.[type]<br>Reference:<br>https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-transaction-log-rollback",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-04T21:42:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49776-exam-dp-200-topic-4-question-28-discussion/",
+    "body": "You have an alert on a SQL pool in Azure Synapse that uses the signal logic shown in the exhibit.<br><img src=\"/assets/media/exam-media/03872/0041900001.jpg\" class=\"in-exam-image\"><br>On the same day, failures occur at the following times:<br>\u2711 08:01<br>\u2711 08:03<br>\u2711 08:04<br>\u2711 08:06<br>\u2711 08:11<br>\u2711 08:16<br>\u2711 08:19<br>The evaluation period starts on the hour.<br>At which times will alert notifications be sent?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t08:15 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t08:10, 08:15, and 08:20",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t08:05 and 08:10 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t08:10 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t08:05 only"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/alerts-insights-configure-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-10T03:26:00.000Z",
+        "voteCount": 11,
+        "content": "The aggregation is 15 min so it counts last 15 min and when number of errors is greater then threshold (3) it sends an alert.\nSo the answer is correct"
+      },
+      {
+        "date": "2021-06-22T16:18:00.000Z",
+        "voteCount": 2,
+        "content": "Period (the look back window over which metric values are checked): Over the last 15 mins\nFrequency (the frequency with which the metric alert checks if the conditions are met): 5 min\nthe condition is greater than. so the answer is correct"
+      },
+      {
+        "date": "2021-04-10T03:17:00.000Z",
+        "voteCount": 2,
+        "content": "E: only 8:05\nThreshold is 3 so the alert should rise when there are 3 error within 5 min period. \nCan anyone confirm or explain why it's 8:10,15 and 20?"
+      },
+      {
+        "date": "2021-04-10T12:03:00.000Z",
+        "voteCount": 6,
+        "content": "threshold 3 means the count should be at least 4. It checks every 5 minutes if in the last 15 minutes the count is greater then 3, therefor the answer is correct."
+      },
+      {
+        "date": "2021-06-07T13:23:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, Count &gt; 3 (means 4,5,6...)"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54111-exam-dp-200-topic-4-question-29-discussion/",
+    "body": "You plan to monitor the performance of Azure Blob storage by using Azure Monitor.<br>You need to be notified when there is a change in the average time it takes for a storage service or API operation type to process requests.<br>For which two metrics should you set up alerts? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSuccessE2ELatency",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSuccessServerLatency",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsedCapacity",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEgress",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIngress"
+    ],
+    "answer": "AB",
+    "answerDescription": "Success E2E Latency: The average end-to-end latency of successful requests made to a storage service or the specified API operation. This value includes the required processing time within Azure Storage to read the request, send the response, and receive acknowledgment of the response.<br>Success Server Latency: The average time used to process a successful request by Azure Storage. This value does not include the network latency specified in<br>SuccessE2ELatency.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scalable-app-verify-metrics",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-01T11:23:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is CORRECT\n- Success E2E latency -&gt; The average end-to-end latency of successful requests made to a storage service or the specified API operation.\n- Success server latency -&gt; The average time used to process a successful request \n\nRef: https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-scalable-app-verify-metrics#configure-metrics"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49780-exam-dp-200-topic-4-question-30-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure data factory that has two pipelines named PipelineA and PipelineB.<br>PipelineA has four activities as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03872/0042100001.jpg\" class=\"in-exam-image\"><br>PipelineB has two activities as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03872/0042100002.jpg\" class=\"in-exam-image\"><br>You create an alert for the data factory that uses Failed pipeline runs metrics for both pipelines and all failure types. The metric has the following settings:<br>\u2711 Operator: Greater than<br>\u2711 Aggregation type: Total<br>\u2711 Threshold value: 2<br>\u2711 Aggregation granularity (Period): 5 minutes<br>\u2711 Frequency of evaluation: Every 5 minutes<br>Data Factory monitoring records the failures shown in the following table.<br><img src=\"/assets/media/exam-media/03872/0042200001.png\" class=\"in-exam-image\"><br>For each of the following statements, select yes if the statement is true. Otherwise, select no.<br>NOTE: Each correct answer selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0042200002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0042200003.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>Only one failure at this point.<br><br>Box 2: No -<br>Only two failures within 5 minutes.<br><br>Box 3: Yes -<br>More than two (three) failures in 5 minutes<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/alerts-insights-configure-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-10T03:28:00.000Z",
+        "voteCount": 27,
+        "content": "There is 6 min between 44 and 50\nSo there shouldn't be any alert."
+      },
+      {
+        "date": "2021-04-17T12:24:00.000Z",
+        "voteCount": 6,
+        "content": "I agree\nNo for all"
+      },
+      {
+        "date": "2021-06-21T11:41:00.000Z",
+        "voteCount": 1,
+        "content": "Every 5 minutes, it will check. Hence at exactly 10:50 it will check and (may be) the failure of the 2nd pipeline has already logged in by the time the check happens and hence the given answer is correct. Its my analysis and happy to be corrected."
+      },
+      {
+        "date": "2021-12-05T05:28:00.000Z",
+        "voteCount": 1,
+        "content": "at 10:50 you are in a new window so no, no alerts at all"
+      },
+      {
+        "date": "2021-12-05T05:28:00.000Z",
+        "voteCount": 1,
+        "content": "in dp 300 there is the same question and the provided answers are NO, NO, NO"
+      },
+      {
+        "date": "2021-06-03T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "No alerts at all. Not only because there is 6 min period, but also failed activity 3 in pipeline A will not cause pipeline to fails and activity 4 has COMPLETED condition, which means previous activity might either suceeed or fail and it still be triggered. Only last activities in the pipeline must have status success or skipped fot pipeline to succeed."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20651-exam-dp-200-topic-4-question-31-discussion/",
+    "body": "You have an enterprise data warehouse in Azure Synapse Analytics named DW1 on a server named Server1.<br>You need to verify whether the size of the transaction log file for each distribution of DW1 is smaller than 160 GB.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn the master database, execute a query against the sys.dm_pdw_nodes_os_performance_counters dynamic management view.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure Monitor in the Azure portal, execute a query against the logs of DW1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn DW1, execute a query against the sys.database_files dynamic management view.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecute a query against the logs of DW1 by using the Get-AzOperationalInsightsSearchResult PowerShell cmdlet."
+    ],
+    "answer": "A",
+    "answerDescription": "The following query returns the transaction log size on each distribution. If one of the log files is reaching 160 GB, you should consider scaling up your instance or limiting your transaction size.<br>-- Transaction log size<br><br>SELECT -<br>instance_name as distribution_db,<br>cntr_value*1.0/1048576 as log_file_size_used_GB,<br>pdw_node_id<br>FROM sys.dm_pdw_nodes_os_performance_counters<br><br>WHERE -<br>instance_name like 'Distribution_%'<br>AND counter_name = 'Log File(s) Used Size (KB)'<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-04T17:03:00.000Z",
+        "voteCount": 30,
+        "content": "A is correct\n-- Transaction log size\nSELECT\n  instance_name as distribution_db,\n  cntr_value*1.0/1048576 as log_file_size_used_GB,\n  pdw_node_id\nFROM sys.dm_pdw_nodes_os_performance_counters\nWHERE\ninstance_name like 'Distribution_%'\nAND counter_name = 'Log File(s) Used Size (KB)'\n\nhttps://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-monitor"
+      },
+      {
+        "date": "2020-12-12T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "hi to all,\n\nit's A for sure.\nthe \"master\" stuff can put some confusion here but it's right.\n\nplease see https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/synapse-analytics/sql-data-warehouse/quickstart-scale-compute-tsql.md\n\nregards"
+      },
+      {
+        "date": "2020-11-26T05:38:00.000Z",
+        "voteCount": 3,
+        "content": "A is 100% correct as per the link given"
+      },
+      {
+        "date": "2020-06-03T11:54:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be C - Reference: https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql?view=sql-server-ver15 \n\nsys.database_files gives the log size"
+      },
+      {
+        "date": "2020-05-15T07:18:00.000Z",
+        "voteCount": 1,
+        "content": "Not sure which answer is the correct one, as the selected answer include \"master database\". The dmv \"dm_pdw_nodes_os_performance_counters\" doesn't exist in the master database. The dmv \"sys.database_files\" only shows 1 log file (not for each distribution), hence my guess is that these answer are incorrectly formulated"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49181-exam-dp-200-topic-4-question-33-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Cosmos DB database.<br>You need to use Azure Stream Analytics to check for uneven distributions of queries that can affect performance.<br>Which two settings should you configure? To answer, select the appropriate settings in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0042600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0042700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: RIGHT -<br>Use right for dates.<br>1- RIGHT means &lt; or &gt;=<br>2- LEFT means &lt;= and &gt;.<br>Box 2: 20090101, 201001010, 20110101, 20120101<br>Four values are better than three or two.<br>Reference:<br>https://medium.com/@selcukkilinc23/what-it-means-range-right-and-left-in-table-partitioning-2d654cb99ade",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-15T14:11:00.000Z",
+        "voteCount": 8,
+        "content": "The answer is correct . \nSee this link --&gt; https://www.cathrinewilhelmsen.net/table-partitioning-in-sql-server/ \nFrom this link below excerpt :-\n\nPartition functions are created as either range left or range right, it is not possible to combine both in the same partition function. In a range left partition function, all boundary values are upper boundaries, they are the last values in the partitions. If you partition by year, you use December 31st. If you partition by month, you use January 31st, February 28th / 29th, March 31st, April 30th and so on. In a range right partition function, all boundary values are lower boundaries, they are the first values in the partitions. If you partition by year, you use January 1st. If you partition by month, you use January 1st, February 1st, March 1st, April 1st and so on:"
+      },
+      {
+        "date": "2021-12-16T03:13:00.000Z",
+        "voteCount": 2,
+        "content": "This question doesn't make any sense !"
+      },
+      {
+        "date": "2021-04-11T09:29:00.000Z",
+        "voteCount": 4,
+        "content": "The answer is correct. Should be RIGHT. Basically, it means that partition starts from the given value, i.e. from 20090101 to 20091231, the next one from 20100101 to 20101231 and so on."
+      },
+      {
+        "date": "2021-04-05T05:02:00.000Z",
+        "voteCount": 4,
+        "content": "i think its should be LEFT"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53675-exam-dp-200-topic-4-question-35-discussion/",
+    "body": "DRAG DROP -<br>You are implementing an Azure Blob storage account for an application that has the following requirements:<br>\u2711 Data created during the last 12 months must be readily accessible.<br>\u2711 Blobs older than 24 months must use the lowest storage costs. This data will be accessed infrequently.<br>\u2711 Data created 12 to 24 months ago will be accessed infrequently but must be readily accessible at the lowest storage costs.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03872/0043200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0043300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Create a block blob in a Blob storage account<br>First create the block blob.<br>Azure Blob storage lifecycle management offers a rich, rule-based policy for GPv2 and Blob storage accounts.<br>Step 2: Use an Azure Resource Manager template that has a lifecycle management policy<br>Step 3: Create a rule that has the rule actions of TierToCool and TierToArchive<br>Each rule definition includes a filter set and an action set. The filter set limits rule actions to a certain set of objects within a container or objects names.<br>Note: You can add a Rule through Azure portal:<br>Sign in to the Azure portal.<br>1. In the Azure portal, search for and select your storage account.<br>2. Under Blob service, select Lifecycle Management to view or change your rules.<br>3. Select the List View tab.<br>4. Select Add a rule and name your rule on the Details form. You can also set the Rule scope, Blob type, and Blob subtype values.<br>5. Select Base blobs to set the conditions for your rule. For example, blobs are moved to cool storage if they haven't been modified for 30 days.<br>6. Etc.<br>Incorrect Answers:<br>\u2711 Schedule the lifecycle management policy to run:<br>You don't Schedule the lifecycle management policy to run. The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours for some actions to run for the first time.<br>\u2711 Create a rule filter:<br>No need for a rule filter. Rule filters limit rule actions to a subset of blobs within the storage account.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-27T12:00:00.000Z",
+        "voteCount": 2,
+        "content": "Why do you have to create a block blob? Shouldn't you schedule the lifecycle policy to run as as last step?"
+      },
+      {
+        "date": "2021-05-28T22:03:00.000Z",
+        "voteCount": 1,
+        "content": "It is because  life cycle policy is only applicable for block blob and append blobas of now. Also you first need to create the block blob --&gt; select the life cycle management --&gt; then apply he rules."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/27536-exam-dp-200-topic-4-question-36-discussion/",
+    "body": "You have an Azure Cosmos DB database that uses the SQL API.<br>You need to delete stale data from the database automatically.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsoft delete",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLow Latency Analytical Processing (LLAP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tschema on read",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTime to Live (TTL)"
+    ],
+    "answer": "D",
+    "answerDescription": "With Time to Live or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified.<br>References:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/time-to-live",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-06T21:46:00.000Z",
+        "voteCount": 17,
+        "content": "With Time to Live or TTL, Azure Cosmos DB provides the ability to delete items automatically from a container after a certain time period. By default, you can set time to live at the container level and override the value on a per-item basis. After you set the TTL at a container or at an item level, Azure Cosmos DB will automatically remove these items after the time period, since the time they were last modified. Time to live value is configured in seconds. When you configure TTL, the system will automatically delete the expired items based on the TTL value, without needing a delete operation that is explicitly issued by the client application."
+      },
+      {
+        "date": "2020-10-10T00:00:00.000Z",
+        "voteCount": 1,
+        "content": "It should be soft delete"
+      },
+      {
+        "date": "2020-12-12T03:15:00.000Z",
+        "voteCount": 3,
+        "content": "hi, \nno: the text says \"...automatically...\"\nand cosmos db already provides the TTL mechanism which is superb\nit's my opinion.\nregards"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53658-exam-dp-200-topic-4-question-37-discussion/",
+    "body": "SIMULATION -<br><img src=\"/assets/media/exam-media/03872/0043500001.jpg\" class=\"in-exam-image\"><br>Use the following login credentials as needed:<br><br>Azure Username: xxxxx -<br><br>Azure Password: xxxxx -<br>The following information is for technical support purposes only:<br><br>Lab Instance: 10277521 -<br>You plan to create large data sets on db2.<br>You need to ensure that missing indexes are created automatically by Azure in db2. The solution must apply ONLY to db2.<br>To complete this task, sign in to the Azure portal.<br>",
+    "options": [],
+    "answer": "See the explanation below.",
+    "answerDescription": "1. To enable automatic tuning on Azure SQL Database logical server, navigate to the server in Azure portal and then select Automatic tuning in the menu.<br><img src=\"/assets/media/exam-media/03872/0043600001.jpg\" class=\"in-exam-image\"><br>2. Select database db2<br>3. Click the Apply button<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning-enable",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-27T07:39:00.000Z",
+        "voteCount": 1,
+        "content": "Are three options with Inherit value or I am getting something wrong here?"
+      },
+      {
+        "date": "2021-05-28T08:39:00.000Z",
+        "voteCount": 5,
+        "content": "I think you should enable only the \"CREATE index\" option"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25856-exam-dp-200-topic-4-question-38-discussion/",
+    "body": "Note: This question is a part of series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals.<br>You develop data engineering solutions for a company.<br>A project requires the deployment of resources to Microsoft Azure for batch data processing on Azure HDInsight. Batch processing will run daily and must:<br>\u2711 Scale to minimize costs<br>\u2711 Be monitored for cluster performance<br>You need to recommend a tool that will monitor clusters and provide information to suggest how to scale.<br>Solution: Monitor cluster load using the Ambari Web UI.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Ambari Web UI does not provide information to suggest how to scale.<br>Instead monitor clusters by using Azure Log Analytics and HDInsight cluster management solutions.<br>References:<br>https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-manage-ambari",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-16T21:39:00.000Z",
+        "voteCount": 14,
+        "content": "You can use Ambari to manage and monitor Hadoop clusters but does not provide information on how to scale, hence Azure Log Analytics (this is now called Azure Monitor Logs) is the option to get those information."
+      },
+      {
+        "date": "2021-05-28T08:56:00.000Z",
+        "voteCount": 1,
+        "content": "I can't find any metric in Azure monitor / Log Analytics that allows you to know when to scale an HDInsight cluster. It seems that in Azure monitor you can get some info like CPU and memory usage, but I don't think you actually have something that suggests you when to scale. \nUnless someone proves me wrong and finds this metric I guess that to know when to scale you should look at statistics related to the nodes of your cluster, which you can do in Ambari. Azure itself suggests using Ambari to monitor the cluster performance:\nhttps://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-key-scenarios-to-monitor\n\nSo I suppose that \"yes\" is the answer."
+      },
+      {
+        "date": "2020-11-25T06:04:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-manage-ambari\nI would say yes"
+      },
+      {
+        "date": "2020-07-15T21:12:00.000Z",
+        "voteCount": 1,
+        "content": "Is the solution to identify (a) Tool that will monitor clusters and provide information to suggest how to scale.\n( Or) (b) Just solution to Monitor cluster load using the Ambari Web UI.\n\nif it is only for Monitoring it should be option b which is Ambari. \nThe question is confusing me. Can anyone give clarification when to opt Ambari and When to go with \"Azure Log Analytics\" and \"HDInsight cluster management solutions\"  ??"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25858-exam-dp-200-topic-4-question-39-discussion/",
+    "body": "Note: This question is a part of series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals.<br>You develop data engineering solutions for a company.<br>A project requires the deployment of resources to Microsoft Azure for batch data processing on Azure HDInsight. Batch processing will run daily and must:<br>\u2711 Scale to minimize costs<br>\u2711 Be monitored for cluster performance<br>You need to recommend a tool that will monitor clusters and provide information to suggest how to scale.<br>Solution: Monitor clusters by using Azure Log Analytics and HDInsight cluster management solutions.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "HDInsight provides cluster-specific management solutions that you can add for Azure Monitor logs. Management solutions add functionality to Azure Monitor logs, providing additional data and analysis tools. These solutions collect important performance metrics from your HDInsight clusters and provide the tools to search the metrics. These solutions also provide visualizations and dashboards for most cluster types supported in HDInsight. By using the metrics that you collect with the solution, you can create custom monitoring rules and alerts.<br>References:<br>https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-10T14:23:00.000Z",
+        "voteCount": 7,
+        "content": "hi to all,\n\nyes.\nhttps://azure.microsoft.com/pt-pt/blog/monitoring-on-hdinsight-part-1-an-overview/\n\nregards"
+      },
+      {
+        "date": "2020-11-25T06:04:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-manage-ambari\nI would say no"
+      },
+      {
+        "date": "2021-05-28T08:59:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. The article suggests that Ambari should be used to check the cluster load (and therefore when to scale)"
+      },
+      {
+        "date": "2020-11-04T01:00:00.000Z",
+        "voteCount": 1,
+        "content": "HDInsight scales?. Is it not Databricks which scales?"
+      },
+      {
+        "date": "2020-07-15T21:29:00.000Z",
+        "voteCount": 2,
+        "content": "Is the solution to identify (a) Tool that will monitor clusters and provide information to suggest how to scale.\n( Or) (b) Just solution to Monitor cluster load using the Ambari Web UI.\n\nif it is only for Monitoring it should be option b which is Ambari. \nThe question is confusing me. Can anyone give clarification when to opt Ambari and When to go with \"Azure Log Analytics\" and \"HDInsight cluster management solutions\"  ??"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/51930-exam-dp-200-topic-4-question-40-discussion/",
+    "body": "You have an activity in an Azure Data Factory pipeline. The activity calls a stored procedure in a data warehouse in Azure Synapse Analytics and runs daily.<br>You need to verify the duration of the activity when it ran last.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe sys.dm_pdw_wait_stats data management view in Azure Synapse Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Resource Manager template",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tactivity runs in Azure Monitor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActivity log in Azure Synapse Analytics"
+    ],
+    "answer": "C",
+    "answerDescription": "Monitor activity runs. To get a detailed view of the individual activity runs of a specific pipeline run, click on the pipeline name.<br>Example:<br><img src=\"/assets/media/exam-media/03872/0043900001.jpg\" class=\"in-exam-image\"><br>The list view shows activity runs that correspond to each pipeline run. Hover over the specific activity run to get run-specific information such as the JSON input,<br>JSON output, and detailed activity-specific monitoring experiences.<br><img src=\"/assets/media/exam-media/03872/0044000001.jpg\" class=\"in-exam-image\"><br>You can check the Duration.<br>Incorrect Answers:<br>A: sys.dm_pdw_wait_stats holds information related to the SQL Server OS state related to instances running on the different nodes.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/monitor-visually",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-12T08:51:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct Using monitor we can easily find out last run and duration as well"
+      },
+      {
+        "date": "2021-05-05T14:33:00.000Z",
+        "voteCount": 3,
+        "content": "C is incorrect"
+      },
+      {
+        "date": "2021-05-28T09:02:00.000Z",
+        "voteCount": 1,
+        "content": "Why? Provide an explaination."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53111-exam-dp-200-topic-4-question-41-discussion/",
+    "body": "You are monitoring an Azure Stream Analytics job.<br>The Backlogged Input Events count has been 20 for the last hour.<br>You need to reduce the Backlogged Input Events count.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd an Azure Storage account to the job",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the streaming units for the job",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStop the job",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDrop late arriving events from the job"
+    ],
+    "answer": "B",
+    "answerDescription": "General symptoms of the job hitting system resource limits include:<br>\u2711 If the backlog event metric keeps increasing, it's an indicator that the system resource is constrained (either because of output sink throttling, or high CPU).<br>Note: Backlogged Input Events: Number of input events that are backlogged. A non-zero value for this metric implies that your job isn't able to keep up with the number of incoming events. If this value is slowly increasing or consistently non-zero, you should scale out your job: adjust Streaming Units.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-scale-jobs https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-monitoring",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-19T05:29:00.000Z",
+        "voteCount": 6,
+        "content": "answer is CORRECT"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58692-exam-dp-200-topic-4-question-43-discussion/",
+    "body": "HOTSPOT -<br>A company is planning to use Microsoft Azure Cosmos DB as the data store for an application. You have the following Azure CLI command: az cosmosdb create -`\"name \"cosmosdbdev1\" `\"-resource-group \"rgdev\"<br>You need to minimize latency and expose the SQL API. How should you complete the command? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03872/0044300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0044400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Eventual -<br>With Azure Cosmos DB, developers can choose from five well-defined consistency models on the consistency spectrum. From strongest to more relaxed, the models include strong, bounded staleness, session, consistent prefix, and eventual consistency.<br>The following image shows the different consistency levels as a spectrum.<br><img src=\"/assets/media/exam-media/03872/0044500001.jpg\" class=\"in-exam-image\"><br><br>Box 2: GlobalDocumentDB -<br>Select Core(SQL) to create a document database and query by using SQL syntax.<br>Note: The API determines the type of account to create. Azure Cosmos DB provides five APIs: Core(SQL) and MongoDB for document databases, Gremlin for graph databases, Azure Table, and Cassandra.<br>References:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels https://docs.microsoft.com/en-us/azure/cosmos-db/create-sql-api-dotnet",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-16T13:51:00.000Z",
+        "voteCount": 1,
+        "content": "default consistency level - session"
+      },
+      {
+        "date": "2021-07-26T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "I didn't understand why it should be Global DocumentDB?"
+      },
+      {
+        "date": "2021-08-28T11:16:00.000Z",
+        "voteCount": 1,
+        "content": "because of SQL API"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14419-exam-dp-200-topic-4-question-44-discussion/",
+    "body": "A company has a Microsoft Azure HDInsight solution that uses different cluster types to process and analyze data. Operations are continuous.<br>Reports indicate slowdowns during a specific time window.<br>You need to determine a monitoring solution to track down the issue in the least amount of time.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Log Analytics log search query",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAmbari REST API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Monitor Metrics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHDInsight .NET SDK",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Log Analytics alert rule query"
+    ],
+    "answer": "B",
+    "answerDescription": "Ambari is the recommended tool for monitoring the health for any given HDInsight cluster.<br>Note: Azure HDInsight is a high-availability service that has redundant gateway nodes, head nodes, and ZooKeeper nodes to keep your HDInsight clusters running smoothly. While this ensures that a single failure will not affect the functionality of a cluster, you may still want to monitor cluster health so you are alerted when an issue does arise. Monitoring cluster health refers to monitoring whether all nodes in your cluster and the components that run on them are available and functioning correctly.<br>Ambari is the recommended tool for monitoring utilization across the whole cluster. The Ambari dashboard shows easily glanceable widgets that display metrics such as CPU, network, YARN memory, and HDFS disk usage. The specific metrics shown depend on cluster type. The \u05d2\u20acHosts\u05d2\u20ac tab shows metrics for individual nodes so you can ensure the load on your cluster is evenly distributed.<br>References:<br>https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-12T08:42:00.000Z",
+        "voteCount": 28,
+        "content": "It should be C. Azure Monitor Metrics.\n\nA. Azure Log Analytics log search query\n   It's not a monitoring solution, but rather a forensic investigation tool.\nB. Ambari REST API\n   note that it's not Ambari Web UI! It is a good portion of work to create a monitoring solution using only Ambari REST API.\nC. Azure Monitor Metrics\n   \"Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making\n   them particularly useful for alerting and fast detection of issues.\"\n    https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-platform-metrics\nD. HDInsight .NET SDK\n   This is all about managing HDInsight clusters.\n   https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-administer-use-dotnet-sdk\nE. Azure Log Analytics alert rule query\n   Monitoring is needed, not alerts"
+      },
+      {
+        "date": "2020-05-23T14:03:00.000Z",
+        "voteCount": 10,
+        "content": "I think the answer should be A. Query Azure Monitor Logs (in Azure Log Analytic workspace). https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries\n\nIn order to track down the issue on a specific time, you can query metrics on any node within a specific time range."
+      },
+      {
+        "date": "2021-01-31T23:20:00.000Z",
+        "voteCount": 1,
+        "content": "there is a lag time in the time of collection of logs in log analytics, this is not the fastestest"
+      },
+      {
+        "date": "2021-04-12T13:12:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is \"A. Azure Log Analytics log search query\".\nHere https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/ \nyou can read \"... One of the key benefits of Azure Monitor logs is that you can push metrics and logs from multiple HDInsight clusters to the same Log Analytics workspace, allowing you to monitor multiple clusters in one place...\" and send you to this link:\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-tutorial#work-with-performance-data"
+      },
+      {
+        "date": "2021-02-20T06:20:00.000Z",
+        "voteCount": 2,
+        "content": "Ambari can be used to monitor one cluster at one time. If you want to monitor multiple clusters at once azure log analytics is the only option."
+      },
+      {
+        "date": "2021-01-12T11:25:00.000Z",
+        "voteCount": 2,
+        "content": "Is correct, it should be B. \nAmbari is the recommended tool for monitoring utilization across the whole cluster. The Ambari dashboard shows easily glanceable widgets that display metrics such as CPU, network, YARN memory, and HDFS disk usage. The specific metrics shown depend on cluster type. The \u201cHosts\u201d tab shows metrics for individual nodes so you can ensure the load on your cluster is evenly distributed.\n\nReferences: https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/"
+      },
+      {
+        "date": "2020-11-25T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "Least amount of time so answer is C"
+      },
+      {
+        "date": "2020-09-29T08:10:00.000Z",
+        "voteCount": 2,
+        "content": "The explanation is talking about \"Ambari dashboard\" not \"Ambari REST API\". REST API is not a fast solution. The answer should be C as per \"Metrics in Azure Monitor are lightweight and capable of supporting near real-time scenarios making them particularly useful for alerting and fast detection of issues.\" (https://docs.microsoft.com/en-us/azure/azure-monitor/platform/data-platform-metrics)"
+      },
+      {
+        "date": "2020-07-15T18:39:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be C"
+      },
+      {
+        "date": "2020-07-18T22:47:00.000Z",
+        "voteCount": 1,
+        "content": "The question stated that there are different cluster types so there are multiple clusters. Ambari is good for just one cluster, it does not have a view for multiple clusters. Should use log analytics and azure monitoring in this case."
+      },
+      {
+        "date": "2020-08-05T11:47:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-manage-ambari-rest-api"
+      },
+      {
+        "date": "2020-06-01T20:46:00.000Z",
+        "voteCount": 3,
+        "content": "why is it not ambari rest api?"
+      },
+      {
+        "date": "2020-05-25T21:31:00.000Z",
+        "voteCount": 1,
+        "content": "As per Question #2 Topic 4 answer must be A"
+      },
+      {
+        "date": "2020-05-14T05:38:00.000Z",
+        "voteCount": 4,
+        "content": "surely the AMBARI solution is easier (and thus meets requirement of quickest/shortest time) than manually looking through log history. Agree with answer given."
+      },
+      {
+        "date": "2020-05-14T05:59:00.000Z",
+        "voteCount": 2,
+        "content": "https://azure.microsoft.com/en-us/blog/monitoring-on-azure-hdinsight-part-2-cluster-health-and-availability/\n\nnot really sure there is a definitive answer even after reading this when to use Ambari and when to use Log Analytics.  Probably bet to hedge your answers and pick one of each and hope you get it right . . .  :&gt;}"
+      },
+      {
+        "date": "2020-04-16T14:56:00.000Z",
+        "voteCount": 6,
+        "content": "Its about looking through the log history and not an alert.  The answer is Log Analytics\nhttps://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/"
+      },
+      {
+        "date": "2020-02-18T17:22:00.000Z",
+        "voteCount": 8,
+        "content": "Answer should be E?"
+      },
+      {
+        "date": "2020-05-18T04:02:00.000Z",
+        "voteCount": 2,
+        "content": "i agree, it asks about making a monitoring solution, not finding the cause."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/50579-exam-dp-200-topic-4-question-45-discussion/",
+    "body": "You have the Diagnostics settings of an Azure Storage account as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03872/0044700001.jpg\" class=\"in-exam-image\"><br>How long will the logging data be retained?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7 days",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t365 days",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tindefinitely",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t90 days"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-analytics-metrics",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-21T12:35:00.000Z",
+        "voteCount": 1,
+        "content": "Indefinitely.\nHere is the link - https://docs.microsoft.com/en-us/azure/storage/common/manage-storage-analytics-logs?tabs=azure-portal"
+      },
+      {
+        "date": "2021-04-20T10:43:00.000Z",
+        "voteCount": 4,
+        "content": "Indefinitely.\nThe check box Deleta data is disabled."
+      },
+      {
+        "date": "2021-05-05T02:05:00.000Z",
+        "voteCount": 7,
+        "content": "Hour metric is enabled, and that\u2019s where delete date after 7 days is, whereas the disabled delete data option you are referring to is under disabled minute metric. So, the given answer should be correct"
+      },
+      {
+        "date": "2021-06-28T19:21:00.000Z",
+        "voteCount": 1,
+        "content": "One \"delete data\" for hour, one \"delete data\" for minute, then the general \"delete data\" for logging with no aggregation. So \"INDEFINITELY\" for me."
+      },
+      {
+        "date": "2021-05-10T08:12:00.000Z",
+        "voteCount": 3,
+        "content": "Loggin data check box is disabled. I igree with AngelRio."
+      },
+      {
+        "date": "2021-05-14T15:58:00.000Z",
+        "voteCount": 1,
+        "content": "Disabled delete data option is under \"Logging\""
+      },
+      {
+        "date": "2021-05-14T15:59:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is Indefinitely. Delete data option is under \"Logging\" is disabled."
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37838-exam-dp-200-topic-4-question-46-discussion/",
+    "body": "Your company uses Azure Stream Analytics to monitor devices.<br>The company plans to double the number of devices that are monitored.<br>You need to monitor a Stream Analytics job to ensure that there are enough processing resources to handle the additional load.<br>Which metric should you monitor?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInput Deserialization Errors",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEarly Input Events",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLate Input Events",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWatermark delay"
+    ],
+    "answer": "D",
+    "answerDescription": "There are a number of other resource constraints that can cause the streaming pipeline to slow down. The watermark delay metric can rise due to:<br>\u2711 Not enough processing resources in Stream Analytics to handle the volume of input events.<br>\u2711 Not enough throughput within the input event brokers, so they are throttled.<br>\u2711 Output sinks are not provisioned with enough capacity, so they are throttled. The possible solutions vary widely based on the flavor of output service being used.<br>Incorrect Answers:<br>A: Deserialization issues are caused when the input stream of your Stream Analytics job contains malformed messages.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-time-handling",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-26T05:51:00.000Z",
+        "voteCount": 7,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2022-03-03T22:09:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26010-exam-dp-200-topic-4-question-47-discussion/",
+    "body": "You have an enterprise data warehouse in Azure Synapse Analytics.<br>You need to monitor the data warehouse to identify whether you must scale up to a higher service level to accommodate the current workloads.<br>Which is the best metric to monitor?<br>More than one answer choice may achieve the goal. Select the BEST answer.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCPU percentage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDWU used",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDWU percentage\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData IO percentage"
+    ],
+    "answer": "B",
+    "answerDescription": "DWU used, defined as DWU limit * DWU percentage, represents only a high-level representation of usage across the SQL pool and is not meant to be a comprehensive indicator of utilization. To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, tempdb, and adaptive cache capacity. We recommend running your workload at different DWU settings to determine what works best to meet your business objectives.<br>Reference:<br>https://docs.microsoft.com/bs-latn-ba/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-17T18:22:00.000Z",
+        "voteCount": 24,
+        "content": "It is better to monitor DWU %, as it would be a consistent way to monitor independent of the absolute DWU used value (which can increase or decrease over time)"
+      },
+      {
+        "date": "2020-08-14T10:54:00.000Z",
+        "voteCount": 1,
+        "content": "Agree, that would keep consistency in the way of operating regardless the size of Synapse"
+      },
+      {
+        "date": "2020-10-01T06:29:00.000Z",
+        "voteCount": 5,
+        "content": "DWU percentage is the correct answer."
+      },
+      {
+        "date": "2022-02-11T02:14:00.000Z",
+        "voteCount": 1,
+        "content": "DWU percentage = Maximum between CPU percentage and Data IO percentage\nDWU used = DWU limit * DWU percentage\nC is the answer"
+      },
+      {
+        "date": "2021-04-28T01:10:00.000Z",
+        "voteCount": 1,
+        "content": "From the reference link in the answer:\n\"To determine whether to scale up or down, consider all factors which can be impacted by DWU such as concurrency, memory, tempdb, and adaptive cache capacity.\""
+      },
+      {
+        "date": "2021-02-07T08:11:00.000Z",
+        "voteCount": 5,
+        "content": "From microsoft docs: Things to consider when viewing metrics and setting alerts:\n***DWU used*** represents only a high-level representation of usage across the SQL pool and ***is not meant*** to be a comprehensive indicator of utilization."
+      },
+      {
+        "date": "2021-01-27T06:59:00.000Z",
+        "voteCount": 1,
+        "content": "Based on referenced link the anwser \"DWU used\" seems correct."
+      },
+      {
+        "date": "2021-05-02T12:56:00.000Z",
+        "voteCount": 2,
+        "content": "Really? From the reference link I quote: 'DWU used represents only a high-level representation of usage across the SQL pool and is not meant to be a comprehensive indicator of utilization"
+      },
+      {
+        "date": "2020-12-22T11:25:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is B. DWU used, defined as DWU limit * DWU percentage, represents only a high-level representation of usage across the SQL pool and is not meant to be a comprehensive indicator of utilization. As mentioned, it is not a comprehensive indicator, but is the best in the list. DWU percentage indicates only a maximum value between CPU and Data I/O."
+      },
+      {
+        "date": "2020-11-26T05:54:00.000Z",
+        "voteCount": 3,
+        "content": "DWU percentage = Maximum between CPU percentage and Data IO percentage\nDWU used = DWU limit * DWU percentage\nC is the answer"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53773-exam-dp-200-topic-4-question-48-discussion/",
+    "body": "DRAG DROP -<br>Your company analyzes images from security cameras and sends alerts to security teams that respond to unusual activity. The solution uses Azure Databricks.<br>You need to send Apache Spark level events, Spark Structured Streaming metrics, and application metrics to Azure Monitor.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions in the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03872/0045000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0045000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "You can send application logs and metrics from Azure Databricks to a Log Analytics workspace.<br>Spark uses a configurable metrics system based on the Dropwizard Metrics Library.<br>Prerequisites: Configure your Azure Databricks cluster to use the monitoring library.<br>Note: The monitoring library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor.<br>To send application metrics from Azure Databricks application code to Azure Monitor, follow these steps:<br>Step 1. Build the spark-listeners-loganalytics-1.0-SNAPSHOT.jar JAR file<br>Step 2: Create Dropwizard gauges or counters in your application code.<br>Reference:<br>https://docs.microsoft.com/bs-latn-ba/azure/architecture/databricks-monitoring/application-logs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-01T13:49:00.000Z",
+        "voteCount": 2,
+        "content": "Provided answer is correct"
+      },
+      {
+        "date": "2021-06-01T10:07:00.000Z",
+        "voteCount": 2,
+        "content": "the given answer is CORRECT.\n1. config databrick cluster to use the monitoring libirary (Prerequisites)\n2. build spark-listeners-loganalytics-1.0-SNAPSHOT.jar JAR file \n3. create dropwizard counters in application code\n\nref https://docs.microsoft.com/en-us/azure/architecture/databricks-monitoring/application-logs"
+      },
+      {
+        "date": "2021-05-29T08:11:00.000Z",
+        "voteCount": 2,
+        "content": "Sequence provided as the answer is wrong. \nCorrect answer is - \n1. Configure your Azure Databricks cluster to use the monitoring library\n2. Create dropwizard counters in application code\n3. Build the spark-listeners-loganalytics-1.0-SNAPSHOT.jar JAR\n\nRef - https://docs.microsoft.com/en-us/azure/architecture/databricks-monitoring/application-logs"
+      },
+      {
+        "date": "2021-05-30T13:56:00.000Z",
+        "voteCount": 1,
+        "content": "your link provided right answer but your answer is wrong"
+      },
+      {
+        "date": "2021-05-31T05:39:00.000Z",
+        "voteCount": 1,
+        "content": "What is it then?"
+      },
+      {
+        "date": "2021-09-16T10:30:00.000Z",
+        "voteCount": 1,
+        "content": "The given answer by ExamTopics is correct!"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11152-exam-dp-200-topic-4-question-49-discussion/",
+    "body": "You manage a solution that uses Azure HDInsight clusters.<br>You need to implement a solution to monitor cluster performance and status.<br>Which technology should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure HDInsight .NET SDK",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure HDInsight REST API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAmbari REST API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Log Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAmbari Web UI"
+    ],
+    "answer": "E",
+    "answerDescription": "Ambari is the recommended tool for monitoring utilization across the whole cluster. The Ambari dashboard shows easily glanceable widgets that display metrics such as CPU, network, YARN memory, and HDFS disk usage. The specific metrics shown depend on cluster type. The \u05d2\u20acHosts\u05d2\u20ac tab shows metrics for individual nodes so you can ensure the load on your cluster is evenly distributed.<br>The Apache Ambari project is aimed at making Hadoop management simpler by developing software for provisioning, managing, and monitoring Apache Hadoop clusters. Ambari provides an intuitive, easy-to-use Hadoop management web UI backed by its RESTful APIs.<br>References:<br>https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/ https://ambari.apache.org/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-31T04:30:00.000Z",
+        "voteCount": 28,
+        "content": "The question is asking about ' Implement a Solution' -  I think the answer is 'Ambari REST API' \nAmbari Web UI is a Tool but not a Technology to implement the solution."
+      },
+      {
+        "date": "2020-06-05T01:52:00.000Z",
+        "voteCount": 13,
+        "content": "Ambari web UI is the answer. https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-key-scenarios-to-monitor"
+      },
+      {
+        "date": "2020-07-10T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "Why not Ambari REST API and Azure Log Analytics?"
+      },
+      {
+        "date": "2020-07-14T00:08:00.000Z",
+        "voteCount": 2,
+        "content": "I looked up the link shared, this is correct."
+      },
+      {
+        "date": "2020-07-14T00:10:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-manage-ambari"
+      },
+      {
+        "date": "2021-03-13T02:47:00.000Z",
+        "voteCount": 1,
+        "content": "It should be Ambari web UI .\nhttps://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-key-scenarios-to-monitor"
+      },
+      {
+        "date": "2020-12-08T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "hi to all,\ni agree with \"rjdask\", the text says \"...IMPLEMENT...\" so it means develop, so i will choose also Ambari REST API\nRegards"
+      },
+      {
+        "date": "2020-12-08T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.cloudera.com/HDPDocuments/Ambari-2.7.5.0/managing-and-monitoring-ambari/content/amb_understanding_ambari_architecture.html"
+      },
+      {
+        "date": "2020-12-08T05:39:00.000Z",
+        "voteCount": 4,
+        "content": "this exam dp-200 variation bellow justifies NOW the use of ambari web UI, in this case yes, this is the right answer.\nA company has a Microsoft Azure HDInsight solution that uses different cluster types to process and analyze data. Operations are continuous.\nReports indicate slowdowns during a specific time window.\nYou need to determine a monitoring solution to track down the issue in the least amount of time.\nWhat should you use?\n\nA. Azure Log Analytics log search query\nB. Ambari REST API\nC. Azure Monitor Metrics\nD. HDInsight .NET SDK\nE. Azure Log Analytics alert rule query"
+      },
+      {
+        "date": "2021-09-29T03:17:00.000Z",
+        "voteCount": 1,
+        "content": "It say \"determine a monitoring solution \" not to implement solution!"
+      },
+      {
+        "date": "2020-11-25T06:14:00.000Z",
+        "voteCount": 3,
+        "content": "100% is E"
+      },
+      {
+        "date": "2020-11-19T12:10:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-key-scenarios-to-monitor hence E is the answer"
+      },
+      {
+        "date": "2020-11-10T08:15:00.000Z",
+        "voteCount": 1,
+        "content": "Apache Ambari simplifies Hadoop management by providing an easy-to-use web UI. You can use Ambari to manage and monitor Hadoop clusters. Developers can integrate these capabilities into their applications by using the Ambari REST APIs."
+      },
+      {
+        "date": "2020-08-04T08:27:00.000Z",
+        "voteCount": 3,
+        "content": "It say implement a solution, not use a solution.  I would think REST API."
+      },
+      {
+        "date": "2020-04-28T18:39:00.000Z",
+        "voteCount": 3,
+        "content": "I think Azure Log Analytics would be the answer.\nALA monitors the Performance and Availability of the clusters. \nWhereas Ambari is used to Monitor the Health and Utilization for any given HDIsight Cluster.\nCan anyone plz confirm the correct answer."
+      },
+      {
+        "date": "2020-07-14T14:51:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is Ambari REST API"
+      },
+      {
+        "date": "2020-04-22T02:05:00.000Z",
+        "voteCount": 4,
+        "content": "https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/\n\nThe recommended way to monitor workload information and logs on Azure HDInsight is using Azure Monitor logs."
+      },
+      {
+        "date": "2020-04-22T02:07:00.000Z",
+        "voteCount": 2,
+        "content": "One of the key benefits of Azure Monitor logs is that you can push metrics and logs from multiple HDInsight clusters to the same Log Analytics workspace, allowing you to monitor multiple clusters in one place."
+      },
+      {
+        "date": "2020-04-11T10:15:00.000Z",
+        "voteCount": 1,
+        "content": "CDE all look correct to me"
+      },
+      {
+        "date": "2020-01-30T03:46:00.000Z",
+        "voteCount": 1,
+        "content": "Why the correct answer is Azure Log Analytics?\u00bf"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/62225-exam-dp-200-topic-4-question-50-discussion/",
+    "body": "You have an Azure data factory.<br>You need to examine the pipeline failures from the last 60 days.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Activity log blade for the Data Factory resource",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Monitor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Monitor &amp; Manage app in Data Factory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Resource health blade for the Data Factory resource"
+    ],
+    "answer": "B",
+    "answerDescription": "Data Factory stores pipeline-run data for only 45 days. Use Azure Monitor if you want to keep that data for a longer time. With Monitor, you can route diagnostic logs for analysis to multiple different targets.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/monitor-using-azure-monitor",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-16T10:33:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer!"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "4"
+  }
+]

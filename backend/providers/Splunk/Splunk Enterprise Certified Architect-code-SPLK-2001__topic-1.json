@@ -1,0 +1,2450 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58078-exam-splk-2001-topic-1-question-1-discussion/",
+    "body": "Suppose the following query in a Simple XML dashboard returns a table including hyperlinks:<br>&lt;search&gt;<br>&lt;query&gt;index news sourcetype web_proxy | table sourcetype title link<br>&lt;/query&gt;<br>&lt;/search&gt;<br>Which of the following is a valid dynamic drilldown element to allow a user of the dashboard to visit the hyperlinks contained in the link field?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;option name \u05d2\u20aclink.openSearch.viewTarget\"&gt;$row.link$&lt;/option&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;drilldown&gt; &lt;link target=\u05d2\u20ac blank\"&gt;$$row.link$$&lt;/link&gt; &lt;/drilldown&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;drilldown&gt; &lt;link target=\"_blank\"&gt;$row.link|n$&lt;/link&gt; &lt;/drilldown&gt;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;drilldown&gt; &lt;link target \u05d2\u20ac_blank\"&gt;http://localhost:8000/debug/refresh&lt;/link&gt; &lt;/drilldown&gt;"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/BuildandeditdashboardswithSimplifiedXML",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-29T19:52:00.000Z",
+        "voteCount": 2,
+        "content": "PLEAESE do refer the drilldown concepts"
+      },
+      {
+        "date": "2021-07-17T14:00:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is C. \"A\" is not a drilldown option"
+      },
+      {
+        "date": "2021-10-17T16:26:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed Answer is C.  Using the Splunk Reference URLs https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/DrilldownLinkToURL\n\n\"To customize the content that opens in the browser, you can include query parameters with the URL that you use.  You can configure a drilldown to capture a clicked or other value in the source dashboard and pass it as a parameter to a target.  As an example, you might have drilldown enabled on a table visualization.  The $click.value2$ predefined token gives you access to the value in a clicked table cell.\"\n\nhttps://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/tokens\n\"Drilldown.  Use tokens to configure drilldown behavior.  Prefined and custom token let you customize content in linked searches, dashboards, or URLs.  You can also use tokens to create interactive behavior in the same dashbaord.\""
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/splunk/view/64273-exam-splk-2001-topic-1-question-2-discussion/",
+    "body": "When updating a knowledge object via REST, which of the following are valid values for the sharing Access Control List property?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApp",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGlobal",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNobody"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-17T16:46:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed Answer is A.  Per the provided Splunk Reference URL,  Scroll down to the section titled, \"Access Control List\" https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing\n\n\"The following properties represent configured permissions for a resource. app - The app context for the resource.  Required for updating saved search ACP properties.  Allowed values are: The name of an app OR system\"\nExample 3. Make the saved search available to all users and change the context to a different app.  \n\ncurl -k -u admin:pass https://localhost:8089/servicesNS/nobody/myapp/saved/searches/mysearch/move\n            -d user=nobody\n            -d app=otherapp"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/splunk/view/64275-exam-splk-2001-topic-1-question-3-discussion/",
+    "body": "Which of the following are ways to get a list of search jobs? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAccess Activity &gt; Jobs with Splunk Web.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Splunk REST to query the /services/search/jobs endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Splunk REST to query the /services/saved/searches endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Splunk REST to query the /services/search/sid/results endpoint."
+    ],
+    "answer": "AB",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Search/SupervisejobswiththeJobspage",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-17T17:02:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed A and B.  Per the Splunk Reference URLs.  https://docs.splunk.com/Documentation/Splunk/8.2.2/Search/SupervisejobswiththeJobspage\n\"Manage Search jobs.  You can use the Jobs page to review and manage any job that you own.  In Splunk Web, to view a list of your jobs select Activity &gt; Jobs.  This opens the jobs page.\"\n\nhttps://docs.splunk.com/Documentation/Splunk/8.2.2/RESTTUT/RESTsearches\n\"/saved/searches --&gt; Create or access the configuration of saved searches.  \n/search/jobs --&gt; Create searches or access the results of search jobs.\"\n\nhttps://docs.splunk.com/Documentation/Splunk/8.2.2/RESTREF/RESTsearch#GET_search.2Fjobs\n\nsearch/jobs\nhttps://&lt;host&gt;:&lt;mPort&gt;/services/search/jobs\nList search jobs.\n\nsaved/searchs\nhttps://&lt;host&gt;:&lt;mPort&gt;/services/saved/searches\nAccess and create saved searches.  \n\"Does not explicitly state that it lists searches\""
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58079-exam-splk-2001-topic-1-question-4-discussion/",
+    "body": "Which of the following are benefits from using Simple XML Extensions? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd custom layouts.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd custom graphics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd custom behaviors.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLimit Splunk license consumption based on host."
+    ],
+    "answer": "AC",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/visualizedata/usewebframework/modifydashboards/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-17T14:15:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is ABC. According to text of provided link: \"You can modify layout, add new visualizations, and customize behaviors for a dashboard\""
+      },
+      {
+        "date": "2021-10-17T17:32:00.000Z",
+        "voteCount": 2,
+        "content": "Agreed A, B, and C.  Providing another Splunk reference URL to further support the answers https://dev.splunk.com/enterprise/docs/developapps/visualizedata\n\n\"Simple XML extensions.  Use extensions to modify the appearance and behavior of a dashboard that was created using the Dashboard Editor or by using Simple XML.  Extensions are CSS and JavaScript files that you add to your app then reference from the dashboard's Simple XML code.\""
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58081-exam-splk-2001-topic-1-question-5-discussion/",
+    "body": "How can indexer acknowledgement be enabled for HTTP Event Collector (HEC)? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo need to do anything, it is turned on by default.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen a REST request is sent to create a token, the property for indexer acknowledgement must be set to 1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen a new HEC token is created in Splunk Web, select the checkbox labeled \u05d2\u20acEnable indexer acknowledgement\u05d2\u20ac.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen the Global Settings for HEC are updated in Splunk Web, select the checkbox labeled \u05d2\u20acEnable indexer acknowledgement\u05d2\u20ac.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Data/UsetheHTTPEventCollector",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-19T14:55:00.000Z",
+        "voteCount": 1,
+        "content": "BC is the way"
+      },
+      {
+        "date": "2023-05-25T00:20:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is BC.\nB. When a REST request is sent to create a token, the property for indexer acknowledgement must be set\nto 1.\nC. When a new HEC token is created in Splunk Web, select the checkbox labeled \u201cEnable indexer\nacknowledgement\u201d."
+      },
+      {
+        "date": "2022-05-12T17:58:00.000Z",
+        "voteCount": 1,
+        "content": "Its CD.\nA - It is only default if set as in option D. \nB - When indexer acknowledgement is on you pass a guid in the header, but to turn on you must set in the token, not in the request."
+      },
+      {
+        "date": "2022-05-05T03:35:00.000Z",
+        "voteCount": 2,
+        "content": "it is BC \n\"Can be enabled/disabled using Splunk Web or by sending a REST  request\""
+      },
+      {
+        "date": "2021-07-22T05:14:00.000Z",
+        "voteCount": 2,
+        "content": "Guess answer is C and D \nhttps://docs.splunk.com/Documentation/Splunk/8.1.2/Data/AboutHECIDXAck"
+      },
+      {
+        "date": "2021-07-17T14:29:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is C. Global settings n Splunk web don't have such option, so D is wrong"
+      },
+      {
+        "date": "2023-04-12T06:31:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/splunk/view/75552-exam-splk-2001-topic-1-question-6-discussion/",
+    "body": "After updating a dashboard in myApp, a Splunk admin moves myApp to a different Splunk instance. After logging in to the new instance, the dashboard is not seen. What could have happened? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe dashboard's permissions were set to private.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser role permissions are different on the new instance.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe admin deleted the myApp/local directory before packaging.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChanges were placed in: $SPLUNK_HOME/etc/apps/search/default/data/ui/nav"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-28T20:43:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is AB\nA. The dashboard's permissions were set to private.                                                                        B. User role permissions are different on the new instance."
+      },
+      {
+        "date": "2022-05-12T18:08:00.000Z",
+        "voteCount": 4,
+        "content": "It's AB.\nC - Is wrong because this would delete modifications made to the dashboard, not the dashboard itself.\nD - It's wrong because dashboards are stored in the views folder. Not nav."
+      },
+      {
+        "date": "2023-09-19T15:00:00.000Z",
+        "voteCount": 1,
+        "content": "AB is the way.\nD, Dashboard, if it was created in local this will be true."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/splunk/view/75553-exam-splk-2001-topic-1-question-7-discussion/",
+    "body": "Which of the following statements define a namespace?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace is a combination of the user and the app.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace is a combination of the user, the app, and the role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace is a combination of the user, the app, the role, and the sharing level.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace is a combination of the user, the app, the role, the sharing level, and the permissions."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-05-12T18:13:00.000Z",
+        "voteCount": 4,
+        "content": "It's A according to the discussion below:\nhttps://community.splunk.com/t5/Getting-Data-In/REST-API-with-namespace/m-p/9596"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58085-exam-splk-2001-topic-1-question-8-discussion/",
+    "body": "Which of the following are characteristics of an add-on? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRequires navigation file.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOccupies a unique namespace within Splunk.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCan depend on add-ons for correct operation.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tContains technology or components not intended for reuse by other apps."
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-17T14:47:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is C. \n- (A) Add-ons don't have own navigation menu\n- (B) Namespace is a combination of user and app. Add-on is an app, so there must be several namespaces\n- (D) Add-on are created to provide new abilities to other apps"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/splunk/view/75555-exam-splk-2001-topic-1-question-9-discussion/",
+    "body": "Which of the following statements describe oneshot searches? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAre always executed asynchronously.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCan specify csv as an output format.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStream all results upon search completion.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCan use auto_cancel to set a timeout limit."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-28T21:09:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is BC\nB. Can specify csv as an output format.                                                                                          C. Stream all results upon search completion. \nSpecifies the output format of the results (XML, JSON, JSON_COLS, JSON_ROWS, CSV, ATOM, or RAW).\nref:- https://dev.splunk.com/enterprise/docs/devtools/java/sdk-java/howtousesdkjava/howtoworkjobjava/ \nFor those searches that stream the results (oneshot and export), the search results are not retained on the server. If the stream is interrupted for any reason, the results are not recoverable without running the search again."
+      },
+      {
+        "date": "2022-05-12T18:31:00.000Z",
+        "voteCount": 3,
+        "content": "It's BC.\nA - It's wrong because a oneshot search is a synchronous search as we get the results  upon making the request without the need for complementary requests in order to get the results\nD - It's wrong becaus according to the domumentation auto_cancel refers to inactivity not to timeout (timeout is set by the timeout parameter)."
+      },
+      {
+        "date": "2023-09-19T15:04:00.000Z",
+        "voteCount": 1,
+        "content": "BC is the way"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/splunk/view/105655-exam-splk-2001-topic-1-question-10-discussion/",
+    "body": "Which of the following options would be the best way to identify processor bottlenecks of a search?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the REST API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the search job inspector.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the Splunk Monitoring Console.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearching the Splunk logs using index=\u05d2\u20ac internal\u05d2\u20ac."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-28T08:54:00.000Z",
+        "voteCount": 1,
+        "content": "search job inspector, is the way"
+      },
+      {
+        "date": "2023-04-09T06:11:00.000Z",
+        "voteCount": 2,
+        "content": "Current answer B"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/splunk/view/78031-exam-splk-2001-topic-1-question-11-discussion/",
+    "body": "Which of the following is true of a namespace?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace is a type of token filter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace includes an app attribute which cannot be a wildcard.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace filters the knowledge objects returned by the REST API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe namespace does not filter knowledge objects returned by the REST API."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-29T01:05:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is C\nC. The namespace filters the knowledge objects returned by the REST API."
+      },
+      {
+        "date": "2023-09-19T15:08:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way"
+      },
+      {
+        "date": "2023-04-09T06:12:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer C"
+      },
+      {
+        "date": "2022-08-14T08:58:00.000Z",
+        "voteCount": 3,
+        "content": "Correct is B"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87812-exam-splk-2001-topic-1-question-12-discussion/",
+    "body": "What must be done when calling the serviceNS endpoint?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthenticate with an admin user.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpecify the user and app context in the URI.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthenticate with the user of the required context.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPass the user and app context in the request payload."
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-29T01:28:00.000Z",
+        "voteCount": 2,
+        "content": "The correct Ans is \nB. Specify the user and app context in the URI"
+      },
+      {
+        "date": "2023-09-19T15:09:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way"
+      },
+      {
+        "date": "2022-11-17T10:35:00.000Z",
+        "voteCount": 2,
+        "content": "In my opinion is letter A, once that is possible to ommit user and app. Ex: serviceNS/-/search/savedSearch...."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/splunk/view/105497-exam-splk-2001-topic-1-question-13-discussion/",
+    "body": "Assuming permissions are set appropriately, which REST endpoint path can be used by someone with a power user role to access information about mySearch, a saved search owned by someone with a user role?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/servicesNS/-/data/saved/searches/mySearch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/servicesNS/object/saved/searches/mySearch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/servicesNS/search/saved/searches/mySearch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/servicesNS/-/search/saved/searches/mySearch"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-09T06:22:00.000Z",
+        "voteCount": 4,
+        "content": "Correct Answer D"
+      },
+      {
+        "date": "2023-09-19T15:35:00.000Z",
+        "voteCount": 1,
+        "content": "D. /servicesNS/-/search/saved/searches/mySearch \nThis is the way"
+      },
+      {
+        "date": "2023-04-07T04:32:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer A"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/splunk/view/105498-exam-splk-2001-topic-1-question-14-discussion/",
+    "body": "Using Splunk Web to modify config settings for a shared object, a revised config file with those changes is placed in which directory?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$SPLUNK_HOME/etc/apps/myApp/local",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$SPLUNK_HOME/etc/system/default/",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$SPLUNK_HOME/etc/system/local",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$SPLUNK_HOME/etc/apps/myApp/default"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Admin/Howtoeditaconfigurationfile",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-17T01:17:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.splunk.com/Documentation/Splunk/9.0.4/Admin/Configurationfiledirectories"
+      },
+      {
+        "date": "2023-04-17T01:13:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is A"
+      },
+      {
+        "date": "2023-04-07T04:32:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer D"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58088-exam-splk-2001-topic-1-question-15-discussion/",
+    "body": "What application security best practices should be adhered to while developing an app for Splunk? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReview the OWASP Top Ten List.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStore passwords in clear text in .conf files.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReview the OWASP Secure Coding Practices Quick Reference Guide.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure that third-party libraries that the app depends on have no outstanding CVE vulnerabilities."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-03T04:56:00.000Z",
+        "voteCount": 2,
+        "content": "Yes ACD is the answer\nA. Review the OWASP Top Ten List.                                                                                                      C. Review the OWASP Secure Coding Practices Quick Reference Guide.                              D. Ensure that third-party libraries that the app depends on have no outstanding CVE vulnerabilities."
+      },
+      {
+        "date": "2023-08-30T09:18:00.000Z",
+        "voteCount": 1,
+        "content": "ACD, this is the way"
+      },
+      {
+        "date": "2023-04-17T02:41:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is AC, because it is during development"
+      },
+      {
+        "date": "2022-05-12T18:45:00.000Z",
+        "voteCount": 2,
+        "content": "It's ACD."
+      },
+      {
+        "date": "2021-07-21T16:34:00.000Z",
+        "voteCount": 2,
+        "content": "Yes ACD is the answer"
+      },
+      {
+        "date": "2021-07-17T15:10:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is ACD. D s also included to the list accessable by provided link"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58089-exam-splk-2001-topic-1-question-16-discussion/",
+    "body": "There is a global search named `global_search` defined on a form as shown below:<br>&lt;search id=`global_search`&gt;<br>&lt;query&gt;<br>index-_internal source-*splunkd.log | stats count by component, log_level<br>&lt;/query&gt;<br>&lt;/search&gt;<br>Which of the following would be a valid post-processing search? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t| tstats count",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsourcetype=mysourcetype",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstats sum(count) AS count by log level\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsearch log_level=error | stats sum(count) AS count by component\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/Savedsearches",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-11-16T15:02:00.000Z",
+        "voteCount": 5,
+        "content": "Only D is the correct answer. Letter C do not have underscore in the log level field."
+      },
+      {
+        "date": "2023-09-19T15:38:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way"
+      },
+      {
+        "date": "2022-05-12T18:49:00.000Z",
+        "voteCount": 1,
+        "content": "It's CD."
+      },
+      {
+        "date": "2021-07-17T15:16:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is ACD. Tstats is also valid function"
+      },
+      {
+        "date": "2021-07-18T12:58:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry, answer CD is right. The tstats command can't be used after stats command"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118782-exam-splk-2001-topic-1-question-17-discussion/",
+    "body": "In order to successfully accelerate a report, which criteria must the search meet? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCannot use event sampling.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a transforming command.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a standard Splunk visualization.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCommands before the first transforming command must be streamable.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "ABD",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Knowledge/Manageacceleratedsearchsummaries",
+    "votes": [
+      {
+        "answer": "ABD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-30T09:26:00.000Z",
+        "voteCount": 1,
+        "content": "For a report to qualify for acceleration its search must meet three criteria:\n\n    The search string must use a transforming command (such as chart, timechart, stats, and top).\n    If the search string has any commands before the first transforming command, they must be streamable.\n    The search cannot use event sampling."
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 2,
+        "content": "Im not sure how to respond to that"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58141-exam-splk-2001-topic-1-question-18-discussion/",
+    "body": "Which statements are true regarding HEC (HTTP Event Collector) tokens? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMultiple tokens can be created for use with different sourcetypes and indexes.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe edit token http admin role capability is required to create a token.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo create a token, send a POST request to services/collector endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTokens can be edited using the data/inputs/http/{tokenName} endpoint."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-05-12T19:05:00.000Z",
+        "voteCount": 2,
+        "content": "It's ABD. \nA - Splunk does not limit  indexes or sourcetypes in token creation.\nB - It's correct according to the documentation(edit_token_http):\nhttps://docs.splunk.com/Documentation/Splunk/8.2.6/Security/Rolesandcapabilities\nD - Splunl allows you to update tokens through this endpoint:\nhttps://docs.splunk.com/Documentation/Splunk/8.2.6/Data/HECRESTendpoints"
+      },
+      {
+        "date": "2021-07-18T13:12:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is AD. To create a token, is used the \"data/inputs/http\" endpoint"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58091-exam-splk-2001-topic-1-question-19-discussion/",
+    "body": "Which type of command is tstats?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerating",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransforming",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCentralized streaming",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDistributable streaming"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/SearchReference/Tstats",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-17T15:25:00.000Z",
+        "voteCount": 4,
+        "content": "A is right https://docs.splunk.com/Documentation/Splunk/8.1.2/SearchReference/Commandsbytype#Transforming_commands"
+      },
+      {
+        "date": "2023-08-30T09:29:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way, a tstats is a generating command."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58092-exam-splk-2001-topic-1-question-20-discussion/",
+    "body": "Which of the following is an example of a Splunk KV store use case? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStores checkpoint data for modular inputs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTracks workflow in an incident-review system.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIndexes metrics data from remote HTTP sources.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStores application state as a user interacts with an app."
+    ],
+    "answer": "AB",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/kvstore/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-17T15:29:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is ABD. The D is also included to page provided by link"
+      },
+      {
+        "date": "2023-08-30T09:31:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118781-exam-splk-2001-topic-1-question-21-discussion/",
+    "body": "How can hiding or showing a panel by clicking on a chart or a table on the same form be performed?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using vent drilldown.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using workflow action.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using contextual drilldown.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using visualization drilldown."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Someone please verify the accuracy of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58100-exam-splk-2001-topic-1-question-22-discussion/",
+    "body": "Given the following two files defining app navigation, which navigation options will be displayed to the end user? (Select all that apply.)<br>$SPLUNK_HOME/etc/apps/app_name/default/data/ui/nav/default.xml<br>&lt;nav search_view=`search` color=`#65A637`&gt;<br>&lt;view name=`search` default=`\u02dctrue' /&gt;<br>&lt;view name=`datasets` /&gt;<br>&lt;view name=`reports` /&gt;<br>&lt;view name=`dashboards` /&gt;<br>&lt;/nav&gt;<br>$SPLUNK_HOME/etc/apps/app_name/local/data/ui/nav/default/xml<br>&lt;nav search_view=`search` color=`#65A637`&gt;<br>&lt;view name=`search` default=`\u02dctrue' /&gt;<br>&lt;view name=`datasets` /&gt;<br>&lt;view name=`dashboards` /&gt;<br>&lt;/nav&gt;<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearch",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReports",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDatasets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDashboards"
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-06T10:29:00.000Z",
+        "voteCount": 1,
+        "content": "To correct my previous ans,\nThe correct ans is ABCD \nThis is because file path $SPLUNK_HOME/etc/apps/app_name/local/data/ui/nav/default/xml doesnt exist in splunk"
+      },
+      {
+        "date": "2023-04-18T02:30:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is ACD. is the correct answer, in Splunk, the default.xml takes precedence and does not merge the content of files as in .config files"
+      },
+      {
+        "date": "2022-11-20T04:31:00.000Z",
+        "voteCount": 1,
+        "content": "Since the local directory is wrong, I'm going with ABCD."
+      },
+      {
+        "date": "2021-07-18T00:14:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is ACD. Files in the \"local\" folder have precendance over ones in the \"default\""
+      },
+      {
+        "date": "2021-07-18T13:15:00.000Z",
+        "voteCount": 3,
+        "content": "Of course, if name of the second file is \"default.xml\""
+      },
+      {
+        "date": "2023-08-30T09:34:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/splunk/view/106554-exam-splk-2001-topic-1-question-23-discussion/",
+    "body": "Which of the following is an example of a valid syntax for specifying an absolute time range modifier in a search?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tearliest=01/01/2019:00:00:00",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tearliest=01/01/2019T00:00:00",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tearliest=2019-01-01 00:00:00",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tearliest=2019-01-01T00:00:00"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Search/Specifytimemodifiersinyoursearch",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-18T02:37:00.000Z",
+        "voteCount": 2,
+        "content": "A. earliest=01/01/2019:00:00:00"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58102-exam-splk-2001-topic-1-question-24-discussion/",
+    "body": "Which of the following are true of auto-refresh for dashboard panels? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplies to inline searches and saved searches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnabling auto-refresh for a report requires editing XML.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPost-processing searches are refreshed when their base searches are refreshed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach post-processing search using the same base search can have a different refresh time."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-16T15:06:00.000Z",
+        "voteCount": 3,
+        "content": "I know that A and C are correct. \n\nLetter B I think is wrong because we can set auto refresh editing directly the report. Not needing to go in the xml tab. \n\nLetter D is wrong because post-processing searchs cannot be apart refreshed;"
+      },
+      {
+        "date": "2023-09-24T06:36:00.000Z",
+        "voteCount": 1,
+        "content": "AC, This is the way"
+      },
+      {
+        "date": "2021-07-18T00:39:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is ABD"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118783-exam-splk-2001-topic-1-question-25-discussion/",
+    "body": "When added to an app's default.meta file, which of the following makes one of its views available to other apps?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texport = app",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texport = none",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texport = view",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texport = system"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/setpermissionsforobjects/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-16T12:17:00.000Z",
+        "voteCount": 1,
+        "content": "D. export = system"
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Im not sure how to respond to that"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118784-exam-splk-2001-topic-1-question-26-discussion/",
+    "body": "When output_mode is not used, which element of a feed is a human readable name for a returned entry?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTitle",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLink",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tId"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-16T12:23:00.000Z",
+        "voteCount": 1,
+        "content": "B. Title"
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Someone please verify the accuracy of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58103-exam-splk-2001-topic-1-question-27-discussion/",
+    "body": "Which Splunk REST endpoint is used to create a KV store collection?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/collections",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/kvstore/create",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/collections/config\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/kvstore/collections"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/kvstore/usetherestapitomanagekv/",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-16T12:25:00.000Z",
+        "voteCount": 1,
+        "content": "C. /storage/collections/config"
+      },
+      {
+        "date": "2021-07-18T00:47:00.000Z",
+        "voteCount": 4,
+        "content": "C is the answer. A new collection is creted via POST method and endpoint /storage/collections/config"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58104-exam-splk-2001-topic-1-question-28-discussion/",
+    "body": "A KV store collection can be associated with a namespace for which of the following users?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNobody\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsers in the admin role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsers in the admin and power roles.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsers in the admin, power, and splunk-system-user roles."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-16T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "A. Nobody"
+      },
+      {
+        "date": "2021-07-18T00:51:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A, \"Nobody\". See examples here https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/kvstore/usetherestapitomanagekv/"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58105-exam-splk-2001-topic-1-question-29-discussion/",
+    "body": "Which of the following are types of event handlers? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearch\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet token",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tForm input\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVisualization"
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/EventHandlerReference",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T06:41:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; B\n\"You can use the following event handlers to specify token settings within the &lt;init&gt; tags.\n&lt;condition&gt;\n&lt;eval&gt;\n&lt;link&gt;\n&lt;set&gt;\n&lt;unset&gt;\"\nhttps://docs.splunk.com/Documentation/Splunk/9.1.1/Viz/tokens"
+      },
+      {
+        "date": "2023-09-17T06:51:00.000Z",
+        "voteCount": 1,
+        "content": "ACD is correct actually"
+      },
+      {
+        "date": "2023-09-16T12:41:00.000Z",
+        "voteCount": 1,
+        "content": "A. Search\nC. Form input\nD. Visualization"
+      },
+      {
+        "date": "2021-07-18T00:56:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is ACD. \"Set token\" is just an operation used by event handlers"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58107-exam-splk-2001-topic-1-question-30-discussion/",
+    "body": "Which of the following describes a Splunk custom visualization?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA visualization with custom colors.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAny visualization available in Splunk.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA visualization in Splunk modified by the user.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA visualization that uses the Splunk Custom Visualization API.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/AdvancedDev/CustomVizTutorial",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-16T13:21:00.000Z",
+        "voteCount": 1,
+        "content": "D. A visualization that uses the Splunk Custom Visualization API."
+      },
+      {
+        "date": "2022-11-16T15:08:00.000Z",
+        "voteCount": 3,
+        "content": "Letter D is correct according with the documentation mentioned in the answer."
+      },
+      {
+        "date": "2021-07-18T00:59:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87702-exam-splk-2001-topic-1-question-31-discussion/",
+    "body": "Searching `index=_internal metrics | head 3` from Splunk Web returned the following events:<br>04-12-2018 18:39:43.514 +0200 INFO Metrics `\" group=thruput, name=thruput, instantaneous_kbps=0.9651774014563425, instantaneous_eps=5.645638802094809, average_kbps=1.198995639527069, total_k_processed=2676, kb=29.91796875, ev=175, load_average=3.85888671875<br>04-12-2018 18:39:43.514 +0200 INFO Metrics `\" group_thruput, name_syslog_output, instantaneous_kbps=0, instantaneous_eps_0, average_kbps=0, total_k_processed=0, kb=0, ev=0<br>04-12-2018 18:39:43.513 +0200 INFO Metrics `\" group_thruput, name_index_thruput, instantaneous_kbps=0.9651773703189551, instantaneous_eps=4.87137960922438, average_kbps=1.1985932324065556, total_k_processed=2675, kb=29.91796875, ev=151<br>When the same search is required from a REST API call, which fields will be given? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_raw",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tname",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsourcetype",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinstantaneous_kbps"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-16T15:08:00.000Z",
+        "voteCount": 2,
+        "content": "AC correct."
+      },
+      {
+        "date": "2023-09-16T13:23:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58109-exam-splk-2001-topic-1-question-32-discussion/",
+    "body": "Which of the following are reserved field names in a KV Store? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_key",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_time",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_user",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_source"
+    ],
+    "answer": "BC",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/kvstore/aboutkvstorecollections/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-22T03:13:00.000Z",
+        "voteCount": 5,
+        "content": "Yes it's A and C"
+      },
+      {
+        "date": "2023-09-16T13:39:00.000Z",
+        "voteCount": 1,
+        "content": "A. _key\nC. _user"
+      },
+      {
+        "date": "2021-07-18T01:12:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is AC. See the link under queston"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/splunk/view/71547-exam-splk-2001-topic-1-question-33-discussion/",
+    "body": "Which of the following endpoints is used to authenticate with the Splunk REST API?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/services/auth/login\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/services/session/login",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/services/auth/session/login",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/servicesNS/authentication/login"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-16T13:49:00.000Z",
+        "voteCount": 1,
+        "content": "curl -k https://localhost:8089/services/auth/login --data-urlencode username=admin --data-urlencode password=pass"
+      },
+      {
+        "date": "2022-11-16T15:08:00.000Z",
+        "voteCount": 1,
+        "content": "Letter A is correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58110-exam-splk-2001-topic-1-question-34-discussion/",
+    "body": "Which of these URLs could be used to construct a REST request to search the employee KV store collection to find records with a rating greater than or equal to<br>2 and less than 5?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t'http://localhost:8089/servicesNS/nobody/search/storage/collections/data/employees?query={$and:[{rating:{$gte:2}}, {rating:{$lt:5}}]}&amp;output_mode-json'",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t'http://localhost:8089/servicesNS/nobody/search/storage/collections/data/employees?query={$and:[{rating:$gte:2}}, {rating:{$lt:5}}]}&amp;output_mode=json'",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t'http://localhost:8089/servicesNS/nobody/search/storage/collections/data/employees?query={%22rating%22:{%22$gte% 22:2}},{%22$and%22},{%22rating%22:{%22$lt%22:5}}}&amp;output_mode=json'",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t'http://localhost:8089/servicesNS/nobody/search/storage/collections/data/employees?query={%22$and%22:[{%22rating%22: {%22$gte%22:2}},{%22rating%22:{%22$lt%22:5}}]}&amp;output_mode=json'"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-25T06:07:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is D"
+      },
+      {
+        "date": "2022-11-16T15:09:00.000Z",
+        "voteCount": 3,
+        "content": "Agree."
+      },
+      {
+        "date": "2023-09-24T09:11:00.000Z",
+        "voteCount": 1,
+        "content": "D, the only one with correct JSON in the request"
+      },
+      {
+        "date": "2021-07-18T01:19:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A. See \"Queries\" header here https://docs.splunk.com/Documentation/Splunk/8.2.1/RESTREF/RESTkvstore"
+      },
+      {
+        "date": "2021-07-22T03:30:00.000Z",
+        "voteCount": 2,
+        "content": "No because output_mode should be followed by = \nhttps://docs.splunk.com/Documentation/Splunk/8.2.1/Search/ExportdatausingRESTAPI"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87703-exam-splk-2001-topic-1-question-35-discussion/",
+    "body": "Which of the following log files contains logs that are most relevant to Splunk Web?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taudit.log",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmetrics.log",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsplunkd.log",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tweb_service.log\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Troubleshooting/WhatSplunklogsaboutitself",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-16T14:00:00.000Z",
+        "voteCount": 1,
+        "content": "D. web_service.log"
+      },
+      {
+        "date": "2022-11-16T15:10:00.000Z",
+        "voteCount": 1,
+        "content": "Letter D is correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87704-exam-splk-2001-topic-1-question-36-discussion/",
+    "body": "Place content to set on page load inside which of the following Simple XML tags?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;set&gt;&lt;/set&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;eval&gt;&lt;/eval&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;init&gt;&lt;/init&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;value&gt;&lt;/value&gt;"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/tokens",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-16T15:10:00.000Z",
+        "voteCount": 1,
+        "content": "Letter C is correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58121-exam-splk-2001-topic-1-question-37-discussion/",
+    "body": "Which of the following Simple XML elements configure panel link buttons? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;title&gt;Open In Search&lt;/title&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;option name=\u05d2\u20aclink.visible\u05d2\u20ac&gt;true&lt;/option&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;option name=\u05d2\u20actrellis.enabled\u05d2\u20ac&gt;false&lt;/option&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;option name=\u05d2\u20acrefresh.link.visible\u05d2\u20ac&gt;false&lt;/option&gt;"
+    ],
+    "answer": "AB",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/SplunkCloud/latest/Viz/DrilldownLinkToURL",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-20T04:48:00.000Z",
+        "voteCount": 3,
+        "content": "Letter B to disable all options and is also possible to disable specific options, like exemple in letter D. \n\nSo, B and D are the correct answer."
+      },
+      {
+        "date": "2023-09-24T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way\n\nB. &lt;option name=\"link.visible\"&gt;true&lt;/option&gt;\nD. &lt;option name=\"refresh.link.visible\"&gt;false&lt;/option&gt;"
+      },
+      {
+        "date": "2021-07-18T07:05:00.000Z",
+        "voteCount": 3,
+        "content": "B is the answer. A just provides header name"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58122-exam-splk-2001-topic-1-question-38-discussion/",
+    "body": "Which of the following are requirements for arguments sent to the data/indexes endpoint? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBe url-encoded.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpecify the datatype.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude the bucket path.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude the name argument."
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-21T02:43:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is A and D is correct"
+      },
+      {
+        "date": "2021-07-18T07:15:00.000Z",
+        "voteCount": 4,
+        "content": "Only D is right. See post queries example here https://docs.splunk.com/Documentation/Splunk/8.2.1/RESTREF/RESTintrospect#data.2Findexes"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58124-exam-splk-2001-topic-1-question-39-discussion/",
+    "body": "When using the Splunk REST API, which of the following containers is/are included in the Atom Feed response? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;feed&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;entry&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;content&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;namespace&gt;"
+    ],
+    "answer": "BC",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-18T07:35:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is right"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87705-exam-splk-2001-topic-1-question-40-discussion/",
+    "body": "Which of the following are valid request arguments for the REST search endpoints? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlatest_time=rt",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlatest_time=now",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tearliest_time=-5h@h",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tearliest_time=rt_10m@m"
+    ],
+    "answer": "BC",
+    "answerDescription": "Reference:<br>https://community.splunk.com/t5/Getting-Data-In/How-to-create-Search-via-REST-api-in-verbose-mode/td-p/406400",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-24T09:58:00.000Z",
+        "voteCount": 1,
+        "content": "A. latest_time=rt\nB. latest_time=now\nC. earliest_time=-5h@h"
+      },
+      {
+        "date": "2023-09-26T00:21:00.000Z",
+        "voteCount": 1,
+        "content": "the D to be correct needs to be\nearliest_time=rt-10m"
+      },
+      {
+        "date": "2022-11-16T15:12:00.000Z",
+        "voteCount": 3,
+        "content": "BC are correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118785-exam-splk-2001-topic-1-question-41-discussion/",
+    "body": "Consider the following Python code snippet used in a Splunk add-on: if not os.path.exists(full_path): self.doAction(full_path, header) else: f = open(full_path) oldORnew = f.readline<br>().split(`,`) f.close()<br>An attacker could create a denial of service by causing an error in either the open() or readline() commands. What type of vulnerability is this?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCWE-693: Protection Mechanism Failure",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCWE-562: Return of Stack Variable Address",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCWE-404: Improper Resource Shutdown or Release\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCWE-636: Not Failing Securely ('Failing Open')"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/testvalidate/securitybestpractices/",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:10:00.000Z",
+        "voteCount": 1,
+        "content": "C. CWE-404: Improper Resource Shutdown or Release"
+      },
+      {
+        "date": "2023-08-23T12:17:00.000Z",
+        "voteCount": 2,
+        "content": "use the reference link; it's there."
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Friends could you please confirm this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87706-exam-splk-2001-topic-1-question-42-discussion/",
+    "body": "Which of the following formats are valid for a Splunk REST URI?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thost:port/endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tscheme://host/servicesNS/*/",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$SPLUNK HOME/services/endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tscheme://host:port/services/endpoint"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-16T15:14:00.000Z",
+        "voteCount": 2,
+        "content": "Letter D is correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118786-exam-splk-2001-topic-1-question-43-discussion/",
+    "body": "Which HTTP Event Collector (HEC) endpoint should be used to collect data in the following format?<br>{`message`:`Hello World`, `foo`:`bar`, `pony`:`buttercup`}<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdata/inputs/http/{name}",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tservices/collector/raw",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tservices/collector\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdata/inputs/http"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "C. services/collector \nhttps://mysplunkserver.example.com:8088/services/collector"
+      },
+      {
+        "date": "2023-08-23T12:20:00.000Z",
+        "voteCount": 2,
+        "content": "Answer C, Basic example 1 on the reference page"
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone help me confirm the correctness of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87707-exam-splk-2001-topic-1-question-44-discussion/",
+    "body": "The response message from a successful Splunk REST call includes an &lt;entry&gt; element. What is contained in an &lt;entry&gt; element?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA dictionary of &lt;eai:acl&gt; elements.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMetadata encapsulating the &lt;content&gt; element.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA response code indicating success or failure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn individual element in an &lt;entries&gt; collection."
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/RESTUM/RESTusing",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:15:00.000Z",
+        "voteCount": 1,
+        "content": "B. Metadata encapsulating the &lt;content&gt; element."
+      },
+      {
+        "date": "2022-11-16T15:15:00.000Z",
+        "voteCount": 3,
+        "content": "Letter B is correct according with the documentation metioned."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/splunk/view/87708-exam-splk-2001-topic-1-question-45-discussion/",
+    "body": "A user wants to add the token $token_name$ to a dashboard for use in a drilldown. Which token filter encodes URL values?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$$token_name$$",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$token_name|h$",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$token_name|n$",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$token_name|u$"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/tokens",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-16T15:15:00.000Z",
+        "voteCount": 4,
+        "content": "Letter D is correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118787-exam-splk-2001-topic-1-question-46-discussion/",
+    "body": "Which of the following is a security best practice?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable XSS.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEliminate all escape characters.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure the app passes App Certification.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure components have no Common Vulnerabilities and Exposures (CVE) vulnerabilities.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:19:00.000Z",
+        "voteCount": 1,
+        "content": "D. Ensure components have no Common Vulnerabilities and Exposures (CVE) vulnerabilities."
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Wildcards are not efficient"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118788-exam-splk-2001-topic-1-question-47-discussion/",
+    "body": "Which event handler uses the &lt;selection&gt; element to support pan and zoom functionality?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVisualization event handler\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tForm input event handler",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCondition event handler",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearch event handler"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/EventHandlerReference",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:21:00.000Z",
+        "voteCount": 1,
+        "content": "A. Visualization event handler"
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Wildcards are not efficient"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118789-exam-splk-2001-topic-1-question-48-discussion/",
+    "body": "What predefined drilldown tokens are available specifically for trellis layouts? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttrellis.Xaxis",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttrellis.Yaxis",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttrellis.name\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttrellis.value\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:22:00.000Z",
+        "voteCount": 1,
+        "content": "C. trellis.name\nD. trellis.value"
+      },
+      {
+        "date": "2023-08-23T12:24:00.000Z",
+        "voteCount": 2,
+        "content": "Buttom of the page: https://docs.splunk.com/Documentation/Splunk/9.1.0/Viz/PanelreferenceforSimplifiedXML#trellis"
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "I'm not sure about that"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118790-exam-splk-2001-topic-1-question-49-discussion/",
+    "body": "How can event logs be collected from a remote Windows machine using a standard Splunk installation and no customization? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy configuring a WMI input.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using HTTP event collector.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using a Windows heavy forwarder.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBy using a Windows universal forwarder.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:24:00.000Z",
+        "voteCount": 1,
+        "content": "A. By configuring a WMI input.\nD. By using a Windows universal forwarder."
+      },
+      {
+        "date": "2023-08-23T12:25:00.000Z",
+        "voteCount": 2,
+        "content": "A (fetching data, part of the installer) and D (again part of the installer) are correct. the other two are receiving data."
+      },
+      {
+        "date": "2023-08-22T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone please verify the accuracy of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/splunk/view/88048-exam-splk-2001-topic-1-question-50-discussion/",
+    "body": "To delete the record with a _key value of smith from the sales collection, a DELETE request should be sent to which REST endpoint?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/collections/sales/smith",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/kvstore/data/sales/smith",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/collections/data/sales/smith",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/storage/kvstore/collections/sales/smith"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-24T10:13:00.000Z",
+        "voteCount": 1,
+        "content": "C /storage/collections/data/sales/smith"
+      },
+      {
+        "date": "2022-11-20T04:52:00.000Z",
+        "voteCount": 3,
+        "content": "Letter C is correct."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118791-exam-splk-2001-topic-1-question-51-discussion/",
+    "body": "Log files related to Splunk REST calls can be found in which indexes? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_audit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_internal",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_thefishbucket",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t_blocksignature"
+    ],
+    "answer": "AB",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Troubleshooting/Whatdatagetslogged",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:28:00.000Z",
+        "voteCount": 2,
+        "content": "A and B = correct. _audit and _internal contain logs. fish bucket contains information about where an input is left off in a file and/or which files have been processed. D does not exist."
+      },
+      {
+        "date": "2023-09-17T09:28:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone help me confirm the correctness of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 52,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58128-exam-splk-2001-topic-1-question-52-discussion/",
+    "body": "A fellow Splunk administrator is reviewing an app that has been downloaded from splunkbase and deployed in an organization. The admin has e-mailed the following configuration snippet with a brief note that says `fix the permissions`.<br>In what configuration file should the snippet be placed?<br>[]<br>access = read : [ * ], write : [ admin ]<br>export - system<br>(Assume that $APP_HOME refers to the path that the app is installed, e.g. $SPLUNK_HOME/etc/apps/&lt;app name&gt;)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$APP_HOME/default/app.conf",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$APP_HOME/local/default.meta",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$APP_HOME/metadata/local.meta\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$SPLUNK_HOME/etc/system/local/server.conf"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:30:00.000Z",
+        "voteCount": 1,
+        "content": "C. $APP_HOME/metadata/local.meta"
+      },
+      {
+        "date": "2022-11-16T15:21:00.000Z",
+        "voteCount": 1,
+        "content": "Look into on my Splunk instance and didn't find anything besides the /etc/system directory. I go with the given answer. Letter D."
+      },
+      {
+        "date": "2022-11-17T10:58:00.000Z",
+        "voteCount": 1,
+        "content": "Fixing my previous answer, the correct answer is C. Agree with @New_user."
+      },
+      {
+        "date": "2021-07-18T08:45:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is C - $APP_HOME/metadata/local.meta. I've just checked on my SPlunk instance"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 53,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58131-exam-splk-2001-topic-1-question-53-discussion/",
+    "body": "Given a dashboard with a Simple XML extension in myApp, what is the XML reference for the file myJS.js located in myOtherApp in the location shown below?<br>$SPLUNK_HOME/etc/apps/myOtherApp/appserver/static/javascript/<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;dashboard script=\u05d2\u20acmyJs.js\u05d2\u20ac&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;dashboard script=\u05d2\u20acmyOtherApp/myJS.js\u05d2\u20ac&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;dashboard script=\u05d2\u20acmyOtherApp:javascript/myJS.js\u05d2\u20ac&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;dashboard script=\u05d2\u20acmyOtherApp:appserver/static/javascript/myJS.js\u05d2\u20ac&gt;"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/visualizedata/usewebframework/modifydashboards/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-18T08:55:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B. You should specify other app's name if script is located there"
+      },
+      {
+        "date": "2021-07-18T09:06:00.000Z",
+        "voteCount": 5,
+        "content": "Sorry, answer is C. Script must be located in the \"appserver/static\" folder of the app. Since \"javascript\" is a subfolder, we must specify it's name : script=\"otherApp:javascript/myScript.js\"\nLook example here, under \"Attributes\" header: https://docs.splunk.com/Documentation/Splunk/latest/Viz/PanelreferenceforSimplifiedXML"
+      },
+      {
+        "date": "2022-11-16T15:21:00.000Z",
+        "voteCount": 2,
+        "content": "Agree. Answer is C."
+      },
+      {
+        "date": "2023-09-17T09:40:00.000Z",
+        "voteCount": 1,
+        "content": "C. &lt;dashboard script=\"myOtherApp:javascript/myJS.js\"&gt; \n\nSame app \"/etc/apps/my_app/appserver/static/my_code.js\"\n&lt;dashboard script=\"my_code.js\"&gt;\nOther app \"/etc/apps/myOtherApp/appserver/static/my_code.js\"\n&lt;dashboard script=\"myOtherApp:javascript/myJS.js\"&gt;"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 54,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58335-exam-splk-2001-topic-1-question-54-discussion/",
+    "body": "Which of the following are security best practices for Splunk app development? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStore passwords in clear text in .conf files.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement security in software development lifecycle.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManually test application with the controls listed in the OWASP Security Testing Guide.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a dynamic scanner such as OWASP ZAP to scan web application components for vulnerabilities."
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/testvalidate/securitybestpractices/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-22T04:45:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is B,C,D"
+      },
+      {
+        "date": "2023-09-17T09:43:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 55,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58132-exam-splk-2001-topic-1-question-55-discussion/",
+    "body": "Which items below are configured in inputs.conf? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA modular input written in Python.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA file input monitoring a JSON file.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA custom search command written in Python.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn HTTP Event Collector as receiver of data from an app."
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:59:00.000Z",
+        "voteCount": 1,
+        "content": "ABD\nThe HEC inputs are also in the inputs.conf"
+      },
+      {
+        "date": "2021-07-18T09:14:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is ABD. Splunk can monitor json files data"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 56,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118792-exam-splk-2001-topic-1-question-56-discussion/",
+    "body": "Which of the following statements describe an HEC token? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMaps to a Splunk user.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCan be used to download data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIs a GUID (globally unique identifier).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCan be created in Splunk Web or using REST endpoints.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T09:59:00.000Z",
+        "voteCount": 1,
+        "content": "C. Is a GUID (globally unique identifier).\nD. Can be created in Splunk Web or using REST endpoints."
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Best without wildcards"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 57,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118793-exam-splk-2001-topic-1-question-57-discussion/",
+    "body": "Which of the following ensures that quotation marks surround the value referenced by the token?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t$token_name|s$",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\u05d2\u20ac$token_name$\u05d2\u20ac",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t($token_name$)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t\\\u05d2\u20ac$token_name$\\\u05d2\u20ac"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Viz/tokens",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:31:00.000Z",
+        "voteCount": 2,
+        "content": "the reference link has the answer. A is correct. TLDR; This form sets an app name token on page load. The token value is used in a panel label and a search with the |s$ filter to wrap the value in quotation marks."
+      },
+      {
+        "date": "2023-09-17T10:01:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way as usual! Thanks @Ignotus"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone please verify the accuracy of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 58,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58134-exam-splk-2001-topic-1-question-58-discussion/",
+    "body": "Which of the following is an intended use of HTTP Event Collector tokens?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA cookie.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn HTTP header field.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA JSON field in the HTTP request.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA password in conjunction with login."
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Data/FormateventsforHTTPEventCollector",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:37:00.000Z",
+        "voteCount": 2,
+        "content": "I opt for B, since HTTP Event Collector tokens are not used in conjunction with login. They are used to authenticate requests to the HTTP Event Collector endpoint.\nB is correct because HTTP Event Collector tokens authenticate requests to the HTTP Event Collector endpoint. They are passed in the Authorization header field of the HTTP request."
+      },
+      {
+        "date": "2023-09-17T10:03:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way"
+      },
+      {
+        "date": "2021-07-18T09:31:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is D"
+      },
+      {
+        "date": "2022-11-16T15:23:00.000Z",
+        "voteCount": 1,
+        "content": "Agree."
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 59,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58135-exam-splk-2001-topic-1-question-59-discussion/",
+    "body": "When the search/jobs REST endpoint is called to execute a search, what can be done to reduce the results size in the results? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a generating search.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove unneeded fields.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTruncate the data, using selective functions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSummarize data, using analytic commands."
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-18T09:48:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is BCD. Generating search commands do not reduce size of data"
+      },
+      {
+        "date": "2023-09-17T10:07:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 60,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118794-exam-splk-2001-topic-1-question-60-discussion/",
+    "body": "Which of the following is a customization option for the Open in Search panel link button?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisplay the refresh time.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShow the Export Results button.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShow link buttons at the bottom of a panel.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDefine an alternative search or target view to use."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:44:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct"
+      },
+      {
+        "date": "2023-09-17T10:09:00.000Z",
+        "voteCount": 1,
+        "content": "this is the way"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Friends could you please confirm this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 61,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58136-exam-splk-2001-topic-1-question-61-discussion/",
+    "body": "Which of the following are valid parent elements for the event action shown below? (Select all that apply.)<br>&lt;set token=`Token Name`&gt;sourcetype=$click.value|s$&lt;/set&gt;<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;eval&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;change&gt;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;change&gt; &lt;condition&gt;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;drilldown&gt; &lt;condition&gt;"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-24T02:05:00.000Z",
+        "voteCount": 1,
+        "content": "B. &lt;change&gt;\nC. &lt;change&gt; &lt;condition&gt;\nD. &lt;drilldown&gt; &lt;condition&gt;\n\nThe &lt;eval&gt; is a alternative to &lt;set&gt; as @New_user describe."
+      },
+      {
+        "date": "2021-07-18T09:59:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is BCD. Eval fuction is used to set tokens without \"set\" command. See here: https://docs.splunk.com/Documentation/Splunk/latest/Viz/PanelreferenceforSimplifiedXML"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 62,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118795-exam-splk-2001-topic-1-question-62-discussion/",
+    "body": "In a DELETE request, what would omitting the value of _key from the REST endpoint do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClean the KV store, deleting all content.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProduce the syntax error \u05d2\u20acKey value missing\u05d2\u20ac.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCause all records in a collection to be deleted.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMean that the _key value must be passed as an argument."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:45:00.000Z",
+        "voteCount": 2,
+        "content": "C is correct"
+      },
+      {
+        "date": "2023-09-17T13:21:00.000Z",
+        "voteCount": 1,
+        "content": "This is the way"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone help me confirm if this is correct"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 63,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118796-exam-splk-2001-topic-1-question-63-discussion/",
+    "body": "Which of the following is a way to monitor app performance? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing Splunk logs.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the search job inspector.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the Monitoring Console.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUsing the storage/collections/config REST endpoint."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T13:25:00.000Z",
+        "voteCount": 1,
+        "content": "Is ABC"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Wildcards are not efficient"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 64,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58137-exam-splk-2001-topic-1-question-64-discussion/",
+    "body": "Which files within an app contain permissions information? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlocal/metadata.conf",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmetadata/local.meta\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdefault/metadata.conf",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmetadata/default.meta\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/devtools/customsearchcommands/manageaccesstocustom/",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-22T05:00:00.000Z",
+        "voteCount": 5,
+        "content": "Yes answer is B and D"
+      },
+      {
+        "date": "2023-09-17T13:27:00.000Z",
+        "voteCount": 1,
+        "content": "B. metadata/local.meta\nD. metadata/default.meta"
+      },
+      {
+        "date": "2021-07-18T10:14:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is BD. Files \"metadata.conf\" don't exist"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 65,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118797-exam-splk-2001-topic-1-question-65-discussion/",
+    "body": "When using the Splunk Web Framework to create a global search, which is the correct post-process syntax for the base search shown below? var searchmain = new SearchManager{{ id: `base-search`, search: `index= internal | head 10 | fields `*`, preview: true, cache: true<br>}};<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvar mypostproc1 = new PostProcessManager {{ id: \u05d2\u20acpost1\u05d2\u20ac, managerid: \u05d2\u20acbase-search\u05d2\u20ac, search: \u05d2\u20ac| stats count by sourcetype\u05d2\u20ac }};",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvar mypostproc1 = new PostProcessManager{{ id: \u05d2\u20acpost1\u05d2\u20ac, managerid: \u05d2\u20acbase\u05d2\u20ac, search: \u05d2\u20ac| stats count by sourcetype\u05d2\u20ac }};",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvar mypostproc1 = new PostProcess{{ id: \u05d2\u20acpost1\u05d2\u20ac, managerid: \u05d2\u20acbase-search\u05d2\u20ac, search: \u05d2\u20ac| search stats count by sourcetype\u05d2\u20ac }};",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou cannot create global searches in the Splunk Web Framework."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:48:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Someone please verify the accuracy of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 66,
+    "url": "https://www.examtopics.com/discussions/splunk/view/58139-exam-splk-2001-topic-1-question-66-discussion/",
+    "body": "A dashboard is taking too long to load. Several searches start with the same SPL. How can the searches be optimized in this dashboard? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConvert searches to include NOT expressions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestrict the time range of the search as much as possible.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace | stats command with | transaction command wherever possible.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConvert the common SPL into a Global Search and convert the other searches to post-processing searches.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T13:34:00.000Z",
+        "voteCount": 1,
+        "content": "B. Restrict the time range of the search as much as possible. \nD. Convert the common SPL into a Global Search and convert the other searches to post-processing searches."
+      },
+      {
+        "date": "2023-08-23T12:49:00.000Z",
+        "voteCount": 2,
+        "content": "and transaction is an expensive and slow command."
+      },
+      {
+        "date": "2021-07-18T10:22:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is BD. The NOT expressions and transaction command are not effective"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 67,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118798-exam-splk-2001-topic-1-question-67-discussion/",
+    "body": "Which of the following search commands can be used to perform statistical queries on indexed fields in TSIDX files?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstats",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttstats",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttscollect",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttransaction"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/SearchReference/Tstats",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-23T12:50:00.000Z",
+        "voteCount": 2,
+        "content": "use the reference; it has the information. B is correct."
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "I'm not sure about that"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 68,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118799-exam-splk-2001-topic-1-question-68-discussion/",
+    "body": "Which of the following will unset a token named my_token?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;unset&gt;$my_token$&lt;/unset&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;unset token=\u05d2\u20acmy_token\u05d2\u20ac&gt;&lt;/unset&gt;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;set token=\u05d2\u20acmy_token\u05d2\u20ac&gt;false&lt;/token&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;set token=\u05d2\u20acmy_token\u05d2\u20ac&gt;disabled&lt;/set&gt;"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://community.splunk.com/t5/Dashboards-Visualizations/Unset-a-token-if-it-is-equal-to-a-value/m-p/353512",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T13:44:00.000Z",
+        "voteCount": 1,
+        "content": "B. &lt;unset token=\"my_token\"&gt;&lt;/unset&gt;"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone help me confirm if this is correct"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 69,
+    "url": "https://www.examtopics.com/discussions/splunk/view/118800-exam-splk-2001-topic-1-question-69-discussion/",
+    "body": "Data can be added to a KV store collection in which of the following format(s)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJSON\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJSON, XML",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJSON, XML, CSV",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tJSON, XML, CSV, TXT"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://dev.splunk.com/enterprise/docs/developapps/manageknowledge/kvstore/usingconfigurationfiles/",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-24T02:39:00.000Z",
+        "voteCount": 1,
+        "content": "A. JSON"
+      },
+      {
+        "date": "2023-08-23T12:51:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct"
+      },
+      {
+        "date": "2023-08-23T01:27:00.000Z",
+        "voteCount": 1,
+        "content": "Could someone please verify the accuracy of this answer"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 70,
+    "url": "https://www.examtopics.com/discussions/splunk/view/71389-exam-splk-2001-topic-1-question-70-discussion/",
+    "body": "For a KV store, a lookup stanza in the transforms.conf file must contain which of the following? (Select all that apply.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcollection\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfields_list\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texternal_type",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinternal_type"
+    ],
+    "answer": "AB",
+    "answerDescription": "Reference:<br>https://docs.splunk.com/Documentation/Splunk/8.1.2/Knowledge/ConfigureKVstorelookups",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-17T14:28:00.000Z",
+        "voteCount": 1,
+        "content": "ABC\n\nexternal_type\ncollection\nfields_list"
+      },
+      {
+        "date": "2023-08-23T13:02:00.000Z",
+        "voteCount": 2,
+        "content": "In the GUI the fields_list has an * making it a required field. ABC is indeed correct."
+      },
+      {
+        "date": "2023-08-23T12:52:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is A, C. fields_list exists, but is not a requirement."
+      },
+      {
+        "date": "2022-02-13T13:56:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is ABC see the reference for transforms.conf stanza\nhttps://docs.splunk.com/Documentation/Splunk/8.1.2/Knowledge/ConfigureKVstorelookups"
+      }
+    ],
+    "examNameCode": "splk-2001",
+    "topicNumber": "1"
+  }
+]

@@ -1,0 +1,528 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/oracle/view/14957-exam-1z0-060-topic-2-question-1-discussion/",
+    "body": "Which two statements are true about Oracle Managed Files (OMF)? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOMF cannot be used in a database that already has data files created with user-specified directions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe file system directions that are specified by OMF parameters are created automatically.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOMF can be used with ASM disk groups, as well as with raw devices, for better file management.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOMF automatically creates unique file names for table spaces and control files.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOMF may affect the location of the redo log files and archived log files."
+    ],
+    "answer": "DE",
+    "answerDescription": "D: The database internally uses standard file system interfaces to create and delete files as needed for the following database structures:<br>\u2711 Tablespaces<br>\u2711 Redo log files<br>\u2711 Control files<br>\u2711 Archived logs<br>\u2711 Block change tracking files<br>\u2711 Flashback logs<br>\u2711 RMAN backups<br>Note:<br>* Using Oracle-managed files simplifies the administration of an Oracle Database. Oracle-managed files eliminate the need for you, the DBA, to directly manage the operating system files that make up an Oracle Database. With Oracle-managed files, you specify file system directories in which the database automatically creates, names, and manages files at the database object level. For example, you need only specify that you want to create a tablespace; you do not need to specify the name and path of the tablespace's datafile with the DATAFILE clause.<br>References:<br>http://www.oracle-base.com/articles/9i/oracle-managed-files.php http://docs.oracle.com/cd/B10500_01/server.920/a96521/omf.htm",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-27T05:15:00.000Z",
+        "voteCount": 2,
+        "content": "A  OMF cannot be used in a database that already has data files created with user-specified directions. \nWhy id not TRUE ??"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/oracle/view/69101-exam-1z0-060-topic-2-question-2-discussion/",
+    "body": "To complete the online redefinition procedure, you execute the following command;<br>EXECUTE DBMS_REDEFINITION.FINISH_REDEF_TABLE(\"\u02dcSH', \"\u02dcSALES', \"\u02dcINT_SALES', 600);<br>What is the significance of the dml_lock_timeout period of 600 seconds in the preceding command?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll pending DML statements on the SALES table must be committed 600 seconds before the procedure ends gracefully.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll pending DML statements on the SALES table will wait for 600 seconds before the procedure ends gracefully.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll pending DML statements on the SALES_INT table must be committed 600 seconds before the procedure ends gracefully.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt specifies the number of seconds the procedure waits for its required locks before it ends gracefully."
+    ],
+    "answer": "B",
+    "answerDescription": "Wait up to 600 seconds for required locks on SH.SALES:<br>EXECUTE DBMS_REDEFINITION.FINISH_REDEF_TABLE (<br>'SH', 'SALES', 'INT_SALES', 600);<br>Reference:<br>http://oradb-srv.wlv.ac.uk/E50529_01/ARPLS/d_redefi.htm#ARPLS042",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-30T14:13:00.000Z",
+        "voteCount": 1,
+        "content": "from https://docs.oracle.com/database/121/ARPLS/d_redefi.htm#ARPLS74410\nWait up to 600 seconds for required locks on SH.SALES:\n\nEXECUTE DBMS_REDEFINITION.FINISH_REDEF_TABLE (  'SH', 'SALES', 'INT_SALES', 600);"
+      },
+      {
+        "date": "2021-12-30T14:05:00.000Z",
+        "voteCount": 1,
+        "content": "From https://docs.oracle.com/database/121/ARPLS/d_redefi.htm#ARPLS74410\n\ndml_lock_timeout - Specifies the number of seconds the procedure waits for its required locks before failing. The permissible range of values for timeout is 0 to 1,000,000. The default is NULL (wait mode).\n\nSo the Answer id D"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49268-exam-1z0-060-topic-2-question-5-discussion/",
+    "body": "You plan to recover the SCOTT.EMP table to a specific point in time by using RMAN:<br>RMAN&gt; RECOVER TABLE SCOTT.EMP UNTILL SYSDATE-2 USING AUXILIARY LOCATION \"\u02dc+RECO';<br>Which five steps are performed by RMAN?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttruncating the SCOTT.EMP table in the original database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texporting the SCOTT.EMP table from the auxiliary database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tflashing back the original database to the desired point in time",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trecovering the auxiliary database to the desired point in time",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcreating an auxiliary instance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\timporting the SCOTT.EMP table into the original database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"G\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tG.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trestoring the tablespaces required for point-in-time recovery",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"H\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tH.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdropping the SCOTT.EMP table in the original database"
+    ],
+    "answer": "CDEFG",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-04T10:09:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer would be BDEFG, because after creating Auxiliary DB, recovery that to the specific point, we are going to export respective table from Auxiliary DB and import to the original DB."
+      },
+      {
+        "date": "2021-04-05T12:30:00.000Z",
+        "voteCount": 1,
+        "content": "Not C, but B. We want to use RMAN, why we're choosing flashback response?"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/oracle/view/26008-exam-1z0-060-topic-2-question-9-discussion/",
+    "body": "On your Oracle 12c database, you issue the following commands to create indexes:<br>SQL&gt; CREATE INDEX oe.ord_customer_ix1 ON oe.orders (customer_id, sales_rep_id);<br>SQL&gt; CREATE BITMAP INDEX oe.ord_customer_ix2 ON oe.orders (customer_id, sales_rep_id);<br>Which statement is correct?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnly the ORD_CUSTOMER_IX1 index is created and it is visible.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBoth the indexes are created and both of them are visible.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBoth the indexes are created; however, only the ORD_CUSTOMER_IX1 index is visible.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBoth the indexes are created; however, only the ORD_CUSTOMER_IX2 index is visible."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-04T06:33:00.000Z",
+        "voteCount": 1,
+        "content": "I think it's A due to similar test: \nSQL&gt; DESC C##JOHN.x\n Name                                      Null?    Type\n ----------------------------------------- -------- ----------------------------\n T                                                  NUMBER\n\nSQL&gt; CREATE INDEX C##JOHN.TEST1 ON C##JOHN.x(t);\n\nIndex created.\n\nSQL&gt; CREATE BITMAP INDEX C##JOHN.TEST2 ON C##JOHN.x(t);\nCREATE BITMAP INDEX C##JOHN.TEST2 ON C##JOHN.x(t)\n                                               *\nERROR at line 1:\nORA-01408: such column list already indexed"
+      },
+      {
+        "date": "2020-11-07T13:39:00.000Z",
+        "voteCount": 3,
+        "content": "In my opinion the first create index is missing the INVISIBLE clause at the end. Then the whole question would make sense."
+      },
+      {
+        "date": "2020-10-05T21:08:00.000Z",
+        "voteCount": 1,
+        "content": "A is ture"
+      },
+      {
+        "date": "2020-08-21T07:22:00.000Z",
+        "voteCount": 1,
+        "content": "I have tried and the correct answer it's A"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/oracle/view/10542-exam-1z0-060-topic-2-question-14-discussion/",
+    "body": "You plan to drop the column of a table that has Flashback Archiving enabled.<br>You want to ensure minimal service disruption.<br>How would you do this in your Oracle 12c Database?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable Flashback Archiving, set the column unused, and re-enable Flashback Archiving.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable Flashback Archiving, drop the column unused, and re-enable Flashback Archiving.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisassociate the Flashback Archive using the DBMS_FLASHBACK_ARCHIVE.DISASSOCIATE_FBA procedure, drop the column, and re-associate the Flashback Archive using the DBMS_FLASHBACK_ARCHIVE.RESASSOCIATE_FBA procedure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDrop the column using the ALTER TABLE statement.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisassociate the Flashback Archive using the DBMS_FLASHBACK_ARCHIVE.DISASSOCIATE_FBA procedure, set the column unused, and re-associate the Flashback Archive using the DBMS_FLASHBACK_ARCHIVE.RESASSOCIATE_FBA procedure."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-02T14:27:00.000Z",
+        "voteCount": 2,
+        "content": "I believe that D is the correct answer, In Oracle 11g C was the correct answer but from \nhttps://docs.oracle.com/database/121/ADFNS/adfns_flashback.htm#ADFNS640\n\n16.9.6 DDL Statements on Tables Enabled for Flashback Data Archive\nFlashback Data Archive supports only these DDL statements:\n - ALTER TABLE statement that does any of the following:\n     -- Adds, drops, renames, or modifies a column\n     -- Adds, drops, or renames a constraint\n     -- Drops or truncates a partition or subpartition operation"
+      },
+      {
+        "date": "2019-12-18T04:55:00.000Z",
+        "voteCount": 1,
+        "content": "I think C should be the answer"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/oracle/view/57873-exam-1z0-060-topic-2-question-20-discussion/",
+    "body": "Your database uses Automatic Memory Management, and has the large pool configured.<br>You issue the following command:<br>SQL&gt; ALTER SYSTEM SET SHARED_SERVERS = 5;<br>Which statement is true about the shared server configuration?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is enabled only if the SHARED_SERVER_SESSIONS parameter is configured.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is enabled and the UGA is located in the large pool for connections that use the shared server configuration.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is enabled only if at least five dispatchers are configured.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is enabled and all the DBA and non-DBA sessions function in shared server mode."
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.oracle.com/cd/E71588_01/HTMIG/configuring-SHARED-SERVERS-parameter.htm#HTMIG29492",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-24T14:35:00.000Z",
+        "voteCount": 1,
+        "content": "I think the right answer is letter B.\nhttp://www.dba-oracle.com/m_session_uga_memory.htm"
+      },
+      {
+        "date": "2021-07-14T17:55:00.000Z",
+        "voteCount": 1,
+        "content": "I think A is not the  correct Answer:\nhttps://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/SHARED_SERVER_SESSIONS.html#GUID-585AE4CF-2310-47E0-A8D9-DDECBDE4EF53"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/oracle/view/36398-exam-1z0-060-topic-2-question-22-discussion/",
+    "body": "Which three can be performed on a Data Pump type external table? (Choose three.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcreating a public synonym for the table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcreating a view on the table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpartitioning the table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tperforming a CREATE TABLE AS SELECT (CTAS) to populate the table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcreating an invisible index on the table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tupdating the table using an UPDATE statement"
+    ],
+    "answer": "DEF",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-07T14:15:00.000Z",
+        "voteCount": 3,
+        "content": "A, B, D\nYou can , select, join, or sort external table data. You can also create views and synonyms for external tables. However, no DML operations (UPDATE, INSERT, or DELETE) are possible, and no indexes can be created, on external tables."
+      },
+      {
+        "date": "2021-06-04T10:35:00.000Z",
+        "voteCount": 1,
+        "content": "Yes right, The correct answer is: ABD"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/oracle/view/26776-exam-1z0-060-topic-2-question-28-discussion/",
+    "body": "Your multitenant container database (CDB) contains several pluggable databases (PDBs).<br>A common user C##A_ADMIN, is created with connect privileges.<br>You execute this command from the root container:<br>SQL&gt; GRANT create tablespace to C##A_ADMIN;<br>Which statement is true?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe command executes successfully, enabling the C##A_ADMIN user to create a tablespace only in the root container.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe command fails because the CONTAINER=ALL clause is not used.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe command executes successfully, enabling the C##A_ADMIN user to create tablespaces in the root container as well as in the PDBs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe command fails because the CONTAINER=CURRENT clause is not used."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-05T10:19:00.000Z",
+        "voteCount": 1,
+        "content": "I agree A is the correct answer... \nfrom https://oracle-base.com/articles/12c/multitenant-manage-users-and-privileges-for-cdb-and-pdb-12cr1\n\nCreate Common Roles\nSimilar to users described previously, roles can be common or local. All Oracle-supplied roles are common and therefore available in the root container and all PDBs. Common roles can be created, provided the following conditions are met.\n\n- You must be connected to a common user with CREATE ROLE and the SET CONTAINER privileges granted commonly.\n- The current container must be the root container.\n- The role name for the common role must be prefixed with \"C##\" or \"c##\" and contain only ASCII or EBCDIC characters.\n- The role name must be unique across all containers.\n- The role is created with the CONTAINER=ALL clause\n\nBecause CONTAINER=ALL is not used the default CONTAINER=CURRENT is used."
+      },
+      {
+        "date": "2020-08-22T06:59:00.000Z",
+        "voteCount": 3,
+        "content": "Also for me correct answer is A"
+      },
+      {
+        "date": "2020-07-27T06:24:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is A, the container=ALL was not used when granting the create table space privilege so it defaults to container=current. so the user will only be able to create a table space in the root container only"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49094-exam-1z0-060-topic-2-question-30-discussion/",
+    "body": "Which two partitioning methods are suitable for a parent table when using reference partitioning in Oracle Database 12c? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinterval partitioning",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlist partitioning",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsystem partitioning",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thash partitioning",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trange partitioning"
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-04T13:30:00.000Z",
+        "voteCount": 2,
+        "content": "It seems all fine due to this:\nhttps://www.oracle.com/technetwork/database/options/partitioning/partitioning-wp-12c-1896137.pdf\nin 12c only interval is a new add on (A)\nhttps://blog.dbi-services.com/oracle-12c-partitioning-enhancements-part-i-reference-partitioning/\nthat in 11c was not present\nhttps://oracle-base.com/articles/11g/partitioning-enhancements-11gr1#reference_partitioning"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49101-exam-1z0-060-topic-2-question-32-discussion/",
+    "body": "In which two scenarios is an RMAN recovery catalog automatically resynchronized? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen a registered database is opened with the RESETLOGS option",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen a redo log is archived",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen backup metadata records are aged out of the control file based on the CONTROL_FILE_RECORD_KEEP_TIME parameter value",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen the backup retention policy configuration is changed for a registered database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twhen a manual redo log switch is performed"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-04T14:10:00.000Z",
+        "voteCount": 2,
+        "content": "I think that D also could be considered a valid option:\nRMAN&gt; CONFIGURE RETENTION POLICY TO REDUNDANCY 2;\n\nstarting full resync of recovery catalog\nfull resync complete\nnew RMAN configuration parameters:\nCONFIGURE RETENTION POLICY TO REDUNDANCY 2;\nnew RMAN configuration parameters are successfully stored\nstarting full resync of recovery catalog\nfull resync complete\n\nRMAN&gt; exit"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/oracle/view/10549-exam-1z0-060-topic-2-question-33-discussion/",
+    "body": "Your database is running in ARCHIVELOG mode. You back up the control file by executing ALTER DATABASE BACKUP CONTROL TO TRACE<br>NORESETLOGS, whenever you make structural changes to the database. A media failure has damaged all the control files, but the online redo log files are intact.<br>You issue a SHUTDOWN ABORT.<br>How should you recover the control file to its default location?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestore the backup control file to all the locations specified in the CONTROL_FILES parameter file, start a new instance and mount the database, recover the database, and then open the database with the RESETLOGS option.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIssue the STARTUP NOMOUNT command, restore the backup control file only to the default location, issue RECOVER DATABASE USING BACKUP CONTROLFILE UNTIL CANCEL, and open the database with the RESETLOGS option.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIssue the STARTUP MOUNT command, restore the backup control file to all the locations specified in the CONTROL_FILES parameter file, and then issue RECOVER DATABASE USING BACKUP CONTROLFILE.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIssue the STARTUP NOMOUNT command, re-create the control file manually by using the CREATE CONTROLFILE command, issue the RECOVER DATABASE command, and then issue the ALTER DATABASE OPEN command."
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.oracle.com/cd/E28271_01/backup.1111/e10642/osadvsce.htm",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-05T11:05:00.000Z",
+        "voteCount": 1,
+        "content": "from https://docs.oracle.com/database/121/BRADV/osrecvry.htm#BRADV210 \nB is the correct answer"
+      },
+      {
+        "date": "2021-06-04T01:42:00.000Z",
+        "voteCount": 2,
+        "content": "Based on Re-creating a Controlfile in this reference:\nhttps://docs.oracle.com/cd/E28271_01/backup.1111/e10642/osadvsce.htm#CHDJAABB\n\nThe correct answer is : D"
+      },
+      {
+        "date": "2019-12-18T06:51:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is E\nhttp://www.dba-oracle.com/t_alter_database_backup_controlfile_to_trace.htm"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/oracle/view/69540-exam-1z0-060-topic-2-question-34-discussion/",
+    "body": "The current system change number (SCN) for a live database is 663571.<br>You decide to use the FLASHBACK TABLE statement to flash back the CUSTOMERS table to SCN 662116.<br>After flashing back the CUSTOMERS table, you query it and decide to undo the effects of the FLASHBACK TABLE command.<br>Which is the fastest way to do this?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecute the RMAN RECOVER BLOCK command by specifying the table name and SCN 663571 because FLASHBACK TABLE cannot be performed on a table that has already been flashed back.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecute another FLASHBACK TABLE statement to restore the CUSTOMERS table to SCN 663571.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform table point-in-time recovery because FLASHBACK TABLE cannot be performed on a table that has already been flashed back.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform tablespace point-in-time recovery because FLASHBACK TABLE cannot be performed on a table that has already been flashed back."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-05-26T13:38:00.000Z",
+        "voteCount": 1,
+        "content": "I think correct answer is C."
+      },
+      {
+        "date": "2022-01-05T11:09:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.oracle.com/database/121/SQLRF/statements_9013.htm#SQLRF01802"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/oracle/view/77358-exam-1z0-060-topic-2-question-35-discussion/",
+    "body": "Which two statement are true about the installation modes in Oracle Database 12c? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn silent mode installation, you can validate the parameter values on installation screens for which you have provided information in the response file.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn interactive mode, parameter values are read from a response file and can be changed during installation.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResponse file mode is useful when you require multiple Oracle Homes with variation in some of the installation parameters for each home.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn response file mode, you can include responses for some or all prompts."
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-07-07T03:41:00.000Z",
+        "voteCount": 1,
+        "content": "I think A is Wrong. \nFor me the correct answer is B and D.\nResponse File mode: During a response file mode installation, Oracle Universal Installer displays all the screens, screens for which you specify information in the response file and also screens for which you did not specify the required information in the response file. The advantage is that you can validate the values in the screens for which you have provided the information in the response file and continue with the installation. To use response file mode, run setup.exe without the -silent parameter, but include the response file or any other parameters that apply.\nhttps://docs.oracle.com/database/121/NTCLI/advance.htm#NTCLI1339"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49104-exam-1z0-060-topic-2-question-37-discussion/",
+    "body": "You are connected with SQL*Plus to a multitenant container database (CDB) with SYSDBA privileges and execute these sequence of statements:<br>SQL&gt; CREATE PLUGGABLE DATABASE NEW_PDB ADMIN USER PDB_ADMIN IDENTIFIED BY SECRET;<br>SQL&gt; ALTER PLUGGABLE DATABASE NEW_PDB OPEN;<br>SQL&gt; CONNECT PDB_ADMIN/SCRET@//LOCALHOST/NEW_PDB<br>What is the outcome of the CONNECT statement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt succeeds because the PDB_ADMIN admin user was implicitly granted the PDB_DBA role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt results in an ORA-01045 error (user PDB_ADMIN lacks CREATE SESSION privilege; logon denied) because the PDB_ADMIN user was not granted any privileges.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt succeeds because the PDB_ADMIN user was implicitly granted the DBA role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt succeeds because the PDB_ADMIN user was implicitly granted the SYSDBA privilege."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-04T14:36:00.000Z",
+        "voteCount": 1,
+        "content": "A\nSQL&gt;  CREATE PLUGGABLE DATABASE NEW_PDB ADMIN USER PDB_ADMIN IDENTIFIED BY SECRET;\n\nPluggable database created.\n\nSQL&gt; ALTER PLUGGABLE DATABASE NEW_PDB OPEN;\n\nPluggable database altered.\n\nSQL&gt; CONNECT PDB_ADMIN/SECRET@//LOCALHOST/NEW_PDB\nConnected.\nSQL&gt; select * from user_role_privs ;\n\nUSERNAME\n--------------------------------------------------------------------------------\nGRANTED_ROLE\n--------------------------------------------------------------------------------\nADM DEL DEF OS_ COM INH\n--- --- --- --- --- ---\nPDB_ADMIN\nPDB_DBA\nYES NO  YES NO  NO  NO"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49105-exam-1z0-060-topic-2-question-43-discussion/",
+    "body": "Which two statements are true about hot patching as compared to conventional patching? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt requires a relink of the RDBMS binary.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt consumes more memory.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt takes more time to install or uninstall.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt can be installed and uninstalled only for one database at a time.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA patch can be installed and uninstalled while the instance is running."
+    ],
+    "answer": "BD",
+    "answerDescription": "Reference:<br>https://docs.oracle.com/cd/E26401_01/doc.122/e22949/T120505T120512.htm",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-04T02:11:00.000Z",
+        "voteCount": 2,
+        "content": "According to this reference \nhttps://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=62308827742501&amp;parent=EXTERNAL_SEARCH&amp;sourceId=BULLETIN&amp;id=761111.1&amp;_afrWindowMode=0&amp;_adf.ctrl-state=uydi7remo_4\nin this part:\nHow does Online Patching differ than traditional patches?\n\ncorrect answers are: B and E."
+      },
+      {
+        "date": "2021-04-04T14:50:00.000Z",
+        "voteCount": 1,
+        "content": "Excuse me B and E"
+      },
+      {
+        "date": "2021-04-04T14:50:00.000Z",
+        "voteCount": 1,
+        "content": "A and E\nhttps://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=62308827742501&amp;parent=EXTERNAL_SEARCH&amp;sourceId=BULLETIN&amp;id=761111.1&amp;_afrWindowMode=0&amp;_adf.ctrl-state=uydi7remo_4"
+      },
+      {
+        "date": "2021-04-04T14:51:00.000Z",
+        "voteCount": 1,
+        "content": "Excuse me, B and E"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/oracle/view/57881-exam-1z0-060-topic-2-question-48-discussion/",
+    "body": "Which action takes place when an incremental checkpoint occurs?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe checkpoint position is advanced by the checkpoint process.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedo entries are written by the checkpoint process to the online redo log files.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll dirty buffers are written to data files by the checkpoint process.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe checkpoint position is written to all the data file headers and the control file by the checkpoint process.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe checkpoint position is written to the control file by the checkpoint process."
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>http://www.dba-oracle.com/t_incremental_checkpoint.htm",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-14T20:34:00.000Z",
+        "voteCount": 1,
+        "content": "I think that E should be the correct answer"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49275-exam-1z0-060-topic-2-question-49-discussion/",
+    "body": "Your database runs in NOARCHIVELOG mode.<br>Whole database backups are taken daily.<br>A media failure damages data files belonging to the USERS tablespace and the online redo log files.<br>The hardware that is causing this damage is not repairable.<br>You issue the SHUTDOWN ABORT command.<br>Examine these steps:<br>1. Restore only the damaged files from the whole database backup to a new location.<br>2. Restore the whole database backup to a new location.<br>3. Edit the restored initialization parameter file to indicate the new location of the control files.<br>4. Issue the STARTUP MOUNT command.<br>5. Issue the STARTUP NOMOUNT command.<br>6. Issue the RECOVER DATABASE command.<br>7. Update the control file to reflect the new data file locations by using the ALTER DATABASE RENAME FILE command.<br>8. Specify a new location for each affected online log by issuing the command:<br><br>RECOVER DATABASE UNTIL CANCEL -<br>9. Open the database in RESETLOGS mode.<br>Identify the minimum steps required in the correct sequence to recover your database.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1, 3, 5, 8, 9",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1, 4, 7, 8, 9",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1, 3, 4, 6",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t2, 5, 6, 7, 9"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-05T13:52:00.000Z",
+        "voteCount": 1,
+        "content": "B for me is not suitable, due to the fact that this starts from the assumption that USERS datafile was never modified after the cold backup.\nhttps://web.stanford.edu/dept/itss/docs/oracle/10gR2/backup.102/b14191/osrecov010.htm"
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/oracle/view/49276-exam-1z0-060-topic-2-question-51-discussion/",
+    "body": "You configured the Fast Recovery Area (FRA) for your database, which is in ARCHIVELOG mode.<br>The default location for the archived log files is the Fast Recovery Area.<br>There are no guaranteed restore points defined in the database.<br>Which two file types are removed automatically based on RMAN retention policy settings, if there is pressure for space in the FRA? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tobsolete RMAN backups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tflashback log files",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuser-managed backups of control files",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\texpired RMAN backups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tarchived redo log duplexed to another destination but not yet backed up",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuser-managed backups of data files"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-05T13:56:00.000Z",
+        "voteCount": 1,
+        "content": "A nd B, D does not apply becuase expired are files not on disk state. A is more suitable due to the fact that when a backup is obsolete due to RMAN policy in place, it may be removed from FRA."
+      }
+    ],
+    "examNameCode": "1z0-060",
+    "topicNumber": "2"
+  }
+]

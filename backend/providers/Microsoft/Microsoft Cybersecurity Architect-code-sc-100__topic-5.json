@@ -1,0 +1,1272 @@
+[
+  {
+    "topic": 6,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79403-exam-sc-100-topic-5-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a strategy for securing the litware.com forest. The solution must meet the identity requirements.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04228/0000500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04228/0000500002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Microsoft defender for cloud<br>Scenario: Prevent AD DS user accounts from being locked out by brute force attacks that target Azure AD user accounts.<br>When Microsoft Defender for Cloud detects a Brute-force attack, it triggers an alert to bring you awareness that a brute force attack took place. The automation uses this alert as a trigger to block the traffic of the IP by creating a security rule in the NSG attached to the VM to deny inbound traffic from the IP addresses attached to the alert. In the alerts of this type, you can find the attacking IP address appearing in the 'entities' field of the alert.<br>Box 2: An account lockout policy in AD DS<br>Scenario:<br>Detect brute force attacks that directly target AD DS user accounts.<br>Smart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. Smart lockout can recognize sign-ins that come from valid users and treat them differently than ones of attackers and other unknown sources. Attackers get locked out, while your users continue to access their accounts and be productive.<br>Verify on-premises account lockout policy<br>To verify your on-premises AD DS account lockout policy, complete the following steps from a domain-joined system with administrator privileges:<br>1. Open the Group Policy Management tool.<br>2. Edit the group policy that includes your organization's account lockout policy, such as, the Default Domain Policy.<br>3. Browse to Computer Configuration &gt; Policies &gt; Windows Settings &gt; Security Settings &gt; Account Policies &gt; Account Lockout Policy.<br>4. Verify your Account lockout threshold and Reset account lockout counter after values.<br>Reference:<br>https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/automation-to-block-brute-force-attacked-ip-detected-by/ba-p/1616825 https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-smart-lockout#verify-on-premises-account-lockout-policy",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-08T17:33:00.000Z",
+        "voteCount": 48,
+        "content": "Box 1: Identity Protection\nhttps://docs.microsoft.com/en-us/defender-cloud-apps/aadip-integration#configure-identity-protection-policies\nBox 2: Lockout policy\nThe case study scenario says \"Azure AD Connect is used to implement pass-through authentication.\" The link below explains \"Smart lockout can be integrated with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS.\"\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-smart-lockout#how-smart-lockout-works\n\nAny other solution relies on AD FS. Since the case study doesn't say anything about AD FS, use the lockout policy as described.\n\nThat's my last comment, I'm taking the exam in 20 minutes. Thank you all and good day."
+      },
+      {
+        "date": "2022-09-11T22:32:00.000Z",
+        "voteCount": 6,
+        "content": "How did you do?"
+      },
+      {
+        "date": "2022-10-17T07:34:00.000Z",
+        "voteCount": 2,
+        "content": "I agree on both points, 1 cannot be defender as it misses the word apps."
+      },
+      {
+        "date": "2023-01-29T10:47:00.000Z",
+        "voteCount": 2,
+        "content": "I am not sure if these are correct choices however, the case study clearly says 'password has sync has been disabled' under overview. \nAlso, this specific question of the case study clearly says 'Forest' (AD Forest)."
+      },
+      {
+        "date": "2023-02-19T04:11:00.000Z",
+        "voteCount": 12,
+        "content": "Block 1; Microsoft AD Identity protection\nBlock 2 ; Microsoft Defender for Identity\n\nThe ones saying it is Lockout policy that does not provide protection, there are things like Suspected overpass\u2011the\u2011hash attack (Kerberos)\t2002\tMedium\nAccount enumeration reconnaissance\t2003\tMedium\nSuspected Brute Force attack (LDAP)\t2004\tMedium\n\nthere are some of the protection and alerts the Defender for identity on perm provides, the password lock out policy will only actually prevent the brute force attack..."
+      },
+      {
+        "date": "2022-09-02T06:24:00.000Z",
+        "voteCount": 34,
+        "content": "Answers should be:\n1. Azure AD Identity Protection\nBrute Force Detection: https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview-identity-protection\n\n2. Defender for Identity\nMDI can detect brute force attacks: ref: https://docs.microsoft.com/en-us/defender-for-identity/compromised-credentials-alerts#suspected-brute-force-attack-ldap-external-id-2004"
+      },
+      {
+        "date": "2022-10-08T06:19:00.000Z",
+        "voteCount": 4,
+        "content": "Box 1: Wrong. Identity protection does not provide AAD account smart lockout. Only the Password Protection service can.\nBox 2: Correct"
+      },
+      {
+        "date": "2022-10-17T09:20:00.000Z",
+        "voteCount": 3,
+        "content": "Box1: Correct, box one doesn't relate to smart lockout?\nBox 2: Incorrect"
+      },
+      {
+        "date": "2024-08-04T06:51:00.000Z",
+        "voteCount": 2,
+        "content": "Box 1: Identity protection. Is the only one that can bring leaked credential detection in Entra ID among all the possible solutions in box1 and box2. This means that althought PHS is disabled, is the only option that you have to prevent leaked credentials. \nBox 2: Defender for Identity: It can help preventing accounts frombeing locked out due to burte force attacks by implementing enforce policies such as account lockout thresholds."
+      },
+      {
+        "date": "2024-06-26T16:01:00.000Z",
+        "voteCount": 1,
+        "content": "Box B is the Account Lockup Policy NOT the Smart Lockup. This will not help for satisfying the requirements\nhttps://learn.microsoft.com/en-us/previous-versions/windows/it-pro/windows-10/security/threat-protection/security-policy-settings/account-lockout-policy"
+      },
+      {
+        "date": "2024-03-06T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "Azure AD identity requirement in question\n** Implement leaded credentials detection in the Azure AD tenant of Litware.\nAnswer: Azure AD identity protection\nReference: https://learn.microsoft.com/en-us/entra/id-protection/overview-identity-protection\nKey worr: Leaked Credentials; Azure AD (Entra ID)\n\nAzure AD DS identity requirement in question\n** Detect brute force attacks that directly target AD DS user accounts.\n** Prevent AD DS user accounts from being locked out by brute force attacks.\nAnswer:Azure account lockup policy in AD DS\nRefernce: https://learn.microsoft.com/en-us/entra/identity/authentication/howto-password-smart-lockout\nKey Words/sentence:\nSmart lockout helps lock out bad actors that try to guess your users' passwords or use brute-force methods to get in. (Brute force)\nThis configuration would ensure smart lockout prevents your on-premises AD DS accounts from being locked out by brute force attacks on your Microsoft Entra accounts. (Prevent being locked out by brute force)"
+      },
+      {
+        "date": "2024-02-29T19:03:00.000Z",
+        "voteCount": 3,
+        "content": "Answers mapped to Identity Requirements as asked in the question\n\n&gt; Implement leaked credential detection in the Azure AD tenant of Litware.\n&gt; Prevent AD DS user accounts from being locked out by brute force attacks that target Azure AD user accounts.\nBox 1. Azure AD Password protection - offers leaked credential detection and Smart Lockout which can be combined carefully with a custom AD lockout policy to prevent the AD account from being locked in an Entra ID account attack scenario\nhttps://learn.microsoft.com/en-us/entra/identity/authentication/howto-password-smart-lockout\n\n&gt; Detect brute force attacks that directly target AD DS user accounts.\nBox 2. Defender for Identity - detects and notifies of brute force attacks having happened\nhttps://learn.microsoft.com/en-us/defender-for-identity/credential-access-alerts#suspected-brute-force-attack-kerberos-ntlm-external-id-2023"
+      },
+      {
+        "date": "2024-01-17T15:20:00.000Z",
+        "voteCount": 1,
+        "content": "Box 1: is Password Protection - Using Smart Lockout that only needs PassThrough authentication or PHS... PHS isn't used in this case but PTA is!\nBox 2: I believe is MDI."
+      },
+      {
+        "date": "2024-01-06T05:09:00.000Z",
+        "voteCount": 2,
+        "content": "Case Study says \" Implement leaked credential detection in the Azure AD tenant of Litware\"\n\n\nThis broad range of signals helps Identity Protection detect risky behaviors\u202flike:\nPassword spray attacks\nLeaked credentials"
+      },
+      {
+        "date": "2023-12-24T17:41:00.000Z",
+        "voteCount": 2,
+        "content": "Box 1: Azure AD Identity Protection\nBox 2: Microsoft Defender for Identity  (the key point \"Prevent AD DS user accounts from being locked out by brute force attacks that target Azure AD user accounts.\" , the requirement is to don't lockout their accounts from Brute-force attacks)"
+      },
+      {
+        "date": "2023-11-24T17:42:00.000Z",
+        "voteCount": 2,
+        "content": "One of the requirements was to NOT lock out accounts, so account lockout policy won\u2019t work.\nDefender for identity will detect the ddos attack and it can be configured to force an account password reset vs locking out the account, by configuring it\u2019s remediation actions.\nhttps://learn.microsoft.com/en-us/defender-for-identity/manage-action-accounts"
+      },
+      {
+        "date": "2023-10-29T11:57:00.000Z",
+        "voteCount": 1,
+        "content": "Block 1; Microsoft AD Identity protection\nBlock 2 ; Microsoft Defender for Identity"
+      },
+      {
+        "date": "2023-09-20T23:08:00.000Z",
+        "voteCount": 1,
+        "content": "Box 1: Identity Protection\nBox 2: Lockout policy\nExplanation: https://www.youtube.com/watch?v=YJqZjdzC9xE&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=7\nSC-100 Question 91"
+      },
+      {
+        "date": "2023-09-09T20:46:00.000Z",
+        "voteCount": 1,
+        "content": "\"The solution must meet the identity requirement\"\n\nAzure AD Identity Protection\nDefender for Identity"
+      },
+      {
+        "date": "2023-05-22T07:25:00.000Z",
+        "voteCount": 3,
+        "content": "1. Azure AD Identity Protection\n2. Microsoft Defender for Identity\n\nhttps://learn.microsoft.com/en-us/defender-for-identity/credential-access-alerts#suspected-brute-force-attack-ldap-external-id-2004\nIn a brute-force attack, the attacker attempts to authenticate with many different passwords for different accounts until a correct password is found for at least one account. Once found, an attacker can log in using that account.\n\nIn this detection, an alert is triggered when Defender for Identity detects a massive number of simple bind authentications. This alert detects brute force attacks performed either horizontally with a small set of passwords across many users, vertically with a large set of passwords on just a few users, or any combination of the two options. The alert is based on authentication events from sensors running on domain controller and AD FS servers."
+      },
+      {
+        "date": "2023-05-22T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory/identity-protection/concept-identity-protection-risks#sign-in-risk\nPassword spray\n- A password spray attack is where multiple usernames are attacked using common passwords in a unified brute force manner to gain unauthorized access. This risk detection is triggered when a password spray attack has been successfully performed. For example, the attacker is successfully authenticated, in the detected instance."
+      },
+      {
+        "date": "2023-04-26T08:53:00.000Z",
+        "voteCount": 3,
+        "content": "box 1 - Microsoft defender for cloud. Identity protection also similar protection but in the requirement for this states \"Some premium features of Azure AD, like Identity Protection and&nbsp;Azure AD Domain Services, require password hash synchronization, no matter which authentication method you choose.\" which is disabled in the case study.\nBox 2 - Smart lockout - Some premium features of Azure AD, like Identity Protection and&nbsp;Azure AD Domain Services, require password hash synchronization, no matter which authentication method you choose."
+      },
+      {
+        "date": "2023-04-26T08:54:00.000Z",
+        "voteCount": 1,
+        "content": "Box 2 - Smart lockout - You can integrate Smart Lockout with hybrid deployments that use password hash sync or pass-through authentication to protect on-premises Active Directory Domain Services (AD DS) accounts from being locked out by attackers. By setting smart lockout policies in Azure AD appropriately, attacks can be filtered out before they reach on-premises AD DS. If you want your Azure AD lockout threshold to be 5, then you want your on-premises AD lockout threshold to be 10. This configuration would ensure smart lockout prevents your on-premises AD accounts from being locked out by brute force attacks on your Azure AD accounts."
+      },
+      {
+        "date": "2023-03-12T05:45:00.000Z",
+        "voteCount": 1,
+        "content": "Although the current overview states pwd has sync is disabled, the identity requirements state: \"Implement leaked credential detection in the Azure AD tenant of Litware.\". Therefore, you need to implement the best controls to meet the requirements.\n1: Identity Protection\n2: Defender for Identity"
+      },
+      {
+        "date": "2023-03-09T10:27:00.000Z",
+        "voteCount": 1,
+        "content": "Q1  Microsoft AD Identity protection\nQ2  Microsoft Defender for Identity"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105507-exam-sc-100-topic-5-question-1-discussion/",
+    "body": "Your company wants to optimize using Microsoft Defender for Endpoint to protect its resources against ransomware based on Microsoft Security Best Practices.<br><br>You need to prepare a post-breach response plan for compromised computers based on the Microsoft Detection and Response Team (DART) approach in Microsoft Security Best Practices.<br><br>What should you include in the response plan?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcontrolled folder access",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tapplication isolation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmemory scanning",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmachine isolation\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuser isolation"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 13,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-24T06:38:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with D. Machine Isolation\n\nas per MS doc: \"Isolate compromised systems from the network, but don't shut them off.\"\n\nhttps://learn.microsoft.com/en-us/security/operations/incident-response-playbook-dart-ransomware-approach#containment"
+      },
+      {
+        "date": "2023-10-29T11:20:00.000Z",
+        "voteCount": 2,
+        "content": "D. Machine Isolation\n\nThis is a crucial step in containing the breach. Isolating the compromised machines from the network prevents the spread of ransomware and other malicious activities.\nE. User Isolation\n\nAlong with machine isolation, isolating user accounts that have been compromised is essential. This can prevent attackers from using compromised credentials to access other resources."
+      },
+      {
+        "date": "2023-10-06T05:24:00.000Z",
+        "voteCount": 3,
+        "content": "got this in exam 6oct23. passed with 896 marks. I answered D"
+      },
+      {
+        "date": "2023-05-18T05:22:00.000Z",
+        "voteCount": 4,
+        "content": "D is the answer.\n\nhttps://learn.microsoft.com/en-us/security/operations/incident-response-playbook-dart-ransomware-approach#dart-recommendations-and-best-practices"
+      },
+      {
+        "date": "2023-05-17T12:19:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-dart-ransomware-approach\n\"Isolate critical known good application servers,\""
+      },
+      {
+        "date": "2023-06-12T18:04:00.000Z",
+        "voteCount": 2,
+        "content": "The question states, \"post-breach response plan for compromised computers\", and not referring to the post-breach response plan for the preservation of existing systems. The answer is D"
+      },
+      {
+        "date": "2023-04-07T06:40:00.000Z",
+        "voteCount": 4,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 6,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79473-exam-sc-100-topic-5-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a SIEM and SOAR strategy that meets the hybrid requirements, the Microsoft Sentinel requirements, and the regulatory compliance requirements.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04228/0000700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04228/0000700002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Azure tenant -<br>Microsoft Sentinel multiple workspace architecture<br>There are cases where a single SOC (Security Operations Center) needs to centrally manage and monitor multiple Microsoft Sentinel workspaces, potentially across Azure Active Directory (Azure AD) tenants.<br>An MSSP Microsoft Sentinel Service.<br>A global SOC serving multiple subsidiaries, each having its own local SOC.<br>A SOC monitoring multiple Azure AD tenants within an organization.<br>To address these cases, Microsoft Sentinel offers multiple-workspace capabilities that enable central monitoring, configuration, and management, providing a single pane of glass across everything covered by the SOC. This diagram shows an example architecture for such use cases.<br><img src=\"/assets/media/exam-media/04228/0000800001.jpg\" class=\"in-exam-image\"><br>This model offers significant advantages over a fully centralized model in which all data is copied to a single workspace.<br>Scenario:<br>Requirements. Microsoft Sentinel Requirements<br>Litware plans to leverage the security information and event management (SIEM) and security orchestration automated response (SOAR) capabilities of Microsoft<br>Sentinel. The company wants to centralize Security Operations Center (SOC) by using Microsoft Sentinel.<br><br>Hybrid Requirements -<br>Litware identifies the following hybrid cloud requirements:<br>Provide centralized, cross-tenant subscription management without the overhead of maintaining guest accounts.<br>Box 2: Azure Lighthouse subscription onboarding process<br>You can use Azure Lighthouse to extend all cross-workspace activities across tenant boundaries, allowing users in your managing tenant to work on Microsoft<br>Sentinel workspaces across all tenants.<br>Azure Lighthouse enables you to see and manage Azure resources from different tenancies, in the one place, with the power of delegated administration. That tenancy may be a customer (for example, if you're a managed services provider with a support contract arrangement in place), or a separate Azure environment for legal or financial reasons (like franchisee groups or Enterprises with large brand groups).<br>Incorrect:<br>* not Azure AD B2B<br>Azure AD B2B uses guest account, which goes against the requirements in this scenario,<br>Note: Azure Active Directory (Azure AD) B2B collaboration is a feature within External Identities that lets you invite guest users to collaborate with your organization.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sentinel/extend-sentinel-across-workspaces-tenants https://docs.microsoft.com/en-us/azure/sentinel/best-practices-workspace-architecture https://techcommunity.microsoft.com/t5/itops-talk-blog/onboarding-to-azure-lighthouse-using-a-template/ba-p/1091786 https://docs.microsoft.com/en-us/azure/active-directory/external-identities/what-is-b2b",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-02T10:11:00.000Z",
+        "voteCount": 44,
+        "content": "Segment Microsoft Sentinel workspaces by: Region and Azure AD tenant\nDo that because the case study states  \"...mergers and acquisitions. The acquisitions include several companies based in France.\"\n\nRelevant information from Microsoft is on this Best Practices page for workspace architecture:\nhttps://docs.microsoft.com/en-us/azure/sentinel/best-practices-workspace-architecture#region-considerations\n\nLighthouse is correct for Box2"
+      },
+      {
+        "date": "2022-09-12T11:17:00.000Z",
+        "voteCount": 4,
+        "content": "You can only assign a log analytics workspace to the sentinel. If you want to use several workspaces you need to use cross queries.\n\nSo for me, the answer is correct."
+      },
+      {
+        "date": "2022-11-29T08:59:00.000Z",
+        "voteCount": 10,
+        "content": "Not sure which industry you work in, but regulatory and compliance requirements always trumps the technical issues and complexities."
+      },
+      {
+        "date": "2023-02-06T02:54:00.000Z",
+        "voteCount": 7,
+        "content": "Agree but more because of \"Ensure data residency\" in the regulatory requirements"
+      },
+      {
+        "date": "2022-12-29T02:41:00.000Z",
+        "voteCount": 10,
+        "content": "data localization and multiple Azure AD tenant, so I will go with Region and Azure AD tenant"
+      },
+      {
+        "date": "2023-09-20T23:14:00.000Z",
+        "voteCount": 1,
+        "content": "Box1:Azure AD tenant\nBox2:Azure Lighthouse\nExplanation: https://www.youtube.com/watch?v=YJqZjdzC9xE&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=7\nSC-100 Question 92"
+      },
+      {
+        "date": "2023-05-22T07:37:00.000Z",
+        "voteCount": 4,
+        "content": "1. Region and Azure AD tenant\n2. Azure Lighthouse\n\nhttps://learn.microsoft.com/en-us/azure/sentinel/best-practices-workspace-architecture#working-with-multiple-tenants\nIf you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, service to service data connectors that work only within their own Azure AD tenant.\n\nhttps://learn.microsoft.com/en-us/azure/sentinel/best-practices-workspace-architecture#region-considerations\nUse separate Microsoft Sentinel instances for each region. While Microsoft Sentinel can be used in multiple regions, you may have requirements to separate data by team, region, or site, or regulations and controls that make multi-region models impossible or more complex than needed. Using separate instances and workspaces for each region helps to avoid bandwidth / egress costs for moving data across regions."
+      },
+      {
+        "date": "2023-05-22T07:39:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/lighthouse/how-to/manage-sentinel-workspaces\nMicrosoft Sentinel delivers security analytics and threat intelligence, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. With Azure Lighthouse, you can manage multiple Microsoft Sentinel workspaces across tenants at scale. This enables scenarios such as running queries across multiple workspaces, or creating workbooks to visualize and monitor data from your connected data sources to gain insights. IP such as queries and playbooks remain in your managing tenant, but can be used to perform security management in the customer tenants."
+      },
+      {
+        "date": "2023-03-11T02:53:00.000Z",
+        "voteCount": 1,
+        "content": "you have multiple tenants, such as if you're a managed security service provider (MSSP), we recommend that you create at least one workspace for each Azure AD tenant to support built-in, service to service data connectors that work only within their own Azure AD tenant.\nAll connectors based on diagnostics settings cannot be connected to a workspace that is not located in the same tenant where the resource resides. This applies to connectors such as Azure Firewall, Azure Storage, Azure Activity or Azure Active Directory.\nUse Azure Lighthouse to help manage multiple Microsoft Sentinel instances in different tenants."
+      },
+      {
+        "date": "2023-01-18T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "Box 2:  Azure Lighthouse includes multiple ways to help streamline engagement and management e.g. delegated resource management - manage your customers' Azure resources securely from within your own tenant, without having to switch context and control planes. Customer subscriptions and resource groups can be delegated to specified users and roles in the managing tenant, with the ability to remove access as needed.\n\nRef: https://learn.microsoft.com/en-us/azure/lighthouse/overview"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105506-exam-sc-100-topic-5-question-2-discussion/",
+    "body": "You have an operational model based on the Microsoft Cloud Adoption Framework for Azure.<br><br>You need to recommend a solution that focuses on cloud-centric control areas to protect resources such as endpoints, databases, files, and storage accounts.<br><br>What should you include in the recommendation?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tbusiness resilience",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmodem access control",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnetwork isolation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsecurity baselines in the Microsoft Cloud Security Benchmark\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 19,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-12T17:58:00.000Z",
+        "voteCount": 7,
+        "content": "D is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/govern/security-baseline\nSecurity baseline is one of the Five Disciplines of Cloud Governance within the Cloud Adoption Framework governance model. Security is a component of any IT deployment, and the cloud introduces unique security concerns. Many businesses are subject to regulatory requirements that make protecting sensitive data a major organizational priority when considering a cloud transformation. Identifying potential security threats to your cloud environment and establishing processes and procedures for addressing these threats should be a priority for any IT security or cybersecurity team. The Security Baseline discipline ensures technical requirements and security constraints are consistently applied to cloud environments, as those requirements mature."
+      },
+      {
+        "date": "2023-04-13T11:50:00.000Z",
+        "voteCount": 4,
+        "content": "Correct."
+      },
+      {
+        "date": "2023-04-08T10:06:00.000Z",
+        "voteCount": 4,
+        "content": "correct answer"
+      },
+      {
+        "date": "2023-04-07T06:40:00.000Z",
+        "voteCount": 4,
+        "content": "correct answer"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105482-exam-sc-100-topic-5-question-3-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You use Azure Policy with Azure Repos to implement continuous integration and continuous deployment (CI/CD) workflows.<br><br>You need to recommend best practices to secure the stages of the CI/CD workflows based on the Microsoft Cloud Adoption Framework for Azure.<br><br>What should you include in the recommendation for each stage? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/sc-100/image101.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/sc-100/image102.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-07T06:38:00.000Z",
+        "voteCount": 28,
+        "content": "Incorrect Answer \nGIT Workflow ---&gt; Protected Branch \nSecure Deployment credentials --&gt; Keyvault\nRef : https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/best-practices/secure-devops"
+      },
+      {
+        "date": "2023-04-06T23:44:00.000Z",
+        "voteCount": 17,
+        "content": "answers should be the opposite:\n1. protected branches\n2. Keyvolt\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/best-practices/secure-devops"
+      },
+      {
+        "date": "2024-10-01T15:36:00.000Z",
+        "voteCount": 1,
+        "content": "The answer was inverted, and it's wrong. Please check others' answers."
+      },
+      {
+        "date": "2024-07-13T06:04:00.000Z",
+        "voteCount": 2,
+        "content": "1. Protected Branches\n2. Azure Key vault \n\nThese two are right answer"
+      },
+      {
+        "date": "2024-01-03T07:36:00.000Z",
+        "voteCount": 3,
+        "content": "1. Protected branches\n2. Azure Key Vault"
+      },
+      {
+        "date": "2023-10-24T13:35:00.000Z",
+        "voteCount": 2,
+        "content": "1. Protected branches \n2. Azure Key Vault"
+      },
+      {
+        "date": "2023-09-22T05:22:00.000Z",
+        "voteCount": 1,
+        "content": "Protected branches\nCreate custom roles for build agents\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/best-practices/secure-devops"
+      },
+      {
+        "date": "2023-05-12T17:52:00.000Z",
+        "voteCount": 7,
+        "content": "1. Protected branches\n2. Azure Key Vault\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/best-practices/secure-devops#restrict-access-to-protected-branches\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/best-practices/secure-devops#azure-key-vault\nIf your CI platform supports it, consider storing credentials in a dedicated secret store, for example Azure Key Vault. Credentials are fetched at runtime by the build agent and your attack surface is reduced."
+      },
+      {
+        "date": "2023-05-26T08:16:00.000Z",
+        "voteCount": 7,
+        "content": "Gotten this in May 2023 exam."
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 6,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79406-exam-sc-100-topic-5-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a multi-tenant and hybrid security solution that meets to the business requirements and the hybrid requirements.<br>What should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04228/0001000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04228/0001000002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Azure AD B2C -<br>Scenario: Provide centralized, cross-tenant subscription management without the overhead of maintaining guest accounts.<br><br>Azure AD B2C -<br>Azure Active Directory B2C provides business-to-customer identity as a service. Your customers use their preferred social, enterprise, or local account identities to get single sign-on access to your applications and APIs.<br>By serving as the central authentication authority for your web applications, mobile apps, and APIs, Azure AD B2C enables you to build a single sign-on (SSO) solution for them all. Centralize the collection of user profile and preference information, and capture detailed analytics about sign-in behavior and sign-up conversion.<br>Note: Azure AD B2C is a customer identity access management (CIAM) solution capable of supporting millions of users and billions of authentications per day. It takes care of the scaling and safety of the authentication platform, monitoring, and automatically handling threats like denial-of-service, password spray, or brute force attacks.<br>Incorrect:<br><br>Azure Lighthouse -<br>Cross-tenant management experiences<br>As a service provider, you can use Azure Lighthouse to manage resources for multiple customers from within your own Azure Active Directory (Azure AD) tenant.<br>With Azure Lighthouse, the onboarding process specifies users within the service provider's tenant who will be able to work on delegated subscriptions and resource groups in the customer's tenant. These users can then sign in to the Azure portal using their own credentials. Within the Azure portal, they can manage resources belonging to all customers to which they have access.<br><br>Box 2: Azure Arc -<br>Azure Arc simplifies governance and management by delivering a consistent multi-cloud and on-premises management platform.<br>Note:<br>Requirements. Hybrid Requirements<br>Litware identifies the following hybrid cloud requirements:<br>*Enable the management of on-premises resources from Azure, including the following:<br>Use Azure Policy for enforcement and compliance evaluation.<br>Provide change tracking and asset inventory.<br>Implement patch management.<br>Incorrect:<br>* Azure Stack Edge acts as a cloud storage gateway and enables eyes-off data transfers to Azure, while retaining local access to files.<br>* Microsoft Azure Stack Hub is a hybrid cloud platform that lets you deliver services from your datacenter.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory-b2c/overview https://docs.microsoft.com/en-us/azure/azure-arc/overview https://docs.microsoft.com/en-us/azure/lighthouse/concepts/cross-tenant-management-experience",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-02T06:34:00.000Z",
+        "voteCount": 83,
+        "content": "Azure Lighthouse is used for centralizing Subscription Management\nAnswers should be Azure Lighthouse &amp; Azure Arc"
+      },
+      {
+        "date": "2023-02-21T11:56:00.000Z",
+        "voteCount": 6,
+        "content": "Agree  Azure Lighthouse &amp; Azure Arc"
+      },
+      {
+        "date": "2023-10-06T05:26:00.000Z",
+        "voteCount": 10,
+        "content": "got this in exam 6oct23. passed with 896 marks. I answered \n1. Azure Lighthouse\n2. Azure Arc"
+      },
+      {
+        "date": "2023-09-20T23:18:00.000Z",
+        "voteCount": 2,
+        "content": "Box1: Azure Lighthouse\nBox2: Azure Arc\nExplanation: https://www.youtube.com/watch?v=YJqZjdzC9xE&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=7\nSC-100 Question 93"
+      },
+      {
+        "date": "2023-05-22T07:42:00.000Z",
+        "voteCount": 3,
+        "content": "1. Azure Lighthouse\n2. Azure Arc\n\nhttps://learn.microsoft.com/en-us/azure/lighthouse/overview\nAzure Lighthouse enables multi-tenant management with scalability, higher automation, and enhanced governance across resources.\n\nWith Azure Lighthouse, service providers can deliver managed services using comprehensive and robust tooling built into the Azure platform. Customers maintain control over who has access to their tenant, which resources they can access, and what actions can be taken. Enterprise organizations managing resources across multiple tenants can use Azure Lighthouse to streamline management tasks."
+      },
+      {
+        "date": "2023-05-22T07:43:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-arc/overview\nAzure Arc simplifies governance and management by delivering a consistent multicloud and on-premises management platform."
+      },
+      {
+        "date": "2023-03-30T06:40:00.000Z",
+        "voteCount": 4,
+        "content": "Box 1: Lighthouse\nBox 2: Azure Arc.\n\nNo doubts"
+      },
+      {
+        "date": "2023-02-19T04:19:00.000Z",
+        "voteCount": 4,
+        "content": "First box is lighthouse\nsecond box is Azure Arc \n\nINfo on lighthouse for the ones that do not know what it is: \n\nLighthouse simplifies onboarding of customer tenants by recommending security configuration baselines tailored to SMB customers and providing multi-tenant views across all customer environments. With Lighthouse, MSPs can scale the management of their customers, focus on what's most important, quickly find and investigate risks, and take action to get their customers to a healthy and secure state."
+      },
+      {
+        "date": "2023-02-12T05:25:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1- Azure Lighthouse\nWhen a multiple-tenant architecture is required, Azure Lighthouse provides a way to centralize and streamline management operations.\nRef: https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/manage/centralize-operations"
+      },
+      {
+        "date": "2023-01-18T07:31:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1: Azure Lighthouse includes multiple ways to help streamline engagement and management e.g. delegated resource management - manage your customers' Azure resources securely from within your own tenant, without having to switch context and control planes. Customer subscriptions and resource groups can be delegated to specified users and roles in the managing tenant, with the ability to remove access as needed.\n\nRef: https://learn.microsoft.com/en-us/azure/lighthouse/overview"
+      },
+      {
+        "date": "2022-12-20T10:13:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with all previous commentors. Lighhouse allows for centralised management of tenants (most frequently used by MSPs) and Azure Arc connects your private cloud to Azure for management, and so that you can use Azure services to manage on-prem infrastructure."
+      },
+      {
+        "date": "2022-11-18T22:05:00.000Z",
+        "voteCount": 3,
+        "content": "First one is \"Azure Lighthouse\". In this question customer is not service provider but still Microsoft state you can use the same service. https://learn.microsoft.com/en-us/azure/lighthouse/concepts/cross-tenant-management-experience \n\"Azure Lighthouse can also be used within an enterprise which has multiple Azure AD tenants of its own to simplify cross-tenant administration.\""
+      },
+      {
+        "date": "2022-10-15T11:46:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Lighthouse\nAzure Arc"
+      },
+      {
+        "date": "2022-09-07T00:10:00.000Z",
+        "voteCount": 7,
+        "content": "Should be Azure LH for centralize subs management, and Azure Arc for extend the management to on-prem resources"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106551-exam-sc-100-topic-5-question-4-discussion/",
+    "body": "HOTSPOT<br> -<br><br>Your company wants to optimize using Azure to protect its resources from ransomware.<br><br>You need to recommend which capabilities of Azure Backup and Azure Storage provide the strongest protection against ransomware attacks. The solution must follow Microsoft Security Best Practices.<br><br>What should you recommend? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/sc-100/image103.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/sc-100/image104.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-30T10:27:00.000Z",
+        "voteCount": 29,
+        "content": "Azure Backup: A security PIN\nAzure Storage: Immutable storage"
+      },
+      {
+        "date": "2023-05-16T06:09:00.000Z",
+        "voteCount": 11,
+        "content": "1. Security PIN\n2. Immutable storage\n\nhttps://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#azure-backup\nChecks have been added to make sure only valid users can perform various operations. These include adding an extra layer of authentication. As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN before modifying online backups.\n\nhttps://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware#steps-to-take-before-an-attack\nOnline immutable storage (such as Azure Blob) enables you to store business-critical data objects in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval."
+      },
+      {
+        "date": "2024-10-01T15:43:00.000Z",
+        "voteCount": 1,
+        "content": "For those not sure about the Azure Storage, also check this out:\n"
+      },
+      {
+        "date": "2024-01-03T07:42:00.000Z",
+        "voteCount": 3,
+        "content": "1. Security PIN\n2. Immutable storage"
+      },
+      {
+        "date": "2024-01-02T04:58:00.000Z",
+        "voteCount": 3,
+        "content": "What is immutable storage against ransomware?\nImmutable storage, however, prevents data from being altered or deleted for a specified period. Even if ransomware gains access to the primary data, it cannot modify or encrypt immutable backup copies. This approach ensures the availability of uncorrupted data for recovery."
+      },
+      {
+        "date": "2023-10-24T14:21:00.000Z",
+        "voteCount": 1,
+        "content": "1. Security PIN \n2. Immutable storage"
+      },
+      {
+        "date": "2023-09-22T05:27:00.000Z",
+        "voteCount": 1,
+        "content": "Security pin and Immutable storage\n\n\"Encryption by using platform-managed keys for Azure Storage\" is always on by default, so doesn't makes sense. And even if it did, it doesn't protect against ransomware encryption. It protects the confidentiality of data."
+      },
+      {
+        "date": "2023-08-23T06:22:00.000Z",
+        "voteCount": 2,
+        "content": "This is my understanding based on this article and why Immutable storage makes sense for the 2nd part: https://learn.microsoft.com/en-us/azure/storage/common/storage-service-encryption\n\nAzure Storage uses service-side encryption (SSE) to automatically encrypt your data when it is persisted to the cloud.\n\nData in Azure Storage is encrypted and decrypted transparently using 256-bit AES encryption, one of the strongest block ciphers available, and is FIPS 140-2 compliant. Azure Storage encryption is similar to BitLocker encryption on Windows.\n\nAzure Storage encryption is enabled for all storage accounts, including both Resource Manager and classic storage accounts. Azure Storage encryption cannot be disabled. Because your data is secured by default, you don't need to modify your code or applications to take advantage of Azure Storage encryption."
+      },
+      {
+        "date": "2023-04-18T01:35:00.000Z",
+        "voteCount": 1,
+        "content": "It looks correct to me. A security PIN for backup and Encryption by using platform-managed keys for Azure Storage"
+      },
+      {
+        "date": "2023-04-20T01:48:00.000Z",
+        "voteCount": 8,
+        "content": "For Azure Backup I agree with a Security PIN. However, for Azure Storage I would argue that Immutable is the strongest, see here: https://learn.microsoft.com/en-us/azure/storage/blobs/security-recommendations#data-protection. Encryption is on by default, we can double encrypt data with infrastructure encryption but this is not an option."
+      },
+      {
+        "date": "2023-05-01T07:07:00.000Z",
+        "voteCount": 1,
+        "content": "Isn't immutable only for blobs?"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 6,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/78356-exam-sc-100-topic-5-question-4-discussion/",
+    "body": "You need to recommend a solution for securing the landing zones. The solution must meet the landing zone requirements and the business requirements.<br>What should you configure for each landing zone?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan ExpressRoute gateway",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender for Cloud\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Private DNS zone",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure DDoS Protection Standard"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 74,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 43,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-08-29T19:12:00.000Z",
+        "voteCount": 41,
+        "content": "One of the stipulations is to meet the business requirements of minimizing costs. ExpressRoute is expensive. \nGiven the landing zone requirements of \n1) \"Use a DNS namespace of litware.com\" \n2)  \"Ensure that the Azure virtual machines in each landing zone communicate with Azure App Service web apps in the same zone over the Microsoft backbone network, rather than over public endpoints\"  \nI would say Private DNS Zone is the answer."
+      },
+      {
+        "date": "2024-09-09T21:34:00.000Z",
+        "voteCount": 1,
+        "content": "Its B, Defender for Cloud.\n\nWhy not the other options?\n\n    A. ExpressRoute Gateway: While ExpressRoute provides private connectivity between Azure and on-premises environments, it's more suited for dedicated, high-performance, private connections rather than overall security management.\n\n    C. Azure Private DNS Zone: This helps resolve domain names privately but does not address comprehensive security concerns such as regulatory compliance or threat detection, which are key parts of the requirement.\n\n    D. Azure DDoS Protection Standard: While DDoS protection is crucial for defending against distributed denial of service attacks, it\u2019s not comprehensive enough to meet all the security and regulatory compliance requirements outlined for the landing zones."
+      },
+      {
+        "date": "2023-02-19T04:23:00.000Z",
+        "voteCount": 1,
+        "content": "I would say Private endpoint connection but then that would only answer the first box and not actually the DNS namespace.. So i would say C now!"
+      },
+      {
+        "date": "2023-02-28T20:30:00.000Z",
+        "voteCount": 6,
+        "content": "You seemed to have skipped all the other requirements. Also, how exactly does that reasoning help \"secure the landing zones\"? I'm not sure you are correct here."
+      },
+      {
+        "date": "2022-09-13T08:40:00.000Z",
+        "voteCount": 25,
+        "content": "Why not B?\nThe question is related to a security recommendation. Microsoft Defender for Cloud makes sense."
+      },
+      {
+        "date": "2022-12-17T13:53:00.000Z",
+        "voteCount": 11,
+        "content": "I think its B because Secure Score is most directly related to the Security factor and that's provided by Defender for Cloud."
+      },
+      {
+        "date": "2024-07-13T22:16:00.000Z",
+        "voteCount": 1,
+        "content": "Considering Litware\u2019s requirements, the best option is B. Microsoft Defender for Cloud. Here are the reasons:\n\nProvision of Secure Score: Microsoft Defender for Cloud provides a secure score based on security best practices, evaluating the security posture of each landing zone and suggesting improvements.\nPrevention of Data Exfiltration: Defender for Cloud offers security policies and alerts to minimize the risk of data exfiltration.\nMinimization of Operational Costs: As a cloud-native security solution, it does not require additional on-premises infrastructure, reducing administrative overhead.\nWhile other options can address specific requirements, Microsoft Defender for Cloud is a comprehensive solution that optimizes both security and operational efficiency."
+      },
+      {
+        "date": "2024-02-20T21:20:00.000Z",
+        "voteCount": 3,
+        "content": "A. an ExpressRoute gateway &lt;-- Not that it'd be advised, but one could employ a VPN Gateway instead between landing zones and achieve the hub-spoke landing zone architecture outcome. https://learn.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal\nB. Microsoft Defender for Cloud &lt;-- Mandated given the requirement for Secure Score per Landing Zone\nC. an Azure Private DNS zone &lt;-- Instead of Azure Private DNS zone, one could configure DNS queries to be forwarded to a self-operated DNS server in the hub to satisfy the litware.com zone requirement. Not recommended, but just to illustrate that 'Azure Private DNS zone' may not be mandatory.\nD. Azure DDoS Protection Standard &lt;-- unrelated to the question"
+      },
+      {
+        "date": "2024-02-11T13:31:00.000Z",
+        "voteCount": 1,
+        "content": "Requirements. Azure Landing Zone Requirements\n- Route all internet-bound traffic from landing zones through Azure Firewall in a dedicated Azure subscription.  (Expressroute)\nProvide a secure score scoped to the landing zone.\nEnsure that the Azure virtual machines in each landing zone communicate with Azure App Service web apps in the same zone over the Microsoft backbone network, rather than over public endpoints.  (Expressroute - Microsoft Backbone)\nMinimize the possibility of data exfiltration.\nMaximize network bandwidth. (Expressroute)"
+      },
+      {
+        "date": "2024-01-06T05:18:00.000Z",
+        "voteCount": 3,
+        "content": "The key to answering this question lies in \" Provide a secure score scoped to the landing zone\" as mentioned in the case study. The only thing that can do this is Cloud Defender"
+      },
+      {
+        "date": "2024-01-06T00:51:00.000Z",
+        "voteCount": 2,
+        "content": "It is \"C. an Azure private DNS zone\" because C. an Azure Private DNS zone\n\nAn Azure Private DNS zone would be used to provide DNS resolution within a virtual network in Azure. This meets the requirement to use a DNS namespace of litware.com. It also helps ensure that Azure virtual machines in each landing zone communicate with Azure App Service web apps in the same zone over the Microsoft backbone network by resolving to private IP addresses, rather than over public endpoints. This contributes to minimizing the possibility of data exfiltration and maximizing network bandwidth by keeping traffic within the Azure network.\n\nIn addition, both ChatGPT and Google Bard is selected this option"
+      },
+      {
+        "date": "2024-01-02T10:52:00.000Z",
+        "voteCount": 1,
+        "content": "Microsoft Defender for Cloud provides \"Cloud Security Posture Management\" (CSPM), providing a security analysis of all the resources in your cloud estates"
+      },
+      {
+        "date": "2023-09-23T06:14:00.000Z",
+        "voteCount": 2,
+        "content": "I don't see how any other options that A fulfill the following:\n Ensure that the Azure virtual machines in each landing zone communicate with Azure App Service web apps in the same zone over the Microsoft backbone network, rather than over public endpoints.\n\nOn the other hand, that is not a perfect fit either. It adds on-prem infrastructure, administrative overhead, and it doesnt provide a secure score.\n\nSo perhaps B as well. Irreconcilable requirements I would say."
+      },
+      {
+        "date": "2023-12-21T16:15:00.000Z",
+        "voteCount": 1,
+        "content": "service endpoints and/OR private endpoints would be for A."
+      },
+      {
+        "date": "2023-09-20T23:27:00.000Z",
+        "voteCount": 1,
+        "content": "Answer: C\nhttps://www.youtube.com/watch?v=YJqZjdzC9xE&amp;list=PLQ2ktTy9rklhzzkSEZvDZT4QSIVUQZD-Y&amp;index=7\nSC-100 Question 94"
+      },
+      {
+        "date": "2023-05-22T07:51:00.000Z",
+        "voteCount": 6,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/security#security-in-the-azure-landing-zone-accelerator"
+      },
+      {
+        "date": "2023-04-20T02:43:00.000Z",
+        "voteCount": 4,
+        "content": "B. Microsoft Defender for Cloud\nMinimize any additional on-premises infrastructure.\nMinimize the operational costs associated with administrative overhead.\nProvide a secure score scoped to the landing zone.\nMinimize the possibility of data exfiltration."
+      },
+      {
+        "date": "2023-04-19T05:32:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the landing zone requirements and the business requirements, the recommended solution for securing the landing zones is option D, Azure DDoS Protection Standard. This solution will help minimize the possibility of data exfiltration and maximize network bandwidth. It will also provide a secure score scoped to the landing zone. An Azure Private DNS zone is not directly related to securing the landing zones, while an ExpressRoute gateway is used for private connectivity between on-premises infrastructure and Azure, which is not a requirement for securing the landing zones. Microsoft Defender for Cloud is a cloud-native security solution for protecting cloud workloads and is not directly related to securing the landing zones."
+      },
+      {
+        "date": "2023-04-19T05:33:00.000Z",
+        "voteCount": 1,
+        "content": "why not B. Microsoft Defender for Cloud?\nWhile Microsoft Defender for Cloud is a good solution for securing workloads and resources in Azure, it is not the most appropriate solution for securing the landing zones in this scenario. Microsoft Defender for Cloud focuses on threat protection and security posture management, whereas the landing zones requirements in this case study focus more on network and infrastructure security.\n\nTherefore, the best solution for securing the landing zones would be to route all internet-bound traffic from landing zones through Azure Firewall in a dedicated Azure subscription, which is option D. Azure DDoS Protection Standard is also a good option, as it helps protect against DDoS attacks by monitoring and absorbing the attack traffic.\nFrom ChatGPT"
+      },
+      {
+        "date": "2023-03-20T03:26:00.000Z",
+        "voteCount": 3,
+        "content": "Security in the Azure landing zone accelerator\nSecurity is at the core of the Azure landing zone accelerator. As part of the implementation, many tools and controls are deployed to help organizations quickly achieve a security baseline.\n\nFor example, the following are included:\n\nTools:\n\nMicrosoft Defender for Cloud, standard or free tier\nMicrosoft Sentinel\nAzure DDoS Network Protection (optional)\nAzure Firewall\nWeb Application Firewall (WAF)\nPrivileged Identity Management (PIM)"
+      },
+      {
+        "date": "2023-03-19T19:13:00.000Z",
+        "voteCount": 3,
+        "content": "Defender for cloud offers a suite of security capabilities that help in acheiving teh requested outcome"
+      },
+      {
+        "date": "2023-03-18T11:20:00.000Z",
+        "voteCount": 2,
+        "content": "As noted in Landing Zone requirements: \"Provide a secure score scoped to the landing zone\" and with the business requirements being to keep costs down. With that in mind, being asked to secure the Landing Zone and meet business requirements, I feel B 'Defender for Cloud' is best choice."
+      },
+      {
+        "date": "2023-02-26T03:29:00.000Z",
+        "voteCount": 3,
+        "content": "B secure score"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106419-exam-sc-100-topic-5-question-5-discussion/",
+    "body": "You have an Azure AD tenant that syncs with an Active Directory Domain Services (AD DS) domain.<br><br>You have an on-premises datacenter that contains 100 servers. The servers run Windows Server and are backed up by using Microsoft Azure Backup Server (MABS).<br><br>You are designing a recovery solution for ransomware attacks. The solution follows Microsoft Security Best Practices.<br><br>You need to ensure that a compromised administrator account cannot be used to delete the backups.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure Backup, configure multi-user authorization by using Resource Guard.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Microsoft Azure Backup Setup, register MABS with a Recovery Services vault.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom a Recovery Services vault, generate a security PIN for critical operations.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure AD Privileged Identity Management (PIM), create a role assignment for the Backup Contributor role."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 53,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 38,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-18T01:54:00.000Z",
+        "voteCount": 29,
+        "content": "Option A is incorrect because multi-user authorization by using Resource Guard is used to provide additional protection for Azure resources, but it does not address the issue of compromised administrator accounts in MABS."
+      },
+      {
+        "date": "2024-07-21T03:21:00.000Z",
+        "voteCount": 1,
+        "content": "it does: https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq#what-are-the-best-practices-to-configure-and-protect-azure-backups-against-security-and-ransomware-threats"
+      },
+      {
+        "date": "2023-05-09T07:26:00.000Z",
+        "voteCount": 2,
+        "content": "I think this is correct. It is subtle but, being that both a and c do kind of satisfy the requirements, this difference is very important. Thank you MaciekMT."
+      },
+      {
+        "date": "2023-04-16T11:12:00.000Z",
+        "voteCount": 16,
+        "content": "MUA for Azure Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization. \n\nref: https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq"
+      },
+      {
+        "date": "2024-06-26T08:08:00.000Z",
+        "voteCount": 4,
+        "content": "Using MUA make you \"ensure that a compromised administrator account cannot be used to delete the backups.\" since it needs multiple admin check and mua can't be disabled by admin backup admin without security admin approval for mua operator role activation.. \n\nhttps://learn.microsoft.com/en-us/azure/backup/multi-user-authorization?tabs=azure-portal&amp;pivots=vaults-recovery-services-vault#disable-mua-on-a-recovery-services-vault\n\nTo disable MUA on a vault, follow these steps:\n\nThe Backup admin requests the Security admin for Backup MUA Operator role on the Resource Guard. They can request this to use the methods approved by the organization such as JIT procedures, like Microsoft Entra Privileged Identity Management, or other internal tools and procedures.\n\nThe Security admin approves the request (if they find it worthy of being approved) and informs the Backup admin. Now the Backup admin has the Backup MUA Operator role on the Resource Guard."
+      },
+      {
+        "date": "2024-06-06T15:29:00.000Z",
+        "voteCount": 3,
+        "content": "Only A works to ensure that a compromised administrator account cannot be used to delete the backups."
+      },
+      {
+        "date": "2024-03-20T12:13:00.000Z",
+        "voteCount": 3,
+        "content": "It's C and not A because:\nconfiguring multi-user authorization may not specifically prevent a compromised administrator account from deleting backups if the compromised account has sufficient permissions."
+      },
+      {
+        "date": "2024-08-06T04:58:00.000Z",
+        "voteCount": 1,
+        "content": "It's C but not because of this, MUA is multi-user so a compromised Admin alone could not do it ig you configure more approvers. MUA is not natively supported by MABS, that is the reason because its C."
+      },
+      {
+        "date": "2024-03-11T06:15:00.000Z",
+        "voteCount": 3,
+        "content": "https://techcommunity.microsoft.com/t5/azure-governance-and-management/security-and-ransomware-protection-with-azure-backup/ba-p/3986246"
+      },
+      {
+        "date": "2024-02-20T18:34:00.000Z",
+        "voteCount": 4,
+        "content": "Leaning toward Option A for the following reasons\n\n- Option A (MUA) and Option C (PIN) are both effective ways to add resistance to deletion of backups from a Recovery Services Vault\nhttps://learn.microsoft.com/en-us/azure/security/fundamentals/backup-plan-to-protect-against-ransomware?toc=%2Fazure%2Fbackup%2Ftoc.json&amp;bc=%2Fazure%2Fbackup%2Fbreadcrumb%2Ftoc.json#steps-to-take-before-an-attack\nhttps://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq#what-are-the-best-practices-to-configure-and-protect-azure-backups-against-security-and-ransomware-threats\n\n- The question's ask is \"ensure that a compromised administrator account cannot be used to delete the backups\"\n\n... continued in reply"
+      },
+      {
+        "date": "2024-02-20T18:34:00.000Z",
+        "voteCount": 3,
+        "content": "- Reading this question literally, it's possible a compromised account means that not only are the admin credentials compromised, but also the 2nd factor of authentication generating the PIN neutralising the protection offered by Option C (PIN) \n\n- Option A (MUA) separates security concerns into two separate admin accounts, the Security Admin and Backup Admin. A malicious actor would need to compromise BOTH accounts simultaneously to delete a backup if MUA was implemented correctly."
+      },
+      {
+        "date": "2024-01-28T13:06:00.000Z",
+        "voteCount": 4,
+        "content": "I will go for A. \n\nMUA by Resource Guard recommend by microsoft. \n\nSee link: https://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq#what-are-the-best-practices-to-configure-and-protect-azure-backups-against-security-and-ransomware-threats"
+      },
+      {
+        "date": "2024-01-05T11:58:00.000Z",
+        "voteCount": 1,
+        "content": "Choice C is correct"
+      },
+      {
+        "date": "2024-01-02T05:10:00.000Z",
+        "voteCount": 2,
+        "content": "Here are the subtle differences in the question. Pay attention to disabled vs deleted backups\nAs part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform Stop Protection with Delete data and Change Passphrase operations.\n\nMulti-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization. MUA protects against disabling backups and reducing retention for backups."
+      },
+      {
+        "date": "2023-12-10T14:44:00.000Z",
+        "voteCount": 1,
+        "content": "i think now the recommendation MUA for Azure Backup, so i go with A"
+      },
+      {
+        "date": "2023-12-04T12:25:00.000Z",
+        "voteCount": 2,
+        "content": "A : f you have a compromised administrator account, you should configure multi-user authorization by using Resource Guard for your vaults. This will prevent the admin from deleting the backups without the approval of another user who owns the Resource Guard. A security PIN is not sufficient to protect your backups, as the compromised admin may be able to access or reset the PIN"
+      },
+      {
+        "date": "2023-10-24T14:30:00.000Z",
+        "voteCount": 1,
+        "content": "C. From a Recovery Services vault, generate a security PIN for critical operations"
+      },
+      {
+        "date": "2023-09-18T10:50:00.000Z",
+        "voteCount": 4,
+        "content": "C. From a Recovery Services vault, generate a security PIN for critical operations.\n\nConfiguring a security PIN for critical operations adds an extra layer of security for performing actions like deleting backups. Even if an administrator account is compromised, an attacker would also need access to the security PIN to perform critical operations, such as deleting backups. This aligns with the goal of preventing backups from being deleted, even if an administrator account is compromised.\n\nOptions A and D are not directly related to securing backup operations:\n\nOptions A and D are not directly related to securing backup operations:\n\nOptions A and D are not directly related to securing backup operations:\n\nOptions A and D are not directly related to securing backup operations:\n\nOptions A and D are not directly related to securing backup operations:"
+      },
+      {
+        "date": "2023-08-23T06:28:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct."
+      },
+      {
+        "date": "2023-08-18T10:46:00.000Z",
+        "voteCount": 4,
+        "content": "I'm going with A, the question is about deleting not recovering."
+      },
+      {
+        "date": "2023-08-06T10:37:00.000Z",
+        "voteCount": 3,
+        "content": "its clear in the document, \nhttps://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq#what-are-the-best-practices-to-configure-and-protect-azure-backups-against-security-and-ransomware-threats"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106069-exam-sc-100-topic-5-question-6-discussion/",
+    "body": "You are designing a ransomware response plan that follows Microsoft Security Best Practices.<br><br>You need to recommend a solution to limit the scope of damage of ransomware attacks without being locked out.<br><br>What should you include in the recommendation?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdevice compliance policies",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrivileged Access Workstations (PAWs)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCustomer Lockbox for Microsoft Azure",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\temergency access accounts"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 14,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-17T05:29:00.000Z",
+        "voteCount": 7,
+        "content": "I say D"
+      },
+      {
+        "date": "2024-05-31T19:34:00.000Z",
+        "voteCount": 2,
+        "content": "I say D too.\nB is a preventive control before ransomware attacks happen. The question here is asking how to limit the scope of damage if attack has happened. An emergency access account will prevent you from being locked out."
+      },
+      {
+        "date": "2023-05-12T17:09:00.000Z",
+        "voteCount": 6,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-devices#device-roles-and-profiles\nPrivileged Access Workstation (PAW) \u2013 This is the highest security configuration designed for extremely sensitive roles that would have a significant or material impact on the organization if their account was compromised. The PAW configuration includes security controls and policies that restrict local administrative access and productivity tools to minimize the attack surface to only what is absolutely required for performing sensitive job tasks. This makes the PAW device difficult for attackers to compromise because it blocks the most common vector for phishing attacks: email and web browsing. To provide productivity to these users, separate accounts and workstations must be provided for productivity applications and web browsing. While inconvenient, this is a necessary control to protect users whose account could inflict damage to most or all resources in the organization."
+      },
+      {
+        "date": "2024-07-01T08:57:00.000Z",
+        "voteCount": 1,
+        "content": "He said clearly \" limit the scope of damage of ransomware attacks without being locked out\", So the right one here should be D. Emergency Access Accounts\".\nhttps://learn.microsoft.com/en-us/azure/active-directory-b2c/tenant-management-emergency-access-account"
+      },
+      {
+        "date": "2023-08-23T06:33:00.000Z",
+        "voteCount": 3,
+        "content": "I can see why some may confuse the 'break-glass' account to this question, but clearly asks to NOT be locked! Which means you've already had access to the environment, whatever that maybe. You don't need emergency account at that point."
+      },
+      {
+        "date": "2023-04-18T01:57:00.000Z",
+        "voteCount": 4,
+        "content": "ChatGPT: To limit the scope of damage of ransomware attacks without being locked out, you should recommend Privileged Access Workstations (PAWs).\n\nPrivileged Access Workstations (PAWs) are dedicated devices that are used to perform sensitive administrative tasks, such as configuring security settings and managing domain controllers. PAWs provide enhanced security by isolating administrative activities from regular user activities and by requiring multi-factor authentication and additional controls.\n\nBy using a PAW, administrators can perform sensitive tasks without exposing their credentials to the regular network or potentially malicious content, such as ransomware. This helps to limit the scope of damage of ransomware attacks while also maintaining access to critical systems. Therefore, option B is the correct answer."
+      },
+      {
+        "date": "2024-09-09T00:23:00.000Z",
+        "voteCount": 1,
+        "content": "ChatGPT says this now:\n\nD. Emergency access accounts\n\nEmergency access accounts are crucial for limiting the scope of damage during ransomware attacks without being locked out. These accounts are highly privileged, but they are only used in case of emergencies, such as when normal administrative access is unavailable. This ensures that you can maintain access to critical systems while working to contain and recover from a ransomware attack, following Microsoft Security Best Practices.\n\n    Device compliance policies (A) primarily focus on ensuring that devices meet security standards, which is preventive but not directly applicable for emergency response to ransomware.\n    Privileged Access Workstations (PAWs) (B) are used to isolate administrative tasks, but they don't help directly in recovering from a ransomware attack.\n    Customer Lockbox (C) is a feature for control over data access but is not related to mitigating ransomware attacks."
+      },
+      {
+        "date": "2023-04-12T14:34:00.000Z",
+        "voteCount": 4,
+        "content": "correct\nhttps://learn.microsoft.com/en-us/security/ransomware/protect-against-ransomware-phase2\nhttps://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-devices"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105617-exam-sc-100-topic-5-question-7-discussion/",
+    "body": "You design cloud-based software as a service (SaaS) solutions.<br><br>You need to recommend a recovery solution for ransomware attacks. The solution must follow Microsoft Security Best Practices.<br><br>What should you recommend doing first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevelop a privileged identity strategy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement data protection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevelop a privileged access strategy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrepare a recovery plan.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 19,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": false
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-18T02:06:00.000Z",
+        "voteCount": 9,
+        "content": "I vote for D - creating recovery plan.\n1.Recognize different types of ransomware\n2.Help an organization mitigate risk of a ransomware attack by creating a recovery plan\n3.Help an organization mitigate risk of a ransomware attack by limiting the scope of damage\n4.Help an organization mitigate risk of a ransomware attack by hardening key infrastructure elements\nhttps://learn.microsoft.com/en-us/training/modules/recommend-ransomware-strategy-by-using-microsoft-security-best-practices/"
+      },
+      {
+        "date": "2023-04-23T22:29:00.000Z",
+        "voteCount": 1,
+        "content": "Agree - as stated in the Phase 1 is the learning docs:\nhttps://learn.microsoft.com/en-us/training/modules/recommend-ransomware-strategy-by-using-microsoft-security-best-practices/2-plan-for-ransomware-protection-extortion-based-attacks"
+      },
+      {
+        "date": "2023-10-29T11:30:00.000Z",
+        "voteCount": 2,
+        "content": "D. Prepare a recovery plan.\n\nPreparing a recovery plan is essential as it lays out the specific actions and protocols to be followed in the event of a ransomware attack. A well-defined recovery plan ensures that you can quickly and effectively respond to an attack, minimize damage, and restore operations as soon as possible."
+      },
+      {
+        "date": "2023-05-12T16:58:00.000Z",
+        "voteCount": 4,
+        "content": "D is the answer.\n\nhttps://learn.microsoft.com/en-us/training/modules/design-resiliency-strategy-common-cyberthreats-like-ransomware/3-ransomware-protection\nMicrosoft best practices for ransomware protection are based on a three step approach:\n- Prepare your recovery plan\n- Limit the scope of the damage\n- Make it hard to get in"
+      },
+      {
+        "date": "2023-05-12T17:03:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/security/ransomware/protect-against-ransomware#phase-1-prepare-your-recovery-plan"
+      },
+      {
+        "date": "2023-05-25T17:25:00.000Z",
+        "voteCount": 4,
+        "content": "Gotten this in May 2023 exam."
+      },
+      {
+        "date": "2023-05-12T16:57:00.000Z",
+        "voteCount": 3,
+        "content": "D is the answer.\n\nhttps://learn.microsoft.com/en-us/training/modules/design-resiliency-strategy-common-cyberthreats-like-ransomware/3-ransomware-protection\nMicrosoft best practices for ransomware protection are based on a three step approach:\n- Prepare your recovery plan\n- Limit the scope of the damage\n- Make it hard to get in"
+      },
+      {
+        "date": "2023-04-25T05:37:00.000Z",
+        "voteCount": 3,
+        "content": "Phase 1 of ransomware protection is to develop a recovery plan.\nThe first thing you should do for these attacks is prepare your organization so that it has a viable alternative to paying the ransom.\n\nhttps://learn.microsoft.com/en-us/training/modules/recommend-ransomware-strategy-by-using-microsoft-security-best-practices/2-plan-for-ransomware-protection-extortion-based-attacks"
+      },
+      {
+        "date": "2023-04-25T05:36:00.000Z",
+        "voteCount": 1,
+        "content": "Phase 1 of ransomware protection is to develop a recovery plan.\nThe first thing you should do for these attacks is prepare your organization so that it has a viable alternative to paying the ransom.\n\nhttps://learn.microsoft.com/en-us/training/modules/recommend-ransomware-strategy-by-using-microsoft-security-best-practices/2-plan-for-ransomware-protection-extortion-based-attacks"
+      },
+      {
+        "date": "2023-04-11T15:36:00.000Z",
+        "voteCount": 1,
+        "content": "it should be privileged access strategy \nhttps://learn.microsoft.com/en-us/security/privileged-access-workstations/privileged-access-strategy"
+      },
+      {
+        "date": "2023-04-12T14:45:00.000Z",
+        "voteCount": 1,
+        "content": "My initial analysis was Option C, but I think , Option A is More Accurate"
+      },
+      {
+        "date": "2023-04-08T13:01:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/training/modules/recommend-ransomware-strategy-by-using-microsoft-security-best-practices/4-recommend-microsoft-ransomware"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105340-exam-sc-100-topic-5-question-8-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You need to recommend a security methodology for a DevOps development process based on the Microsoft Cloud Adoption Framework for Azure.<br><br>During which stage of a continuous integration and continuous deployment (CI/CD) DevOps process should each security-related task be performed? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/sc-100/image105.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/sc-100/image106.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-08T10:11:00.000Z",
+        "voteCount": 12,
+        "content": "Selected answers are correct!\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/devsecops-controls list them in the right place"
+      },
+      {
+        "date": "2023-05-12T16:50:00.000Z",
+        "voteCount": 7,
+        "content": "1. Plan and develop\n2. Operate\n3. Build and test\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/devsecops-controls#plan-and-develop\nTypically, modern development follows an agile development methodology. Scrum is one implementation of agile methodology that has every sprint start with a planning activity. Introducing security into this part of the development process should focus on:\n- Threat modeling to view the application through the lens of a potential attacker\n- IDE security plug-ins and pre-commit hooks for lightweight static analysis checking within an integrated development environment (IDE).\n- Peer reviews and secure coding standards to identify effective security coding standards, peer review processes, and pre-commit hooks."
+      },
+      {
+        "date": "2023-05-12T16:52:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/devsecops-controls#actionable-intelligence\nThe tools and techniques in this guidance offer a holistic security model for organizations who want to move at pace and experiment with new technologies that aim to drive innovation. A key element of DevSecOps is data-driven, event-driven processes. These processes help teams identify, evaluate, and respond to potential risks. Many organizations choose to integrate alerts and usage data into their IT service management (ITSM) platform. The team can then bring the same structured workflow to security events that they use for other incidents and requests."
+      },
+      {
+        "date": "2023-05-28T17:15:00.000Z",
+        "voteCount": 3,
+        "content": "In the exam 29.05.2023"
+      },
+      {
+        "date": "2023-04-05T15:53:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/devsecops-controls"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105982-exam-sc-100-topic-5-question-9-discussion/",
+    "body": "You use Azure Pipelines with Azure Repos to implement continuous integration and continuous deployment (CI/CD) workflows for the deployment of applications to Azure.<br><br>You need to recommend what to include in dynamic application security testing (DAST) based on the principles of the Microsoft Cloud Adoption Framework for Azure.<br><br>What should you recommend?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tunit testing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpenetration testing\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdependency checks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthreat modeling"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 10,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-11T07:38:00.000Z",
+        "voteCount": 8,
+        "content": "B is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/cloud-adoption-framework/secure/devsecops-controls#dynamic-application-security-testing\nA penetration test consists of several action points, one of which is dynamic application security testing (DAST). DAST is a web application security test that finds security issues in the running application by seeing how the application responds to specially crafted requests. DAST tools are also known as web application vulnerability scanners."
+      },
+      {
+        "date": "2023-05-26T08:17:00.000Z",
+        "voteCount": 6,
+        "content": "Gotten this in May 2023 exam."
+      },
+      {
+        "date": "2023-10-24T14:49:00.000Z",
+        "voteCount": 2,
+        "content": "B is ok"
+      },
+      {
+        "date": "2023-04-13T09:40:00.000Z",
+        "voteCount": 1,
+        "content": "The automated penetration testing (with manual assisted validation) should also be part of the DAST.\n\nSource: https://learn.microsoft.com/en-us/security/benchmark/azure/mcsb-devops-security#ds-5-integrate-dynamic-application-security-testing-into-devops-pipeline"
+      },
+      {
+        "date": "2023-04-11T15:43:00.000Z",
+        "voteCount": 2,
+        "content": "Penetration testing is apart of Dynamic Application Security Testing (DAST)"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105553-exam-sc-100-topic-5-question-10-discussion/",
+    "body": "You have a Microsoft 365 subscription.<br><br>You are designing a user access solution that follows the Zero Trust principles of the Microsoft Cybersecurity Reference Architectures (MCRA).<br><br>You need to recommend a solution that automatically restricts access to Microsoft Exchange Online, SharePoint Online, and Teams in near-real-time (NRT) in response to the following Azure AD events:<br><br>\u2022\tA user account is disabled or deleted.<br>\u2022\tThe password of a user is changed or reset.<br>\u2022\tAll the refresh tokens for a user are revoked.<br>\u2022\tMulti-factor authentication (MFA) is enabled for a user.<br><br>Which two features should you include in the recommendation? Each correct answer presents part of the solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcontinuous access evaluation\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure AD Application Proxy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta sign-in risk policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure AD Privileged Identity Management (PIM)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConditional Access\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AE",
+        "count": 16,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AD",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-11T07:33:00.000Z",
+        "voteCount": 7,
+        "content": "AE is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation\nTimely response to policy violations or security issues really requires a \"conversation\" between the token issuer (Azure AD), and the relying party (enlightened app). This two-way conversation gives us two important capabilities. The relying party can see when properties change, like network location, and tell the token issuer. It also gives the token issuer a way to tell the relying party to stop respecting tokens for a given user because of account compromise, disablement, or other concerns. The mechanism for this conversation is continuous access evaluation (CAE). The goal for critical event evaluation is for response to be near real time, but latency of up to 15 minutes may be observed because of event propagation time; however, IP locations policy enforcement is instant."
+      },
+      {
+        "date": "2023-05-11T07:35:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation#scenarios\nThere are two scenarios that make up continuous access evaluation, critical event evaluation and Conditional Access policy evaluation.\n\nhttps://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation#critical-event-evaluation\nContinuous access evaluation is implemented by enabling services, like Exchange Online, SharePoint Online, and Teams, to subscribe to critical Azure AD events. Those events can then be evaluated and enforced near real time. Critical event evaluation doesn't rely on Conditional Access policies so it's available in any tenant. The following events are currently evaluated:\n- User Account is deleted or disabled\n- Password for a user is changed or reset\n- Multifactor Authentication is enabled for the user\n- Administrator explicitly revokes all refresh tokens for a user\n- High user risk detected by Azure AD Identity Protection"
+      },
+      {
+        "date": "2023-04-18T05:56:00.000Z",
+        "voteCount": 6,
+        "content": "according to ChatGPT: To automatically restrict access to Microsoft Exchange Online, SharePoint Online, and Teams in near-real-time (NRT) in response to the specified Azure AD events, you should recommend the following two features:\n\nA. Continuous Access Evaluation: It provides real-time access decisions based on the user's current risk and compliance status. It ensures that only authorized and compliant devices can access the resources.\n\nE. Conditional Access: It allows you to define access policies based on conditions such as user, device, location, and risk level. With Conditional Access, you can enforce multi-factor authentication, block access, or limit access to specific applications or resources based on the user's risk level and compliance status."
+      },
+      {
+        "date": "2023-09-18T10:56:00.000Z",
+        "voteCount": 3,
+        "content": "A. Continuous Access Evaluation (CAE)\n\nE. Conditional Access"
+      },
+      {
+        "date": "2023-04-18T02:42:00.000Z",
+        "voteCount": 1,
+        "content": "CHTGPT4 A and E should be included in the recommendation. Option C (a sign-in risk policy) and Option D (Azure AD Privileged Identity Management (PIM)) are also important security features, but they are not directly related to the NRT access restriction of Exchange Online, SharePoint Online, and Teams in response to Azure AD events. Azure AD Application Proxy (Option B) is not necessary for the functionality described in the scenario."
+      },
+      {
+        "date": "2023-04-13T10:37:00.000Z",
+        "voteCount": 2,
+        "content": "I don't see what conditional access has to do with this."
+      },
+      {
+        "date": "2023-05-11T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation\nExchange Online, SharePoint Online, Teams, and MS Graph can synchronize key Conditional Access policies for evaluation within the service itself.\n\nThis process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes."
+      },
+      {
+        "date": "2023-04-07T16:41:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory/conditional-access/concept-continuous-access-evaluation"
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105554-exam-sc-100-topic-5-question-11-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription and an on-premises datacenter. The datacenter contains 100 servers that run Windows Server. All the servers are backed up to a Recovery Services vault by using Azure Backup and the Microsoft Azure Recovery Services (MARS) agent.<br><br>You need to design a recovery solution for ransomware attacks that encrypt the on-premises servers. The solution must follow Microsoft Security Best Practices and protect against the following risks:<br><br>\u2022\tA compromised administrator account used to delete the backups from Azure Backup before encrypting the servers<br>\u2022\tA compromised administrator account used to disable the backups on the MARS agent before encrypting the servers<br><br>What should you use for each risk? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/sc-100/image107.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/sc-100/image108.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-18T06:17:00.000Z",
+        "voteCount": 16,
+        "content": "From ChatGPT: For deleted backups, I would recommend using a security PIN for critical operations - to prevent a compromised administrator account from deleting the backups. This adds an additional layer of security to prevent unauthorized access to the backups.\n\nFor disabled backups, I would recommend using Multi-user authorization by using Resource Guard - to prevent a compromised administrator account from disabling the backups. This allows you to specify which users are authorized to perform critical operations and limits the scope of potential attacks."
+      },
+      {
+        "date": "2023-04-25T19:40:00.000Z",
+        "voteCount": 4,
+        "content": "\u540c\u610f\u3057\u307e\u3059\u3002\n\u524a\u9664\uff1aPIN\n\u7121\u52b9\uff1a\u30ea\u30bd\u30fc\u30b9\u30ac\u30fc\u30c9"
+      },
+      {
+        "date": "2023-05-24T22:59:00.000Z",
+        "voteCount": 8,
+        "content": "66666You can speak Japanese. That's cool"
+      },
+      {
+        "date": "2023-04-26T06:19:00.000Z",
+        "voteCount": 4,
+        "content": "Would agree here since soft delete will still allow deletion. Security PIN is the preventative control in compromised identity."
+      },
+      {
+        "date": "2024-01-12T11:01:00.000Z",
+        "voteCount": 3,
+        "content": "ChatGPT may not be reliable.    It's not on this question.."
+      },
+      {
+        "date": "2023-10-06T05:26:00.000Z",
+        "voteCount": 11,
+        "content": "got this in exam 6oct23. passed with 896 marks. I answered \n1. Soft delete of backups\n2. Multi-user authorization by using Resource Guard"
+      },
+      {
+        "date": "2024-09-08T23:51:00.000Z",
+        "voteCount": 1,
+        "content": "Malicious delete protection: Protect against any accidental and malicious attempts for deleting your backups via soft delete of backups. The deleted backup data is stored for 14 days free of charge and allows it to be recovered from this state.\nProtected critical operations: Multi-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults.\n\nGiven answer is correct \nhttps://learn.microsoft.com/en-us/azure/backup/guidance-best-practices"
+      },
+      {
+        "date": "2024-08-06T04:45:00.000Z",
+        "voteCount": 1,
+        "content": "I would go (like others) for: \nBox 1 - MUA, because is more secure prevent than recover and its compatible from Azure Backup. \nBox 2 - PIN, it would be better MUA as well for this but because is triggered from MARS and disable with MUA from MARS is not natively supported , the next more secure would be PIN."
+      },
+      {
+        "date": "2024-07-13T18:58:00.000Z",
+        "voteCount": 2,
+        "content": "To address the risks mentioned in the image and follow Microsoft Security Best Practices, the appropriate selections are:\n\nDeleted backups: For protecting against a compromised administrator account deleting the backups, you should use Multi-user authorization by using Resource Guard. This ensures that critical operations, such as deleting backups, require multiple approvals, adding an extra layer of security.\n\nDisabled backups: For protecting against a compromised administrator account disabling the backups on the MARS agent, you should use A security PIN for critical operations. This requires a security PIN to perform critical operations, ensuring that even if an account is compromised, the backups cannot be easily disabled without the PIN.\n\nThus, the selections are:\n\nDeleted backups: Multi-user authorization by using Resource Guard\nDisabled backups: A security PIN for critical operations"
+      },
+      {
+        "date": "2024-07-08T04:42:00.000Z",
+        "voteCount": 1,
+        "content": "Finally found it. 1.Soft delete for backups.\nWith soft-delete, if a user deletes the backup (of a VM, SQL Server database, Azure file share, SAP HANA database), the backup data is retained for 14 additional days, allowing the recovery of that backup item with no data loss. The additional 14 days retention of backup data in the soft delete state doesn't incur any cost. \n\n2. MUA\nAzure Backup provides you with the Multi-User Authorization (MUA) feature to protect you from such rogue administrator attacks. Multi-user authorization helps protect against a rogue administrator performing destructive operations (that is, disabling soft-delete), by ensuring that every privileged/destructive operation is done only after getting approval from a security administrator.\n\nhttps://learn.microsoft.com/en-us/azure/backup/guidance-best-practices"
+      },
+      {
+        "date": "2024-06-26T08:30:00.000Z",
+        "voteCount": 3,
+        "content": "Read question widely. It shows \"Deleted backups\" and \"Disabled backups\". So, your selections must provide a solution for those actions.. Not prevent actions like block deleting or disabling backup.. So, when risk of both backup deletion and disabling backup is success. What will you to?\n\nBox1: Soft delete of  backups lets you restore \"deleted\" backups.\nBox2: Multi-user authorization lets you approve to perform to disable backup. So, action is not desired or controlled won't be performed by compromised admin account."
+      },
+      {
+        "date": "2024-05-12T22:57:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct. Key words are \"design a recovery solution\", not protecting."
+      },
+      {
+        "date": "2024-05-15T21:21:00.000Z",
+        "voteCount": 1,
+        "content": "Still Soft Delete is for workloads running in Azure only - not on-prem server backups with MARS agents\nhttps://learn.microsoft.com/en-us/azure/backup/backup-azure-security-feature\nFor me:\n1. Security PIN\n2. MUA"
+      },
+      {
+        "date": "2024-03-20T13:06:00.000Z",
+        "voteCount": 1,
+        "content": "Deleted backups - Security PIN\n\nSoft delete doesn't exist with MABS.\n\nDisabled - MUA by using Resource Guard"
+      },
+      {
+        "date": "2024-02-25T13:06:00.000Z",
+        "voteCount": 4,
+        "content": "Why not both answers MUA?\n\nhttps://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq#what-are-the-best-practices-to-configure-and-protect-azure-backups-against-security-and-ransomware-threats\n\n\"We also recommend using Multi-user authorization (MUA) to protection critical operations on your Recovery Services vault.\n\nEnsure Multi-user authorization (MUA) is enabled to protect against rogue admin scenario.\n\nMUA for Azure Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization.\""
+      },
+      {
+        "date": "2024-02-20T20:23:00.000Z",
+        "voteCount": 3,
+        "content": "1. Multi-user authorization by using Resource Guard\nMUA will prevent a single compromised admin account from deleting previously made backups. Some have suggested Soft Delete, but imo this will not mitigate the risk of the backups being deleted by a compromised admin account, however, it will increase the chance of recovery in the event of deletion happening (assuming &lt; 14 days). I'd also guess that malicious actors would quietly wait for soft-deletes to expire before triggering the encryption.\n\n2. Security PIN\nA Security PIN will help to prevent a compromised account from stopping protection at the MARS agent installed on the on-prem server.\nhttps://learn.microsoft.com/en-us/azure/backup/backup-azure-manage-mars#stop-protection-and-delete-backup-data\nOthers have mentioned MUA, which I would agree to if this were disabling from the Azure Backups/Recovery Services Vault side, but the question mentioned disablement on the MARS agent. \n\nHappy to be corrected"
+      },
+      {
+        "date": "2024-01-18T13:06:00.000Z",
+        "voteCount": 2,
+        "content": "Soft Delete isn't available for backups with MABS, so option 1 should be PIN,  2nd should be Resource Guard."
+      },
+      {
+        "date": "2024-05-19T11:44:00.000Z",
+        "voteCount": 1,
+        "content": "MARS or MABS still use Recovery Vault Service to store their backup. Soft delete is enabled by default under the Recovery Vault Properties. You don't enable it when setting up the backup job itself. So your statement is wrong. Soft Delete is the correct answer."
+      },
+      {
+        "date": "2024-01-12T11:04:00.000Z",
+        "voteCount": 1,
+        "content": "- Soft Delete - so a copy of the back is stored in the Recycle Bin for 14 Days which can be used to restore\n\n-Multi-user authorization by using Resource Guard - to ensure multiple authorization required for sensitive tasks"
+      },
+      {
+        "date": "2024-01-05T13:39:00.000Z",
+        "voteCount": 1,
+        "content": "Review this below its the exact same question \nhttps://www.cert2brain.com/Server/Demo.aspx?exam=SC-100"
+      },
+      {
+        "date": "2024-01-05T13:31:00.000Z",
+        "voteCount": 1,
+        "content": "As part of adding an extra layer of authentication for critical operations, you're prompted to enter a security PIN when you perform Stop Protection with Delete data and Change Passphrase operations.\n\nMulti-user authorization (MUA) for Azure Backup allows you to add an additional layer of protection to critical operations on your Recovery Services vaults and Backup vaults. For MUA, Azure Backup uses another Azure resource called the Resource Guard to ensure critical operations are performed only with applicable authorization. MUA protects against disabling backups and reducing retention for backups."
+      },
+      {
+        "date": "2023-11-04T07:35:00.000Z",
+        "voteCount": 5,
+        "content": "Deleted Backups: Soft Delete\nDisabled Backups: Resource Guard\nhttps://learn.microsoft.com/en-us/azure/backup/protect-backups-from-ransomware-faq\n\nI don't exactly know how this reconciles with all the previous questions saying PIN was a configuration protection mechanism."
+      },
+      {
+        "date": "2023-11-28T23:57:00.000Z",
+        "voteCount": 2,
+        "content": "Ensure soft delete is enabled to protect backups from accidental or malicious deletes\n\nSoft delete is enabled by default on a newly created Recovery Services vault. It protects backup data from accidental or malicious deletes for 14 days at no additional cost, allowing the recovery of that backup item before it\u2019s permanently lost. We recommend not to disable this feature. If backups are deleted and soft delete isn\u2019t enabled, you or Microsoft can\u2019t recover the deleted backup data. Use Multi-user authorization (MUA) as an additional layer of protection for these critical operations on your Recovery Services vault to validate operation before disabling this feature.\n\nEnsure Multi-user authorization (MUA) is enabled to protect against rogue admin scenario.\n\nMUA for Azure Backup uses a new resource called the Resource Guard to ensure critical operations, such as disabling soft delete, stopping and deleting backups, or reducing retention of backup policies, are performed only with applicable authorization."
+      },
+      {
+        "date": "2023-10-29T11:48:00.000Z",
+        "voteCount": 1,
+        "content": "Deleted backups:\n\nC. Multi-user authorization by using Resource Guard\nResource Guard is a feature in Azure Backup that can provide an additional layer of protection for your backup data. It requires more than one person (multi-user authorization) to perform critical operations like deleting backup data, which helps protect against the risk of a compromised administrator account being used to delete backups.\n\nDisabled backups:\n\nD. Soft delete of backups\nSoft delete provides a retention period for deleted backups, meaning that even if backups are deleted (either accidentally or maliciously), they are retained for a set period (by default 14 days) and can be recovered during that time. This can protect against a compromised account attempting to disable backups on the MARS agent before encrypting the servers, as you would still have a window to recover those backups."
+      }
+    ],
+    "examNameCode": "sc-100",
+    "topicNumber": "5"
+  }
+]

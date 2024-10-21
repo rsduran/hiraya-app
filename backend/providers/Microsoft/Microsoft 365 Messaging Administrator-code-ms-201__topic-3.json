@@ -1,0 +1,269 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33659-exam-ms-201-topic-3-question-7-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>Users access their email by using Microsoft Outlook 2019.<br>The users report that their address list in Outlook sometimes takes a full day to show new entries.<br>You need to ensure that the address list updates within four hours.<br>Which cmdlet should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet-MailboxServer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet-OfflineAddressBook",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNew-OfflineAddressBook",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNew-SettingOverride"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/plan-and-deploy/post-installation-tasks/change-oab-generation-schedule?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-05T00:52:00.000Z",
+        "voteCount": 2,
+        "content": "New-SettingOverride -Name \"OAB Generation Override\" -Component TimeBasedAssistants -Section OABGeneratorAssistant -Parameters @(\"WorkCycle=04:00:00\") -Reason \"Generate OAB every 4 hours\""
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 9,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4549-exam-ms-201-topic-3-question-4-discussion/",
+    "body": "DRAG DROP -<br>Your company has 5,000 Microsoft Exchange Server 2019 mailboxes.<br>The company is implementing a new application named HR1 that integrates with Exchange. HR1 runs on a server named HRSERVER.<br>You create a new mailbox named HRService for the service account of HR1.<br>You need to ensure that HR1 can sync contacts from all the mailboxes in the Exchange organization concurrently by using an Exchange ActiveSync connection.<br>How should you complete the PowerShell script? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/powershell/module/exchange/server-health-and-performance/new-throttlingpolicy?view=exchange-ps https://docs.microsoft.com/en-us/powershell/module/exchange/server-health-and-performance/set-throttlingpolicyassociation?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-02T04:28:00.000Z",
+        "voteCount": 4,
+        "content": "Since the answers are missing:\n- New-ThrottlingPolicy HR\n- EASMaxConcurrency $null\n- Set-ThrottlingPolicyAssociation HR\n- ThrottlingPolicy HR"
+      },
+      {
+        "date": "2020-06-27T03:37:00.000Z",
+        "voteCount": 2,
+        "content": "Wrong. HR is the policy name. Correct is \nNew-ThrottlingPolicy HR\n- EASMaxConcurrency $null\n- Set-Mailbox HRService\n- ThrottlingPolicy HR"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 9,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4550-exam-ms-201-topic-3-question-5-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft Exchange Server 2019 organization.<br>All recipients have SMTP address in the &lt;alias&gt;@adatum.com format.<br>You purchase a new domain named contoso.com<br>You need to configure all the recipients to have a primary SMTP address in the &lt;alias&gt;@contoso.com format as soon as possible.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/mail-flow/accepted-domains/accepted-domain-procedures?view=exchserver-2019#modify-accepted-domains https://docs.microsoft.com/en-us/exchange/email-addresses-and-address-books/email-address-policies/eap-procedures?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-27T19:31:00.000Z",
+        "voteCount": 13,
+        "content": "Should not it be:\n- Create an authoritative accepted domain \n- Modify the default email address policy\n- Apply the policy\n\nIt is not saying to replace the current domain with new."
+      },
+      {
+        "date": "2020-04-28T18:48:00.000Z",
+        "voteCount": 1,
+        "content": "Agree - 'Authoritative accepted domain'. It makes sense not to touch the production domain until the change is made to the default recipient policy."
+      },
+      {
+        "date": "2020-05-06T01:09:00.000Z",
+        "voteCount": 1,
+        "content": "Modify the default accepted domain: this will not cause an error for receiving email using adatum.com as it is still one accepted domain and there\u2019s address policy for @adatum.com no mater adatum.com is the primary domain or not."
+      },
+      {
+        "date": "2020-05-06T01:08:00.000Z",
+        "voteCount": 1,
+        "content": "Create an authoritative accepted domain---this needs the fourth step to change the default domain."
+      },
+      {
+        "date": "2019-09-02T04:31:00.000Z",
+        "voteCount": 3,
+        "content": "Since the answers are missing:\n- Modify the default accepted domain\n- Modify the default email address policy\n- Apply the policy"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/45064-exam-ms-201-topic-3-question-9-discussion/",
+    "body": "DRAG DROP -<br>Your company has 5,000 Microsoft Exchange Server 2019 mailboxes.<br>The company is implementing a new application named HR1 that integrates with Exchange. HR1 runs on a server named HRSERVER.<br>You create a new mailbox named HRService for the service account of HR1.<br>You need to ensure that HR1 can sync contacts from all the mailboxes in the Exchange organization concurrently by using an Exchange ActiveSync connection.<br>How should you complete the PowerShell script? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03480/0018600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0018700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/powershell/module/exchange/server-health-and-performance/new-throttlingpolicy?view=exchange-ps https://docs.microsoft.com/en-us/powershell/module/exchange/server-health-and-performance/set-throttlingpolicyassociation?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-20T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "set-mailbox HRService -ThrottlingPolicy HR is also correct. I can use this to assign a throttlingPolicy."
+      },
+      {
+        "date": "2021-02-17T19:31:00.000Z",
+        "voteCount": 1,
+        "content": "Note, the Set-ThrottlingPolicyAssociation command should be HRService not HR. HRService is the identity to increase the throttling to using a policy HR."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25646-exam-ms-201-topic-3-question-12-discussion/",
+    "body": "Your company has a Microsoft Exchange Server 2019 server. The company has five departments. The server contains one mailbox database for each department. Each mailbox database contains all the users in its respective department. The databases contain 1,000 users.<br>You create an address book policy for each department.<br>You need to assign the address book policies to the users.<br>Which cmdlet should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet-Mailbox",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet-AddressBookPolicy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet-AddressList",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet-MailboxDatabase"
+    ],
+    "answer": "A",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/assign-an-address-book-policy-to-mail-users",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-13T12:32:00.000Z",
+        "voteCount": 2,
+        "content": "set-mailboxdatabase not set-mailbox"
+      },
+      {
+        "date": "2020-08-06T05:01:00.000Z",
+        "voteCount": 4,
+        "content": "Set-MailboxDatabase has only the option for defining an Offline Address Boos not Address Book Policy. Performing Set-Mailbox  &lt;user&gt; [-AddressBookPolicy &lt;AddressBookMailboxPolicyIdParameter&gt;] seems more accurate"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20235-exam-ms-201-topic-3-question-13-discussion/",
+    "body": "Your company has a Microsoft Exchange Server 2019 organization.<br>The company has 10,000 mailboxes. Each department at the company has 1,000 mailboxes.<br>You need to ensure that when users query the global address list (GAL), they can view only the list of the users in their department.<br>What should you create?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOne GAL, 10 offline address books (OABs), 10 address lists, 10 address policies (ABPs), and one email address policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10 GALs, 10 offline address books (OABs), 10 address lists, 10 room lists, and 10 address book policies (ABPs)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOne GAL, 10 offline address books (OABs), 10 address lists, 10 room lists, and one address book policy (ABP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10 GALs, 10 offline address books (OABs), 10 address lists, and 10 email address policies"
+    ],
+    "answer": "B",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/address-books/address-lists/create-global-address-list",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-06T04:35:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2020-05-10T13:09:00.000Z",
+        "voteCount": 3,
+        "content": "Ref : \nhttps://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/address-book-policies"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37303-exam-ms-201-topic-3-question-15-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization that uses a namespace of contoso.com.<br>Email address policies for contoso.com are configured as shown in the Address Policies exhibit. (Click the Address Policies tab.)<br><img src=\"/assets/media/exam-media/03480/0019200001.png\" class=\"in-exam-image\"><br>The Marketing email address policy is shown in the Marketing Policy exhibit. (Click the Marketing Policy tab.)<br><img src=\"/assets/media/exam-media/03480/0019300001.png\" class=\"in-exam-image\"><br>The Sales email address policy is shown in the Sales Policy exhibit. (Click the Sales Policy tab.)<br><img src=\"/assets/media/exam-media/03480/0019400001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0019500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0019500002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/email-addresses-and-address-books/email-address-policies/email-address-policies?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-16T04:50:00.000Z",
+        "voteCount": 1,
+        "content": "Should be \nYes \nYes   %1g.s%@contoso.com\nNo"
+      },
+      {
+        "date": "2021-01-24T18:12:00.000Z",
+        "voteCount": 1,
+        "content": "The first n letters of the first name. For example, %2g uses the first two letters of the first name."
+      },
+      {
+        "date": "2021-01-24T18:12:00.000Z",
+        "voteCount": 1,
+        "content": "Last answer is no because Sales has a different format. If a recipient is identified by multiple email address policies, the recipient's email addresses are only configured by the first email address policy that's evaluated. You configure the order that the policies are evaluated by using the priority of the policy. A lower priority number indicates a higher priority, higher priority policies are evaluated first, and the default email address policy is always evaluated last. You assign a higher priority (lower number) to policies that use the most specific or restrictive recipient filters."
+      },
+      {
+        "date": "2020-11-19T03:33:00.000Z",
+        "voteCount": 2,
+        "content": "Yes Yes No, should b.smith@contoso.com %1g.s%@contoso.com match?"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/43413-exam-ms-201-topic-3-question-19-discussion/",
+    "body": "HOTSPOT -<br>Your company named ADatum Corporation has a Microsoft Exchange Online subscription that contains the sharing policies shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0020100001.png\" class=\"in-exam-image\"><br>The subscription contains the mailboxes shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0020100002.png\" class=\"in-exam-image\"><br>ADatum does business with the partner companies shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0020100003.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0020200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0020200002.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-27T18:35:00.000Z",
+        "voteCount": 1,
+        "content": "NYY\nN: Anonymous is enabled.\nY: Detail calendar sharing is enabled allowing location and subject to be shared.\nY: Litware.com is allowed\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/set-mailboxcalendarfolder?view=exchange-ps"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/43414-exam-ms-201-topic-3-question-20-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization.<br>You have the Address Book Policies (ABP) and address lists in the following table.<br><img src=\"/assets/media/exam-media/03480/0020300001.png\" class=\"in-exam-image\"><br>You have the users in the following table.<br><img src=\"/assets/media/exam-media/03480/0020300002.png\" class=\"in-exam-image\"><br>You assign ABP1 to User1 and User2.<br>User3 is NOT assigned to an Address Book Policy.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0020400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0020400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/email-addresses-and-address-books/address-book-policies/address-book-policies?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-27T18:53:00.000Z",
+        "voteCount": 1,
+        "content": "User1 and 2 will have GAL_1 as the global address list, OAB_1 and List 1.\nN: List 2 belongs to GAL_2\nN: User2 should be able to view the membership of GAL1 and List 1 based on ABP1.\nN: User3 does not have any ABP so it should only be able to see membership of GAL2 which contains User2 and 3. In order for User3 to see List 2, he must be assigned to ABP2 which is not the case."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/43467-exam-ms-201-topic-3-question-25-discussion/",
+    "body": "You have a Microsoft Exchange Online tenant that contains two SMTP domains named contoso.com and litwareinc.com.<br>You need to ensure that users who have a contoso.com email address are prevented from seeing users who have a litwareinc.com email address in the global address list (GAL). The litwareinc.com users must be able to see the contoso.com users in the GAL.<br>Which three actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new address book policy (ABP) and assign the ABP to the contoso.com mailboxes.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the Default Address book policy to exclude the contoso.com users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new email address policy for the contoso.com users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the default GAL to exclude the litwareinc.com users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an offline address book (OAB) that contains the contoso.com users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a separate GAL that contains the contoso.com users."
+    ],
+    "answer": "ABF",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/address-book-policies<br>Manage Organizational Settings",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-28T17:34:00.000Z",
+        "voteCount": 1,
+        "content": "AEF\nNote that the solution want contoso users to be isolated but litware to be able to see everyone.\nA: Contoso users need a new ABP to get the new GAL instead of the default GAL.\nE: The new OAB will be assigned to the new ABP\nF: The new GAL that has limited visibility will be assigned to the new ABP.\nhttps://docs.microsoft.com/en-us/exchange/address-books/address-book-policies/address-book-policies\nB: This will prevent the litware from seeing the contoso users.\nC: Email address policy is to determine the smtp address format.\nD: While this can be done too, then the ABP, OAB and GAL will need to be created for the liteware users which is not in other options."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "3"
+  }
+]

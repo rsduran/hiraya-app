@@ -1,0 +1,1044 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112978-exam-ai-100-topic-5-question-1-discussion/",
+    "body": "You are designing a business application that will use Azure Cognitive Services to parse images of business forms. You have the following requirements:<br>Parsed image data must be uploaded to Azure Storage once a week.<br>The solution must minimize infrastructure costs.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure API Apps to upload the data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure Bot Service to upload the data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure Data Factory (ADF) to upload the data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure Machine Learning to upload the data."
+    ],
+    "answer": "C",
+    "answerDescription": "The Azure Data Factory (ADF) is a service designed to allow developers to integrate disparate data sources. It is a platform somewhat like SSIS in the cloud to manage the data you have both on-premises and in the cloud.<br>It provides access to on-premises data in SQL Server and cloud data in Azure Storage (Blob and Tables) and Azure SQL Database.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/introduction https://www.jamesserra.com/archive/2014/11/what-is-azure-data-factory/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T12:48:00.000Z",
+        "voteCount": 1,
+        "content": "C. Use Azure Data Factory (ADF) to upload the data.\n\nAzure Data Factory (ADF) is a cloud-based data integration service that allows you to create data-driven workflows for orchestrating and automating data movement and transformation. In this scenario, ADF can be used to schedule and automate the process of uploading the parsed image data to Azure Storage once a week.\n\nADF provides a cost-effective solution as it allows you to define data pipelines without the need for extensive infrastructure setup or management. It can handle large-scale data transfers efficiently and provides built-in connectors for Azure Storage, enabling seamless integration with the storage service.\n\nUsing Azure API Apps or Azure Bot Service would not be the most suitable options for uploading data to Azure Storage as they are primarily designed for building APIs or developing conversational agents, respectively. Azure Machine Learning is a platform for developing and deploying machine learning models, not specifically designed for data uploading tasks."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112979-exam-ai-100-topic-5-question-2-discussion/",
+    "body": "You are developing an AI application that will perform the following functions:<br>Capture video from hundreds of surveillance cameras.<br>Recognize faces in the captured videos.<br>You want to save the captured videos in Azure but you also want to keep costs to a minimum.<br>Which of the following actions could you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Synapse Analytics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Data Lake Storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Blob Storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Databricks."
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>http://blog.pragmaticworks.com/azure-data-lake-vs-azure-blob-storage-in-data-warehousing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T12:49:00.000Z",
+        "voteCount": 1,
+        "content": "C. Make use of Azure Blob Storage.\n\nAzure Blob Storage is a cost-effective solution for storing large amounts of unstructured data, such as videos. It provides scalable storage capacity at a lower cost compared to other storage options. With Blob Storage, you can store and manage the captured videos from hundreds of surveillance cameras."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112980-exam-ai-100-topic-5-question-3-discussion/",
+    "body": "You are developing a Microsoft Bot Framework app that consumes structured NoSQL data.<br>The app has the following data storage requirements:<br>Data must be stored in Azure.<br>Data persistence must be ensured.<br>You want to keep costs at a minimum.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Blob storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Cosmos DB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Databricks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Table storage"
+    ],
+    "answer": "D",
+    "answerDescription": "Table Storage is a NoSQL key-value store for rapid development using massive semi-structured datasets.<br>You can develop applications on Cosmos DB using popular NoSQL APIs.<br>Both services have a different scenario and pricing model.<br>While Azure Storage Tables is aimed at high capacity on a single region (optional secondary read only region but no failover), indexing by PK/RK and storage- optimized pricing; Azure Cosmos DB Tables aims for high throughput (single-digit millisecond latency), global distribution (multiple failover), SLA-backed predictive performance with automatic indexing of each attribute/property and a pricing model focused on throughput.<br>Reference:<br>https://db-engines.com/en/system/Microsoft+Azure+Cosmos+DB%3BMicrosoft+Azure+Table+Storage",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T12:51:00.000Z",
+        "voteCount": 1,
+        "content": "B. Make use of Azure Cosmos DB\n\nAzure Cosmos DB is a globally distributed, multi-model database service that supports NoSQL data storage. It provides high availability, scalability, and automatic data replication across multiple regions. Azure Cosmos DB ensures data persistence and offers various consistency models to choose from based on your application's requirements."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112981-exam-ai-100-topic-5-question-4-discussion/",
+    "body": "You are using Azure Cognitive Services to create an interactive AI application that will be deployed for a world-wide audience.<br>You want the app to support multiple languages, including English, French, Spanish, Portuguese, and German.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Text Analytics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Content Moderator.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of QnA Maker.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Language API."
+    ],
+    "answer": "A",
+    "answerDescription": "The Language Detection feature of the Azure Text Analytics REST API evaluates text input for each document and returns language identifiers with a score that indicates the strength of the analysis.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-language-detection",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T12:53:00.000Z",
+        "voteCount": 1,
+        "content": "D. Make use of Language API.\n\nThe Language API is designed to handle multilingual text processing and understanding. It provides various capabilities such as language detection, translation, sentiment analysis, and named entity recognition. By using the Language API, you can develop an interactive AI application that supports multiple languages, including English, French, Spanish, Portuguese, and German."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112982-exam-ai-100-topic-5-question-5-discussion/",
+    "body": "Your company has deployed 1,000 Internet-connected sensors for an AI application. The sensors generate large amounts new data on an hourly basis.<br>The data generated by the sensors are currently stored on an on-premises server.<br>You must meet the following requirements:<br>Move the data to Azure so that you can perform advanced analytics on the data.<br>Ensure data persistence.<br>Keep costs at a minimum.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Blob storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Cosmos DB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Databricks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Table storage"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/data-storage",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T12:56:00.000Z",
+        "voteCount": 1,
+        "content": "A. Make use of Azure Blob storage.\n\nAzure Blob storage is a cost-effective solution for storing large amounts of unstructured data, such as the data generated by the Internet-connected sensors. It provides scalable storage capabilities and can handle high volumes of data. Blob storage offers durable and highly available storage with built-in redundancy and data persistence."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112983-exam-ai-100-topic-5-question-6-discussion/",
+    "body": "You are developing a Microsoft Bot Framework application. The application consumes structured NoSQL data that must be stored in the cloud.<br>You implement Azure Blob storage for the application. You want access to the blob store to be controlled by using a role.<br>You implement Azure Active Directory (Azure AD) integration on the storage account.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "A",
+    "answerDescription": "Azure Active Directory (Azure AD) integration for blobs, and queues provides Azure role-based access control (Azure RBAC) for control over a client's access to resources in a storage account.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-auth",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T12:58:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, it does. Azure Blob storage supports Azure Active Directory (Azure AD) integration on the storage account. You can use Azure AD to control access to the blob store by using a role"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58340-exam-ai-100-topic-5-question-7-discussion/",
+    "body": "You are developing a Microsoft Bot Framework application. The application consumes structured NoSQL data that must be stored in the cloud.<br>You implement Azure Blob storage for the application. You want access to the blob store to be controlled by using a role.<br>You implement Shared Key authorization on the storage account.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "A client using Shared Key passes a header with every request that is signed using the storage account access key rather than a role.<br>Use Azure Active Directory (Azure AD) instead.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-auth",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T02:49:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, it does not.\n\nShared Key authorization is not suitable for controlling access to the blob store based on roles. Shared Key authorization provides a storage account access key, which can be used to authenticate and access the blob store. However, it does not support role-based access control (RBAC) or fine-grained access control.\n\nTo control access to the blob store based on roles, you should use Azure Blob storage with Azure Active Directory (Azure AD) integration. Azure AD enables you to define roles and assign them to users or groups, allowing you to manage access control at a more granular level. With Azure AD integration, you can use RBAC to control who can perform specific actions on the blob store, such as read, write, or delete.\n\nBy combining Azure Blob storage with Azure AD integration and RBAC, you can achieve the objective of controlling access to the blob store based on roles."
+      },
+      {
+        "date": "2021-07-22T05:59:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, it does :\n\" For account, container, or blob authorization use Shared Access Signature Keys .\"\nSource : https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/data-storage"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58342-exam-ai-100-topic-5-question-8-discussion/",
+    "body": "You are developing a Microsoft Bot Framework application. The application consumes structured NoSQL data that must be stored in the cloud.<br>You implement Azure Blob storage for the application. You want access to the blob store to be controlled by using a role.<br>You implement Shared Access Signatures (SAS) on the storage account.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "Shared access signatures (SAS) provide limited delegated access to resources in a storage account. Adding constraints on the time interval for which the signature is valid or on permissions it grants provides flexibility in managing access.<br>Use Azure Active Directory (Azure AD) instead.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-auth",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T02:50:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes, it does.\n\nImplementing Shared Access Signatures (SAS) on the storage account can help accomplish your objective of controlling access to the blob store based on a role.\n\nBy using SAS, you can generate a token that includes specific permissions and a limited validity period. This token can be issued to users or clients with the required role. The role determines the permissions they have on the blob store. The SAS token can be attached to a request made to the storage account, granting temporary access to perform specific operations, such as read or write, on the blob store.\n\nWith SAS, you have fine-grained control over who can access the blob store and what operations they can perform. By generating SAS tokens with different permissions for different roles, you can enforce access control based on the desired roles within your application."
+      },
+      {
+        "date": "2021-11-18T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "For me is a NO because we can't store structured NoSQL data in a blob-storage, please be my guest to explain if that can be done, I didn't found that anywhere. https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction"
+      },
+      {
+        "date": "2021-07-22T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "Even if there are contraints, I would vote for \"Yes\" because it allows to access to the blob storage : https://docs.microsoft.com/en-us/azure/storage/common/storage-sas-overview"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58341-exam-ai-100-topic-5-question-9-discussion/",
+    "body": "You are developing a Microsoft Bot Framework application. The application consumes structured NoSQL data that must be stored in the cloud.<br>You implement Azure Blob storage for the application. You want access to the blob store to be controlled by using a role.<br>You implement On-premises Active Directory Domain Services (AD DS).<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "On-premises Active Directory Domain Services (AD DS) authorization is no supported for Azure Blob storage<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-auth",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T02:52:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, it does not.\n\nImplementing On-premises Active Directory Domain Services (AD DS) alone does not accomplish the objective of controlling access to Azure Blob storage based on a role.\n\nOn-premises AD DS is designed for managing user accounts, groups, and authentication within an on-premises network. It does not directly integrate with Azure Blob storage to control access based on roles.\n\nTo achieve role-based access control (RBAC) for Azure Blob storage, you should consider integrating Azure Active Directory (Azure AD) with your application. Azure AD provides a cloud-based identity and access management solution that can be used to define roles, assign permissions, and control access to Azure resources, including Blob storage.\n\nBy implementing Azure AD integration, you can manage access to Blob storage based on roles defined in Azure AD, granting or restricting access to users or groups based on their assigned roles."
+      },
+      {
+        "date": "2021-07-22T06:05:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112984-exam-ai-100-topic-5-question-10-discussion/",
+    "body": "You are developing an AI application that will use keys stored in an Azure Key Vault.<br>You want to configure the Azure Key Vault to ensure that a key that is deleted is retained in the key vault for 90 days.<br>What should you do?<br>Recently, a key used by the application was deleted accidentally and was unrecoverable.<br>You need to ensure that if a key is deleted, it is retained in the key vault for 90 days.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn to Azure Management Console, set the expiration date on the keys.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the Azure Portal, configure Soft delete and Purge protection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the Azure Portal, configure back up of the Azure Key Vault.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the Azure Portal, configure Azure Monitor for Key Vault."
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/key-vault/general/key-vault-recovery?tabs=azure-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:03:00.000Z",
+        "voteCount": 1,
+        "content": "To ensure that a key that is deleted is retained in the key vault for 90 days, you should configure Soft delete and Purge protection on the Azure Key Vaul"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112985-exam-ai-100-topic-5-question-11-discussion/",
+    "body": "You are designing the infrastructure for an AI solution that will analyze data stored in Azure Blob storage.<br>You want to encrypt the storage account by using a key generated by the hardware security module (HSM) of your company.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable encryption with customer-managed keys.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate an access key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate an encryption key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a service endpoint for the storage account."
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-encryption-keys-portal https://docs.microsoft.com/en-us/azure/key-vault/key-vault-hsm-protected-keys",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:08:00.000Z",
+        "voteCount": 1,
+        "content": "C. Generate an encryption key.\n\nTo encrypt the Azure Blob storage account with a key generated by the hardware security module (HSM) of your company, the first step is to generate an encryption key. This encryption key will be used to encrypt and decrypt the data in the storage account."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112986-exam-ai-100-topic-5-question-12-discussion/",
+    "body": "You have deployed 1,000 sensors for an AI application that you are developing. The sensors generate large amounts data that is ingested on an hourly basis.<br>You want your application to analyze the data generated by the sensors in real-time.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Kubernetes Service (AKS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Cosmos DB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of an Azure HDInsight Hadoop cluster",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Data Factory"
+    ],
+    "answer": "C",
+    "answerDescription": "Azure HDInsight makes it easy, fast, and cost-effective to process massive amounts of data.<br>You can use HDInsight to process streaming data that's received in real time from a variety of devices.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-introduction",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:09:00.000Z",
+        "voteCount": 1,
+        "content": "A. Make use of Azure Kubernetes Service (AKS)\n\nTo analyze the data generated by the sensors in real-time, you can make use of Azure Kubernetes Service (AKS). AKS is a container orchestration service that allows you to deploy, manage, and scale containerized applications. By deploying your AI application on AKS, you can process the data in real-time using containers and take advantage of the scalability and flexibility offered by AKS."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58756-exam-ai-100-topic-5-question-13-discussion/",
+    "body": "You are developing an AI application for your company. The application that uses batch processing to analyze data in JSON and PDF documents.<br>You want to store the JSON and PDF documents in Azure. You want to ensure data persistence while keeping costs at a minimum.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Blob storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Cosmos DB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Databricks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Table storage"
+    ],
+    "answer": "A",
+    "answerDescription": "The following technologies are recommended choices for batch processing solutions in Azure.<br>Azure Storage Blob Containers. Many existing Azure business processes already use Azure blob storage, making this a good choice for a big data store.<br>Azure Data Lake Store. Azure Data Lake Store offers virtually unlimited storage for any size of file, and extensive security options, making it a good choice for extremely large-scale big data solutions that require a centralized store for data in heterogeneous formats.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/data-guide/big-data/batch-processing https://docs.microsoft.com/bs-latn-ba/azure/storage/blobs/storage-blobs-introduction",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T06:03:00.000Z",
+        "voteCount": 1,
+        "content": "A. Make use of Azure Blob storage.\n\nTo store JSON and PDF documents in Azure while ensuring data persistence and minimizing costs, Azure Blob storage is the most suitable choice."
+      },
+      {
+        "date": "2021-07-26T23:09:00.000Z",
+        "voteCount": 1,
+        "content": "Low Cost =&gt; Bloa"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112987-exam-ai-100-topic-5-question-14-discussion/",
+    "body": "Your company has several mobile apps, each of which are consumed by several thousand users.<br>You are creating an AI application that analyzes the user behavior on the company's mobile apps.<br>You want to use a Microsoft Azure service to ingest the real-time data originating from the mobile app users. You also want to keep costs at a minimum.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Microsoft Azure Event Hubs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Microsoft Azure Notification Hubs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Microsoft Azure IoT Hub",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Microsoft Azure Service Bus"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-in/azure/event-hubs/event-hubs-about",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "A. Make use of Microsoft Azure Event Hubs\n\nIn this scenario, where you need to ingest real-time data originating from mobile app users and keep costs at a minimum, the most suitable option is to make use of Microsoft Azure Event Hubs. Azure Event Hubs is a scalable and event ingestion service that can handle millions of events per second. It is specifically designed for real-time streaming of data from various sources, including mobile devices. It provides low latency, high throughput, and cost-effective data ingestion capabilities."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112988-exam-ai-100-topic-5-question-15-discussion/",
+    "body": "You are developing a mobile application. You want to implement search functionality in the application.<br>Your solution must meet the following requirements:<br>Users must be able to run searches by typing in their search query.<br>Users must be able to run searches by voice commands.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Language Understanding (LUIS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of QnA Maker",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Bing Entity Search",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Cognitive Search"
+    ],
+    "answer": "D",
+    "answerDescription": "Azure Cognitive Search (formerly known as \"Azure Search\") is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogeneous content in web, mobile, and enterprise applications. Your code or a tool invokes data ingestion (indexing) to create and load an index. Optionally, you can add cognitive skills to apply AI processes during indexing. Doing so can add new information and structures useful for search and other scenarios.<br>Incorrect Answers:<br>B: QnA Maker is a cloud-based API service that lets you create a conversational question-and-answer layer over your existing data. Use it to build a knowledge base by extracting questions and answers from your semi-structured content, including FAQs, manuals, and documents. Answer users' questions with the best answers from the QnAs in your knowledge base\u05d2\u20ac\"automatically.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:15:00.000Z",
+        "voteCount": 1,
+        "content": "To implement search functionality in a mobile application that supports searching by typing in search queries as well as voice commands, you should take the following action:\n\nA. Make use of Language Understanding (LUIS)\n\nLanguage Understanding (LUIS) is a natural language processing service provided by Microsoft Azure. It allows you to build applications that can understand and interpret user's intents from their spoken or typed input. By using LUIS, you can train a language model to recognize specific search intents and extract relevant entities from user queries. LUIS supports both text and speech input, making it suitable for implementing search functionality that can be accessed via typing or voice commands."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112989-exam-ai-100-topic-5-question-16-discussion/",
+    "body": "Your company's marketing department is creating a social media campaign that will allow users to submit video messages for the company's social media sites.<br>You are developing an AI app for the campaign. Your app must meet the following requirements:<br>Add captions to the video messages before they are posted to the social media sites.<br>Ensure that no negative video messages are posted to the social media sites.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement Form Recognizer in your app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement the Face API in your app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement Custom Vision in your app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement Video Indexer in your app."
+    ],
+    "answer": "D",
+    "answerDescription": "Video Indexer includes Audio transcription: Converts speech to text in 12 languages and allows extensions. Supported languages include English, Spanish,<br>French, German, Italian, Mandarin Chinese, Japanese, Arabic, Russian, Portuguese, Hindi, and Korean.<br>When indexing by one channel, partial result for those models will be available, such as sentiment analysis: Identifies positive, negative, and neutral sentiments from speech and visual text.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/media-services/video-indexer/video-indexer-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:16:00.000Z",
+        "voteCount": 1,
+        "content": "D. Implement Video Indexer in your app.\n\nVideo Indexer is a comprehensive video analysis service provided by Microsoft Azure. It offers various features for processing and extracting insights from videos, including automatic speech recognition (ASR) for generating captions or transcripts, as well as sentiment analysis for identifying positive or negative sentiments in the video content."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112990-exam-ai-100-topic-5-question-17-discussion/",
+    "body": "You are using the Text Analytics service to create an AI system that analyses documents.<br>You want to implement a natural language processing workload that will be able to recognize the important points used in the documents.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Language Understanding (LUIS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Key phrase extraction",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Document categorization",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Anomaly detection"
+    ],
+    "answer": "B",
+    "answerDescription": "Broad entity extraction: Identify important concepts in text, including key<br>Key phrase extraction/ Broad entity extraction: Identify important concepts in text, including key phrases and named entities such as people, places, and organizations.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/architecture/data-guide/technology-choices/natural-language-processing<br>Topic 2, Design AI solutions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:17:00.000Z",
+        "voteCount": 1,
+        "content": "B. Make use of Key phrase extraction.\n\nKey phrase extraction is a feature provided by the Text Analytics service that can identify and extract important keywords or phrases from the given text. It helps in understanding the main topics or key points discussed in the documents."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112991-exam-ai-100-topic-5-question-18-discussion/",
+    "body": "You are designing an AI workflow that performs data analysis from multiple data sources. The data sources consist of JSON files that have been uploaded to an<br>Azure Storage account, on-premises Oracle databases, and Azure SQL databases.<br>Which service should you recommend to ingest the data?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Factory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Kubernetes Service (AKS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Bot Service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Databricks"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/introduction",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:24:00.000Z",
+        "voteCount": 1,
+        "content": "A. Azure Data Factory.\n\nAzure Data Factory is a fully managed data integration service that allows you to create workflows and pipelines to orchestrate and automate data movement and transformation. It supports a wide range of data sources and provides built-in connectors for Azure Storage, Oracle databases, and Azure SQL databases."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58343-exam-ai-100-topic-5-question-19-discussion/",
+    "body": "You are developing a mobile app for a conference provider. The mobile app will use speech-to-text to provide real-time transcription at a conference.<br>You need to ensure that the app can identify participants at the conference when they make contributions.<br>What actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct each participant to record the conference in the .wav format.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct each participant to create a voice signature.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct each participant to sign up for Azure Speech Services.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstruct each participant to install the Speech SDK on their mobile device."
+    ],
+    "answer": "B",
+    "answerDescription": "The first step is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification.<br>Note: In addition to the standard baseline model used by the Speech Services, you can customize models to your needs with available data, to overcome speech recognition barriers such as speaking style, vocabulary and background noise.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-use-conversation-transcription",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is B. Instruct each participant to create a voice signature.\n\nTo ensure that the mobile app can identify participants at the conference when they make contributions using speech-to-text, instructing each participant to create a voice signature is the appropriate action."
+      },
+      {
+        "date": "2021-07-22T06:31:00.000Z",
+        "voteCount": 2,
+        "content": "Correct."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58758-exam-ai-100-topic-5-question-20-discussion/",
+    "body": "You are developing an AI application for a virtual classroom.<br>Your application must perform the following tasks:<br>Capture audio and video data of the students in the virtual classroom.<br>Identify each student in the virtual classroom for attendance purposes.<br>Alert the teacher when a student's facial expression indicates the student having difficulty.<br>Which two of the following actions should you take? Each correct selection is part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Face API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Computer Vision API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the QnA Maker",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Video Indexer API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Custom Speech Service"
+    ],
+    "answer": "AD",
+    "answerDescription": "Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the<br>Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.<br>Face API enables you to search, identify, and match faces in your private repository of up to 1 million people.<br>The Face API now integrates emotion recognition, returning the confidence across a set of emotions for each face in the image such as anger, contempt, disgust, fear, happiness, neutral, sadness, and surprise. These emotions are understood to be cross-culturally and universally communicated with particular facial expressions.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/media-services/video-indexer/video-indexer-overview https://azure.microsoft.com/en-us/services/cognitive-services/face/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "The correct actions to take are:\n\nA. Make use of the Face API\nD. Make use of the Video Indexer API\n\nExplanation:\n\nA. Make use of the Face API: The Face API can be used to detect and identify individuals in images and videos. In this case, it can be utilized to identify each student in the virtual classroom for attendance purposes based on their facial features. This API can help capture the audio and video data of the students by recognizing their faces and linking them to their identities.\n\nD. Make use of the Video Indexer API: The Video Indexer API enables the analysis and extraction of insights from video content. It can be employed to capture the audio and video data of the students in the virtual classroom. Additionally, the Video Indexer API offers capabilities for facial emotion recognition, which can help identify when a student's facial expression indicates difficulty. This can trigger an alert for the teacher, allowing timely intervention."
+      },
+      {
+        "date": "2021-07-26T23:27:00.000Z",
+        "voteCount": 1,
+        "content": "Video Indexer API already includes Face API?"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112993-exam-ai-100-topic-5-question-21-discussion/",
+    "body": "You are developing an app that will perform the following tasks:<br>Evaluate trends in blue chip stock prices over the past decade.<br>Identify unusual fluctuations in stock prices.<br>Produce visual representations of the data.<br>You need to determine which Azure Cognitive Services APIs would be suitable for the app.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Anomaly Detector API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Computer Vision API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the QnA Maker API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of the Custom Vision API"
+    ],
+    "answer": "A",
+    "answerDescription": "The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/anomaly-detector/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:29:00.000Z",
+        "voteCount": 1,
+        "content": "A. Make use of the Anomaly Detector API.\n\nThe Anomaly Detector API is designed to detect anomalies and unusual patterns in time-series data. It can analyze the historical stock price data over the past decade to identify any abnormal fluctuations or patterns. By leveraging this API, you can automatically detect unusual behavior in the stock prices and take appropriate actions."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112995-exam-ai-100-topic-5-question-22-discussion/",
+    "body": "Your company is developing an AI solution that will identify inappropriate text in multiple languages.<br>You need to implement a Cognitive Services API that meets this requirement.<br>You use the Text Analytics API to identify inappropriate text.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "The Text Analytics API is a cloud-based service that provides advanced natural language processing over raw text, and includes four main functions: sentiment analysis, key phrase extraction, named entity recognition, and language detection.<br>Use Content Moderation instead.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/ https://docs.microsoft.com/bs-latn-ba/azure/cognitive-services/content-moderator/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:32:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes, it does.\n\nThe Text Analytics API includes a feature called \"Content Moderation\" that can be used to identify and flag inappropriate or offensive text in multiple languages. By utilizing this feature of the Text Analytics API, you can meet the requirement of identifying inappropriate text in multiple languages."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112996-exam-ai-100-topic-5-question-23-discussion/",
+    "body": "Your company is developing an AI solution that will identify inappropriate text in multiple languages.<br>You need to implement a Cognitive Services API that meets this requirement.<br>You use the Azure Content Moderator API to identify inappropriate text.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "A",
+    "answerDescription": "The Azure Content Moderator API is a cognitive service that checks text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable. When such material is found, the service applies appropriate labels (flags) to the content. Your app can then handle flagged content in order to comply with regulations or maintain the intended environment for users.<br>Reference:<br>https://docs.microsoft.com/bs-latn-ba/azure/cognitive-services/content-moderator/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:34:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes, it does.\n\nThe Azure Content Moderator API is specifically designed to identify and moderate inappropriate or offensive content, including text, images, and videos, in multiple languages. By using the Azure Content Moderator API, you can meet the requirement of identifying inappropriate text in multiple languages for your AI solution."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112997-exam-ai-100-topic-5-question-24-discussion/",
+    "body": "Your company is developing an AI solution that will identify inappropriate text in multiple languages.<br>You need to implement a Cognitive Services API that meets this requirement.<br>You use Language Understanding (LUIS) to identify inappropriate text.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "Language Understanding (LUIS) is designed to identify valuable information in conversations, LUIS interprets user goals (intents) and distills valuable information from sentences (entities), for a high quality, nuanced language model. LUIS integrates seamlessly with the Azure Bot Service, making it easy to create a sophisticated bot.<br>Use Content Moderation instead.<br>Reference:<br>https://www.luis.ai/home<br>https://docs.microsoft.com/bs-latn-ba/azure/cognitive-services/content-moderator/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:35:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, it does not.\n\nLanguage Understanding (LUIS) is a Cognitive Services API that is primarily used for natural language understanding and intent recognition. While LUIS can be used to identify certain aspects of text, such as user intent or specific entities, it is not specifically designed to identify and filter inappropriate or offensive content in text. To meet the requirement of identifying inappropriate text in multiple languages, you should consider using the Azure Content Moderator API."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/66293-exam-ai-100-topic-5-question-25-discussion/",
+    "body": "You are developing an app that will analyze sensitive data from global users.<br>Your app must adhere the following compliance policies:<br>The app must not store data in the cloud.<br>The app not use services in the cloud to process the data.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Machine Learning Studio",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Docker containers for the Text Analytics\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of a Text Analytics container deployed to Azure Kubernetes Service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Microsoft Machine Learning (MML) for Apache Spark"
+    ],
+    "answer": "D",
+    "answerDescription": "The Microsoft Machine Learning Library for Apache Spark (MMLSpark) assists in provisioning scalable machine learning models for large datasets, especially for building deep learning problems. MMLSpark works with SparkML pipelines, including Microsoft CNTK and the OpenCV library, which provide end-to-end support for the ingress and processing of image input data, categorization of images, and text analytics using pre-trained deep learning algorithms.<br>Reference:<br>https://subscription.packtpub.com/book/big_data_and_business_intelligence/9781789131956/10/ch10lvl1sec61/an-overview-of-the-microsoft-machine-learning- library-for-apache-spark-mmlspark",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-21T06:19:00.000Z",
+        "voteCount": 1,
+        "content": "B. Make use of Docker containers for the Text Analytics. This allows you to process the sensitive data locally without storing it in the cloud or using cloud services for processing."
+      },
+      {
+        "date": "2021-11-18T09:45:00.000Z",
+        "voteCount": 2,
+        "content": "Because You don't  have to store or process data in the cloud . REference: https://github.com/MicrosoftDocs/azure-docs/blob/ccf49761e4aefed30d723805f4f09e753615fb09/articles/cognitive-services/cognitive-services-container-support.md"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/66296-exam-ai-100-topic-5-question-26-discussion/",
+    "body": "You have a developed an AI app that uses a Cognitive Services API to identify images.<br>You want all the processed images to be stored an on-premises datacenter.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a Docker container to host the Cognitive Services API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an Azure Stack Edge Pro to host the Cognitive Services API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an Azure Private Endpoint to host the Cognitive Services API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an Azure Data Box to host the Cognitive Services API."
+    ],
+    "answer": "Answer: B",
+    "answerDescription": "A container is a standard unit of software that packages up code and all its dependencies so the application runs quickly and reliably from one computing environment to another. A Docker container image is a lightweight, standalone, executable package of software that includes everything needed to run an application: code, runtime, system tools, system libraries and settings.<br>Reference:<br>https://www.docker.com/resources/what-container<br>Q27)<br>You are developing a bot for an ecommerce application. The bot will support five languages.<br>The bot will use Language Understanding (LUIS) to detect the language of the customer, and QnA Maker to answer common customer questions. LUIS supports all the languages.<br>You need to determine the minimum number of Azure resources that you must create for the bot.<br>You create one instance of QnA Maker and one instance Language Understanding (LUIS).<br>Does this action accomplish your objective?<br><br>A. Yes, it does -<br><br>B. No, it does not -<br><br>You need to have a new QnA Maker resource for each language.<br>If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use Microsoft Translator API to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/language-support https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-language-support",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-21T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "B. Use an Azure Stack Edge Pro to host the Cognitive Services API, which enables you to process images locally and store them in your on-premises datacenter."
+      },
+      {
+        "date": "2021-11-18T09:51:00.000Z",
+        "voteCount": 1,
+        "content": "Moderator please provide the answer of this question. It is mixed up with other questions."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112998-exam-ai-100-topic-5-question-27-discussion/",
+    "body": "You are developing a bot for an ecommerce application. The bot will support five languages.<br>The bot will use Language Understanding (LUIS) to detect the language of the customer, and QnA Maker to answer common customer questions. LUIS supports all the languages.<br>You need to determine the minimum number of Azure resources that you must create for the bot.<br>You create one instance of QnA Maker and five instances Language Understanding (LUIS).<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "You need to have a new QnA Maker resource for each language.<br>If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use Microsoft Translator API to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/language-support https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-language-support",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:39:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, it does not.\n\nWhile creating one instance of QnA Maker can handle the common customer questions across different languages, creating separate instances of Language Understanding (LUIS) for each language is not necessary. LUIS supports multiple languages within a single instance. Therefore, you can create a single instance of LUIS that supports all five languages, rather than creating five separate instances. This would help minimize the number of Azure resources required for the bot."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/112999-exam-ai-100-topic-5-question-28-discussion/",
+    "body": "You are developing a bot for an ecommerce application. The bot will support five languages.<br>The bot will use Language Understanding (LUIS) to detect the language of the customer, and QnA Maker to answer common customer questions. LUIS supports all the languages.<br>You need to determine the minimum number of Azure resources that you must create for the bot.<br>You create five instances of QnA Maker and one instance Language Understanding (LUIS).<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "You need to have a new QnA Maker resource for each language.<br>If LUIS supports all the languages, you develop a LUIS app for each language. Each LUIS app has a unique app ID, and endpoint log. If you need to provide language understanding for a language LUIS does not support, you can use Microsoft Translator API to translate the utterance into a supported language, submit the utterance to the LUIS endpoint, and receive the resulting scores.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/language-support https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-language-support",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:41:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes, it does.\n\nBy creating one instance of Language Understanding (LUIS) that supports all five languages, and five instances of QnA Maker to handle the common customer questions in each language, you have fulfilled the requirement of supporting five languages in the bot. This approach ensures that you have the necessary Azure resources in place to handle the language detection and question answering functionalities for each language."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113001-exam-ai-100-topic-5-question-30-discussion/",
+    "body": "You are developing an application that uses the Computer Vision API.<br>Your application will perform the following steps:<br>Take data from an on-premises database and load it to an Azure Blob storage account.<br>Connect to an Azure Machine Learning service.<br>You need to orchestrate the workflow.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Kubernetes Service (AKS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Pipelines",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Factory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn Azure HDInsight cluster",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Lake"
+    ],
+    "answer": "C",
+    "answerDescription": "With Azure Data Factory you can use workflows to orchestrate data integration and data transformation processes at scale.<br>Build data integration, and easily transform and integrate big data processing and machine learning with the visual interface.<br>Reference:<br>https://azure.microsoft.com/en-us/services/data-factory/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:48:00.000Z",
+        "voteCount": 1,
+        "content": "C. Azure Data Factory\n\nAzure Data Factory is a fully managed data integration service that allows you to orchestrate and automate data movement and data transformation workflows. It provides a visual interface for building complex data pipelines and supports various data sources and destinations, including on-premises databases and Azure Blob storage. With Azure Data Factory, you can easily move data from your on-premises database to Azure Blob storage and then connect to Azure Machine Learning service for further processing using the Computer Vision API."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113002-exam-ai-100-topic-5-question-31-discussion/",
+    "body": "You are designing an AI system for your company. Your system will consume several Apache Kafka data streams.<br>You want your system to be able to process the data streams at scale and in real-time.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure HDInsight with Apache HBase",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure HDInsight with Apache Spark",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure HDInsight with Apache Storm",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure HDInsight with Microsoft Machine Learning Server"
+    ],
+    "answer": "C",
+    "answerDescription": "Apache Storm is a distributed, fault-tolerant, open-source computation system. You can use Storm to process streams of data in real time with Apache Hadoop.<br>Storm solutions can also provide guaranteed processing of data, with the ability to replay data that wasn't successfully processed the first time.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-streaming-at-scale-overview https://docs.microsoft.com/en-us/azure/hdinsight/storm/apache-storm-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:50:00.000Z",
+        "voteCount": 1,
+        "content": "C. Make use of Azure HDInsight with Apache Storm\n\nAzure HDInsight is a cloud-based big data analytics service that allows you to process and analyze large volumes of data. It supports various open-source big data technologies, including Apache Kafka, Apache HBase, Apache Spark, and Apache Storm.\n\nApache Storm is a distributed real-time processing system designed for processing high-velocity streaming data. It provides a scalable and fault-tolerant platform for processing data streams in real-time. By using Azure HDInsight with Apache Storm, you can effectively process and analyze your Apache Kafka data streams at scale and in real-time."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113003-exam-ai-100-topic-5-question-32-discussion/",
+    "body": "You are developing an app for a conference provider. The app will use speech-to-text to provide transcription at a conference in English. It will also use the<br>Translator Text API to translate the transcripts to the language preferred by the conference attendees.<br>You test the translation features on the app and discover that the translations are fairly poor.<br>You want to improve the quality of the translations.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Text Analytics to perform the translations.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Language Understanding (LUIS) API to perform the translations.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform the translations by training a custom model using Custom Translator.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Computer Vision API to perform the translations."
+    ],
+    "answer": "C",
+    "answerDescription": "Custom Translator is a feature of the Microsoft Translator service. With Custom Translator, enterprises, app developers, and language service providers can build neural translation systems that understand the terminology used in their own business and industry. The customized translation system will then seamlessly integrate into existing applications, workflows and websites.<br>Custom Translator allows users to customize Microsoft Translator's advanced neural machine translation for Translator's supported neural translation languages.<br>Custom Translator can be used for customizing text when using the Microsoft Translator Text API, and speech translation using the Microsoft Speech services.<br>Reference:<br>https://www.microsoft.com/en-us/translator/business/customization/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:52:00.000Z",
+        "voteCount": 1,
+        "content": "C. Perform the translations by training a custom model using Custom Translator.\n\nTo improve the quality of translations in your app, you can utilize the Custom Translator feature. Custom Translator allows you to train a custom translation model using your own data. By training the model with specific content related to the conference domain or using additional high-quality translated data, you can enhance the accuracy and relevance of the translations provided by the Translator Text API."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58346-exam-ai-100-topic-5-question-34-discussion/",
+    "body": "You are developing an app that consumes data from several Azure IoT Edge devices.<br>You need to implement a storage solution for the app. Your solution must allow data to be queried in real-time as it streams into the solution. You need to ensure that your solution provides the least amount of latency for loading data.<br>You want the data files to persist on the devices for at least 14 days.<br>What storage solution should you implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Lake Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Factory Edge",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure HDInsight Hadoop cluster",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure SQL database with In-Memory OLTP"
+    ],
+    "answer": "C",
+    "answerDescription": "You can use HDInsight to process streaming data that's received in real time from a variety of devices.<br>Internet of Things (IoT)<br>You can use HDInsight to build applications that extract critical insights from data. You can also use Azure Machine Learning on top of that to predict future trends for your business.<br>By combining enterprise-scale R analytics software with the power of Apache Hadoop and Apache Spark, Microsoft R Server for HDInsight gives you the scale and performance you need. Multi-threaded math libraries and transparent parallelization in R Server handle up to 1000x more data and up to 50x faster speeds than open-source R, which helps you to train more accurate models for better predictions.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/hdinsight/hadoop/apache-hadoop-introduction",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:54:00.000Z",
+        "voteCount": 1,
+        "content": "B. Azure Data Factory Edge\n\nTo implement a storage solution that allows real-time querying of data with low latency and ensures data persistence on the devices for at least 14 days, you should use Azure Data Factory Edge.\n\nAzure Data Factory Edge is designed to collect, transform, and analyze data from edge devices. It provides a scalable and reliable solution for ingesting, processing, and storing data at the edge. With Azure Data Factory Edge, you can configure data flows to ingest data from your Azure IoT Edge devices and store it in the desired storage format (e.g., Azure Blob storage, Azure Data Lake Storage).\n\nBy using Azure Data Factory Edge, you can set up data pipelines to stream and process the data in real-time, allowing you to query the data as it streams into the solution with minimal latency. Additionally, you can define retention policies to ensure that the data files persist on the devices for at least 14 days."
+      },
+      {
+        "date": "2021-07-27T00:16:00.000Z",
+        "voteCount": 1,
+        "content": "What is \"You want the data files to persist on the devices for at least 14 days.\" for?"
+      },
+      {
+        "date": "2021-07-22T06:56:00.000Z",
+        "voteCount": 3,
+        "content": "I would go for D : \"In-Memory OLTP increases number of transactions per second and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.\""
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113005-exam-ai-100-topic-5-question-37-discussion/",
+    "body": "You company's developers have created an Azure Data Factory pipeline that moves data from an on-premises server to Azure Storage. The pipeline consumes<br>Azure Cognitive Services APIs.<br>You need to deploy the pipeline. Your solution must minimize custom code.<br>You use Integration Runtime to move data to the cloud and Azure API Management to consume Cognitive Services APIs.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "B",
+    "answerDescription": "Azure API Management is a turnkey solution for publishing APIs to external and internal customers.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-examples-and-scenarios",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T13:57:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, it does not.\n\nThe given solution does not accomplish the objective of minimizing custom code. While Integration Runtime can be used to move data from an on-premises server to Azure Storage, and Azure API Management can be used to consume Cognitive Services APIs, it does not eliminate the need for custom code.\n\nTo minimize custom code and simplify the deployment of the pipeline, you should consider using Azure Logic Apps. Azure Logic Apps provide a serverless and code-free way to orchestrate workflows and integrate different systems and services."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113007-exam-ai-100-topic-5-question-39-discussion/",
+    "body": "You are developing an application that uses an API pipeline. The application consumes and analyzes streaming data.<br>You API pipeline must perform face detection and sentiment analysis.<br>What actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Computer Vision API in the pipeline.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Face API in the pipeline.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Text Analytics in the pipeline.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Video Indexer in the pipeline."
+    ],
+    "answer": "D",
+    "answerDescription": "Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the<br>Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models described below:<br>Visual text recognition (OCR): Extracts text that is visually displayed in the video.<br>Audio transcription: Converts speech to text in 12 languages and allows extensions.<br>Sentiment analysis: Identifies positive, negative, and neutral sentiments from speech and visual text.<br>Face detection: Detects and groups faces appearing in the video.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/media-services/video-indexer/video-indexer-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:00:00.000Z",
+        "voteCount": 1,
+        "content": "To perform face detection and sentiment analysis in the API pipeline for analyzing streaming data, you should take the following actions:\n\nB. Use the Face API in the pipeline: The Face API provides facial detection and analysis capabilities, allowing you to detect faces in images or video frames, extract facial attributes, and perform facial recognition. This will enable you to perform face detection as part of your API pipeline."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113008-exam-ai-100-topic-5-question-41-discussion/",
+    "body": "You are designing an Azure Batch AI solution that will perform image recognition. The solution will be used to train several Azure Machine Learning models.<br>You need to enable versioning for Azure Machine Learning models.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegister the Azure Machine Learning models.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure HDInsight cluster.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Machine Learning experiments.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Machine Learning pipelines."
+    ],
+    "answer": "A",
+    "answerDescription": "Model registration allows you to store and version your models in the Azure cloud, in your workspace. The model registry makes it easy to organize and keep track of your trained models.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/machine-learning/studio/version-control https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-and-where",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:04:00.000Z",
+        "voteCount": 1,
+        "content": "To enable versioning for Azure Machine Learning models, you should:\n\nA. Register the Azure Machine Learning models.\n\nBy registering the models, you can track and manage different versions of your models. This allows you to keep a history of model changes and easily deploy specific versions as needed."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113009-exam-ai-100-topic-5-question-42-discussion/",
+    "body": "You are developing the workflow for an Azure Machine Learning solution. The solution must retrieve data from the following on-premises sources:<br>Windows Server 2016 File servers<br><br>Microsoft SQL Server databases -<br><br>Oracle databases -<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Data Factory to retrieve the data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Databricks to retrieve the data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Stream Analytics to retrieve the data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Synapse Analytics to retrieve the data."
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/machine-learning/studio/use-data-from-an-on-premises-sql-server",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:06:00.000Z",
+        "voteCount": 1,
+        "content": "To retrieve data from on-premises sources such as Windows Server 2016 File servers, Microsoft SQL Server databases, and Oracle databases in an Azure Machine Learning solution, you should:\n\nA. Make use of Azure Data Factory to retrieve the data.\n\nAzure Data Factory is a cloud-based data integration service that allows you to orchestrate and automate the movement and transformation of data from various sources, including on-premises sources, to your desired destinations. It provides connectivity options and data integration capabilities to pull data from on-premises sources and load it into Azure for further processing and analysis in your Azure Machine Learning workflow."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58767-exam-ai-100-topic-5-question-43-discussion/",
+    "body": "You company's developers have created an Azure Data Factory pipeline that moves data from an on-premises server to Azure Storage. The pipeline consumes<br>Azure Cognitive Services APIs.<br>You need to deploy the pipeline. Your solution must minimize custom code.<br>You use Self-hosted Integration Runtime to move data to the cloud and Azure Logic Apps to consume Cognitive Services APIs.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "A",
+    "answerDescription": "A self-hosted Integration Runtime is capable of running copy activity between a cloud data stores and a data store in private network.<br>Azure Logic Apps helps you orchestrate and integrate different services by providing 100+ ready-to-use connectors, ranging from on-premises SQL Server or SAP to Microsoft Cognitive Services.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-examples-and-scenarios",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:14:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes, it does.\n\nUsing a Self-hosted Integration Runtime in Azure Data Factory allows you to move data from an on-premises server to Azure Storage. Azure Logic Apps can be used to consume Azure Cognitive Services APIs by leveraging the built-in connectors and actions available for interacting with Cognitive Services.\n\nWith Azure Logic Apps, you can easily create workflows and utilize the Logic Apps Cognitive Services connectors to integrate with Azure Cognitive Services APIs, such as Text Analytics, Computer Vision, or Language Understanding (LUIS). This allows you to incorporate cognitive capabilities into your data pipeline without the need for significant custom code.\n\nTherefore, by using Self-hosted Integration Runtime for data movement and Azure Logic Apps for consuming Cognitive Services APIs, you can deploy the pipeline and accomplish your objective of minimizing custom code."
+      },
+      {
+        "date": "2021-07-27T00:32:00.000Z",
+        "voteCount": 1,
+        "content": "\"minimize custom code\"?"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113013-exam-ai-100-topic-5-question-44-discussion/",
+    "body": "You have deployed several Azure IoT Edge devices for an AI solution. The Azure IoT Edge devices generate measurement data from temperature sensors.<br>You need a solution to process the sensor data. Your solution must be able to write configuration changes back to the devices.<br>You make use of Microsoft Azure IoT Hub.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://azure.microsoft.com/en-us/resources/samples/functions-js-iot-hub-processing/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:15:00.000Z",
+        "voteCount": 1,
+        "content": "A. Yes, it does.\n\nBy making use of Microsoft Azure IoT Hub, you can accomplish your objective of processing the sensor data generated by Azure IoT Edge devices and writing configuration changes back to the devices.\n\nAzure IoT Hub is a managed service that acts as a central hub for bi-directional communication between IoT devices and the cloud. It provides device management, telemetry ingestion, and command and control capabilities. With Azure IoT Hub, you can easily connect and manage your IoT devices, including Azure IoT Edge devices.\n\nUsing Azure IoT Hub, you can ingest the measurement data from temperature sensors deployed on the Azure IoT Edge devices. You can then process this data in the cloud using Azure services such as Azure Stream Analytics, Azure Functions, or Azure Machine Learning. Once processed, you can send configuration changes or commands back to the devices through Azure IoT Hub, enabling you to remotely update the device configurations."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113016-exam-ai-100-topic-5-question-46-discussion/",
+    "body": "You have deployed several Azure IoT Edge devices for an AI solution. The Azure IoT Edge devices generate measurement data from temperature sensors.<br>You need a solution to process the sensor data. Your solution must be able to write configuration changes back to the devices.<br>You make use of Azure Notification Hub.<br>Does this action accomplish your objective?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes, it does",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo, it does not"
+    ],
+    "answer": "Answer:",
+    "answerDescription": "Use Microsoft Azure IoT Hub instead.<br>Reference:<br>https://azure.microsoft.com/en-us/resources/samples/functions-js-iot-hub-processing/<br><br>Q48 DRAG DROP -<br>You have developed an AI application for your company.<br>You want to prepare the application for deployment to Kubernetes.<br>Which three of the following actions should you perform? To answer, move the selected actions from the list of actions to the answer area and rearrange them in the right order.<br>NOTE: Each correct selection is worth one point.<br><img src=\"/assets/media/exam-media/03857/0023700001.png\" class=\"in-exam-image\"><br><br><img src=\"/assets/media/exam-media/03857/0023800001.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/aks/tutorial-kubernetes-prepare-app",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:20:00.000Z",
+        "voteCount": 1,
+        "content": "B. No, it does not.\n\nAzure Notification Hub is a scalable and multi-platform push notification service that enables you to send push notifications to various mobile platforms, such as iOS, Android, and Windows. It provides features for targeting specific devices, sending personalized notifications, and tracking engagement metrics."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113017-exam-ai-100-topic-5-question-47-discussion/",
+    "body": "Your company is about to deploy an Azure Machine Learning experiment. The company is concerned that the experiment might not be adhering to GDPR regulations.<br>You have been instructed to do a review of the experiment's adherence to GDPR regulations. You must perform the review as quickly as possible.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Security Center",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Log Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Compliance Manager"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://azure.microsoft.com/en-us/blog/new-capabilities-to-enable-robust-gdpr-compliance/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-22T14:24:00.000Z",
+        "voteCount": 1,
+        "content": "D. Make use of Compliance Manager.\n\nTo quickly review the adherence of an Azure Machine Learning experiment to GDPR regulations, you can use Compliance Manager. Compliance Manager is a built-in Azure tool that helps organizations assess and track their compliance with various regulatory standards, including GDPR.\n\nBy using Compliance Manager, you can assess the compliance of your Azure resources, including Azure Machine Learning, against GDPR requirements. It provides a centralized dashboard that allows you to view the compliance status, identify any potential gaps, and track the progress of remediation actions.\n\nCompliance Manager also provides predefined assessments and control mappings specific to GDPR, which can help streamline the review process and provide insights into the experiment's adherence to GDPR regulations."
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/58768-exam-ai-100-topic-5-question-48-discussion/",
+    "body": "You are developing an AI application for your company. The application will use Microsoft Azure Stream Analytics.<br>You save the outputs from the Stream Analytics workflows to the cloud.<br>Which of the following actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of a Hive table in Azure HDInsight",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Cosmos DB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure File storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake use of Azure Table storage\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-outputs",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-21T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "B. Make use of Azure Cosmos DB\n\nWhile options like Azure HDInsight with a Hive table, Azure File storage, and Azure Table storage have their own use cases, they are not specifically designed for efficiently storing and querying real-time streaming data from Azure Stream Analytics. Azure Cosmos DB is the more appropriate choice for this scenario."
+      },
+      {
+        "date": "2021-11-18T10:55:00.000Z",
+        "voteCount": 1,
+        "content": "Here is defined as output https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-outputs"
+      },
+      {
+        "date": "2021-07-27T00:38:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-outputs\nAzure Table storage,  Azure Cosmos DB ?"
+      }
+    ],
+    "examNameCode": "ai-100",
+    "topicNumber": "5"
+  }
+]

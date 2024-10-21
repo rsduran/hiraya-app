@@ -1,0 +1,66 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/16277-exam-az-203-topic-7-question-1-discussion/",
+    "body": "You need to resolve a notification latency issue.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet Always On to false.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet Always On to true.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure that the Azure Function is set to use a consumption plan.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure that the Azure Function is using an App Service plan."
+    ],
+    "answer": "BD",
+    "answerDescription": "Azure Functions can run on either a Consumption Plan or a dedicated App Service Plan. If you run in a dedicated mode, you need to turn on the Always On setting for your Function App to run properly. The Function runtime will go idle after a few minutes of inactivity, so only HTTP triggers will actually \"wake up\" your functions. This is similar to how WebJobs must have Always On enabled.<br>Scenario: Notification latency: Users report that anomaly detection emails can sometimes arrive several minutes after an anomaly is detected.<br>Anomaly detection service: You have an anomaly detection service that analyzes log information for anomalies. It is implemented as an Azure Machine Learning model. The model is deployed as a web service.<br>If an anomaly is detected, an Azure Function that emails administrators is called by using an HTTP WebHook.<br>References:<br>https://github.com/Azure/Azure-Functions/wiki/Enable-Always-On-when-running-on-dedicated-App-Service-Plan",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-10T14:39:00.000Z",
+        "voteCount": 1,
+        "content": "Function app with consumption plan can be activated without Always On.\n\nShould not A C be the answer?\n\n\"On a Consumption plan the platform activates function apps automatically and on a Premium plan the platform keeps your desired number of pre-warmed instances always on automatically.\"\nhttps://github.com/Azure/Azure-Functions/wiki/Enable-Always-On-when-running-on-dedicated-App-Service-Plan"
+      },
+      {
+        "date": "2020-06-20T07:35:00.000Z",
+        "voteCount": 2,
+        "content": "Code Snippet : https://vceguide.com/when-you-deploy-policy-service-policies-may-not-be-applied-if-they-were-in-the-process-of-being-applied-during-the-deployment-2/"
+      },
+      {
+        "date": "2020-05-19T11:10:00.000Z",
+        "voteCount": 3,
+        "content": "options image are all error 404 not found now"
+      },
+      {
+        "date": "2020-06-20T07:35:00.000Z",
+        "voteCount": 2,
+        "content": "Code snippet : https://vceguide.com/when-you-deploy-policy-service-policies-may-not-be-applied-if-they-were-in-the-process-of-being-applied-during-the-deployment-2/"
+      },
+      {
+        "date": "2020-03-14T04:02:00.000Z",
+        "voteCount": 1,
+        "content": "options please guys :)"
+      },
+      {
+        "date": "2020-04-30T13:31:00.000Z",
+        "voteCount": 2,
+        "content": "The options are displayed already"
+      },
+      {
+        "date": "2020-03-11T10:14:00.000Z",
+        "voteCount": 1,
+        "content": "Is this answer correct?"
+      },
+      {
+        "date": "2020-04-10T14:31:00.000Z",
+        "voteCount": 6,
+        "content": "Yes, this is the correct answer."
+      },
+      {
+        "date": "2020-05-19T11:21:00.000Z",
+        "voteCount": 6,
+        "content": "App Service Plan = Dedicated Plan, that's the only plan that have the \"Always On\" option."
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "7"
+  }
+]

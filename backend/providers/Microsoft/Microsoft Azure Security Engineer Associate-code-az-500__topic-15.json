@@ -1,0 +1,240 @@
+[
+  {
+    "topic": 15,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/63294-exam-az-500-topic-15-question-1-discussion/",
+    "body": "HOTSPOT -<br>You assign User8 the Owner role for RG4, RG5, and RG6.<br>In which resource groups can User8 create virtual networks and NSGs by using the Azure portal? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0032200005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0032300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: RG6 only -<br>The policy does not allow the creation of virtual networks/subnets in RG5.  Only NSGs can be created in RG4.<br>Box 2: The policy does not allow the creation of NSGs in RG5.<br><img src=\"/assets/media/exam-media/04258/0032300002.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/governance/policy/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-07T17:32:00.000Z",
+        "voteCount": 19,
+        "content": "It should be RG4 on the first box, and RG4 and RG6 on the second box"
+      },
+      {
+        "date": "2021-10-12T22:33:00.000Z",
+        "voteCount": 29,
+        "content": "In RG4 only allowed resrource type is NSG which is not a requirement in first box. R6 is the right answer."
+      },
+      {
+        "date": "2023-04-21T01:38:00.000Z",
+        "voteCount": 1,
+        "content": "Correct. Guys look at the Policy definition for RG6. \n\nNot allowed resource types is: virtualNetworks/virtualNetworkPeerings \n\nSo for Box1: It is: RG4 only\n\nAs most of you also mention RG5 has not allowed resource types: vitrualNetowkrs/subents \n\nSame goes for RG6 on the resource type section."
+      },
+      {
+        "date": "2024-01-05T15:48:00.000Z",
+        "voteCount": 5,
+        "content": "Box1: RG5, RG6\n\nCreating a subnet is optional when creating a VNET.\n\nYou can create only the VNET and the policy will allow it. Tested in lab."
+      },
+      {
+        "date": "2022-10-11T14:50:00.000Z",
+        "voteCount": 12,
+        "content": "Box 1: RG6 only - The policy does not allow the creation of virtual networks/subnets in RG5. Only NSGs can be created in RG4.\nRG4 allows only NSG, so No VNET allowed\nRG5 prevents from NSG creation and from Subnet, so supposed VNET (even without subnet) is KO\nRG6 excludes only NetworkPeerings so it's OK as he has the owner role\n\nBox 2: RG4 and RG6 only - The policy does not allow the creation of NSGs in RG5.\nRG4 allows only NSG, so OK\nRG5 prevents from NSG creation, so KO\nRG6 excludes only NetworkPeerings so it's OK for NSG as he has the owner role"
+      },
+      {
+        "date": "2024-01-05T15:48:00.000Z",
+        "voteCount": 4,
+        "content": "Box1: RG5, RG6\n\nCreating a subnet is optional when creating a VNET.\n\nYou can create only the VNET and the policy will allow it. Tested in lab."
+      },
+      {
+        "date": "2024-07-19T20:19:00.000Z",
+        "voteCount": 2,
+        "content": "In Exam20/07/2024"
+      },
+      {
+        "date": "2024-07-07T10:08:00.000Z",
+        "voteCount": 2,
+        "content": "Let\u2019s analyze one by one for the boxes. \nRG4 has policy definition that has Allowed Resource Type value that only allows Resource Type which is newtorkSecurityGroups that is why inside RG4 besides Network Security group we can not create any other resource.\nRG5, has NotAllowedResourceType which does not allow to create virtual network subnet inside the resource group, however question in box-1 one asks about can we create vnet ? Yes, we can but we will create it without subnet when we create vnet in the portal near to the name of Default Subnet there is delete icon as well we can delete it and create vnet without subnet. However inside this RG5 we will not able to create network security group as we see this is also in the not allowed resource type for this resource group."
+      },
+      {
+        "date": "2024-07-07T10:08:00.000Z",
+        "voteCount": 5,
+        "content": "RG6, inside this resource group except vnet peering we will be able to create to vnet and network security groups as.\nBased on that the answer for the first box will be. RG5, RG6. \nFor the second box answer will be RG4, RG6.\nAllowed Resource Type (Deny): Defines the resource types that you can deploy. Its effect is to deny all resources that aren't part of this defined list.\n\nBOX-1 RG5/RG6\nBOX-2  RG4/RG6\nBR"
+      },
+      {
+        "date": "2024-02-16T10:50:00.000Z",
+        "voteCount": 2,
+        "content": "Box1:5,6  --&gt; Not allowed resource types:virtualNetworks/subnets. This will not allow us to create any subnet. Hence from the Azure portal, we can create any VNet inside WhizlabRg5 with reason:when we create a VNet from azure portal, by default, a subnet is created.But we can create a VNet without any subnet from CLI o PowerShell"
+      },
+      {
+        "date": "2024-02-17T03:15:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, Box 1:Only 6 because the question specify from Azure portal, no CLI or PowerShell"
+      },
+      {
+        "date": "2024-01-30T11:52:00.000Z",
+        "voteCount": 4,
+        "content": "In exam 1/28/24"
+      },
+      {
+        "date": "2024-01-05T15:48:00.000Z",
+        "voteCount": 1,
+        "content": "Box1: RG5, RG6\n\nCreating a subnet is optional when creating a VNET.\n\nYou can create only the VNET and the policy will allow it. Tested in lab."
+      },
+      {
+        "date": "2023-11-13T14:50:00.000Z",
+        "voteCount": 1,
+        "content": "Explanation:\nBox 1: RG6 only -\nThe policy does not allow the creation of virtual networks/subnets in RG5. Only NSGs can be created in RG4. Box 2: The policy does not allow the creation of NSGs in RG5."
+      },
+      {
+        "date": "2023-10-09T10:51:00.000Z",
+        "voteCount": 2,
+        "content": "Answers are correct."
+      },
+      {
+        "date": "2023-09-08T15:09:00.000Z",
+        "voteCount": 2,
+        "content": "Answer for Box 1 should be: RG5 and RG6 only.\nExplanation:\n\t- RG4: Policy allows creation of NSGs, but nothing else.\n\t- RG5: Policy does NOT allow creation of NSGs and specifically subnets, but allows creation of other resources including VNets.\n\t- RG6: Policy does NOT allow creation of VNet Peering, but allows creation of other resources.\n\nAnswer for Box 2 should be: RG4 and RG6 only.\nExplanation:\n\t- RG4: Policy allows creation of NSGs, but nothing else.\n\t- RG5: Policy does NOT allow creation of NSGs and subnets, but allows creation of other resources.\n\t- RG6: Policy does NOT allow creation of VNet Peering, but allows creation of other resources including NSGs."
+      },
+      {
+        "date": "2023-06-09T06:44:00.000Z",
+        "voteCount": 1,
+        "content": "It should be RG4 and RG6 for both,\nFor creating the VNet, While the policy allows the creation and management of network security groups in RG4, it does not directly address the creation of virtual networks. Therefore, the creation of virtual networks should be allowed by default in RG4.\nFor RG6, the policy specifically prohibits the creation or modification of virtual network peerings but It does not mention anything about the creation of virtual networks themselves. As there is no explicit restriction on the creation of virtual networks, the creation of virtual networks should be allowed in RG6.\nFor the second part, creation of Network security group only being denied on RG5 and it's allowed for both RG4 and RG6."
+      },
+      {
+        "date": "2023-05-19T19:08:00.000Z",
+        "voteCount": 2,
+        "content": "in exam 20.05.2023"
+      },
+      {
+        "date": "2023-05-05T22:01:00.000Z",
+        "voteCount": 7,
+        "content": "1. RG6 only\n2. RG4 and RG6\n\nhttps://learn.microsoft.com/en-us/azure/governance/policy/overview#policy-definition\n- Allowed Resource Type (Deny): Defines the resource types that you can deploy. Its effect is to deny all resources that aren't part of this defined list\n- Not allowed resource types (Deny): Prevents a list of resource types from being deployed."
+      },
+      {
+        "date": "2023-05-10T04:40:00.000Z",
+        "voteCount": 2,
+        "content": "Gotten this in May 2023 exam."
+      },
+      {
+        "date": "2023-03-04T13:28:00.000Z",
+        "voteCount": 5,
+        "content": "VNETs: RG6 only\nNSGs: RG4 and RG6"
+      },
+      {
+        "date": "2023-01-18T09:28:00.000Z",
+        "voteCount": 2,
+        "content": "Box1: 6 only\nBox2: 4 &amp; 6"
+      },
+      {
+        "date": "2023-01-06T09:11:00.000Z",
+        "voteCount": 1,
+        "content": "#1 is RG4 only, VNETS are allowed, no locks. RG6 is wrong since vnets are  not allowed\n#2 is correct... RG4 &amp; RG6"
+      },
+      {
+        "date": "2022-10-31T06:58:00.000Z",
+        "voteCount": 3,
+        "content": "Allowed resource types: Defines the resource types that you can deploy. Its effect is to deny all resources that aren\u2019t part of this defined list (Allow NSG in RG4, implicit deny RG5, RG6)\nNot allowed resource types: Prevents a list of resource types from being deployed (Deny NSG in RG5)\n\nBox1: RG4, RG5, RG6\nBox2: RG4"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "15"
+  },
+  {
+    "topic": 15,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/46800-exam-az-500-topic-15-question-2-discussion/",
+    "body": "HOTSPOT -<br>Which virtual networks in Sub1 can User9 modify and delete in their current state? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0032400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0032500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: VNET4 and VNET1 only -<br>RG1 has only Delete lock, while there are no locks on RG4.<br>RG2 and RG3 both have Read-only locks.<br><br>Box 2: VNET4 only -<br>There are no locks on RG4, while the other resource groups have either Delete or Read-only locks.<br>Note: As an administrator, you may need to lock a subscription, resource group, or resource to prevent other users in your organization from accidentally deleting or modifying critical resources. You can set the lock level to CanNotDelete or ReadOnly. In the portal, the locks are called Delete and Read-only respectively.<br>\u2711 CanNotDelete means authorized users can still read and modify a resource, but they can't delete the resource.<br>\u2711 ReadOnly means authorized users can read a resource, but they can't delete or update the resource. Applying this lock is similar to restricting all authorized users to the permissions granted by the Reader role.<br>Scenario:<br>Sub1 contains six resource groups named RG1, RG2, RG3, RG4, RG5, and RG6.<br>User9 creates the virtual networks shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0032600001.png\" class=\"in-exam-image\"><br>Sub1 contains the locks shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0032600002.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-lock-resources",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-12T15:47:00.000Z",
+        "voteCount": 42,
+        "content": "Answers are correct!"
+      },
+      {
+        "date": "2021-03-23T13:06:00.000Z",
+        "voteCount": 13,
+        "content": "FIrst anwser: RG3 should be included as it has as well the delete lock. It should be vnet4, vnet1 and vnet3. \n\nSecond one is ok."
+      },
+      {
+        "date": "2021-03-28T09:16:00.000Z",
+        "voteCount": 22,
+        "content": "NO, RG3 has a delete AND read only lock on it(assuming thats not a typo in the question) So Answers are correct"
+      },
+      {
+        "date": "2024-02-26T09:44:00.000Z",
+        "voteCount": 3,
+        "content": "This question appeared in Feb 2024 exam, there were 6 sub questions based on given case study, however here only 1 question is asked. It is only of the 6 questions that was asked."
+      },
+      {
+        "date": "2023-10-09T10:59:00.000Z",
+        "voteCount": 3,
+        "content": "Answers are correct"
+      },
+      {
+        "date": "2023-05-05T21:58:00.000Z",
+        "voteCount": 4,
+        "content": "1. VNET4 and VNET1 only\n2. VNET4 only\n\nhttps://learn.microsoft.com/en-us/azure/azure-resource-manager/management/lock-resources?tabs=json\n- CanNotDelete means authorized users can read and modify a resource, but they can't delete it.\n- ReadOnly means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the Reader role provides."
+      },
+      {
+        "date": "2023-03-04T13:31:00.000Z",
+        "voteCount": 6,
+        "content": "Modify: VNET4 and VNET1\nDelete: VNET4 only"
+      },
+      {
+        "date": "2022-10-20T16:05:00.000Z",
+        "voteCount": 2,
+        "content": "given answer is correct, as explained in discussions as well."
+      },
+      {
+        "date": "2022-10-18T06:11:00.000Z",
+        "voteCount": 3,
+        "content": "In Exam 10/18/2022. One case study(6 ques), no lab."
+      },
+      {
+        "date": "2021-09-20T14:31:00.000Z",
+        "voteCount": 4,
+        "content": "## Exam Question -  17 Sept 2021 ##"
+      },
+      {
+        "date": "2021-08-22T00:17:00.000Z",
+        "voteCount": 3,
+        "content": "We don't know the scope of role assignment for User9. Owner role should be assigned to. He/She was able to create VNET2 and VNET3 on Read-only subscriptions! So he probably God and can do impossible tasks. How we can judge such users? If he able to create, lets assume that he will be able to change..."
+      },
+      {
+        "date": "2023-02-22T22:56:00.000Z",
+        "voteCount": 1,
+        "content": "he has power of GOD.....question is also speaking language of GODS"
+      },
+      {
+        "date": "2021-08-03T12:45:00.000Z",
+        "voteCount": 5,
+        "content": "Answers are correct.\n\nRG1: delete lock\nRG2: read only lock\nRG3: read only + delete locks \nRG4: no lock\n\nSo \nAnswer: You can only modify 1 and 4 only.\n\nA: You can only delete VNet4 only because it is the only one with no attached VMs and in a RG with no lock."
+      },
+      {
+        "date": "2021-07-05T07:29:00.000Z",
+        "voteCount": 1,
+        "content": "VNET1 Lock delete by RG1\nCorrect only VNET4"
+      },
+      {
+        "date": "2021-05-20T21:58:00.000Z",
+        "voteCount": 3,
+        "content": "box 1 is incorrect. Vnet4 can be modifies since there is no lock applied to the RG4. There is a Delete lock on RG1 and 3 which makes them editable. Therefore, the correct answer is Vnet1,3 and 4"
+      },
+      {
+        "date": "2021-05-31T14:13:00.000Z",
+        "voteCount": 2,
+        "content": "VNET 3 is located in RG3 which has two locks, Read-only and Delete, so VNET3 can't either be modified nor deleted."
+      },
+      {
+        "date": "2021-08-21T17:36:00.000Z",
+        "voteCount": 1,
+        "content": "He meant for box1 - vnet 1 and 3 and box2 - vnet 4"
+      },
+      {
+        "date": "2022-06-23T04:18:00.000Z",
+        "voteCount": 1,
+        "content": "and a R/O lock on RG3 which make that one un-editable. Given answer is correct imho."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "15"
+  }
+]

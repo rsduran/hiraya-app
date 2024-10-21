@@ -1,0 +1,65 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41389-exam-70-487-topic-7-question-1-discussion/",
+    "body": "You are developing an ASP.NET MVC application. The application has a page that updates an image stored in a database. Members of the EntityClient namespace are used to access an Entity Framework data model. Images and associated metadata are stored in a single database table.<br>You need to run a single query that updates an image and associated metadata in the database while returning only the number of affected rows.<br>Which method of the EntityCommand type should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecuteScalar()",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecuteDbDataReader()",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecuteReader()",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecuteNonQuery()"
+    ],
+    "answer": "D",
+    "answerDescription": "EntityCommand.ExecuteNonQuery method executes the current command, and returns the number of rows affected.<br>Incorrect Answers:<br>A: ExecuteScalar() executes the command, and returns the first column of the first row in the result set. Additional columns or rows are ignored.<br>References:<br>https://docs.microsoft.com/en-us/dotnet/api/system.data.entityclient.entitycommand.executenonquery https://docs.microsoft.com/en-us/dotnet/api/system.data.entityclient.entitycommand.executescalar",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-08T12:35:00.000Z",
+        "voteCount": 2,
+        "content": "Answer (D) is correct. See also: https://stackoverflow.com/a/21059581/4884274"
+      },
+      {
+        "date": "2021-01-03T07:58:00.000Z",
+        "voteCount": 2,
+        "content": "Should be A.\n\"Executes the query, and returns the first column of the first row in the result set returned by the query. Additional columns or rows are ignored.\"\nSource: https://docs.microsoft.com/en-us/dotnet/api/system.data.sqlclient.sqlcommand.executescalar?view=dotnet-plat-ext-5.0"
+      },
+      {
+        "date": "2021-01-15T11:31:00.000Z",
+        "voteCount": 1,
+        "content": "I did not notice the requirement: \"returning only the number of affected rows\". \nWhich the right answer is option D."
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41394-exam-70-487-topic-7-question-2-discussion/",
+    "body": "You are developing an application. You use Azure Traffic Manager to direct traffic to two regions based on the location of the user. You create one parent profile and three child profiles. You set the value of the MinChildEndpoints property for each child profile to 2.<br>You need to configure fault tolerance for the application.<br>Which traffic routing method should you use for child profiles?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeighted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPriority",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeographic",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerformance"
+    ],
+    "answer": "B",
+    "answerDescription": "The Traffic Manager profile contains a prioritized list of service endpoints. By default, Traffic Manager sends all traffic to the primary (highest-priority) endpoint. If the primary endpoint is not available, Traffic Manager routes the traffic to the next endpoint.<br>Incorrect Answers:<br>A: The 'Weighted' traffic-routing method allows you to distribute traffic evenly or to use a pre-defined weighting.<br>C: A geographic region can be mapped only to one endpoint in a Traffic Manager profile when the routing type is Geographic Routing.<br>D: Deploying endpoints in two or more locations across the globe can improve the responsiveness of many applications by routing traffic to the location that is<br>'closest' to you. The 'Performance' traffic-routing method provides this capability.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-06T12:37:00.000Z",
+        "voteCount": 1,
+        "content": "I think it should be \"Performance\" for the parent profile and \"Priority\" for the children profiles.\nhttps://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-nested-profiles\nExample 3: Prioritized failover regions in 'Performance' traffic routing"
+      },
+      {
+        "date": "2021-01-03T08:17:00.000Z",
+        "voteCount": 4,
+        "content": "\"Priority: Select Priority when you want to use a primary service endpoint for all traffic, and provide backups in case the primary or the backup endpoints are unavailable.\"\nSource: https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods"
+      }
+    ],
+    "examNameCode": "70-487",
+    "topicNumber": "7"
+  }
+]

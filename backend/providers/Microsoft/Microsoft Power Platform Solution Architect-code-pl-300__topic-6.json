@@ -1,0 +1,396 @@
+[
+  {
+    "topic": 6,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86025-exam-pl-300-topic-6-question-1-discussion/",
+    "body": "You need to create the dataset.<br>Which dataset mode should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImport",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDirectQuery",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tComposite\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlive connection"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 66,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 60,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-20T05:31:00.000Z",
+        "voteCount": 38,
+        "content": "You wouldn't use composite for all.  I would say import as the SQL Server data is only 2GB and excel is really small.  Also, only need it refreshing once a day so this dataset is very small.  Answer is A (Import)"
+      },
+      {
+        "date": "2024-03-15T05:39:00.000Z",
+        "voteCount": 2,
+        "content": "you missed this detail : The warehouse shipping department must be notified if the percentage of late orders within the current month exceeds 5%..\nHow do you put an alert then ?"
+      },
+      {
+        "date": "2023-02-14T07:19:00.000Z",
+        "voteCount": 4,
+        "content": "Also data is 2gb and 5mb but we need only top 20 reports."
+      },
+      {
+        "date": "2022-11-19T03:24:00.000Z",
+        "voteCount": 9,
+        "content": "Capacity for import is 1 GB, so How can we use Import for 2GB data"
+      },
+      {
+        "date": "2024-06-29T05:08:00.000Z",
+        "voteCount": 1,
+        "content": "it is, for excel files"
+      },
+      {
+        "date": "2023-12-02T21:40:00.000Z",
+        "voteCount": 3,
+        "content": "I worked with DBs that are much larger than 5GB and have always used import due to fast response/RLS/Time Intelligence etc...There are a few ways to limit the dataset size, most common is to use SQL with Where clause to limit the data to only that you needed or if you don't use/don't know SQL, do a transform before loading the data. I would do an import in this case but my answer will not be neccessarily the correct answer that Microsoft wanted."
+      },
+      {
+        "date": "2022-12-19T13:27:00.000Z",
+        "voteCount": 1,
+        "content": "I think the size of the data is 2GB in the database though not Vertipaq compressed. 1GB limitation applies to size of the pbix file which is already compressed and will be significantly less than raw data."
+      },
+      {
+        "date": "2022-11-21T06:18:00.000Z",
+        "voteCount": 3,
+        "content": "what do you mean by \"all\"? The technical requirements state that all reports must be supported by a SINGLE dataset and that one will definitely exceed the 1GB limit."
+      },
+      {
+        "date": "2022-11-13T09:39:00.000Z",
+        "voteCount": 25,
+        "content": "Composite Model means now you can have a model, that very large tables of that are coming from the DirectQuery connection, without the need for importing, and small tables to be imported to be accessible quickly.\n\nIn this case, Composite fits perfect. Source1 is 2GB, which is relatively too large for daily updates and way larger than Source2 which is only 5MB."
+      },
+      {
+        "date": "2024-10-17T07:25:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer  is C- Composite because it is the only model that supports connections from  multiple data sources"
+      },
+      {
+        "date": "2024-06-09T08:33:00.000Z",
+        "voteCount": 3,
+        "content": "Near the real-time data is not required.\n\n2GB size data seems large but it is the whole raw data, we need the latest 3 years data only here and we can pre-aggregate it. So, I prefer \"A\" which gives the highest speed and flexibility here."
+      },
+      {
+        "date": "2024-05-14T17:03:00.000Z",
+        "voteCount": 2,
+        "content": "A. Import\nThe Import mode is the best choice here. This mode allows you to import the data into Power BI's memory, enabling fast response times when users interact with a visualization, which is one of the requirements. \nDirectQuery and Live Connection modes would not be suitable because they keep the data in the source system and query it from there, which can lead to slower response times. \nThe Composite mode, which allows a combination of Import and DirectQuery, is not necessary here as there's no requirement to combine these two modes. \nRemember that with Import mode, you need to refresh the data to keep it up-to-date. The requirement is to have the report data current as of 7 AM Pacific Time each day, which can be achieved by scheduling a daily refresh in Power BI."
+      },
+      {
+        "date": "2024-04-18T19:10:00.000Z",
+        "voteCount": 3,
+        "content": "What about row level security, I believe it (RLS) does not work well with DirectQuery.    (A)"
+      },
+      {
+        "date": "2024-04-11T20:54:00.000Z",
+        "voteCount": 1,
+        "content": "2 different sources = Composite Model"
+      },
+      {
+        "date": "2024-04-11T20:41:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer. I will go for the composite model. \nBear in mind that the capacity for import mode is 1GB only."
+      },
+      {
+        "date": "2024-03-15T05:43:00.000Z",
+        "voteCount": 1,
+        "content": "how do you manage : The warehouse shipping department must be notified if the percentage of late orders within the current month exceeds 5%.\nin a full data import ?\nAs far as I'm concerned, For that issue, I would put an alert on data change so tell me how you will put an alert in your \"light for now\" early morning import ? :-)"
+      },
+      {
+        "date": "2024-03-12T15:40:00.000Z",
+        "voteCount": 2,
+        "content": "I had a hard time choosing between import and composite. Ultimately, what another user posted reminds us: the database is 2GB+ of text and growing. Do we want to be running a daily import on that? I think this is why the given answer is composite."
+      },
+      {
+        "date": "2024-02-25T02:52:00.000Z",
+        "voteCount": 1,
+        "content": "Source1 has a datasize of 2gb. The text does not specifically state that there is a premium capacity, so I suspect that the model size for an import model is 1GB. Is there a way to know how big this model size is?"
+      },
+      {
+        "date": "2024-01-29T19:45:00.000Z",
+        "voteCount": 4,
+        "content": "Report data must be current as of 7 AM Pacific Time each day\nThe reports must provide fast response times when users interact with a visualization"
+      },
+      {
+        "date": "2023-10-30T19:52:00.000Z",
+        "voteCount": 3,
+        "content": "There are 2 sources. first is azure sql data base with 2GB of data and other one is excel 5 MB. You can not load 2GB of data in model hence you have to use direct query and excel we can import. Hence it is composite mode"
+      },
+      {
+        "date": "2023-10-05T14:41:00.000Z",
+        "voteCount": 1,
+        "content": "Composite mode because it can mix Import and DirectQuery modes."
+      },
+      {
+        "date": "2023-09-14T01:37:00.000Z",
+        "voteCount": 1,
+        "content": "I think is Import. Because Direct query cannot fulfill this \"Report data must be current as of 7 AM Pacific Time each day.\", it will pull the latest lets say if it is 10AM, it will pull 10AM data right? Please correct me if I am wrong."
+      },
+      {
+        "date": "2023-08-29T03:29:00.000Z",
+        "voteCount": 1,
+        "content": "I also go for A. \nImport mode meets the requirements for fast response times and current data at 7 in the morning. Though the model must minimize the size of the dataset \"as much as possible\", it must meet the report and technical requirements. Fast response time is a hard requirement and it's sure that Import mode delivers that better than DirectQuery.\nI am no expert on Composite but I would argue that in the best case, it's as fast as Import mode. In Composite mode, some tables might switch to DirectQuery due to the user behaviour, but that would mean we would overachieve the requirement for daily refreshing, buying this overachievement through slower response time. That's not what we want.\nFuture growth of the data is not to be considered in a question like this."
+      },
+      {
+        "date": "2023-08-03T14:50:00.000Z",
+        "voteCount": 3,
+        "content": "A: I believe that since they specifically call out a time of 7AM its either a trick lol or its intended to tell us IMPORT is fine (since its 7AM)\n\nSecondarily, they talk about performance and since you can import that easily, the performance will be much better on IMPORT  and DirectQuery is known to induce latency  / lower performance.\n\nSo I don't see a reason to select Composite in this case."
+      }
+    ],
+    "examNameCode": "pl-300",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86026-exam-pl-300-topic-6-question-2-discussion/",
+    "body": "You need to configure access for the sales department users. The solution must the meet the security requirements.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShare each report to the Azure Active Directory group of the sales department.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the Azure Active Directory group of the sales department as an Admin of the reports workspace.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDistribute an app to the users in the Azure Active Directory group of the sales department.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the sales department as a member of the reports workspace."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 50,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 30,
+        "isMostVoted": false
+      },
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 4,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-02T07:53:00.000Z",
+        "voteCount": 50,
+        "content": "The answer is C. It's a trick question. It asks how the access for the sales department USERS needs to be set up. This requires RLS to work, and RLS won't work when they are member or admin. The requirements listed that require admin rights refer to the sales DEPARTMENT, not to the sales USERS."
+      },
+      {
+        "date": "2024-09-24T16:46:00.000Z",
+        "voteCount": 1,
+        "content": "I think you're right...it is a trick question"
+      },
+      {
+        "date": "2023-04-17T07:13:00.000Z",
+        "voteCount": 2,
+        "content": "ItsMeScripting is right. There is a difference between these two sections in the requirements:\n\"The sales department must be able to...\"\nand\n\"Users in the sales department must be able to...\"\nOnly the latter is relevant to the question, and only C works for their limited functionality."
+      },
+      {
+        "date": "2023-04-30T09:25:00.000Z",
+        "voteCount": 1,
+        "content": "but who is the user in sales department? you are right. workspace roles always override RLS roles. It is really tricky. first I went with option C. but after reading the answer I am really confused!"
+      },
+      {
+        "date": "2022-10-21T05:32:00.000Z",
+        "voteCount": 25,
+        "content": "I think it should be D - Add the sales department as a member of the reports workspace.\nFor the actions they need to perform (edit reports, publish app, etc) the Member role would be the least privilege"
+      },
+      {
+        "date": "2022-10-21T09:28:00.000Z",
+        "voteCount": 5,
+        "content": "But a member cannot \"Manage permissions for workspaces, datasets, and reports\" , right?"
+      },
+      {
+        "date": "2022-10-27T01:17:00.000Z",
+        "voteCount": 4,
+        "content": "As per my understanding members can do it.\n\nhttps://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces"
+      },
+      {
+        "date": "2022-11-24T15:32:00.000Z",
+        "voteCount": 3,
+        "content": "Nope. Only Admin can mangage the permissions for workspaces."
+      },
+      {
+        "date": "2022-12-07T03:26:00.000Z",
+        "voteCount": 10,
+        "content": "Sorry, but that isn't true.\nA member can do the following: \"Add members or others with lower permissions.\"\nSee: https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces"
+      },
+      {
+        "date": "2022-12-22T11:56:00.000Z",
+        "voteCount": 4,
+        "content": "A member can ddd members or others with lower permissions."
+      },
+      {
+        "date": "2024-09-24T16:47:00.000Z",
+        "voteCount": 1,
+        "content": "For the Sales Department USERS to access the reports, they must access them through the app. That is the prescribed method for persons who should only have read access with RLS and negates other access to the workspace."
+      },
+      {
+        "date": "2024-04-11T21:24:00.000Z",
+        "voteCount": 1,
+        "content": "C: An App is the solution to set up the access for the sales department users with all requirements by creating a specific Group"
+      },
+      {
+        "date": "2024-04-11T22:30:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry - I think that the correct answer is D - Tested- \nThe application will just allow you to consume the reports via the APP. But being a Member will allow you to modify reports, add users to the workspace and so on..."
+      },
+      {
+        "date": "2024-03-15T06:12:00.000Z",
+        "voteCount": 2,
+        "content": "With this requirement: Assign Azure AD groups role-based access to the reports workspace.\nAs only Admins can ; Add or remove any user in a workspace role.\n(https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces)\nConsidering an AD group is a User whose nature is a group of users (at least any user sharing the same privileges)\n\nSeems We need to :\nB. Add the Azure Active Directory group of the sales department as an Admin of the reports workspace."
+      },
+      {
+        "date": "2024-01-07T10:57:00.000Z",
+        "voteCount": 3,
+        "content": "the answer is B\nB. Add the Azure Active Directory group of the sales department as an Admin of the reports workspace.\n\nHere\u2019s why:\n\nAdmin Privileges: The requirement for the sales department to create, edit, delete content, manage permissions, and control app distribution necessitates admin-level access to the workspace. This level of access allows users to perform all the listed tasks.\n\nAzure AD Group for Access Control: Adding the Azure AD security group of the sales department to the workspace and assigning them admin roles aligns with the requirement to use Azure AD groups for access control.\n\nRLS for Data Access: The use of RLS will ensure that even within the sales department, users will only be able to see data relevant to their sales region. The RLS expression [EmailAddress] = USERNAME() will filter data based on the user\u2019s email address, which should correspond with the email addresses in the Sales Employees table."
+      },
+      {
+        "date": "2024-01-05T20:22:00.000Z",
+        "voteCount": 1,
+        "content": "D should be correct.\nMembers can be granted permissions to create, edit, and delete content, but unlike Admins, their access can be restricted by RLS. This setup would allow the sales department to manage content and permissions without granting them full Admin rights, which would override RLS."
+      },
+      {
+        "date": "2023-12-24T19:01:00.000Z",
+        "voteCount": 3,
+        "content": "i initially thought the answer was d but after reading the discussion, I realized that the security mentioned is only for the users of the sales department, not the whole sales department. So, my answer is C."
+      },
+      {
+        "date": "2023-12-15T03:59:00.000Z",
+        "voteCount": 4,
+        "content": "It is certainly not B or D, because RLS only applies to viewers.   Both Amdin and Member can modify the dataset (write permission) and therefor the RLS is not applied."
+      },
+      {
+        "date": "2023-12-14T13:32:00.000Z",
+        "voteCount": 2,
+        "content": "I think the question is just wrong, you can\u00b4t manage app if you don't have at least member role, in the other hand rls is only applied for the viewer role."
+      },
+      {
+        "date": "2023-08-09T14:22:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer is D. When talking about security. We can have differents settings for the same user group at the level of Workspace and at the level of app. If we choose answer C we will not  able to give the right to manage workspace to the sales departement. The answer is D. It can't be B, because of RLS. RLS can't be apply to Admin"
+      },
+      {
+        "date": "2023-08-03T15:04:00.000Z",
+        "voteCount": 1,
+        "content": "C:  In this case the only one that will correctly apply what was asked specifically for the Sales Department Users themselves is C. Anything else gives too much, wont work or not enough"
+      },
+      {
+        "date": "2023-07-29T23:41:00.000Z",
+        "voteCount": 3,
+        "content": "This question is so long!!! I feel like I will waste a lot of time just reading this.\nAnyway... feel like D is the answer"
+      },
+      {
+        "date": "2023-06-30T03:39:00.000Z",
+        "voteCount": 3,
+        "content": "The question is about Sales Department Users, not about Sales Department, as each of them has different Security Requirements explained in the fore-text : \n\uf076\tUsers in the Sales Department :\n\u2022\tMust be able to access only the data of the sales region to which they are assigned in the Sales Employees table.\n\u2022\tPower BI has the following row-level security (RLS) Table filter DAX expression for the Sales Employees table.\n\u2022\t[EmailAddress] = USERNAME()\n\u2022\tRLS will be applied only to the sales department users. \n\nI would say C, but why not A, well they are users, not authors, I might be wrong though."
+      },
+      {
+        "date": "2023-06-30T02:31:00.000Z",
+        "voteCount": 1,
+        "content": "So, whole Sales Department users are ADMIN hm ? That's clever..."
+      },
+      {
+        "date": "2023-05-26T02:32:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is D.\n\nMember roles as per Microsoft (https://learn.microsoft.com/en-us/power-bi/collaborate-share/service-roles-new-workspaces)\n\n1. Publish, unpublish, and change permissions for an app.\n\n2. Manage dataset permissions.\n\n3. Publish reports to the workspace, and delete content.\n\n4. Create a report in another workspace based on a dataset in this workspace.\n\n5. Modify gateway connection settings.\n\n6. View and interact with an item.\n\n7. Read data that's stored in workspace dataflows."
+      },
+      {
+        "date": "2023-07-05T05:37:00.000Z",
+        "voteCount": 2,
+        "content": "But if they are assigned Member role for the workspace, RLS will NOT be applied. Actually \n within the Sales department, there are two different sets of people who can 1)Add/Edit Reports 2)Manage permissions for rest of the lot for workspace/dataset/report/app and AD group access. So I think all of the users should get access to reports through App, which is answer C"
+      },
+      {
+        "date": "2023-05-16T21:29:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is definitely D. Otherwise sales team won't be able to create, edit, and delete content in the reports,  manage permissions for workspaces, datasets, and report and publish, unpublish, update, and change the permissions for an app. Remember to assign the least privilege. Besides, if you add them as Admins, they will be able to see all data, I think"
+      }
+    ],
+    "examNameCode": "pl-300",
+    "topicNumber": "6"
+  },
+  {
+    "topic": 6,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86027-exam-pl-300-topic-6-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to create a solution to meet the notification requirements of the warehouse shipping department.<br>What should you do? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04331/0029800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04331/0029800002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: dashboard -<br>The warehouse shipping department must be notified if the percentage of late orders within the current month exceeds 5%.<br>You can set alerts to notify you when data in your dashboards changes beyond limits you set.<br><br>Box 2: data alert -<br>Reference:<br>https://docs.microsoft.com/en-us/power-bi/create-reports/service-set-data-alerts",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-20T05:39:00.000Z",
+        "voteCount": 46,
+        "content": "You can't set alerts on reports, only dashboards.  And must be a data alert.\nSo:\nDashboard\nData alert"
+      },
+      {
+        "date": "2022-12-27T13:17:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with you. notifications have to be on the dashboard"
+      },
+      {
+        "date": "2022-12-07T03:40:00.000Z",
+        "voteCount": 5,
+        "content": "Dashboard\nData alert\nSource: https://learn.microsoft.com/en-us/power-bi/consumer/end-user-alerts"
+      },
+      {
+        "date": "2024-09-24T16:49:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct - Dashboard &amp; Data alert"
+      },
+      {
+        "date": "2024-09-02T09:06:00.000Z",
+        "voteCount": 1,
+        "content": "You cannot set data alert for the others, so the answer cannot be \"Data Alert\".\n\n\"Only you can see the alerts you set, even if you share your dashboard.\"\nhttps://learn.microsoft.com/en-us/power-bi/create-reports/service-set-data-alerts\nhttps://learn.microsoft.com/en-us/power-bi/consumer/end-user-alerts"
+      },
+      {
+        "date": "2024-05-02T08:20:00.000Z",
+        "voteCount": 2,
+        "content": "Passed with 917/1000\nQuestion and answers were exactly the same but different order with the options!\nAnswer given:\n- Dashboard\n- Data alert"
+      },
+      {
+        "date": "2024-02-02T05:29:00.000Z",
+        "voteCount": 3,
+        "content": "This question was on the exam on 02/02/2024"
+      },
+      {
+        "date": "2024-01-29T19:46:00.000Z",
+        "voteCount": 1,
+        "content": "Agree the given answer is correct.\nDashboard\nData alert"
+      },
+      {
+        "date": "2023-04-21T21:05:00.000Z",
+        "voteCount": 3,
+        "content": "-Dashboard\n- Data alert correct answers"
+      },
+      {
+        "date": "2022-12-01T18:25:00.000Z",
+        "voteCount": 2,
+        "content": "Answers given are correct\nDashboard\nData alert"
+      },
+      {
+        "date": "2022-10-28T07:20:00.000Z",
+        "voteCount": 3,
+        "content": "Answere correct.\nDashboard\nData alert"
+      }
+    ],
+    "examNameCode": "pl-300",
+    "topicNumber": "6"
+  }
+]

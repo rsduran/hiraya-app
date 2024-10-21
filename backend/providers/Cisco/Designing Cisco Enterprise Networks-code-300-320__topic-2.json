@@ -1,0 +1,1511 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/cisco/view/9698-exam-300-320-topic-2-question-3-discussion/",
+    "body": "At which layer in the ACI fabric are policies enforced?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tendpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tspine",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPIC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tleaf"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-19T09:02:00.000Z",
+        "voteCount": 1,
+        "content": "Per Cisco ACI Documentation:\nhttps://www.cisco.com/c/en/us/solutions/collateral/data-center-virtualization/application-centric-infrastructure/white-paper-c11-731310.html\n\nEnforcement of policy within the fabric is always guaranteed; however, policy can be applied in one of two places. Policy can be enforced opportunistically at the ingress leaf; otherwise, it is enforced on the egress leaf. Whether or not policy can be enforced at ingress is determined by whether the destination EPG is known. The source EPG will always be known, and policy rules pertaining to that source as both an sEPG and a dEPG are always pushed to the appropriate leaf switch when an endpoint attaches. After policy is pushed to an leaf, it is stored and enforced in hardware. Because the Cisco APIC is aware of all EPGs and the endpoints assigned to them, the leaf to which the EPG is attached will always have all policies required and will never need to punt traffic to a controller, as might be the case in other systems. (See Figure 11).\n\nAnswer is definitely D"
+      },
+      {
+        "date": "2020-02-18T12:40:00.000Z",
+        "voteCount": 1,
+        "content": "more look at this im inclined to side with D now \n\nAPIC :\n\nThe Cisco Application Policy Infrastructure Controller (Cisco APIC) is the main architectural component of the Cisco ACI solution. It is the unified point of automation and management for the Cisco ACI fabric, policy enforcement, and health monitoring. The controller optimises performance and manages and operates a scalable multitenant Cisco ACI fabric."
+      },
+      {
+        "date": "2020-01-11T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2019-12-03T23:04:00.000Z",
+        "voteCount": 3,
+        "content": "Answer should be D"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14578-exam-300-320-topic-2-question-4-discussion/",
+    "body": "Which two hashing distribution algorithms are available for an engineer when working with multichassis EtherChannels? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfixed",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsrc-dst-port",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tround-robin",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tadaptive",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsrc-dst-mac"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-20T21:04:00.000Z",
+        "voteCount": 1,
+        "content": "These are not correct. Answers are B and E (src-dst-port &amp; src-dst-mac). See the article covering VSS architecture:\nhttps://www.ciscolive.com/c/dam/r/ciscolive/us/docs/2015/pdf/BRKCRS-3035.pdf"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14044-exam-300-320-topic-2-question-5-discussion/",
+    "body": "An engineer set up a multicast design using all three Cisco supported PIM modes. Which two characteristics of Bidirectional PIM in this situation are true?<br>(Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMembership to a bidirectional group is signaled via explicit join messages.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn Bidirectional PIM, the RP IP address can be shared with any other router interface.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBidirectional PIM is designed to be used for one-to-many applications.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA Cisco router cannot support all three PIM modes simultaneously.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn Bidirectional PIM, the RP IP address does not need to be a router."
+    ],
+    "answer": "AE",
+    "answerDescription": "Reference:<br>https://www.cisco.com/c/en/us/td/docs/ios/12_0s/feature/guide/fsbidir.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-13T10:47:00.000Z",
+        "voteCount": 3,
+        "content": "Interesting reading justifying \"E\":\n\nhttps://www.cisco.com/c/dam/en/us/products/collateral/ios-nx-os-software/multicast-enterprise/prod_white_paper0900aecd80310db2.pdf"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11767-exam-300-320-topic-2-question-7-discussion/",
+    "body": "A customer has an existing WAN circuit with a capacity of 10 Mbps. The circuit has 6 Mbps of various user traffic and 5 Mbps of real-time audio traffic on average.<br>Which two measures could be taken to avoid loss of real time traffic? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPolice the traffic to 3.3 Mbps and allow excess traffic to be remarked to the default queue.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure congestion avoidance mechanism WRED within the priority queue.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure that real time traffic is prioritized over other traffic.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPolice the traffic to 5 Mbps and allow excess traffic to be remarked to the default queue.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the WAN circuit bandwidth."
+    ],
+    "answer": "CE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-16T15:06:00.000Z",
+        "voteCount": 1,
+        "content": "c and e are the ans"
+      },
+      {
+        "date": "2020-01-11T06:46:00.000Z",
+        "voteCount": 1,
+        "content": "Based on Arch book, A&amp;E are correct"
+      },
+      {
+        "date": "2020-02-10T08:23:00.000Z",
+        "voteCount": 1,
+        "content": "I believe that would be contrary to the requested, as total real time traffic would not be prioritized and could be lost. Assuming 11Mbps is the company's current requirements for operation the circuit needs an upgrade, in addition to prioritizing real time data transit.\nMy opinion only."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/cisco/view/10942-exam-300-320-topic-2-question-9-discussion/",
+    "body": "An engineer wants to assure that hosts can locate routers that can be used as a gateway to reach IP-based devices on other networks. Which first hop redundancy protocol accomplishes this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVRRP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIRDP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHSRP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGSLB"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipapp_fhrp/configuration/15-mt/fhp-15-mt-book/fhp-irdp.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-26T12:08:00.000Z",
+        "voteCount": 2,
+        "content": "The ICMP Router Discovery Protocol (IRDP) allows IPv4 hosts to locate routers that provide IPv4 connectivity to other (nonlocal) IP networks."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11119-exam-300-320-topic-2-question-10-discussion/",
+    "body": "Which security function is inherent in an Application Centric Infrastructure network?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDefault Inter-EPG connectivity",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIntrusion Detection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDefault Denial Network",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIntrusion Prevention"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-16T15:07:00.000Z",
+        "voteCount": 2,
+        "content": "c is ans"
+      },
+      {
+        "date": "2020-01-29T00:22:00.000Z",
+        "voteCount": 2,
+        "content": "If there is no contract, inter-EPG communication is disabled by default. so C is correct"
+      },
+      {
+        "date": "2019-12-30T22:04:00.000Z",
+        "voteCount": 3,
+        "content": "Answer C : Default Denial Network."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13752-exam-300-320-topic-2-question-12-discussion/",
+    "body": "Which two features are from a scalable cluster design utilizing Cisco ASA firewalls? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach cluster supports up to 10 ASA devices.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach member of the cluster can forward every traffic flow.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe ASA cluster actively load balances traffic flows.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe design supports up to 1 Terabyte of aggregate traffic.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe design supports up to 100 Gbps of aggregate traffic."
+    ],
+    "answer": "BE",
+    "answerDescription": "Reference:<br>https://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Data_Center/VMDC/ASA_Cluster/ASA_Cluster/ASA_Cluster.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "From the provided link, \"Using up to 8 ASA appliances, clustering can allow up to 100Gbps of aggregate traffic. The ASA cluster does not actively load balance flows.\"\n\nBut from \"Designing for Cisco Network Service Architectures (ARCH) Foundation Learning Guide, Fourth Edition\" book,\n\n\"Cisco ASA clustering, introduced in the 9.0 release, enables you to bundle multiple ASA devices into a single cluster. The data traffic is load-balanced between cluster members.\"\n\nNot sure..."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14651-exam-300-320-topic-2-question-15-discussion/",
+    "body": "While designing a QoS policy for an organization, a network engineer is determining the method to limit the output rate of traffic within the real-time queue. How must the limiting of traffic within the real-time queue occur?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe traffic must be policed and not allowed to pass.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe traffic must be shaped to allow for it to be transmitted after the tokens have been replenished.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe traffic within the real-time queue must not be limited.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe traffic must be remarked to a lower priority to and allowed to pass."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-21T15:46:00.000Z",
+        "voteCount": 1,
+        "content": "I think A is the answer"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/cisco/view/9497-exam-300-320-topic-2-question-17-discussion/",
+    "body": "An engineer is implementing VXLAN to extend layer 2 traffic at three geographically diverse data centers. Which feature is required at each data center to extend this traffic?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVTEP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVRRP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVLSM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVPLS"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-19T04:21:00.000Z",
+        "voteCount": 1,
+        "content": "A: VTEP\nhttps://yves-louis.com/DCI/?p=648"
+      },
+      {
+        "date": "2020-01-07T15:41:00.000Z",
+        "voteCount": 2,
+        "content": "A:VTEP"
+      },
+      {
+        "date": "2019-12-01T09:52:00.000Z",
+        "voteCount": 3,
+        "content": "A: VTEP"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11120-exam-300-320-topic-2-question-22-discussion/",
+    "body": "An engineer is working on an OSPF network design and wants to minimize the failure detection time and the impact on the router CPU. Which technology accomplishes this goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfast hellos",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBFD",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLSA pacing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLSA delay interval"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T09:08:00.000Z",
+        "voteCount": 1,
+        "content": "Should be LSA pacing. From https://www.cisco.com/c/m/en_us/techdoc/dc/reference/cli/nxos/commands/ospf/timers-lsa-group-pacing-ospf.html\n\n\"Use the timers lsa-group-pacing command to control the rate at which LSA updates occur and reduce the high CPU or buffer utilization that can occur when an area is flooded with a very large number of LSAs.\""
+      },
+      {
+        "date": "2020-02-18T22:00:00.000Z",
+        "voteCount": 2,
+        "content": "Yeah but then there is the requirement to minimize failure detection time. I vote for BFD."
+      },
+      {
+        "date": "2019-12-30T22:07:00.000Z",
+        "voteCount": 3,
+        "content": "Answer B: BFD"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14413-exam-300-320-topic-2-question-24-discussion/",
+    "body": "While designing a backup BGP solution, a network engineer wants to ensure that a single router with multiple connections prefers the routes from a specific connection over all others. Which BGP path selection attribute is considered first when selecting a route?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAS-LENGTH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMED",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlink bandwidth",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWEIGHT"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T12:54:00.000Z",
+        "voteCount": 1,
+        "content": "does this question infer routes received internally ?"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8327-exam-300-320-topic-2-question-25-discussion/",
+    "body": "Which Cisco NX-OS feature can be used to build highly scalable Layer 2 multipath networks without utilizing the Spanning Tree Protocol?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvPC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFabricPath",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMST",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOTV B"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "Reference:<br>https://www.cisco.com/c/en/us/solutions/data-center-virtualization/fabricpath/index.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-16T04:07:00.000Z",
+        "voteCount": 3,
+        "content": "I believe answer is B. FabricPath"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8328-exam-300-320-topic-2-question-28-discussion/",
+    "body": "How does OTV provide STP isolation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tby using STP root optimization",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tby using BPDU filtering",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tby dropping BPDU packets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tby using BPDU guard C"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-16T04:12:00.000Z",
+        "voteCount": 6,
+        "content": "I believe the answer is C. by dropping BPDU packets"
+      },
+      {
+        "date": "2020-02-18T13:04:00.000Z",
+        "voteCount": 1,
+        "content": "C for me"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13758-exam-300-320-topic-2-question-32-discussion/",
+    "body": "An engineer wants to ensure that common services communicate to several applications in various EPGs. Which two features within Cisco ACI accomplish this goal? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfilter",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcontract",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tapplication profile",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tbridge domain",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttenant"
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T09:37:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. Check this: https://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/aci-fundamentals/b_ACI-Fundamentals/b_ACI-Fundamentals_chapter_010001.html#concept_6914B5520ECA4731962F30F93E5A77A6"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13690-exam-300-320-topic-2-question-36-discussion/",
+    "body": "An engineer is redesigning the infrastructure for a campus environment. The engineer must maximize the use of the links between the core and distribution layers.<br>By which two methods can this usage be maximized? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesign with multiple unequal-cost links between the core and distribution layers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesign the links between the core and distribution layers to use an IGP.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesign with multiple equal-cost links between the core and distribution layers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesign the links between the core and distribution layers to use HSRP.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesign the links between the core and distribution layers to use RPVSTP+."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T03:37:00.000Z",
+        "voteCount": 1,
+        "content": "See 3.2 https://www.cisco.com/c/dam/en/us/td/docs/nsite/campus/ha_campus_routed_access_cvd_ag.pdf -  B&amp;C for me"
+      },
+      {
+        "date": "2020-02-09T16:19:00.000Z",
+        "voteCount": 1,
+        "content": "i think The correct answer is DE"
+      },
+      {
+        "date": "2020-02-10T09:52:00.000Z",
+        "voteCount": 1,
+        "content": "I think those do not maximize link usage."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8329-exam-300-320-topic-2-question-37-discussion/",
+    "body": "What added enforcement feature is available on IDS-based devices to terminate active malicious traffic?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSignature detection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSNMP alert",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTCP reset",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLayer 4 filtering"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "think it should be C."
+      },
+      {
+        "date": "2019-11-17T19:35:00.000Z",
+        "voteCount": 3,
+        "content": "I also think that the correct answer should be C."
+      },
+      {
+        "date": "2019-11-16T04:20:00.000Z",
+        "voteCount": 4,
+        "content": "should be C. TCP reset"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13759-exam-300-320-topic-2-question-38-discussion/",
+    "body": "An engineer is considering time of convergence in a new Layer 3 environment design. Which two attributes must be considered? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOSPF database updates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSPT timers updates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAddition of a valid forwarding path",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tForwarding table updates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLoss of a valid forwarding path"
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-11T04:33:00.000Z",
+        "voteCount": 1,
+        "content": "D, E, as C may be already in a routing table. Loss of forwarding path may trigger another protocol to reach hold time, which is a delay."
+      },
+      {
+        "date": "2020-02-10T10:01:00.000Z",
+        "voteCount": 1,
+        "content": "Probably C and E. Adding or removing a valid forwarding time triggers re-computation"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/cisco/view/12021-exam-300-320-topic-2-question-45-discussion/",
+    "body": "An engineer has been requested to utilize a method in an ACI network that will ensure only permitted communications are transmitted between each End Point<br>Group tier in a three tier application. Which element would be utilized to accomplish this within the fabric?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFilter",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tContract",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLabel",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSubject"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-09T16:45:00.000Z",
+        "voteCount": 2,
+        "content": "B\n\nhttps://www.cisco.com/c/en/us/td/docs/switches/datacenter/aci/apic/sw/1-x/Operating_ACI/guide/b_Cisco_Operating_ACI/b_Cisco_Operating_ACI_chapter_01000.html"
+      },
+      {
+        "date": "2020-01-14T15:08:00.000Z",
+        "voteCount": 2,
+        "content": "a contract is the correct answer"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13761-exam-300-320-topic-2-question-46-discussion/",
+    "body": "What are the two main elements used by RBAC to provide secure access within an Enterprise? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser privileges",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser roles",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser profile",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser locales",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser domains"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T10:20:00.000Z",
+        "voteCount": 1,
+        "content": "I believe it is correct. Check https://www.cisco.com/c/en/us/td/docs/interfaces_modules/services_modules/ace/vA5_1_0/configuration/getting/started/guide/ace_module_gsg/rbac.html\n\n\"User roles determine user privileges, such as the commands that the user can enter and the actions the user can perform in a particular context.\""
+      },
+      {
+        "date": "2020-02-21T14:41:00.000Z",
+        "voteCount": 1,
+        "content": "I think B&amp;C\n\nRole-Based Access Control (RBAC) is a method of restricting or authorizing system access for users based on user roles and locales\n\nhttps://www.cisco.com/c/en/us/td/docs/unified_computing/ucs/sw/gui/config/guide/1-4/UCSM_GUI_Configuration_Guide_1_4_chapter9.html"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14642-exam-300-320-topic-2-question-47-discussion/",
+    "body": "While designing quality of service policies, which two types of traffic must be prioritized as management traffic? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRADIUS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSSH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSCP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHTTPS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tICMP"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-21T14:46:00.000Z",
+        "voteCount": 1,
+        "content": "I think B&amp;D\n\nDont think radius needs QoS"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/cisco/view/12022-exam-300-320-topic-2-question-48-discussion/",
+    "body": "During an upgrade of an existing data center, a network team must design segmentation into existing networks. Due to legacy applications, the IP addresses cannot change. Which firewall deployment model meets these requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRouted mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMulticontext mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransparent mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCluster mode"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-14T15:11:00.000Z",
+        "voteCount": 1,
+        "content": "the correct answer is C"
+      },
+      {
+        "date": "2020-02-10T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "Segmentation can mean adding zones, it doesn't mean multiple tenants. I think C is correct too."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13769-exam-300-320-topic-2-question-56-discussion/",
+    "body": "Which two security measures must an engineer follow when implementing Layer 2 and Layer 3 network design? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize DHCP snooping on a per VLAN basis and apply ip dhcp snooping untrusted on all ports.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize the native VLAN only on trunk ports to reduce the risk of a Double-Tagged 802.1q VLAN hopping attack.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize an access list to prevent the use of ARP to modify entries to the table.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize private VLANs and ensure that all ports are part of the isolated port group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize the ARP inspection feature to help prevent the misuse of gARP."
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T11:14:00.000Z",
+        "voteCount": 1,
+        "content": "Interesting link about VLAN hoping attacks:\nhttps://learningnetwork.cisco.com/blogs/vip-perspectives/2019/07/12/vlan1-and-vlan-hopping-attack\nWording however is tricky on answer B"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8330-exam-300-320-topic-2-question-59-discussion/",
+    "body": "An engineer is working on a design solution for a large hub-and-spoke EIGRP network. Which feature helps to make this design more stable while also reducing resource utilization?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tQoS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnetwork summarization",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstub routing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\troute filtering C"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "Reference:<br>https://www.cisco.com/en/US/technologies/tk648/tk365/technologies_white_paper0900aecd8023df6f.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-16T04:36:00.000Z",
+        "voteCount": 3,
+        "content": "should be C. stub routing"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8331-exam-300-320-topic-2-question-62-discussion/",
+    "body": "Management has chosen to implement a top-of-the-rack data center design. Which two benefits of moving to this model are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\teasier per rack upgrades",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfewer ports required in the aggregation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfewer switches to manage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdirectly connected racks in the row",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdecreased cabling costs AE"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "Reference:<br>http://bradhedlund.com/2009/04/05/top-of-rack-vs-end-of-row-data-center-designs/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:33:00.000Z",
+        "voteCount": 1,
+        "content": "I go A and E"
+      },
+      {
+        "date": "2019-11-16T04:40:00.000Z",
+        "voteCount": 2,
+        "content": "should be A &amp; E."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11633-exam-300-320-topic-2-question-63-discussion/",
+    "body": "A company has a regulatory requirement that all connections between their sites must be encrypted in a manner that does not require maintenance of permanent tunnels. The remote offices are connected by a private MPLS-based service that requires a dynamically changing key, spoke-to-spoke communication, and reuse of the existing IP header. Which type of transport encryption must be used?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGRE VPN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDMVPN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGETVPN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstandard IPsec VPN"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:37:00.000Z",
+        "voteCount": 1,
+        "content": "check this out this might shed light:\nhttps://www.cisco.com/c/dam/en_us/solutions/industries/docs/gov/IntegNet_Feb17_915_Lynn.pdf"
+      },
+      {
+        "date": "2020-01-11T12:36:00.000Z",
+        "voteCount": 1,
+        "content": "GetVPN is correct"
+      },
+      {
+        "date": "2020-01-08T15:10:00.000Z",
+        "voteCount": 3,
+        "content": "I think it's C. GETVPN. It is usually used in conjunction with MPLS VPNs and reuses the IP header."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/cisco/view/9484-exam-300-320-topic-2-question-70-discussion/",
+    "body": "An engineer has proposed the deployment of a Cisco ACI fabric solution to introduce automation and zero-touch operation experience to a DC network. Which type of virtualization technology is utilized by the Cisco ACI to encapsulate the traffic inside the fabric and to virtualize the physical infrastructure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIPsec",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNSX",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSTP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVXLAN"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-01T07:08:00.000Z",
+        "voteCount": 6,
+        "content": "It's D - VXLAN"
+      },
+      {
+        "date": "2020-02-18T16:18:00.000Z",
+        "voteCount": 1,
+        "content": "D - VXLAN\nNSX is vmware solition"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8332-exam-300-320-topic-2-question-72-discussion/",
+    "body": "A network engineer is evaluating an architecture that utilizes VSS for the data center module. Which two advantages of using VSS technology are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt removes the need to configure redundant switches with identical policies.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt removes the need for Hot Standby Router Protocol.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt adds arbitrary forwarding topologies on top of a fixed routed underlay topology.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach switch has a separate control plane.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is capable of supporting live migration of virtual machines as they move from one physical server to another. AB"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; B is my go"
+      },
+      {
+        "date": "2019-12-27T10:30:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; B are correct"
+      },
+      {
+        "date": "2019-11-16T04:53:00.000Z",
+        "voteCount": 1,
+        "content": "Should be A &amp; B."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11256-exam-300-320-topic-2-question-76-discussion/",
+    "body": "An engineer is designing an OSPF network with multiple nonbackbone areas connected to the backbone area via a hub-and-spoke topology. Each hub-and-spoke topology has a large number of spoke routers connected to the hub that is functioning as an ABR to provide better segmentation. Which two actions improve the stability of this design? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure hub-and-spoke areas as stub.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement summarization on the ASBR routers in the backbone area.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse External Type 2 metric across the OSPF domain.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure hub-and-spoke areas as totally stubby.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement summarization on the ABR routers of hub-and-spoke areas."
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:42:00.000Z",
+        "voteCount": 2,
+        "content": "D and E for me - ARCH book says totally stubby and ABR also no mention of ASBR and re-distribution but might be missing a trick"
+      },
+      {
+        "date": "2020-01-02T06:15:00.000Z",
+        "voteCount": 3,
+        "content": "I think D and E are correct"
+      },
+      {
+        "date": "2020-02-10T13:57:00.000Z",
+        "voteCount": 3,
+        "content": "There's an almost exact same scenario at chpt 26 of Designing for Cisco Network Service Architectures (ARCH) Foundation Learning Guide, Fourth Edition. It states\n\n\"Because the branches in this scenario do not have any other exit but the hub, it is safe and advisable to deploy each branch network as a totally stubby area. With this design (see Figure 26-3), each branch router will receive only the default route from the backbone (border routers of the branch).\"\nMakes sense. D and E work for me too."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8631-exam-300-320-topic-2-question-78-discussion/",
+    "body": "Which two characteristics of MSDP when designing an interdomain multicast network are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMSDP is a mechanism that allows RPs to share information about active sources.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAny network utilizing iBGP or eBGP can use MSDP.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the PIM-SM model, multicast sources and receivers must register with their local RP.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRPs in other domains have full knowledge of sources located in other domains.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MSDP speaker periodically sends SAs that include all sources in all discovered domains."
+    ],
+    "answer": "AC",
+    "answerDescription": "Reference:<br>https://www.cisco.com/c/en/us/td/docs/ios/solutions_docs/ip_multicast/Phase_1/mcstmsdp/mcst_p1.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-22T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "I mean\nanswers are A,C"
+      },
+      {
+        "date": "2020-01-19T07:54:00.000Z",
+        "voteCount": 1,
+        "content": "answers are A&amp;B: for the link in the question \n- MSDP is a mechanism that allows RPs to share information about active sources\n- In the PIM-SM model, multicast sources and receivers must register with their local RP\nD is wrong because from the same source RPs in other domains have no way of knowing about sources located in other domains"
+      },
+      {
+        "date": "2019-11-19T18:29:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answers should be A and D. Though C is a correct statement,  but D is more relevant to MSDP."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/cisco/view/12060-exam-300-320-topic-2-question-79-discussion/",
+    "body": "When designing a Data Center Interconnect solution, which two statements describe benefits of utilizing A-VPLS for Layer 2 extension? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedundancy is addressed without enabling Spanning Tree Protocol in the core.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe overlay of the Layer 2 connection on the Layer 3 transport hides any physical convergence.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIntegrated Layer 3 technology responds upon failure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA-VPLS utilizes the Cisco Catalyst 6500 Series VSS feature to provide native dual-homing.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA-VPLS provides flow-based load balancing over equal-cost multipath paths."
+    ],
+    "answer": "DE",
+    "answerDescription": "Reference:<br>http://www.voidcn.com/article/p-ufkdbtov-bem.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-15T08:47:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry it is DE\n(A-VPLS also uses the Cisco Catalyst 6500 Series VSS feature to provide native dual-homing, eliminating the need to use Cisco IOS EEM scripts or Spanning Tree Protocol to provide redundancy and load balancing)"
+      },
+      {
+        "date": "2020-01-15T08:42:00.000Z",
+        "voteCount": 1,
+        "content": "it is B&amp;E"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8514-exam-300-320-topic-2-question-80-discussion/",
+    "body": "An ISP is offering two MPLS circuits to an office when one of the links fails. Which routing feature provides the fastest possible convergence to the failover link?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBFD",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUDLD",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTTL",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmultipath A"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:46:00.000Z",
+        "voteCount": 1,
+        "content": "A. BFD"
+      },
+      {
+        "date": "2020-01-23T10:55:00.000Z",
+        "voteCount": 1,
+        "content": "Link failure detection\u2014Various mechanisms are in place to provide a fast detection of link failure, both generic and media dependent. The fastest mechanism by far is the integrated OAM mechanism of SONET/SDH framing. Other mechanisms include Loss of optical Signal (LOS), PPP keepalives, and various LMI mechanisms. Bidirectional Forwarding Detection (BFD) is a generic lightweight hello-based mechanism that can be used in conjunction with any type of media.\n\nTherefore, BFD should be the correct answer."
+      },
+      {
+        "date": "2019-11-18T18:42:00.000Z",
+        "voteCount": 2,
+        "content": "I think the answer should be A."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13689-exam-300-320-topic-2-question-82-discussion/",
+    "body": "A network engineer must propose a scalable enterprise campus access-distribution design model. Which two scaling factors are the most important to be considered for the Virtual Switching System model? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVSS stops VLAN spanning to the access switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBoth VSS nodes are active from control-plane perspective.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSTP must be implemented as a loop-avoidance mechanism.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVSS eliminates the need to implement FHRP for each VLAN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSTP root and FHRP primary must be tuned at the same node."
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:56:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; D. - C is important:\nSpanning tree must be enabled in the VSS-enabled design in order to detect accidental loops created at the access-layer or within the VSS systems (by connecting the same cable back to back to VSS member chassis).\nSTP Selection\n\n\u2022Root Switch and Root Guard Protection\n\u2022Loop Guard\n\u2022PortFast on Trunks\n\u2022PortFast and BPDU Guard\n.BPDU Filter"
+      },
+      {
+        "date": "2020-02-10T03:32:00.000Z",
+        "voteCount": 1,
+        "content": "You still need to have STP at the access outside the MEC, because they mention the access to dist. A doesn't make sense."
+      },
+      {
+        "date": "2020-02-10T14:27:00.000Z",
+        "voteCount": 1,
+        "content": "The question is about VSS, so I assumed dist switches set up as a VSS and that each access switch has links to both VSS members (MEC). All uplinks should be actively forwarding in this design, which is more scalable than the FHRP + STP design (same number of links but all forwarding). Answer A made sense to me in the context of the explanation provided at that link. As always, this is my opinion only. Looking forward for any comments or other clarifications justifying other more correct answers"
+      },
+      {
+        "date": "2020-02-11T09:13:00.000Z",
+        "voteCount": 2,
+        "content": "But STP does have to be enabled as a general loop avoidance mechanism. All MEC port will be forwarding because from STP's perspective the VSS and access switch(es)'s topology is a star. Nevertheless the VSS should be the root device. So C does make sense on a scalability point of view. Good call."
+      },
+      {
+        "date": "2020-02-14T13:03:00.000Z",
+        "voteCount": 1,
+        "content": "I can see where you were coming from so no worries, exactly that, only my opinion shared also, context is tricky in the CCDP, best of luck in the exam!"
+      },
+      {
+        "date": "2020-02-09T16:10:00.000Z",
+        "voteCount": 1,
+        "content": "I think A and D.\n\nhttps://networkdirection.net/articles/routingandswitching/spanningtreeandvlansinthecampus/"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8515-exam-300-320-topic-2-question-83-discussion/",
+    "body": "Which description of how virtual MAC addresses are assigned to the members of a GLBP group is true?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach device assigns its own address",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe AVG assigns the addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe AVF assigns the addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe device that has the highest IP address assigns the addresses B"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "Reference:<br>https://www.cisco.com/en/US/docs/ios/12_2t/12_2t15/feature/guide/ft_glbp.html#wp1039651",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T13:57:00.000Z",
+        "voteCount": 1,
+        "content": "defo AVG B."
+      },
+      {
+        "date": "2019-12-29T13:43:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct"
+      },
+      {
+        "date": "2019-11-18T18:46:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct answer is B."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/cisco/view/10504-exam-300-320-topic-2-question-84-discussion/",
+    "body": "An enterprise EIGRP network has been growing rapidly. After several recent outages, the network must be redesigned to facilitate further growth and address scalability concerns. Which two actions must be performed to accomplish this redesign? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the routers with newer models.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease bandwidth capacity between the peers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBreak down routing domain into multiple autonomous systems",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement route summarization",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize authentication between the peers. AD"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T18:14:00.000Z",
+        "voteCount": 1,
+        "content": "C D are correct"
+      },
+      {
+        "date": "2020-02-10T18:13:00.000Z",
+        "voteCount": 1,
+        "content": "http://www.ciscopress.com/articles/article.asp?p=1763921&amp;seqNum=5"
+      },
+      {
+        "date": "2020-01-27T03:05:00.000Z",
+        "voteCount": 1,
+        "content": "Can you explain why the answers are C and D?"
+      },
+      {
+        "date": "2019-12-29T13:44:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; D are correct answers"
+      },
+      {
+        "date": "2019-12-17T07:55:00.000Z",
+        "voteCount": 2,
+        "content": "Right answer should be C and D"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11634-exam-300-320-topic-2-question-87-discussion/",
+    "body": "A network consultant must propose a scalable access-distribution model where an alternative to STP technology is used to prevent Layer 2 loops. The proposed model must include these features:<br>\u2711 VLANs that span across the access switches<br>\u2711 eliminate the need for a FHRP protocol<br>\u2711 multichassis Ethernet technology to provide fast convergence in case of link failure<br>Which design model does the consultant propose?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmultitier looped square access model",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvirtual switch model",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmultitier looped triangle access model",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trouted access model B"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-08T15:47:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is VSS"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11635-exam-300-320-topic-2-question-89-discussion/",
+    "body": "You are designing a scalable cluster that contains a combination of Cisco APIC-M and APIC-L controllers. Which controller provides the scalability used in the cluster?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPIC-M",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPIC-EM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcombination of APIC-M and APIC -I",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPIC-L"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T11:44:00.000Z",
+        "voteCount": 1,
+        "content": "why a ?apic-m supports to 1000 port edge while apic-l from 1000 port edge"
+      },
+      {
+        "date": "2020-01-08T15:49:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A. APIC-M"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11729-exam-300-320-topic-2-question-90-discussion/",
+    "body": "A customer has several remote sites connected with the HQ via microwave links. An engineer has been asked to propose a backup WAN connectivity for these sites with these requirements:<br>\u2711 Physical WAN connectivity is not available for most of these sites.<br>\u2711 A low-cost and fast-to-implement backup solution must be deployed.<br>\u2711 Bandwidth needs for the backup link are low.<br>\u2711 Users can tolerate a WAN outage of up to 2 hours.<br>Which backup WAN link type does the engineer recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLTE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.16 WiMAX",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlaser link",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t802.15.1 Bluetooth"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-10T09:28:00.000Z",
+        "voteCount": 1,
+        "content": "I believe it should be B, \"WiMAX\""
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11730-exam-300-320-topic-2-question-92-discussion/",
+    "body": "An engineer must ensure Layer 2 extension capabilities over any transport infrastructure. Which interconnective data center functionality satisfies this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrivate line",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOTV",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVPLS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEoMPLS"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-10T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "B,\n https://books.google.com/books?id=YhDGDQAAQBAJ&amp;pg=PT767&amp;lpg=PT767&amp;dq=300-320+Layer+2+extension+capabilities+over+any+transport+infrastructure&amp;source=bl&amp;ots=hOSVEdy0xB&amp;sig=ACfU3U2YYFV8qiVEiRc_PePJVQTafdgPGA&amp;hl=en&amp;ppis=_e&amp;sa=X&amp;ved=2ahUKEwjl04P3x_nmAhWOdd8KHb6nBX4Q6AEwAXoECAoQAQ#v=onepage&amp;q=300-320%20Layer%202%20extension%20capabilities%20over%20any%20transport%20infrastructure&amp;f=false"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13777-exam-300-320-topic-2-question-96-discussion/",
+    "body": "When designing remote access to the Enterprise Campus network for teleworkers and mobile workers, which of the following should the designer consider?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is recommended to place the VPN termination device in line with the Enterprise Edge firewall, with ingress traffic limited to SSL only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMaintaining access rules, based on the source IP of the client, on an internal firewall drawn from a headend RADIUS server is the most secure deployment",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVPN Headend routing using Reverse Route Injection (RRI) with distribution is recommended when the remote user community is small and dedicated DHCP scopes are in place",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClientless SSL VPNs provide more granular access control than SSL VPN clients (thin or thick), including at Layer7"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T15:02:00.000Z",
+        "voteCount": 1,
+        "content": "Not A? Any comments welcome."
+      },
+      {
+        "date": "2020-02-16T09:09:00.000Z",
+        "voteCount": 1,
+        "content": "My guess was also A. But you can find in the ARCH book (third edition):\n\"Tunnel-based VPNs (IPsec and SSL VPN clients) provide Layer 3 control at the protocol, port, and destination IP level. Clientless SSL VPNs can provide more granular Layer 7 access control, including URL-based access or file server directory-level access control.\"\nSo D is probably correct."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/cisco/view/12319-exam-300-320-topic-2-question-99-discussion/",
+    "body": "Which of the following two statements about Cisco NSF and SSO are the most relevant to the network designer? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can reduce outages to 1 to 3 seconds by using SSO in a Layer 2 environment or Cisco NSF with SSO in a Layer 3 environment.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSSO and NSF each require the devices to either be graceful restart-capable or graceful restart- aware.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn a fully redundant topology adding redundant supervisors with NSF and SSO may cause longer convergence times than single supervisors with tuned IGP timers",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe primary deployment scenario for Cisco NSF with SSO is in the Distribution and Core layers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCisco NSF-aware neighbor relationships are independent of any tuned IGP timers"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-19T08:45:00.000Z",
+        "voteCount": 1,
+        "content": "the correct answers are B&amp;C"
+      },
+      {
+        "date": "2020-02-10T15:15:00.000Z",
+        "voteCount": 1,
+        "content": "C&amp;D, perhaps?"
+      },
+      {
+        "date": "2020-02-21T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed, B&amp;C"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14573-exam-300-320-topic-2-question-101-discussion/",
+    "body": "From a design perspective which two of the following OSPF statements are most relevant? (Choose two)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOSPF stub areas can be thought of as a simple form of summarization",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOSPF cannot filter intra-area routes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn ABR can only exist in two areas - the backbone and one adjacent area",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerformance issues in the Backbone area can be offset by allowing some traffic to transit a non-backbone area",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe size of an area (the LSDB) will be constrained by the size of the IP MTU"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-20T17:25:00.000Z",
+        "voteCount": 1,
+        "content": "I think A &amp; B\n\nOnce the routers become adjacent on the virtual link, Router3.3.3.3 considers itself an area border router (ABR), because it now has a link in Area 0.\nhttps://www.cisco.com/c/en/us/support/docs/ip/open-shortest-path-first-ospf/47866-ospfdb7.html"
+      },
+      {
+        "date": "2020-02-20T17:26:00.000Z",
+        "voteCount": 1,
+        "content": "Intra area can be filtered\n\nhttps://packetlife.net/blog/2010/feb/10/ospf-filtering-inter-area-vs-intra-area/"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14270-exam-300-320-topic-2-question-104-discussion/",
+    "body": "Which of these Layer 2 access designs does not support VLAN extensions?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFlexLinks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tloop-free U",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlooped square",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlooped triangle",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tloop-free inverted U"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-16T09:25:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.cisco.com/c/en/us/td/docs/solutions/Enterprise/Data_Center/DC_Infra2_5/DCInfra_6.html#wp1098258\n\"The main disadvantages of the loop-free U design is the inability to extend VLANs outside of an access pair\""
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13850-exam-300-320-topic-2-question-118-discussion/",
+    "body": "Which of the following is true concerning best design practices at the switched Access layer of the traditional layer2 Enterprise Campus Network?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCisco NSF with SSO and redundant supervisors has the most impact on the campus in the Access layer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvide host-level redundancy by connecting each end device to 2 separate Access switches",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOffer default gateway redundancy by using dual connections from Access switches to redundant Distribution layer switches using a FHRP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInclude a link between two Access switches to support summarization of routing information from the Access to the Distribution layer"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-11T10:25:00.000Z",
+        "voteCount": 1,
+        "content": "C, maybe?"
+      },
+      {
+        "date": "2020-02-16T09:42:00.000Z",
+        "voteCount": 1,
+        "content": "http://www.ciscopress.com/articles/article.asp?p=1315434\n\"Cisco NSF with SSO and redundant supervisors has the most impact in the campus in the access layer.\""
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/cisco/view/12506-exam-300-320-topic-2-question-125-discussion/",
+    "body": "Which two of these are correct regarding the recommended practice for distribution layer design? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuse a redundant link to the core",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuse a Layer 2 link between distribution switches",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnever use a redundant link to the core because of convergence issues",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuse a Layer 3 link between distribution switches with route summarization",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuse a Layer 3 link between distribution switches without route summarization"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-22T08:22:00.000Z",
+        "voteCount": 3,
+        "content": "answer is A&amp;E \nsummarization between distribution and core not between distributions"
+      },
+      {
+        "date": "2020-02-13T14:56:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed.\n\n https://community.cisco.com/t5/other-network-architecture/summarization-on-distribution-to-distribution-switches/td-p/3212035"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8627-exam-300-320-topic-2-question-127-discussion/",
+    "body": "Which two design concerns must be addressed when designing a multicast implementation? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tonly the low-order 23 bits of the MAC address are used to map IP addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tonly the low-order 24 bits of the MAC address are used to map IP addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tonly the high-order 23 bits of the MAC address are used to map IP addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tonly the low-order 23 bits of the IP address are used to map MAC addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe 0x01004f MAC address prefix is used for mapping IP addresses to MAC addresses",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe 0x01005e MAC address prefix is used for mapping IP addresses to MAC addresses"
+    ],
+    "answer": "AF",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-19T15:11:00.000Z",
+        "voteCount": 5,
+        "content": "The answer MUST be D and F. \"The sending device must convert the destination IP multicast address into a special MAC address...\" doing the following:  \"the lower-order 23 bits of the destination IP multicast address are mapped to the lower-order 23 bits of the MAC address.\""
+      },
+      {
+        "date": "2020-02-16T09:51:00.000Z",
+        "voteCount": 1,
+        "content": "agree, D and F are correct"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8347-exam-300-320-topic-2-question-154-discussion/",
+    "body": "Which STP feature can prevent other switches on the network from becoming the root switch, but still allow that interface to particiate in STP otherwise?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBPDU Guard"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-16T08:09:00.000Z",
+        "voteCount": 4,
+        "content": "Think it should be Root Guard instead."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11126-exam-300-320-topic-2-question-157-discussion/",
+    "body": "A network engineer designing an access layer that requires all uplinks to be active,Furthermore, VLANs must span accross the entire switch block.Which two design fulfill this requirement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLayer 2 FlexLinks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLayer 2 loop-free inverted U"
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-30T23:47:00.000Z",
+        "voteCount": 5,
+        "content": "Layer 2 Loop-free inverted U\nLayer 2 Loop square U\nLayer 2 loop free inverted U"
+      },
+      {
+        "date": "2019-12-31T09:39:00.000Z",
+        "voteCount": 1,
+        "content": "I think you can find this question in page 37 or 38\nMMT is right"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8628-exam-300-320-topic-2-question-162-discussion/",
+    "body": "WHich option is correct when using Virtual Switching System<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBoth control planes forward traffic simultaneously"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-21T22:17:00.000Z",
+        "voteCount": 2,
+        "content": "Should be Data plane"
+      },
+      {
+        "date": "2019-11-19T15:59:00.000Z",
+        "voteCount": 2,
+        "content": "Wrong."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/cisco/view/8349-exam-300-320-topic-2-question-163-discussion/",
+    "body": "Which three statements about 802.1X are true<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tit is IEEE standard",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt works only with wired devices",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt can allow and deny port access based on device identity"
+    ],
+    "answer": "ABC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-03T03:37:00.000Z",
+        "voteCount": 1,
+        "content": "It can allow and deny port access based on user identity"
+      },
+      {
+        "date": "2019-11-16T08:19:00.000Z",
+        "voteCount": 2,
+        "content": "Option B is wrong.  Dot1X is supported on wireless."
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/cisco/view/9491-exam-300-320-topic-2-question-165-discussion/",
+    "body": "Which virtulization technology uses Layer 3 BFD to detect network failure between entwork devices?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCisco Fabricpath"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-01T08:24:00.000Z",
+        "voteCount": 3,
+        "content": "it's VSS"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/cisco/view/14575-exam-300-320-topic-2-question-173-discussion/",
+    "body": "Which technology guarantees loop free network and does not contain the state \"listening\"?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRPVST+",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSTP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVSS"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-20T18:47:00.000Z",
+        "voteCount": 1,
+        "content": "B is incorrect"
+      }
+    ],
+    "examNameCode": "300-320",
+    "topicNumber": "2"
+  }
+]

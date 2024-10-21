@@ -1,0 +1,477 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/29578-exam-nse5_fmg-54-topic-1-question-1-discussion/",
+    "body": "When installation is performed from the FortiManager, what is the recovery logic used between FortiManager and FortiGate for an FGFM tunnel?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAfter 15 minutes, FortiGate will unset all CLI commands that were part of the installation that caused the tunnel to go down.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiGate will reject the CLI commands that will cause the tunnel to go down.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager will revert and install a previous configuration revision on the managed FortiGate.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager will not push the CLI commands as a part of the installation that will cause the tunnel to go down."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-11-28T06:42:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is A. The configuration change will break the fgfm connection, causing the FortiGate unit to attempt to reconnect for 900 seconds (15mins). If the FortiGate cannot reconnect, it will rollback to its previous configuration."
+      },
+      {
+        "date": "2023-03-12T06:28:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is A"
+      },
+      {
+        "date": "2023-02-16T16:57:00.000Z",
+        "voteCount": 1,
+        "content": "If the connection fails to reestablish, FortiGate applies the unset command after 15 minutes (not configurable\nand not based on sock timeout values). If the connection remains down, and rollback-allow-reboot is\nenabled on FortiManager, FortiGate reboots to recover the previous configuration from its configuration file\nFMG 7.0 Study guide page 277"
+      },
+      {
+        "date": "2022-03-03T02:41:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is C. From Student Guide: \"If the connection fails, FortiManager tries to recover the FGFM tunnel by unsetting the command that caused the tunnel to go down\"\nA is wrong because: the default value is \"disable\"\n\"rollback-allow-reboot {enable | disable}\n\nEnable/disable allowing a FortiGate unit to reboot when installing a script or configuration (default = disable).\""
+      },
+      {
+        "date": "2020-11-28T06:36:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C. The configuration change will break the fgfm connection, causing the FortiGate unit to attempt to reconnect for 900 seconds. If the FortiGate cannot reconnect, it will rollback to its previous configuration."
+      },
+      {
+        "date": "2023-02-16T16:58:00.000Z",
+        "voteCount": 1,
+        "content": "It will do so by its own. The FortiManager can't manage it, when the connection is down.\nCheck FMG 7.0 study guide page 277. Answer is A"
+      },
+      {
+        "date": "2020-08-25T11:43:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is A"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/129251-exam-nse5_fmg-54-topic-1-question-3-discussion/",
+    "body": "View the following exhibit:<br><img src=\"/assets/media/exam-media/02605/0000300001.jpg\" class=\"in-exam-image\"><br>When using Install Config option to install configuration changes to managed FortiGate, which of the following statements are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWill not create new revision in the revision history.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvides the option to preview configuration changes prior to installing them.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstalls device-level changes to FortiGate without launching the Install Wizard.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnce installed, the install process cannot be canceled and changes will be installed on the managed device."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-23T01:17:00.000Z",
+        "voteCount": 1,
+        "content": "c &amp; d are correct"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/129252-exam-nse5_fmg-54-topic-1-question-4-discussion/",
+    "body": "View the following exhibit:<br><img src=\"/assets/media/exam-media/02605/0000400001.png\" class=\"in-exam-image\"><br>Which of the following statements are true if both FortiManager and FortiGate are behind the NAT devices? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiGate can announce itself to FortiManager only if the FortiManager IP address is configured on FortiGate under central management.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIf the FGFM tunnel is torn down, FortiManager will try to re-establish the FGFM tunnel.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiGate is discovered by FortiManager through the FortiGate NATed IP address.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDuring discovery, the FortiManager NATed IP address is not set by default on FortiGate."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-23T01:18:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; are correct"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/99484-exam-nse5_fmg-54-topic-1-question-5-discussion/",
+    "body": "What is the purpose of the Policy Check feature on FortiManager?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo find and merge duplicate policies in the policy package.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo find and provide recommendation to combine multiple separate policy packages into one common policy package.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo find and delete disabled firewall policies in the policy package.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTo find and provide recommendation for optimizing policies in a policy package.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "The policy check tool allows you to check all policy packages within an ADOM to ensure consistency and eliminate conflicts that may prevent your devices from passing traffic. This allows you to optimize your policy sets and potentially reduce the size of your databases. The check will verify:<br>1. Object duplication: two objects that have identical definitions<br>2. Object shadowing: a higher priority object completely encompasses another object of the same type<br>3. Object overlap: one object partially overlaps another object of the same type<br>4. Object orphaning: an object has been defined but has not been used anywhere.<br>Reference:<br>https://docs.fortinet.com/uploaded/files/2905/FortiManager-5.4.0-Administration-Guide.pdf",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:05:00.000Z",
+        "voteCount": 2,
+        "content": "The policy check only recommends changes but does not execute any changes. Therefore D is correct, not A."
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/72271-exam-nse5_fmg-54-topic-1-question-6-discussion/",
+    "body": "View the following exhibit:<br><img src=\"/assets/media/exam-media/02605/0000500001.png\" class=\"in-exam-image\"><br>Which one of the following statements is true regarding the object named ALL?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager updated the object ALL using FortiManager's value in its database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager updated the object ALL using FortiGate's value in its database.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager created the object ALL as a unique entity in its database, which can be only used by this managed FortiGate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager installed the object ALL with the updated value."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:05:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2022-03-03T03:07:00.000Z",
+        "voteCount": 2,
+        "content": "B \"updated previous object\""
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/72272-exam-nse5_fmg-54-topic-1-question-7-discussion/",
+    "body": "Which of the following conditions trigger FortiManager to create a new revision history? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen FortiManager installs device-level changes to a managed device.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen configuration revision is reverted to previous revision in the revision history.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen changes to device-level database is made on FortiManager.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen FortiManager is auto-updated with configuration changes made directly on a managed device.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:06:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; D are correct, device level changes on the FMG without installing them doesn't create a new revision history. Instead Auto-update creates a new revision history."
+      },
+      {
+        "date": "2022-03-03T03:09:00.000Z",
+        "voteCount": 2,
+        "content": "A &amp; D are correct, device level changes on the FMG without installing them doesn't create a new revision history. Instead Auto-update creates a new revision history."
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/72273-exam-nse5_fmg-54-topic-1-question-8-discussion/",
+    "body": "Which of the following statements are true regarding an FGFM keepalive message? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt includes the configuration checksum of FortiGate.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe keepalive interval for keepalive messages is configured on FortiGate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is sent only by FortiGate.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt is used between FortiManager HA cluster members to make sure cluster members are in sync."
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:06:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; C are correct"
+      },
+      {
+        "date": "2022-03-03T03:10:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; C are correct"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/78532-exam-nse5_fmg-54-topic-1-question-9-discussion/",
+    "body": "An administrator would like to authorize a newly-installed AP using AP Manager. What steps does the administrator need to perform to authorize an AP?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthorize the new AP using AP Manager and wait until the change is updated on the FortiAP. Changes to the AP's state do not require installation.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChanges to the AP's state must be performed directly on the managed FortiGate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthorize the new AP using AP Manager and install the policy package changes on the managed FortiGate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthorize the new AP using AP Manager and install the device level settings on the managed FortiGate."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-12-01T11:58:00.000Z",
+        "voteCount": 1,
+        "content": "Authorizing the AP doesn't require device level settings to be pushed."
+      },
+      {
+        "date": "2022-08-30T17:25:00.000Z",
+        "voteCount": 2,
+        "content": "i think the answer is A"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/129253-exam-nse5_fmg-54-topic-1-question-10-discussion/",
+    "body": "An administrator has assigned a global policy package to custom ADOM1. What will happen if the administrator tries to create a new policy package in custom<br>ADOM1?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen a new policy package is created, you need to reapply the global policy package to the ADOM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen creating a new policy package, can select the option to assign the global policies to the new package.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen a new policy package is created, it automatically assigns the global policies to the new package.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen a new policy package is created, you must assign the global policy package from the global ADOM."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-23T01:25:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/99485-exam-nse5_fmg-54-topic-1-question-12-discussion/",
+    "body": "View the following exhibit:<br><img src=\"/assets/media/exam-media/02605/0000900001.jpg\" class=\"in-exam-image\"><br>What of the following statements are true regarding the output? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguration changes have been installed to FortiGate and represents FortiGate configuration has been changed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe latest revision history for the managed FortiGate does match with the FortiGate running configuration.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe latest revision history for the managed FortiGate does not match with the device-level database.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguration changes directly made on the FortiGate have been automatically updated to device-level database."
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:10:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is BC"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/99486-exam-nse5_fmg-54-topic-1-question-13-discussion/",
+    "body": "An administrator wants to delete an address object that is currently referenced in a firewall policy. Which one of the following statements is true?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager will replace the deleted address object with the all address object in the referenced firewall policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager will disable the status of the referenced firewall policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager will not allow the administrator to delete a referenced address object.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiManager will replace the deleted address object with the none address object in the referenced firewall policy.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:10:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is D"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/99487-exam-nse5_fmg-54-topic-1-question-19-discussion/",
+    "body": "How are the points calculated when using FortiMeter to deploy FortiOS-VM? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBased on the number of sessions on the mgmt interface of FortiOS-VM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBased on the FortiGuard service option enabled for FortiOS-VM.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBased on the traffic usage on port1 and port2 on FortiOS-VM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBased on the amount of traffic (per GB) passing through the FortiOS-VM.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BC",
+    "answerDescription": "Point calculations are based off of traffic passing through the FortiOS-VM interfaces. Points are used per terabyte of traffic and there is an increased point cost as you increase the FortiGuard services in use.<br>\u2711 4 pts/TB for a FortiOS-VM tagged as \"FW\"<br>\u2711 10 pts/TB for a FortiOS-VM tagged as \"FW + URL\"<br>\u2711 25 pts/TB for a FortiOS-VM tagged as \"UTM\"<br>Reference:<br>https://docs.fortinet.com/uploaded/files/4057/fortinetvm_on-demand_1.pdf",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:14:00.000Z",
+        "voteCount": 1,
+        "content": "B &amp; D are correct. See answer description."
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/99488-exam-nse5_fmg-54-topic-1-question-23-discussion/",
+    "body": "View the following exhibit:<br><img src=\"/assets/media/exam-media/02605/0001600001.jpg\" class=\"in-exam-image\"><br>An administrator has created a firewall address object, Training, which is used in the Local-FortiGate policy package. When the install operation is performed, which IP/Netmask will be installed on the Local-FortiGate, for the Training firewall address object?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t192.168.0.1/24",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt will create firewall address group on Local-FortiGate with 192.168.0.1/24 and 10.0.1.0/24 object values.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLocal-FortiGate will automatically choose an IP/Netmask based on its network interface settings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10.0.1.0/24\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-16T17:16:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/25714-exam-nse5_fmg-54-topic-1-question-33-discussion/",
+    "body": "View the following exhibit:<br><img src=\"/assets/media/exam-media/02605/0002400001.png\" class=\"in-exam-image\"><br>An administrator is importing a new device to FortiManager and has selected the shown options. What will happen if the administrator makes the changes and installs the modified policy package on this managed FortiGate?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe unused objects that are not tied to the firewall policies will be installed on FortiGate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe unused objects that are not tied to the firewall policies will remain as read-only locally on FortiGate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe unused objects that are not tied to the firewall policies in policy package will be deleted from the FortiManager database.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe unused objects that are not tied to the firewall policies locally on FortiGate will be deleted."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-14T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "this is the sample question from NSE 5 fortimanager, A is the correct answer,\nhowever in sample question the correct are D\ngeeez"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/fortinet/view/50133-exam-nse5_fmg-54-topic-1-question-39-discussion/",
+    "body": "Which of the following are included in the FortiManager backup? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGlobal database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFortiGuard database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLogs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll devices"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-14T11:07:00.000Z",
+        "voteCount": 2,
+        "content": "It is A &amp; D"
+      }
+    ],
+    "examNameCode": "nse5_fmg-54",
+    "topicNumber": "1"
+  }
+]

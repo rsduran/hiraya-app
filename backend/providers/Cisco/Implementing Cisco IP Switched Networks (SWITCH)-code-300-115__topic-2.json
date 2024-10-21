@@ -1,0 +1,206 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/cisco/view/11332-exam-300-115-topic-2-question-3-discussion/",
+    "body": "Which command creates a login authentication method named \"login\" that will primarily use RADIUS and fail over to the local user database?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(config)# aaa authentication login default radius local",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(config)# aaa authentication login login radius local",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(config)# aaa authentication login default local radius",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(config)# aaa authentication login radius local"
+    ],
+    "answer": "B",
+    "answerDescription": "In the command \"aaa authentication login login radius local\" the second login is the name of the AAA method. It also lists radius first then local, so it will primarily use RADIUS for authentication and fail over to the local user database only if the RADIUS server is unreachable.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-12T04:55:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, the actual CLI command and I verified it on a Cisco switch is:\n\naaa authentication login login group radius local"
+      },
+      {
+        "date": "2020-01-03T09:32:00.000Z",
+        "voteCount": 3,
+        "content": "This is actually missing the keyword \"group\" the right command would be \n\naaa authentication login login group radius local"
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/cisco/view/2181-exam-300-115-topic-2-question-5-discussion/",
+    "body": "A network engineer wants to ensure Layer 2 isolation of customer traffic using a private VLAN. Which configuration must be made before the private VLAN is configured?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable VTP and manually assign VLANs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure all switches are configured as VTP server mode.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure VTP Transparent Mode.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable VTP version 3."
+    ],
+    "answer": "C",
+    "answerDescription": "You must configure VTP to transparent mode before you can create a private VLAN. Private VLANs are configured in the context of a single switch and cannot have members on other switches. Private VLANs also carry TLVs that are not known to all types of Cisco switches.<br>Reference: http://www.ciscopress.com/articles/article.asp?p=29803&amp;seqNum=6",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-18T15:17:00.000Z",
+        "voteCount": 1,
+        "content": "You must configure VTP to transparent mode before you can create a private VLAN. \nPrivate VLANs are configured in the context of a single switch and cannot have members on other switches.\nPrivate VLANs also carry TLVs that are not known to all types of Cisco switches.\nReference: http://www.ciscopress.com/articles/article.asp?p=29803&amp;seqNum=6"
+      },
+      {
+        "date": "2019-11-07T10:27:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is C.\nEnabling VTPv3 not enough for creating private vlans. Additionally we must make particular switch vtp primary server.\nWhereas configuring transparent mode is enough."
+      },
+      {
+        "date": "2019-07-04T06:58:00.000Z",
+        "voteCount": 2,
+        "content": "\"https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3560/software/release/12-2_52_se/configuration/guide/3560scg/swpvlan.html\"\n\n\u2022If the switch is running VTP version 1 or 2, you must set VTP to transparent mode. After you configure a private VLAN, you should not change the VTP mode to client or server. For information about VTP, see Chapter 15, \"Configuring VTP.\" VTP version 3 supports private VLANs in all modes.\n\nI think C and D are correct"
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/cisco/view/7794-exam-300-115-topic-2-question-7-discussion/",
+    "body": "A DHCP configured router is connected directly to a switch that has been provisioned with DHCP snooping. IP Source Guard with the ip verify source port-security command is configured under the interfaces that connect to all DHCP clients on the switch. However, clients are not receiving an IP address via the DHCP server.<br>Which option is the cause of this issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe DHCP server does not support information option 82.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe DHCP client interfaces have storm control configured.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStatic DHCP bindings are not configured on the switch.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDHCP snooping must be enabled on all VLANs, even if they are not utilized for dynamic address allocation."
+    ],
+    "answer": "A",
+    "answerDescription": "When you enable both IP Source Guard and Port Security, using the ip verify source port-security interface configuration command, there are two caveats:<br>\u2711 The DHCP server must support option 82, or the client is not assigned an IP address.<br>\u2711 The MAC address in the DHCP packet is not learned as a secure address. The MAC address of the DHCP client is learned as a secure address only when the switch receives non-DHCP data traffic.<br>Reference: http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3550/software/release/12-2_25_see/configuration/guide/3550SCG/ swdhcp82.html#wp1069615",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-07T11:09:00.000Z",
+        "voteCount": 1,
+        "content": "Working reference link: https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst2960/software/release/15-2_2_e/configuration/guide/b_1522e_2960_2960c_2960s_2960sf_2960p_cg/b_1522e_2960_2960c_2960s_2960sf_2960p_cg_chapter_010101.pdf"
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/cisco/view/7786-exam-300-115-topic-2-question-10-discussion/",
+    "body": "After port security is deployed throughout an enterprise campus, the network team has been overwhelmed with port reset requests. They decide to configure the network to automate the process of re-enabling user ports. Which command accomplishes this task?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitch(config)# errdisable recovery interval 180",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitch(config)# errdisable recovery cause psecure-violation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitch(config)# switchport port-security protect",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitch(config)# switchport port-security aging type inactivity",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitch(config)# errdisable recovery cause security-violation"
+    ],
+    "answer": "B",
+    "answerDescription": "When a secure port is in the error-disabled state, you can bring it out of this state automatically by configuring the errdisable recovery cause psecure-violation global configuration command or you can manually reenable it by entering the shutdown and no shut down interface configuration commands. This is the default mode. If a port is in per-VLAN errdisable mode, you can also use clear errdisable interface name vlan range command to re-enable the VLAN on the port.<br>You can also customize the time to recover from the specified error disable cause (default is 300 seconds) by entering the errdisable recovery interval interval command.<br>Reference: http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst4500/12-2/53SG/configuration/config/port_sec.pdf",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-07T09:09:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      },
+      {
+        "date": "2019-11-07T23:48:00.000Z",
+        "voteCount": 1,
+        "content": "Sure, you are wrong. B is correct answer. Changing interval you are not enable errdisable recovery, you must configure cause of errdisable for recovery. And question not about udld, bpduguard etc., it is all about port-security."
+      },
+      {
+        "date": "2019-11-07T09:09:00.000Z",
+        "voteCount": 1,
+        "content": "psecure-violation is one of the many possible causes for errdisable state. errdisable recovery interval makes the switch to automatically recover from all the possibles causes: udld, bpduguard, etc"
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/cisco/view/7807-exam-300-115-topic-2-question-22-discussion/",
+    "body": "Which private VLAN can have only one VLAN and be a secondary VLAN that carries unidirectional traffic upstream from the hosts toward the promiscuous ports and the gateway?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tisolated VLAN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tprimary VLAN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcommunity VLAN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpromiscuous VLAN"
+    ],
+    "answer": "A",
+    "answerDescription": "Understanding Primary, Isolated, and Community Private VLANs<br>Primary VLANs and the two types of secondary VLANs (isolated and community) have these characteristics:<br>\u2711 Primary VLAN  The primary VLAN carries traffic from the promiscuous ports to the host ports, both isolated and community, and to other promiscuous ports.<br>\u2711 Isolated VLAN  An isolated VLAN is a secondary VLAN that carries unidirectional traffic upstream from the hosts toward the promiscuous ports.<br>You can configure multiple isolated VLANs in a private VLAN domain; all the traffic remains isolated within each one. Each isolated VLAN can have several isolated ports, and the traffic from each isolated port also remains completely separate.<br>\u2711 Community VLAN  A community VLAN is a secondary VLAN that carries upstream traffic from the community ports to the promiscuous port and to other host ports in the same community. You can configure multiple community VLANs in a private VLAN domain. The ports within one community can communicate, but these ports cannot communicate with ports in any other community or isolated VLAN in the private VLAN.<br>Reference: http://www.cisco.com/c/en/us/td/docs/switches/datacenter/nexus5000/sw/configuration/guide/cli/CLIConfigurationGuide/PrivateVLANs.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-08T00:36:00.000Z",
+        "voteCount": 2,
+        "content": "More correct citation:\n\n\"Isolated VLAN \u2014A private VLAN has only one isolated VLAN. An isolated VLAN is a secondary VLAN that carries unidirectional traffic upstream from the hosts toward the promiscuous ports and the gateway.\"\n\nhttps://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst9500/software/release/16-6/configuration_guide/vlan/b_166_vlan_9500_cg/b_166_vlan_9500_cg_chapter_0100.pdf"
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/cisco/view/1813-exam-300-115-topic-2-question-29-discussion/",
+    "body": "On which interface can port security be configured?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstatic trunk ports",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdestination port for SPAN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEtherChannel port group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdynamic access ports"
+    ],
+    "answer": "A",
+    "answerDescription": "Port Security and Port Types -<br>You can configure port security only on Layer 2 interfaces. Details about port security and different types of interfaces or ports are as follows:<br>\u2711 Access ports  You can configure port security on interfaces that you have configured as Layer 2 access ports. On an access port, port security applies only to the access VLAN.<br>\u2711 Trunk ports  You can configure port security on interfaces that you have configured as Layer 2 trunk ports. VLAN maximums are not useful for access ports.<br>The device allows VLAN maximums only for VLANs associated with the trunk port.<br>\u2711 SPAN ports  You can configure port security on SPAN source ports but not on SPAN destination ports.<br>\u2711 Ethernet Port Channels  Port security is not supported on Ethernet port channels.<br>Reference: http://www.cisco.com/c/en/us/td/docs/switches/datacenter/sw/4_1/nx-os/security/configuration/guide/sec_nx-os-cfg/sec_portsec.html<br>These are some other guidelines for configuring port security:<br>Port security can only be configured on static access ports. A secure port cannot be a dynamic access port or a trunk port. A secure port cannot be a destination port for Switch Port Analyzer (SPAN). A secure port cannot belong to an EtherChannel port group. A secure port cannot be an 802.1X port. You cannot configure static secure MAC addresses in the voice VLAN.<br>Reference: https://supportforums.cisco.com/t5/network-infrastructure-documents/unable-to-configure-port-security-on-a-catalyst-2940-2950-2955/ta-p/3133064",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-08T02:23:00.000Z",
+        "voteCount": 1,
+        "content": "\"Port security cannot be enabled on dynamic access ports.\"\n\n\"Trunk port security extends port security to trunk ports. It restricts the allowed MAC addresses or the maximum number of MAC addresses to individual VLANs on a trunk port. Trunk port security enables service providers to block the access from a station with a different MAC address than the ones specified for that VLAN on that trunk port. When a trunk port security violation occurs, the trunk port is shut down and an SNMP trap may be generated. Trunk port security is also supported on private VLAN trunk ports.\"\n\nhttps://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst4500/12-2/25sg/configuration/guide/conf/port_sec.html"
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/cisco/view/265-exam-300-115-topic-2-question-32-discussion/",
+    "body": "SIMULATION -<br>SWITCH.com is an IT company that has an existing enterprise network comprised of two layer 2 only switches; DSW1 and ASW1. The topology diagram indicates their layer 2 mapping. VLAN 20 is a new VLAN that will be used to provide the shipping personnel access to the server. Corporate polices do not allow layer 3 functionality to be enabled on the switches. For security reasons, it is necessary to restrict access to VLAN 20 in the following manner:<br>\u2711 Users connecting to VLAN 20 via port f0/1 on ASW1 must be authenticated before they are given access to the network. Authentication is to be done via a<br>Radius server:<br>- Radius server host: 172.120.40.46<br>- Radius key: rad123<br>- Authentication should be implemented as close to the host as possible.<br>\u2711 Devices on VLAN 20 are restricted to the subnet of 172.120.40.0/24.<br>- Packets from devices in the subnet of 172.120.40.0/24 should be allowed on VLAN 20.<br>- Packets from devices in any other address range should be dropped on VLAN 20.<br>- Filtering should be implemented as close to the server farm as possible.<br>The Radius server and application servers will be installed at a future date. You have been tasked with implementing the above access control as a pre-condition to installing the servers. You must use the available IOS switch features.<br>Note: Named access list is not supported.<br><img src=\"/assets/media/exam-media/01585/0014600001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/01585/0014700001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/01585/0014800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "Here is the solution below",
+    "answerDescription": "Step1: Console to ASW1 from PC console 1<br><br>ASW1(config)#aaa new-model -<br>ASW1(config)#radius-server host 172.120.39.46 key rad123<br>ASW1(config)#aaa authentication dot1x default group radius<br>ASW1(config)#dot1x system-auth-control<br>ASW1(config)#inter fastEthernet 0/1<br>ASW1(config-if)#switchport mode access<br>ASW1(config-if)#dot1x port-control auto<br><br>ASW1(config-if)#exit -<br><br>ASW1#copy run start -<br>Step2: Console to DSW1 from PC console 2<br>DSW1(config)#ip access-list standard 10<br>DSW1(config-ext-nacl)#permit 172.120.40.0 0.0.0.255<br><br>DSW1(config-ext-nacl)#exit -<br>DSW1(config)#vlan access-map PASS 10<br>DSW1(config-access-map)#match ip address 10<br>DSW1(config-access-map)#action forward<br><br>DSW1(config-access-map)#exit -<br>DSW1(config)#vlan access-map PASS 20<br>DSW1(config-access-map)#action drop<br><br>DSW1(config-access-map)#exit -<br>DSW1(config)#vlan filter PASS vlan-list 20<br>DSW1#copy run start",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-03-19T11:21:00.000Z",
+        "voteCount": 5,
+        "content": "Note: Named access list is not supported.\nCreating a Standard IP Access List Using Numbers but not a Standard IP Access List Using Names\nconf t\naccess-list 10 permit ip 172.120.40.0  0.0.0.255\nexit"
+      },
+      {
+        "date": "2019-03-19T11:28:00.000Z",
+        "voteCount": 3,
+        "content": "Note: Named access list is not supported.\nCreating a Standard IP Access List Using Numbers but not a Standard IP Access List Using Names\nconf t\naccess-list 10 permit  172.120.40.0  0.0.0.255\nexit"
+      },
+      {
+        "date": "2019-02-04T14:52:00.000Z",
+        "voteCount": 1,
+        "content": "in this simulation we use two layer 2 only switches. How cam we apply ip-access list - it is layer 3, not layer 2 ?"
+      },
+      {
+        "date": "2019-03-17T05:48:00.000Z",
+        "voteCount": 1,
+        "content": "Here the command ip access-list means you are using a Named ACL rather than using a normal one.  Nothing relates to layer 3 capability."
+      }
+    ],
+    "examNameCode": "300-115",
+    "topicNumber": "2"
+  }
+]

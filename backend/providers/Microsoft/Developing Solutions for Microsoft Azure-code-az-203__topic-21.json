@@ -1,0 +1,110 @@
+[
+  {
+    "topic": 21,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15086-exam-az-203-topic-21-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to retrieve all order line items sorted alphabetically by the city.<br>How should you complete the code? To answer select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Scenario:<br>Order data is stored as nonrelational JSON and must be queried using Structured Query Language (SQL). The Order data is stored in a Cosmos database.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-10T06:35:00.000Z",
+        "voteCount": 17,
+        "content": "I have found options and answers in AZ-200 exam:\nOptions: https://www.examtopics.com/assets/media/exam-media/02521/0007200001.jpg\nAnswer: https://www.examtopics.com/assets/media/exam-media/02521/0007300001.jpg"
+      },
+      {
+        "date": "2020-04-15T16:48:00.000Z",
+        "voteCount": 4,
+        "content": "Are you sure this is the answer? \nI have seen other posts that say this is the answer....\nselect.....\nfrom li.lineItems li\njoin o in li.line_items\norder by li.city"
+      },
+      {
+        "date": "2020-05-14T08:36:00.000Z",
+        "voteCount": 1,
+        "content": "It would make sense that LineItems would be a part of the a single order so if multiple LineItems are in an order the answer from Daltonic75 appears to be logically right"
+      },
+      {
+        "date": "2020-05-22T10:21:00.000Z",
+        "voteCount": 1,
+        "content": "The image is being chopped off so I couldn't see schema, however, it does not make sense to put City field in LineItems, because typically an Order should have one and only one customer and one (shipping/billing) address, so answer must be either o.city or o.address.city."
+      },
+      {
+        "date": "2020-06-03T01:29:00.000Z",
+        "voteCount": 2,
+        "content": "full json\nhttps://www.examtopics.com/assets/media/exam-media/02521/0006900001.png"
+      },
+      {
+        "date": "2020-05-04T06:24:00.000Z",
+        "voteCount": 2,
+        "content": "Answer in image is correct"
+      },
+      {
+        "date": "2020-06-19T12:14:00.000Z",
+        "voteCount": 18,
+        "content": "yes, i was able to download the full json. City belongs to address in orders.json, so the correct answer is:\n1. Orders o\n2. Join li\n3. o.line_items\n4. O.adress.city"
+      },
+      {
+        "date": "2021-03-14T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "So, I suppose that's the correct one !"
+      },
+      {
+        "date": "2020-03-10T03:32:00.000Z",
+        "voteCount": 6,
+        "content": "S\nOptions  ([{option1}, {option2} ...]\n\nSELECT li.id AS lineitemid, li.price \nFROM [{Orders o}, {LineItems li}]\nJOIN [{li}, {o}] IN [{o.line_items}, {li.line_items}, {o.address}]\nORDER BY [{o.address.city},{li.address.city},{o.city},{li.city}] ASC"
+      },
+      {
+        "date": "2020-08-26T00:08:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, because the relationship between Order and Items is \"1:Many\"\nIn tranditional SQL, it needs to select from items table and join with order table."
+      },
+      {
+        "date": "2022-03-12T20:31:00.000Z",
+        "voteCount": 1,
+        "content": "Got it on 03/2022, I chose as below:\n1. Orders o\n2. Join li\n3. o.line_items\n4. o.adress.city"
+      },
+      {
+        "date": "2021-05-21T13:25:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct.\nSELECT .. FROM Orders O JOIN li IN o.line_items ORDER BY o.address.city\nGot this question at the exam and scored 100% on Azure Storage, so this must be correct."
+      },
+      {
+        "date": "2020-03-08T08:27:00.000Z",
+        "voteCount": 1,
+        "content": "Options and answer please!"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "21"
+  },
+  {
+    "topic": 21,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14877-exam-az-203-topic-21-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to configure Azure Cosmos DB.<br>Which settings should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box 1: Strong -<br>When the consistency level is set to strong, the staleness window is equivalent to zero, and the clients are guaranteed to read the latest committed value of the write operation.<br>Scenario: Changes to the Order data must reflect immediately across all partitions. All reads to the Order data must fetch the most recent writes.<br>Note: You can choose from five well-defined models on the consistency spectrum. From strongest to weakest, the models are: Strong, Bounded staleness,<br>Session, Consistent prefix, Eventual<br><br>Box 2: SQL -<br>Scenario: You identify the following requirements for data management and manipulation:<br>Order data is stored as nonrelational JSON and must be queried using Structured Query Language (SQL).",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-25T20:44:00.000Z",
+        "voteCount": 12,
+        "content": "option\nhttps://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTqxEr1u9VwXS4ti8tmk_DeWZ3IoWuIo_ZDTDIHsAyY-sYrDal5"
+      },
+      {
+        "date": "2022-03-12T20:29:00.000Z",
+        "voteCount": 2,
+        "content": "Got it on 03/2022, I chose as Consistency level = Strong ; API = SQL"
+      },
+      {
+        "date": "2021-01-09T02:53:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "21"
+  }
+]

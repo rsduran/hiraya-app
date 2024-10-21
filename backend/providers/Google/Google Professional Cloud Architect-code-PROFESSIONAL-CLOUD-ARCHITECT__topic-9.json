@@ -1,0 +1,777 @@
+[
+  {
+    "topic": 9,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/google/view/6489-exam-professional-cloud-architect-topic-9-question-1/",
+    "body": "For this question, refer to the TerramEarth case study. To be compliant with European GDPR regulation, TerramEarth is required to delete data generated from its<br>European customers after a period of 36 months when it contains personal data. In the new architecture, this data will be stored in both Cloud Storage and<br>BigQuery. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a BigQuery table for the European data, and set the table retention period to 36 months. For Cloud Storage, use gsutil to enable lifecycle management using a DELETE action with an Age condition of 36 months.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a BigQuery table for the European data, and set the table retention period to 36 months. For Cloud Storage, use gsutil to create a SetStorageClass to NONE action when with an Age condition of 36 months.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a BigQuery time-partitioned table for the European data, and set the partition expiration period to 36 months. For Cloud Storage, use gsutil to enable lifecycle management using a DELETE action with an Age condition of 36 months.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a BigQuery time-partitioned table for the European data, and set the partition expiration  period to 36 months. For Cloud Storage, use gsutil to create a SetStorageClass to NONE action with an Age condition of 36 months."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2019-10-12T04:56:00.000Z",
+        "voteCount": 41,
+        "content": "I thought C was correct.\nSetStorageClass could not be set to NONE. After data expired, data should be deleted not table.\nany comment?"
+      },
+      {
+        "date": "2021-03-04T20:53:00.000Z",
+        "voteCount": 3,
+        "content": "C, partition the data and expire it in big query and use life cycle on GS bucket."
+      },
+      {
+        "date": "2022-08-07T05:30:00.000Z",
+        "voteCount": 3,
+        "content": "There is Nothing as Storage Class as NONE"
+      },
+      {
+        "date": "2019-10-13T19:56:00.000Z",
+        "voteCount": 2,
+        "content": "why not A"
+      },
+      {
+        "date": "2020-08-11T03:28:00.000Z",
+        "voteCount": 11,
+        "content": "C is ok"
+      },
+      {
+        "date": "2021-07-16T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "bcoz you would land up creating a table for each day which is not a good practice"
+      },
+      {
+        "date": "2022-01-02T01:35:00.000Z",
+        "voteCount": 2,
+        "content": "or rather it will delete the entire table and all the data in it i.e. records less than 36 months old"
+      },
+      {
+        "date": "2020-12-28T08:48:00.000Z",
+        "voteCount": 2,
+        "content": "C is the correct ans."
+      },
+      {
+        "date": "2020-11-28T08:37:00.000Z",
+        "voteCount": 23,
+        "content": "C\nEnable a bucket lifecycle management rule to delete objects older than 36 months. Use partitioned tables in BigQuery and set the partition expiration period to 36 months. is the right answer.\n\nWhen you create a table partitioned by ingestion time, BigQuery automatically loads data into daily, date-based partitions that reflect the data's ingestion or arrival time.\n\nRef: https://cloud.google.com/bigquery/docs/partitioned-tables#ingestion_time\n\nAnd Google recommends you configure the default table expiration for your datasets, configure the expiration time for your tables, and configure the partition expiration for partitioned tables.\n\nRef: https://cloud.google.com/bigquery/docs/best-practices-storage#use_the_expiration_settings_to_remove_unneeded_tables_and_partitions\n\nIf the partitioned table has a table expiration configured, all the partitions in it are deleted according to the table expiration settings. For our specific requirement, we could set the partition expiration to 36 months so that partitions older than 36 months (and the data within) are automatically deleted.\n\nRef: https://cloud.google.com/bigquery/docs/managing-partitioned-tables#partition-expiration"
+      },
+      {
+        "date": "2019-10-19T03:44:00.000Z",
+        "voteCount": 24,
+        "content": "answer C is the right choice here. Table expiration in BigQuery and life cycle management in GSC"
+      },
+      {
+        "date": "2019-12-18T15:10:00.000Z",
+        "voteCount": 4,
+        "content": "i vote C"
+      },
+      {
+        "date": "2022-12-28T14:01:00.000Z",
+        "voteCount": 1,
+        "content": "it's C, I'm sure at 100% the other answer are incorrect there is no None as storage class and you need to actually delete data"
+      },
+      {
+        "date": "2022-11-05T08:46:00.000Z",
+        "voteCount": 1,
+        "content": "ok for C"
+      },
+      {
+        "date": "2022-10-20T16:12:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      },
+      {
+        "date": "2022-07-03T20:25:00.000Z",
+        "voteCount": 2,
+        "content": "C is right"
+      },
+      {
+        "date": "2022-05-16T06:48:00.000Z",
+        "voteCount": 1,
+        "content": "partion is way to go with big query hence B &amp; C. \nfor block storage C isvtye waybto go.\nhence C."
+      },
+      {
+        "date": "2022-01-09T22:39:00.000Z",
+        "voteCount": 1,
+        "content": "'Next year they want to use the data to train machine learning models.'\nI agree with D."
+      },
+      {
+        "date": "2022-01-09T22:40:00.000Z",
+        "voteCount": 1,
+        "content": "I made a mistake in the question to post a comment"
+      },
+      {
+        "date": "2022-06-11T09:08:00.000Z",
+        "voteCount": 3,
+        "content": "you also screwed up the percentage of the correct answers now :P"
+      },
+      {
+        "date": "2021-12-10T05:58:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2021-11-27T00:23:00.000Z",
+        "voteCount": 1,
+        "content": "vote C"
+      },
+      {
+        "date": "2021-10-24T05:27:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer: C\nA \u2013 doesn\u2019t work since there is no \u201cretention period\u201d for table, there is only \u201cexpiration time\u201d after which it is removed completely.\nB/D \u2013 doesn\u2019t work, since no such storage class like NONE."
+      },
+      {
+        "date": "2021-10-16T10:45:00.000Z",
+        "voteCount": 2,
+        "content": "C is correct.\nTime-partioned tables AND DELETE data after 36 months using GCS life cycle management."
+      },
+      {
+        "date": "2021-07-14T23:24:00.000Z",
+        "voteCount": 1,
+        "content": "C. Create a BigQuery time-partitioned table for the European data, and set the partition expiration period to 36 months. For Cloud Storage, use gsutil to enable lifecycle management using a DELETE action with an Age condition of 36 months."
+      },
+      {
+        "date": "2021-07-07T11:37:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2021-04-01T07:08:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2021-03-29T06:11:00.000Z",
+        "voteCount": 1,
+        "content": "IMO - C is ok (assuming DAY or lower level time-partitioning). \nWe want to delete only partitions older than 36 month not THE WHOLE tables when aged 36 months."
+      },
+      {
+        "date": "2020-12-17T09:46:00.000Z",
+        "voteCount": 2,
+        "content": "C is the right answer"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/google/view/57128-exam-professional-cloud-architect-topic-9-question-2/",
+    "body": "For this question, refer to the TerramEarth case study. TerramEarth has decided to store data files in Cloud Storage. You need to configure Cloud Storage lifecycle rule to store 1 year of data and minimize file storage cost.<br>Which two actions should you take?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Cloud Storage lifecycle rule with Age: \u05d2\u20ac30\u05d2\u20ac, Storage Class: \u05d2\u20acStandard\u05d2\u20ac, and Action: \u05d2\u20acSet to Coldline\u05d2\u20ac, and create a second GCS life-cycle rule with Age: \u05d2\u20ac365\u05d2\u20ac, Storage Class: \u05d2\u20acColdline\u05d2\u20ac, and Action: \u05d2\u20acDelete\u05d2\u20ac.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Cloud Storage lifecycle rule with Age: \u05d2\u20ac30\u05d2\u20ac, Storage Class: \u05d2\u20acColdline\u05d2\u20ac, and Action: \u05d2\u20acSet to Nearline\u05d2\u20ac, and create a second GCS life-cycle rule with Age: \u05d2\u20ac91\u05d2\u20ac, Storage Class: \u05d2\u20acColdline\u05d2\u20ac, and Action: \u05d2\u20acSet to Nearline\u05d2\u20ac.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Cloud Storage lifecycle rule with Age: \u05d2\u20ac90\u05d2\u20ac, Storage Class: \u05d2\u20acStandard\u05d2\u20ac, and Action: \u05d2\u20acSet to Nearline\u05d2\u20ac, and create a second GCS life-cycle rule with Age: \u05d2\u20ac91\u05d2\u20ac, Storage Class: \u05d2\u20acNearline\u05d2\u20ac, and Action: \u05d2\u20acSet to Coldline\u05d2\u20ac.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Cloud Storage lifecycle rule with Age: \u05d2\u20ac30\u05d2\u20ac, Storage Class: \u05d2\u20acStandard\u05d2\u20ac, and Action: \u05d2\u20acSet to Coldline\u05d2\u20ac, and create a second GCS life-cycle rule with Age: \u05d2\u20ac365\u05d2\u20ac, Storage Class: \u05d2\u20acNearline\u05d2\u20ac, and Action: \u05d2\u20acDelete\u05d2\u20ac."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-16T10:46:00.000Z",
+        "voteCount": 22,
+        "content": "Answer A\no\tWhen Only Option A &amp; D talks about deleting the file after 1 Year. In Option D at Age 30 the storage Class is set to Coldline and while deleting they have used the condition Storage Class: \"Nearline\" which is incorrect."
+      },
+      {
+        "date": "2022-06-11T04:41:00.000Z",
+        "voteCount": 2,
+        "content": "thank you man"
+      },
+      {
+        "date": "2022-12-29T07:56:00.000Z",
+        "voteCount": 1,
+        "content": "A) is the correct answer"
+      },
+      {
+        "date": "2022-10-20T16:13:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct"
+      },
+      {
+        "date": "2022-09-15T07:51:00.000Z",
+        "voteCount": 4,
+        "content": "A \u2013 Create Cloud Storage lifecycle rule with Age: \u201c30\u201d, Storage Class: \u201cStandard\u201d and Action: \u201cSet to Coldline\u201d;\nand create a 2nd GCS life-cycle rule with age \u201c365\u201d, Storage Class: \u201cColdline\u201d and action \u201cDelete\u201d."
+      },
+      {
+        "date": "2022-07-04T19:16:00.000Z",
+        "voteCount": 2,
+        "content": "A is right!"
+      },
+      {
+        "date": "2021-12-10T04:58:00.000Z",
+        "voteCount": 1,
+        "content": "A is thee correct answer"
+      },
+      {
+        "date": "2021-11-27T00:24:00.000Z",
+        "voteCount": 1,
+        "content": "vote A"
+      },
+      {
+        "date": "2021-10-25T12:39:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct."
+      },
+      {
+        "date": "2021-10-24T05:33:00.000Z",
+        "voteCount": 2,
+        "content": "A \u2013 Create Cloud Storage lifecycle rule with Age: \u201c30\u201d, Storage Class: \u201cStandard\u201d and Action: \u201cSet to Coldline\u201d;\nand create a 2nd GCS life-cycle rule with age \u201c365\u201d, Storage Class: \u201cColdline\u201d and action \u201cDelete\u201d.\nD \u2013 doesn\u2019t work since 2nd life-cyle rule requires \u201cNearline\u201d storage, while now data is in \u201cColdline\u201d."
+      },
+      {
+        "date": "2021-09-19T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "The optimal answer is A, but is it Archival for 365 as per docs\nhttps://cloud.google.com/storage/docs/storage-classes#available_storage_classes"
+      },
+      {
+        "date": "2021-07-14T23:55:00.000Z",
+        "voteCount": 2,
+        "content": "A. Create a Cloud Storage lifecycle rule with Age: \u05d2\u20ac30\u05d2\u20ac, Storage Class: \u05d2\u20acStandard\u05d2\u20ac, and Action: \u05d2\u20acSet to Coldline\u05d2\u20ac, and create a second GCS life-cycle rule with Age: \u05d2\u20ac365\u05d2\u20ac, Storage Class: \u05d2\u20acColdline\u05d2\u20ac, and Action: \u05d2\u20acDelete\u05d2\u20ac."
+      },
+      {
+        "date": "2021-07-07T18:20:00.000Z",
+        "voteCount": 2,
+        "content": "A is ok"
+      },
+      {
+        "date": "2021-07-07T11:38:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2021-07-05T21:25:00.000Z",
+        "voteCount": 2,
+        "content": "Answer A \nis the correct answer"
+      },
+      {
+        "date": "2021-07-04T19:04:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is A"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/google/view/7260-exam-professional-cloud-architect-topic-9-question-3/",
+    "body": "For this question, refer to the TerramEarth case study. You need to implement a reliable, scalable GCP solution for the data warehouse for your company,<br>TerramEarth.<br>Considering the TerramEarth business and technical requirements, what should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the existing data warehouse with BigQuery. Use table partitioning.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the existing data warehouse with a Compute Engine instance with 96 CPUs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the existing data warehouse with BigQuery. Use federated data sources.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the existing data warehouse with a Compute Engine instance with 96 CPUs. Add an additional Compute Engine preemptible instance with 32 CPUs."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2019-10-26T05:25:00.000Z",
+        "voteCount": 41,
+        "content": "Bigquery partitioning, A. Federated makes no sense..."
+      },
+      {
+        "date": "2020-08-11T03:31:00.000Z",
+        "voteCount": 9,
+        "content": "A is ok"
+      },
+      {
+        "date": "2021-03-04T20:58:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct"
+      },
+      {
+        "date": "2020-05-24T13:31:00.000Z",
+        "voteCount": 23,
+        "content": "A is the correct answer because the question was asking for a reliable way of improving the data warehouse. The reliable way is to have a table partitioned and that can be well managed. \nhttps://cloud.google.com/solutions/bigquery-data-warehouse\nBigQuery supports partitioning tables by date. You enable partitioning during the table-creation process. BigQuery creates new date-based partitions automatically, with no need for additional maintenance. In addition, you can specify an expiration time for data in the partitions.\nhttps://cloud.google.com/solutions/bigquery-data-warehouse#partitioning_tables\nFederated is an option but not a reliable option.\nYou can run queries on data that exists outside of BigQuery by using federated data sources, but this approach has performance implications. Use federated data sources only if the data must be maintained externally. You can also use query federation to perform ETL from an external source to BigQuery. This approach allows you to define ETL using familiar SQL syntax.\nhttps://cloud.google.com/solutions/bigquery-data-warehouse#external_sources"
+      },
+      {
+        "date": "2023-02-26T09:24:00.000Z",
+        "voteCount": 1,
+        "content": "A is the only correct answer"
+      },
+      {
+        "date": "2022-11-05T08:50:00.000Z",
+        "voteCount": 1,
+        "content": "ok for A"
+      },
+      {
+        "date": "2022-10-16T04:43:00.000Z",
+        "voteCount": 2,
+        "content": "A is fine"
+      },
+      {
+        "date": "2022-09-15T07:57:00.000Z",
+        "voteCount": 1,
+        "content": "Bigquery partitioning, A. Federated makes no sense..."
+      },
+      {
+        "date": "2022-08-03T04:05:00.000Z",
+        "voteCount": 1,
+        "content": "Bigquery partitioning, A. Federated makes no sense..."
+      },
+      {
+        "date": "2022-07-31T01:47:00.000Z",
+        "voteCount": 1,
+        "content": "C! Expand beyond a single datacenter to decrease latency to the"
+      },
+      {
+        "date": "2022-07-04T19:15:00.000Z",
+        "voteCount": 1,
+        "content": "A is right."
+      },
+      {
+        "date": "2022-06-11T04:42:00.000Z",
+        "voteCount": 1,
+        "content": "Bigquery partitioning, A. Federated makes no sense..."
+      },
+      {
+        "date": "2021-12-10T05:33:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      },
+      {
+        "date": "2021-11-27T00:28:00.000Z",
+        "voteCount": 1,
+        "content": "vote A"
+      },
+      {
+        "date": "2021-10-24T05:35:00.000Z",
+        "voteCount": 3,
+        "content": "A \u2013 BigQuery in time-partitioned mode.\nC \u2013  federated data source won\u2019t be effective. It assumes that time-series data is stored in BigTable and BigQuery federates this table for analytics. But, that\u2019s expensive.\n-\tBigTable charges for egress 0.08 $ GB/read (that adds charges in analytics mode)\n-\tBigTable (HDD) \u2013 0.026 $ GB/mo vs BigQuery 0.010 $ GB/mo (and first 10 GB are free monthly).\nSo, no point for BigTable at all. Stream everything to BiqQuery for storage and analytics. Also, BiqQuery can setup partitions expiration period."
+      },
+      {
+        "date": "2021-07-16T10:53:00.000Z",
+        "voteCount": 2,
+        "content": "Answer A\no\tExisting Datawarehouse was hosted on single PostgreSQL server on with below configuration, replacing it with serverless Bigquery using table partition is best recommended soltuion\n\uf02d\tRedHat Linux\n\uf02d\t64 CPUs \n\uf02d\t128 GB of RAM\n\uf02d\t4x 6TB HDD in RAID 0"
+      },
+      {
+        "date": "2021-07-14T23:54:00.000Z",
+        "voteCount": 2,
+        "content": "A. Replace the existing data warehouse with BigQuery. Use table partitioning."
+      },
+      {
+        "date": "2021-07-07T11:40:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2021-04-01T07:11:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/google/view/13467-exam-professional-cloud-architect-topic-9-question-4/",
+    "body": "For this question, refer to the TerramEarth case study. A new architecture that writes all incoming data to BigQuery has been introduced. You notice that the data is dirty, and want to ensure data quality on an automated daily basis while managing cost.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet up a streaming Cloud Dataflow job, receiving data by the ingestion process. Clean the data in a Cloud Dataflow pipeline.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Cloud Function that reads data from BigQuery and cleans it. Trigger the Cloud Function from a Compute Engine instance.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SQL statement on the data in BigQuery, and save it as a view. Run the view daily, and save the result to a new table.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Cloud Dataprep and configure the BigQuery tables as the source. Schedule a daily job to clean the data.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 20,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-02-16T02:18:00.000Z",
+        "voteCount": 34,
+        "content": "Option D, as data needs to be cleaned ..\nDataprep has the capabilities to clean dirty data"
+      },
+      {
+        "date": "2020-08-11T03:41:00.000Z",
+        "voteCount": 13,
+        "content": "D is ok"
+      },
+      {
+        "date": "2022-10-21T08:32:00.000Z",
+        "voteCount": 2,
+        "content": "looks like D\nhttps://cloud.google.com/dataprep"
+      },
+      {
+        "date": "2020-06-23T13:21:00.000Z",
+        "voteCount": 5,
+        "content": "dataprep is GUI driven process to analyse adhoc data dumped on GCS, it has not place in this use case"
+      },
+      {
+        "date": "2020-03-15T08:25:00.000Z",
+        "voteCount": 12,
+        "content": "automated daily ... answer is D"
+      },
+      {
+        "date": "2023-11-19T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "Cloud Dataprep is not cheap. Today i will recommend to used a schedule DataForm or dbt for cleaning..."
+      },
+      {
+        "date": "2023-06-29T06:08:00.000Z",
+        "voteCount": 2,
+        "content": "D without any doubt.\nDataflow is for data elaboration. Dataprep is for data preparation (and cleaning)."
+      },
+      {
+        "date": "2023-02-09T19:57:00.000Z",
+        "voteCount": 4,
+        "content": "B &amp; C does not make sense.\nA is costly and in realtime\nThe question says on daily basis and cost effective hence D"
+      },
+      {
+        "date": "2022-12-17T20:52:00.000Z",
+        "voteCount": 2,
+        "content": "D is the correct answer"
+      },
+      {
+        "date": "2022-11-10T03:55:00.000Z",
+        "voteCount": 1,
+        "content": "D is ok"
+      },
+      {
+        "date": "2022-09-08T09:17:00.000Z",
+        "voteCount": 4,
+        "content": "Ans is D. Please refer to this example: https://medium.com/google-cloud/how-to-schedule-a-bigquery-etl-job-with-dataprep-b1c314883ab9"
+      },
+      {
+        "date": "2022-09-06T03:01:00.000Z",
+        "voteCount": 5,
+        "content": "Options should be A.\n1. Cost in D would be higher. e.g. First load dirty data into DB and then run Data Prep Jobs to clean the data and load into some different target Data . Overall cost of scanning the data and the loading is like double the cost. Then identifying already clean data and dirty data is again a challenge on daily basis after the data growth is significant\n2. Data Stream can be utilized to cleanse the data while loading"
+      },
+      {
+        "date": "2022-09-18T12:01:00.000Z",
+        "voteCount": 2,
+        "content": "you cannot clean data with Dataflow only with Dataprep"
+      },
+      {
+        "date": "2024-09-25T21:34:00.000Z",
+        "voteCount": 1,
+        "content": "Why not ?? we have done it using both...."
+      },
+      {
+        "date": "2022-08-03T04:07:00.000Z",
+        "voteCount": 3,
+        "content": "automated daily ... answer is D"
+      },
+      {
+        "date": "2022-07-04T19:18:00.000Z",
+        "voteCount": 2,
+        "content": "D is perfect to cleanup the data daily!"
+      },
+      {
+        "date": "2021-12-10T05:21:00.000Z",
+        "voteCount": 1,
+        "content": "D is the correct answer"
+      },
+      {
+        "date": "2021-12-04T10:20:00.000Z",
+        "voteCount": 1,
+        "content": "Vote D"
+      },
+      {
+        "date": "2021-11-27T00:29:00.000Z",
+        "voteCount": 1,
+        "content": "vote D"
+      },
+      {
+        "date": "2021-11-10T09:50:00.000Z",
+        "voteCount": 4,
+        "content": "Option is A, Dataprep uses a UI to perform the cleaning process and under the hood it is using Dataflow to perform the process, so I will go with A."
+      },
+      {
+        "date": "2021-10-25T12:43:00.000Z",
+        "voteCount": 2,
+        "content": "A and D are both will solve the purpose. A is more expensive and ask is daily basis clean-up of data. D is right choice."
+      },
+      {
+        "date": "2021-10-24T22:34:00.000Z",
+        "voteCount": 2,
+        "content": "Should be A. Dirty data may not be formatted to suit the table structure and then won't go in to be 'cleansed' later."
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/google/view/14729-exam-professional-cloud-architect-topic-9-question-5/",
+    "body": "For this question, refer to the TerramEarth case study. Considering the technical requirements, how should you reduce the unplanned vehicle downtime in GCP?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse BigQuery as the data warehouse. Connect all vehicles to the network and stream data into BigQuery using Cloud Pub/Sub and Cloud Dataflow. Use Google Data Studio for analysis and reporting.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse BigQuery as the data warehouse. Connect all vehicles to the network and upload gzip files to a Multi-Regional Cloud Storage bucket using gcloud. Use Google Data Studio for analysis and reporting.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Cloud Dataproc Hive as the data warehouse. Upload gzip files to a Multi-Regional Cloud Storage bucket. Upload this data into BigQuery using gcloud. Use Google Data Studio for analysis and reporting.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Cloud Dataproc Hive as the data warehouse. Directly stream data into partitioned Hive tables. Use Pig scripts to analyze data."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-04-12T19:47:00.000Z",
+        "voteCount": 40,
+        "content": "Definitely A"
+      },
+      {
+        "date": "2020-10-28T14:16:00.000Z",
+        "voteCount": 7,
+        "content": "Once all the vehicle are connected to network, there is no need to use FTP; data can be ingested directly to BQ using Pub/Sub and DataFlow."
+      },
+      {
+        "date": "2020-04-18T22:06:00.000Z",
+        "voteCount": 10,
+        "content": "A is good...simple streaming of data with managed services approach"
+      },
+      {
+        "date": "2024-06-20T12:06:00.000Z",
+        "voteCount": 1,
+        "content": "A. Use BigQuery as the data warehouse. Connect all vehicles to the network and stream data into BigQuery using Cloud Pub/Sub and Cloud Dataflow. Use Google Data Studio for analysis and reporting.\n\nThis approach leverages the real-time data streaming capabilities of Cloud Pub/Sub and Cloud Dataflow, the scalability and efficiency of BigQuery for data analysis, and the powerful visualization and reporting features of Google Data Studio. This combination ensures timely insights and quick response to issues, thereby reducing unplanned vehicle downtime."
+      },
+      {
+        "date": "2022-12-11T06:38:00.000Z",
+        "voteCount": 1,
+        "content": "A looks like the correct one"
+      },
+      {
+        "date": "2022-11-10T03:57:00.000Z",
+        "voteCount": 1,
+        "content": "A is ok"
+      },
+      {
+        "date": "2022-10-16T04:38:00.000Z",
+        "voteCount": 1,
+        "content": "A is good"
+      },
+      {
+        "date": "2022-09-08T09:24:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is A."
+      },
+      {
+        "date": "2022-07-04T19:22:00.000Z",
+        "voteCount": 1,
+        "content": "A is right, all other options doesn't make sense."
+      },
+      {
+        "date": "2022-06-11T04:44:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely A"
+      },
+      {
+        "date": "2022-03-31T22:01:00.000Z",
+        "voteCount": 1,
+        "content": "A should be better.\n\nhttps://cloud.google.com/architecture/designing-connected-vehicle-platform#data_ingestion"
+      },
+      {
+        "date": "2021-11-27T00:30:00.000Z",
+        "voteCount": 1,
+        "content": "vote A"
+      },
+      {
+        "date": "2021-07-14T23:47:00.000Z",
+        "voteCount": 3,
+        "content": "A. Use BigQuery as the data warehouse. Connect all vehicles to the network and stream data into BigQuery using Cloud Pub/Sub and Cloud Dataflow. Use Google Data Studio for analysis and reporting."
+      },
+      {
+        "date": "2021-07-07T11:42:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2021-04-01T07:14:00.000Z",
+        "voteCount": 1,
+        "content": "answer is A"
+      },
+      {
+        "date": "2021-03-29T04:46:00.000Z",
+        "voteCount": 1,
+        "content": "A is ok"
+      },
+      {
+        "date": "2021-02-18T14:26:00.000Z",
+        "voteCount": 1,
+        "content": "Technical requirement : Create a backup strategy\n\nIs bigquery a suitable system for data backup . Wouldn't a better system for backup be cloud storage.\n\nOnly B has that option"
+      },
+      {
+        "date": "2020-12-12T14:49:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct, using dataflow to clean and/or convert the data for analysis makes more sense.\n\nB does not show any sign of how data will be loaded to bigquery (as gzip) or after conversion, it seems broken process to me."
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "9"
+  },
+  {
+    "topic": 9,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/google/view/6785-exam-professional-cloud-architect-topic-9-question-6/",
+    "body": "For this question, refer to the TerramEarth case study. You are asked to design a new architecture for the ingestion of the data of the 200,000 vehicles that are connected to a cellular network. You want to follow Google-recommended practices.<br>Considering the technical requirements, which components should you use for the ingestion of the data?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGoogle Kubernetes Engine with an SSL Ingress",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCloud IoT Core with public/private key pairs\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCompute Engine with project-wide SSH keys",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCompute Engine with specific SSH keys"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2019-10-23T01:29:00.000Z",
+        "voteCount": 31,
+        "content": "Why not B?"
+      },
+      {
+        "date": "2021-03-04T21:07:00.000Z",
+        "voteCount": 4,
+        "content": "It is B"
+      },
+      {
+        "date": "2020-08-11T04:03:00.000Z",
+        "voteCount": 10,
+        "content": "B is ok"
+      },
+      {
+        "date": "2023-02-02T05:14:00.000Z",
+        "voteCount": 21,
+        "content": "Google Cloud IoT Core is being retired on August 16, 2023"
+      },
+      {
+        "date": "2022-11-10T04:00:00.000Z",
+        "voteCount": 1,
+        "content": "B is ok"
+      },
+      {
+        "date": "2022-07-04T19:25:00.000Z",
+        "voteCount": 3,
+        "content": "IoT core is fine.. B is right!"
+      },
+      {
+        "date": "2022-06-11T04:45:00.000Z",
+        "voteCount": 2,
+        "content": "It's B"
+      },
+      {
+        "date": "2021-12-20T03:00:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct"
+      },
+      {
+        "date": "2021-12-10T04:24:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2021-11-27T00:31:00.000Z",
+        "voteCount": 1,
+        "content": "vote B"
+      },
+      {
+        "date": "2021-10-24T05:46:00.000Z",
+        "voteCount": 3,
+        "content": "B \u2013 Cloud IoT Core with public / private key pairs.\nhttps://cloud.google.com/iot-core/\nIoT Core was developed for connecting existing devices spread around the world to GCP. Also, it supports end-to-end security using asymmetric key authentication over TLS 1.2. So, this is exact match for Q."
+      },
+      {
+        "date": "2021-07-14T23:43:00.000Z",
+        "voteCount": 4,
+        "content": "B. Cloud IoT Core with public/private key pairs"
+      },
+      {
+        "date": "2021-07-07T11:44:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2021-04-01T07:16:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2021-03-29T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "IMO B is ok"
+      },
+      {
+        "date": "2021-03-27T13:47:00.000Z",
+        "voteCount": 1,
+        "content": "All options look okay but B tops them all."
+      },
+      {
+        "date": "2021-03-26T19:13:00.000Z",
+        "voteCount": 1,
+        "content": "'B' is more correct even though the technical requirement doesn't clearly say about the new technology, the executive summary does say it \"transformation of technology\"."
+      },
+      {
+        "date": "2021-02-15T07:12:00.000Z",
+        "voteCount": 2,
+        "content": "Keywords \"You are asked to design a new Architecture\" Cloud IOT core is the way for this requirement"
+      },
+      {
+        "date": "2021-02-02T19:20:00.000Z",
+        "voteCount": 1,
+        "content": "Seems everyone vote for B.\nBut why not A? SSL ingress Loadbalancer works well for FTP and no need to change from FTP to HTTP or MQTT. Isn't this better?"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "9"
+  }
+]

@@ -1,0 +1,114 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/2437-exam-ms-202-topic-2-question-1-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization that uses an address space of fabrikam.com.<br>The organization contains the Send connectors shown in the following table.<br><img src=\"/assets/media/exam-media/02546/0002100001.png\" class=\"in-exam-image\"><br>You need to identify what occurs when users send email to different external recipients.<br>What should you identify? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02546/0002200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02546/0002300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/mail-flow/mail-routing/connector-selection?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-05T03:50:00.000Z",
+        "voteCount": 3,
+        "content": "@ellichen: It is not incorrect. \n\nAs your link describes:\nFirst) Exchange eliminates all connectors that have a message size limit that's smaller than the size of the message\nSecond) Exchange narrows the list of remaining connectors (f.e. address space)"
+      },
+      {
+        "date": "2019-09-09T03:48:00.000Z",
+        "voteCount": 1,
+        "content": "Oha, looks like I have to revert my opinion, tried to answer from historical and practical knowledge, but it seems you are right, while reading the information provided by the link."
+      },
+      {
+        "date": "2019-09-05T03:29:00.000Z",
+        "voteCount": 1,
+        "content": "Answer from ellichen is correct, first message gets rejected without any reroute attempt."
+      },
+      {
+        "date": "2019-09-03T00:48:00.000Z",
+        "voteCount": 3,
+        "content": "Incorrect:\n\"If more than one connector matches the destination address space, the connector with the more precise address match is selected.\"\nWhich means, the 25MB message sent to user1@contoso.com will always go through Conn2, and get rejected. So the first answer should be \"The message is rejected\"\nThe second one will get delivered through Conn3\n\nhttps://docs.microsoft.com/en-us/exchange/mail-flow/mail-routing/connector-selection?view=exchserver-2019"
+      },
+      {
+        "date": "2019-07-13T01:13:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed as pinpoint connectors take preference on wildcard connectors. And there is no failback in case of size restriction violations"
+      },
+      {
+        "date": "2019-07-18T01:48:00.000Z",
+        "voteCount": 2,
+        "content": "if you say there is no failback, why is then message to .contoso.com not rejected and routed over * connector?"
+      }
+    ],
+    "examNameCode": "ms-202",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/2438-exam-ms-202-topic-2-question-2-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization that has the topology shown in the following exhibit.<br><img src=\"/assets/media/exam-media/02546/0002400001.jpg\" class=\"in-exam-image\"><br>The organization contains the servers shown in the following table.<br><img src=\"/assets/media/exam-media/02546/0002400002.png\" class=\"in-exam-image\"><br>The organization contains the mailboxes shown in the following table.<br><img src=\"/assets/media/exam-media/02546/0002500001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02546/0002500002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02546/0002600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-09T06:30:00.000Z",
+        "voteCount": 1,
+        "content": "I have to disagree, answer for first question should be \"yes\" because both servers are members of one DAG (DAG01). DAGs in Exchange 2016 and 2019 are also the same delivery group. Check with - https://docs.microsoft.com/en-us/exchange/mail-flow/mail-routing/mail-routing?view=exchserver-2019.\n\"After the message arrives at a Mailbox server in the DAG, the Transport service routes the message to the Mailbox Transport Delivery service on the DAG member that holds the active copy of the destination mailbox database. The Mailbox Transport Delivery service then delivers the message to the local mailbox database. Although a DAG might contain Mailbox servers located in different Active Directory sites, the DAG defines the delivery group, not the Active Directory site.\""
+      },
+      {
+        "date": "2019-09-10T16:16:00.000Z",
+        "voteCount": 1,
+        "content": "Yes delivery group in question 1 is a DAG, therefore either site A or site B can be a destination. Since sender is in site A, cost to send to site A is zero and it will be preferred over site B. Therefore, correct answer is No."
+      },
+      {
+        "date": "2019-09-20T12:32:00.000Z",
+        "voteCount": 1,
+        "content": "But the active database of mailbox for the recipient is in Site B, so wouldn't it send to Site B and then replicate back over to Site A?"
+      },
+      {
+        "date": "2019-09-05T03:51:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2019-09-03T00:50:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2019-07-13T01:28:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed"
+      }
+    ],
+    "examNameCode": "ms-202",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/2439-exam-ms-202-topic-2-question-3-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft Exchange Server 2019 hybrid deployment.<br>All Mailbox servers and domain controllers are in the same site.<br>You deploy an Edge Transport server.<br>You need to ensure that all SMTP traffic between the on-premises organization and Exchange Online is routed through the Edge Transport server.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02546/0002700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02546/0002800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-03T00:39:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2019-07-13T01:36:00.000Z",
+        "voteCount": 2,
+        "content": "New-EdgeSubscription -FileName \"c:\\EdgeServerSubscription.xml\"\nThis example creates the Edge Subscription file. It should be run on your Edge Transport server.\n\nNew-EdgeSubscription -FileData ([byte[]]$(Get-Content -Path \"C:\\EdgeServerSubscription.xml\" -Encoding Byte -ReadCount 0)) -Site \"Default-First-Site-Name\"\nThis example also imports the Edge Subscription file generated in Example 1 to the Active Directory site Default-First-Site-Name; however, the end result is accomplished using one command. You must run this command on the Mailbox server.\n\n\nref. https://docs.microsoft.com/en-us/powershell/module/exchange/mail-flow/new-edgesubscription?view=exchange-ps"
+      }
+    ],
+    "examNameCode": "ms-202",
+    "topicNumber": "2"
+  }
+]

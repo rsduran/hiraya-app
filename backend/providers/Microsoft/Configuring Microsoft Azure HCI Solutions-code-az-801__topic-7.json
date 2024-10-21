@@ -1,0 +1,203 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84632-exam-az-801-topic-7-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to configure BitLocker on Server4.<br>On which volumes can you turn on BitLocker, and on which volumes can you turn on auto-unlock? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0001500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0001600001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/windows-server/storage/refs/refs-overview https://docs.microsoft.com/en-us/powershell/module/bitlocker/enable-bitlockerautounlock?view=windowsserver2022-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-07T09:45:00.000Z",
+        "voteCount": 9,
+        "content": "Correct.\n\"You can configure BitLocker to automatically unlock volumes that do not host an operating system.\" (https://learn.microsoft.com/en-us/powershell/module/bitlocker/enable-bitlockerautounlock?view=windowsserver2022-ps)\nAlso, BitLocker is available on NTFS as well as ReFS, see the first link provided: https://learn.microsoft.com/en-us/windows-server/storage/refs/refs-overview"
+      },
+      {
+        "date": "2023-05-01T04:41:00.000Z",
+        "voteCount": 3,
+        "content": "For BitLocker, volumes formatted with the Resilient File System (ReFS) on Windows Server 2016 and later versions can also be encrypted\n\nhttps://learn.microsoft.com/en-us/powershell/module/bitlocker/enable-bitlockerautounlock?view=windowsserver2022-ps\n\nYou can configure BitLocker to automatically unlock volumes that do not host an operating system\n\nAnswer is correct"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/89903-exam-az-801-topic-7-question-2-discussion/",
+    "body": "HOTSPOT -<br>What is the effective minimum password length for User1 and Admin1? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0001700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0001800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: 9 -<br>When multiple PSOs apply to a user, the PSO with the highest precedence (lowest precedence number) applies which in this case is PSO1.<br><br>Box 2: 8 -<br>There are no PSOs applied to Admin1 so the password policy from the Default Domain GPO applies.<br>The Minimum password length setting in GPO1 would only apply to local user accounts on computers in OU1.  It does not apply to domain user accounts.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-13T13:59:00.000Z",
+        "voteCount": 9,
+        "content": "User1 - 9\nAdmin1 - 8\n\nThe Default Domain policy in this scenario takes precedence over the GPO. If GPOs are set at any level below the domain level in Active Directory Domain Services (AD DS), they affect only LOCAL ACCOUNTS on member servers.\n\nFGPPs (PSOs) can be used to specify password policies that affect DOMAIN USERS within the domain, taking precedence over any domain level policies."
+      },
+      {
+        "date": "2023-06-19T18:33:00.000Z",
+        "voteCount": 1,
+        "content": "Admin1 - 8 \nUser1 -9 (precedence 10 take priority over 20)\n\"Each PSO must have a precedence index number. PSOs with a higher precedence index, like 1, take priority over those with a lower precedence index, like 10\""
+      },
+      {
+        "date": "2023-05-09T04:19:00.000Z",
+        "voteCount": 2,
+        "content": "LSDOU is an acronym used when applying GPO's which means local, site, Domain and OU. \nThe last GPO setting always wins which is applied to OU. so the admin1 falls under OU. so the minimum password  length will be 10."
+      },
+      {
+        "date": "2023-05-01T04:47:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is correct\n\nAdmin1 falls under Default Domain for the password policy and User1 has fine grain password policy applied to it. Lower precedence takes priority.\n\nUser1 - 9\nAdmin1 - 8"
+      },
+      {
+        "date": "2023-03-19T09:30:00.000Z",
+        "voteCount": 2,
+        "content": "user1 9\nadmin1 8\nWhich is very unlogical"
+      },
+      {
+        "date": "2023-03-16T10:58:00.000Z",
+        "voteCount": 3,
+        "content": "Tested this in an test environment:\nDefault Domain Policy: Minimum password length: 9\nPassword Policy GPO: Minimum password length: 10\n\nLogged in with administrator account -&gt; rsop.msc -&gt; Minimum password length: 10\n\nSo the right answer must be:\nUser1: 9\nAdmin1: 10"
+      },
+      {
+        "date": "2023-06-19T18:34:00.000Z",
+        "voteCount": 2,
+        "content": "Not true.\nPlease check how the precedence works.\n\n\"Each PSO must have a precedence index number. PSOs with a higher precedence index, like 1, take priority over those with a lower precedence index, like 10\"\n\nAdmin1 - 8 \nUser1 -9 (precedence 10 takes priority over 20)"
+      },
+      {
+        "date": "2023-03-02T02:42:00.000Z",
+        "voteCount": 4,
+        "content": "User1: 9 (PSO2 will be alppied first and then the PSO1 - Lowest Precedence is on top of list, and applied last)\nAdmin1: 10 (Default Domain Policy will be applied first and then the GPO1 - FLow: Local, Site, Domain, OU)"
+      },
+      {
+        "date": "2022-12-31T14:04:00.000Z",
+        "voteCount": 3,
+        "content": "The given answer is correct \nhttps://blogs.manageengine.com/corporate/general/2017/01/13/microsoft-password-policies-gpo-based-vs-fine-grained-policies.html#:~:text=There%20can%20be%20only%20one%20password%20policy%20if%20you%20use,users%20located%20in%20that%20OU."
+      },
+      {
+        "date": "2022-12-22T18:49:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct."
+      },
+      {
+        "date": "2022-12-05T23:09:00.000Z",
+        "voteCount": 3,
+        "content": "Sorry my mistake- its 8 and 10- The Admin account is in an OU - THE USER ACCOUNT is - this means the GPO will apply as the more specific GPO will apply to the domain account in its OU-  the prescedence from top to bottom works for PSE but not policies- the policy rule is the one closed to the obect gets applied last- the GPO says the password policy is a 10 Character password- so 8 and 10"
+      },
+      {
+        "date": "2022-12-03T13:49:00.000Z",
+        "voteCount": 3,
+        "content": "The Answers should be 9 and 8. The GPO1 Policy applied to OU1- User1,3 and admin1- but some users have he PSO- so they may be different- the Admin user is not impacted by the PSo SO - THE Gpo applies - it says local nowhere- Admin is 10 so 9 and 10"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84569-exam-az-801-topic-7-question-3-discussion/",
+    "body": "HOTSPOT -<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0001900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0001900002.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-06T22:22:00.000Z",
+        "voteCount": 11,
+        "content": "Correct answer. U1 and U3 belong to Group4 which has \"deny logon\"."
+      },
+      {
+        "date": "2022-10-07T09:51:00.000Z",
+        "voteCount": 9,
+        "content": "Yes, explicit deny wins always.\nUser1 and User3 must not be very trustworthy... :-)"
+      },
+      {
+        "date": "2023-10-15T22:26:00.000Z",
+        "voteCount": 3,
+        "content": "The answer should be YYN. \"Note that Deny access to this computer from the network denies only remote SMB connections; it does not prevent interactive logon or RDP access.\" https://security.stackexchange.com/questions/130208/why-does-disa-stig-recommend-deny-access-to-this-computer-from-the-network-for#:~:text=Note%20that%20Deny%20access%20to,interactive%20logon%20or%20RDP%20access. So, only group 3 is deny."
+      },
+      {
+        "date": "2023-10-26T01:55:00.000Z",
+        "voteCount": 3,
+        "content": "Not True, the policy description doesn't state anything about it only denying SMB connections and upon testing this in my lab I receive the following error when trying to RDP to the server where I activated this policy: \n\"The system administrator has restricted the types of logon (network or interactive) that you may use. For assistance, contact your administrator or technical support.\"\nThe original answer is therfor correct: NYN\nhttps://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/deny-access-to-this-computer-from-the-network"
+      },
+      {
+        "date": "2023-05-01T04:51:00.000Z",
+        "voteCount": 4,
+        "content": "Grp4 and 3 are denied access\n\nAnswer is correct"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86155-exam-az-801-topic-7-question-4-discussion/",
+    "body": "HOTSPOT -<br>With which servers can Server1 and Server3 communicate? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04226/0002000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04226/0002100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-30T05:57:00.000Z",
+        "voteCount": 15,
+        "content": "Correct:\nServer1: \nRequest inbound and outbound: Connections are authenticated if possible, but the connections are allowed if authentication fails.\nServer 3: \nRequire inbound and outbound\nOnly connections that are authenticated are allowed.\n\nServer 4 has no connection rules so isn't authenticated, therefore it will be allowed to contact Server 1. So Server 1 can contact 2,3,4 (2&amp;3 are on the domain and have connection rules so they're fine)\nAs Server 3 requires inbound/outbound, it cannot authenticate IPSec with server 4, therefore it can only talk to Server 1 + 2.\nsource: https://forsenergy.com/en-us/authfw/html/13da39e0-2a32-4ac4-a952-4391ae88c739.htm"
+      },
+      {
+        "date": "2023-07-16T22:19:00.000Z",
+        "voteCount": 1,
+        "content": "I guess server 3 is able to talk to the DC\u2019s too. Is any answer with the word \u201conly\u201d a wrong answer? I answer the question the same but the question itself is kind of wrong."
+      },
+      {
+        "date": "2023-07-16T22:19:00.000Z",
+        "voteCount": 1,
+        "content": "I guess server 3 is able to talk to the DC\u2019s too. Is any answer with the word \u201conly\u201d a wrong answer? I answer the question the same but the question itself is kind of wrong."
+      },
+      {
+        "date": "2023-05-02T04:04:00.000Z",
+        "voteCount": 2,
+        "content": "They say seeing is believing so I tested it out\n\nAnswer is correct"
+      },
+      {
+        "date": "2023-04-03T07:47:00.000Z",
+        "voteCount": 3,
+        "content": "In reality the Answer is None. The connection security rules are linked to firewalls rules and implemented when a firewall rule is chosen as Allow if the connection is secure.  Here there is no mention of firewall rules configured to allow if secure."
+      },
+      {
+        "date": "2023-01-24T04:37:00.000Z",
+        "voteCount": 2,
+        "content": "https://forsenergy.com/en-us/authfw/html/13da39e0-2a32-4ac4-a952-4391ae88c739.htm"
+      },
+      {
+        "date": "2023-01-21T11:12:00.000Z",
+        "voteCount": 2,
+        "content": "I don't understand. It is isolation rule aka domain connections. All the servers are part of the domains therefore all of them can talk to each other. Both answer should be all servers, no?"
+      },
+      {
+        "date": "2023-01-21T11:18:00.000Z",
+        "voteCount": 2,
+        "content": "Nvm. IPSec require both nodes to be configured to work."
+      },
+      {
+        "date": "2022-12-21T03:35:00.000Z",
+        "voteCount": 3,
+        "content": "Why is it correct?"
+      },
+      {
+        "date": "2022-10-21T14:39:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct"
+      }
+    ],
+    "examNameCode": "az-801",
+    "topicNumber": "7"
+  }
+]

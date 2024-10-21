@@ -1,0 +1,2341 @@
+[
+  {
+    "topic": 16,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15021-exam-az-300-topic-16-question-1-discussion/",
+    "body": "You create an Azure virtual machine named VM1 in a resource group named RG1.<br>You discover that VM1 performs slower than expected.<br>You need to capture a network trace on VM1.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Diagnostic settings for VM1, configure the performance counters to include network counters.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the VM1 blade, configure Connection troubleshoot.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the VM1 blade, install performance diagnostics and run advanced performance analysis",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Diagnostic settings for VM1, configure the log level of the diagnostic agent."
+    ],
+    "answer": "C",
+    "answerDescription": "The performance diagnostics tool helps you troubleshoot performance issues that can affect a Windows or Linux virtual machine (VM). Supported troubleshooting scenarios include quick checks on known issues and best practices, and complex problems that involve slow VM performance or high usage of CPU, disk space, or memory.<br>Advanced performance analysis, included in the performance diagnostics tool, includes all checks in the performance analysis, and collects one or more of the traces, as listed in the following sections. Use this scenario to troubleshoot complex issues that require additional traces. Running this scenario for longer periods will increase the overall size of diagnostics output, depending on the size of the VM and the trace options that are selected.<br>References:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/performance-diagnostics",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-20T10:23:00.000Z",
+        "voteCount": 14,
+        "content": "Its C. Azure Performance Diagnostics VM Extension helps collect performance diagnostic data from Windows VMs. The extension performs analysis, and provides a report of findings and recommendations to identify and resolve performance issues on the virtual machine. This extension installs a troubleshooting tool called PerfInsights.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/performance-diagnostics-vm-extension"
+      },
+      {
+        "date": "2020-05-09T17:56:00.000Z",
+        "voteCount": 2,
+        "content": "But it's not capturing Network traces. and this is what the question asked, Azure PD is just finding issues in CPU , memory and Disks but not Network"
+      },
+      {
+        "date": "2021-01-10T07:33:00.000Z",
+        "voteCount": 1,
+        "content": "of course, it does check the network also."
+      },
+      {
+        "date": "2020-04-23T14:18:00.000Z",
+        "voteCount": 14,
+        "content": "Go to VM blade -&gt; \"Diagnose and solve problems\" -&gt; \"troubleshooting Tools\" -&gt; \"Performance diagnostics\". Just Click on it and install. So option \"C\" is 100% right answer."
+      },
+      {
+        "date": "2020-11-06T10:06:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Network watcher is for capturing packet traces"
+      },
+      {
+        "date": "2021-01-16T03:40:00.000Z",
+        "voteCount": 1,
+        "content": "yes but for deny or allow traffic, and question is about performance network traffic.\nStudy more before going to exam."
+      },
+      {
+        "date": "2020-08-20T21:54:00.000Z",
+        "voteCount": 2,
+        "content": "Performance diagnostic is in preview mode and it's been said that preview functionalities wouldn't be asked. So in that regard, its A."
+      },
+      {
+        "date": "2021-01-16T11:47:00.000Z",
+        "voteCount": 2,
+        "content": "C is correct. Do lab. dont just read material"
+      },
+      {
+        "date": "2020-06-23T21:13:00.000Z",
+        "voteCount": 6,
+        "content": "Network traces can be captured by Advanced performance analysis. So the answer is correct. \n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/how-to-use-perfInsights#advanced-performance-analysis"
+      },
+      {
+        "date": "2020-05-21T14:11:00.000Z",
+        "voteCount": 6,
+        "content": "To troubleshoot performance issues on this virtual machine, install and run performance diagnostics.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/performance-diagnostics\n\nI have tested in my Lab. Answer is C"
+      },
+      {
+        "date": "2020-03-29T19:39:00.000Z",
+        "voteCount": 3,
+        "content": "It's C: for sure. network \"trace\" or any other performance \"trace\" is done by C:."
+      },
+      {
+        "date": "2020-03-29T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "It's A"
+      },
+      {
+        "date": "2020-03-05T08:47:00.000Z",
+        "voteCount": 2,
+        "content": "to me it's B. With Network Watcher and a StorageAccount you could trace and review the logs in SA."
+      },
+      {
+        "date": "2020-07-27T02:48:00.000Z",
+        "voteCount": 2,
+        "content": "Connection Troubleshoot provides the capability to check if traffic is allowed or denied based off the inbound and outbound network security rules from a VM with an IPv4 address or service tag. \n\nNot what we are looking for. We look for performance issues not for connectivity issues."
+      },
+      {
+        "date": "2020-02-29T00:03:00.000Z",
+        "voteCount": 2,
+        "content": "I think it should be A. Drill down to VM resource, Diagnostic Settings &gt; Enable guest-OS level logging &gt; From Performance counters, include network (options also include CPU, memory, disk along with app/SQL related logs)."
+      },
+      {
+        "date": "2020-09-09T19:03:00.000Z",
+        "voteCount": 2,
+        "content": "C is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7822-exam-az-300-topic-16-question-2-discussion/",
+    "body": "A company plans to use third-party application software to perform complex data analysis processes. The software will use up to 500 identical virtual machines<br>(VMs) based on an Azure Marketplace VM image.<br>You need to design the infrastructure for the third-party application server. The solution must meet the following requirements:<br>\u2711 The number of VMs that are running at any given point in time must change when the user workload changes.<br>\u2711 When a new version of the application is available in Azure Marketplace it must be deployed without causing application downtime.<br>\u2711 Use VM scale sets.<br>\u2711 Minimize the need for ongoing maintenance.<br>Which two technologies should you recommend? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsingle storage account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tautoscale",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsingle placement group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmanaged disks"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-14T13:24:00.000Z",
+        "voteCount": 26,
+        "content": "B and D\nIntroduction to Azure managed disks\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/windows/managed-disks-overview\n\"Using managed disks, you can create up to 50,000 VM disks of a type in a subscription per region, allowing you to create thousands of VMs in a single subscription. This feature also further increases the scalability of virtual machine scale sets by allowing you to create up to 1,000 VMs in a virtual machine scale set using a Marketplace image.\""
+      },
+      {
+        "date": "2019-12-07T22:54:00.000Z",
+        "voteCount": 10,
+        "content": "C is incorrect. Single placement group has a maximum of 100VM."
+      },
+      {
+        "date": "2019-12-12T23:42:00.000Z",
+        "voteCount": 2,
+        "content": "It is no 100 but 1000. So, C is correct\nhttps://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups"
+      },
+      {
+        "date": "2020-10-26T10:17:00.000Z",
+        "voteCount": 1,
+        "content": "placement groups - you are over thinking"
+      },
+      {
+        "date": "2019-12-18T04:30:00.000Z",
+        "voteCount": 55,
+        "content": "With Single placement group, max VMs are limited to 100. To have &gt; 100 and &lt; 1000, have to set singlePlacementGroup to false to use multiple placement groups. So B and D are correct.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups\n\nBy default, a scale set consists of a single placement group with a maximum size of 100 VMs. If a scale set property called singlePlacementGroup is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs.\n\nLarge scale sets require Azure Managed Disks. Scale sets that are not created with Managed Disks require multiple storage accounts (one for every 20 VMs). Large scale sets are designed to work exclusively with Managed Disks to reduce your storage management overhead, and to avoid the risk of running into subscription limits for storage accounts."
+      },
+      {
+        "date": "2020-08-02T09:39:00.000Z",
+        "voteCount": 2,
+        "content": "Totally agree. plus \"To make an existing virtual machine scale set capable of scaling to more than 100 VMs, you need to change the singlePlacementGroup property to false in the scale set model.\" so it is for sure we need singlePlacement to exceed 100 VMs"
+      },
+      {
+        "date": "2020-09-17T22:44:00.000Z",
+        "voteCount": 2,
+        "content": "Totally agree. Large scale set need 'Single placement group' option t be false. and they require multiple storage accounts, hence managed disk is correct option. B and D"
+      },
+      {
+        "date": "2019-12-13T10:14:00.000Z",
+        "voteCount": 3,
+        "content": "Good point.Thanks!"
+      },
+      {
+        "date": "2021-05-15T06:37:00.000Z",
+        "voteCount": 1,
+        "content": "AD is correct here. https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups"
+      },
+      {
+        "date": "2020-09-27T13:52:00.000Z",
+        "voteCount": 1,
+        "content": "B and D\nC not: By default, a scale set consists of a single placement group with a maximum size of 100 VMs. If a scale set property called singlePlacementGroup is set to false, the scale set can be composed of multiple placement groups and has a range of 0-1,000 VMs.\nhttps://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups#placement-groups"
+      },
+      {
+        "date": "2020-08-07T06:44:00.000Z",
+        "voteCount": 1,
+        "content": "Why can't we use a storage account? Somebody please explain, thanks."
+      },
+      {
+        "date": "2020-07-15T11:19:00.000Z",
+        "voteCount": 4,
+        "content": "B and D"
+      },
+      {
+        "date": "2020-06-06T01:43:00.000Z",
+        "voteCount": 4,
+        "content": "Minimum maintenance &amp; reduce latency - it is B &amp; D"
+      },
+      {
+        "date": "2020-04-30T21:11:00.000Z",
+        "voteCount": 4,
+        "content": "B and D is the correct answer.\n\nAlthough Placement group does provide reduced latency, fault tolerance, it is not a specific requirement here. The requirement is to reduce management. For large number of VMs, that can be done through managed disks."
+      },
+      {
+        "date": "2020-04-23T14:28:00.000Z",
+        "voteCount": 3,
+        "content": "B and D are right. Placement group are proximity group who ensure that VMs are as close as possible in datacenter to reduce latency. Question ask about minimum maintainence so managed disk is a right choice. Don't know why people choosing \"C\" here."
+      },
+      {
+        "date": "2019-11-22T01:33:00.000Z",
+        "voteCount": 2,
+        "content": "B and C"
+      },
+      {
+        "date": "2019-11-08T05:26:00.000Z",
+        "voteCount": 8,
+        "content": "B and C \nPlacement Group And Autoscale is the correct answer"
+      },
+      {
+        "date": "2020-09-09T19:15:00.000Z",
+        "voteCount": 4,
+        "content": "BD is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12529-exam-az-300-topic-16-question-3-discussion/",
+    "body": "Your company has an Azure subscription.<br>You enable multi-factor authentication (MFA) for all users.<br>The company's help desk reports an increase in calls from users who receive MFA requests while they work from the company's main office.<br>You need to prevent the users from receiving MFA requests when they sign in from the main office.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure Active Directory (Azure AD), configure organizational relationships.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the MFA service settings, create a trusted IP range.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Conditional access in Azure Active Directory (Azure AD), create a custom control.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Conditional access in Azure Active Directory (Azure AD), create a named location."
+    ],
+    "answer": "B",
+    "answerDescription": "The first thing you may want to do, before enabling Multi-Factor Authentication for any users, is to consider configuring some of the available settings. One of the most important features is a trusted IPs list.  This will allow you to whitelist a range of IPs for your network. This way, when users are in the office, they will not get prompted with MFA, and when they take their devices elsewhere, they will.  Here's how to do it:<br>Log in to your Azure Portal.<br>Navigate to Azure AD &gt; Conditional Access &gt; Named locations.<br>From the top toolbar select Configure MFA trusted IPs.<br>References:<br>https://www.kraftkennedy.com/implementing-azure-multi-factor-authentication/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-04T06:02:00.000Z",
+        "voteCount": 9,
+        "content": "A. From Azure Active Directory (Azure AD), configure organizational relationships.\n\nNope\n\nB. From the MFA service settings, create a trusted IP range.\n\nYepp, that would solve the problem. \n\nSee this link: https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips\n\nC. From Conditional access in Azure Active Directory (Azure AD), create a custom control.\n\nI have no idea what a \"custom control\" should be in this context. Maybe it's made up?\n\nD. From Conditional access in Azure Active Directory (Azure AD), create a named location.\n\nAdding the companies public IP address ranges as named location wouldn't help to disable MFA. With named locations you can mark IPs and ranges as \"trusted locations\" which lowers a user's sign-in risk. \n\nSo B. is correct!"
+      },
+      {
+        "date": "2020-07-11T07:35:00.000Z",
+        "voteCount": 1,
+        "content": "You can select a named location as an exception for your rule, which would completely ignore MFA for your trusted location."
+      },
+      {
+        "date": "2020-08-30T17:17:00.000Z",
+        "voteCount": 1,
+        "content": "But they don't mention doing this in the answer D, so the answer is B as it is a complete solution."
+      },
+      {
+        "date": "2020-09-02T22:40:00.000Z",
+        "voteCount": 1,
+        "content": "Yes you can but without selecting it doesn't work and selection is not in any choice. So it is incorrect"
+      },
+      {
+        "date": "2020-07-14T11:22:00.000Z",
+        "voteCount": 6,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2020-09-09T16:07:00.000Z",
+        "voteCount": 2,
+        "content": "D is not correct, because setting named location is not sufficient.  You still need additional set to exclude that named location in the policy -&gt; conditions sections"
+      },
+      {
+        "date": "2020-09-08T18:01:00.000Z",
+        "voteCount": 2,
+        "content": "was very confused initially but then https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition#named-locations\n\nRead the section on \"Skipping multi-factor authentication\".\nStill is trusted IP range.\n\nI would go with (B)"
+      },
+      {
+        "date": "2020-09-06T14:45:00.000Z",
+        "voteCount": 1,
+        "content": "B is the right answer. We can go to MFA service page and enable trusted IP ranges"
+      },
+      {
+        "date": "2020-08-27T07:12:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D even their answer explanation said so"
+      },
+      {
+        "date": "2020-08-31T04:42:00.000Z",
+        "voteCount": 1,
+        "content": "Should be B.  When you click on \"Configure MFA trusted IPs\", it brings you to the MFA Service Setting.  If you define Named Location, it is used to detect false positive in risk detection.\nhttps://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/quickstart-configure-named-locations"
+      },
+      {
+        "date": "2020-08-14T21:59:00.000Z",
+        "voteCount": 2,
+        "content": "IP based is very common. Note that AD is capable of identifying your location (location means where you are connecting from ... it is IP address, not street number:-)). If you are connecting from a \"trusted\" environment, then no need for multi-factor (given that you are on premises / more controlled environment). Answer is \"trusted IP\" which is the IP of the location where the request came from."
+      },
+      {
+        "date": "2020-07-29T21:12:00.000Z",
+        "voteCount": 1,
+        "content": "B seems to be correct answer as D is saying about creating a named location. If you create a named location then you have add trusted IP range to get it work. Same it mentions in explanation. In future there is going to single blade for all this. https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/NamedNetworksV2"
+      },
+      {
+        "date": "2020-07-29T21:18:00.000Z",
+        "voteCount": 1,
+        "content": "Also when I click Configure MFA trusted IP tab from Named location, it takes me to blade where I can just change user settings to change MFA methods but cannot provide any IP.  I have free Active directory tier so it seems that that options is only in premium. For now only way I can add trusted IP is by created a named location."
+      },
+      {
+        "date": "2020-06-28T16:58:00.000Z",
+        "voteCount": 2,
+        "content": "Read the statement carefully \"From Conditional access in Azure Active Directory (Azure AD), create a named location\". You DO NOT create a named location from conditional access; you only select a named location. If you selected TRUSTED IPs, you would still need to go the answer B to configure the trusted ip. So correct answer is B."
+      },
+      {
+        "date": "2020-06-09T21:19:00.000Z",
+        "voteCount": 2,
+        "content": "According to the below, it's B\n\nLocation Conditional Access Policy: https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition\n   \"Requiring multi-factor authentication for users accessing a service when they are off the \n   corporate network. Blocking access for users accessing a service from specific countries or \n   regions.\"\n\nTrusted IP's: https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips\n   \"You can set trusted IP ranges for your on-premises environments to when users are in one \n   of those locations, there's no Azure Multi-Factor Authentication prompt.\""
+      },
+      {
+        "date": "2020-06-06T01:45:00.000Z",
+        "voteCount": 1,
+        "content": "answer is B not to confuse with named location"
+      },
+      {
+        "date": "2020-05-30T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct based on the link https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings"
+      },
+      {
+        "date": "2020-06-05T13:28:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. The requirement is specific: \"You need to prevent the users from receiving MFA requests when they sign in from the main office.\" So B is a direct method. \"https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips\""
+      },
+      {
+        "date": "2020-05-29T11:04:00.000Z",
+        "voteCount": 1,
+        "content": "Here we go ladies and gents, a couple of links that I think validate choice \"D\" as the correct choice. In summary, you have to go through Named Location in order to get to trusted IPs. Screen shots included in links.\nhttps://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/quickstart-configure-named-locations\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition"
+      },
+      {
+        "date": "2020-08-30T17:15:00.000Z",
+        "voteCount": 1,
+        "content": "No you don't, you can access the MFA settings page from the User's blade in Azure."
+      },
+      {
+        "date": "2020-05-29T10:13:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is B as it talks of addressing the second authentication which is done on MFA then navigate to MFA service settings\n\nD is not considering MFA. It addresses access (password and/or MFA) based on trusted locations where users are allowed to login. If a user is not on the trusted location, then are blocked from accessing the service. (Doesn't consider MFA status)"
+      },
+      {
+        "date": "2020-05-25T13:05:00.000Z",
+        "voteCount": 3,
+        "content": "The given answer is a quickest way. So you can just add ip address or range to the section in MFA --&gt; Configure--&gt; Additional cloud-based MFA settings: From the trusted ips tab add ips"
+      },
+      {
+        "date": "2020-05-25T13:09:00.000Z",
+        "voteCount": 1,
+        "content": "But in explanation it shows  Named location :)"
+      },
+      {
+        "date": "2020-08-30T17:14:00.000Z",
+        "voteCount": 1,
+        "content": "But just adding a named location on it's own isn't a complete solution, you'd then need to modify any conditional access policies. Personally I'd use a named location over trusted IPs, because there are times where I'd want to force MFA even if it's coming from a trusted IP (and with trusted IPs this isn't possible), but the answer they're giving in D isn't a complete solution so we can't use it. In this case B is the only appropriate answer."
+      },
+      {
+        "date": "2020-05-04T01:10:00.000Z",
+        "voteCount": 1,
+        "content": "What about: https://www.kraftkennedy.com/implementing-azure-multi-factor-authentication/ \nHere it seems that with MFA the Trusted IP is OK."
+      },
+      {
+        "date": "2020-04-30T13:12:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is D  \nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/location-condition"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14969-exam-az-300-topic-16-question-4-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant named contoso.com.<br>A user named Admin1 attempts to create an access review from the Azure Active Directory admin center and discovers that the Access reviews settings are unavailable. Admin1 discovers that all the other Identity Governance settings are available.<br>Admin1 is assigned the User administrator, Compliance administrator, and Security administrator roles.<br>You need to ensure that the Admin1 can create access reviews in contoso.com.<br>Solution: You consent to Azure AD Privileged Identity Management (PIM).<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "PIM essentially helps you manage the who, what, when, where, and why for resources that you care about. Key features of PIM include:<br>\u2711 Conduct access reviews to ensure users still need roles<br>Note: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) is a service that enables you to manage, control, and monitor access to important resources in your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services like Office 365 or Microsoft<br>Intune.<br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-27T10:31:00.000Z",
+        "voteCount": 10,
+        "content": "'Consent to PIM' does not enable access review feature."
+      },
+      {
+        "date": "2020-03-27T05:32:00.000Z",
+        "voteCount": 2,
+        "content": "thats true..."
+      },
+      {
+        "date": "2020-09-14T05:52:00.000Z",
+        "voteCount": 2,
+        "content": "B is ok"
+      },
+      {
+        "date": "2020-08-16T06:03:00.000Z",
+        "voteCount": 8,
+        "content": "Please note there are 2 types of access reviews:\nAccess review under Azure AD -&gt; Identity Governance\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/create-access-review\nPrerequisites:\nAzure AD Premium P2\nGlobal administrator or User administrator\nPurpose:\nCreate access reviews for group members or application access\n\nAccess review under PIM -&gt; Access review\nhttps://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review\nPrerequisites:\nPrivileged Role Administrator (and also P2 license, consent to PIM etc.)\nPurpose:\nCreate access reviews for privileged Azure resource roles\n\nAs the question is stating \"Admin1 discovers that all the other Identity Governance settings are available\", I think we are talking about AAD access review type and what's missing there is \"Onboarding\", probably the scenario is the tenat hasn't been oboarded for access reviews, this is old view but see screenshot for the overview(https://i0.wp.com/wpac.blob.core.windows.net/wpstorage/2019/03/030619_1438_Accessrevie1.png?w=1240&amp;ssl=1). Hence IMO the answer is NO."
+      },
+      {
+        "date": "2021-12-25T01:39:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is NO, you can create access reviews in PIM, however with proper privileges, you must have either global admin or Privileged role administrator role assigned before you create ."
+      },
+      {
+        "date": "2021-12-25T01:39:00.000Z",
+        "voteCount": 1,
+        "content": "docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review"
+      },
+      {
+        "date": "2021-02-23T12:38:00.000Z",
+        "voteCount": 1,
+        "content": "admin1 is a user administrator so he can create access review s:\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/deploy-access-reviews\ni go with PIM"
+      },
+      {
+        "date": "2020-09-29T11:26:00.000Z",
+        "voteCount": 2,
+        "content": "1- Create an access review of groups and applications in Azure AD access reviews\nPrerequisites\nAzure AD Premium P2\nGlobal administrator or User administrator\n\n2- Create an access review of Azure AD roles in Privileged Identity Management\nPre-requisite:\nPrivileged Role Administrator\n\nIf I read the question correctly, the access is for groups and apps and not for AD roles...\n\nIf this is the case, the answer is NO"
+      },
+      {
+        "date": "2020-08-07T08:33:00.000Z",
+        "voteCount": 2,
+        "content": "The answers to all the questions in this series is No. The scenario assumes you are a Global Admin.\nIf you consent to PIM and enable, only you get the Priv Role Admin. Admin 1 wont.\nAssigning Global Admin role wont work either. They need Priv Role Admin.\nAD Premium P2 or any license is not needed for creating access reviews."
+      },
+      {
+        "date": "2020-08-03T08:39:00.000Z",
+        "voteCount": 1,
+        "content": "Before you can begin using AAD PIM, you\u2019ll need to purchase a license that includes the capability.\n - There is no Info about the Azure AD  license.\n\n\nUpon opening AAD PIM for the first time, you\u2019ll receive a consent page as seen below.  The consent process requires confirmation of the user\u2019s identity using Azure MFA.  If the user isn\u2019t enabled for it, it will be configured at this point."
+      },
+      {
+        "date": "2020-07-27T03:43:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is INCORRECT.\nFirst, the concept of consenting is no where documented. Check https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-getting-started. Nothing about consenting. \n\nWhat you DO need is the following (from the same source above):\nTo use Privileged Identity Management, your directory must have one of the following paid or trial licenses:\nAzure AD Premium P2\nEnterprise Mobility + Security (EMS) E5\nMicrosoft 365 Education A5\nMicrosoft 365 Enterprise E5\n\nThe correct answer is a couple of questions below, which is to purchase a P2 license."
+      },
+      {
+        "date": "2020-08-03T08:43:00.000Z",
+        "voteCount": 1,
+        "content": "https://journeyofthegeek.com/2018/05/29/exploring-azure-ad-privileged-identity-management-pim-part-2-setup/"
+      },
+      {
+        "date": "2020-07-14T11:22:00.000Z",
+        "voteCount": 7,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2020-07-20T16:11:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is NO since Privileged Identity requires 'Privileged Role Administrator' role to create Access Reviews. I have tested this in the lab.\nSee the Pre-requisites provided in the below article before creating Access Reviews.\nhttps://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review#prerequisites"
+      },
+      {
+        "date": "2020-06-28T17:07:00.000Z",
+        "voteCount": 1,
+        "content": "Enable Privileged Identity Management\nAs part of the planning process, you must first CONSENT to and enable Privileged Identity Management by following our start using Privileged Identity Management article. Enabling Privileged Identity Management gives you access to some features that are specifically designed to help with your deployment. (https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-deployment-plan)"
+      },
+      {
+        "date": "2020-06-28T17:10:00.000Z",
+        "voteCount": 1,
+        "content": "ignore my comment above. i just reread that all ID settings are available which indicates that ID is already in place."
+      },
+      {
+        "date": "2020-09-10T15:22:00.000Z",
+        "voteCount": 1,
+        "content": "I fell you are right. You have to augment your privileges and enable User Administrator role."
+      },
+      {
+        "date": "2020-06-28T00:19:00.000Z",
+        "voteCount": 2,
+        "content": "Privileged Identity Management (PIM) to create access reviews for \"privileged Azure AD\" roles. So No."
+      },
+      {
+        "date": "2020-06-06T01:47:00.000Z",
+        "voteCount": 2,
+        "content": "To create access review PIM should be enabled which is why the answer is correct."
+      },
+      {
+        "date": "2020-06-01T11:25:00.000Z",
+        "voteCount": 3,
+        "content": "YES - correct to use Access Review you need to be Global Administrator or User Administrator"
+      },
+      {
+        "date": "2020-05-11T11:57:00.000Z",
+        "voteCount": 2,
+        "content": "Solution Answer is confusing. To create access review a user should be in \"Privileged Role Administrator\" role. \n\nReference : https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review"
+      },
+      {
+        "date": "2020-04-03T04:10:00.000Z",
+        "voteCount": 2,
+        "content": "\"Conduct access reviews to ensure users still need roles\" its clearly written"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13260-exam-az-300-topic-16-question-5-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant named contoso.com.<br>A user named Admin1 attempts to create an access review from the Azure Active Directory admin center and discovers that the Access reviews settings are unavailable. Admin1 discovers that all the other Identity Governance settings are available.<br>Admin1 is assigned the User administrator, Compliance administrator, and Security administrator roles.<br>You need to ensure that the Admin1 can create access reviews in contoso.com.<br>Solution: You assign the Global administrator role to Admin1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use Azure AD Privileged Identity Management.<br>Note: PIM essentially helps you manage the who, what, when, where, and why for resources that you care about. Key features of PIM include:<br>\u2711 Conduct access reviews to ensure users still need roles<br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-06T03:35:00.000Z",
+        "voteCount": 10,
+        "content": "the answer should be yes.\nAs because global administrators can perform access review. We do not need P2 license for global administrators"
+      },
+      {
+        "date": "2020-04-07T07:40:00.000Z",
+        "voteCount": 6,
+        "content": "prerequisites for access review are:\n\nAzure AD Premium P2\nGlobal administrator or User administrator\n\nref : https://docs.microsoft.com/en-us/azure/active-directory/governance/create-access-review"
+      },
+      {
+        "date": "2020-05-03T11:09:00.000Z",
+        "voteCount": 2,
+        "content": "Still I would go with Yes because if P2 license wasn't assigned then Access reviews setting would not be visible but greyed out. Since it is visible, that means P2 is assigned."
+      },
+      {
+        "date": "2020-06-28T15:43:00.000Z",
+        "voteCount": 1,
+        "content": "little bit like killing an ant with a bazooka though.  overkill and may cause collateral damage."
+      },
+      {
+        "date": "2021-06-26T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "But user is part of User Admin role. \nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview#how-many-licenses-must-you-have\n\n\"Azure AD Premium P2 licenses are not required for users with the Global Administrator or User Administrator roles who set up access reviews, configure settings, or apply the decisions from the reviews.\""
+      },
+      {
+        "date": "2020-07-13T13:13:00.000Z",
+        "voteCount": 8,
+        "content": "A is the correct Answer\n\nNo licenses are required for the users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews."
+      },
+      {
+        "date": "2020-09-29T11:28:00.000Z",
+        "voteCount": 1,
+        "content": "1- Create an access review of groups and applications in Azure AD access reviews\nPrerequisites\nAzure AD Premium P2\nGlobal administrator or User administrator\n\n2- Create an access review of Azure AD roles in Privileged Identity Management\nPre-requisite:\nPrivileged Role Administrator\n\nIf I read the question correctly, the access is for groups and apps and not for AD roles...\n\nIf this is the case, the answer is NO because PIMS P2 is also required"
+      },
+      {
+        "date": "2020-09-22T09:36:00.000Z",
+        "voteCount": 1,
+        "content": "to access review rules the user should have PIM license. So B is correct\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview"
+      },
+      {
+        "date": "2020-09-23T21:24:00.000Z",
+        "voteCount": 2,
+        "content": "Correction: Azure AD Premium P2 licenses are not required for users with the Global Administrator or User Administrator roles who set up access reviews, configure settings, or apply the decisions from the reviews.\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview"
+      },
+      {
+        "date": "2020-09-26T00:52:00.000Z",
+        "voteCount": 1,
+        "content": "So the answer should be yes"
+      },
+      {
+        "date": "2020-09-10T22:38:00.000Z",
+        "voteCount": 6,
+        "content": "Scenario 1: i tried creating admin1 with Global Administrator role or User Administrator role only and I am not able to create Access Review.   \n\nScenario 2: I create admin with User Admin role with Azure AD Premium P2 licenses enabled.  I am able to create Access Review.  Therefore, Azure AD Premium P2 is required whether you are global administrator or user administrator.  Since questions already mentioned admin1 has User Administrator role, he should be able to create access review.  But he could not.  \nSo my answer is NO\nMy Answer is NO."
+      },
+      {
+        "date": "2020-09-09T22:44:00.000Z",
+        "voteCount": 1,
+        "content": "When you enable Access Reviews for the first time, you have to click on Onboard Now, which enables access reviews for the Azure AD directory.  Note that if you don\u2019t complete this step, the Overview page of access reviews will report an error Tenant is not onboarded for Access Reviews feature.\nBelow is a great article to clear the confusion\nhttps://campbell.scot/getting-started-with-azure-ad-identity-governance-part-2-access-reviews/"
+      },
+      {
+        "date": "2020-08-15T09:54:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is NO. \nPrivileged Role Administrator is required to Create an access review. see https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review\n\"You can use Azure AD Privileged Identity Management (PIM) to create access reviews for privileged Azure AD roles. You can also configure recurring access reviews that occur automatically.\"\n\"Prerequisites\nPrivileged Role Administrator\""
+      },
+      {
+        "date": "2020-07-27T18:32:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is B\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-give-access-to-pim\n\nThe Global administrator who enables Privileged Identity Management (PIM) for an organization automatically get role assignments and access to Privileged Identity Management. No one else in your Azure Active Directory (Azure AD) organization gets write access by default, though, including other Global administrators. Other Global administrators, Security administrators, and Security readers have read-only access to Privileged Identity Management. To grant access to Privileged Identity Management, the first user can assign others to the Privileged Role Administrator role.\n\nIt says \"...No one else in your Azure Active Directory (Azure AD) organization gets write access by default, though, including other Global administrators.\" \n\nSo even though you assign Admin1 as the GA, he still will not have access to PIM"
+      },
+      {
+        "date": "2020-06-24T00:29:00.000Z",
+        "voteCount": 1,
+        "content": "Ans: B, https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review"
+      },
+      {
+        "date": "2020-06-19T22:08:00.000Z",
+        "voteCount": 2,
+        "content": "Creating access review on a group that can be assigned to Azure AD role\nIf you are on the newest version of Access Reviews (your reviewers are directed to My Access by default) , then only Global Administrator can create access review on role-assignable groups. However, if you are on older version of Access Reviews (your reviewers are directed to the Access Panel by default), then both Global Administrator and User Administrator can create access review on role-assignable groups."
+      },
+      {
+        "date": "2020-06-07T10:25:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A (Yes)\nNo licenses are required for the users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews."
+      },
+      {
+        "date": "2020-06-06T01:50:00.000Z",
+        "voteCount": 2,
+        "content": "This question doesn't talk about licenses instead it is focused on the roles and its privileges...   Global Admin can create access review..  answer is YES"
+      },
+      {
+        "date": "2020-05-27T02:02:00.000Z",
+        "voteCount": 2,
+        "content": "YES - \"Programs and access review results are visible to users in the Global administrator, User administrator, Security administrator, or Security reader role.\"\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/create-access-review"
+      },
+      {
+        "date": "2020-05-12T01:47:00.000Z",
+        "voteCount": 1,
+        "content": "From: https://azure.microsoft.com/en-us/pricing/details/active-directory/ \nPremium P2 is the only license with Access Review Option.\nMoreover, from https://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview , License Requirement:\n\"Using this feature requires an Azure AD Premium P2 license.\" \nSo the answer is NO."
+      },
+      {
+        "date": "2020-03-12T06:09:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/active-directory/governance/create-access-review"
+      },
+      {
+        "date": "2020-02-01T23:54:00.000Z",
+        "voteCount": 3,
+        "content": "Azure AD Premium P2 licenses are not required for the following tasks:\n\nNo licenses are required for the users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews.\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview"
+      },
+      {
+        "date": "2020-04-23T15:27:00.000Z",
+        "voteCount": 1,
+        "content": "turtle666 copied the text straight from the referenced link"
+      },
+      {
+        "date": "2020-09-14T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "B is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8821-exam-az-300-topic-16-question-6-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant named contoso.com.<br>A user named Admin1 attempts to create an access review from the Azure Active Directory admin center and discovers that the Access reviews settings are unavailable. Admin1 discovers that all the other Identity Governance settings are available.<br>Admin1 is assigned the User administrator, Compliance administrator, and Security administrator roles.<br>You need to ensure that the Admin1 can create access reviews in contoso.com.<br>Solution: You purchase an Azure Directory Premium P2 license for contoso.com.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use Azure AD Privileged Identity Management.<br>Note: PIM essentially helps you manage the who, what, when, where, and why for resources that you care about. Key features of PIM include:<br>\u2711 Conduct access reviews to ensure users still need roles<br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-08T10:48:00.000Z",
+        "voteCount": 12,
+        "content": "Stupid question. PIM required, which itself requires P2. Hope they don\u2019t ask this one as it\u2019s a bogus question."
+      },
+      {
+        "date": "2020-01-13T12:33:00.000Z",
+        "voteCount": 2,
+        "content": "agree this question / series of questions is a bit stupid. Access reviews &amp; PIM both require P2 but there is no mention of which licence level there is so you cannot know for the the other question so impossible to answer really.\nOf course just buying the licence isnt going to configure itself  but how are supposed to know what it is implying"
+      },
+      {
+        "date": "2020-01-01T05:56:00.000Z",
+        "voteCount": 2,
+        "content": "PIM and Access Reviews are two different things.. but yes, if you need to review for PIM access, you would need PIM\n\nhttps://azure.microsoft.com/en-us/pricing/details/active-directory/"
+      },
+      {
+        "date": "2020-05-20T01:45:00.000Z",
+        "voteCount": 6,
+        "content": "Microsoft update says \"No licenses are required for the users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews.\"\nbut the question says \"Access reviews settings are unavailable.\", so the question doesn't use the update.\n\nThe prerequisites are :\nAzure AD Premium P2\nGlobal administrator or User administrator\n\n... so Yes, need to purchase Azure Directory Premium P2."
+      },
+      {
+        "date": "2021-05-08T11:08:00.000Z",
+        "voteCount": 1,
+        "content": "https://campbell.scot/getting-started-with-azure-ad-identity-governance-part-3-privileged-identity-management-pim/\nPIM is an Azure AD P2 feature that enables just-in-time (JIT) admin rights in Azure and Azure AD.\n\nThe correct option for this series of questions is: Solution: You consent to Azure AD Privileged Identity Management (PIM).\nIt was possible to consent it, which means that the pre-requisite already exists.\n\nOther solutions:\nSolution: You assign the Global administrator role to Admin1. (wrong, it is just one of the requirements.)\nSolution: You purchase an Azure Directory Premium P2 license for contoso.com. (wrong, it is just one of the requirements.)"
+      },
+      {
+        "date": "2020-09-29T00:46:00.000Z",
+        "voteCount": 1,
+        "content": "All these PIM questions are wrong.\n1.- User Admin nor Global Admin do not require a P2 license, only when they delegate the review to another user.\n2.- PIM requires a P2.\nSo the reason Admin1 can't perform an access review is a system malfunction."
+      },
+      {
+        "date": "2020-09-09T22:56:00.000Z",
+        "voteCount": 2,
+        "content": "Guys, read this article\n\nhttps://campbell.scot/getting-started-with-azure-ad-identity-governance-part-2-access-reviews/"
+      },
+      {
+        "date": "2020-07-13T13:13:00.000Z",
+        "voteCount": 3,
+        "content": "Kind of tricky\nYou need P2 license to use Access Review.\n\nSo the answer should be A"
+      },
+      {
+        "date": "2020-06-28T17:30:00.000Z",
+        "voteCount": 1,
+        "content": "Issue : A user named Admin1 attempts to create an access review from the Azure Active Directory admin center and discovers that the Access reviews settings are unavailable.\nIn other words, admin1 does not have permission to create access reviews.\n\nFor Azure AD roles in Privileged Identity Management, only a user who is in the Privileged role administrator or Global administrator role can manage assignments for other administrators. You can grant access to other administrators to manage Privileged Identity Management. Global Administrators, Security Administrators, Global readers, and Security Readers can also view assignments to Azure AD roles in Privileged Identity Management. (https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure)\n\nSo my answer is A (Yes)."
+      },
+      {
+        "date": "2020-06-07T10:24:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct.\nAzure AD Premium P2 licenses are not required for the following tasks:\nNo licenses are required for the users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews."
+      },
+      {
+        "date": "2020-05-31T02:31:00.000Z",
+        "voteCount": 2,
+        "content": "The answer provided is correct, if you are global admin or user administrator you will NOT be required to purchase a P2 license in order to do an access review, the downside is is that they will manually have to review things themselves, otherwise they'll need to assign P2 licenses to other users. P2 license are only required for the reviewers, or in case people self-review. Look at the example license scenarios here: https://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview . So in short, upgrading to P2 is not required, but it will help in making the access review do-able on larger scale (now the user administrator will have to do the reviewing himself)."
+      },
+      {
+        "date": "2020-05-19T07:46:00.000Z",
+        "voteCount": 1,
+        "content": "And it doesn't help that these statements from here:\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/create-access-review\n\nPrerequisites\nAzure AD Premium P2\nGlobal administrator or User administrator\n\nConflict with these statements from here:\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview#license-requirements\n\nAzure AD Premium P2 licenses are not required for the following tasks:\nNo licenses are required for the users with the Global Administrator or User Administrator roles that set up access reviews, configure settings, or apply the decisions from the reviews."
+      },
+      {
+        "date": "2020-05-11T04:07:00.000Z",
+        "voteCount": 4,
+        "content": "It states that \"Admin1 discovers that all the other Identity Governance settings are available.\", means the Licence is already P2. In addition to P2, User needs to be a Global Admin or User Admin. I think, given answer is correct."
+      },
+      {
+        "date": "2020-05-01T11:56:00.000Z",
+        "voteCount": 1,
+        "content": "This is a very tricky question and i played in the azure portal with this and thinking thru it all. I think the answer is no to all the questions because you dont know if a license exists or consent was executed. The only one that could have an answer of Yes is \" you need to consent\" and this is only doable if you have a P2 license."
+      },
+      {
+        "date": "2020-04-23T14:46:00.000Z",
+        "voteCount": 1,
+        "content": "Preimum P1 is 1 pre-requisite, other requirement is to elevate user1 to Global admin else he won't be able to create \"Access Reviews\" under \"Identity Givernance\". \"NO\" is right answer."
+      },
+      {
+        "date": "2020-04-03T17:08:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, PIM requires AD P2"
+      },
+      {
+        "date": "2020-02-16T13:12:00.000Z",
+        "voteCount": 1,
+        "content": "This is a poorly worded and misleading question. One needs Azure AD Premium 2 in order to access PIM so the answer seems like it should be \"yes\" but I don't think that's the intent of the question. If anyone gets this question on the test, I think the answer to give is \"no\"."
+      },
+      {
+        "date": "2019-11-21T17:15:00.000Z",
+        "voteCount": 3,
+        "content": "I think yes, because the requirement for access review is AD Premium 2.\nhttps://docs.microsoft.com/en-us/azure/active-directory/governance/access-reviews-overview"
+      },
+      {
+        "date": "2019-12-07T04:24:00.000Z",
+        "voteCount": 1,
+        "content": "I guess, just by upgrading to premium 2 will not help. Further steps are required."
+      },
+      {
+        "date": "2020-09-14T05:54:00.000Z",
+        "voteCount": 2,
+        "content": "A is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15023-exam-az-300-topic-16-question-7-discussion/",
+    "body": "You have a resource group named RG1 that contains the following:<br>\u2711 A virtual network that contains two subnets named Subnet1 and Subnet2<br>\u2711 An Azure Storage account named contososa1<br>\u2711 An Azure firewall deployed to Subnet2<br>You need to ensure that contososa1 is accessible from Subnet1 over the Azure backbone network.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an Azure firewall to Subnet1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the Azure firewall.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement a virtual network service endpoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a stored access policy for contososa1."
+    ],
+    "answer": "C",
+    "answerDescription": "Virtual Network (VNet) service endpoints extend your virtual network private address space and the identity of your VNet to the Azure services, over a direct connection. Endpoints allow you to secure your critical Azure service resources to only your virtual networks. Traffic from your VNet to the Azure service always remains on the Microsoft Azure backbone network.<br>References:<br>https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-14T11:23:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2020-04-07T07:44:00.000Z",
+        "voteCount": 4,
+        "content": "correct"
+      },
+      {
+        "date": "2020-04-18T12:08:00.000Z",
+        "voteCount": 9,
+        "content": "yes true. Azure backbone network = service endpoint"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9428-exam-az-300-topic-16-question-8-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure subscription.<br>You have an on-premises file server named Server1 that runs Windows Server 2019.<br>You manage Server1 by using Windows Admin Center.<br>You need to ensure that if Server1 fails, you can recover the data from Azure.<br>Solution: From the Azure portal, you create a Recovery Services vault. On VM1, you install the Azure Backup agent and you schedule a backup.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use Azure Storage Sync service and configure Azure File.<br>Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-14T11:25:00.000Z",
+        "voteCount": 8,
+        "content": "Read the questions well\nAnswer is B\n\nThe answer would be A if we are installing the backup agent on server 1 and not VM1.\n\nBut as the question stands the answer is B."
+      },
+      {
+        "date": "2020-07-27T19:00:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed with gboyega\n\nIf backup agent is installed onto Server1 than answer is Yes\nIf the question does in fact state VM1 than the answer is No\n\nhttps://docs.microsoft.com/en-us/azure/backup/backup-support-matrix-mars-agent"
+      },
+      {
+        "date": "2020-11-16T09:54:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A: https://docs.microsoft.com/en-us/azure/backup/tutorial-backup-windows-server-to-azure"
+      },
+      {
+        "date": "2020-09-26T08:09:00.000Z",
+        "voteCount": 1,
+        "content": "Event with the typo error VM1-Server1, it would require to the vault credentials to work. It's clearly the B"
+      },
+      {
+        "date": "2020-08-26T05:54:00.000Z",
+        "voteCount": 2,
+        "content": "I think this is a typo, no where else in the question mentions VM1 so this is either a terribly worded question (not valid) or Server1 and VM1 are the same thing, in which case Yes is a valid answer as that would meet the goal."
+      },
+      {
+        "date": "2020-06-10T09:07:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is Yes\nYou can\u00b4t recover entire server (if it is a physical server) but you can recover the data from Azure, that is the requirement."
+      },
+      {
+        "date": "2020-06-06T06:09:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely yes"
+      },
+      {
+        "date": "2020-06-15T08:15:00.000Z",
+        "voteCount": 2,
+        "content": "We would use Azure File Sync for backup. Recovery Service Vault back's up Azure resources only. We would need to use MARS agent for on prem backup if we still go ahead using Recovery services."
+      },
+      {
+        "date": "2020-05-30T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "Looking at details Os version the answer is B:\nTo enable the sync capability on Windows Server, you must install the Azure File Sync downloadable agent. The Azure File Sync agent provides two main components: FileSyncSvc.exe, the background Windows service that is responsible for monitoring changes on the server endpoints and initiating sync sessions, and StorageSync.sys, a file system filter that enables cloud tiering and fast disaster recovery."
+      },
+      {
+        "date": "2020-05-26T06:43:00.000Z",
+        "voteCount": 1,
+        "content": "It should be A: Yes.\nYou can use Azure Backup to protect your Windows Server from corruptions, attacks, and disasters...\nhttps://docs.microsoft.com/en-us/azure/backup/tutorial-backup-windows-server-to-azure"
+      },
+      {
+        "date": "2020-05-09T16:31:00.000Z",
+        "voteCount": 2,
+        "content": "Could be a word play from https://docs.microsoft.com/en-us/azure/backup/backup-windows-with-mars-agent\n\nMARS Agent vs Azure backup Agent.  I vote B-No"
+      },
+      {
+        "date": "2020-05-03T11:36:00.000Z",
+        "voteCount": 3,
+        "content": "Server1 and then VM1, lot of wrong descriptions of questions. If it is a typo then answer is Yes."
+      },
+      {
+        "date": "2020-04-30T21:25:00.000Z",
+        "voteCount": 1,
+        "content": "I think A should be good, because https://azure.microsoft.com/en-in/solutions/architecture/backup-archive-on-premises-applications/"
+      },
+      {
+        "date": "2020-04-29T10:47:00.000Z",
+        "voteCount": 2,
+        "content": "If it is a typo? instead of VM1 should be server1? in that case I think the answer is yes"
+      },
+      {
+        "date": "2020-02-26T07:59:00.000Z",
+        "voteCount": 2,
+        "content": "\" file server named Server1\"...that means they want to extend their on-prem file server to Azure. Best way to do it is using Azure File Sync service."
+      },
+      {
+        "date": "2020-02-19T07:20:00.000Z",
+        "voteCount": 1,
+        "content": "The Keyword are: Windows Admin Center. You dont need to download the Backup Agent, you can configure this in the Windows Admin Center. All three Question are NO!"
+      },
+      {
+        "date": "2020-02-16T13:18:00.000Z",
+        "voteCount": 1,
+        "content": "Shouldn't the answer be \"yes\"? The question says that if Server1 fails, \"you can recover the data from Azure.\" The keyword there is \"data\" and not the whole server. If we're backing up VM1 then that doesn't that mean we're capturing the data as well?"
+      },
+      {
+        "date": "2019-11-30T07:34:00.000Z",
+        "voteCount": 2,
+        "content": "A (yes) should be good also, because the question says that you need to recover data from Azure."
+      },
+      {
+        "date": "2019-12-08T11:08:00.000Z",
+        "voteCount": 20,
+        "content": "The question asks about Server1 (on prem) and not the VM1 in azure, so the ASR answer is incorrect. Hence B."
+      },
+      {
+        "date": "2020-01-13T12:02:00.000Z",
+        "voteCount": 2,
+        "content": "agreed , answer is B because as Benkyoujin says it states VM1 is server with the backup agent installed and does not mention Server1. It would only be A if the question has a typo  and it it should be written Server1 where it states VM1, but it doesnt , so in this form it is B"
+      },
+      {
+        "date": "2020-09-09T19:31:00.000Z",
+        "voteCount": 2,
+        "content": "A is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14458-exam-az-300-topic-16-question-9-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure subscription.<br>You have an on-premises file server named Server1 that runs Windows Server 2019.<br>You manage Server1 by using Windows Admin Center.<br>You need to ensure that if Server1 fails, you can recover the data from Azure.<br>Solution: You create a Recovery Services vault and configure a backup by using Windows Server Backup.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead use Azure Storage Sync service and configure Azure File.<br>Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-03T08:55:00.000Z",
+        "voteCount": 7,
+        "content": "I Say B - No, and not for the reason in the suggested solution. windows Server Backup is wrong, it is the Microsoft Azure Backup.\n\nhttps://docs.microsoft.com/en-us/azure/backup/tutorial-backup-windows-server-to-azure\n1) Create a Recovery Services vault\n2) Open the Microsoft Azure Recovery Services agent. You can find it by searching your machine for Microsoft Azure Backup.\n3) In the Recovery Services agent console, click Schedule Backup under the Actions Pane"
+      },
+      {
+        "date": "2020-09-23T16:25:00.000Z",
+        "voteCount": 2,
+        "content": "Agree - 'Windows Server Backup' is clearly the built-in Feature for local backups to disk, volume, or shared network location only.  You need MABS, MARS, or DPM to backup to Azure."
+      },
+      {
+        "date": "2020-12-03T08:44:00.000Z",
+        "voteCount": 1,
+        "content": "NO. \nYou can use Recovery Services vault and configue a backup by using \"AZURE BACKUP\" and NOT \"Windows Server Backup\" .\nhttps://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/"
+      },
+      {
+        "date": "2020-09-17T23:24:00.000Z",
+        "voteCount": 2,
+        "content": "I will go with 'No'. reference : https://www.youtube.com/watch?v=Zm2w8-TRn-o"
+      },
+      {
+        "date": "2020-09-03T22:22:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is A. YES! \n\nRef: https://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/azure-backup#what-is-azure-backup-and-how-does-it-work-with-windows-admin-center"
+      },
+      {
+        "date": "2020-08-14T09:49:00.000Z",
+        "voteCount": 1,
+        "content": "For me is Yes\n\"Windows Server Backup is a feature that provides a set of wizards and other tools for you to perform basic backup and recovery tasks for the server it is installed on.\"\nhttps://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwjF9q2goJvrAhVtmeAKHRHeCngQFjAOegQIDhAR&amp;url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fprevious-versions%2Fwindows%2Fit-pro%2Fwindows-server-2012-r2-and-2012%2Fjj614621(v%3Dws.11)%23%3A~%3Atext%3DWindows%2520Server%2520Backup%2520is%2520a%2Cserver%2520it%2520is%2520installed%2520on.&amp;usg=AOvVaw10Dgi-1n70Ii5LV1dmInCY"
+      },
+      {
+        "date": "2020-07-01T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "Yes! \nhttps://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/azure-backup#what-is-azure-backup-and-how-does-it-work-with-windows-admin-center"
+      },
+      {
+        "date": "2020-07-27T19:08:00.000Z",
+        "voteCount": 1,
+        "content": "I concur with Wildsheep\n\nhttps://docs.microsoft.com/en-us/windows-server/manage/windows-admin-center/azure/azure-backup#what-is-azure-backup-and-how-does-it-work-with-windows-admin-center\n\nThe integration of Azure Backup in the Windows Admin Center is ideal for backing up volumes and the Windows System state on-premises Windows physical or virtual servers. This makes for a comprehensive mechanism to backup File Servers, Domain Controllers and IIS Web Servers.\n\nWindows Admin Center exposes the Azure Backup integration via the native Backup tool. The Backup tool provides setup, management and monitoring experiences to quickly start backing up your servers, perform common backup and restore operations and to monitor overall backup health of your Windows Servers."
+      },
+      {
+        "date": "2020-07-31T21:26:00.000Z",
+        "voteCount": 1,
+        "content": "One thing I noticed, the solution does not say WHICH system you create a backup using windows server backup, however the only server in question is Server1, so if they marked the question as incorrect just because the solution did not mention Server1 I would be pretty mad."
+      },
+      {
+        "date": "2020-02-19T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "YES! The Admin Center need an Schedular Backup Policy"
+      },
+      {
+        "date": "2020-09-14T05:58:00.000Z",
+        "voteCount": 1,
+        "content": "A is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14455-exam-az-300-topic-16-question-10-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure subscription.<br>You have an on-premises file server named Server1 that runs Windows Server 2019.<br>You manage Server1 by using Windows Admin Center.<br>You need to ensure that if Server1 fails, you can recover the data from Azure.<br>Solution: You create an Azure Storage account and an Azure Storage Sync service. You configure Azure File Sync for Server1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share.<br>Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows<br>Servers with Azure File Sync for fast access near where the data is being used.<br>Azure file shares can be used to:<br>Replace or supplement on-premises file servers:<br>Azure Files can be used to completely replace or supplement traditional on-premises file servers or NAS devices. Popular operating systems such as Windows, macOS, and Linux can directly mount Azure file shares wherever they are in the world. Azure file shares can also be replicated with Azure File Sync to Windows<br>Servers, either on-premises or in the cloud, for performance and distributed caching of the data where it's being used.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/files/storage-files-introduction https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-24T05:29:00.000Z",
+        "voteCount": 17,
+        "content": "Answer is definatley Yes, Below confirms that. Ouestion is only about recovering the data.\n Azure Files offers fully managed file shares in the cloud that are accessible via the industry standard Server Message Block (SMB) protocol. Azure file shares can be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. Additionally, Azure file shares can be cached on Windows\nServers with Azure File Sync for fast access near where the data is being used."
+      },
+      {
+        "date": "2020-05-26T06:55:00.000Z",
+        "voteCount": 7,
+        "content": "Should be B: No.\nFile share is for mounting shared drive, you cannot restore or initiate a backup on demand. You should use Azure Recovery Services vault and download the Azure backup agent (Mars) to backup your server.\nhttps://docs.microsoft.com/en-us/azure/backup/tutorial-backup-windows-server-to-azure"
+      },
+      {
+        "date": "2020-07-20T17:29:00.000Z",
+        "voteCount": 2,
+        "content": "Agree with quokka. For backup &amp; recovery, we have to use Azure Recovery Services Vault."
+      },
+      {
+        "date": "2020-07-31T21:34:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning\n\nRead the very last line from below\n\nWindows file server considerations\nTo enable the sync capability on Windows Server, you must install the Azure File Sync downloadable agent. The Azure File Sync agent provides two main components: FileSyncSvc.exe, the background Windows service that is responsible for monitoring changes on the server endpoints and initiating sync sessions, and StorageSync.sys, a file system filter that enables cloud tiering and fast disaster recovery."
+      },
+      {
+        "date": "2020-11-16T09:59:00.000Z",
+        "voteCount": 1,
+        "content": "B: requires Azure Recovery Services Vault\nCreate a Recovery Services vault.\nConfigure backup from the Recovery Services vault\nConfigure backup from the file share pane\nRun an on-demand backup job to create a restore point\nhttps://docs.microsoft.com/en-us/azure/backup/backup-afs"
+      },
+      {
+        "date": "2020-06-28T08:13:00.000Z",
+        "voteCount": 2,
+        "content": "Since the server is file server so Azure File sync would work. So this is yes"
+      },
+      {
+        "date": "2020-04-03T04:20:00.000Z",
+        "voteCount": 2,
+        "content": "True. But explanation mentions about azure file sync, is there any alternate answer?"
+      },
+      {
+        "date": "2020-02-19T07:21:00.000Z",
+        "voteCount": 2,
+        "content": "Azure File Sync Services is not a Backup!"
+      },
+      {
+        "date": "2020-04-18T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "Azure File Sync Services storage sync service resource will allow you to transform your Windows Server into a quick cache for Azure file shares with optional cloud tiering and multi-server sync functionality."
+      },
+      {
+        "date": "2020-09-09T19:36:00.000Z",
+        "voteCount": 3,
+        "content": "A is ok"
+      },
+      {
+        "date": "2021-06-06T04:52:00.000Z",
+        "voteCount": 1,
+        "content": "ok is A"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17586-exam-az-300-topic-16-question-11-discussion/",
+    "body": "A company is migrating an existing on-premises third-party website to Azure. The website is stateless.<br>The company does not have access to the source code for the website. They have the original installer.<br>The number of visitors at the website varies throughout the year. The on-premises infrastructure was resized to accommodate peaks but the extra capacity was not used.<br>You need to implement a virtual machine scale set instance.<br><br>What should you do -<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a webhook to log autoscale failures.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an autoscale setting to scale instances vertically.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse only default diagnostics metrics to trigger autoscaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an autoscale setting to define more profiles that have one or more autoscale rules."
+    ],
+    "answer": "C",
+    "answerDescription": "In-guest VM metrics with the Azure diagnostics extension<br>The Azure diagnostics extension is an agent that runs inside a VM instance. The agent monitors and saves performance metrics to Azure storage. These performance metrics contain more detailed information about the status of the VM, such as AverageReadTime for disks or PercentIdleTime for CPU. You can create autoscale rules based on a more detailed awareness of the VM performance, not just the percentage of CPU usage or memory consumption.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-07T07:51:00.000Z",
+        "voteCount": 11,
+        "content": "C is correct. \nYou can create an autoscale setting on a VM to use host-level metrics or guest OS-based metrics.\nref : https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview"
+      },
+      {
+        "date": "2020-05-23T21:44:00.000Z",
+        "voteCount": 9,
+        "content": "I would go for C. There's nothing in here that states how we could benefit from using multiple profiles to better anticipate autoscaling which is why D seems too farfetched for me"
+      },
+      {
+        "date": "2020-09-10T00:37:00.000Z",
+        "voteCount": 1,
+        "content": "D is the right option for workloads that have different usage rates during the year\nBest practices of Autoscale\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-best-practices"
+      },
+      {
+        "date": "2020-08-15T11:34:00.000Z",
+        "voteCount": 3,
+        "content": "C. Use only default diagnostics metrics to trigger autoscaling\nThe use of the diagnostics metrics is the default when configuring autoscaling... (use of Diag metric to trigger scale). Diagnostics extension is not the same as diagnostics metric. The extension is an agent is used on VM for additional info. Answer D is something to confuse you! Note that the story was just for entertainment!"
+      },
+      {
+        "date": "2020-07-27T04:14:00.000Z",
+        "voteCount": 8,
+        "content": "The question is tricky, it has taken me 5 minutes of reading to understand. And no, D is NOT CORRECT and here is why: \n\nThe question tricks us into believing that there is a hardware performance problem when THERE IS NOT!!!! It says that the number of users vary throughout the year and that the infrastructure was resized to accommodate the peaks (probably thinking that we had a hardware performance issue) but the capacity WAS NOT UTILISED, which indicates that actually there was no problem with the hardware allocation. At this point, the info telling us that we do not have the source code becomes important. It may be a problem in the application. \n\nHaving established the above, now look at the request. \"You need to implement a Virtual machine scale set\". A bit weird, isn't it? Just to implement a VMSS. Nothing else is requested. Well, in order to create a VMSS it is mandatory to define \"a default diagnostic metric to trigger scaling\" or answer C. Probably, it will never be triggered according to what we know.\n\nOn the other hand, there is nothing on the statement pointing you towards multiple profiles."
+      },
+      {
+        "date": "2020-07-01T09:05:00.000Z",
+        "voteCount": 2,
+        "content": "I'd go for D. If you know you are busier at certain times if the year, makes sense to prepare for it, like create a profile \"Christmas Sales\" for the month December... \n\nSpecial Dates&nbsp;- I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-virtual-machine-scale-sets"
+      },
+      {
+        "date": "2020-05-08T08:30:00.000Z",
+        "voteCount": 3,
+        "content": "I would go for D. Although using simple autoscale can be a solution for most of the scenarios, the fact that workload varies along the year makes the use of different autoscale profiles (each profile \"tuned\" for each situation) a more appropriate solution \nFrom https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-overview \nYou can have multiple profiles, which allow you to take care of different overlapping requirements. You can have different autoscale profiles for different times of day or days of the week, for example."
+      },
+      {
+        "date": "2020-03-28T05:49:00.000Z",
+        "voteCount": 1,
+        "content": "Should be D?"
+      },
+      {
+        "date": "2020-09-09T19:40:00.000Z",
+        "voteCount": 2,
+        "content": "C is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17278-exam-az-300-topic-16-question-12-discussion/",
+    "body": "A company is migrating an existing on-premises third-party website to Azure. The website is stateless.<br>The company does not have access to the source code for the website. They have the original installer.<br>The number of visitors at the website varies throughout the year. The on-premises infrastructure was resized to accommodate peaks but the extra capacity was not used.<br>You need to implement a virtual machine scale set instance.<br><br>What should you do -<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a webhook to log autoscale failures.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an autoscale setting to scale instances vertically.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse only default diagnostics metrics to trigger autoscaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an autoscale setting to define more profiles that have one or more autoscale rules."
+    ],
+    "answer": "C",
+    "answerDescription": "In-guest VM metrics with the Azure diagnostics extension<br>The Azure diagnostics extension is an agent that runs inside a VM instance. The agent monitors and saves performance metrics to Azure storage. These performance metrics contain more detailed information about the status of the VM, such as AverageReadTime for disks or PercentIdleTime for CPU. You can create autoscale rules based on a more detailed awareness of the VM performance, not just the percentage of CPU usage or memory consumption.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-06T06:03:00.000Z",
+        "voteCount": 7,
+        "content": "Duplicate"
+      },
+      {
+        "date": "2020-06-05T14:24:00.000Z",
+        "voteCount": 5,
+        "content": "Moderator: this is a duplicate and ought to be removed."
+      },
+      {
+        "date": "2020-09-24T22:16:00.000Z",
+        "voteCount": 1,
+        "content": "Should be D"
+      },
+      {
+        "date": "2020-08-09T12:29:00.000Z",
+        "voteCount": 3,
+        "content": "11,13,14  are same questions"
+      },
+      {
+        "date": "2020-04-07T07:55:00.000Z",
+        "voteCount": 2,
+        "content": "shouldn't it be D?"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19974-exam-az-300-topic-16-question-13-discussion/",
+    "body": "You have an Azure subscription named Subscription1 that contains an Azure virtual network named VNet1. VNet1 connects to your on-premises network by using<br>Azure ExpressRoute.<br>You need to connect VNet1 to the on-premises network by using a site-to-site VPN. The solution must minimize cost.<br>Which three actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a VPN gateway that uses the VpnGw1 SKU.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a connection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a local site VPN gateway.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a gateway subnet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a VPN gateway that uses the Basic SKU."
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-za/archive/blogs/canitpro/step-by-step-configuring-a-site-to-site-vpn-gateway-between-azure-and-on-premise",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-07T18:03:00.000Z",
+        "voteCount": 45,
+        "content": "A. Create a VPN gateway that uses the VpnGw1 SKU.\nB. Create a connection.\nC. Create a local site VPN gateway.\n\nWe need to Gateway subnet also but since already Vnet1 is connecting to OnPrem via ExpressRoute so gateway subnet would already be existing.\nMy answer is ABC"
+      },
+      {
+        "date": "2020-05-08T08:53:00.000Z",
+        "voteCount": 4,
+        "content": "i would say you are right. Only thing is that C  Create a local site VPN gateway should be Create \"local network gateway\". https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager"
+      },
+      {
+        "date": "2020-09-09T19:47:00.000Z",
+        "voteCount": 1,
+        "content": "ABC is ok"
+      },
+      {
+        "date": "2020-05-13T06:47:00.000Z",
+        "voteCount": 1,
+        "content": "Why not VPN with basic SKU?"
+      },
+      {
+        "date": "2020-05-14T10:04:00.000Z",
+        "voteCount": 2,
+        "content": "More info on VPN gateway SKUs: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      },
+      {
+        "date": "2020-05-14T07:50:00.000Z",
+        "voteCount": 3,
+        "content": "why not E? you can create a vpn with basic sku since the question mentions cost should be minimized\nhttps://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      },
+      {
+        "date": "2020-07-04T05:37:00.000Z",
+        "voteCount": 7,
+        "content": "Possible answers: \n\nA. Create a VPN gateway that uses the VpnGw1 SKU.\nB. Create a connection.\nC. Create a local site VPN gateway.\nD. Create a gateway subnet.\nE. Create a VPN gateway that uses the Basic SKU.\n\nSo that ExpressRoute and a Site-To-Site VPN can co-exists we can't use the Basic SKUs and therefor need to choose the \"VpnGw1\" SKU. \n\nQuote: \n\"Basic SKU gateway is not supported. You must use a non-Basic SKU gateway for both the ExpressRoute gateway and the VPN gateway.\"\nSource: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager\n\nThis means A. and not E. Also we need a gateway subnet for sure (with a subnet mask of /27 or shorter prefix, such as /26 or /25). So D. is correct as well. \n\nAccording to this https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager#new (see Step 5.) we also need to create a \"local site VPN gateway\". \n\nThis leads us to =&gt; A. C. and D."
+      },
+      {
+        "date": "2020-07-12T13:32:00.000Z",
+        "voteCount": 4,
+        "content": "D is wrong because\nExpressroute and VPN gateway can co-exist. So they have the same gateway subnet no need to create another\n\nAnswer is \nE. Create a VPN GATEWAY ( reduced cost than VPNGW1)\nC create a local vpn gateway\nB create a connection\n\nB C E"
+      },
+      {
+        "date": "2020-10-26T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "A is req'd to coexist with express route"
+      },
+      {
+        "date": "2020-08-27T21:39:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct answer would be ABC\n\nSee https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager.\n\nBasic SKU gateway is not supported. You must use a non-Basic SKU gateway for both the ExpressRoute gateway and the VPN gateway."
+      },
+      {
+        "date": "2020-08-15T16:09:00.000Z",
+        "voteCount": 1,
+        "content": "VPN Gateway and Expressroute GW can coexist in the same Gateway Subnet (for failover for example). We already have Vnet, GWSubnet, and Express route. If we assume we are using the existing resources for VPN, we would move to use existing subnet, configure the LNG,(GwPIP), Virtual Network Gateway- type VPN (which is same as VPN GW), and a connection\uf0e8 answer should be:\n\u2022\tA. Create a VPN gateway that uses the VpnGw1 SKU. (assume we are using VPN and Express route on same gateway subnet)\n\u2022\tB. Create a connection. (assume the question Local VPN decide is ready for connection)\n\u2022\tC. Create a local site VPN gateway. (this should be same as Local Network GW specifying information for Local site VPN to which connection will be established)"
+      },
+      {
+        "date": "2020-08-14T08:14:00.000Z",
+        "voteCount": 1,
+        "content": "The only issue I see with not creating a new gateway subnet is that it is not specifically stated what the CIDR is for the current one. We can guess they went by MS best practices and used a /27 which would be sufficient for the expressroute and S2S VPN to coexist on. SO the test questions would add that important piece of info to it I would imagine. Just something to think about."
+      },
+      {
+        "date": "2020-08-13T19:24:00.000Z",
+        "voteCount": 1,
+        "content": "I think the correct answer is ABC \nhttps://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager\ncheck on the limitations."
+      },
+      {
+        "date": "2020-07-18T08:29:00.000Z",
+        "voteCount": 3,
+        "content": "A, C, D\nhttps://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager"
+      },
+      {
+        "date": "2020-06-29T05:42:00.000Z",
+        "voteCount": 1,
+        "content": "I will go for ABC as well because gateway subnet already exists and we need the VpnGw1 SKU to support the express route."
+      },
+      {
+        "date": "2020-06-25T13:27:00.000Z",
+        "voteCount": 2,
+        "content": "Create a gateway subnet. \nCreate a VPN gateway that uses the Basic SKU. \nCreate a connection. \nReferences:\nhttps://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal"
+      },
+      {
+        "date": "2020-06-21T11:05:00.000Z",
+        "voteCount": 5,
+        "content": "Correcting my previous post: Answer is A B and C\nThe question doesn't specify how much S2S tunnels or Throughput is needed, just specify about costs, but we have to pay attention about the express route, which uses BGP.\nBGP routes are only supported from VpnGw1 SKU.\nAlso, since it's to minimize costs, we can consider using the same network subnet gateway already in use.\nThe answer is A, B and C\nFrom the options offered:\nCreate a VPN Gateway that uses VpnGw1 SKU - A (Supports BGP, requirement for VPN over Express Route circuits)\nCreate a local site VPN gateway - C\nCreate a VPN Connection - Site to site - B\n\nhttps://docs.microsoft.com/en-za/archive/blogs/canitpro/step-by-step-configuring-a-site-to-site-vpn-gateway-between-azure-and-on-premise\nhttps://docs.microsoft.com/pt-br/azure/vpn-gateway/vpn-gateway-about-vpngateways#gateway-skus\nhttps://docs.microsoft.com/pt-br/azure/expressroute/expressroute-howto-linkvnet-arm\nhttps://docs.microsoft.com/pt-br/azure/expressroute/site-to-site-vpn-over-microsoft-peering"
+      },
+      {
+        "date": "2020-06-21T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "The question doesn't specify how much S2S tunnels or Throughput is needed, just specify about costs, but we have to pay attention about the express route, which uses BGP.\nBGP routes are only supported from VpnGw1 SKU.\nAlso, since it's to minimize costs, we can consider using the same network subnet gateway already in use.\nThe answer is A, D and E\nFrom the options offered:\nCreate a VPN Gateway that uses VpnGw1 SKU - A (Supports BGP, requirement for VPN over Express Route circuits)\nCreate a local site VPN gateway - C\nCreate a VPN Connection - Site to site - B\nVPN Gateway basics supports Site to site or vnet to vnet conections up to 10 tunnels\nhttps://docs.microsoft.com/en-za/archive/blogs/canitpro/step-by-step-configuring-a-site-to-site-vpn-gateway-between-azure-and-on-premise\nhttps://docs.microsoft.com/pt-br/azure/vpn-gateway/vpn-gateway-about-vpngateways#gateway-skus\nhttps://docs.microsoft.com/pt-br/azure/expressroute/expressroute-howto-linkvnet-arm\nhttps://docs.microsoft.com/pt-br/azure/expressroute/site-to-site-vpn-over-microsoft-peering"
+      },
+      {
+        "date": "2020-06-18T15:46:00.000Z",
+        "voteCount": 1,
+        "content": "See also here: \n\nhttps://www.examtopics.com/discussions/microsoft/view/4580-exam-az-103-topic-11-question-8-discussion/\n\nhttps://www.examtopics.com/discussions/microsoft/view/15903-exam-az-103-topic-4-question-9-discussion/"
+      },
+      {
+        "date": "2020-05-25T11:49:00.000Z",
+        "voteCount": 3,
+        "content": "If Express Route was installed then it means we have already Gateway and Gateway subnet on VNET it's connected. So as it's basic VNET GW, for S2S connection we need VPNGW SKU, then we will need to create A:VPNGW sku, then C: Local gateway network and create a B: connection. \nSo answer will be ABC"
+      },
+      {
+        "date": "2020-05-19T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "my answers is BCE (Basic GTW to minimize costs). GTW subnet must exist because of expressroute"
+      },
+      {
+        "date": "2020-07-12T13:33:00.000Z",
+        "voteCount": 4,
+        "content": "You are very correct\nB C E is the right answer"
+      },
+      {
+        "date": "2020-08-20T19:31:00.000Z",
+        "voteCount": 2,
+        "content": "No you are very much incorrect because a Standard VPN Gateway is required to coexist with an ExpressRoute.\nhttps://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-coexist-resource-manager"
+      },
+      {
+        "date": "2020-05-19T05:31:00.000Z",
+        "voteCount": 6,
+        "content": "AnujD s correct.answer is A,B,C.\nD is not correct as Express route and VPN GW will use same Gateway subnet.\nBasic SQU doesnt support Express route and VPN Gw coexistence"
+      },
+      {
+        "date": "2020-05-20T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "Good point, Russel.  Confirming information about the Basic SKU (legacy) limitations is here: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-skus-legacy"
+      },
+      {
+        "date": "2020-05-11T21:55:00.000Z",
+        "voteCount": 2,
+        "content": "A, C, D"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19975-exam-az-300-topic-16-question-14-discussion/",
+    "body": "You have an Azure web app named App1 that is configured to run between two and five instances. There are currently three instances of App1 running.<br>App1 has the following autoscale rules:<br>\u2711 Increase the instance count by one when the CPU percentage is greater or equal to 80.<br>\u2711 Decrease the instance count by one when the CPU percentage is less than or equal to 60.<br>You are evaluating the following CPU percentage of utilization for App1:<br>\u2711 60%<br>\u2711 55%<br>\u2711 50%<br>\u2711 45%<br>You need to identify which utilizations will cause App1 to scale in.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t45% only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t45% and 50% only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t50% and 55% only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t45%, 50%, and 55% only"
+    ],
+    "answer": "D",
+    "answerDescription": "Azure Monitor autoscaling allows you to scale the number of running instances up or down, based on telemetry data (metrics). Scale-in occurs when the instances are decrease. For this rule the instances are decreased when the CPU usage is 60% or lower.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-custom-metric https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-common-metrics",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-14T10:38:00.000Z",
+        "voteCount": 32,
+        "content": "I believe B is correct for the following:\n45*3=135, 135/2=67.5, 67.5 &lt; scale out threshold of 80, so Azure WILL scale in\n50*3=150, 150/2=75.0, 75.0 &lt; below scale out threshold of 80, so Azure WILL scale in\n55*3=165, 165/2=82.5, 82.5 &gt; scale out threshold of 80, so Azure WILL NOT scale in"
+      },
+      {
+        "date": "2020-05-20T23:38:00.000Z",
+        "voteCount": 3,
+        "content": "Current metric * current instance count / instance count when scaled down = current average metric, if this metric is between the minimum and maximum threshold, then we scale in, otherwise we wait until the next autoscale test to see if we can scale down (= called 'flapping')"
+      },
+      {
+        "date": "2020-07-20T18:06:00.000Z",
+        "voteCount": 2,
+        "content": "Agree with cacasodo.\nAnswer is B."
+      },
+      {
+        "date": "2020-05-07T18:17:00.000Z",
+        "voteCount": 20,
+        "content": "D is right. As it considers the avergae CPU utilization post scale down.\nCheck this: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-best-practices\n\nAssume there are 2 instances to start with.\nIf the average CPU% across instances goes to 80, autoscale scales out adding a third instance.\nNow assume that over time the CPU% falls to 60.\nAutoscale's scale-in rule estimates the final state if it were to scale-in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So autoscale does not scale-in because it would have to scale-out again immediately. Instead, it skips scaling down.\nThe next time autoscale checks, the CPU continues to fall to 50. It estimates again - 50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances."
+      },
+      {
+        "date": "2020-05-08T09:03:00.000Z",
+        "voteCount": 8,
+        "content": "I would go for B since D includes 55% and following the autoscale rules you've explained: 55 x 3 =165 / 2 instances = 82.5 which would lead to scale out and thus, scale in operation won't be launched"
+      },
+      {
+        "date": "2020-05-11T19:03:00.000Z",
+        "voteCount": 6,
+        "content": "Aren't there too many assumptions in your reasoning, AnujD? I reckon the question's missing an answer choice that says 60%."
+      },
+      {
+        "date": "2020-05-18T00:59:00.000Z",
+        "voteCount": 7,
+        "content": "Your explanation is perfect, thank you. But solution D includes the 55% which is wrong (gives 55*3/2=82.5 which is &gt; 80 )"
+      },
+      {
+        "date": "2020-09-09T19:52:00.000Z",
+        "voteCount": 2,
+        "content": "B is ok"
+      },
+      {
+        "date": "2022-01-11T20:13:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct\nTaken current number of instances: 3, instances after scale in: 2 we have:\n\n3x60 = 180 / 2 = 90.0% (&gt;80%, no scale in occurs)\n\n3x55 = 165 / 2 = 82.5% (&gt;80%, no scale in occurs)\n\n3x50 = 150 / 2 = 75.0% (&lt;80%, scale in)\n\n3x45 = 135 / 2 = 67.5% (&lt;80%, scale in)"
+      },
+      {
+        "date": "2020-08-14T10:04:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer is B, since when you scale down you have two instances...if you have this two with the past percentage (55% or 60% ) of usage you will get 82.5% and 90% with this two instances, that automatically will scale out again. So the percentage wich it would scale in and stays like that is 45% and 50%"
+      },
+      {
+        "date": "2020-08-21T04:07:00.000Z",
+        "voteCount": 5,
+        "content": "I agree. The key in this question is we have from 2 to 5 VM, and at this moment we have 3, so in a moment of the life this will be back to two instances. So we have 3 instances in this moment and 2 instances to think in the percentage used.I'm trying to understand the formula above said by some people and I think is like it: Formula: (User percentage * Number Instances in this moment \"3\") / Number Instances by default \"2\". I did this in a Sheets. \n\n| Percentage % | WEB APP Instances 3 | Action triggered |\n| ------ | ------ | ------ |\n| 60% | 90.00% | Scale OUT + 1VM |\n| 55% | 82.50% | Scale OUT + 1VM |\n| 50% | 75.00% | Scale IN maintain |\n| 45% | 67.50% | Scale IN maintain |\n\nSo, the answer will be 45% and 50%."
+      },
+      {
+        "date": "2020-08-14T08:23:00.000Z",
+        "voteCount": 4,
+        "content": "I can't be the only one looking at these explanations and thinking, in order for the app to SCALE IN, the avg CPO has to be below 60. Looking at all these calculations at no time would  the avg CPU percentage be below 60 in order to scale down. (50/3)/2=75(above the 60 threshhold, (45/3)/2=67.5 also above the 60% scale in threshold thus should not scale in. So, I can kind of understand what you are trying to do by these calculations, but  the questions states under 60-..not under 80 to scale in. I am probably looking at this incorrectly, but had to throw my .02 out there in case others thought the same way."
+      },
+      {
+        "date": "2020-08-07T07:53:00.000Z",
+        "voteCount": 1,
+        "content": "the question is not clear according to me, are those readings from the same instance or simultaneous reading from separate instances?"
+      },
+      {
+        "date": "2020-08-07T07:11:00.000Z",
+        "voteCount": 3,
+        "content": "Some great discussions here. Thanks to those who mentioned calculations.\nAnswer is 45 and 50 only."
+      },
+      {
+        "date": "2020-07-26T11:20:00.000Z",
+        "voteCount": 3,
+        "content": "1st i did not understand the explanation though Answer is B. Then i spne sometime as it require mathematics apart from logic for everyone to understand.\n\nInstance Count --&gt; 3 \nScale Out --&gt; 80% CPU Utilization\nScale In --&gt; Less or Equal to 60%\n\nNow the calculation takes place. Assume if all 3 servers utlization is 60% then the average is (60+60+60)/2 [3-1] (Need to reduce by 1 from total instance as part of scale down) which is 90% hence scale in is not possible. You can apply similar calculation for 55 and the answers 165/2 again scale in will not happen. Now, if we do the same for 40 and 45%, the result is lesser than scale-out thresold of 80, so it scales in successfully to 2 instances."
+      },
+      {
+        "date": "2020-06-28T20:18:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-best-practices\nWe recommend choosing an adequate margin between the scale-out and in thresholds. As an example, consider the following better rule combination.\n\nIncrease instances by 1 count when CPU% &gt;= 80\nDecrease instances by 1 count when CPU% &lt;= 60\nIn this case\n\nAssume there are 2 instances to start with.\nIf the average CPU% across instances goes to 80, autoscale scales out adding a third instance.\nNow assume that over time the CPU% falls to 60.\nAutoscale's scale-in rule estimates the final state if it were to scale-in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So autoscale does not scale-in because it would have to scale-out again immediately. Instead, it skips scaling down.\nThe next time autoscale checks, the CPU continues to fall to 50. It estimates again - 50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances."
+      },
+      {
+        "date": "2020-06-23T12:12:00.000Z",
+        "voteCount": 2,
+        "content": "B (45%, 50%)"
+      },
+      {
+        "date": "2020-06-18T23:08:00.000Z",
+        "voteCount": 2,
+        "content": "Why are we computing here? I think we should consider that the numbers given are the utilization of the App itself. Because if the numbers are per instance shouldnt be the choices 4 percentange as well?"
+      },
+      {
+        "date": "2020-06-11T14:06:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is B, \nAny % below (80*2)/3=53.33% will cause the scale in."
+      },
+      {
+        "date": "2020-05-24T02:53:00.000Z",
+        "voteCount": 8,
+        "content": "Answer B - 45 and 50 - \nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-best-practices\n\nAssume there are 2 instances to start with.\nIf the average CPU% across instances goes to 80, autoscale scales out adding a third instance.\nNow assume that over time the CPU% falls to 60.\nAutoscale's scale-in rule estimates the final state if it were to scale-in. For example, 60 x 3 (current instance count) = 180 / 2 (final number of instances when scaled down) = 90. So autoscale does not scale-in because it would have to scale-out again immediately. Instead, it skips scaling down.\nThe next time autoscale checks, the CPU continues to fall to 50. It estimates again - 50 x 3 instance = 150 / 2 instances = 75, which is below the scale-out threshold of 80, so it scales in successfully to 2 instances."
+      },
+      {
+        "date": "2020-05-13T13:10:00.000Z",
+        "voteCount": 2,
+        "content": "C is right. there are 3 instances to start."
+      },
+      {
+        "date": "2020-05-13T13:11:00.000Z",
+        "voteCount": 2,
+        "content": "B i want to say."
+      },
+      {
+        "date": "2020-05-11T04:57:00.000Z",
+        "voteCount": 2,
+        "content": "Based on your reponse the answer should be B. 45% and 50% only because (55X3)/2 &gt; 80."
+      },
+      {
+        "date": "2020-05-07T18:21:00.000Z",
+        "voteCount": 10,
+        "content": "Sorry, my explanation is right but answer is B. 45 and 50% only. As when utilization is 55% then if scale in the load is to be shared by 2 instances which will bring the load to 82.5% (55*3 = 165 -&gt; 165/2 = 82.5) per instance and immediately it would need to scale out. Hence it will not scale in at 55%."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21317-exam-az-300-topic-16-question-15-discussion/",
+    "body": "You monitor Azure virtual machines by using Azure Monitor.<br>You plan to restart the virtual machines when CPU usage exceeds 95 percent for more than 30 minutes.<br>You need to create an alert in Azure Monitor to restart the virtual machines. The solution must minimize administrative effort.<br>Which type of action should you use in the alert?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tITSM",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWebhook",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAutomation Runbook",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLogic App"
+    ],
+    "answer": "C",
+    "answerDescription": "Automation runbooks allows you to automatically perform standard remediations in response to VM alerts, like restarting or stopping the VM.<br>Previously, during VM alert rule creation you were able to specify an Automation webhook to a runbook in order to run the runbook whenever the alert triggered.<br>However, this required you to do the work of creating the runbook, creating the webhook for the runbook, and then copying and pasting the webhook during alert rule creation. With this new release, the process is much easier because you can directly choose a runbook from a list during alert rule creation, and you can choose an Automation account which will run the runbook or easily create an account.<br>Reference:<br>https://azure.microsoft.com/en-us/blog/automatically-remediate-azure-vm-alerts-with-automation-runbooks/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-25T11:21:00.000Z",
+        "voteCount": 11,
+        "content": "Answer is correct. \nWe need Automation Runbook which can be triggered from the Alerts directly and which gets Events or Logs."
+      },
+      {
+        "date": "2020-06-12T10:25:00.000Z",
+        "voteCount": 8,
+        "content": "while logic app can do the job, as per https://docs.microsoft.com/en-us/azure/automation/automation-solution-vm-management the recommended way is to use runbooks"
+      },
+      {
+        "date": "2020-07-20T05:22:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/automation/automation-create-alert-triggered-runbook"
+      },
+      {
+        "date": "2020-09-06T13:13:00.000Z",
+        "voteCount": 1,
+        "content": "This link is worth reading. thanks"
+      },
+      {
+        "date": "2020-06-11T20:19:00.000Z",
+        "voteCount": 1,
+        "content": "Why not logic App ? as it's less administrative thing than runbooks ?"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20580-exam-az-300-topic-16-question-16-discussion/",
+    "body": "You have a server named Server1 that runs Windows Server 2019. Server1 is a container host.<br>You plan to create a container image.<br>You create the following instructions in a text editor.<br>FROM mcr.microsoft.com/windows/servercore:lts2019<br>LABEL maintainer=\"User1@contoso.com\"<br>RUN dism.exe /online /enable-feature /all /featurename:iis-webserver /NoRestart<br>RUN echo \"Hello World!\" &gt; c:\\inetpub\\wwwroot\\index.html<br>You need to be able to automate the container image creation by using the instructions.<br>To which file should you save the instructions?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdockerconfig.json",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDockerfile",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdaemon.json",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBuild.ini"
+    ],
+    "answer": "B",
+    "answerDescription": "The Dockerfile is a text file that contains the instructions needed to create a new container image.<br>Reference:<br>https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile<br>Deploy and Configure Infrastructure",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-14T10:45:00.000Z",
+        "voteCount": 8,
+        "content": "https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      },
+      {
+        "date": "2020-06-25T01:43:00.000Z",
+        "voteCount": 6,
+        "content": "correct answer"
+      },
+      {
+        "date": "2020-09-26T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "Simply seeing that the content isn't in JSON format eliminates A&amp;C."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21319-exam-az-300-topic-16-question-17-discussion/",
+    "body": "You create a container image named Image1 on a developer workstation.<br>You plan to create an Azure Web App for Containers named WebAppContainer that will use Image1.<br>You need to upload Image1 to Azure. The solution must ensure that WebAppContainer can use Image1.<br>To which storage type should you upload Image1?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Container Registry",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Storage account that contains a blob container",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Storage account that contains a file share",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Container Instances"
+    ],
+    "answer": "A",
+    "answerDescription": "Configure registry credentials in web app.<br>App Service needs information about your registry and image to pull the private image. In the Azure portal, go to Container settings from the web app and update the Image source, Registry and save.<br>References:<br>https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/webapp-on-container-linux",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-24T22:07:00.000Z",
+        "voteCount": 1,
+        "content": "A... store docker container images"
+      },
+      {
+        "date": "2020-09-17T16:41:00.000Z",
+        "voteCount": 2,
+        "content": "I have tested this it should be A ."
+      },
+      {
+        "date": "2020-07-26T11:46:00.000Z",
+        "voteCount": 4,
+        "content": "Dont jump into blob because of the word image1. Recollect the concept and docker file for the image which can direct to correct answer Azure Container Registry"
+      },
+      {
+        "date": "2020-08-21T04:47:00.000Z",
+        "voteCount": 2,
+        "content": "Yep.\nCorrect Answer: A\nUse Azure container registries with your existing container development and deployment pipelines, or use Azure Container Registry Tasks to build container images in Azure. \nReferences:\nhttps://docs.microsoft.com/en-us/azure/container-registry/container-registry-intro"
+      },
+      {
+        "date": "2020-06-03T04:15:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Container Registry is right because it is a Registry used to share image."
+      },
+      {
+        "date": "2020-05-25T11:27:00.000Z",
+        "voteCount": 1,
+        "content": "Question is about the storage type and it should be Blob storage. So answer is B"
+      },
+      {
+        "date": "2020-05-25T11:29:00.000Z",
+        "voteCount": 1,
+        "content": "But from this link it's container registry: https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-docker-cli"
+      },
+      {
+        "date": "2020-09-09T20:00:00.000Z",
+        "voteCount": 2,
+        "content": "A is ok"
+      },
+      {
+        "date": "2020-05-26T02:24:00.000Z",
+        "voteCount": 12,
+        "content": "Answer is correct. from the question \"The solution must ensure that WebAppContainer can use Image1.\" Which specifies in the docker file directly the container image location e.g"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20581-exam-az-300-topic-16-question-18-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a server named Server1 that runs Windows Server 2019. Server1 is a container host.<br>You are creating a Dockerfile to build a container image.<br>You need to add a file named File1.txt from Server1 to a folder named C:\\Folder1 in the container image.<br>Solution: You add the following line to the Dockerfile.<br>Copy-Item File1.txt C:\\Folder1\\File1.txt<br>You then build the container image.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Copy-Item is not supported. Copy is the correct command to copy a file to the container image.<br>References:<br>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy https://docs.docker.com/engine/reference/builder/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-06T01:27:00.000Z",
+        "voteCount": 10,
+        "content": "Correct Format:\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\n\nbackslashes won't work:\nCOPY test1.txt c:\\temp\\"
+      },
+      {
+        "date": "2020-09-24T22:08:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct."
+      },
+      {
+        "date": "2020-05-14T10:46:00.000Z",
+        "voteCount": 2,
+        "content": "Reference: https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20582-exam-az-300-topic-16-question-19-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a server named Server1 that runs Windows Server 2019. Server1 is a container host.<br>You are creating a Dockerfile to build a container image.<br>You need to add a file named File1.txt from Server1 to a folder named C:\\Folder1 in the container image.<br>Solution: You add the following line to the Dockerfile.<br>COPY File1.txt /Folder1/<br>You then build the container image.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Copy is the correct command to copy a file to the container image.<br>References:<br>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy https://docs.docker.com/engine/reference/builder/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-06T01:26:00.000Z",
+        "voteCount": 12,
+        "content": "Correct Format:\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\n\nbackslashes won't work:\nCOPY test1.txt c:\\temp\\"
+      },
+      {
+        "date": "2020-12-18T14:46:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be NO..\n\nYou need to add a file named File1.txt from Server1 to a folder named C:\\Folder1 \nit should be C:/Folder1/  and not /Folder1/"
+      },
+      {
+        "date": "2020-09-24T22:08:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with A"
+      },
+      {
+        "date": "2020-06-25T01:45:00.000Z",
+        "voteCount": 1,
+        "content": "COPY test1.txt c:/temp/"
+      },
+      {
+        "date": "2020-06-19T23:18:00.000Z",
+        "voteCount": 4,
+        "content": "I doubt this is Yes, This should be no, because no rootdirectory is set, so it wil not find folder1/"
+      },
+      {
+        "date": "2020-06-25T03:38:00.000Z",
+        "voteCount": 1,
+        "content": "COPY test1.txt /temp/ is possible"
+      },
+      {
+        "date": "2020-06-28T07:46:00.000Z",
+        "voteCount": 1,
+        "content": "But this is possible when working directory is set"
+      },
+      {
+        "date": "2020-05-19T04:58:00.000Z",
+        "voteCount": 2,
+        "content": "COPY config* c:/FOLDER1/"
+      },
+      {
+        "date": "2020-05-14T10:46:00.000Z",
+        "voteCount": 3,
+        "content": "Reference: https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20048-exam-az-300-topic-16-question-20-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a server named Server1 that runs Windows Server 2019. Server1 is a container host.<br>You are creating a Dockerfile to build a container image.<br>You need to add a file named File1.txt from Server1 to a folder named C:\\Folder1 in the container image.<br>Solution: You add the following line to the Dockerfile.<br>COPY File1.txt C:/Folder1/<br>You then build the container image.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Copy is the correct command to copy a file to the container image but the root directory is specified as '/' and not as 'C:/'.<br>References:<br>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy https://docs.docker.com/engine/reference/builder/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-08T15:45:00.000Z",
+        "voteCount": 32,
+        "content": "This should be Yes. Correctly copy file to c:/Folder/\nhttps://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      },
+      {
+        "date": "2020-07-20T18:45:00.000Z",
+        "voteCount": 4,
+        "content": "Yes, this should be Yes\nhttps://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-using-copy-with-windows"
+      },
+      {
+        "date": "2020-08-06T06:55:00.000Z",
+        "voteCount": 3,
+        "content": "Correct. This should be YES."
+      },
+      {
+        "date": "2020-05-14T06:05:00.000Z",
+        "voteCount": 8,
+        "content": "Copy is the correct command to copy a file to the container image.\nBut \"C:/Folder1\" instead of \"C:\\Folder1\"."
+      },
+      {
+        "date": "2020-12-13T00:25:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is yes.\nLook that\nhttps://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      },
+      {
+        "date": "2020-09-24T22:11:00.000Z",
+        "voteCount": 1,
+        "content": "Should be yes.... It is a valid syntax for windows based containers"
+      },
+      {
+        "date": "2020-08-15T17:12:00.000Z",
+        "voteCount": 5,
+        "content": "This is a YES. Considerations for using COPY with Windows\nOn Windows, the destination format must use forward slashes. For example, these are valid COPY instructions:\nDockerfile\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\nSee https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      },
+      {
+        "date": "2020-07-01T07:11:00.000Z",
+        "voteCount": 3,
+        "content": "Considerations for using COPY with Windows\nOn Windows, the destination format must use forward slashes. For example, these are valid COPY instructions:\n\nDockerfile\n\nCopy\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\n\nhttps://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      },
+      {
+        "date": "2020-07-01T07:10:00.000Z",
+        "voteCount": 2,
+        "content": "Considerations for using COPY with Windows\nOn Windows, the destination format must use forward slashes. For example, these are valid COPY instructions:\n\nDockerfile\n\nCopy\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\n\nhttps://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile"
+      },
+      {
+        "date": "2020-06-30T08:37:00.000Z",
+        "voteCount": 2,
+        "content": "It's A"
+      },
+      {
+        "date": "2020-06-06T05:09:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, copy command is used to copy the file to the existing docker and then build a new docker image"
+      },
+      {
+        "date": "2020-06-06T01:27:00.000Z",
+        "voteCount": 2,
+        "content": "It is yes..\nCorrect Format:\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\n\nbackslashes won't work:\nCOPY test1.txt c:\\temp\\"
+      },
+      {
+        "date": "2020-05-19T19:38:00.000Z",
+        "voteCount": 1,
+        "content": "Considerations for using COPY with Windows\nOn Windows, the destination format must use forward slashes. For example, these are valid COPY instructions:\n\nDockerfile\n\nCopy\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\nMeanwhile, the following format with backslashes won't work:\n\nDockerfile\n\nCopy\nCOPY test1.txt c:\\temp\\"
+      },
+      {
+        "date": "2020-05-19T11:31:00.000Z",
+        "voteCount": 5,
+        "content": "Considerations for using COPY with Windows\nOn Windows, the destination format must use forward slashes. For example, these are valid COPY instructions:\n\nDockerfile\n\nCopy\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/"
+      },
+      {
+        "date": "2020-05-08T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "Shouldn't it be the other way around? Given the answer is saying it needs to include the C directory and the questions doesn't have it?"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20233-exam-az-300-topic-16-question-21-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a server named Server1 that runs Windows Server 2019. Server1 is a container host.<br>You are creating a Dockerfile to build a container image.<br>You need to add a file named File1.txt from Server1 to a folder named C:\\Folder1 in the container image.<br>Solution: You add the following line to the Dockerfile.<br>ADD File1.txt C:/Folder1/<br>You then build the container image.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Copy is the correct command to copy a file to the container image. The ADD command can also be used. However, the root directory is specified as '/' and not as<br>'C:/'.<br>Reference:<br>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy https://docs.docker.com/engine/reference/builder/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-19T04:22:00.000Z",
+        "voteCount": 14,
+        "content": "yes it should be correct.\nConsiderations for running ADD with Windows\nOn Windows, the destination format must use forward slashes. For example, these are valid ADD instructions:\n\nDockerfile\n\nCopy\nADD test1.txt /temp/\nADD test1.txt c:/temp/"
+      },
+      {
+        "date": "2020-07-20T18:50:00.000Z",
+        "voteCount": 3,
+        "content": "It should be Yes\nhttps://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile#considerations-for-running-add-with-windows"
+      },
+      {
+        "date": "2020-05-10T12:50:00.000Z",
+        "voteCount": 8,
+        "content": "Shouldn;t this also be Yes then?"
+      },
+      {
+        "date": "2020-09-24T22:15:00.000Z",
+        "voteCount": 1,
+        "content": "A is the way\n\nADD test1.txt /temp/\nADD test1.txt c:/temp/\nboth valids for windows based docker containers"
+      },
+      {
+        "date": "2020-09-07T13:04:00.000Z",
+        "voteCount": 4,
+        "content": "ADD test1.txt /temp/\nADD test1.txt c:/temp/\nOR\nCOPY test1.txt /temp/\nCOPY test1.txt c:/temp/\n\nBoth should work so the answer is YES"
+      },
+      {
+        "date": "2020-08-06T07:09:00.000Z",
+        "voteCount": 1,
+        "content": "This should be YES as the syntax is correct. ADD and COPY both the commands can be used here but COPY is preferred over ADD"
+      },
+      {
+        "date": "2020-06-06T01:28:00.000Z",
+        "voteCount": 6,
+        "content": "It is yes\nCorrect Format:\nADD test1.txt /temp/\nADD test1.txt c:/temp/\n\nbackslashes won't work:\nADD test1.txt c:\\temp\\"
+      },
+      {
+        "date": "2020-06-20T02:56:00.000Z",
+        "voteCount": 5,
+        "content": "Agree, see also: https://docs.microsoft.com/en-us/virtualization/windowscontainers/manage-docker/manage-windows-dockerfile\nSection: Considerations for using COPY with Windows"
+      },
+      {
+        "date": "2020-08-04T16:17:00.000Z",
+        "voteCount": 2,
+        "content": "seems both would work but. preferably COPY\nhttps://phoenixnap.com/kb/docker-add-vs-copy"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26994-exam-az-300-topic-16-question-22-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a server named Server1 that runs Windows Server 2019. Server1 is a container host.<br>You are creating a Dockerfile to build a container image.<br>You need to add a file named File1.txt from Server1 to a folder named C:\\Folder1 in the container image.<br>Solution: You add the following line to the Dockerfile.<br>XCOPY File1.txt C:\\Folder1\\<br>You then build the container image.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Copy is the correct command to copy a file to the container image. Furthermore, the root directory is specified as '/' and not as 'C:/'.<br>References:<br>https://docs.docker.com/develop/develop-images/dockerfile_best-practices/#add-or-copy https://docs.docker.com/engine/reference/builder/<br>Create and Deploy Apps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-06T07:12:00.000Z",
+        "voteCount": 1,
+        "content": "Could not find XCOPY command in Docker. So the answer is correct."
+      },
+      {
+        "date": "2020-07-30T07:53:00.000Z",
+        "voteCount": 4,
+        "content": "there is no XCOPY command in docker"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20014-exam-az-300-topic-16-question-23-discussion/",
+    "body": "You have an Azure SQL database named Db1 that runs on an Azure SQL server named SQLserver1.<br>You need to ensure that you can use the query editor on the Azure portal to query Db1.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the Advanced Data Security settings of Db1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Firewalls and virtual networks settings for SQLserver1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCopy the ADO.NET connection string of Db1 and paste the string to the query editor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApprove private endpoint connections for SQLserver1"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-portal<br>Implement Authentication and Secure Data",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-19T19:44:00.000Z",
+        "voteCount": 14,
+        "content": "It B...\nhttps://docs.microsoft.com/en-us/azure/sql-database/sql-database-connect-query-portal\n\nConfigure network settings:\nIf you get one of the following errors in the query editor: Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings, or A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings, the following important information should help resolve:\n\nThe query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses."
+      },
+      {
+        "date": "2020-07-04T03:27:00.000Z",
+        "voteCount": 7,
+        "content": "When creating a new SQL Database resource (DBaaS) the default network settings won't allow any access. To allow access from your (client) IP follow this steps\n\n- Goto \"Firewalls and virtual networks\" \n- Click on \"Add client IP\" \n\nThats it... you can now move to the database and login via the query editor"
+      },
+      {
+        "date": "2020-05-28T05:31:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct as you are going to access only THIS db and you can't even open query editor"
+      },
+      {
+        "date": "2020-05-25T11:16:00.000Z",
+        "voteCount": 1,
+        "content": "So, to be sure we need to check the query then if will get error we can configure the firewall. So why need to go to the firewall first, check it if the port is not blocking. I think to be in a short we can just run a small query to be sure."
+      },
+      {
+        "date": "2020-05-25T11:17:00.000Z",
+        "voteCount": 1,
+        "content": "So as it shows from the link provided we see that:\nConfigure network settings\nIf you get one of the following errors in the query editor: Your local network settings might be preventing the Query Editor from issuing queries. Please click here for instructions on how to configure your network settings, or A connection to the server could not be established. This might indicate an issue with your local firewall configuration or your network proxy settings, the following important information should help resolve. \nAnd this means we need to check the query first."
+      },
+      {
+        "date": "2020-05-19T14:18:00.000Z",
+        "voteCount": 1,
+        "content": "Technically B &amp; D are correct.\n\nFrom the same article:\n\n\"The query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses.\"\n\n\"If you have Private Link connection, The Query Editor works without needing to add the Client Ip address into the SQL Database firewall\""
+      },
+      {
+        "date": "2020-05-16T09:53:00.000Z",
+        "voteCount": 1,
+        "content": "D should be correct answer."
+      },
+      {
+        "date": "2020-09-24T21:59:00.000Z",
+        "voteCount": 1,
+        "content": "I think B is is strictly necessary and D is optional but recomended..."
+      },
+      {
+        "date": "2020-05-07T22:55:00.000Z",
+        "voteCount": 5,
+        "content": "Option B.\nThe query editor uses ports 443 and 1443 to communicate. Ensure you have enabled outbound HTTPS traffic on these ports. You will also need to add your outbound IP address to the server's allowed firewall rules to access your databases and data warehouses."
+      },
+      {
+        "date": "2020-09-09T21:17:00.000Z",
+        "voteCount": 2,
+        "content": "B is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21452-exam-az-300-topic-16-question-24-discussion/",
+    "body": "You need to recommend an identity solution that meets the technical requirements.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcloud-only user accounts",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpassword hash synchronization and single sign-on (SSO)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPass-through Authentication and single sign-on (SSO)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfederated single sign-on (SSO) and Active Directory Federation Services (AD FS)"
+    ],
+    "answer": "C",
+    "answerDescription": "With Pass-through Authentication the on-premises passwords are never stored in the cloud in any form.<br>Scenario:<br>\u2711 Prevent user passwords or hashes of passwords from being stored in Azure.<br>\u2711 Ensure that when users join devices to Azure Active Directory (Azure AD), the users use a mobile phone to verify their identity.<br>\u2711 Minimize administrative effort whenever possible.<br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta<br>Develop for the Cloud",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-14T16:09:00.000Z",
+        "voteCount": 4,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2020-05-27T06:22:00.000Z",
+        "voteCount": 4,
+        "content": "C is correct. According to the https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta On-premises passwords are never stored in the cloud in any form."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25780-exam-az-300-topic-16-question-25-discussion/",
+    "body": "You need to implement a backup solution for App1 after the application is moved.<br>What should you create first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Backup Server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Recovery Services vault",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta backup policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta recovery plan"
+    ],
+    "answer": "B",
+    "answerDescription": "Scenario: Ensure that all the virtual machines for App1 are protected by backups.<br>You can back up Azure VMs using a couple of methods:<br>\u2711 Single Azure VM: You can back up an Azure VM directly from the VM settings.<br>\u2711 Multiple Azure VMs: You can set up a Recovery Services vault and configure backup for multiple Azure VMs.<br>References:<br>https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-first-look-arm",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-14T16:10:00.000Z",
+        "voteCount": 12,
+        "content": "Given answer is correct"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20017-exam-az-300-topic-16-question-26-discussion/",
+    "body": "You need to move the blueprint files to Azure.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Azure Import/Export service.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure Storage Explorer to copy the files.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate a shared access signature (SAS). Map a drive, and then copy the files by using File Explorer.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate an access key. Map a drive, and then copy the files by using File Explorer."
+    ],
+    "answer": "D",
+    "answerDescription": "Scenario: Copy the blueprint files to Azure over the Internet.<br>To mount an Azure file share, you will need the primary (or secondary) storage key. SAS keys are not currently supported for mounting.<br>Incorrect Answers:<br>A: Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-09T06:58:00.000Z",
+        "voteCount": 50,
+        "content": "I would say B. Technical Requirements: Ensure that the blueprint files are stored in the archive storage tier. Storage tier in storage accounts is only supported by BLOB service. You can't access blob service maping a drive. Thus, from all the options present in the answer, file storage explorer is the only you can use to copy files to blob service trough Internet"
+      },
+      {
+        "date": "2020-05-18T10:10:00.000Z",
+        "voteCount": 9,
+        "content": "mine was Typo. . Correct, option B."
+      },
+      {
+        "date": "2020-05-27T20:51:00.000Z",
+        "voteCount": 3,
+        "content": "That's right, to store in archive storage you need to use Blob storage. Also, the requirement states that the access must be temporary, which means you need to connect to Azure Storage Explorer using SAS - which can be defined to only work for a specific time window."
+      },
+      {
+        "date": "2020-07-03T13:12:00.000Z",
+        "voteCount": 18,
+        "content": "Requirements: \n\n1. Move the existing product blueprint files to Azure Blob storage\n2. Copy the blueprint files to Azure over the internet\n3. Ensure that the blueprint files are stored in the archive storage tier. \n4. Ensure that partner access to the blueprint files is secured and temporary\n\nPossible answers:\n\nA. Use the Azure Import/Export service \n\nThis only makes sense when moving large amounts of data. There is no hint for that, so I would rule it out. \n\nB. Use Azure Storage Explorer to copy the files\n\nThis would allow for (1) to copy files to a blob container, it would use the internet (2, stupid requirement). You can change the access tier from storage explorer of an existing storage account (3) and you are able to create a SAS token that fulfills (4). \n\nC. Generate a shared access signature (SAS). Map a drive, and then copy the files by using File Explorer.\n\nRequirment (1) says we need to store it in a blob storage. So this can't be mapped and can be ruled out. \n\nD. Generate an access key. Map a drive, and then copy the files by using File Explorer.\n\nDoesn't fullfill (1), ... \n\nConclusion: \n\nAnswer B should be correct."
+      },
+      {
+        "date": "2020-07-06T19:07:00.000Z",
+        "voteCount": 3,
+        "content": "Clear explanation by Matze2ooo. Answer B is correct."
+      },
+      {
+        "date": "2020-12-10T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "B- Correct\nPlanned Changes include: move the existing product blueprint files to Azure Blob storage.\nTechnical Requirements include: Copy the blueprint files to Azure over the Internet."
+      },
+      {
+        "date": "2020-09-29T01:45:00.000Z",
+        "voteCount": 1,
+        "content": "Tried and Test C.\nAlthough I used https://www.msp360.com/drive/microsoft-azure.aspx to map the drive.\nSAS gives you a time constrained URL."
+      },
+      {
+        "date": "2020-09-13T21:47:00.000Z",
+        "voteCount": 1,
+        "content": "Option C is correct!  the point is not about blob storage, but security and temporary share. The File share with SAS is the most correct answer!"
+      },
+      {
+        "date": "2020-09-13T21:58:00.000Z",
+        "voteCount": 1,
+        "content": "sorry, didnot read the blueprint must be blob storage; if so, the only option is B"
+      },
+      {
+        "date": "2020-08-26T21:43:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is B. \n\nBlueprints are to be stored as BLOB. So file share options are invalid (C,D)\nOption A (import export service) is not meeting the criteria of copying over internet. Option B meets all requirements (Blob and upload over the internet)"
+      },
+      {
+        "date": "2020-09-24T22:04:00.000Z",
+        "voteCount": 1,
+        "content": "why????? &lt;&lt;manufactured by using blueprint files... &gt;&gt;"
+      },
+      {
+        "date": "2020-09-24T22:06:00.000Z",
+        "voteCount": 1,
+        "content": "so...yes Move the existing product blueprint files to Azure Blob storage. B"
+      },
+      {
+        "date": "2020-08-19T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "Cold Storage = B"
+      },
+      {
+        "date": "2020-08-18T00:46:00.000Z",
+        "voteCount": 1,
+        "content": "Not B: there is nothing about access management here. But it could be better because it allow sharing files with other protocol than SMB (API REST), and we have no information about OS.\nC: ko because sas does not provide access to remote drive\nD: is ok (except for the lack of information about OS and SMB 3.0 support), regarding access management, az specifies following is needed: \"administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account.&nbsp;\""
+      },
+      {
+        "date": "2020-08-16T06:36:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-gb/azure/storage/common/storage-choose-data-transfer-solution?toc=%2fazure%2fstorage%2fblobs%2ftoc.json\n\nStated here transfer via GUI is thru Azure Storage Explorer or Web UI in Azure portal."
+      },
+      {
+        "date": "2020-07-19T03:40:00.000Z",
+        "voteCount": 1,
+        "content": "\"Ensure that partner access to the blueprint files is secured and temporary.\"\nC  looks better!"
+      },
+      {
+        "date": "2020-07-28T13:55:00.000Z",
+        "voteCount": 1,
+        "content": "No - You are only asked to \"...move the blueprint files to Azure.\" in this question."
+      },
+      {
+        "date": "2020-07-14T16:10:00.000Z",
+        "voteCount": 5,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2020-06-20T04:53:00.000Z",
+        "voteCount": 6,
+        "content": "The requirement is:\nYou need to move the blueprint files to Azure.\nWhat should you do?\n\nFor me this is a temporary one time task, for the phase of migration to azure and has no relation to provide partners access to the blue prints.\nI think the best solution would be AzCopy, but this is not offered as an option.\n\nLet's start:\nA&amp;D are out. \n\nLet`s break down: B &amp; D\nD states, map the Storage Blob. I think this is not possible. This would be possible with File Storage, which supports SMB. Go and try to map Blob Storage. I could only find info in the internet, that this is currently not possible.\nD states to use \"File Explorer\" =&gt; Why should I use File explorer when there is a specific tool with various features offered by Microsoft called: Azure Storage Explorer.\n\nBecause of that I go with B. See also the following link. Microsoft recommends to use the Storage Explorer. Transfer via Internet is secured.\n\nSee Managing blob containers no 7 at: \nhttps://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs#managing-blobs-in-a-blob-container"
+      },
+      {
+        "date": "2020-06-15T08:17:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is B"
+      },
+      {
+        "date": "2020-06-12T23:49:00.000Z",
+        "voteCount": 4,
+        "content": "https://www.examtopics.com/exams/microsoft/az-100/view/46/  \nRefer to Q1 of the above link. It says correct answers is- Use Azure Storage Explorer to copy the files.\nIts B."
+      },
+      {
+        "date": "2020-07-05T00:44:00.000Z",
+        "voteCount": 2,
+        "content": "Yes. I remember seeing this in AZ-103 in examtopics and the answer was B."
+      },
+      {
+        "date": "2020-07-05T00:46:00.000Z",
+        "voteCount": 2,
+        "content": "Here it is. https://www.examtopics.com/discussions/microsoft/view/17469-exam-az-103-topic-8-question-2-discussion/"
+      },
+      {
+        "date": "2020-06-08T12:22:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with everyone disagreeing, however, any of your answers other than choice D will result to a failure."
+      },
+      {
+        "date": "2020-06-06T05:04:00.000Z",
+        "voteCount": 1,
+        "content": "Answer shud be D coz it\u2019s BLOB storage"
+      },
+      {
+        "date": "2020-05-26T11:57:00.000Z",
+        "voteCount": 6,
+        "content": "I think \"mapping\" and blob storage makes no sense. So I would say Storage Explorer makes sense and the answer is B\nhttps://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-explorer-blobs"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/32799-exam-az-300-topic-16-question-27-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant that contains a group named Group1.<br>You need to enable multi-factor authentication (MFA) for the users in Group1 only.<br>Solution: From the Azure portal, you configure an authentication method policy.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "We should use a Conditional Access policy.<br>Note: There are two ways to secure user sign-in events by requiring multi-factor authentication in Azure AD. The first, and preferred, option is to set up a<br>Conditional Access policy that requires multi-factor authentication under certain conditions. The second option is to enable each user for Azure Multi-Factor<br>Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the remembered devices feature is turned on).<br>Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses don't include Conditional Access as it requires users to perform MFA every time they sign in.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-25T19:27:00.000Z",
+        "voteCount": 3,
+        "content": "answer is correct"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30968-exam-az-300-topic-16-question-28-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant that contains a group named Group1.<br>You need to enable multi-factor authentication (MFA) for the users in Group1 only.<br>Solution: From Multi-Factor Authentication, you select Bulk update, and you provide a CSV file that contains the members of Group1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "We should use a Conditional Access policy.<br>Note: There are two ways to secure user sign-in events by requiring multi-factor authentication in Azure AD. The first, and preferred, option is to set up a<br>Conditional Access policy that requires multi-factor authentication under certain conditions. The second option is to enable each user for Azure Multi-Factor<br>Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the remembered devices feature is turned on).<br>Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses don't include Conditional Access as it requires users to perform MFA every time they sign in.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-09T18:16:00.000Z",
+        "voteCount": 8,
+        "content": "Should be yes.  There is a bulk update button where you can put the members' userid and MFA status."
+      },
+      {
+        "date": "2020-09-18T04:52:00.000Z",
+        "voteCount": 3,
+        "content": "I agree, was trying same in lab."
+      },
+      {
+        "date": "2020-09-28T20:35:00.000Z",
+        "voteCount": 1,
+        "content": "This is a tricky question, it is about all users (present and future) in a group.  Bulk upload will only solve the issue for present users, but not future ones, so answer is NO."
+      },
+      {
+        "date": "2020-09-25T19:29:00.000Z",
+        "voteCount": 3,
+        "content": "answer is yes"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30648-exam-az-300-topic-16-question-29-discussion/",
+    "body": "You have an Azure Cosmos DB account named Account1. Account1 includes a database named DB1 that contains a container named Container1. The partition key for Container1 is set to /city.<br>You plan to change the partition key for Container1.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegenerate the keys for Account1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new container in DB1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete Container1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement the Azure Cosmos DB .NET SDK."
+    ],
+    "answer": "B",
+    "answerDescription": "The good news is that there are two features, the Change Feed Processor and Bulk Executor Library, in Azure Cosmos DB that can be leveraged to achieve a live migration of your data from one container to another. This allows you to re-distribute your data to match the desired new partition key scheme, and make the relevant application changes afterwards, thus achieving the effect of \"updating your partition key\".<br>Incorrect Answers:<br>A: It is not possible to \"update\" your partition key in an existing container.<br>Reference:<br>https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-21T02:34:00.000Z",
+        "voteCount": 4,
+        "content": "Shouldn't we first remove the existing container?"
+      },
+      {
+        "date": "2020-11-05T07:47:00.000Z",
+        "voteCount": 2,
+        "content": "The good news is that there are two features, the Change Feed Processor and Bulk Executor Library, in Azure Cosmos DB that can be leveraged to achieve a live migration of your data from one container to another. This allows you to re-distribute your data to match the desired new partition key scheme, and make the relevant application changes afterwards, thus achieving the effect of \u201cupdating your partition key\u201d.\n\nSo you should not delete the old container"
+      },
+      {
+        "date": "2020-09-05T16:13:00.000Z",
+        "voteCount": 3,
+        "content": "Correct, there's no way to update the partition key, once it has been created. You will need to create a new container.\n\nhttps://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/31553-exam-az-300-topic-16-question-30-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant that contains a group named Group1.<br>You need to enable multi-factor authentication (MFA) for the users in Group1 only.<br>Solution: From the Azure portal, you configure an authentication method policy.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "We should use a Conditional Access policy.<br>Note: There are two ways to secure user sign-in events by requiring multi-factor authentication in Azure AD. The first, and preferred, option is to set up a<br>Conditional Access policy that requires multi-factor authentication under certain conditions. The second option is to enable each user for Azure Multi-Factor<br>Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the remembered devices feature is turned on).<br>Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses don't include Conditional Access as it requires users to perform MFA every time they sign in.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-24T21:49:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/31524-exam-az-300-topic-16-question-31-discussion/",
+    "body": "Note: This question is part of series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Active Directory (Azure AD) tenant that contains a group named Group1.<br>You need to enable multi-factor authentication (MFA) for the users in Group1 only.<br>Solution: From Multi-Factor Authentication, you select Bulk update, and you provide a CSV file that contains the members of Group1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "We should use a Conditional Access policy.<br>Note: There are two ways to secure user sign-in events by requiring multi-factor authentication in Azure AD. The first, and preferred, option is to set up a<br>Conditional Access policy that requires multi-factor authentication under certain conditions. The second option is to enable each user for Azure Multi-Factor<br>Authentication. When users are enabled individually, they perform multi-factor authentication each time they sign in (with some exceptions, such as when they sign in from trusted IP addresses or when the remembered devices feature is turned on).<br>Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses don't include Conditional Access as it requires users to perform MFA every time they sign in.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-userstates",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-24T21:51:00.000Z",
+        "voteCount": 1,
+        "content": "I go for B... When A future group users wont be MFA authenticated..."
+      },
+      {
+        "date": "2020-09-18T05:00:00.000Z",
+        "voteCount": 1,
+        "content": "duplicate in same page"
+      },
+      {
+        "date": "2020-09-17T16:51:00.000Z",
+        "voteCount": 3,
+        "content": "It should be YES"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30108-exam-az-300-topic-16-question-32-discussion/",
+    "body": "You have an Azure Cosmos DB account named Account1. Account1 includes a database named DB1 that contains a container named Container1. The partition key for Container1 is set to /city.<br>You plan to change the partition key for Container1.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegenerate the keys for Account1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new container in DB1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDelete Container1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement the Azure Cosmos DB .NET SDK."
+    ],
+    "answer": "B",
+    "answerDescription": "The good news is that there are two features, the Change Feed Processor and Bulk Executor Library, in Azure Cosmos DB that can be leveraged to achieve a live migration of your data from one container to another. This allows you to re-distribute your data to match the desired new partition key scheme, and make the relevant application changes afterwards, thus achieving the effect of \"updating your partition key\".<br>Incorrect Answers:<br>A: It is not possible to \"update\" your partition key in an existing container.<br>Reference:<br>https://devblogs.microsoft.com/cosmosdb/how-to-change-your-partition-key/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-14T22:47:00.000Z",
+        "voteCount": 7,
+        "content": "last question ... you made it! Yay!"
+      },
+      {
+        "date": "2020-09-15T16:37:00.000Z",
+        "voteCount": 2,
+        "content": "Finally! :)"
+      },
+      {
+        "date": "2020-08-30T09:36:00.000Z",
+        "voteCount": 6,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-01-15T23:20:00.000Z",
+        "voteCount": 1,
+        "content": "We made it !"
+      },
+      {
+        "date": "2020-12-08T09:49:00.000Z",
+        "voteCount": 1,
+        "content": "Congrats Robots. We made it!"
+      },
+      {
+        "date": "2020-11-08T14:20:00.000Z",
+        "voteCount": 1,
+        "content": "I made it too! ;-) Thx to all other travelers"
+      },
+      {
+        "date": "2020-11-08T14:36:00.000Z",
+        "voteCount": 1,
+        "content": "duplicate, proposed solution is correct"
+      },
+      {
+        "date": "2020-09-30T11:43:00.000Z",
+        "voteCount": 1,
+        "content": "finally!!"
+      },
+      {
+        "date": "2020-09-20T01:43:00.000Z",
+        "voteCount": 1,
+        "content": "Last question, yay"
+      },
+      {
+        "date": "2020-09-18T05:01:00.000Z",
+        "voteCount": 1,
+        "content": "duplicate again since past 2 pages!"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "16"
+  }
+]

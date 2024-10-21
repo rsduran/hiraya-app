@@ -1,0 +1,1968 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9217-exam-az-300-topic-5-question-1-discussion/",
+    "body": "SIMULATION -<br>Click to expand each objective. To connect to the Azure portal, type https://portal.azure.com in the browser address bar.<br><img src=\"/assets/media/exam-media/02758/0046300001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0046400001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0046500001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0046600001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0046700001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0046800001.jpg\" class=\"in-exam-image\"><br>When you are finished performing all the tasks, click the \"\u02dcNext' button.<br>Note that you cannot return to the lab once you click the \"\u02dcNext' button. Scoring occur in the background while you complete the rest of the exam.<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You need to create a function app named corp8548987n1 that supports sticky sessions. The solution must minimize the Azure-related costs of the App Service plan.<br>What should you do from the Azure portal?<br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "Step 1:<br>Select the New button found on the upper left-hand corner of the Azure portal, then select Compute &gt; Function App.<br>Step 2:<br>Use the function app settings as listed below.<br>App name:            corp8548987n1<br>Hosting plan:        Azure App Service plan (required for sticky sessions)<br>Pricing tier of the App Service plan: Shared compute: Free<br>Step 3:<br>Select Create to provision and deploy the function app.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-01T13:17:00.000Z",
+        "voteCount": 26,
+        "content": "So,\n\n\"1) Create Function App\n2) Hosting Plan: App Service Plan ( required for sticky sessions )\n3) ASP pricing Tier : Free\""
+      },
+      {
+        "date": "2020-01-08T03:39:00.000Z",
+        "voteCount": 2,
+        "content": "any Runtime stack ?"
+      },
+      {
+        "date": "2020-07-19T08:16:00.000Z",
+        "voteCount": 2,
+        "content": "Agree with Ekramy_Elnaggar.\nI have tested it in the lab by creating the Function App using App Service Plan (any). I have chosen Free tier plan. ARR Affinity is ON by default which allows sticky sessions.\nhttps://azure.github.io/AppService/2016/05/16/Disable-Session-affinity-cookie-(ARR-cookie)-for-Azure-web-apps.html"
+      },
+      {
+        "date": "2020-07-19T08:18:00.000Z",
+        "voteCount": 1,
+        "content": "For testing I have chosen Runtime Stack as '.Net Core'  and OS as 'Windows'.\n'Consumption' plan don't support ARR Affinity."
+      },
+      {
+        "date": "2019-11-27T05:03:00.000Z",
+        "voteCount": 19,
+        "content": "Sticky sessions is on by default, so you just need to create a function app in a free App Service plan. \n\nSetting can be viewed in configuration-&gt;general settings of the function app. Setting name is ARR affinity."
+      },
+      {
+        "date": "2020-01-18T10:26:00.000Z",
+        "voteCount": 3,
+        "content": "This correct, you just need to make sure to select the App service plan during deployment"
+      },
+      {
+        "date": "2020-08-22T01:48:00.000Z",
+        "voteCount": 2,
+        "content": "Guys, i don't think we can go with a Free App service Plan here, because the free and shared plans do not support functions.\nDocs say : \"Your function apps can also run on the same dedicated VMs as other App Service apps (Basic, Standard, Premium, and Isolated SKUs).\"\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"
+      },
+      {
+        "date": "2020-09-06T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "this is simply not true.. when you create a function app, you can select the \"Free\" tier without problem.\n\nThen, when you go in to the settings of the function app (running on the free tier), you can see the option for ARR affinity == ON quite clearly.\n\nIt's under: Configuration -&gt; General Settings -&gt; ARR affinity..\n\nI don't see the issue with free? Am i missing something?"
+      },
+      {
+        "date": "2020-07-02T02:56:00.000Z",
+        "voteCount": 2,
+        "content": "We can go for Free Tier also since session affinity is ON for all tiers as per the below link.\nhttps://azure.microsoft.com/en-in/pricing/details/app-service/plans/"
+      },
+      {
+        "date": "2020-06-19T10:25:00.000Z",
+        "voteCount": 3,
+        "content": "Always on / Sticky Session can only be used from APP Service Plan B1. \nF1 - Free and D1 (basic) don't support Always On.\nI just tested them all."
+      },
+      {
+        "date": "2020-08-09T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "it's not about always on, the question is about ARR actually.\n\u2022\tAlways On: Keeps the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.\n\u2022\tARR(application request routing) affinity: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to Off for stateless applications."
+      },
+      {
+        "date": "2020-06-07T16:12:00.000Z",
+        "voteCount": 4,
+        "content": "ARR affinity if now \"off\" by default."
+      },
+      {
+        "date": "2020-06-14T02:02:00.000Z",
+        "voteCount": 3,
+        "content": "Not correct. It is turned \"On\" by default.\nI just checked in Portal:\nCreated a Func app: Windows &gt; Core .Net &gt; Free Plan\nSwitchted to Blade: Deployment &gt; Settings &gt; Configuration:\nValue for ARR affinity is \"On\".\n\nAnyway just double check in exam, in case you need to simulate it."
+      },
+      {
+        "date": "2020-09-06T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "Totally agree... unless i am missing something! :O"
+      },
+      {
+        "date": "2020-04-23T21:16:00.000Z",
+        "voteCount": 3,
+        "content": "Sticky session is on by default as others mentioned. You just have to create a Function App, select a run time stack (I choose .Net), Hosting plan should be App Service Plan, OS - Linux/Windows, and select the Free plan. I found a free one in Linux and click create."
+      },
+      {
+        "date": "2020-09-06T03:03:00.000Z",
+        "voteCount": 1,
+        "content": "Yep, works fine."
+      },
+      {
+        "date": "2020-04-19T07:26:00.000Z",
+        "voteCount": 1,
+        "content": "when u create a function app in shared app service plan it gives a warning \" 'AlwaysOn' is not enabled. Your app may not function properly\". And 'AlwaysOn' can only be enabled in basic app service plan. \nso they should not allow the function app to be deployed in free tier at the first place. \nbut I guess to answer this question we are good with the answer displayed."
+      },
+      {
+        "date": "2020-01-27T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "For Operating System, you must select the Windows option otherwise you cannot modify the Sku size to select the Free pricing tier."
+      },
+      {
+        "date": "2020-02-02T12:26:00.000Z",
+        "voteCount": 5,
+        "content": "Using Linux, you can have Free F1, I did a lab and verified."
+      },
+      {
+        "date": "2019-12-29T06:08:00.000Z",
+        "voteCount": 6,
+        "content": "ARR Affinity option exist in the :F1: Free:  ASP tier"
+      },
+      {
+        "date": "2019-12-21T01:01:00.000Z",
+        "voteCount": 4,
+        "content": "Free service plan has \"session affinity\""
+      },
+      {
+        "date": "2019-12-11T14:20:00.000Z",
+        "voteCount": 2,
+        "content": "I think now is named Session affinity"
+      },
+      {
+        "date": "2019-12-06T05:01:00.000Z",
+        "voteCount": 4,
+        "content": "Free App service plan doesn't support functions, you would need at least Basic one."
+      },
+      {
+        "date": "2019-12-19T23:22:00.000Z",
+        "voteCount": 1,
+        "content": "Agree, should be at least Basic plan for functions, https://azure.microsoft.com/en-in/pricing/details/app-service/plans/"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9216-exam-az-300-topic-5-question-2-discussion/",
+    "body": "SIMULATION -<br>Click to expand each objective. To connect to the Azure portal, type https://portal.azure.com in the browser address bar.<br><img src=\"/assets/media/exam-media/02758/0047000001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047100001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047200001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047300001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047400001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047500001.jpg\" class=\"in-exam-image\"><br>When you are finished performing all the tasks, click the \"\u02dcNext' button.<br>Note that you cannot return to the lab once you click the \"\u02dcNext' button. Scoring occur in the background while you complete the rest of the exam.<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You need to create a web app named corp8548987n2 than can be scaled horizontally. The solution must use the lowest possible pricing tier for the App Service plan.<br>What should you do from the Azure portal?<br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "Step 1:<br>In the Azure Portal, click Create a resource &gt; Web + Mobile &gt; Web App.<br>Step 2:<br>Use the Webb app settings as listed below.<br>Web App name:                         corp8548987n2<br>Hosting plan:                             Azure App Service plan<br>Pricing tier of the Pricing Tier:     Standard<br>Change your hosting plan to Standard, you can't setup auto-scaling below standard tier.<br>Step 3:<br>Select Create to provision and deploy the Web app.<br>References:<br>https://docs.microsoft.com/en-us/azure/app-service/environment/app-service-web-how-to-create-a-web-app-in-an-ase https://azure.microsoft.com/en-us/pricing/details/app-service/plans/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-27T04:56:00.000Z",
+        "voteCount": 21,
+        "content": "Not sure if standard plan is the right answer. Question doesn't specify autoscaling, only scaling. If objective is lowest possible price then Basic plan also supports manual scaling upto 3 instances."
+      },
+      {
+        "date": "2019-12-06T01:13:00.000Z",
+        "voteCount": 5,
+        "content": "Question also says \"The solution must use the lowest possible pricing tier for the App Service plan\". So, I agree with you...Basic Service Plan seems more appropriate."
+      },
+      {
+        "date": "2020-01-27T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed, the question doesn't require autoscale but just the ability to scale. The Basic plan allows for manual scaling and so I think Basic is correct."
+      },
+      {
+        "date": "2020-07-19T08:36:00.000Z",
+        "voteCount": 3,
+        "content": "I have tested in the lab. Basic Plan (B1) has Scale Out (or Scale Horizontally) option which is the lowest possible pricing tier for App Service.\nFree tier (F1)/Consumption Plan don't support Scale Out."
+      },
+      {
+        "date": "2020-03-28T12:25:00.000Z",
+        "voteCount": 5,
+        "content": "B1 will do since it supports manual scaling."
+      },
+      {
+        "date": "2020-05-18T20:35:00.000Z",
+        "voteCount": 3,
+        "content": "With B1,\" Manual scale Up to 3 instances. Subject to availability.\"\nWhich means scale is not guranateed...... extracted the above text from portal.\nS1 makes more sense as production workload..."
+      },
+      {
+        "date": "2020-05-25T10:13:00.000Z",
+        "voteCount": 1,
+        "content": "S1 also says \"Subject to availability.\" I would go for Basic plan."
+      },
+      {
+        "date": "2020-04-23T21:20:00.000Z",
+        "voteCount": 1,
+        "content": "It doesn't say Auto scaling, so you can go with B1 which allows manual scaling up to 3 instances to save costs. S1 is the easiest answer if it says anything about autoscaling."
+      },
+      {
+        "date": "2020-04-18T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "Horizontal scaling is Adding more instances. I did lab and found that you need Minimum Plan B1 to scale upto 3 instances. I don't know where do u see Basic / Standard Service Plan ?"
+      },
+      {
+        "date": "2020-06-14T04:04:00.000Z",
+        "voteCount": 2,
+        "content": "B stands for Basic. Once you select e.g. B1, you'll see at the lower right corner (near blade) the wording \"Basic\"."
+      },
+      {
+        "date": "2020-03-18T10:58:00.000Z",
+        "voteCount": 2,
+        "content": "Maybe we are supposed to notice that the name is prefixed \"corp\" and therefore a production workload - and thus  S1 is the right answer."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/6984-exam-az-300-topic-5-question-3-discussion/",
+    "body": "SIMULATION -<br>Click to expand each objective. To connect to the Azure portal, type https://portal.azure.com in the browser address bar.<br><img src=\"/assets/media/exam-media/02758/0047700001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047800001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0047900001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0048000001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0048100001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0048200001.jpg\" class=\"in-exam-image\"><br>When you are finished performing all the tasks, click the \"\u02dcNext' button.<br>Note that you cannot return to the lab once you click the \"\u02dcNext' button. Scoring occur in the background while you complete the rest of the exam.<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You need to deploy an application gateway named appgw1015 to meet the following requirements:<br>\u2711 Load balance internal IP traffic to the Azure virtual machines connected to subnet0.<br>\u2711 Provide a Service Level Agreement (SLA) of 99,99 percent availability for the Azure virtual machines.<br>What should you do from the Azure portal?<br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "Step 1:<br>Click New found on the upper left-hand corner of the Azure portal.<br>Step 2:<br>Select Networking and then select Application Gateway in the Featured list.<br>Step 3:<br>Enter these values for the application gateway:<br>appgw1015 - for the name of the application gateway.<br><br>SKU Size: Standard_V2 -<br>The new SKU [Standard_V2] offers autoscaling and other critical performance enhancements.<br><img src=\"/assets/media/exam-media/02758/0048400001.jpg\" class=\"in-exam-image\"><br>Step 4:<br>Accept the default values for the other settings and then click OK.<br>Step 5:<br>Click Choose a virtual network, and select subnet0.<br>References:<br>https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-create-gateway-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-21T01:49:00.000Z",
+        "voteCount": 24,
+        "content": "In Application Gateway create\nTier: Standart v2 (It supports AZ)\nEnable Auto-Scaling: False\nScale Units: 2\nAvailability Zone: select 1-2 or 2-3 or 1-3.. Required for %99.99 SLA\nFill up the rest\nNext Page - FrontEnds\nFrontend Ip adress type: Both, because we are required to load internal ip traffic.. so we need private ip address also. you will not be able choose Private only, because Standart v2 requires public also.\nFill the rest, done!"
+      },
+      {
+        "date": "2020-04-23T21:29:00.000Z",
+        "voteCount": 1,
+        "content": "This looks correct. We need both public and private ips. Not sure if we have to create those?"
+      },
+      {
+        "date": "2020-05-18T10:16:00.000Z",
+        "voteCount": 1,
+        "content": "Are you joking ? AG only supports 99.5% SLA regardless how many AZ's you want to put it in. Just read the MS SLA documentation on it."
+      },
+      {
+        "date": "2020-07-07T14:19:00.000Z",
+        "voteCount": 3,
+        "content": "I think people are confusing AG redundancy and redundancy provided to the VMs via a availability set.\n\nI interpret the question as wanting the VMs to be 99.99.\n\nThough the \"are you joking\" was uncalled for."
+      },
+      {
+        "date": "2019-12-07T04:12:00.000Z",
+        "voteCount": 8,
+        "content": "99.99% SLA - sounds like Availablity Zone required so Standard V2 with 2 availability zones connected?"
+      },
+      {
+        "date": "2020-01-18T14:26:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, you will need to pick 2 availability zone to get the 99.99% SLA, if I could paste screenshot I would from my lab environment"
+      },
+      {
+        "date": "2020-09-13T11:44:00.000Z",
+        "voteCount": 1,
+        "content": "Create Zone(1,2) VMSS and use that with AG. There is option to select AZ in AGv2.\nFirst Create VMSS\nCreate backend pool in AG, assign newly created VMSS."
+      },
+      {
+        "date": "2020-09-10T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "SLA 99.99% for VM =&gt; at least two VM distributed through two or more availability zones =/=&gt; (does not apply) Application Gateway v2."
+      },
+      {
+        "date": "2020-09-09T22:10:00.000Z",
+        "voteCount": 1,
+        "content": "There are 2 SLA here.  99.99% for VM and 99.99% for AG.  The questions is asking for SLA for VM.  Therefore, Standard SKU for AG is sufficient."
+      },
+      {
+        "date": "2020-08-29T23:14:00.000Z",
+        "voteCount": 2,
+        "content": "This is confusing. Can please someone provide steps?\nCreate Application Gateway\nRegion - Same as Vnet\nTier - Standard V2\nEnable Auto Scaling - No\nScale Unites - 2\nAvailability Zone - Zone 1 and Zone2 or Zone 3\nVirtual Network -  Provided Vnet where subnet0 is exists.\nSubnet -  Provided Subnet0\nIn FrontEnd tab,\nFrontend IP address type - Both\nPublic IP Address - Add new.\nUse a specific private IP address - Yes,\nPrivate IP address - What it should be? Not sure. \nIn backends Tab,\nDo we have to add backend pool?\nSo far, I received error as below.\n\"Application gateway needs at least one valid Backend pool. Click 'Add a backend pool' to create a new backend pool.\"\nCan someone help here with steps?"
+      },
+      {
+        "date": "2020-09-09T00:34:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/application-gateway/configure-application-gateway-with-private-frontend-ip"
+      },
+      {
+        "date": "2020-08-09T02:24:00.000Z",
+        "voteCount": 1,
+        "content": "\" Provide a Service Level Agreement (SLA) of 99,99 percent availability for the Azure virtual machines.\" This is for VMs not for AGW. In order to fulfill 99.99 availibility for the VMs we have to deploy at least 2 VM instance in different Availibility Zones. So, according to this VM architecture we need to determine which AGW that we need to select, it should be  Standard V2. Then we have to tick Availibility Zone at which this AGW will work. Since it is only 2 VM instance with 2 zones, I think it is enough to select Zone1 and Zone2."
+      },
+      {
+        "date": "2020-07-12T12:08:00.000Z",
+        "voteCount": 4,
+        "content": "1. Find the VNet that has subnet0. \n2. Take the region the VNet was created in. \n3. Create an application gateway with SKU Standard V2; this supports availability zones. AGW must also be created in the same region as the VNet hosting Subnet0; this way you can select the subnet."
+      },
+      {
+        "date": "2020-06-28T10:34:00.000Z",
+        "voteCount": 2,
+        "content": "\" Load balance internal IP traffic to the Azure virtual machines connected to subnet0.\"\n\nI think the key here is don't connect the app gateway to subnet0.  It should be on it's own subnet so that vm's on subnet0 could be placed into the back-end pool??? thoughts?"
+      },
+      {
+        "date": "2020-08-11T12:49:00.000Z",
+        "voteCount": 1,
+        "content": "App Gateway HAS to be placed on its own subnet so yes we don't put AGW on subnet 0"
+      },
+      {
+        "date": "2020-05-06T13:05:00.000Z",
+        "voteCount": 2,
+        "content": "question is to create app gateway, and availability sla 99.99%. No mention about cost. My  recommendation is to create with standard V2 and availability zone."
+      },
+      {
+        "date": "2020-04-22T14:34:00.000Z",
+        "voteCount": 1,
+        "content": "Max SLA for Application GW is 99.95% as per MS Docs. Internal IP can be load balanced by V1 App GW too, tested in LAB.\nhttps://azure.microsoft.com/en-us/support/legal/sla/application-gateway/v1_2/"
+      },
+      {
+        "date": "2020-05-25T06:53:00.000Z",
+        "voteCount": 3,
+        "content": "Yes SLA for Application GW is 99.95%, that is where they're asking VM SLA should 99.99. Which can be allowed using Availability Zones, In order to get AZ enabled you have to choose Standard V2. That's it."
+      },
+      {
+        "date": "2020-04-18T20:55:00.000Z",
+        "voteCount": 1,
+        "content": "This should be the standard Load Balancer with Internal type which supports 99.99% availability . no need got AG. https://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/"
+      },
+      {
+        "date": "2020-04-21T01:54:00.000Z",
+        "voteCount": 4,
+        "content": "You need to deploy an application gateway named appgw1015"
+      },
+      {
+        "date": "2020-04-18T20:54:00.000Z",
+        "voteCount": 1,
+        "content": "This sheit should be the standard Load Balancer with Internal type which supports 99.99% availability . no need got AG."
+      },
+      {
+        "date": "2020-03-03T18:39:00.000Z",
+        "voteCount": 1,
+        "content": "Can anyone give me any MS Official articles to confirm that AG_V2 will be guaranteed SLA 99.99%?\nhttps://azure.microsoft.com/en-us/support/legal/sla/application-gateway/v1_2/\nWe can get the SLA of Backend Pool of VMs to 99.99%\nhttps://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_9/"
+      },
+      {
+        "date": "2019-12-05T00:35:00.000Z",
+        "voteCount": 3,
+        "content": "Couple of questions:\nSince Vm are connected to Subnet0, how do you connect a AG to Subnet0? AG requires empty subnet.\nHow to achieve 99.99 SLA? AG only give 99.95."
+      },
+      {
+        "date": "2020-04-18T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "you need to put your VM to AZ"
+      },
+      {
+        "date": "2020-06-02T06:37:00.000Z",
+        "voteCount": 1,
+        "content": "\"connected to\" Subnet0 -- not \"in\" Subnet0."
+      },
+      {
+        "date": "2019-10-22T03:41:00.000Z",
+        "voteCount": 3,
+        "content": "and you need to connect to particular VM/IP/etc. there is no option to connect to subnet"
+      },
+      {
+        "date": "2019-10-22T03:40:00.000Z",
+        "voteCount": 4,
+        "content": "internal IP is only supported by \"standard\" version. you need to have an empty subnet to deploy AG (GW subnet is not supported)"
+      },
+      {
+        "date": "2020-04-18T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "true i agree"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8973-exam-az-300-topic-5-question-4-discussion/",
+    "body": "SIMULATION -<br>Click to expand each objective. To connect to the Azure portal, type https://portal.azure.com in the browser address bar.<br><img src=\"/assets/media/exam-media/02758/0048600001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0048700001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0048800001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0048900001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0049000001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0049100001.jpg\" class=\"in-exam-image\"><br>When you are finished performing all the tasks, click the \"\u02dcNext' button.<br>Note that you cannot return to the lab once you click the \"\u02dcNext' button. Scoring occur in the background while you complete the rest of the exam.<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You need to deploy an Azure load balancer named ib1016 to your Azure subscription. The solution must meet the following requirements:<br>\u2711 Support the load balancing of IP traffic from the Internet to Azure virtual machines connected to VNET1016\\subnet0.<br>\u2711 Provide a Service Level Agreement (SLA) of 99,99 percent availability for the Azure virtual machines.<br>\u2711 Minimize Azure-related costs.<br>What should you do from the Azure portal?<br>To complete this task, you do NOT need to wait for the deployment to complete. Once the deployment starts in Azure, you can move to the next task.<br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "Step 1:<br>On the top left-hand side of the screen, click Create a resource &gt; Networking &gt; Load Balancer.<br>Step 2:<br>In the Create a load balancer page enter these values for the load balancer: myLoadBalancer - for the name of the load balancer.<br>Internal - for the type of the load balancer.<br>Basic - for SKU version.<br>Microsoft guarantees that apps running in a customer subscription will be available 99.99% of the time.<br>VNET1016\\subnet0 - for subnet that you choose from the list of existing subnets.<br>Step 3: Accept the default values for the other settings and click Create to create the load balancer.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-29T06:30:00.000Z",
+        "voteCount": 55,
+        "content": "1) Create Azure Load Balancer\n2) Type: Public\n3) SKU: Standard\n4) Public IP Address : New one ( Standard )\n5) Availability zone: Zone-redundant"
+      },
+      {
+        "date": "2020-02-08T02:56:00.000Z",
+        "voteCount": 2,
+        "content": "would you add the VNET1016\\subnet0 to the backed pool of the public load balancer?"
+      },
+      {
+        "date": "2020-02-27T04:55:00.000Z",
+        "voteCount": 6,
+        "content": "remember to select \"type\" as internal then you can specify the VNET and subnet"
+      },
+      {
+        "date": "2020-05-11T22:49:00.000Z",
+        "voteCount": 3,
+        "content": "No, the type needs to be public. The question clearly says the traffic's from the internet."
+      },
+      {
+        "date": "2020-04-19T10:17:00.000Z",
+        "voteCount": 2,
+        "content": "to add to this, after the LB is created add backend pool from the given vnet/snet"
+      },
+      {
+        "date": "2020-07-19T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with Ekramy_Elnaggar.\nhttps://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/"
+      },
+      {
+        "date": "2019-11-23T14:43:00.000Z",
+        "voteCount": 18,
+        "content": "SLA=99,99 is not equal to Basic:\nWe guarantee that a Load Balanced Endpoint using Azure Standard Load Balancer, serving two or more Healthy Virtual Machine Instances, will be available 99.99% of the time.\nBasic Load Balancer is excluded from this SLA."
+      },
+      {
+        "date": "2020-10-04T14:16:00.000Z",
+        "voteCount": 1,
+        "content": "ok but needs standard SKU"
+      },
+      {
+        "date": "2020-09-12T14:21:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/load-balancer/skus\nNo SLA for basic SKU.\n99.99% SLA for standard"
+      },
+      {
+        "date": "2020-07-06T16:29:00.000Z",
+        "voteCount": 4,
+        "content": "1. Support the load balancing of IP traffic from the Internet to Azure virtual machines connected to VNET1016\\subnet0: Create a Public LB in the same location of the VNet  \n2. Provide SLA of 99,99 percent: SKU Standard \n3. Minimize Azure-related costs: Availability zone 2\n\nNo need to set up the backend pool. The question says do not wait for the deployment to complete. Since the LB is in the same location as the VNet, it is guaranteed you can connect the VMs on the subnet to the backend pool."
+      },
+      {
+        "date": "2020-06-21T16:21:00.000Z",
+        "voteCount": 1,
+        "content": "just deploy standard load balancer in vnet VNET1016. This will ensure that any machines under this vnet can be part of it"
+      },
+      {
+        "date": "2020-05-30T03:56:00.000Z",
+        "voteCount": 1,
+        "content": "No SLA is provided for Basic Load Balancer. It's obvious"
+      },
+      {
+        "date": "2020-05-27T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "Two solution, I don't know which one is the best ?\n- Internal with VNet/Subnet assigned but not \"IP traffic from the Internet\".\n- Public with every VM of subnet0 in manual, but not new VMs of subnet0."
+      },
+      {
+        "date": "2020-06-02T06:50:00.000Z",
+        "voteCount": 1,
+        "content": "\"Support\" the load balancing of IP traffic from the Internet. I think this indicates public LB exists. That, and the name \"ib1016\" leads us to an internal load balancer, which fits the rest of the screnario."
+      },
+      {
+        "date": "2020-05-25T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "Simple, In order to achieve 99.99% SLA for VMs.... okay VMs, we need Availability Zone. With Basic you cannot create AZ, so we should select the Standard SKU during the load balancer creation."
+      },
+      {
+        "date": "2020-05-12T01:23:00.000Z",
+        "voteCount": 1,
+        "content": "It mentions IP traffic form the Internet so it should be public, but for a public LB you cannot select the VNET\\Subnet0...what should one go for?? Basically a public LB still can load balance the traffic to machines in that subnet but backendpool config Looks different..."
+      },
+      {
+        "date": "2020-04-27T09:30:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed, Basic SKU is excluded from 99.99% SLA commitment.\nhttps://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/"
+      },
+      {
+        "date": "2020-04-23T21:40:00.000Z",
+        "voteCount": 2,
+        "content": "Create a Load Balancer\nStandard\nInternal - so you can assign the VNET and Subnet\nPublic IP - New\nAvailability Zone - Zone Redundant.\n\nIf you select Public, then you can go to backend pools and add the VNET but I don't see an option for adding a Subnet to the LB in the back end pool."
+      },
+      {
+        "date": "2020-03-06T11:33:00.000Z",
+        "voteCount": 3,
+        "content": "1) Create Standard Sku LB\n2) Assign subnet0 to the backend pool of the LB"
+      },
+      {
+        "date": "2020-02-04T14:01:00.000Z",
+        "voteCount": 2,
+        "content": "Basic Load Balancer does not provide 99.99 % uptime guarantee. There is no MS Document or article referring to that. Rather it says \"No SLA is provided for Basic Load Balancer\". So choose Standard for SKU.\nhttps://azure.microsoft.com/en-us/support/legal/sla/load-balancer/v1_0/"
+      },
+      {
+        "date": "2019-12-11T18:51:00.000Z",
+        "voteCount": 1,
+        "content": "The question states that the LB need to load balance traffic from the internet. Where is the public IP set?"
+      },
+      {
+        "date": "2019-12-05T01:41:00.000Z",
+        "voteCount": 2,
+        "content": "SKU should be \"Standard\". https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview"
+      },
+      {
+        "date": "2019-11-25T00:58:00.000Z",
+        "voteCount": 3,
+        "content": "AKU has to be Standard as they required 99.99% uptime which can be achieve by AZ only which require standard SKU"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20918-exam-az-300-topic-5-question-5-discussion/",
+    "body": "Your company is developing an e-commerce Azure App Service Web App to support hundreds of restaurant locations around the world.<br>You are designing the messaging solution architecture to support the e-commerce transactions and messages. The solution will include the following features:<br><img src=\"/assets/media/exam-media/02758/0049300001.png\" class=\"in-exam-image\"><br>You need to design a solution for the Inventory Distribution feature.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Service Bus",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Relay",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Event Grid",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Event Hub"
+    ],
+    "answer": "A",
+    "answerDescription": "Microsoft Azure Service Bus is a fully managed enterprise integration message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer.<br>One common messaging scenario is Messaging: transfer business data, such as sales or purchase orders, journals, or inventory movements.<br>Incorrect Answers:<br>B: The Azure Relay service enables you to securely expose services that run in your corporate network to the public cloud.<br>References:<br>https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-27T11:14:00.000Z",
+        "voteCount": 28,
+        "content": "This link might shed some light on EVENTS versus MESSAGES: https://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json&amp;bc=/azure/service-bus-messaging/breadcrumb/toc.json  An excerpt here:\n1. Event Grid - Use to React to Status Changes\n2. Event Hubs - Use for Telemetry and distributed data streaming\n3. Service Bus - Use for Order Processing and Financial Transactions\nSeems like Service Bus for the answer."
+      },
+      {
+        "date": "2020-07-19T14:00:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, it is 100% Service Bus.\nPlease see the details in the below link.\nhttps://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fservice-bus-messaging%2Ftoc.json&amp;bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json#comparison-of-services"
+      },
+      {
+        "date": "2020-09-23T12:41:00.000Z",
+        "voteCount": 4,
+        "content": "Using all services together\nan e-commerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped.\nusing above Link, it's clearly evident\nShopping Cart - Service Bus\nInventory Distribution - Azure Event Grid\nRestaurant Telemetry - Azure Event Hub"
+      },
+      {
+        "date": "2020-05-20T07:50:00.000Z",
+        "voteCount": 15,
+        "content": "ANS: C\nhttps://docs.microsoft.com/en-us/azure/event-grid/overview"
+      },
+      {
+        "date": "2021-01-18T12:15:00.000Z",
+        "voteCount": 1,
+        "content": "given answer is correct\nhttps://azure.microsoft.com/en-in/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/\nWhile Azure Event Grid and Azure Event Hubs have a razor-sharp focus on the collection and distribution of events at great scale, and with great velocity, an Azure Service Bus namespace is a host for queues holding jobs of critical business value. It allows for the creation of routes for messages that need to travel between applications and application modules. It is a solid platform for workflow and transaction handling and has robust facilities for dealing with many application fault conditions.\nA sale recorded in a point-of-sale solution is both a financial record and an inventory tracking record, and not a mere event. It\u2019s recorded in a ledger, which will eventually be merged into a centralized accounting system, often via several integration bridges, and the information must not be lost on the way"
+      },
+      {
+        "date": "2021-01-18T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "Service Bus is intended for traditional enterprise applications. These enterprise applications require transactions, ordering, duplicate detection, and instantaneous consistency. Service Bus enables cloud-native applications to provide reliable state transition management for business processes.\nIncorrect Answers:\nA: Azure Event Hubs is a big data pipeline. It facilitates the capture, retention, and replay of telemetry and event stream data.\nC: Event Grid is an eventing backplane that enables event-driven, reactive programming.\nD: The Azure Relay service enables you to securely expose services that run in your corporate network to the public cloud."
+      },
+      {
+        "date": "2021-01-18T12:19:00.000Z",
+        "voteCount": 1,
+        "content": "For shopping cart and Inventory distribution we should use Azure service bus \nFor Restaurant we should use Azure event hub."
+      },
+      {
+        "date": "2020-08-22T21:43:00.000Z",
+        "voteCount": 7,
+        "content": "Shopping Cart: Service Bus (ordering related)\n\"When handling high-value messages that cannot be lost or duplicated, use Azure Service Bus\"\n\"advanced messaging features like FIFO, batching/sessions, transactions, dead-lettering, temporal control, routing and filtering, and duplicate detection\"\nhttps://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json&amp;bc=/azure/service-bus-messaging/breadcrumb/toc.json\n\nInventory Distribution:  Event Grid (integration with workflows -e.g. Azure logic Apps, blob storage queues) \nhttps://docs.microsoft.com/en-us/azure/event-grid/overview\n\n\n\n\nRestaurant Telemetry: Event Hub - \"Azure Event Hubs is a big data pipeline. It facilitates the capture, retention, and replay of telemetry and event stream data.\"\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services?toc=/azure/service-bus-messaging/toc.json&amp;bc=/azure/service-bus-messaging/breadcrumb/toc.json"
+      },
+      {
+        "date": "2020-07-29T12:11:00.000Z",
+        "voteCount": 2,
+        "content": "It'c C for sure. Data sent to Blob, blob triggers event in Event Grid and finally Logic Apps reacts to the event and process the data."
+      },
+      {
+        "date": "2020-07-26T15:07:00.000Z",
+        "voteCount": 4,
+        "content": "EventGrid is the right ans\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/compare-messaging-services\nan e-commerce site can use Service Bus to process the order, Event Hubs to capture site telemetry, and Event Grid to respond to events like an item was shipped."
+      },
+      {
+        "date": "2020-07-14T09:05:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: C (Event Grid)\nThe type of information being shared are *updates* or inventory changes.  If this can be interpreted as event, then Event Grid is more appropriate.  Another clue is that the information is being stored in Blob which implies the actual event will have only reference to data.  For Service Bus, we would expect the actual message to include the data itself"
+      },
+      {
+        "date": "2020-07-12T16:54:00.000Z",
+        "voteCount": 2,
+        "content": "Possible solutions are Event Grid and Service Bus. Of these 2 Service Bus is the most appropriate for the inventory. My justification is below:\n\n*  Event grid deals with events- change in the state of azure services. Doesn't concern itself with what triggered the event, what is in the event and what is to be done with it.\n\n* Service bus deals with messages- raw data produced by a service to be stored or used elsewhere- and state."
+      },
+      {
+        "date": "2020-07-05T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct. Read section about  \" common messaging scenarios\" :\nhttps://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview"
+      },
+      {
+        "date": "2020-06-28T06:54:00.000Z",
+        "voteCount": 4,
+        "content": "Surely it's EventGrid?\nIt says that that inventory information is stored on blob storage. Blob storage changes can be subscribed to by the EventGrid as evidenced here: https://docs.microsoft.com/en-us/azure/event-grid/blob-event-quickstart-portal. Finally, EventGrid has connectors to Logic Apps so everything fits together."
+      },
+      {
+        "date": "2020-09-09T01:04:00.000Z",
+        "voteCount": 1,
+        "content": "It also says must run separate workflow for each items.  if warehouse item, run workflow1, if shopping cart item run workflow2 etc, so Event Grid."
+      },
+      {
+        "date": "2020-05-25T07:06:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct, refer to the POS scenario in the below link and same can be applied here with Logic Apps.\n\nhttps://www.codemag.com/article/1112041/Introducing-Queues-and-Topics-in-Azure-Service-Bus"
+      },
+      {
+        "date": "2020-05-23T13:34:00.000Z",
+        "voteCount": 2,
+        "content": "Answer\" C\nAs we can create Event Grid. Event Subscription and Topic."
+      },
+      {
+        "date": "2020-05-22T08:56:00.000Z",
+        "voteCount": 1,
+        "content": "Can anyone explain why a service bus would be preferable over a logic app?"
+      },
+      {
+        "date": "2020-05-22T08:56:00.000Z",
+        "voteCount": 3,
+        "content": "Over an event grid I meant*"
+      },
+      {
+        "date": "2020-05-19T03:32:00.000Z",
+        "voteCount": 2,
+        "content": "Shouldn't be D ( Event HUB ) \nEvent HUB can send data to Storage \nRef: https://www.serverless360.com/blog/azure-event-hubs-vs-service-bus"
+      },
+      {
+        "date": "2020-09-09T03:35:00.000Z",
+        "voteCount": 3,
+        "content": "C is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19605-exam-az-300-topic-5-question-6-discussion/",
+    "body": "You are responsible for mobile app development for a company. The company develops apps on Windows Mobile, IOS, and Android.<br>You plan to integrate push notifications into every app.<br>You need to be able to send users alerts from a backend server.<br>Which two options can you use to achieve this goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Web App",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Mobile App Service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure SQL Database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Notification Hubs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta virtual machine"
+    ],
+    "answer": "BD",
+    "answerDescription": "The Mobile Apps client enables you to register for push notifications with Azure Notification Hubs.<br>The following platforms are supported:<br>\u2711 Xamarin Android releases for API 19 through 24 (KitKat through Nougat)<br>\u2711 Xamarin iOS releases for iOS versions 8.0 and later<br><br>Universal Windows Platform -<br><img src=\"/assets/media/exam-media/02758/0049400003.png\" class=\"in-exam-image\"><br>\u2711 Windows Phone 8.1<br>\u2711 Windows Phone 8.0 except for Silverlight applications<br>References:<br>https://docs.microsoft.com/en-us/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-15T01:30:00.000Z",
+        "voteCount": 10,
+        "content": "Windows Mobile - lol"
+      },
+      {
+        "date": "2020-05-25T07:26:00.000Z",
+        "voteCount": 10,
+        "content": "Answers are correct: B, D\n\nhttps://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-app-service"
+      },
+      {
+        "date": "2020-09-24T03:01:00.000Z",
+        "voteCount": 1,
+        "content": "I personally think it is A and D.... as there is nothing like &gt;&gt; Azure Mobile App Service &lt;&lt;\nhttps://docs.microsoft.com/en-us/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started"
+      },
+      {
+        "date": "2020-09-25T01:42:00.000Z",
+        "voteCount": 1,
+        "content": "I mean... https://azure.microsoft.com/en-us/services/app-service/mobile/"
+      },
+      {
+        "date": "2020-09-17T03:05:00.000Z",
+        "voteCount": 1,
+        "content": "Answers are correct B and D"
+      },
+      {
+        "date": "2020-08-09T11:46:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer: BD\nAzure Notification Hubs: Azure Notification Hubs provide an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, etc.) from any back-end (cloud or on-premises)\nAzure Mobile App Service: Push notifications to millions in seconds: Engage your customers with instant push notifications on any device, personalized to their needs, and sent when the time is right.\nReferences:\nhttps://docs.microsoft.com/en-us/previous-versions/azure/app-service-mobile/app-service-mobile-value-prop#why-mobile-apps\nhttps://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-push-notification-overview"
+      },
+      {
+        "date": "2020-08-06T15:40:00.000Z",
+        "voteCount": 1,
+        "content": "I think answer should be D and E.\nNotification hubs can be used to send push notifications to any platform from any backend.\nI say Virtual Machines since you can write business logic to poll various backend systems for any events of interest and send the push messages to the client.\nThe question does not talk about building new apps but is more about setting up push notifications for apps.\nOther thoughts welcome."
+      },
+      {
+        "date": "2020-06-02T08:48:00.000Z",
+        "voteCount": 2,
+        "content": "Not sure how Azure Notification Hubs can be a complete solution."
+      },
+      {
+        "date": "2020-05-04T09:01:00.000Z",
+        "voteCount": 4,
+        "content": "A and D - &gt; you will create Web App :\nhttps://docs.microsoft.com/en-us/previous-versions/azure/app-service-mobile/app-service-mobile-android-get-started you cre"
+      },
+      {
+        "date": "2020-05-25T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "Your link says B &amp; D only?\nMobile Apps &amp; Notification Hubs?\n\nHow come it is WebAPP ? A?"
+      },
+      {
+        "date": "2020-07-01T00:59:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Mobile Apps merged with Azure App Service"
+      },
+      {
+        "date": "2020-09-09T03:38:00.000Z",
+        "voteCount": 2,
+        "content": "BD is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10326-exam-az-300-topic-5-question-7-discussion/",
+    "body": "HOTSPOT -<br>You are developing an Azure Function that will be triggered using a webhook from an external application. The Azure Function will receive JSON data in the body of the request.<br>Calling applications send an account ID as part of the URL. The number at the end of the URL is an integer. The format for the URL resembles the following: /api/ account/1<br>The Azure Function must accept all incoming requests without requiring keys or tokens.<br>You need to complete the attributes for the Azure Function.<br>How should you complete the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-05T08:12:00.000Z",
+        "voteCount": 33,
+        "content": "Maybe is:\nBlock 1: FunctionName\nBlock 2: HttpTrigger\nBlock 3: Anonymous\nBlock 4: /account/\nBlock 5: int accountId"
+      },
+      {
+        "date": "2020-09-04T23:40:00.000Z",
+        "voteCount": 1,
+        "content": "Block 4 is incorrect. \nAs Function name is ProcessItem in this case. \nRoute should be in this format   Route=\"{functionName}/{parameter}\" which means correct answer is ProcessItem/{accountId:int}"
+      },
+      {
+        "date": "2020-09-06T05:49:00.000Z",
+        "voteCount": 3,
+        "content": "so, the name of the function is largely irrelevant for its operation.. it should be account/{accountId:int} because 'account' is actually part of the request"
+      },
+      {
+        "date": "2020-09-06T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "sorry, i should add that as soon as you specify the route.. the url changes to not consider the function name any longer UNLESS you do custom router in the host.json"
+      },
+      {
+        "date": "2020-09-09T03:53:00.000Z",
+        "voteCount": 9,
+        "content": "Block 1: FunctionName\nBlock 2: HttpTrigger\nBlock 3: Anonymous\nBlock 4: account/{accountId:int}\nBlock 5: int accountId"
+      },
+      {
+        "date": "2020-09-13T16:20:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed. \"By default when you create a function for an HTTP trigger, or WebHook, the function is addressable with a route of the form http://&lt;yourapp&gt;.azurewebsites.net/api/&lt;funcname&gt;. You can customize this route using this route property. For example, a route of \"products/{category:alpha}/{id:int}\" would mean that the function is now addressable with the following route instead of the original route: http://&lt;yourapp&gt;.azurewebsites.net/api/products/electronics/357, which allows the function code to support two parameters in the address: category and id.\" Source: https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.functions.annotation.httptrigger.route?view=azure-java-stable"
+      },
+      {
+        "date": "2020-06-19T23:37:00.000Z",
+        "voteCount": 21,
+        "content": "https://vceguide.com/how-should-you-complete-the-code-87/"
+      },
+      {
+        "date": "2020-09-27T00:49:00.000Z",
+        "voteCount": 1,
+        "content": "Block 1: FunctionName\nBlock 2: HttpTrigger\nBlock 3: Anonymous\nBlock 4: /account/\nBlock 5: int accountId"
+      },
+      {
+        "date": "2020-08-05T05:32:00.000Z",
+        "voteCount": 3,
+        "content": "Block 1: FunctionName\nBlock 2: HttpTrigger\nBlock 3: Anonymous\nBlock 4: ProcessItem/{accountId:int}\nBlock 5: int accountId"
+      },
+      {
+        "date": "2020-08-23T14:38:00.000Z",
+        "voteCount": 1,
+        "content": "This is correct solution. \nFunction name is ProcessItem in this case. \nRoute should be in this format   Route=\"{functionName}/{parameter}\""
+      },
+      {
+        "date": "2020-09-06T06:08:00.000Z",
+        "voteCount": 2,
+        "content": "No, sorry this is NOT correct.. as soon as you specify router=\"account/{accountId:int}\" the url at runtime is changed to no longer include the function name :s"
+      },
+      {
+        "date": "2020-08-27T03:32:00.000Z",
+        "voteCount": 2,
+        "content": "This is completely wrong..you don't need to put the function name in block4\nDefine the Route in the Function Header\nRouting can also be defined by modifying the HttpTrigger attribution in the header of the function, by default, this is set to null. Changing this value to \u2018GetName\u2019 will turn the URL into http://localhost:7071/api/GetName.\nhttps://www.codeproject.com/Articles/1275414/Azure-Functions-2-0-HTTP-Routing-Options#:~:text=Routing%20refers%20to%20the%20way,respond%20to%20a%20HTTP%20request."
+      },
+      {
+        "date": "2020-09-06T06:10:00.000Z",
+        "voteCount": 2,
+        "content": "i have worked with Azure Functions for a number of years now, and can confirm this is true - also true because i just checked! :)"
+      },
+      {
+        "date": "2020-09-09T01:17:00.000Z",
+        "voteCount": 2,
+        "content": "ct84, so what is the complete answer?"
+      },
+      {
+        "date": "2020-06-15T15:36:00.000Z",
+        "voteCount": 4,
+        "content": "Reviewing the example at\nhttps://docs.microsoft.com/en-us/sandbox/functions-recipes/routes?tabs=csharp#adding-parameters-to-function-routes\nI now think that block 4 is: ProcessItem/{accountID:int}\n(ProcessItem is the function name).\nI now"
+      },
+      {
+        "date": "2020-07-07T03:23:00.000Z",
+        "voteCount": 2,
+        "content": "I agree: block4 is &lt;function name&gt;/{accountID:int}\nwhere &lt;functoin name&gt; is defined in the block1 as ProcessItem"
+      },
+      {
+        "date": "2020-12-01T04:59:00.000Z",
+        "voteCount": 1,
+        "content": "check https://www.examtopics.com/user/Freddo/ comments"
+      },
+      {
+        "date": "2020-06-06T05:20:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is\nBlock 1: FunctionName\nBlock 2:HttpTrigger\nBlock3:Anonymous\nBlock4: account/{accountid:int}\nBlock5: int accountId"
+      },
+      {
+        "date": "2020-06-07T08:55:00.000Z",
+        "voteCount": 1,
+        "content": "From where you get this answer. I could not see any blocks over here"
+      },
+      {
+        "date": "2020-06-14T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "Search google for e.g.: \"The format for the URL resembles the following: /api/ account/1\" to see the question with boxes on other dump providing sites."
+      },
+      {
+        "date": "2020-06-05T15:37:00.000Z",
+        "voteCount": 2,
+        "content": "https://books.google.ca/books?id=h0XbDwAAQBAJ&amp;pg=PA155&amp;lpg=PA155&amp;dq=You+are+developing+an+Azure+Function+that+will+be+triggered+using+a+webhook+from+an+external+application.+The+Azure+Function+will+receive+JSON+data+in+the+body+of+the+request.&amp;source=bl&amp;ots=IEYDG8bEMD&amp;sig=ACfU3U0cB2J-TzS8bFs2XFMj9c6qqyfExg&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwjb3YeM6-vpAhVTnp4KHWVUDGQQ6AEwBXoECAoQAQ#v=onepage&amp;q=You%20are%20developing%20an%20Azure%20Function%20that%20will%20be%20triggered%20using%20a%20webhook%20from%20an%20external%20application.%20The%20Azure%20Function%20will%20receive%20JSON%20data%20in%20the%20body%20of%20the%20request.&amp;f=false"
+      },
+      {
+        "date": "2020-12-01T04:58:00.000Z",
+        "voteCount": 1,
+        "content": "URL In not valid anymore"
+      },
+      {
+        "date": "2020-06-02T09:23:00.000Z",
+        "voteCount": 1,
+        "content": "The \"number\" at the end of the URL is an \"integer\"...\nkey word is integer, so... blocks 4 &amp; 5 must be:\naccount/{accountId:int}\nint accountId"
+      },
+      {
+        "date": "2020-05-20T18:37:00.000Z",
+        "voteCount": 14,
+        "content": "Block 1: FunctionName\nBlock 2: HttpTrigger\nBlock 3: Anonymous\nBlock 4: account/{accountid:int}\nBlock 5: int accountId"
+      },
+      {
+        "date": "2020-08-03T18:20:00.000Z",
+        "voteCount": 1,
+        "content": "You have to use the custom http endpint to support \"/account/1\" as per the question\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#customize-the-http-endpoint"
+      },
+      {
+        "date": "2020-05-14T02:26:00.000Z",
+        "voteCount": 7,
+        "content": "According to \"Adding parameters to function routes\" on page https://docs.microsoft.com/en-us/sandbox/functions-recipes/routes?tabs=csharp :\nBlock 4 : ProcessItem/{accountId:int}  because you rewrite the app function name here\nBlock 5 : string accountId"
+      },
+      {
+        "date": "2020-06-21T00:09:00.000Z",
+        "voteCount": 1,
+        "content": "agreed"
+      },
+      {
+        "date": "2020-07-19T14:24:00.000Z",
+        "voteCount": 1,
+        "content": "As per the link, it seems the answer provided by RegisK is correct."
+      },
+      {
+        "date": "2020-12-27T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "Clearly shows that u need to read more. Please read this link.. incorrect answers. https://www.c-sharpcorner.com/article/routing-in-azure-function/#:~:text=Custom%20Routing%20using%20the%20Route,parameter%20is%20assigned%20as%20null."
+      },
+      {
+        "date": "2020-12-27T04:26:00.000Z",
+        "voteCount": 1,
+        "content": "incorrect answer. Why upvote for these incorrect answers.Really misleading. Please read this link and come to conclusion. https://www.c-sharpcorner.com/article/routing-in-azure-function/#:~:text=Custom%20Routing%20using%20the%20Route,parameter%20is%20assigned%20as%20null."
+      },
+      {
+        "date": "2020-02-02T12:51:00.000Z",
+        "voteCount": 10,
+        "content": "For me it is a little bit wrong. The parameter account should be \"account/{accountId}\"\nSource: https://docs.microsoft.com/en-us/sandbox/functions-recipes/routes?tabs=csharp"
+      },
+      {
+        "date": "2020-02-02T12:52:00.000Z",
+        "voteCount": 4,
+        "content": "Explaining better, the route should have the accountId parameter:  \"account/{accountId}\""
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12302-exam-az-300-topic-5-question-8-discussion/",
+    "body": "HOTSPOT -<br>You are developing a workflow solution using Azure technologies.<br>What should you implement to meet each requirement? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-01T22:06:00.000Z",
+        "voteCount": 24,
+        "content": "Box 1: Durable functions only \nBox 2: Logic Apps only \nBox 3: Durable functions  only"
+      },
+      {
+        "date": "2020-05-18T11:20:00.000Z",
+        "voteCount": 2,
+        "content": "Box 2 Logic Apps given the statement \"Large collection of ready-made actions\" on this page: https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs"
+      },
+      {
+        "date": "2020-07-13T23:41:00.000Z",
+        "voteCount": 13,
+        "content": "https://vceguide.com/what-should-you-implement-to-meet-each-requirement-2/"
+      },
+      {
+        "date": "2021-01-18T12:52:00.000Z",
+        "voteCount": 1,
+        "content": "Q1: Debug the solution by using Visual Studio - Durable functions Only\nQ2: Use a collection of ready-made actions - Azure Log app only\nQ2: Deploy the component by using Visual Studio Teams Services - Durable function and Azure Log app only\nhttps://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-create-first-csharp?pivots=code-editor-vscode\nhttps://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio#deploy-logic-app-to-azure"
+      },
+      {
+        "date": "2020-09-17T03:10:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is:\nDurable functions only\nLogic Apps only\nDurable functions only"
+      },
+      {
+        "date": "2020-08-27T03:39:00.000Z",
+        "voteCount": 2,
+        "content": "Logic Apps can be deployed using Visual Studio\nhttps://docs.microsoft.com/en-us/azure/logic-apps/quickstart-create-logic-apps-with-visual-studio#deploy-logic-app-to-azure"
+      },
+      {
+        "date": "2020-09-06T06:35:00.000Z",
+        "voteCount": 1,
+        "content": "yep, they sure can!"
+      },
+      {
+        "date": "2020-08-25T00:13:00.000Z",
+        "voteCount": 2,
+        "content": "I Don't see full question here"
+      },
+      {
+        "date": "2020-08-13T06:56:00.000Z",
+        "voteCount": 3,
+        "content": "Debug using VS==&gt; debugging Code==&gt; Durable Func\nReady made actions==&gt; Logic app \ndep using VS ..==&gt; D.Func\nNote: \nMicrosoft Azure offers two services on its platform that enables developers to create a workflow: Azure Durable Functions and Logic Apps. Azure Durable Functions, a cloud implementation of the durable task framework, offers you a way to define a workflow using code, while with Logic Apps, you can automate a workflow without writing any code\nThe critical difference with Logic Apps is control \u2013 with Durable Functions you can write code and have fewer restrictions. With Logic Apps you are being bound to triggers and actions it provides \u2013 the action offering a wide variety in flow control, connectivity, behavior, and message handling, but still less flexibility than with code."
+      },
+      {
+        "date": "2020-08-27T13:46:00.000Z",
+        "voteCount": 1,
+        "content": "Great explanation"
+      },
+      {
+        "date": "2020-08-03T08:38:00.000Z",
+        "voteCount": 2,
+        "content": "why i dont see Box1, Box 2 options under hot area ?"
+      },
+      {
+        "date": "2020-11-24T03:41:00.000Z",
+        "voteCount": 1,
+        "content": "It is only with the heart that one can see rightly; what is essential is invisible to the eye."
+      },
+      {
+        "date": "2020-07-23T14:51:00.000Z",
+        "voteCount": 2,
+        "content": "In answer, it says Explanation... where can I find that?"
+      },
+      {
+        "date": "2020-08-03T03:29:00.000Z",
+        "voteCount": 3,
+        "content": "https://vceguide.com/what-should-you-implement-to-meet-each-requirement-2/"
+      },
+      {
+        "date": "2020-06-17T11:47:00.000Z",
+        "voteCount": 5,
+        "content": "Questions:\nQ1: Debug the solution by using Visual Studio - Durable functions Only\nQ2: Use a collection of ready-made actions - Azure Log app only\nQ2: Deploy the component by using Visual Studio Teams Services -  Durable function and Azure Log app only"
+      },
+      {
+        "date": "2020-06-24T20:55:00.000Z",
+        "voteCount": 1,
+        "content": "Azure logical app mainly for non-programmer. So it should be Durable function only for last question."
+      },
+      {
+        "date": "2020-09-06T06:34:00.000Z",
+        "voteCount": 3,
+        "content": "You can deploy a logic app via VSTS (Azure DevOps), it's simply an ARM template.."
+      },
+      {
+        "date": "2020-06-07T15:57:00.000Z",
+        "voteCount": 3,
+        "content": "Durable functions only - Logic Apps cannot be debugged from VS\nLogic Apps only\nDurable functions &amp; Logic Apps - https://randypaulo.com/2019/06/18/how-to-deploy-azure-logic-apps-using-azure-devops/"
+      },
+      {
+        "date": "2020-05-04T10:28:00.000Z",
+        "voteCount": 3,
+        "content": "Box1:  Durable function only\nLogic App only from portal : https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-diagnosing-failures\nBox2: Logic Apps\nLarge collection of ready-made actions ; https://docs.microsoft.com/en-us/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs \nBox 3: Durable functions &amp; Logic App"
+      },
+      {
+        "date": "2020-04-01T03:02:00.000Z",
+        "voteCount": 8,
+        "content": "Shiuld be the n.34\nhttps://quizlet.com/ch/482793011/az300-flash-cards/"
+      },
+      {
+        "date": "2020-09-15T14:27:00.000Z",
+        "voteCount": 2,
+        "content": "Options - Direct link below, \nhttps://vceguide.com/wp-content/uploads/2020/05/Microsoft-AZ-300-v.2-date-05-08-2020_Page_396_Image_0001.jpg"
+      },
+      {
+        "date": "2020-09-26T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "you have to post the right link."
+      },
+      {
+        "date": "2020-09-15T14:30:00.000Z",
+        "voteCount": 4,
+        "content": "Correct Link below, \nhttps://vceguide.com/wp-content/uploads/2020/05/Microsoft-AZ-300-v.2-date-05-08-2020_Page_398_Image_0001.jpg"
+      },
+      {
+        "date": "2020-01-18T16:20:00.000Z",
+        "voteCount": 6,
+        "content": "Box 1: Logic Apps only -\nYou can manually trigger a logic app deployed in Azure from Visual Studio. On the Logic App Designer toolbar, choose Run Trigger.\nTo check the status and diagnose problems with logic app runs, you can review the details, such as inputs and outputs, for those runs in Visual Studio.\n\nBox 2: Durable functions only -\nBox 3: Durable functions and Logic Apps\nReferences:\nhttps://docs.microsoft.com/en-us/azure/logic-apps/manage-logic-apps-with-visual-studio https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-create-portal"
+      },
+      {
+        "date": "2020-02-04T12:23:00.000Z",
+        "voteCount": 3,
+        "content": "Incorrect,\nYou can debug durable functions\nDurable functions does not have any ready compopnents to be used\nLogic apps can't be deployed via Azure DevOps"
+      },
+      {
+        "date": "2020-06-07T15:58:00.000Z",
+        "voteCount": 2,
+        "content": "Logic apps can be deployed from AzDO - https://randypaulo.com/2019/06/18/how-to-deploy-azure-logic-apps-using-azure-devops/"
+      },
+      {
+        "date": "2020-09-09T04:02:00.000Z",
+        "voteCount": 2,
+        "content": "Q1: Debug the solution by using Visual Studio - Durable functions Only\nQ2: Use a collection of ready-made actions - Azure Log app only\nQ2: Deploy the component by using Visual Studio Teams Services - Durable function and Azure Log app only"
+      },
+      {
+        "date": "2020-09-21T14:12:00.000Z",
+        "voteCount": 7,
+        "content": "Options Below,\nhttps://vceguide.com/wp-content/uploads/2020/05/Microsoft-AZ-300-v.2-date-05-08-2020_Page_398_Image_0001.jpg"
+      },
+      {
+        "date": "2020-03-02T00:19:00.000Z",
+        "voteCount": 3,
+        "content": "Durable functions only\nLogic Apps only\nDurable functions only"
+      },
+      {
+        "date": "2020-03-19T09:28:00.000Z",
+        "voteCount": 1,
+        "content": "Bonna is right if the explanation provided is correct for the same question under AZ-202 on this site."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11914-exam-az-300-topic-5-question-9-discussion/",
+    "body": "HOTSPOT -<br>You are developing a SMS-based testing solution. The solution sends users a question by using SMS. Early responders may qualify for prizes.<br>Users must respond with an answer choice within 90 seconds. You must be able to track how long it takes each user to respond. You create a durable Azure<br>Function named SendSmsQuizQuestion that uses Twilio to send messages.<br>You need to write the code for MessageQuiz.<br>How should you complete the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-29T17:56:00.000Z",
+        "voteCount": 39,
+        "content": "https://www.examtopics.com/exams/microsoft/az-202/view/7/"
+      },
+      {
+        "date": "2020-01-13T15:18:00.000Z",
+        "voteCount": 21,
+        "content": "Box 1 should be DateTime expiration = context.CurrentUtcDateTime.AddSeconds(90);\nBox 2 Should be var timeoutTask = context.CreateTimer(expiration, cts.Token);"
+      },
+      {
+        "date": "2020-09-09T04:12:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1: DateTime expiration = context.CurrentUtcDateTime.AddSeconds(90);\nBox 2: var timeoutTask = context.CreateTimer(expiration, cts.Token);\nBox 3: if(!timeoutTask.IsCompleted)"
+      },
+      {
+        "date": "2020-08-13T08:12:00.000Z",
+        "voteCount": 2,
+        "content": "See https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp \nscroll down to function workflow.. \nGood read.. \nIf you are just looking for answers: (by examt topics)\nBox 1: DateTime expiration = context.CurrentUtcDateTime.AddSeconds(90);\nThe user has 90 seconds to respond with the code they received in the SMS message.\nBox 2:var timeoutTask = context.CreateTimer(expiration, cts.Token);\nCreate a timer.\nBox 3: if(!timeoutTask.IsCompleted)\nAll pending timers must be complete or canceled before the function exits."
+      },
+      {
+        "date": "2020-08-06T16:02:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1 --- DateTime expiration = context.CurrentUtcDateTime.AddSeconds(90);\nYou cant use datetime.now directly but should rather use the datetime within the context.\n\nBox 2 --- timeoutTask = context.CreateTimer(expiration, cts.Token)\ncts variable used here is a giveaway. :)"
+      },
+      {
+        "date": "2020-06-29T02:59:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-phone-verification?tabs=csharp"
+      },
+      {
+        "date": "2020-06-19T17:04:00.000Z",
+        "voteCount": 8,
+        "content": "https://www.examtopics.com/assets/media/exam-media/02522/0013800001.png"
+      },
+      {
+        "date": "2020-06-16T03:31:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1 should be DateTime expiration = context.CurrentUtcDateTime.AddSeconds(90);\nBox 2 Should be var timeoutTask = context.CreateTimer(expiration, cts.Token);"
+      },
+      {
+        "date": "2020-05-13T07:05:00.000Z",
+        "voteCount": 1,
+        "content": "This article provides some understanding as well: https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-timers?tabs=csharp"
+      },
+      {
+        "date": "2020-04-30T04:53:00.000Z",
+        "voteCount": 11,
+        "content": "Would this type of question come up in the exam? Doesn't look like an AZ-300 question."
+      },
+      {
+        "date": "2020-06-02T10:45:00.000Z",
+        "voteCount": 3,
+        "content": "One or two I think -- a requirement for a solution architect to be able to have enough knowledge to read code enough to communicate with DevOps. The answer is in the question if you look for it. In this case the variable cts is a tell for the answer in the second box."
+      },
+      {
+        "date": "2020-04-16T02:22:00.000Z",
+        "voteCount": 6,
+        "content": "The following code implements a similar functionality =&gt; https://github.com/Azure/azure-functions-durable-extension/blob/master/samples/precompiled/PhoneVerification.cs"
+      },
+      {
+        "date": "2020-07-19T14:42:00.000Z",
+        "voteCount": 2,
+        "content": "Good article."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10093-exam-az-300-topic-5-question-10-discussion/",
+    "body": "HOTSPOT -<br>You are developing a solution that requires serverless code execution in Azure.<br>The solution has two functions that must run in a specific order.<br>You need to ensure that the second function can use the output from the first function.<br>How should you complete the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02758/0049700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0049800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-11T15:03:00.000Z",
+        "voteCount": 24,
+        "content": "Is this really in AZ300 or from another exam?"
+      },
+      {
+        "date": "2020-03-19T10:17:00.000Z",
+        "voteCount": 6,
+        "content": "I believe it is in AZ-300, it's in 302 as well. We are expected to be able to read the code well enough to deduce the answer -- the solution is found by noticing the location of \"try\" so orchestrate is before \"try\" and the two \"activity\"s follow. That's my theory anyway."
+      },
+      {
+        "date": "2020-04-21T05:37:00.000Z",
+        "voteCount": 5,
+        "content": "https://docs.microsoft.com/en-us/sandbox/functions-recipes/durable-setup"
+      },
+      {
+        "date": "2020-07-27T19:33:00.000Z",
+        "voteCount": 2,
+        "content": "Given answers are correct.\n\nAzure Functions allows you to run small pieces of code (called \"functions\") without worrying about application infrastructure. With Azure Functions, the cloud infrastructure provides all the up-to-date servers you need to keep your application running at scale."
+      },
+      {
+        "date": "2020-05-14T12:10:00.000Z",
+        "voteCount": 2,
+        "content": "is this still valid ??"
+      },
+      {
+        "date": "2020-05-13T07:09:00.000Z",
+        "voteCount": 5,
+        "content": "This article might help understanding: https://docs.microsoft.com/en-us/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#chaining"
+      },
+      {
+        "date": "2020-07-19T14:52:00.000Z",
+        "voteCount": 1,
+        "content": "As per the article, answer seems to be correct."
+      },
+      {
+        "date": "2020-01-18T17:06:00.000Z",
+        "voteCount": 2,
+        "content": "This is from DevOps"
+      },
+      {
+        "date": "2020-02-02T13:22:00.000Z",
+        "voteCount": 2,
+        "content": "So we will not see this in AZ300?"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18643-exam-az-300-topic-5-question-11-discussion/",
+    "body": "You are developing an app that references data which is sharded across multiple Azure SQL databases.<br>The app must guarantee transactional consistency for changes across several different sharding key values.<br>You need to manage the transactions.<br>What should you implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tElastic database transactions with horizontal partitioning.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDistributed transactions coordinated by Microsoft Distributed Transaction Coordinator (MSDTC).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tServer-coordinated transactions from .NET application.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tElastic database transactions with vertical partitioning."
+    ],
+    "answer": "A",
+    "answerDescription": "References:<br>https://docs.microsoft.com/mt-mt/azure/sql-database/sql-database-elastic-transactions-overview?view=azurermps-6.13.0",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-28T23:09:00.000Z",
+        "voteCount": 5,
+        "content": "Elastic database transactions for SQL Database also support coordinating distributed transactions where you use the OpenConnectionForKey method of the elastic database client library to open connections for a \"scaled out\" data tier. Consider cases where you need to guarantee transactional consistency for changes across several different sharding key values.\n\nHorizontal scaling refers to adding or removing databases in order to adjust capacity or overall performance, also called \"scaling out\". \n\nSo given answer is correct"
+      },
+      {
+        "date": "2020-06-25T02:46:00.000Z",
+        "voteCount": 2,
+        "content": "Horizontal scaling is managed using the Elastic Database client library. Given correct answer is correct. A"
+      },
+      {
+        "date": "2020-06-24T21:07:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-transactions-overview"
+      },
+      {
+        "date": "2020-05-18T06:52:00.000Z",
+        "voteCount": 4,
+        "content": "https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-scale-introduction#sharding"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/15016-exam-az-300-topic-5-question-12-discussion/",
+    "body": "HOTSPOT -<br>You are creating a bot for a company by using QnA Maker.<br>You need to ensure that the company can update the bot without third-party assistance.<br>What should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02758/0050000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0050000002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/overview/overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T16:38:00.000Z",
+        "voteCount": 1,
+        "content": "I'd agree with Anshman... to create and update a QNAMaker knowledgbase seems to be done via the qnamaker.ai portal (to access QnA management services):\nhttps://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base\n\nWhile to get analytics and telemetry,  QnA class and SDK's are mentioned:\nhttps://docs.microsoft.com/en-us/azure/bot-service/bot-builder-telemetry-qnamaker?view=azure-bot-service-4.0\n\nSo for me it appears these answers are correct."
+      },
+      {
+        "date": "2020-06-09T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "answer should be 2,1,1"
+      },
+      {
+        "date": "2020-06-05T09:15:00.000Z",
+        "voteCount": 3,
+        "content": "I dont expect this question in AZ300"
+      },
+      {
+        "date": "2020-05-24T04:16:00.000Z",
+        "voteCount": 1,
+        "content": "Cognitive service is not the subject for AZ-300 exam"
+      },
+      {
+        "date": "2020-05-14T06:19:00.000Z",
+        "voteCount": 1,
+        "content": "I couldn't find good documentation on the difference between QnA Maker runtime versus Management Service properties."
+      },
+      {
+        "date": "2020-05-16T12:41:00.000Z",
+        "voteCount": 12,
+        "content": "QnA maker management services are used for KB creation, enable bot etc.,\nhttps://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/how-to/manage-knowledge-bases\n\nWhereas, to get analytics and telemetry on knowledge base you need to Run some queries (runtime)service.\nhttps://docs.microsoft.com/en-us/azure/cognitive-services/QnAMaker/how-to/get-analytics-knowledge-base\n\nHope this clarifies you now."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12565-exam-az-300-topic-5-question-13-discussion/",
+    "body": "You are developing a speech-enabled home automation control bot.<br>The bot interprets some spoken words incorrectly.<br>You need to improve the spoken word recognition for the bot.<br>What should you implement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Skype for Business Channel and use scorable dialogs for improving conversation flow.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Web Chat Channel and Speech priming using a Bing Speech Service and LUIS app.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Skype Channel and use scorable dialogs for improving conversation flow.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Cortana Channel and use scorable dialogs for improving conversation flow."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-22T15:16:00.000Z",
+        "voteCount": 14,
+        "content": "How come this one is an AZ-300 ques?? Conginitive is not part of syllabus, cross checked in MS docs."
+      },
+      {
+        "date": "2020-04-23T11:45:00.000Z",
+        "voteCount": 8,
+        "content": "For some reason, I feel that a lot of questions in Topic-5 seems to be not in scope of the exam."
+      },
+      {
+        "date": "2020-08-05T01:07:00.000Z",
+        "voteCount": 3,
+        "content": "Definitely not part of AZ-300, maybe AZ-301!"
+      },
+      {
+        "date": "2020-05-21T10:33:00.000Z",
+        "voteCount": 3,
+        "content": "really confusing.. seems TOPIC 5 is out of course completely :("
+      },
+      {
+        "date": "2020-05-16T12:44:00.000Z",
+        "voteCount": 2,
+        "content": "Aren't they part of the AZ-300 Microsoft Course under the module.\nHow to configure a message-based integration architecture, develop for asynchronous processing, create apps for autoscaling, and better understand Azure Cognitive Services solutions."
+      },
+      {
+        "date": "2020-01-23T05:08:00.000Z",
+        "voteCount": 6,
+        "content": "correct but confusing:\n\nSpeech priming improves the recognition of spoken words and phrases that are commonly used in your bot. For speech-enabled bots that use the Web Chat and Cortana channels, speech priming uses examples specified in Language Understanding (LUIS) apps to improve speech recognition accuracy for important words\n\nhttps://docs.microsoft.com/bs-latn-ba/azure/bot-service/bot-service-manage-speech-priming?view=azure-bot-service-3.0"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13882-exam-az-300-topic-5-question-14-discussion/",
+    "body": "DRAG DROP -<br>Your company develops a bot that uses QnA Maker knowledge bases and Language Understanding Intelligence Services  (LUIS). You create the QnA Maker service, knowledge bases, and the LUIS app.<br>The bot application must use LUIS to determine which QnA Maker knowledge base to use.<br>You need to integrate LUIS with the QnA Maker knowledge bases and maximize the effectiveness for selecting the QnA Maker knowledge bases before testing the bot.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02758/0050200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0050300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-11T20:27:00.000Z",
+        "voteCount": 9,
+        "content": "I think the answer is right. Ref: https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/tutorials/integrate-qnamaker-luis"
+      },
+      {
+        "date": "2020-10-18T16:34:00.000Z",
+        "voteCount": 1,
+        "content": "I think it should be \n-Create Intents\n-Create entities\n-Train \n-Publish\nhttps://docs.microsoft.com/en-us/learn/modules/create-and-publish-a-luis-model/4-exercise-add-intents-and-entities"
+      },
+      {
+        "date": "2020-08-05T01:15:00.000Z",
+        "voteCount": 3,
+        "content": "Definitely not part of AZ-300"
+      },
+      {
+        "date": "2020-08-11T14:10:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, but I read about it.\nThe answer seems be right.\nExplanation:\nCreate a LUIS app\nTrain and publish the app to the production environment.\nRecord the application ID, display name, authoring key, and location.\nReference:\nhttps://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&amp;tabs=cs#create-the-luis-apps"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12371-exam-az-300-topic-5-question-15-discussion/",
+    "body": "HOTSPOT -<br>You create a virtual machine scale set named Scale1. Scale1 is configured as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/02758/0050400001.jpg\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02758/0050500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02758/0050500002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1:<br>The Autoscale scale out rule increases the number of VMs by 2 if the CPU threshold is 80% or higher. The initial instance count is 4 and rises to 6 when the 2 extra instances of VMs are added.<br>Box 2:<br>The Autoscale scale in rule decreases the number of VMs by 4 if the CPU threshold is 30% or lower. The initial instance count is 4 and thus cannot be reduced to<br>0 as the minimum instances is set to 2. Instances are only added when the CPU threshold reaches 80%.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-overview https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-best-practices https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-common-scale-patterns",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-06T16:45:00.000Z",
+        "voteCount": 9,
+        "content": "Got this question in AZ-303 beta. The Duration in minutes was mentioned in there as 5 minutes.\nAnswer is 6 and 2."
+      },
+      {
+        "date": "2020-09-02T09:31:00.000Z",
+        "voteCount": 2,
+        "content": "Thank you. There is no default highlighted in Azure documentation. It seems everyone just assumed it is 5 mins or 10 mins. Question is missing this."
+      },
+      {
+        "date": "2020-04-24T14:35:00.000Z",
+        "voteCount": 6,
+        "content": "Since the default time is 10 so the correct answer should be 4,4"
+      },
+      {
+        "date": "2020-07-19T15:39:00.000Z",
+        "voteCount": 3,
+        "content": "Agree with Redsal.\ndefault is 10 minutes and it also asks to specify while creating the VM Scale set.\nBut the question don't have any details on the time. So, we have to go with default only.\nIf we go with default, then the answer for 2 questions is 4 VM's only since it has not reached 10 minutes."
+      },
+      {
+        "date": "2020-12-01T05:51:00.000Z",
+        "voteCount": 1,
+        "content": "I don't see that the 10 minutes are default it is the duration been configured as per the requirement of the scenario \"Let's create a rule that increases the number of VM instances in a scale set when the average CPU load is greater than 70% over a 10-minute period.\""
+      },
+      {
+        "date": "2020-09-06T07:05:00.000Z",
+        "voteCount": 3,
+        "content": "yeah i also agree... none of the scenarios are long enough to meet the default 10 minute check... so nothing changes! :)"
+      },
+      {
+        "date": "2020-09-26T09:01:00.000Z",
+        "voteCount": 1,
+        "content": "answer will be 4,4 \nits specifically mentioned in the microsoft docs as \"\tThe amount of time monitored before the metric and threshold values are compared. Does not include cool down period.\"\nhttps://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-portal"
+      },
+      {
+        "date": "2020-09-02T09:54:00.000Z",
+        "voteCount": 1,
+        "content": "Irrespective of default time, Box 2 will be 4. Scale in rule will run at 25% but it says reduce instance count by 4 which will make instance count 0 but minimum instance count is 2, so it won't do anything"
+      },
+      {
+        "date": "2020-09-06T07:10:00.000Z",
+        "voteCount": 3,
+        "content": "Hi, no i will reduce down to the minimum, i just checked on the portal..\n\nIn summar:\n\n10mins: 4,4\n5mins: 6,2"
+      },
+      {
+        "date": "2020-08-11T15:35:00.000Z",
+        "voteCount": 2,
+        "content": "I think that the answer is right: 6VM and 2 VM and the explanation is well to. I did it in lab and the option exist to configure the time, and this picture don't show it. The question mentioned 6 minutes, so we should assume 6 minutes was configured. I tested the way to customize the time of thresholds and change default values too: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-understanding-settings\n\nBesides that:\nINFO(Duration in minutes): This is amount of time that Autoscale engine will look back for metrics. For example, 10 minutes means that every time autoscale runs, it will query metrics for the past 10 minutes. This allows your metrics to stabilize and avoids reacting to transient spikes. The Storage queue Approximate Message Count and Service Bus Message Count metrics are special in that these metrics are point in time only and have no history. For these metrics, the duration field will be ignored by the Autoscale engine."
+      },
+      {
+        "date": "2020-09-02T09:49:00.000Z",
+        "voteCount": 1,
+        "content": "Please don't write just for the sake of writing. How you got 2 VM's, care to explain ?"
+      },
+      {
+        "date": "2020-07-27T03:19:00.000Z",
+        "voteCount": 1,
+        "content": "For Azure Cloud Services and Azure Virtual Machines, \n\tthe default period for the aggregation is 45 minutes, \n\tso it can take up to this period of time for the metric to trigger autoscaling in response to spikes in demand. \n\tYou can change the aggregation period by using the SDK, but periods of less than 25 minutes may cause unpredictable results. \nFor Web Apps, the averaging period is much shorter, allowing new instances to be available in about five minutes after a change to the average trigger measure."
+      },
+      {
+        "date": "2020-07-25T09:36:00.000Z",
+        "voteCount": 1,
+        "content": "Its mentioned at Six minutes and if we need to assume the 6 minutes is the interval but not 5 or 10 minutes default value. If we consider defaul then mentioned minutes has no effect...if we go with 6 minutes as interval then instance count 4 plus cpu crossed 80% make 6 as answer for 1st condition. Explanation provided below seem to be fine though i was confused with 2nd condition..it ran for less than 30% for 1st 6 minutes and then 50% and in this case do we need to reduce the VM as the question demand scale  set running condition..rather than what was the VM when cpu at 25% rate ?"
+      },
+      {
+        "date": "2020-07-13T12:40:00.000Z",
+        "voteCount": 5,
+        "content": "6 and 2 is correct"
+      },
+      {
+        "date": "2020-09-06T07:07:00.000Z",
+        "voteCount": 1,
+        "content": "they are correct if the duration is 5 minutes i would completely agree... but the fact is we don't know!"
+      },
+      {
+        "date": "2020-11-19T16:07:00.000Z",
+        "voteCount": 1,
+        "content": "Cpu Threshould (%) is a metric Host Level EC2 instances, so by default monitoring is 5 minutes, so 6 and 2 is good answer!"
+      },
+      {
+        "date": "2020-07-05T17:52:00.000Z",
+        "voteCount": 3,
+        "content": "Regarding to Box2, the point is \"decreased by 4\". It can't be decrease by 4 because initial number of VM is 4 and minimum number of VM is 2. It should be 4 VM. Duration time does not matter for Box2."
+      },
+      {
+        "date": "2020-06-27T20:05:00.000Z",
+        "voteCount": 1,
+        "content": "we should not assume that the defaults were taken. a number of people have posted and confirmed that the default duration is 5 or 10 minutes. Have they looked at the other defaults and compared with the question? For example, when creating a new VMSS in the portal, the default for CPU threshold scale out is 7. But in this question, the setting is 80. So why pick on one default and not recognise the other defaults. IMHO, the question mentioned 6 minutes, so we should assume 6 minutes was configured."
+      },
+      {
+        "date": "2020-06-27T20:07:00.000Z",
+        "voteCount": 1,
+        "content": "typo above \"..the default for CPU threshold scale out is 7\" should be read as \"the default for CPU threshold scale out is 75\"."
+      },
+      {
+        "date": "2020-06-10T08:33:00.000Z",
+        "voteCount": 4,
+        "content": "10/06/2020 default time is 10 min"
+      },
+      {
+        "date": "2020-06-06T19:55:00.000Z",
+        "voteCount": 5,
+        "content": "Default scale in or out time is 10 mins hence 4 and 4"
+      },
+      {
+        "date": "2020-05-29T17:36:00.000Z",
+        "voteCount": 4,
+        "content": "Yes, the default time duration is 10 minutes, so the answer should be 4 and 4."
+      },
+      {
+        "date": "2020-05-26T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "There is no default time in Scale. It's just given minimal time. You configure it as you want."
+      },
+      {
+        "date": "2020-05-25T09:22:00.000Z",
+        "voteCount": 4,
+        "content": "There is no default value as such, the Scale out \"Duration in Minutes\" has to be a value between 5 to 60 minutes. Since it is shown here in the question, we should assume as minimum duration which is 5minutes and that explains the answers."
+      },
+      {
+        "date": "2020-09-06T07:06:00.000Z",
+        "voteCount": 1,
+        "content": "Hmmm... nothing about this question would lead me to assume min duration is 5 EXCEPT for the fact that they keep talking about 6 minutes all over the place.. but that is a weird cue."
+      },
+      {
+        "date": "2020-12-01T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "Can you provide a link where it says the \"Duration in Minutes\" has to be a value between 5 to 60 minutes or it was something you found in labs"
+      },
+      {
+        "date": "2020-05-03T04:26:00.000Z",
+        "voteCount": 6,
+        "content": "Very tricky ques, since duration time is not mentioned and default amount of time monitoring threshold values is 10 minutes and Since 6 minute time is mentioned here so correct ans is 4 and 4. i.e. Vm count will remain same, no changes."
+      },
+      {
+        "date": "2020-09-06T07:05:00.000Z",
+        "voteCount": 2,
+        "content": "must be, i agree."
+      },
+      {
+        "date": "2020-05-01T16:47:00.000Z",
+        "voteCount": 2,
+        "content": "Tricky question as the default Duration value not mentioned in the question. The page posted by andy0983011 is an example of 10 minutes. Scale set rule settings not posted in the question."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12274-exam-az-300-topic-5-question-16-discussion/",
+    "body": "HOTSPOT -<br>Your company hosts multiple website by using Azure virtual machine scale sets (VMSS) that run Internet Information Server (IIS).<br>All network communications must be secured by using end to end Secure Socket Layer (SSL) encryption. User sessions must be routed to the same server by using cookie-based session affinity.<br>The image shown depicts the network traffic flow for the web sites to the VMSS.<br><img src=\"/assets/media/exam-media/02758/0050700001.jpg\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that answers each question.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box 1: Public -<br>The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools.<br><img src=\"/assets/media/exam-media/02758/0050800001.jpg\" class=\"in-exam-image\"><br><br>Box 2: Application Gateway -<br>You can create an application gateway with URL path-based redirection using Azure PowerShell.<br>Box 3: Path-based redirection and Websockets<br>References:<br>https://docs.microsoft.com/bs-latn-ba/azure//application-gateway/tutorial-url-redirect-powershell",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-18T01:10:00.000Z",
+        "voteCount": 29,
+        "content": "this is multiple web sites, not path based route. So I think \"Routing Rule and backend listeners\" may be correct\nhttps://docs.microsoft.com/en-us/azure/application-gateway/tutorial-multiple-sites-powershell"
+      },
+      {
+        "date": "2020-03-23T09:51:00.000Z",
+        "voteCount": 3,
+        "content": "that`s my understanding as well"
+      },
+      {
+        "date": "2020-09-14T05:05:00.000Z",
+        "voteCount": 5,
+        "content": "Box 1: Public\nBox 2: Application Gateway\nBox 3: Routing rules and backend listners"
+      },
+      {
+        "date": "2020-07-14T00:08:00.000Z",
+        "voteCount": 15,
+        "content": "For Hot Area : https://vceguide.com/hotspot-930/"
+      },
+      {
+        "date": "2020-08-08T17:52:00.000Z",
+        "voteCount": 7,
+        "content": "The answer should be\nBox 1: Public \nBox 2: Application Gateway\nBox 3: Routing rules and backend listners"
+      },
+      {
+        "date": "2020-07-03T18:42:00.000Z",
+        "voteCount": 1,
+        "content": "https://books.google.com/books?id=h0XbDwAAQBAJ&amp;pg=PA82&amp;lpg=PA82&amp;dq=azure+application+gateway+cookie-based+session+affinity+vmss&amp;source=bl&amp;ots=IEYFKakNME&amp;sig=ACfU3U05nuS_kHeCQQgmRehrTgjnXytJkQ&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwju24eXx7LqAhUqgK0KHa7EB0cQ6AEwD3oECAwQAQ#v=onepage&amp;q=azure%20application%20gateway%20cookie-based%20session%20affinity%20vmss&amp;f=false"
+      },
+      {
+        "date": "2020-06-24T09:21:00.000Z",
+        "voteCount": 6,
+        "content": "The HOT SPOT options are not visible. Can anyone share options?"
+      },
+      {
+        "date": "2020-05-25T09:42:00.000Z",
+        "voteCount": 7,
+        "content": "Box1 &amp; Box2 are correct.\nFor Box3: It should be \"Routing Rules and Backend Listeners\"\nMulti Site (fabrikam.com &amp; contoso.com) - Routing Rules and Backend Listeners\nSimilarly we may use the above mechanism to host the multiple subdoimans like (app.contoso.com &amp; blog.contoso.com)\nhttps://docs.microsoft.com/en-us/azure/application-gateway/multiple-site-overview\n\nURL Path (fabrikam.com/images &amp; fabrikam.com/videos) - URL Path Based Routing\nhttps://docs.microsoft.com/en-us/azure/application-gateway/url-route-overview\n\nThere is a similar question in this Dump with a customer scenario."
+      },
+      {
+        "date": "2020-07-19T16:05:00.000Z",
+        "voteCount": 3,
+        "content": "Exactly agree with Anshman.\nFor Box 3, answer is \"Routing rules and Backend Listeners\""
+      },
+      {
+        "date": "2020-05-14T06:30:00.000Z",
+        "voteCount": 1,
+        "content": "For reference regarding websockets: https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-websocket"
+      },
+      {
+        "date": "2020-01-26T16:35:00.000Z",
+        "voteCount": 3,
+        "content": "I think so"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/6081-exam-az-300-topic-5-question-17-discussion/",
+    "body": "SIMULATION -<br>Click to expand each objective. To connect to the Azure portal, type https://portal.azure.com in the browser address bar.<br><img src=\"/assets/media/exam-media/02758/0050900001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0051000001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0051100001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0051200001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0051300001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02758/0051400001.jpg\" class=\"in-exam-image\"><br>When you are finished performing all the tasks, click the \"\u02dcNext' button.<br>Note that you cannot return to the lab once you click the \"\u02dcNext' button. Scoring occur in the background while you complete the rest of the exam.<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You need to create a virtual network named VNET1008 that contains three subnets named subnet0, subnet1, and subnet2. The solution must meet the following requirements:<br>\u2711 Connections from any of the subnets to the Internet must be blocked<br>\u2711 Connections from the Internet to any of the subnets must be blocked<br>\u2711 The number of network security groups (NSGs) and NSG rules must be minimized<br>What should you do from the Azure portal?<br>",
+    "options": [],
+    "answer": "See solution below.",
+    "answerDescription": "Step 1: Click Create a resource in the portal.<br>Step 2: Enter Virtual network in the Search the Marketplace box at the top of the New pane that appears. Click Virtual network when it appears in the search results.<br>Step 3: Select Classic in the Select a deployment model box in the Virtual Network pane that appears, then click Create.<br>Step 4: Enter the following values on the Create virtual network (classic) pane and then click Create:<br>Name:                                 VNET1008<br>Address space:                   10.0.0.0/16<br>Subnet name:                      subnet0<br>Resource group:                   Create new<br>Subnet address range:          10.0.0.0/24<br>Subscription and location:     Select your subscription and location.<br>Step 5: In the portal, you can create only one subnet when you create a virtual network. Click Subnets (in the SETTINGS section) on the Create virtual network<br>(classic) pane that appears.<br>Click +Add on the VNET1008 - Subnets pane that appears.<br>Step 6: Enter subnet1 for Name on the Add subnet pane. Enter 10.0.1.0/24 for Address range. Click OK.<br>Step 7: Create the third subnet: Click +Add on the VNET1008 - Subnets pane that appears. Enter subnet2 for Name on the Add subnet pane. Enter 10.0.2.0/24 for<br>Address range. Click OK.<br>References:<br>https://docs.microsoft.com/en-us/azure/virtual-network/create-virtual-network-classic",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-03T20:12:00.000Z",
+        "voteCount": 26,
+        "content": "You need to create a NSG with outbout block using service tag.\n\nHow can we use service tags to block outbound traffic to the Internet for our virtual machines now? It\u2019s easy.\n\nFirst, you will create the Deny-to-Internet rule:\n\nSource: Virtual Network\nSource Port Range: *\nDestination: Service Tag\nDestination Service Tag: Internet\nProtocol: Any\nAction: Deny\nPriority: 4096\nName: Deny-AllInternet"
+      },
+      {
+        "date": "2020-06-29T00:13:00.000Z",
+        "voteCount": 1,
+        "content": "Correct, tried in the portal. Create Vnet, with 3 subnets, Add outbound rule blocking internet, then attach it (nsg) to the 3 subnets"
+      },
+      {
+        "date": "2019-10-22T03:45:00.000Z",
+        "voteCount": 16,
+        "content": "create NSG and block the internet for outgoing connections. The incoming connections always have internet blocked (unless someone will open some ports). If this is a case you need to add incoming rule to block any traffic from internet. Then assign it to subnet/VM"
+      },
+      {
+        "date": "2019-12-03T06:43:00.000Z",
+        "voteCount": 4,
+        "content": "default NSG's security rules blocks internet connection, so i would say that creating the NSG and assigned it to subnet is enough.\nhttps://docs.microsoft.com/en-us/azure/virtual-network/security-overview#default-security-rules"
+      },
+      {
+        "date": "2019-12-29T16:59:00.000Z",
+        "voteCount": 4,
+        "content": "Connections from any of the subnets to the Internet must be blocked\nso outbound need to add deny internet"
+      },
+      {
+        "date": "2020-07-19T16:16:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with Adrian.\nWhen a VM is created, NSG will get created automatically. If it is not present in the lab, then create the NSG.\nDefault Inbound and Outbound security rules will be added automatically once the NSG is created.\nThese has rules to deny all Inbound traffic (Internet) and deny all outbound traffic."
+      },
+      {
+        "date": "2020-07-19T16:52:00.000Z",
+        "voteCount": 1,
+        "content": "small correction. We need to create a new Outbound security rule to Deny outbound Internet traffic. Give lowest priority number."
+      },
+      {
+        "date": "2020-11-19T16:34:00.000Z",
+        "voteCount": 1,
+        "content": "Only need add outbound rule in default NSG for deny Outbound traffic to internet, Incoming traffic is deny by default"
+      },
+      {
+        "date": "2020-10-04T14:38:00.000Z",
+        "voteCount": 1,
+        "content": "what happened to the NSG rules"
+      },
+      {
+        "date": "2020-09-23T19:52:00.000Z",
+        "voteCount": 1,
+        "content": "there is a default inbound rule(65500) block the all inbound traffic, no need to add a rule for inbound.\nand there is a default outbound rule(65500) block all outbound traffic. why not to delete the default rule(65001 ALLOW to internet), it's also match the goal and the minimum rules."
+      },
+      {
+        "date": "2020-07-19T08:33:00.000Z",
+        "voteCount": 1,
+        "content": "Once you create NSG and associate subnet, you are done.\nSubnet &lt;-&gt; Internet is blocked by default, based on default rules.\nDon't need to create any rules"
+      },
+      {
+        "date": "2020-07-19T08:37:00.000Z",
+        "voteCount": 2,
+        "content": "Actually no additional rule for inbound, but you need to add outbound rules as be default subnet allows to go to internet (priority 65001)"
+      },
+      {
+        "date": "2020-08-13T18:04:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, I did in lab. It's necessary to create a OutBound rule to block internet trafic."
+      },
+      {
+        "date": "2020-08-20T06:11:00.000Z",
+        "voteCount": 2,
+        "content": "You need the Outbound Rule to have an exception as by default, all Outbound access to the Internet is permitted (rule to block this for */All traffic)."
+      },
+      {
+        "date": "2020-06-03T05:51:00.000Z",
+        "voteCount": 1,
+        "content": "I think deny is already there by default in NSG. we can just allow virtual network IP address range under inbound and outbound rule."
+      },
+      {
+        "date": "2020-06-03T05:45:00.000Z",
+        "voteCount": 1,
+        "content": "When we create a Network Security group. There is already default deny for all incoming request on any port and  deny for all outgoing request for all ports. Do we still need to add the rules? \n\nI am talking about the default rule with priority 65500 ."
+      },
+      {
+        "date": "2020-05-29T14:27:00.000Z",
+        "voteCount": 8,
+        "content": "1. Create a NSG.\n2. Add Outbound Security Rule (By default InBound internet access is denied - Priority 65500) with \nSource: Either Any or VirtualNetwork\nSource port: *\nDestination: Service Tag\nDestination service tag: Internet\nDestination port ranges: *\nProtocol: Any\nAction: Deny\n3. In NSG Subnet associate each subnet"
+      },
+      {
+        "date": "2020-05-15T15:35:00.000Z",
+        "voteCount": 2,
+        "content": "THIS IS INTERESTING...I FEEL the above answer does it if you do not create a public ip for your machines then there is no inbound or outbound traffic allowed... i mean why create NSG when they get blocked by default."
+      },
+      {
+        "date": "2020-05-25T04:25:00.000Z",
+        "voteCount": 2,
+        "content": "That is not true. For instance when you create a VM without a public IP it will still have access to the internet through a random Azure IP by natting. NSG rules will be necessary."
+      },
+      {
+        "date": "2020-04-23T21:49:00.000Z",
+        "voteCount": 1,
+        "content": "Why not create a NSG with one inbound rule and one outbound rule - Service Tag Internet, ports - 0 to 65535 so there won't be any traffic to and fro from the internet? Then associate this NSG with the subnets."
+      },
+      {
+        "date": "2020-03-06T11:46:00.000Z",
+        "voteCount": 3,
+        "content": "Btw, no need to use Ports... Just use Service Tags in the NSG Source and Desntination"
+      },
+      {
+        "date": "2020-02-02T13:17:00.000Z",
+        "voteCount": 2,
+        "content": "By default the subnets are isolated from Internet, right? Do we really need a NSG?\n\n\"The number of network security groups (NSGs) and NSG rules must be minimized\""
+      },
+      {
+        "date": "2020-08-13T18:00:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, but not all resources create by default a NSG, so you'll need to create a NSG."
+      },
+      {
+        "date": "2020-01-17T08:48:00.000Z",
+        "voteCount": 4,
+        "content": "Need to create an NSG and add an outbound rule to block the internet traffic. \nThe NSG default inbound rules block all inbound traffic except from Azure load balancer and VNet traffic. So by default Internet traffic is not allowed.\nThe NGS contains by default a rue that allows Internet traffic. No add a rule to deny the Internet traffic.\nAssign the NSG to the subnets."
+      },
+      {
+        "date": "2020-01-02T00:17:00.000Z",
+        "voteCount": 3,
+        "content": "I've found the NSG rules to be a bit random at times when creating/removing them, but effectively you need to define a deny any inbound and outbound rule. Using the source or destination \"Service Tag\" option and then selecting \"Internet\" allows you to specify traffic to be blocked only to/from the internet, otherwise you can end up preventing other traffic (e.g. inter-vnet) from working. Make sure you associate the NSG with the vnet/subnets."
+      },
+      {
+        "date": "2020-01-13T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "so we will need to have 2 inbound and 2 outbound rules (port 80 &amp; 443) with service tag \"internet\""
+      },
+      {
+        "date": "2020-01-14T10:50:00.000Z",
+        "voteCount": 6,
+        "content": "it would be 1 inbound and 1 outbound rule to block all ports service tag internet? - we are blocking all traffic to / from internet , not just http and https"
+      },
+      {
+        "date": "2020-08-28T09:59:00.000Z",
+        "voteCount": 1,
+        "content": "Nothing needs to be added for inbound as by default access from internet is blocked"
+      },
+      {
+        "date": "2019-12-21T01:43:00.000Z",
+        "voteCount": 3,
+        "content": "create NSG and block allInbound traffic any port potocal and destination Internet.\n\nhttps://www.petri.com/blocking-internet-access-azure-vms"
+      },
+      {
+        "date": "2019-12-11T19:42:00.000Z",
+        "voteCount": 2,
+        "content": "But how do you define internet, but 80,443 are not Internet. These are just webpages."
+      },
+      {
+        "date": "2020-07-18T23:36:00.000Z",
+        "voteCount": 1,
+        "content": "by adding a rule to \"Deny\" all outgoing traffic for \"Service Tag\" \"Internet\""
+      },
+      {
+        "date": "2019-10-03T15:38:00.000Z",
+        "voteCount": 7,
+        "content": "create a NSG and add inbound and outbound rule to block internet traffic. In NSG you need to define port 80,443 and protocol TCP. Now associate this NSG to all  subnets."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10407-exam-az-300-topic-5-question-18-discussion/",
+    "body": "A company is migrating an existing on-premises third-party website to Azure. The website is stateless.<br>The company does not have access to the source code for the website. They do not have the original installer.<br>The number of visitors at the website varies throughout the year. The on-premises infrastructure was resized to accommodate peaks but the extra capacity was not used.<br>You need to implement a virtual machine scale set instance.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an autoscale setting to scale instances vertically",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate 100 autoscale settings per resource",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tScale out by one instance when the average CPU usage of one of the instances is over 80 percent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Azure Monitor to create autoscale settings using custom metrics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an autoscale setting with unlimited maximum number of instances",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a webhook to log autoscale failures"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-custom-metric",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-17T01:23:00.000Z",
+        "voteCount": 17,
+        "content": "The D is correct, because Scale In is also needed."
+      },
+      {
+        "date": "2020-06-27T22:21:00.000Z",
+        "voteCount": 7,
+        "content": "Since the company no longer have the installer or the source code, they can only lift and shift the onprem vm or physical server into Azure. The question also mentions that the infra was right sized which also means that there are at least 2 or more VMs/Physical Machines involved with the application. We also do not know if there was 2 or 5 or 10 or 20 machines handling the load.\nWhen creating the VMSS, we can specify our own VM images. (https://azure.microsoft.com/en-us/services/virtual-machine-scale-sets/#overview) \nWhen creating a VMSS, we can also specify a custom scale policy to scale up and down when necessary. Answer C mentions scaling up by 1. While this answer is suitable to a certain extent and there is no mention about saving costs, it doesn\u2019t mention scaling down which means that resources are not optimised when load goes down. From an architect perspective, it would in the interest of the company to save on cost instead of leaving unnecessary VMs running.\nMy answer preference is therefore \u2018D\u2019."
+      },
+      {
+        "date": "2020-08-29T15:51:00.000Z",
+        "voteCount": 1,
+        "content": "Correct, although it doesnt explicitly state that they want to optimize cost, that is what a scale set is designed for. This answer is the only answer which explains how the scale set would scale back in as well as scale out."
+      },
+      {
+        "date": "2020-12-01T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "But the link https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-overview#:~:text=Azure%20Monitor%20autoscale%20applies%20only,Virtual%20Machines%20(availability%20sets). says: \"You can also leverage your own custom metrics that your application(s) may be emitting.\" it has no mention that application is emitting any metrics and you would need to modify the code to emit any new custom metric hence D is not correct the only option that make sense in C which might not be 100% correct but by rule of elimination it makes most sense"
+      },
+      {
+        "date": "2020-10-04T14:40:00.000Z",
+        "voteCount": 1,
+        "content": "I think you need the source code to add AppInsight for D.... should be C"
+      },
+      {
+        "date": "2020-06-27T16:31:00.000Z",
+        "voteCount": 1,
+        "content": "It can't be C because the scale out will be done on the average CPU usage of one instance not all instances. It means that as long the first VM is busy after the cooldown period it will increase one more and so on."
+      },
+      {
+        "date": "2020-06-04T19:25:00.000Z",
+        "voteCount": 4,
+        "content": "In order to use Azure monitor to autoscale you need to install Application Insights into the web app but you don't have de code then should be C?"
+      },
+      {
+        "date": "2020-05-25T10:03:00.000Z",
+        "voteCount": 2,
+        "content": "Azure Monitor autoscale applies only to Virtual Machine Scale Sets, Cloud Services, App Service - Web Apps, Azure Data Explorer Cluster , Integration Service Environment and API Management services? \nSince we cannot create a VM scale set to an exisitng VM.\n\nAre we assuming the VM/Website is hosted to a WebAPP and going to use the Azure Monitor to enable Autoscaling? as per the link.\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-custom-metric"
+      },
+      {
+        "date": "2020-05-22T09:08:00.000Z",
+        "voteCount": 1,
+        "content": "People stating scale out is not needed, are too black or white. You don' t know which Size they chose for the VMSS, maybe it's a very weak VM which means scaling in and out is relevant... After all they moved from onprem so it's not like they are forced to use the same settings in Azure. C and D both work for me"
+      },
+      {
+        "date": "2020-05-14T06:38:00.000Z",
+        "voteCount": 3,
+        "content": "For further knowledge: https://docs.microsoft.com/en-us/azure/azure-monitor/platform/autoscale-custom-metric"
+      },
+      {
+        "date": "2020-05-06T16:30:00.000Z",
+        "voteCount": 5,
+        "content": "The ques is simple but demands well thoughts. Only scale out is not required. Since the usage is unknown Scale in also needs to be considered. Hence Option D as based on Metrics VMs will be set."
+      },
+      {
+        "date": "2019-12-15T18:45:00.000Z",
+        "voteCount": 4,
+        "content": "it could be C as well"
+      },
+      {
+        "date": "2020-05-11T22:17:00.000Z",
+        "voteCount": 2,
+        "content": "No it couldn't, they said the extra capacity wasn't used, so it doesn't *look* like the actual utilization was 80% or higher. Cryptic question, but I reckon the only answer can be D."
+      },
+      {
+        "date": "2020-09-09T04:36:00.000Z",
+        "voteCount": 2,
+        "content": "D is ok"
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7856-exam-az-300-topic-5-question-19-discussion/",
+    "body": "You have an Azure subscription named Subscription1.<br>You create several Azure virtual machines in Subscription1. All of the virtual machines belong to the same virtual network.<br>You have an on-premises Hyper-V server named Server1. Server1 hosts a virtual machine named VM1.<br>You plan to replicate VM1 to Azure.<br>You need to create additional objects in Subscription1 to support the planned deployment.<br>Which three objects should you create? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHyper-V site",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Recovery Services Vault",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage account",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\treplication policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Traffic Manager instance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tendpoint"
+    ],
+    "answer": "ABD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-25T09:24:00.000Z",
+        "voteCount": 48,
+        "content": "BCD\nhttps://docs.microsoft.com/en-us/azure/site-recovery/tutorial-prepare-azure-for-hyperv\nyou only have to prepare the azure side"
+      },
+      {
+        "date": "2020-02-02T15:36:00.000Z",
+        "voteCount": 2,
+        "content": "I agree!"
+      },
+      {
+        "date": "2020-02-23T14:23:00.000Z",
+        "voteCount": 6,
+        "content": "question specifically asks for what needs to be created in subscription1? In that case \nBCD would be correct."
+      },
+      {
+        "date": "2020-10-08T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "mmm my doub is, you are replicating the VM1 or required all the nested Virtualization?\nWhy you need all the nested Hyper-v if you only want to replicate VM1?"
+      },
+      {
+        "date": "2020-09-28T21:23:00.000Z",
+        "voteCount": 1,
+        "content": "Hyper-V site does not exist in Azure.\nBCD"
+      },
+      {
+        "date": "2020-09-02T08:41:00.000Z",
+        "voteCount": 6,
+        "content": "The exact question came in exam a 3 days ago. No change in wordings.\nThe given answer is correct. A, B, D are correct. I think you need focus on line saying \"You create several Azure virtual machines in Subscription1\". It means you already have existing storage account."
+      },
+      {
+        "date": "2020-09-02T08:45:00.000Z",
+        "voteCount": 3,
+        "content": "also it says \"You need to create additional objects in Subscription1 to support the planned deployment.\". meaning use exiting created objects including storage account."
+      },
+      {
+        "date": "2020-08-29T05:17:00.000Z",
+        "voteCount": 1,
+        "content": "ABC\nWhy A?\nI think that they talking about https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-prepare-on-premises-tutorial"
+      },
+      {
+        "date": "2020-08-28T22:01:00.000Z",
+        "voteCount": 1,
+        "content": "This questions specifically asks about what needs to be created in \"Subscription 1\". \nHyper-V site is part of Recovery service vault and not seperate like storage account, so I will choose B,C,D as correct here. \nSee:-\nhttps://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-tutorial"
+      },
+      {
+        "date": "2020-08-17T11:03:00.000Z",
+        "voteCount": 1,
+        "content": "ABC is correct.\nyou need to create a  Hyper-V site, see below extract from tuto: \n\"Set up the source environment \t\nIn Create Hyper-V site, specify the site name. We're using ContosoHyperVSite.\""
+      },
+      {
+        "date": "2020-08-17T10:59:00.000Z",
+        "voteCount": 1,
+        "content": "\"There's no need to specify storage accounts to store the backup data. The Recovery Services vault and Azure Backup handle that automatically.\"\n--&gt; no storage account"
+      },
+      {
+        "date": "2020-07-19T09:06:00.000Z",
+        "voteCount": 2,
+        "content": "A is from here-&gt; \"After the site is created, in Prepare source &gt; Step 1: Select Hyper-V site, select the site you created.\"\n\n\"https://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-tutorial"
+      },
+      {
+        "date": "2020-07-02T22:56:00.000Z",
+        "voteCount": 1,
+        "content": "A, B, And D is the answer."
+      },
+      {
+        "date": "2020-07-07T06:54:00.000Z",
+        "voteCount": 1,
+        "content": "A is \"create Hyper-v site\" in the on-premise Hyper-v console.\nThe question is about 3 objects in Subscription1, that is on Azure.\nA is wrong."
+      },
+      {
+        "date": "2020-08-13T18:19:00.000Z",
+        "voteCount": 2,
+        "content": "I Agree.\nCorrect Answer: BCD\nExplanation:\nA is wrong, it is OnPremise. The question is about 3 objects in Subscription1, that is on Azure Cloud.\nReference:\nhttps://docs.microsoft.com/en-us/azure/site-recovery/tutorial-prepare-azure-for-hyperv"
+      },
+      {
+        "date": "2020-06-08T09:02:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is BCD. This is azure migrate process where ova file is created and assessment is done before migrating to Azure"
+      },
+      {
+        "date": "2020-06-06T12:09:00.000Z",
+        "voteCount": 1,
+        "content": "Bcd appears correct as it says what components are needed on azure end"
+      },
+      {
+        "date": "2020-05-30T00:19:00.000Z",
+        "voteCount": 3,
+        "content": "You need to host a VM on HyperV host and configure the Hyper-V site to register in Subcription 1. So A is also correct. Infact without A the migration cannot be possible. Storage account is also created but can also be created with other resource. So A, B, D"
+      },
+      {
+        "date": "2020-05-25T10:45:00.000Z",
+        "voteCount": 4,
+        "content": "How we usually do it during the exam preparation?\n1.Create Recovery Services Vault\nNavigate to newly created Recovery Services Vault&gt;Select Site Recovery&gt;Prepare infrastructure&gt;Enter details for \"Protection Goal\"\n2.Create Hyper-V site\nAdd Hyper-V Servers (Register your Hyper-V hosts)\nSetup Target Environment (Target Prepare)\n3. Create Replication Policy\n4. Enable replication (Here it will ask us to enter the storage account details to keep the replicated images)\n\nSo, storage account is also part of the initial steps. Actual steps involved,\n\n1.Create Stoarage\n2.Create Recovery Services Vault\n3.Steup an Azure Network\n&lt;Prepare on premises&gt;\n4.Create Hyper-V site\n\ta. Select your replication source and target.\n\tb. Set up the source replication environment, including on-premises Site Recovery components and the target replication environment).\n5.Create Replication Policy\n6.Enable replication of VM\n\nhttps://docs.microsoft.com/en-us/azure/site-recovery/tutorial-prepare-azure-for-hyperv"
+      },
+      {
+        "date": "2020-05-25T10:48:00.000Z",
+        "voteCount": 2,
+        "content": "In Exam question, i think they may mention storage account and VNET is already created. So we need to create the additional components. Then the answers stated will apply."
+      },
+      {
+        "date": "2020-05-25T07:25:00.000Z",
+        "voteCount": 1,
+        "content": "https://github.com/uglide/azure-content/blob/master/articles/site-recovery/site-recovery-hyper-v-site-to-azure.md"
+      },
+      {
+        "date": "2020-05-24T05:12:00.000Z",
+        "voteCount": 3,
+        "content": "Answer: ABC\nhttps://docs.microsoft.com/en-us/azure/site-recovery/hyper-v-azure-tutorial"
+      },
+      {
+        "date": "2020-05-26T05:45:00.000Z",
+        "voteCount": 3,
+        "content": "But in real from docs.microsoft.com we should select ABCD for the answer"
+      },
+      {
+        "date": "2020-07-29T13:55:00.000Z",
+        "voteCount": 1,
+        "content": "I think, ABC are correct. D - replication policy is created on-prem, not in Azure."
+      }
+    ],
+    "examNameCode": "az-300",
+    "topicNumber": "5"
+  }
+]

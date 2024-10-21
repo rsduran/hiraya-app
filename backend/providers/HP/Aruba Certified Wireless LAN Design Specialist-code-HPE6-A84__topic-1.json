@@ -1,0 +1,283 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/hp/view/122491-exam-hpe6-a84-topic-1-question-2-discussion/",
+    "body": "Refer to the scenario.<br>A customer has an Aruba ClearPass cluster. The customer has AOS-CX switches that implement 802.1X authentication to ClearPass Policy Manager (CPPM).<br>Switches are using local port-access policies.<br>The customer wants to start tunneling wired clients that pass user authentication only to an Aruba gateway cluster. The gateway cluster should assign these clients to the \u201ceth-internet\" role. The gateway should also handle assigning clients to their VLAN, which is VLAN 20.<br>The plan for the enforcement policy and profiles is shown below:<br><img title=\"image1\" src=\"https://img.examtopics.com/hpe6-a84/image1.png\"><br>The gateway cluster has two gateways with these IP addresses:<br>\u2022 Gateway 1<br>o VLAN 4085 (system IP) = 10.20.4.21<br>o VLAN 20 (users) = 10.20.20.1<br>o VLAN 4094 (WAN) = 198.51.100.14<br>\u2022 Gateway 2<br>o VLAN 4085 (system IP) = 10.20.4.22<br>o VLAN 20 (users) = 10.20.20.2<br>o VLAN 4094 (WAN) = 198.51.100.12<br>\u2022 VRRP on VLAN 20 = 10.20.20.254<br>The customer requires high availability for the tunnels between the switches and the gateway cluster. If one gateway falls, the other gateway should take over its tunnels. Also, the switch should be able to discover the gateway cluster regardless of whether one of the gateways is in the cluster.<br>You are setting up the UBT zone on an AOS-CX switch.<br>Which IP addresses should you define in the zone?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrimary controller = 10.20.4.21; backup controller = 10.20.4.22",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrimary controller = 198.51.100.14; backup controller = 10.20.4.21",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrimary controller = 10.20.4.21; backup controller, not defined",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrimary controller = 10.20.20.254; backup controller, not defined"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-05T02:43:00.000Z",
+        "voteCount": 1,
+        "content": "While tunneling to Gateway, you can mention primary and backup controller. Also it needs to be the system IP."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/hp/view/122494-exam-hpe6-a84-topic-1-question-3-discussion/",
+    "body": "Refer to the scenario.<br>A customer requires these rights for clients in the \u201cmedical-mobile\u201d AOS firewall role on Aruba Mobility Controllers (MCs):<br>Permitted to receive IP addresses with DHCP<br>Permitted access to DNS services from 10.8.9.7 and no other server<br>Permitted access to all subnets in the 10.1.0.0/16 range except denied access to 10.1.12.0/22<br>Denied access to other 10.0.0.0/8 subnets<br>Permitted access to the Internet<br>Denied access to the WLAN for a period of time if they send any SSH traffic<br>Denied access to the WLAN for a period of time if they send any Telnet traffic<br>Denied access to all high-risk websites<br>External devices should not be permitted to initiate sessions with \u201cmedical-mobile\u201d clients, only send return traffic.<br>The exhibits below show the configuration for the role.<br><img title=\"image2\" src=\"https://img.examtopics.com/hpe6-a84/image2.png\"><br>There are multiple issues with this configuration. What is one change you must make to meet the scenario requirements? (In the options, rules in a policy are referenced from top to bottom. For example, \u201cmedical-mobile\u201d rule 1 is \u201cipv4 any any svc-dhcp permit,\u201d and rule 8 is \u201cipv4 any any any permit\u201d.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the \u201cmedical-mobile\u201d policy, move rules 2 and 3 between rules 7 and 8.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the \u201cmedical-mobile\u201d policy, change the subnet mask in rule 3 to 255.255.248.0.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the rule in the \u201capprf-medical-mobile-sacl\u201d policy between rules 7 and 8 in the \u201cmedical-mobile\u201d policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the \u201cmedical-mobile\u201d policy, change the source in rule 8 to \u201cuser.\u201d"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-05T03:14:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is D. \nExternal devices should not be permitted to initiate sessions with \u201cmedical-mobile\u201d clients, only send return traffic."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/hp/view/122820-exam-hpe6-a84-topic-1-question-4-discussion/",
+    "body": "A company has an Aruba ClearPass server at 10.47.47.8, FQDN radius.acnsxtest.local. This exhibit shows ClearPass Policy Manager's (CPPM's) settings for an Aruba Mobility Controller (MC).<br><img title=\"image3\" src=\"https://img.examtopics.com/hpe6-a84/image3.png\"><br>The MC is already configured with RADIUS authentication settings for CPPM, and RADIUS requests between the MC and CPPM are working. A network admin enters and commits this command to enable dynamic authorization on the MC: aaa rfc-3576-server 10.47.47.8<br>But when CPPM sends CoA requests to the MC, they are not working. This exhibit shows the RFC 3576 server statistics on the MC:<br><img title=\"image4\" src=\"https://img.examtopics.com/hpe6-a84/image4.png\"><br>How could you fix this issue?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the UDP port in the MCs\u2019 RFC 3576 server config to 3799.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable RadSec on the MCs\u2019 RFC 3676 server config.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the MC to obtain the time from a valid NTP server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake sure that CPPM is using an ArubaOS Wireless RADIUS CoA enforcement profile."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-07T14:55:00.000Z",
+        "voteCount": 2,
+        "content": "I think the answer is B. \nWhen you define RFC 3576 server you define IP address and shared key. The default value is UDP port 3799.\nRADSEC (Secure RADIUS) auth port 2083 and it used Certificates.\nWhen the TLS tunnel is established, RADIUS packets will go through the tunnel and server adds CoA on this tunnel.\nBy default, the TCP port 2083 is assigned for RadSec. Separate ports are not used for authentication, accounting and dynamic authorization changes."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/hp/view/123035-exam-hpe6-a84-topic-1-question-6-discussion/",
+    "body": "Refer to the scenario.<br>A customer has an Aruba ClearPass cluster. The customer has AOS-CX switches that implement 802.1X authentication to ClearPass Policy Manager (CPPM).<br>Switches are using local port-access policies.<br>The customer wants to start tunneling wired clients that pass user authentication only to an Aruba gateway cluster. The gateway cluster should assign these clients to the \u201ceth-internet\" role. The gateway should also handle assigning clients to their VLAN, which is VLAN 20.<br>The plan for the enforcement policy and profiles is shown below:<br><img title=\"image6\" src=\"https://img.examtopics.com/hpe6-a84/image1.png\"><br>The gateway cluster has two gateways with these IP addresses:<br>\u2022 Gateway 1<br>o VLAN 4085 (system IP) = 10.20.4.21<br>o VLAN 20 (users) = 10.20.20.1<br>o VLAN 4094 (WAN) = 198.51.100.14<br>\u2022 Gateway 2<br>o VLAN 4085 (system IP) = 10.20.4.22<br>o VLAN 20 (users) = 10.20.20.2<br>o VLAN 4094 (WAN) = 198.51.100.12<br>\u2022 VRRP on VLAN 20 = 10.20.20.254<br>The customer requires high availability for the tunnels between the switches and the gateway cluster. If one gateway falls, the other gateway should take over its tunnels. Also, the switch should be able to discover the gateway cluster regardless of whether one of the gateways is in the cluster.<br>Assume that you have configured the correct UBT zone and port-access role settings. However, the solution is not working.<br>What else should you make sure to do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign VLAN 20 as the access VLAN on any edge ports to which tunneled clients might connect.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new VLAN on the AOS-CX switch and configure that VLAN as the UBT client VLAN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign sufficient VIA licenses to the gateways based on the number of wired clients that will connect.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the port-access auth-mode mode to client-mode on any edge ports to which tunneled clients might connect."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-09T15:49:00.000Z",
+        "voteCount": 3,
+        "content": "Configuration required for UBT:\nEnter Primary controller IP address and Backup controller IP address. \nEnter the VLAN ID under Client VLAN.\nAdd new source interface\nubt-client-vlan is the reserved VLAN that all client traffic uses to get to the gateway. \nSo I think the answer is \"Create a new VLAN on the AOS-CX switch and configure that VLAN as the UBT client VLAN\"."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/hp/view/128421-exam-hpe6-a84-topic-1-question-7-discussion/",
+    "body": "A company has Aruba gateways and wants to start implementing gateway IDS/IPS. The customer has selected Block for the Fail Strategy.<br>What might you recommend to help minimize unexpected outages caused by using this particular fall strategy?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguring a relatively high threshold for the gateway threat count alerts",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMaking sure that the gateways have formed a cluster and operate in default gateway mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSetting the IDS or IPS policy to the least restrictive option, Lenient",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnabling alerts and email notifications for events related to gateway IPS engine utilization and errors"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-25T12:18:00.000Z",
+        "voteCount": 1,
+        "content": "I am guessing B because in default gateway mode because IDS/IPS requires a reboot?"
+      },
+      {
+        "date": "2023-12-12T13:36:00.000Z",
+        "voteCount": 2,
+        "content": "D makes more sense"
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/hp/view/128424-exam-hpe6-a84-topic-1-question-10-discussion/",
+    "body": "Refer to the scenario.<br>A customer requires these rights for clients in the \u201cmedical-mobile\u201d AOS firewall role on Aruba Mobility Controllers (MCs):<br>Permitted to receive IP addresses with DHCP<br>Permitted access to DNS services from 10.8.9.7 and no other server<br>Permitted access to all subnets in the 10.1.0.0/16 range except denied access to 10.1.12.0/22<br>Denied access to other 10.0.0.0/8 subnets<br>Permitted access to the Internet<br>Denied access to the WLAN for a period of time if they send any SSH traffic<br>Denied access to the WLAN for a period of time if they send any Telnet traffic<br>Denied access to all high-risk websites<br>External devices should not be permitted to initiate sessions with \u201cmedical-mobile\u201d clients, only send return traffic.<br>The exhibits below show the configuration for the role.<br><img title=\"image7\" src=\"https://img.examtopics.com/hpe6-a84/image2.png\"><br>There are multiple issues with the configuration.<br>What is one of the changes that you must make to the policies to meet the scenario requirements? (In the options, rules in a policy are referenced from top to bottom. For example, \u201cmedical-mobile\u201d rule 1 is \u201cipv4 any any svc-dhcp permit,\u201d and rule 8 is \u201cipv4 any any any permit\u2019.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the \u201cmedical-mobile\u201d policy, change the source in rule 1 to \u201cuser.\u201d",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the \u201cmedical-mobile\u201d policy, change the subnet mask in rule 3 to 255.255.248.0.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the \u201cmedical-mobile\u201d policy, move rules 6 and 7 to the top of the list.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the rule in the \u201capprf-medical-mobile-sacl\u201d policy between rules 7 and 8 in the \u201cmedical-mobile\u201d policy."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-12T13:51:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/hp/view/123197-exam-hpe6-a84-topic-1-question-17-discussion/",
+    "body": "Refer to the scenario.<br>A customer is migrating from on-prem AD to Azure AD as its sole domain solution. The customer also manages both wired and wireless devices with Microsoft Endpoint Manager (Intune).<br>The customer wants to improve security for the network edge. You are helping the customer design a ClearPass deployment for this purpose. Aruba network devices will authenticate wireless and wired clients to an Aruba ClearPass Policy Manager (CPPM) cluster (which uses version 6.10).<br>The customer has several requirements for authentication. The clients should only pass EAP-TLS authentication if a query to Azure AD shows that they have accounts in Azure AD. To further refine the clients\u2019 privileges, ClearPass also should use information collected by Intune to make access control decisions.<br>The customer wants you to configure CPPM to collect information from Intune on demand during the authentication process.<br>What should you tell the Intune admins about the certificates issued to clients?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThey must be issued by a well-known, trusted CA.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThey must include the Intune ID in the subject name.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThey must include the client MAC address in the subject name.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThey must be issued by a ClearPass Onboard CA."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-10T17:20:00.000Z",
+        "voteCount": 1,
+        "content": "Subject: CN = {{DeviceID}}\nThe subject CN must be the device ID. This helps CPPM to query attributes for the client correctly.\nAnswer: B, They must include the Intune DeviceID in the subject common name."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/hp/view/123198-exam-hpe6-a84-topic-1-question-18-discussion/",
+    "body": "Refer to the scenario.<br>A customer is migrating from on-prem AD to Azure AD as its sole domain solution. The customer also manages both wired and wireless devices with Microsoft Endpoint Manager (Intune).<br>The customer wants to improve security for the network edge. You are helping the customer design a ClearPass deployment for this purpose. Aruba network devices will authenticate wireless and wired clients to an Aruba ClearPass Policy Manager (CPPM) cluster (which uses version 6.10).<br>The customer has several requirements for authentication. The clients should only pass EAP-TLS authentication if a query to Azure AD shows that they have accounts in Azure AD. To further refine the clients\u2019 privileges, ClearPass also should use information collected by Intune to make access control decisions.<br>You are planning to use Azure AD as the authentication source in 802.1X services.<br>What should you make sure that the customer understands is required?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn app registration on Azure AD that references the CPPM's FQDN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWindows 365 subscriptions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCPPM's RADIUS certificate was imported as trusted in the Azure AD directory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure AD Domain Services"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-10T17:28:00.000Z",
+        "voteCount": 1,
+        "content": "Inorder to authenticate directly to Azure AD, You need establish \"Azure AD Directory Services\" to support the LDAP queries from CPPM.\n\"directory services\" imposes additional cost on top on Azure AD."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/hp/view/123574-exam-hpe6-a84-topic-1-question-21-discussion/",
+    "body": "Refer to the exhibit.<br><img title=\"image12\" src=\"https://img.examtopics.com/hpe6-a84/image9.png\"><br>Which security issue is possibly indicated by this traffic capture?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn attempt at a DoS attack by a device acting as an unauthorized DNS server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA port scan being run on the 10.1.7.0/24 subnet",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA command and control channel established with DNS tunneling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn ARP poisoning or man-in-the-middle attempt by the device at 94:60:d5:bf:36:40"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-14T04:29:00.000Z",
+        "voteCount": 1,
+        "content": "The DNS request and responses use long, random hostnames and there are requests to .onion domains.\nSo this is DNS Tunneling."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/hp/view/142952-exam-hpe6-a84-topic-1-question-33-discussion/",
+    "body": "Refer to the exhibit.<br><img title=\"image17\" src=\"https://img.examtopics.com/hpe6-a84/image14.png\"><br>You have been given this certificate to install on a ClearPass server for the RADIUS/EAP and RadSec usages.<br>What is one issue?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe certificate has a wildcard in the subject common name.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe certificate uses a fully qualified the \u201c.local\u201d domain name.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe certificate does not have a URI subject alternative name (SAN).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe certificate does not have an IP subject alternative name (SAN)."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-26T06:36:00.000Z",
+        "voteCount": 2,
+        "content": "Radius can't be a wild card"
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/hp/view/148139-exam-hpe6-a84-topic-1-question-56-discussion/",
+    "body": "Refer to the scenario.<br># Introduction to the customer<br>You are helping a company add Aruba ClearPass to their network, which uses Aruba network infrastructure devices.<br>The company currently has a Windows domain and Windows CA. The Window CA issues certificates to domain computers, domain users, and servers such as domain controllers. An example of a certificate issued by the Windows CA is shown here.<br><img title=\"image44\" src=\"https://img.examtopics.com/hpe6-a84/image44.png\"><br><img title=\"image45\" src=\"https://img.examtopics.com/hpe6-a84/image45.png\"><br>The company is in the process of adding Microsoft Endpoint Manager (Intune) to manage its mobile clients. The customer is maintaining the on-prem AD for now and uses Azure AD Connect to sync with Azure AD.<br># Requirements for issuing certificates to mobile clients<br>The company wants to use ClearPass Onboard to deploy certificates automatically to mobile clients enrolled in Intune. During this process, Onboard should communicate with Azure AD to validate the clients. High availability should also be provided for this scenario; in other words, clients should be able to get certificates from Subscriber 2 if Subscriber 1 is down.<br>The Intune admins intend to create certificate profiles that include a UPN SAN with the UPN of the user who enrolled the device.<br># Requirements for authenticating clients<br>The customer requires all types of clients to connect and authenticate on the same corporate SSID.<br>The company wants CPPM to use these authentication methods:<br>EAP-TLS to authenticate users on mobile clients registered in Intune<br>TEAR, with EAP-TLS as the inner method to authenticate Windows domain computers and the users on them<br>To succeed, EAP-TLS (standalone or as a TEAP method) clients must meet these requirements:<br>Their certificate is valid and is not revoked, as validated by OCSP<br>The client\u2019s username matches an account in AD<br># Requirements for assigning clients to roles<br>After authentication, the customer wants the CPPM to assign clients to ClearPass roles based on the following rules:<br>Clients with certificates issued by Onboard are assigned the \u201cmobile-onboarded\u201d role<br>Clients that have passed TEAP Method 1 are assigned the \u201cdomain-computer\u201d role<br>Clients in the AD group \u201cMedical\u201d are assigned the \u201cmedical-staff\u201d role<br>Clients in the AD group \u201cReception\u201d are assigned to the \u201creception-staff\u201d role<br>The customer requires CPPM to assign authenticated clients to AOS firewall roles as follows:<br>Assign medical staff on mobile-onboarded clients to the \u201cmedical-mobile\u201d firewall role<br>Assign other mobile-onboarded clients to the \u201cmobile-other\u201d firewall role<br>Assign medical staff on domain computers to the \u201cmedical-domain\u201d firewall role<br>All reception staff on domain computers to the \u201creception-domain\u201d firewall role<br>All domain computers with no valid user logged in to the \u201ccomputer-only\u201d firewall role<br><br>Deny other clients access -<br># Other requirements<br>Communications between ClearPass servers and on-prem AD domain controllers must be encrypted.<br># Network topology<br>For the network infrastructure, this customer has Aruba APs and Aruba gateways, which are managed by Central. APs use tunneled WLANs, which tunnel traffic to the gateway cluster. The customer also has AOS-CX switches that are not managed by Central at this point.<br><img title=\"image46\" src=\"https://img.examtopics.com/hpe6-a84/image46.png\"><br># ClearPass cluster IP addressing and hostnames<br>A customer\u2019s ClearPass cluster has these IP addresses:<br><br>Publisher = 10.47.47.5 -<br><br>Subscriber 1 = 10.47.47.6 -<br><br>Subscriber 2 = 10.47.47.7 -<br>Virtual IP with Subscriber 1 and Subscriber 2 = 10.47.47.8<br>The customer\u2019s DNS server has these entries<br>cp.acnsxtest.com = 10.47.47.5<br>cps1.acnsxtest.com = 10.47.47.6<br>cps2.acnsxtest.com = 10.47.47.7<br>radius.acnsxtest.com = 10.47.47.8<br>onboard.acnsxtest.com = 10.47.47.8<br>You cannot see flow attributes for wireless clients.<br>What should you check?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeep packet inspection is enabled on the role to which the Aruba APs assign the wireless clients.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFirewall application visibility is enabled on the Aruba gateways, and the gateways have been rebooted.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGateway IDS/IPS is enabled on the Aruba gateways, and the gateways have been rebooted.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeep packet inspection is enabled on the Aruba Aps, and the APs have been rebooted."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-26T09:18:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is B. DPI is not enabled at the role level, it is enabled at the gateway level for inspecting traffic."
+      }
+    ],
+    "examNameCode": "hpe6-a84",
+    "topicNumber": "1"
+  }
+]

@@ -1,0 +1,1262 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4540-exam-ms-201-topic-2-question-1-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>Your company has a Microsoft 365 subscription.<br>Several users in the finance department of the company recently accesses unsafe websites by clicking on links in email messages.<br>Users in the marketing department of the company report that they must be able to access all the links embedded in email messages.<br>You need to reduce the likelihood of the finance department users accessing unsafe websites. The solution must affect only the finance department users.<br>Solution: You create a new safe attachments policy.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/securitycompliance/atp-safe-attachments",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2019-09-02T04:03:00.000Z",
+        "voteCount": 8,
+        "content": "Correct answer is \"No\" -- this requirement would be met by creating a \"Safe Links\" policy instead."
+      },
+      {
+        "date": "2020-04-27T18:53:00.000Z",
+        "voteCount": 3,
+        "content": "Agree. The answer should be 'No'. Also changing the default content filter policy affects all users, not just finance dept. Not that 'unsafe' links can be configured in it anyway..."
+      },
+      {
+        "date": "2022-02-19T04:28:00.000Z",
+        "voteCount": 1,
+        "content": "Safe Links makes more sense. Answer: B"
+      },
+      {
+        "date": "2020-05-12T01:52:00.000Z",
+        "voteCount": 2,
+        "content": "To modify the content filter, we need to use Set-ContentFilterConfig cmdlet.\nHowever, this cmdlet is only usable in On-premises environment. This question is about \"Your company has a Microsoft 365 subscription\", hence, the answer should be NO"
+      },
+      {
+        "date": "2020-08-22T08:33:00.000Z",
+        "voteCount": 1,
+        "content": "The Answer should indeed be NO. For the cloused-based service (EXO,EOP) you can use Set-HostedContentFilterPolicy if you need to."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11611-exam-ms-201-topic-2-question-2-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You need to ensure that a user named User1 can prevent mailbox content from being deleted if the content contains the words Fabrikam and Confidential.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd User1 to the Organization Management management role group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd User1 to the Records Management management role group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the Mailbox Search and Mailbox Import Export",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the Mailbox Search and Legal Hold management roles to User1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/policy-and-compliance/holds/holds?view=exchserver-2019",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-02-19T04:31:00.000Z",
+        "voteCount": 1,
+        "content": "You need to ensure that a user named User1 can prevent mailbox content from being deleted if the content contains the words Fabrikam and Confidential.\n\nIf User1 is required to prevent deletion of emails from other mailboxes, then Answer D makes sense. The language of this question is confusing though."
+      },
+      {
+        "date": "2021-01-10T15:49:00.000Z",
+        "voteCount": 2,
+        "content": "The Legal Hold management role is required to place a mailbox on Litigation Hold or In-Place Hold. But to create a query-based In-Place Hold, you must also be assigned the Mailbox Search role. Users that have been added to the Discovery Management role-based access control (RBAC) role group (or assigned the Legal Hold and Mailbox Search roles) can place users hold and create a query-based In-Place Hold. https://docs.microsoft.com/en-us/exchange/policy-and-compliance/holds/holds?view=exchserver-2019#placing-a-mailbox-on-hold"
+      },
+      {
+        "date": "2020-01-08T03:00:00.000Z",
+        "voteCount": 1,
+        "content": "I am not sure why the user needs role group membership if we need to prevent user to delete the content based on keyword. We just need to run the search for the mailbox and put the mailbox under in place hold for specific keyword."
+      },
+      {
+        "date": "2020-01-11T23:33:00.000Z",
+        "voteCount": 5,
+        "content": "User1 need to run search and place in-place hold and that's why user1 is to be granted the permission."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42007-exam-ms-201-topic-2-question-3-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft 365 subscription.<br>You have two users named User1 and User2.<br>You create a custom anti-phishing policy named AP1 and apply AP1 to User1.<br>From PowerShell, you receive the output shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03480/0006600001.jpg\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0006700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0006700002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-10T15:54:00.000Z",
+        "voteCount": 2,
+        "content": "User1 is assigned the AP1 policy which will deliver the spoofed messages to quarantine mailbox which the user cannot access unless the message is released by the admin.\nUser2 is not assigned any policy so he will get the default which delivers the spoofed email in the junk."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 9,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/5279-exam-ms-201-topic-2-question-7-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You need to ensure that all email is retained for one year, and then moved to an archive mailbox.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta default policy tag",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta data loss prevention (DLP) policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta personal tag",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta retention policy tag"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/policy-and-compliance/mrm/retention-tags-and-retention-policies?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-16T20:58:00.000Z",
+        "voteCount": 13,
+        "content": "Correct answer is A - Default policy tag applies to entire mailbox and allows move to archive\nRetention Policy Tag does not allow move to archive\nhttps://docs.microsoft.com/en-us/exchange/policy-and-compliance/mrm/retention-tags-and-retention-policies?view=exchserver-2019"
+      },
+      {
+        "date": "2020-04-27T18:55:00.000Z",
+        "voteCount": 2,
+        "content": "Agree. 'A' is the correct answer here."
+      },
+      {
+        "date": "2019-12-27T04:35:00.000Z",
+        "voteCount": 1,
+        "content": "DPT is right answer. RPT does not have action move to archive other than recoverable deleted items."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 9,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4543-exam-ms-201-topic-2-question-27-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft Exchange Server 2019 organization.<br>Two Edge Transport servers provide email hygiene.<br>You configure anti-spam filters to redirect email messages identified as spam to a quarantine mailbox.<br>You open the quarantine mailbox in Microsoft Outlook 2019 and discover that the from field of all quarantined messages shows the postmaster address.<br>You need to ensure that the quarantined messages can be sorted by using the original sender address.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/show-quarantined-message-original-senders?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-02T04:08:00.000Z",
+        "voteCount": 9,
+        "content": "Since the answers are missing:\n- Create a new Outlook form in Notepad\n- Install a form in Outlook\n- Edit the view in Outlook to include the required columns"
+      },
+      {
+        "date": "2020-10-03T20:41:00.000Z",
+        "voteCount": 1,
+        "content": "By default, you can't add these fields in the message view in Microsoft Outlook. You need to create an Outlook form that adds the original sender, original recipient, and original SCL as optional fields that you can select. After you create this custom form, you can configure Outlook to display these fields in the message view"
+      },
+      {
+        "date": "2020-05-10T05:35:00.000Z",
+        "voteCount": 1,
+        "content": "Additional details below :\n\nhttps://docs.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/show-quarantined-message-original-senders?view=exchserver-2019"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11751-exam-ms-201-topic-2-question-9-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Microsoft Exchange Server 2019 organization.<br>You discover that users rarely delete items from their Sent Items folder and their Deleted Items folder.<br>You need to recommend a solution to automatically reduce the size on the primary mailbox of each user.<br>Solution: You recommend configuring a retention policy that contains two default policy tags.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-01T21:50:00.000Z",
+        "voteCount": 1,
+        "content": "Its true that only one DPT is allowed per mailbox. However the answer is NO, because its asking to reduce the size of primary mailbox which is not possible unless you have archive mailbox enabled."
+      },
+      {
+        "date": "2020-10-31T05:23:00.000Z",
+        "voteCount": 1,
+        "content": "3 DPTs are are allowed .\nOne DPT with the Move to Archive action\nOne DPT with the Delete and Allow Recovery or Permanently Delete actions\nOne DPT for voice mail messages with the Delete and Allow Recovery or Permanently Delete action.\n\nAssume that 1 Move to Archive tag will fail in case Archive mailbox is not available. The other default tag for delete would be sufficient to free up space in mailbox.\nHence 2 DPTs can be an answer too."
+      },
+      {
+        "date": "2020-10-31T05:29:00.000Z",
+        "voteCount": 1,
+        "content": "Just read that Default tag for delete  action Emulates the behavior when the user empties the Deleted Items folder...Hence it would not work for other folder Junk items and Sent Item..\nHence i stick with the answer NO.\n\nApologies i am contradicting my comments...Part of the learning process :)"
+      },
+      {
+        "date": "2020-05-04T21:18:00.000Z",
+        "voteCount": 1,
+        "content": "Only one default policy tag is ok as it affects the whole mailbox (all folders)."
+      },
+      {
+        "date": "2020-01-10T17:52:00.000Z",
+        "voteCount": 1,
+        "content": "FYI. Only one default retention tag is allowed in a retention policy."
+      },
+      {
+        "date": "2020-04-27T14:43:00.000Z",
+        "voteCount": 2,
+        "content": "No, that's incorrect. You can have up to three DPTs (each with a different action) per policy.\nThe answer 'No' probably still stands as an archive mailbox is not mentioned. If it is implicitly assumed, then the solution with two DPTs should be possible: one DPT to archive and the other to delete content. So the answer 'A' is a possibility."
+      },
+      {
+        "date": "2020-05-04T21:07:00.000Z",
+        "voteCount": 2,
+        "content": "default policy tag is for the whole mailbox not for two required folders."
+      },
+      {
+        "date": "2020-05-04T21:06:00.000Z",
+        "voteCount": 1,
+        "content": "any number of default retention tag is allowed."
+      },
+      {
+        "date": "2021-01-10T16:42:00.000Z",
+        "voteCount": 1,
+        "content": "When planning to create retention policies, you must consider whether they'll include both archive and deletion tags. As mentioned earlier, a retention policy can have one DPT that uses the Move to Archive action and one DPT that uses either the Delete and Allow Recovery or Permanently Delete action. The DPT with the Move to Archive action must have a lower retention age than the DPT with a deletion action. For example, you can use a DPT with the Move to Archive action to move items to the archive mailbox in two years, and a DPT with a deletion action to remove items from the mailbox in seven years. Items in both primary and archive mailboxes will be deleted after seven years."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18668-exam-ms-201-topic-2-question-10-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Microsoft Exchange Server 2019 organization.<br>You discover that users rarely delete items from their Sent Items folder and their Deleted Items folder.<br>You need to recommend a solution to automatically reduce the size on the primary mailbox of each user.<br>Solution: You recommend creating an archive mailbox for each user and configuring a retention policy that contains two personal tags.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-10T17:39:00.000Z",
+        "voteCount": 1,
+        "content": "D\nThe 2 personal tags will have to be manually applied by the users. The question is asking for automatically."
+      },
+      {
+        "date": "2020-11-19T12:07:00.000Z",
+        "voteCount": 1,
+        "content": "the answer is correct,  a personal tag is optional (user addigned) so the action would not be automatic"
+      },
+      {
+        "date": "2020-05-04T21:16:00.000Z",
+        "voteCount": 1,
+        "content": "When to use a retention policy with the archive function for these two folders, it must be using default retention policy which affects the whole mailbox but not the two required folders."
+      },
+      {
+        "date": "2020-05-04T21:20:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry. When to use a retention policy with the archive function for these two folders, it must be using default retention policy which affects the whole mailbox including the two required folders. So, it works."
+      },
+      {
+        "date": "2020-04-19T03:48:00.000Z",
+        "voteCount": 1,
+        "content": "retention policy does not move emails to folders. it may delete emails. archive policy does. but the question seems bo incorrect.. or the answer is 'No'"
+      },
+      {
+        "date": "2020-05-06T08:01:00.000Z",
+        "voteCount": 5,
+        "content": "The answer is Yes because :\nhttps://docs.microsoft.com/fr-fr/exchange/security-and-compliance/messaging-records-management/retention-tags-and-policies"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42012-exam-ms-201-topic-2-question-13-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization.<br>You have a universal security group named Group1 that contains three users named Admin1, Admin2, and Admin3.<br>You plan to make Admin1, Admin2, and Admin3 responsible for managing some of the Exchange objects in the organization.<br>You run the following commands.<br><img src=\"/assets/media/exam-media/03480/0007300001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0007400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0007400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://practical365.com/exchange-server/exchange-server-role-based-access-control-in-action/ https://docs.microsoft.com/en-us/exchange/built-in-management-roles-exchange-2013-help",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-19T04:40:00.000Z",
+        "voteCount": 1,
+        "content": "The first two are NO, cause this role has nothing to do with creation of objects.\nThe last one is NO, cause you have removed the \"Get-\" commands under the Role Assignment. So, this Role1 can now ONLY use \"Set-\" commands."
+      },
+      {
+        "date": "2021-03-09T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/exchange/mail-recipients-role-exchange-2013-help\nNo \nNo \nYes - The Mail Recipients management role enables administrators to manage existing mailboxes, mail users, and mail contacts in an organization."
+      },
+      {
+        "date": "2021-01-10T18:23:00.000Z",
+        "voteCount": 1,
+        "content": "The Mail Recipients management role enables administrators to manage existing mailboxes, mail users, and mail contacts in an organization. This role can't create these recipients. Use the Mail Recipient Creation role to create them.\nThis role type doesn't enable you to manage mail-enabled public folders or distribution groups. Use the following roles to manage these objects:\n\u2022\tMail Enabled Public Folders role\n\u2022\tDistribution Groups role"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42093-exam-ms-201-topic-2-question-15-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You have the groups shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0007600002.png\" class=\"in-exam-image\"><br>You plan to create a new management role assignment by running the following command.<br>New-ManagementRoleAssignment -Role \"Litware DB Admins\" \"\"SecurityGroup $group \"\"ExclusiveConfigWriteScope \"Scope1\"<br>Which group can you use as the value for the SecurityGroup parameter?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGroup1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGroup2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGroup3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGroup4",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGroup5"
+    ],
+    "answer": "A",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/permissions/permissions?view=exchserver-2019",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-02-19T04:43:00.000Z",
+        "voteCount": 1,
+        "content": "Answer has to be A"
+      },
+      {
+        "date": "2021-01-11T16:26:00.000Z",
+        "voteCount": 1,
+        "content": "A\nYou can only use a universal security group in this case."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36661-exam-ms-201-topic-2-question-17-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 hybrid deployment.<br>You use Advanced Threat Protection (ATP).<br>You have safe attachment policies configured as shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0007800001.png\" class=\"in-exam-image\"><br>You have the users shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0007800002.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0007900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0007900002.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/securitycompliance/dynamic-delivery-and-previewing",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-11T17:36:00.000Z",
+        "voteCount": 1,
+        "content": "Here are some considerations for Dynamic Delivery and forwarded messages:\n\u2022\tIf the forwarded recipient is protected by a Safe Attachments policy that uses the Dynamic Delivery option, then the recipient sees the placeholder, with the ability to preview compatible files.\n\u2022\tIf the forwarded recipient is not protected by a Safe Attachments policy, the message and attachments will be delivered without any Safe Attachments scanning or attachment placeholders."
+      },
+      {
+        "date": "2021-01-11T17:36:00.000Z",
+        "voteCount": 1,
+        "content": "There are scenarios where Dynamic Delivery is unable to replace attachments in messages. These scenarios include:\n\u2022\tMessages in public folders.\n\u2022\tMessages that are routed out of and then back into a user's mailbox using custom rules.\n\u2022\tMessages that are moved (automatically or manually) out of cloud mailboxes to other locations, including archive folders.\n\u2022\tDeleted messages.\n\u2022\tThe user's mailbox search folder is in an error state.\n\u2022\tExchange Online organizations where Exclaimer is enabled. To resolve this, see KB4014438.\n\u2022\tS/MIME encrypted messages.\n\u2022\tYou configured the Dynamic Delivery action in a Safe Attachments policy, but the recipient doesn't support Dynamic Delivery (for example, the recipient is a mailbox in an on-premises Exchange organization). However, Safe Links in Microsoft Defender for Office 365 is able to scan Office file attachments that contain URLs (depending on how the global settings for Safe Links are configured)."
+      },
+      {
+        "date": "2021-01-11T17:36:00.000Z",
+        "voteCount": 1,
+        "content": "NYN. Summary of article:\nNYN\nSafe Attachments protection for email messages is controlled by Safe Attachments policies. There is no default Safe Attachments policy, so to get the protection of Safe Attachments, you need to create one or more Safe Attachments policies.\nRedirect attachment on detection: Enable redirect and Send the attachment to the following email address: For Block, Monitor, or Replace actions, send messages that contain malware attachments to the specified internal or external email address for analysis and investigation.\nPriority: If you create multiple policies, you can specify the order that they're applied. No two policies can have the same priority, and policy processing stops after the first policy is applied.\nPrevents messages with detected malware attachments from being delivered. Messages are quarantined where only admins (not end-users) can review, release, or delete the messages."
+      },
+      {
+        "date": "2021-01-01T10:54:00.000Z",
+        "voteCount": 1,
+        "content": "First statement should be false.\nYou can use *some* of the features ATP offers with on-prem Exchange, dynamic delivery is not one of them however.\nRef: https://techcommunity.microsoft.com/t5/exchange/is-office-365-atp-dynamic-delivery-option-working-with-on/m-p/61109"
+      },
+      {
+        "date": "2020-11-10T04:37:00.000Z",
+        "voteCount": 3,
+        "content": "First statement is false because Dynamic Delivery is not supported for on-premises mailboxes."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42097-exam-ms-201-topic-2-question-19-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>Your company has a Microsoft 365 subscription.<br>Several users in the finance department of the company recently accessed unsafe websites by clicking on links in email messages.<br>Users in the marketing department of the company report that they must be able to access all the links embedded in email messages.<br>You need to reduce the likelihood of the finance department users accessing unsafe websites. The solution must affect only the finance department users.<br>Solution: You modify the default safe links policy.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-11T17:41:00.000Z",
+        "voteCount": 2,
+        "content": "You need to create a separate safe links policy and add finance department users (key: the solution must affect only the finance department users)."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36695-exam-ms-201-topic-2-question-20-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft 365 subscription.<br>You run the commands shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03480/0008200001.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0008300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0008300002.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-10T09:57:00.000Z",
+        "voteCount": 4,
+        "content": "According to https://docs.microsoft.com/en-us/powershell/module/exchange/new-malwarefilterpolicy?view=exchange-ps DeleteMessage actions changes depending on mailbox location: \"In Exchange Server, the message is deleted. In the cloud-based service, the message is quarantined.\" Accordingly, Quarantine and Junk Mail Folder should be the correct responses."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42101-exam-ms-201-topic-2-question-21-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization that contains the administrator accounts in the following table.<br><img src=\"/assets/media/exam-media/03480/0008400001.png\" class=\"in-exam-image\"><br>From PowerShell, you receive the following output.<br><img src=\"/assets/media/exam-media/03480/0008500001.png\" class=\"in-exam-image\"><br>For each following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0008600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0008600002.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-11T19:45:00.000Z",
+        "voteCount": 1,
+        "content": "YYN\n1: Admin1 is part of Organization Admin which is not limited by the scope.\n2: Admin2 is part of ExecAdmins which is within the write scope of database name starting with Admin*.\n3: MBX-DB1 is outside of the write scope."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10428-exam-ms-201-topic-2-question-22-discussion/",
+    "body": "Your company has a Microsoft Exchange Server 2019 organization.<br>You are auditing the Litigation Hold on the mailboxes of the company's research and development department.<br>You discover that the mailbox of a user named User1 has a Litigation Hold enabled.<br>You need to discover who placed the Litigation Hold on the mailbox of User1, and when the Litigation Hold was enabled.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Exchange admin center, run an In-place eDiscovery and Hold report.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom PowerShell, run the Get-Mailbox cmdlet.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Exchange admin center. run a per-mailbox Litigation Hold report.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom PowerShell, run the Get-MailboxStatistics cmdlet."
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-16T00:39:00.000Z",
+        "voteCount": 7,
+        "content": "should be B not D. only Get-Mailbox has litigationhold info."
+      },
+      {
+        "date": "2020-04-27T15:16:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. 'B' is the correct answer"
+      },
+      {
+        "date": "2020-05-05T19:33:00.000Z",
+        "voteCount": 2,
+        "content": "Support. Get-Mailbox &lt;username&gt; | FL LitigationHoldEnabled,InPlaceHolds"
+      },
+      {
+        "date": "2021-03-09T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is BC"
+      },
+      {
+        "date": "2021-01-17T00:44:00.000Z",
+        "voteCount": 1,
+        "content": "Get-Mailbox admin | FL LitigationHoldOwner,LitigationHoldDate\nthe good answer is B&amp;C according to ti the following link\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/set-mailbox?view=exchange-ps"
+      },
+      {
+        "date": "2021-01-01T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is BC. D is wrong because Get-MailboxStatistics cmdlet does not have switch for litigation hold and in place hold\nRef: https://docs.microsoft.com/en-us/powershell/module/exchange/get-mailboxstatistics?view=exchange-ps"
+      },
+      {
+        "date": "2020-02-13T05:49:00.000Z",
+        "voteCount": 2,
+        "content": "freddy is right"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11758-exam-ms-201-topic-2-question-24-discussion/",
+    "body": "You have a Microsoft 365 subscription.<br>A safe attachments policy that uses Dynamic Delivery is applied to all recipients who match your SMTP domains.<br>You need to prevent attachments form being scanned when internal users send email to one another.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Security &amp; and Compliance admin center, modify the safe attachments policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Security &amp; and Compliance admin center, modify the Service assurance settings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Exchange admin center, create a transport rule.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Exchange admin center, modify the malware filter."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-02T03:37:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-mail-flow-rules-to-set-the-spam-confidence-level-scl-in-messages?view=o365-worldwide"
+      },
+      {
+        "date": "2020-05-05T20:25:00.000Z",
+        "voteCount": 1,
+        "content": "Create a transport rule---by pass spam filtering: specify senders (inside the organization or domain name) and recipients  (inside the organization or domain name)."
+      },
+      {
+        "date": "2020-01-10T21:12:00.000Z",
+        "voteCount": 3,
+        "content": "Create a transport rule to set message header, X-MS-Exchange-Organization-SkipSafeAttachmentProcessing with 1"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42295-exam-ms-201-topic-2-question-26-discussion/",
+    "body": "HOTSPOT -<br>You have an Exchange Online tenant that has the anti-spam settings configured as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03480/0009000001.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0009000002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0009100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-13T17:40:00.000Z",
+        "voteCount": 1,
+        "content": "A higher BCL indicates a bulk message is more likely to generate complaints (and is therefore more likely to be spam). https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/bulk-complaint-level-values?view=o365-worldwide"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30383-exam-ms-201-topic-2-question-27-discussion/",
+    "body": "You have an Exchange Online tenant.<br>You need to ensure that users in your company's finance department can select email messages that will deleted automatically one year later. The solution must apply only to the finance department users.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPublish a label to the finance department.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFor each mailbox in the finance department, configure Message Delivery Restrictions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFor each mailbox in the finance department configure the retention policy settings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a label that has retention setting of one year.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a data loss prevention (DLP) policy that uses the sensitive information type."
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-02T04:00:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/microsoft-365/compliance/create-apply-retention-labels?view=o365-worldwide"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18671-exam-ms-201-topic-2-question-28-discussion/",
+    "body": "You have a Microsoft 365 subscription that uses a default domain named contoso.com.<br>Users report that email messages from a domain named fabrikam.com are identified as spam even though the messages are legitimate.<br>You need to prevent messages from fabrikam.com from being identified as spam.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the IP Allow list of a connection filter policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEdit the default mail flow rule to bypass the spam filter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new remote domain.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new malware filter policy."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-09T04:59:00.000Z",
+        "voteCount": 1,
+        "content": "A. is the closest answer, however, the exact answer should be \"Spam filter Policy\" where you add fabrikam.com domain."
+      },
+      {
+        "date": "2021-01-13T17:45:00.000Z",
+        "voteCount": 2,
+        "content": "A\nThe available safe sender lists are described in the following list in order from most recommended to least recommended:\n\u2022\tMail flow rules\n\u2022\tOutlook Safe Senders\n\u2022\tIP Allow List (connection filtering)\n\u2022\tAllowed sender lists or allowed domain lists (anti-spam policies)\nhttps://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/create-safe-sender-lists-in-office-365?view=o365-worldwide"
+      },
+      {
+        "date": "2020-05-15T00:43:00.000Z",
+        "voteCount": 4,
+        "content": "The answer is B. Mail flow rules can be used to set the SCL of email, which determines if an email is considered spam or not.\n\nReference:\nhttps://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-mail-flow-rules-to-set-the-spam-confidence-level-scl-in-messages?view=o365-worldwide"
+      },
+      {
+        "date": "2020-06-24T04:19:00.000Z",
+        "voteCount": 3,
+        "content": "While factually correct, B states the \"default mail flow rule\", there is no such thing as a default mail flow rule. A is the correct answer."
+      },
+      {
+        "date": "2020-04-19T04:28:00.000Z",
+        "voteCount": 2,
+        "content": "IP rule may not be even possible - e.g. customer has EXO. answer is C"
+      },
+      {
+        "date": "2020-04-19T04:28:00.000Z",
+        "voteCount": 3,
+        "content": "..meant to be D - antimalware (antispam) policy sorry... remote domains are for a bit different purpose."
+      },
+      {
+        "date": "2020-05-11T04:19:00.000Z",
+        "voteCount": 3,
+        "content": "It's not true. answer is correct. You can indeed modify the Connection FIlter Policy of EOP via Set-HostedConnectionFilterPolicy \"Default\" -IPAllowList 192.168.1.10,192.168.1.23 -IPBlockList 10.10.10.0/25,172.17.17.0/24"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42793-exam-ms-201-topic-2-question-29-discussion/",
+    "body": "HOTSPOT -<br>You have a Microsoft Exchange Server 2019 organization that has the mailboxes shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0009200001.png\" class=\"in-exam-image\"><br>You have the distribution groups shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0009300001.png\" class=\"in-exam-image\"><br>Email messages sent within the organization are shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0009300002.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statements is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0009300003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0009400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/policy-and-compliance/ediscovery/ediscovery?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-19T05:16:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct, YNY.\nYes, since User 1 is queried for the email sent from his mailbox AND he is on Litigation Hold.\nNo, since User is not on Litigation Hold.\nNo, since User4 was NOT the sender of the email."
+      },
+      {
+        "date": "2022-02-19T05:17:00.000Z",
+        "voteCount": 1,
+        "content": "*Answer is YNN, *typo."
+      },
+      {
+        "date": "2021-01-18T19:49:00.000Z",
+        "voteCount": 2,
+        "content": "Q. When and where is the list of expanded distribution group recipients stored?\nA. Group membership is expanded at the time the message is sent. The list of expanded distribution group members is stored in the original message in the sender's mailbox. The sender's mailbox must be on In-Place Hold, Litigation Hold, or assigned to a Microsoft 365 retention policy.\nQ. Can the To/Cc recipients see which recipients were Bcc'ed?\nA. No. This information is not included in message headers, and isn't visible to To/Cc recipients. The sender can see the Bcc field stored in the original message stored in their mailbox. Compliance officers can see this information when searching the sender's mailbox.\nhttps://docs.microsoft.com/en-us/microsoft-365/compliance/preserve-bcc-and-expanded-distribution-group-recipients-for-ediscovery?view=o365-worldwide"
+      },
+      {
+        "date": "2021-01-18T19:49:00.000Z",
+        "voteCount": 2,
+        "content": "User1 mailbox is on litigation hold.\nUser2 mailbox is not on litigation hold.\nAlthough User4 is on litigation hold User4 is in the to mailbox. You must search the User1 sent items instead."
+      },
+      {
+        "date": "2021-03-16T04:33:00.000Z",
+        "voteCount": 1,
+        "content": "So the answer should be NYN ?"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42794-exam-ms-201-topic-2-question-30-discussion/",
+    "body": "You deploy a Microsoft Exchange Server 2019 organization.<br>You need to ensure that users of all new mailboxes are prevented from editing their personal information.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom PowerShell, run the New-RoleGroup cmdlet and specify the \"\"CustomRecipientWriteScope parameter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Exchange admin center, create a new role assignment policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Exchange admin center, create a new role group and assign the role group to Domain users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom PowerShell, run the New-RoleAssignmentPolicy cmdlet and specify the \"\"isDefault parameter."
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/powershell/module/exchange/role-based-access-control/new-roleassignmentpolicy?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-18T19:57:00.000Z",
+        "voteCount": 3,
+        "content": "D\nA: This only create the role group so it does not help at all.\nB: There is no way to make this the default using the EAC.\nC: This will affect existing users too."
+      },
+      {
+        "date": "2021-03-08T09:28:00.000Z",
+        "voteCount": 2,
+        "content": "Agree, check example 2 and 3 \nhttps://docs.microsoft.com/en-us/powershell/module/exchange/new-roleassignmentpolicy?view=exchange-ps#example-3"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42795-exam-ms-201-topic-2-question-31-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Microsoft 365 E5 subscription.<br>You need to ensure that a user named User1 can review audit reports from the Security &amp; Compliance admin center. User1 must be prevented from tracing messages from the Security &amp; Compliance admin center.<br>Solution: You assign the Security Administrator role to User1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Security Administrator can view the audit reports but cannot create a message trace.<br>References:<br>https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/message-trace-scc",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-02-19T05:19:00.000Z",
+        "voteCount": 2,
+        "content": "To view the reports, Sec Admin role is enough.\nHowever, to perform message trace, you'd have to be an Org Admin or Compliance Admin. That was the catch!"
+      },
+      {
+        "date": "2021-01-18T20:01:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/microsoft-365/compliance/reports-in-security-and-compliance?view=o365-worldwide"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/44813-exam-ms-201-topic-2-question-41-discussion/",
+    "body": "SIMULATION -<br>Use the following login credentials as needed:<br>To enter your username, place your cursor in the Sign in box and click on the username below.<br>To enter your password, place your cursor in the Enter password box and click on the password below.<br>Microsoft 365 Username: admin@LODSe382148.onmicrosoft.com<br>Microsoft 365 Password: b#nqvZG*0w*4<br>The following information is for technical support purposes only:<br><br>Lab instance: 10658557 -<br><img src=\"/assets/media/exam-media/03480/0011300001.jpg\" class=\"in-exam-image\"><br>You need to prevent email messages from being sent to the Internet if the messages contain content defined by the United States Health Insurance Portability and<br>Accountability Act (HIPAA). The solution must be performed from the Exchange Online admin center.<br>To complete this task, sign in to the Microsoft 365 admin center.<br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "You need to configure a \"\u02dcdata loss prevention (DLP) policy'.<br>1. Go to the Exchange Admin Center, click \"\u02dccompliance management' then click \"\u02dcdata loss prevention'.<br>2. Click the plus (+) sign and select \"\u02dcNew DLP policy from template'.<br>3. Give the policy a name such as HIPAA-policy.<br>4. In the \"\u02dcChoose a template' section, scroll down and select \"\u02dcU.S. Health Insurance Act (HIPAA)'<br>5. Ensure that \"\u02dcEnabled' is selected for the policy.<br>6. Select the \"\u02dcEnforce' option in the \"\u02dcChoose a mode for the requirements in this DLP policy' section.<br>7. Click \"\u02dcSave' to create the policy.<br>8. Select the new policy and click the edit icon (pencil icon).<br>9. Select \"\u02dcrules' and untick the \"\u02dcAllow override' option.<br>10. Click Save to save the changes.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-15T15:39:00.000Z",
+        "voteCount": 1,
+        "content": "(This has been moved to the SCC.)\nYou need to configure a \u2018data loss prevention (DLP) policy'.\n1. Go to Security and Compliance Center and then click \"data loss prevention\u201d. Click on \u201cPolicy\u201d.\n2. Click the plus (+) sign and select \"Create a policy\u201d.\n3. Select \u201cMedical and health\u201d and U.S. Health Insurance Act. \n4. Give the policy a name such as HIPAA-policy.\n5. Select \u201cLet me choose specific locations\u201d.\n6. Select Exchange email only.\n7. Select \u201cDetect when this content is shared with people outside my organization\u201d.\n8. Select \u201cShow policy tips to users and send them an email notification\u201d.\n9. Select \u201cYes, turn it on right away\u201d.\n10. Click \u201cCreate\u201d to save the changes."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4137-exam-ms-201-topic-2-question-42-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You run the following commands.<br>New-Management-Scope \"\"Name \"VIP Mailboxes\" \"\"RecipientRoot \"Contoso.com/Executives\"<br>\"\"RecipientRestrictionFilter (RecepientType \"\"eq \"UserMailbox\")<br>New-ManagementRoleAssignment \"\"SecurityGroup \"VIP Admins\" \"\"Role \"Mail Recipients\" \"\"CustomRecipientWriteScope \"VIP<br>Mailboxes\"<br>You have a user named Admin1.<br>You need to ensure that Admin1 can manage the mailboxes of users in the Executives organizational unit (OU) only.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the membership of VIP Admins.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a custom role group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd Admin1 to the Recipient Management role group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove Admin1 to the Executives OU."
+    ],
+    "answer": "C",
+    "answerDescription": "References:<br>https://social.technet.microsoft.com/Forums/exchange/en-US/b316a841-c39d-483a-ac8e-64d5904c42e6/how-to-limit-recipient-management-rights-to-users-in-a- ou-in-exchange-2010-sp1?forum=exchangesvradminlegacy",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-08-27T00:59:00.000Z",
+        "voteCount": 16,
+        "content": "Correct Answer:&nbsp;A.     &nbsp;New-ManagementScope creates a custom scope for \"Contoso.com/Executives\".   New-ManagementRoleAssignment  links permissions \"Mail Recipients\" with the group \"VIP Admins\".    We should just add our admin to this group."
+      },
+      {
+        "date": "2019-09-02T04:22:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed, that should be the correct answer"
+      },
+      {
+        "date": "2020-04-27T19:27:00.000Z",
+        "voteCount": 3,
+        "content": "That makes total sense. I agree. 'A'. Assigning 'Recipient Management' role group would provide permissions for all mailboxes, not just the ones in the OU."
+      },
+      {
+        "date": "2021-03-07T18:11:00.000Z",
+        "voteCount": 1,
+        "content": "Agree\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/new-managementroleassignment?view=exchange-ps#example-4"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/5278-exam-ms-201-topic-2-question-43-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization.<br>You need to prevent credit card information from being emailed outside of the organization. Users must be informed of any potential breaches before sending email.<br>What should you create?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta journal rule",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta retention policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta retention tag",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta data loss prevention (DLP) policy"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/securitycompliance/data-loss-prevention-policies",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-05T12:56:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct answer"
+      },
+      {
+        "date": "2019-09-16T20:56:00.000Z",
+        "voteCount": 2,
+        "content": "Please disregard this comment!!!!"
+      },
+      {
+        "date": "2019-09-16T20:54:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A - Applies to entire mailbox and allows move to archive\nRetention Policy Tag does not allow move to archive\nhttps://docs.microsoft.com/en-us/exchange/policy-and-compliance/mrm/retention-tags-and-retention-policies?view=exchserver-2019"
+      },
+      {
+        "date": "2020-07-11T00:24:00.000Z",
+        "voteCount": 4,
+        "content": "Absolutely wrong, DLP"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11566-exam-ms-201-topic-2-question-44-discussion/",
+    "body": "You have a Microsoft 365 E5 subscription.<br>A user attempts to send an email message to an external recipient and receives the following error message: \"Your message couldn't be delivered because you weren't recognized as a valid sender. The most common reason for this is that your email address is suspected of sending spam and it's no longer allowed to send messages outside of your organization. Contact your mail admin for assistance. Remote Server returned \"\u02dc550 5.1.8 Access denied, bad outbound sender'.\"<br>You need to ensure that the user send email to external recipients.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcompliance management in the Exchange admin center",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData loss prevention in the Security &amp; Compliance admin center",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThreat management in the Security &amp; Compliance admin center",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taction center in the Exchange admin center"
+    ],
+    "answer": "D",
+    "answerDescription": "References:<br>http://www.noelpulis.com/fix-550-5-1-8-access-denied-bad-outbound-sender/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-07T01:40:00.000Z",
+        "voteCount": 15,
+        "content": "Answer is C,Action Center has a new name and a new home. Please start using the new and improved Restricted Users page in the Security &amp; Compliance Center. Read about the new Restricted Users experience."
+      },
+      {
+        "date": "2020-04-27T19:28:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. Thank you."
+      },
+      {
+        "date": "2020-05-06T07:47:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with the answer C :\n\nhttp://automatica.com.au/2020/01/office-365-single-users-unable-to-send-email-access-denied-bad-outbound-sender-error/"
+      },
+      {
+        "date": "2020-07-11T00:31:00.000Z",
+        "voteCount": 1,
+        "content": "Are you sure about this? Because Office 365 Security &amp; Compliance Threat management is something is then Office 365 Security &amp; Compliance Restrictedusers page"
+      },
+      {
+        "date": "2020-08-22T07:09:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer is C. Actually there are two Ways to Access Restricted Users from Security &amp; Compliance:\n1. Alerts-&gt;Dashboard-&gt;Other Alerts-&gt; Restricted Users\n2. Threat Management-&gt;Review-&gt;Restricted Users"
+      },
+      {
+        "date": "2023-11-16T05:16:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct answer"
+      },
+      {
+        "date": "2020-10-03T19:45:00.000Z",
+        "voteCount": 1,
+        "content": "In the Security &amp; Compliance Center, go to Alerts &gt; Alert policies.\n\nFind an select the User restricted from sending email alert."
+      },
+      {
+        "date": "2020-10-03T19:42:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/removing-user-from-restricted-users-portal-after-spam?view=o365-worldwide#:~:text=%20Verify%20the%20alert%20settings%20for%20restricted%20users,box%20is%20selected%20%28%20On%20%29.%20More%20"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/4150-exam-ms-201-topic-2-question-47-discussion/",
+    "body": "You have a Microsoft Exchange Server 2019 organization that contains 1,000 users and three Mailbox servers.<br>You discover an increase in spam.<br>You need to use an anti-spam real-time block list.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the junk email settings for the mailboxes.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the Install-AntispamAgents.ps1 PowerShell script.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy a data loss prevention (DLP) policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an Edge Transport server."
+    ],
+    "answer": "B",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/antispam-on-mailbox-servers?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-27T19:21:00.000Z",
+        "voteCount": 8,
+        "content": "Correct answer is 'D'. \nIt may seem like the thing you should do 'first' is install and enable agents on the mailbox server(s). But the requirement is to explicitly enable RBL - real time block lists.\nRBLs are only supported in the 'connection filtering' agent. See here for custom RBL provider configuration:\nhttps://docs.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/connection-filtering-procedures?view=exchserver-2019#ip-block-list-provider-procedures"
+      },
+      {
+        "date": "2019-08-27T02:32:00.000Z",
+        "voteCount": 6,
+        "content": "The right answer is D. Deploy an Edge Transport server. Only Edge has Connection Filtering agent. https://docs.microsoft.com/ru-ru/exchange/antispam-and-antimalware/antispam-protection/antispam-protection?view=exchserver-2019"
+      },
+      {
+        "date": "2019-12-18T20:26:00.000Z",
+        "voteCount": 1,
+        "content": "according to your ref. B should be the correct answer. \nContent Filter agent: Content filtering agent assigns a spam confidence level (SCL) to each message based on data from legitimate and spam messages. For more information, see Content filtering.\n\nSpam quarantine is a component of the Content Filter agent that reduces the risk of losing legitimate messages that are incorrectly classified as spam. Spam quarantine provides a temporary storage location for suspicious messages so an administrator can review the messages. For more information, see Spam quarantine in Exchange Server."
+      },
+      {
+        "date": "2020-08-29T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with D \nhttps://docs.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/connection-filtering?view=exchserver-2019"
+      },
+      {
+        "date": "2020-05-15T15:01:00.000Z",
+        "voteCount": 2,
+        "content": "The Add-IPBlockListProvider is available only on Edge=&gt; :D"
+      },
+      {
+        "date": "2020-01-08T02:50:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct answer. By default, the anti-spam agents are not installed and hooked into transport service. However, by running the script, we can enable the agent with transport service. \n\nhttps://docs.microsoft.com/en-us/Exchange/antispam-and-antimalware/antispam-protection/antispam-on-mailbox-servers?view=exchserver-2019"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42872-exam-ms-201-topic-2-question-48-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have a Microsoft Exchange Server 2019 organization.<br>You discover that users rarely delete items from their Sent Items folder and their Deleted Items folder.<br>You need to recommend a solution to automatically reduce the size on the primary mailbox of each user.<br>Solution: You recommend configuring a retention policy that contains two personal tags.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-19T19:54:00.000Z",
+        "voteCount": 1,
+        "content": "No\nPersonal Tag are applied by the user it does not enforce which mean this will not help."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52890-exam-ms-201-topic-2-question-50-discussion/",
+    "body": "HOTSPOT -<br>Your company has a Microsoft 365 subscription.<br>All users are assigned Microsoft 365 E5 licenses.<br>The users receive email messages that appear to come from managers at the company. However, the messages are not from the managers and often include links to malicious websites.<br>You need to provide a solution to protect the mailboxes of the managers and to inform the users when phishing occurs.<br>Which two settings should you modify in the anti-phishing policy? To answer, select the appropriate settings in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0012000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0012100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/set-up-anti-phishing-policies?view=o365-worldwide#learn-about-atp-anti-phishing- policy-options",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-16T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "We need to \"inform the users when phishing occurs\". \n'Action' doesn't have this option, so we need to modify 'Safety tips &gt; User impersonation'."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/44814-exam-ms-201-topic-2-question-53-discussion/",
+    "body": "SIMULATION -<br>Please wait while the virtual machine loads. Once loaded, you may proceed to the lab section. This may take a few minutes, and the wait time will not be deducted from your overall test time.<br>When the Next button is available, click it to access the lab section. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may more than one lab that you must complete. You can use as much time as you would like to complete each lab.<br>But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>Username and password -<br><img src=\"/assets/media/exam-media/03480/0012700001.jpg\" class=\"in-exam-image\"><br>Use the following login credentials as needed:<br>To enter your username, place your cursor in the Sign in box and click on the username below.<br>To enter your password, place your cursor in the Enter password box and click on the password below.<br>Microsoft 365 Username: admin@LODSe392916.onmicrosoft.com<br>Microsoft 365 Password: sc43@EMt^g%g<br>If the Microsoft 365 portal does not load successfully in the browser, press CTRL-K to reload the portal in a new browser tab.<br>The following information is for technical support purposes only:<br><br>Lab Instance: 11024416 -<br>You need to ensure that all users receive a daily email message that contains a list of spam-quarantined email messages.<br>To complete this task, sign in to the Microsoft 365 admin center.<br>",
+    "options": [],
+    "answer": "See explanation below",
+    "answerDescription": "You need to enable end-user spam notifications for the default spam policy.<br>1. Go to the Exchange Admin Center.<br>2. Click Protection in the left navigation pane.<br>3. Click \"\u02dcSpam Filter'.<br>4. Select the default spam policy.<br>5. In the right pane, where the summary information about the spam policy appears, click the \"\u02dcConfigure End-user spam notifications' link.<br>6. Tick the checkbox labelled \"\u02dcEnable end-user spam notifications'.<br>7. Click Save to save the changes.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-15T17:04:00.000Z",
+        "voteCount": 1,
+        "content": "You can also go to SCC&gt;Threat Management&gt;Policy&gt;Anti-Spam Policy and there is the same option to Configure end-user spam notification."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52894-exam-ms-201-topic-2-question-55-discussion/",
+    "body": "SIMULATION -<br>Please wait while the virtual machine loads. Once loaded, you may proceed to the lab section. This may take a few minutes, and the wait time will not be deducted from your overall test time.<br>When the Next button is available, click it to access the lab section. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may more than one lab that you must complete. You can use as much time as you would like to complete each lab.<br>But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>Username and password -<br><img src=\"/assets/media/exam-media/03480/0013200001.jpg\" class=\"in-exam-image\"><br>Use the following login credentials as needed:<br>To enter your username, place your cursor in the Sign in box and click on the username below.<br>To enter your password, place your cursor in the Enter password box and click on the password below.<br>Microsoft 365 Username: admin@LODSe392916.onmicrosoft.com<br>Microsoft 365 Password: sc43@EMt^g%g<br>If the Microsoft 365 portal does not load successfully in the browser, press CTRL-K to reload the portal in a new browser tab.<br>The following information is for technical support purposes only:<br><br>Lab Instance: 11024416 -<br>You need to ensure that the email messages in mailboxes and the documents in Microsoft OneDrive folders of all the users in your organization are retained for only five years.<br>To complete this task, sign in to the Microsoft 365 admin center.<br>",
+    "options": [],
+    "answer": "See explanation below",
+    "answerDescription": "You need to configure a retention policy.  A retention policy can retain data or delete data.<br>You can create and manage retention policies in two locations:<br>\u2711 The Policies page in the Microsoft 365 compliance center.<br>\u2711 The Retention page under Information governance in the Office 365 Security &amp; Compliance Center.<br>1. Go to the Office 365 Security &amp; Compliance Center.<br>2. Expand Information Governance and select Retention.<br>3. Click the +Create button to create a new retention policy.<br>4. Enter a name for the retention policy such as \"Delete email and OneDrive after five years\" and click Next.<br>5. In the \"\u02dcDo you want to retain content?' section, select \"\u02dcNo, just delete content that's older than' and enter 5 years then click Next.<br>6. In the Choose Locations page, ensure that \"\u02dcLet me choose specific locations' is selected.<br>7. Click the sliders to enable the Exchange Email and OneDrive Accounts locations.<br>8. Ensure that no other locations are selected as some locations are selected by default and click Next.<br>9. In the \"\u02dcReview your settings' page, click the \"\u02dcCreate this policy' button.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-16T09:49:00.000Z",
+        "voteCount": 1,
+        "content": "The task is \"to retain data for only five years\".\nSo why we need to choose the option 'No, just delete content that's older than'?\nAccording to the task, we need to choose:\n'Yes, I want to retain it...' \nand \n'Do you want us to delete it after this time? Y/N'"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42877-exam-ms-201-topic-2-question-59-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>Your company has a Microsoft Exchange Server 2019 hybrid deployment that contains two Mailbox servers named MBX1 and MBX2.<br>The company has the departments shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0014000001.png\" class=\"in-exam-image\"><br>From the on-premises organization, outbound email is sent directly to the internet by using DNS lookups.<br>You are informed that some sales department users send email messages that are identified as spam.<br>You need to automatically block the sales department users from repeatedly sending spam.<br>Solution: You modify the outbound spam filter policy in Exchange Online.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/office365/securitycompliance/configure-the-outbound-spam-policy",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-19T23:23:00.000Z",
+        "voteCount": 2,
+        "content": "B\nSales is in On-Prem and outbound it going directly to internet hence this does not have any effect."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47175-exam-ms-201-topic-2-question-60-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>Your company has a Microsoft Exchange Server 2019 hybrid deployment that contains two Mailbox servers named MBX1 and MBX2.<br>The company has the departments shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0014100001.png\" class=\"in-exam-image\"><br>From the on-premises organization, outbound email is sent directly to the internet by using DNS lookups.<br>You are informed that some sales department users send email messages that are identified as spam.<br>You need to automatically block the sales department users from repeatedly sending spam.<br>Solution: You modify the Send connector to use Exchange Online as a smart host.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/mail-flow-best-practices/use-connectors-to-configure-mail-flow/set-up-connectors-to-route-mail",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-02-19T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "To, ensure senders are marked as spam, you need to modify \"outbound spam policy\". Creating a connector, doesn't help entirely. Partially, yes."
+      },
+      {
+        "date": "2021-03-15T05:49:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be false, setting the send connector to use Exchange Online doesnt automatically block the sales department users from sending outbound spam emails, you still need to specify and configure."
+      },
+      {
+        "date": "2021-05-16T09:57:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct because EOP will restrict them automatically."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37164-exam-ms-201-topic-2-question-62-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>Your company has a Microsoft Exchange Server 2019 hybrid deployment that contains two Mailbox servers named MBX1 and MBX2.<br>The company has the departments shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0014300001.png\" class=\"in-exam-image\"><br>From the on-premises organization, outbound email is sent directly to the internet by using DNS lookups.<br>You are informed that some sales department users send email messages that are identified as spam.<br>You need to automatically block the sales department users from repeatedly sending spam.<br>Solution: You migrate all the mailboxes of the sales department to Exchange Online.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-17T07:15:00.000Z",
+        "voteCount": 2,
+        "content": "Strictly speaking, moving the sales mailboxes to Exchange Online will achieve the goal because the outbound anti spam filtering will apply to email sent. However, it's an impractical way to solve the problem. \nA better answer seen in a different question is to change the outgoing mail route to use Exchange Online as smarthost (instead of using DNS resolution)."
+      },
+      {
+        "date": "2020-11-20T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "It is a solution to the given problem."
+      },
+      {
+        "date": "2021-01-20T16:34:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with this"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37386-exam-ms-201-topic-2-question-64-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>Your company has a Microsoft 365 subscription.<br>Several users in the finance department of the company recently accesses unsafe websites by clicking on links in email messages.<br>Users in the marketing department of the company report that they must be able to access all the links embedded in email messages.<br>You need to reduce the likelihood of the finance department users accessing unsafe websites. The solution must affect only the finance department users.<br>Solution: You modify the content filtering settings.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/exchange/antispam-and-antimalware/antispam-protection/content-filtering-procedures?view=exchserver-2019",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-20T16:41:00.000Z",
+        "voteCount": 1,
+        "content": "B\nThe solution must only affect finance department users. Modifying the content filtering will affect everyone yet not solve the problem."
+      },
+      {
+        "date": "2020-11-20T06:25:00.000Z",
+        "voteCount": 1,
+        "content": "The answerer is B, False.  Content filtering is all about Spam, not safe links"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/37388-exam-ms-201-topic-2-question-68-discussion/",
+    "body": "DRAG DROP -<br>You have a Microsoft Exchange Server 2019 organization.<br>You need to identify which accounts in Active Directory are assigned permissions to dismount mailbox databases.<br>How should you complete the command? To answer, drag the appropriate values to the correct targets. Each value may he used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03480/0014900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0014900002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/powershell/exchange/find-exchange-cmdlet-permissions?view=exchange-ps",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-22T04:09:00.000Z",
+        "voteCount": 2,
+        "content": "There is no -Cmdlet parameter for Get-ManagementRoleEntry. It is available for Get-ManagementRole"
+      },
+      {
+        "date": "2021-01-20T17:33:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct:\nGet-ManagementRoleEntry -Identity *\\&lt;Cmdlet&gt;  [-Parameters &lt;Parameter1&gt;,&lt;Parameter2&gt;,...]\n$na = Get-ManagementRole; $na | foreach {If ((Get-ManagementRoleAssignment -Role $_.Name -Delegating $false) -eq $null) {$_.Name}}\nUse the Get-ManagementRole cmdlet to view management roles that have been created in your organization.\nhttps://docs.microsoft.com/en-us/powershell/exchange/find-exchange-cmdlet-permissions?view=exchange-ps#troubleshooting\nhttps://docs.microsoft.com/en-us/powershell/module/exchange/get-managementrole?view=exchange-ps"
+      },
+      {
+        "date": "2021-01-01T14:16:00.000Z",
+        "voteCount": 2,
+        "content": "Carlos1787 is right. And is Get-ManagementRole and Get-ManagementRoleAssignment"
+      },
+      {
+        "date": "2020-11-20T06:31:00.000Z",
+        "voteCount": 3,
+        "content": "the states answer is incorrect.  This is straight from the referenced doc.\n $Perms = Get-ManagementRole -Cmdlet &lt;Cmdlet&gt; [-CmdletParameters &lt;Parameter1&gt;,&lt;Parameter2&gt;,...]\nthen\n$Perms | foreach {Get-ManagementRoleAssignment -Role $_.Name -Delegating $false | Format-Table -Auto Role,RoleAssigneeType,RoleAssigneeName}"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36834-exam-ms-201-topic-2-question-69-discussion/",
+    "body": "DRAG DROP -<br>Your company has a Microsoft Exchange Server 2019 hybrid deployment.<br>The company has two departments that have the mailboxes configured as shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0015000001.png\" class=\"in-exam-image\"><br>All the accounting department mailboxes reside in a database named ACCT-DB01.<br>You create the mailboxes shown in the following table.<br><img src=\"/assets/media/exam-media/03480/0015000002.png\" class=\"in-exam-image\"><br>You need to record all the email communication of the users in each department. The solution must minimize costs.<br>What should you use for each department? To answer, drag the appropriate options to the correct departments. Each option may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03480/0015000003.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0015100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://www.microsoft.com/en-gb/microsoft-365/exchange/microsoft-exchange-server-licensing-licensing-overview?rtc=1",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-20T06:40:00.000Z",
+        "voteCount": 2,
+        "content": "An Office 365 mailbox cannot be used as a journaling mailbox\nRef:\nhttps://docs.microsoft.com/en-us/exchange/policy-and-compliance/journaling/journaling?view=exchserver-2019#journaling-mailbox\nDatabase journaling is all that is available for standard CAL's"
+      },
+      {
+        "date": "2020-11-12T01:22:00.000Z",
+        "voteCount": 1,
+        "content": "Am I missing something here?  Should it not the marketing mailbox use JRNL-MBX02"
+      },
+      {
+        "date": "2020-11-18T03:52:00.000Z",
+        "voteCount": 1,
+        "content": "I'm with you, it seems to be a typo."
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42968-exam-ms-201-topic-2-question-70-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the email hygiene configuration of a Microsoft Exchange Server 2019 organization.<br>You run the command shown in the following exhibit.<br><img src=\"/assets/media/exam-media/03480/0015100002.png\" class=\"in-exam-image\"><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03480/0015200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03480/0015300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-20T22:03:00.000Z",
+        "voteCount": 1,
+        "content": "A higher SCL indicates a message is more likely to be spam. EOP takes action on the message based on the SCL. If you use a mail flow rule to set the SCL, the values 5 or 6 trigger the spam filtering action for Spam, and the values 7, 8, or 9 trigger the spam filtering action for High confidence spam.\nhttps://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/spam-confidence-levels?view=o365-worldwide"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36835-exam-ms-201-topic-2-question-72-discussion/",
+    "body": "You have a Microsoft Exchange Online tenant.<br>All users are assigned a Microsoft Office 365 Enterprise E5 license.<br>You need to implement Office 365 Advanced Threat Protection (ATP). The solution must meet the following requirements:<br>\"\u00a2 Scan all files embedded in emails before the users download the files.<br>\"\u00a2 Identify and analyze recent threats from the last 30 days.<br>Which two ATP features should you use? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThreat Tracker",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAttack simulator",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tATP Safe Links",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExplorer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tATP Safe Attachments"
+    ],
+    "answer": "CD",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-advanced-threat-protection-service-description<br>Secure the Messaging Environment",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-17T08:02:00.000Z",
+        "voteCount": 1,
+        "content": "agree the answer should be D&amp;E"
+      },
+      {
+        "date": "2020-11-20T06:54:00.000Z",
+        "voteCount": 1,
+        "content": "Should be D, Safe attachements\nRef:\nhttps://docs.microsoft.com/en-us/office365/servicedescriptions/office-365-advanced-threat-protection-service-description#safe-attachments"
+      },
+      {
+        "date": "2020-11-12T01:25:00.000Z",
+        "voteCount": 3,
+        "content": "D and E (not C), asking for attachments not links in files"
+      },
+      {
+        "date": "2020-11-17T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct. Reference here: https://www.lgnetworksinc.com/whats-new-in-office-365-advanced-threat-protection-atp/"
+      }
+    ],
+    "examNameCode": "ms-201",
+    "topicNumber": "2"
+  }
+]

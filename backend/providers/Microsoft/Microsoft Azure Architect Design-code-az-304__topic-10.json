@@ -1,0 +1,260 @@
+[
+  {
+    "topic": 10,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30787-exam-az-304-topic-10-question-1-discussion/",
+    "body": "You need to recommend a solution for protecting the content of the payment processing system.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted with deterministic encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted with randomized encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransparent Data Encryption (TDE)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Storage Service Encryption"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-07T05:24:00.000Z",
+        "voteCount": 48,
+        "content": "Seems correct, as randomized encryption would not allow for grouping/joining of data\n\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15#selecting--deterministic-or-randomized-encryption"
+      },
+      {
+        "date": "2021-07-30T19:15:00.000Z",
+        "voteCount": 4,
+        "content": "Correct answer A: \nwrong answer TDE: https://azure.microsoft.com/en-us/blog/transparent-data-encryption-or-always-encrypted/"
+      },
+      {
+        "date": "2021-02-13T17:12:00.000Z",
+        "voteCount": 19,
+        "content": "It is correct. and speedminer is got the right link:\n\"Deterministic encryption always generates the same encrypted value for any given plain text value. Using deterministic encryption allows point lookups, equality joins, grouping and indexing on encrypted columns. However, it may also allow unauthorized users to guess information about encrypted values by examining patterns in the encrypted column, especially if there's a small set of possible encrypted values, such as True/False, or North/South/East/West region. Deterministic encryption must use a column collation with a binary2 sort order for character columns.\n\nRandomized encryption uses a method that encrypts data in a less predictable manner. Randomized encryption is more secure, but prevents searching, grouping, indexing, and joining on encrypted columns.\""
+      },
+      {
+        "date": "2022-03-12T18:19:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct. https://www.azureblue.io/always-encrypted-deterministic-vs-randomized/"
+      },
+      {
+        "date": "2022-02-13T02:06:00.000Z",
+        "voteCount": 2,
+        "content": "came in Exam March-2022\npassed w 883"
+      },
+      {
+        "date": "2021-09-29T01:25:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15#selecting--deterministic-or-randomized-encryption\n\nUsing deterministic encryption allows point lookups, equality joins, grouping and indexing on encrypted columns.\n\nA is the answer"
+      },
+      {
+        "date": "2021-09-20T04:40:00.000Z",
+        "voteCount": 4,
+        "content": "came in exam on 20-sep-21, I passed, I choose given one"
+      },
+      {
+        "date": "2021-07-06T01:59:00.000Z",
+        "voteCount": 2,
+        "content": "Correct\n\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15"
+      },
+      {
+        "date": "2021-05-21T17:02:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer A\n\n\"Use deterministic encryption for columns that will be used as search or grouping parameters. For example, a government ID number. Use randomized encryption for data such as confidential investigation comments, which aren't grouped with other records and aren't used to join tables. \"\n\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15"
+      },
+      {
+        "date": "2021-03-13T11:28:00.000Z",
+        "voteCount": 5,
+        "content": "Correct\nRequirement:\n\"Payment processing system must be able to use grouping and joining tables on encrypted columns.\"\n\nDeterministic Encryption:\nI think that the deterministic encryption type is somewhat similar to the way hashing algorithms work. This method always generates the same encrypted value for any given plaintext value.\nThis means if we would encrypt a boolean column holding only true values the encrypted payload would be the same for each of the values.\nThis method allows grouping, filtering by equality and joining tables based on encrypted values, but could also allow a malicious user to guess information by examining patterns and then deduce the plain-text value.\n\nhttps://www.azureblue.io/always-encrypted-deterministic-vs-randomized/"
+      },
+      {
+        "date": "2021-01-16T20:26:00.000Z",
+        "voteCount": 3,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-12-25T02:51:00.000Z",
+        "voteCount": 4,
+        "content": "TDE does not encrypt data on transit"
+      },
+      {
+        "date": "2020-12-22T22:07:00.000Z",
+        "voteCount": 2,
+        "content": "from:\n\"Only the front-end and middle-tier components must be able to access the encryption keys that protect the data store.\"\nand the ask to minimize the changes to the middle tier &amp; backend tier , would trend to TDE with BYOC : https://docs.microsoft.com/en-us/azure/azure-sql/database/transparent-data-encryption-byok-overview"
+      },
+      {
+        "date": "2021-08-25T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "TDE would not meet the requirement \"encrypt data in transit and at rest.\" With TDE, server decrypts the data on reading it from the database. https://azure.microsoft.com/en-us/blog/transparent-data-encryption-or-always-encrypted/"
+      },
+      {
+        "date": "2020-10-26T15:52:00.000Z",
+        "voteCount": 4,
+        "content": "I believe it a correct Answer."
+      }
+    ],
+    "examNameCode": "az-304",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/38351-exam-az-304-topic-10-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a solution for the data store of the historical transaction query system.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04027/0019200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04027/0019300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-15T05:36:00.000Z",
+        "voteCount": 37,
+        "content": "Correct\nTable with fixed capacity:\nin requirements - \"The data in the Azure Table storage is 50 GB and is not expected to increase\"\nAdditional read region:\navailiability zone or set doesn't help during region gailure"
+      },
+      {
+        "date": "2021-10-31T11:36:00.000Z",
+        "voteCount": 3,
+        "content": "Also, single table because we move to Cosmos DB."
+      },
+      {
+        "date": "2020-12-09T14:10:00.000Z",
+        "voteCount": 15,
+        "content": "Multiple tables fixed capacity"
+      },
+      {
+        "date": "2021-02-12T06:49:00.000Z",
+        "voteCount": 3,
+        "content": "Agree - Multiple tables fixed capacity"
+      },
+      {
+        "date": "2021-02-12T06:53:00.000Z",
+        "voteCount": 5,
+        "content": "The issue is that the queries are based on different attributes of the item. Hence it would be ideal to create multiple tables."
+      },
+      {
+        "date": "2021-02-19T01:00:00.000Z",
+        "voteCount": 1,
+        "content": "Unlike Relational DB, Azure Table storage is not designed to be queried, you cannot do join query on Tables in Table storage.  So Single table is sufficient."
+      },
+      {
+        "date": "2021-02-19T01:03:00.000Z",
+        "voteCount": 1,
+        "content": "Just to be clear, PartitionKey and RowKey are the only two fields that can be queried in Table storage, there is no way I know of that can run a JOIN query.  Please correct me if wrong :)"
+      },
+      {
+        "date": "2022-06-04T12:00:00.000Z",
+        "voteCount": 1,
+        "content": "That's not quite right, PartitionKey and RowKey are the only two fields which are INDEXED. Queries can be on any field, but non-indexed fields will be slow of course."
+      },
+      {
+        "date": "2021-05-05T14:26:00.000Z",
+        "voteCount": 4,
+        "content": "The requirement - The Contoso IT team discovers poor performance of the historical transaction query system, as the queries frequently cause table scans.  This opens up the possibility of having multiple tables with a different partition key.  The Udemy 304 course has it with multiple tables.  Could go either way but multiple tables seems best considering this requirement."
+      },
+      {
+        "date": "2021-11-26T04:10:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with you"
+      },
+      {
+        "date": "2021-12-11T14:38:00.000Z",
+        "voteCount": 2,
+        "content": "Multiple table fix capacity - due to performance issue in current system\nAdditional read regions"
+      },
+      {
+        "date": "2021-10-31T11:35:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-10-08T10:58:00.000Z",
+        "voteCount": 1,
+        "content": "Given Answers are correct."
+      },
+      {
+        "date": "2021-10-05T05:02:00.000Z",
+        "voteCount": 5,
+        "content": "\"The data in the table storage is 50 GB and is not expected to increase\"\n\"queries frequently cause table scans\"\n\n1st drop down is multiple tables with fixed capacity\n\n2nd drop down is additional read region for sure"
+      },
+      {
+        "date": "2021-09-29T18:01:00.000Z",
+        "voteCount": 3,
+        "content": "The 1st box should be multiple tables with fixed size.\n\nThe question is asking to address performance issue in Azure Table Storage. So we should understand what caused performance issue first. It says it's caused by table scan.\n\nThe issue of a table scan has to do with crossing the partition boundaries. The level of performance you are guaranteed is explicitly set at the partition level. therefore, when you run a full table scan, its a) not very efficient, b) doesn't have any guarantee of performance. This is because the partitions themselves are set on separate storage nodes, and when you run a cross partition scan, you're consuming potentially massive amounts of resources (tying up multiple nodes simultaneously).\n\nTherefore the solution after migrating to Cosmos DB is to reduce partition keys. You then need multiple tables as new design for Cosmos migration."
+      },
+      {
+        "date": "2021-09-20T04:41:00.000Z",
+        "voteCount": 6,
+        "content": "came in exam on 20-sep-21, I passed, I choose Multiple tables fixed capacity, second one additional read region"
+      },
+      {
+        "date": "2021-08-19T05:15:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer: \ntable that has unlimited capacity.\nRequirements say that there is one 50GB table. So - why shall we spread it to many tables? It doesn't have any sense.\nThe table can't be fixed. Because fixed table in cosmos has to be &lt;=10GB."
+      },
+      {
+        "date": "2021-08-18T09:39:00.000Z",
+        "voteCount": 3,
+        "content": "As a solution a single table will work better than multiple tables.  However, the answer should be, \"Multiple tables that have fixed capacity\".\n\nThe reason is to satisfy the requirements:\n\n1.  Payment processing system must be able to use grouping and joining tables on encrypted columns.\n\n2.  Minimize the effort required to modify the .NET web service querying Azure Cosmos DB.\n\nRequirement 1, is self-explanatory it tells you you need multiple tables.  Or another way to interpret that statement is the \"existing\" solution relies on multiple tables.\n\nRequirement 2, tells you you need to minimize the effort.  Imagine going from a multi-table solution to a single table solution, the query changes you have to make in the existing code.  Although it's technically feasible and arguably make the queries more efficient (going to a single table design) it doesn't satisfy the requirement."
+      },
+      {
+        "date": "2021-08-25T23:27:00.000Z",
+        "voteCount": 2,
+        "content": "The question is about the Historical Transaction system, NOT the Payment Processing system. And that \"uses Azure Table Storage\", probably with one table though that isn't mentioned explicitly. In any case, Cosmos DB does not have the issue that all queries cause table scans because all attributes are indexed by default. Thus a single table should be sufficient. This would also require least changes in the .NET app."
+      },
+      {
+        "date": "2021-07-18T00:25:00.000Z",
+        "voteCount": 2,
+        "content": "Requirement is to migrate to Cosmos. Cosmos table storage has no limits on table size, and all attributes of an entity are indexed by default (https://docs.microsoft.com/en-us/azure/cosmos-db/table-api-faq#does-the-table-api-index-all-attributes-of-an-entity-by-default-)."
+      },
+      {
+        "date": "2021-07-20T22:34:00.000Z",
+        "voteCount": 2,
+        "content": "Multiple tables, because of the 20GB Maximum storage across all items per (logical) partition. https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits#provisioned-throughput"
+      },
+      {
+        "date": "2021-08-25T23:28:00.000Z",
+        "voteCount": 1,
+        "content": "It's still one table, just with multiple partitions."
+      },
+      {
+        "date": "2021-06-22T09:43:00.000Z",
+        "voteCount": 4,
+        "content": "Multiple tables seams the best answer as of:\n\n\"A table is made up of one or more partitions, and many of the design decisions you make will be around choosing a suitable PartitionKey and RowKey to optimize your solution. A solution can consist of just a single table that contains all your entities organized into partitions, but typically a solution has multiple tables. Tables help you to logically organize your entities, and help you manage access to the data by using access control lists. You can drop an entire table by using a single storage operation.\"\n\nREF: https://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-design-guide"
+      },
+      {
+        "date": "2021-08-25T23:29:00.000Z",
+        "voteCount": 3,
+        "content": "This is about Azure Table Storage, and yes, if you'd stick with that, the solution for your performance issues would be creating more tables. But you're migrating the solution to Cosmos DB, and THERE all attributes are indexed. Thus I think one table should be fine."
+      },
+      {
+        "date": "2021-05-24T04:40:00.000Z",
+        "voteCount": 3,
+        "content": "Incorrect\nMultiple tables fixed capacity"
+      },
+      {
+        "date": "2021-05-21T17:12:00.000Z",
+        "voteCount": 4,
+        "content": "sizing requirements should be multiple tables that have fixed capacity. \n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/table-storage-design-guide"
+      },
+      {
+        "date": "2021-08-25T23:24:00.000Z",
+        "voteCount": 1,
+        "content": "But we migrate the data to Cosmos DB. That guide is for classic Table Storage, and THERE we would need multiple tables to speed up the queries."
+      },
+      {
+        "date": "2021-02-15T00:32:00.000Z",
+        "voteCount": 3,
+        "content": "So for the sizing part, is it \"one table with fixed capacity\" or \"multiple tables with fixed capacity\"?\nFor resiliency: Cosmos DB doesnt have something like \"availabiliy set\", this is only for e.g. VMs. \"availability zone\" provides only redundancy within a region. So \"additional read region\" is correct."
+      },
+      {
+        "date": "2021-01-16T20:38:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-12-25T04:06:00.000Z",
+        "voteCount": 2,
+        "content": "Correct\ndata stored on Azure Tables does not depend on complex server-side joins or other logic"
+      }
+    ],
+    "examNameCode": "az-304",
+    "topicNumber": "10"
+  }
+]

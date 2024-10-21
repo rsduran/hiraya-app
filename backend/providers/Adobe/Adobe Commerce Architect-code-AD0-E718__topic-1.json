@@ -1,0 +1,538 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/adobe/view/110498-exam-ad0-e718-topic-1-question-1-discussion/",
+    "body": "A company wants to build an Adobe Commerce website to sell their products to customers in their country. The taxes in their country are highly complex and require customization to Adobe Commerce. An Architect is trying to solve this problem by creating a custom tax calculator that will handle the calculation of taxes for all orders in Adobe Commerce.<br>How should the Architect add the taxes for all orders?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWrite a before plugin to \\Magento\\Quote\\Model\\QuoteManagement::placeOrder() and add the custom tax to the quote",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeclare a new total collector in \u201cetc/sales.xml\u201d in a custom module\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a new observer to the event \u201csales_quote_collect_totals_before\u201d and add the custom tax to the quote"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-23T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "B should be the correct answer"
+      },
+      {
+        "date": "2023-07-23T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "Check the Ava tax module \nhttps://github.com/avadev/Avalara-AvaTax-for-Magento2/tree/master"
+      },
+      {
+        "date": "2023-07-23T00:00:00.000Z",
+        "voteCount": 2,
+        "content": "A and C option is not applicable because tax  should be  calculated after price and discount but before grand or discount totals."
+      },
+      {
+        "date": "2023-06-24T06:18:00.000Z",
+        "voteCount": 2,
+        "content": "Declare a new total collector in \u201cetc/sales.xml\u201d in a custom module"
+      },
+      {
+        "date": "2023-05-29T10:31:00.000Z",
+        "voteCount": 1,
+        "content": "Create observer and then add custom tax"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/adobe/view/116156-exam-ad0-e718-topic-1-question-2-discussion/",
+    "body": "An Adobe Commerce Architect needs to log the result of a ServiceClass::getData method execution after all plugins have executed. The method is public, and there are a few plugins declared for this method. Among those plugins are after and around types, and all have sortOrder specified.<br>Which solution should be used to meet this requirement?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeclare a new plugin with the sortOrder value higher than the highest declared plugin sortOrder and implement afterGetData method.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeclare a new plugin with the sortOrder value lower than the lowest declared plugin sortOrder and implement aroundGetData method.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeclare a new plugin with the sortOrder value higher than the highest declared plugin sortOrder and implement aroundGetData method."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-25T22:59:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is B. Around method will start executing as the first, then will execute all the other existing plugins and after that will execute the part after proceed()."
+      },
+      {
+        "date": "2023-07-23T11:09:00.000Z",
+        "voteCount": 2,
+        "content": "B should be the answer :\nAfter part of lowest sort order around method will be executed in the end"
+      },
+      {
+        "date": "2023-07-23T00:03:00.000Z",
+        "voteCount": 2,
+        "content": "Good explanation in the docs see scenario C\nhttps://devdocs.magento.com/guides/v2.3/extension-dev-guide/plugins.html"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/adobe/view/137735-exam-ad0-e718-topic-1-question-3-discussion/",
+    "body": "An Adobe Commerce Architect is asked by a merchant using B2B features to help with a configuration issue.<br>The Architect creates a test Company Account and wants to create Approval Rules for orders. The Approval Rules tab does not appear in the Company section in the Customer Account Menu when the Architect logs in using the Company Administrator account.<br>Which two steps must be taken to fix this issue? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet \u2018Enable Purchase Orders\u2019 in the B2B Admin to TRUE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMerchant needs to log out of frontend and then log back in to load new permissions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet \u2018Enable Purchase Orders\u2019 on the Company Record to TRUE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake sure that the \u2018Purchase Order\u2019 payment method is active",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet \u2018Enable B2B Quote\u2019 in the B2B Admin to TRUE"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-02T01:51:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer is A &amp; E"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/adobe/view/113259-exam-ad0-e718-topic-1-question-4-discussion/",
+    "body": "An external system integrates functionality of a product catalog search using Adobe Commerce GraphQL API. The Architect creates a new attribute my_attribute in the admin panel with frontend type select.<br>Later, the Architect sees that ProductInterface already has the field my_attribute, but returns an Int value. The Architect wants this field to be a new type that contains both option id and label.<br>To meet this requirement, an Adobe Commerce Architect creates a new module and file etc/schema.graphqls that declares as follows:<br><img title=\"image1\" src=\"https://img.examtopics.com/ad0-e718/image1.png\"><br>After calling command setup:upgrade, the introspection of ProductInterface field my_attribute remains Int.<br>What prevented the value type of field my_attribute from changing?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe fields of ProductInterface are checked during processing schema.graphqls files. If they have a corresponding attribute, then the backend_type of product attribute is set for field type.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe interface ProductInterface is already declared in Magento_CatalogGraphQl module. Extending requires use of the keyword extend before a new declaration of ProductInterface.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Magento_CatalogGraphQl module occurs later in sequence than the Magento_GraphQl module and merging output of dynamic attributes schema reader overrides types declared in schema.graphqls."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-18T01:14:00.000Z",
+        "voteCount": 1,
+        "content": "Answer would be C"
+      },
+      {
+        "date": "2023-06-25T09:22:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be A"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/adobe/view/110499-exam-ad0-e718-topic-1-question-5-discussion/",
+    "body": "An Adobe Commerce Architect is creating a new GraphQL API mutation to alter the process of adding configurable products to the cart. The mutation accepts configurable product ID. If the given product has only one variant, then the mutation should add this variant to the cart and return not nullable Cart type. If the configurable product has more variants, then the mutation should return not nullable ConfigurableProduct type.<br>The mutation declaration looks as follows:<br><img title=\"image2\" src=\"https://img.examtopics.com/ad0-e718/image2.png\"><br>How should the Adobe Commerce Architect declare output of this mutation?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img title=\"image3\" src=\"https://img.examtopics.com/ad0-e718/image3.png\">",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img title=\"image4\" src=\"https://img.examtopics.com/ad0-e718/image4.png\">",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img title=\"image5\" src=\"https://img.examtopics.com/ad0-e718/image5.png\">\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-29T10:34:00.000Z",
+        "voteCount": 2,
+        "content": "As per adobe guide answer is c and I gave answer as mention was wrong in 1st attempt"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/adobe/view/124994-exam-ad0-e718-topic-1-question-6-discussion/",
+    "body": "An Adobe Commerce Architect needs to create a new customer segment condition to enable admins to specify an \u2018Average sales amount\u2019 condition for certain segments.<br>The Architect develops the custom condition under Vendor\\Module\\Model\\Segment\\Condition\\AverageSalesAmount with all of its requirements:<br><img title=\"image6\" src=\"https://img.examtopics.com/ad0-e718/image6.png\"><br>During testing, the following error appears:<br><img title=\"image7\" src=\"https://img.examtopics.com/ad0-e718/image7.png\"><br>Which two steps should the Architect complete to fix the problem? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a virtualType &lt;virtualType name=\u201dMagento\\CustomerSegment\\Model\\Segment\\Condition\\AverageSalesAmount\u201d type=\u201dVendor\\Module\\Model\\Segment\\Condition\\AverageSalesAmount\u201d/&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the trailing path Magento\\CustomerSegment\\Model\\Segment\\Condition\\ from the $conditions value attribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a preference &lt;preference for=\u201dMagento\\CustomerSegment\\Model\\Segment\\Condition\\AverageSalesAmount\u201d type=\u201dVendor\\Module\\Model\\Segment\\Condition\\AverageSalesAmount\u201d/&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the class in the $conditions value attribute to be Segment\\Condition\\AverageSalesAmount",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the class to be Magento\\CustomerSegment\\Model\\Segment\\Condition\\AverageSalesAmount for the $conditions value attribute"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-30T22:10:00.000Z",
+        "voteCount": 1,
+        "content": "does it make any sense to create a preference in answer C?"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/adobe/view/111013-exam-ad0-e718-topic-1-question-7-discussion/",
+    "body": "An Architect working on a headless Adobe Commerce project creates a new customer attribute named my_attribute. Based on the attribute value of the customer, the results of GraphQl queries are modified using a plugin. The frontend application is communicating with Adobe Commerce through Varnish by Fastly, which is already caching the queries that will be modified. The Adobe Commerce Fastly extension is installed, and no other modifications are made to the application.<br>Which steps should the Architect take to make sure the vcl_hash function of Varnish also considers the newly created attribute?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new class inheriting from Magento\\Framework\\GraphQl\\Query\\Resolver\\IdentityInterface and returning the value of my_attribute from the getIdentities function. Then specify a @cache(cacheIdentity: Path\\\\To\\\\IdentityClass) directive for each GraphQL query to include the newly created IdentityClass to each query that adds the cache tags for each customer.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new class inheriting from Magento\\GraphQlCache\\Model\\CacheId\\CacheIdFactorProviderInterface and returning the value of my_attribute from the getFactorValue function and my_attribute from getFactorName function. Then add this class through DI to the IdFactorProviders array of Magento\\GraphQlCache\\Model\\CacheID\\CacheIdCalculator.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new class inheriting from Magento\\Customer\\CustomerData\\SectionSourceInterface and returning the value of my_attribute from the getSectionData function. Then add this class through DI to the sectionSourceMap array of Magento\\Customer\\CustomerData\\SectionPoolInterface."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-25T11:32:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be A\nhttps://developer.adobe.com/commerce/webapi/graphql/develop/identity-class/"
+      },
+      {
+        "date": "2023-06-03T13:32:00.000Z",
+        "voteCount": 1,
+        "content": "ans should be A"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/adobe/view/116432-exam-ad0-e718-topic-1-question-8-discussion/",
+    "body": "A company has an Adobe Commerce store. An attribute named \u201cmy_attribute\u201d (type \u201ctext\u201d) is created to save each product\u2019s global ID that is shared between multiple systems.<br>Several months after going live, the values of \u201cmy_attribute\u201d are all integer. This causes a problem for the other systems when those systems receive this data.<br>An Adobe Commerce Architect needs to recommend a solution to change the type of \u201cmy_attribute\u201d from text to int.<br>Which two steps should the Architect take to achieve this? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMigrate data from table \u201ccatalog_product_entity_text\u201d to \u201ccatalog_product_entity_int\u201d for the attribute_id",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGo to Admin &gt; Stores &gt; Attributes &gt; Product, edit \u201cmy_attribute\u201d and update type from \u201ctext\u201d to \"int\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWrite a plugin for \\Magento\\Eav\\Model\\Entity\\Attribute\\Backend\\AbstractBackend::afterLoad() and load data from \u201ccatalog_product_entity_int\u201d",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Data Patch and update \u201cmy_attribute\u201d type from \u201ctext\u201d to \u201cint\u201d",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the command bin/magento indexer:reset catalog_product_attribute"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-26T02:05:00.000Z",
+        "voteCount": 1,
+        "content": "A and D.\nIf you change attribute type the data of this attribute will be lost since it remains in the old type table. To make it available in new type table you should perform a data migration"
+      },
+      {
+        "date": "2023-07-25T11:39:00.000Z",
+        "voteCount": 1,
+        "content": "D and E should be the answer"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/adobe/view/123939-exam-ad0-e718-topic-1-question-10-discussion/",
+    "body": "An Architect is reviewing a custom module that is logging customer activity data on storefront using observers. The client reports that logs were recorded while the client was previewing storefront catalog pages from Admin Panel for a future scheduled campaign, using Adobe Commerce staging preview functionality.<br>What should the Architect check first to address this issue?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe plugin for the public method isAllowedObserver() from \\Magento\\Staging\\Model\\Event\\Manager that alters the return value",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe logging observers being copied from etc\\events.xml to etc\\adminhtml\\events.xml with the attribute disabled=\"true\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe list of logging observers in bannedObservers parameter of \\Magento\\Staging\\Model\\Event\\Manager type in di.xml"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-18T01:55:00.000Z",
+        "voteCount": 4,
+        "content": "c is the correct answer - ref: vendor/magento/module-catalog-url-rewrite-staging/etc/adminhtml/di.xml:11"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/adobe/view/112023-exam-ad0-e718-topic-1-question-13-discussion/",
+    "body": "An Architect needs to integrate an Adobe Commerce store with a new Shipping Carrier. Cart data is sent to the Shipping Carrier\u2019s API to retrieve the price and display to the customer. After the feature is implemented on the store, the API hits its quota and returns the error \u201cToo many requests\u201d. The Shipping Carrier warns the store about sending too many requests with the same content to the API.<br>In the carrier model, what should the Architect change to fix the problem?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement _setCacheQuotes()and _getCacheQuotes(), return the data if the request matches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn _doShipmentRequest(), call canCollectRates() before sending request to the API.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOverride getResponse(), save the response to a variable, check if the response exists, then return."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-12T20:46:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is A. canCollectRates check is shipping enable doShipmentRequest generate shipping level"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/adobe/view/119178-exam-ad0-e718-topic-1-question-14-discussion/",
+    "body": "A representative of a small business needs an Adobe Commerce Architect to design a custom integration of a third-party payment solution. They want to reduce the list of controls identified in their Self-Assessment Questionnaire as much as possible to achieve PCI compliance for their existing Magento application.<br>Which approach meets the business needs?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize the payment provider iframe system to isolate content of the embedded frame from the parent web page.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize the Advanced Encryption Standard (AES-256) algorithm to encrypt all customer-sensitive data from the payment module.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUtilize a trusted signed certificate issued by a Certification Authority (CA) to secure each connection made by the payment solution protocol via HTTPS."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-27T01:41:00.000Z",
+        "voteCount": 2,
+        "content": "https://www.pcisecuritystandards.org/wp-content/uploads/2022/05/Small_Merchant_Common_Payment_Systems.pdf\n\nPage 39"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/adobe/view/112060-exam-ad0-e718-topic-1-question-18-discussion/",
+    "body": "An Adobe Commerce Architect designs a data flow that contains a new product type with its own custom pricing logic to meet a merchant requirement.<br>Which three developments are valid when reviewing the implementation? (Choose three.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tContent of the etc/product_types.xml file\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHydrator for attributes belonging to the new product type",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCustom type model extended from the abstract Product Type model\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA new class with custom pricing logic, extending the abstract Product model class",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData patch to register the new product type",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNew price model extending \\Magento\\Catalog\\Model\\Product\\Type\\Price\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BCE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "ACF",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-13T08:42:00.000Z",
+        "voteCount": 2,
+        "content": "B is a wrong answer"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/adobe/view/124996-exam-ad0-e718-topic-1-question-21-discussion/",
+    "body": "An existing Adobe Commerce website is moving to a headless implementation.<br>The existing website features an \u201cAll Brands\u201d page, as well as individual pages for each brand. All brand-related pages are cached in Varnish using tags in the same manner as products and categories.<br>Two new GraphQL queries have been created to make this information available to the frontend for the new headless implementation:<br><img title=\"image8\" src=\"https://img.examtopics.com/ad0-e718/image8.png\"><br>During testing, the queries sometimes return out-of-date information.<br>How should this problem be solved while maintaining performance?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach GraphQL query\u2019s resolver class should inject \\Magento\\GraphQlCache\\Model\\CacheableQuery and call setCacheValidity(true) on it as part of the resolver\u2019s resolve function",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpecify a @cache(cacheable: false) directive for each GraphQL query, making sure that the data returned is not cached, and is up to date",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpecify a @cache(cacheIdentity: Path\\\\To\\\\IdentityClass) directive for each GraphQL query, corresponding to a class that adds cache tags for relevant brands and associated products\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-30T23:26:00.000Z",
+        "voteCount": 1,
+        "content": "The thing is that such content type as Brandh SHOULD be cached since it's something that doesn't change frequently. So making it not cacheable is not an option. For me the correct answer is C, implementing an identity interface"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/adobe/view/124997-exam-ad0-e718-topic-1-question-24-discussion/",
+    "body": "While reviewing a newly developed pull request that refactors multiple custom payment methods, the Architect notices multiple classes that depend on \\Magento\\Framework\\Encryption\\EncryptorInterface to decrypt credentials for sensitive data.<br>The code that is commonly repeated is as follows:<br><img title=\"image9\" src=\"https://img.examtopics.com/ad0-e718/image9.png\"><br>In each module, the user_secret config is declared as follows:<br><img title=\"image10\" src=\"https://img.examtopics.com/ad0-e718/image10.png\"><br>The Architect needs to recommend an optimal solution to avoid redundant dependency and duplicate code among the methods.<br>Which solution should the Architect recommend?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace all Vendor\\PaymentModule\\Gateway\\Config classes with virtualType of Magento\\Payment\\Gateway\\Config\\Config and set &lt;user_secret backend_model=\u201cMagento\\Config\\Model\\Config\\Backend\\Encrypted\u201d /&gt; under config.xml\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a plugin after the getValue method of $scopeConfig, remove the $encryptor from dependency and use it in the plugin to decrypt the value if the config name is \u2018user_secret\u2019",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a common config service class Vendor\\Payment\\Gateway\\Config\\Config under Vendor_Payment and use it as a parent class for all of the Vendor\\PaymentModule\\Gateway\\Config\\Config classes and remove $scopeConfig and $encryptor dependencies"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-30T23:56:00.000Z",
+        "voteCount": 1,
+        "content": "It is possible to define a backend model in config.xml, so when you retrieve the value by scopeConfig it will be already decrypted"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/adobe/view/125067-exam-ad0-e718-topic-1-question-28-discussion/",
+    "body": "Due to a marketing campaign, a website is experiencing a very large number of simultaneously placed orders, which is affecting checkout performance. The website is in the production deploy mode.<br>Which two website settings can an Architect optimize to decrease the impact on checkout performance? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAsynchronous indexing admin panel setting (Stores &gt; Settings &gt; Configuration &gt; Advanced &gt; Developer &gt; Grid Settings &gt; Asynchronous indexing) can be enabled by executing the following CLI command: bin/magento config:set dev/grid/async_indexing 1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMultithreaded checkout processing admin panel setting (Stores &gt; Settings &gt; Configuration &gt; Sales &gt; Checkout &gt; General Settings &gt; Asynchronous) can be set to a higher value representing the number of PHP threads used",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAsynchronous email notifications admin panel setting (Stores &gt; Settings &gt; Configuration &gt; Sales &gt; Sales Emails &gt; General Settings &gt; Asynchronous) can be enabled\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA new database can be created and the Split Database feature can be automatically configured with the following command: bin/magento setup :db-schema:split-sales --host=\"&lt;checkout db host or ip&gt;\" --dbname=\"&lt;name&gt;\" --username=\"&lt;checkout db username&gt;\" --password=\" &lt;password&gt;\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe website deploy mode can be set to siege by executing the following CLI command: bin/magento deploy:mode:set siege, provided that it will be changed back to production as soon as the number of simultaneously placed orders decreases to acceptable levels"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-31T23:34:00.000Z",
+        "voteCount": 1,
+        "content": "since D is deprecated, B and e do not exist, correct answer should be A and C"
+      },
+      {
+        "date": "2023-10-31T23:27:00.000Z",
+        "voteCount": 1,
+        "content": "The split database feature was deprecated in version 2.4.2 of Adobe Commerce. \nhttps://experienceleague.adobe.com/docs/commerce-operations/configuration-guide/storage/split-db/multi-master.html?lang=en"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/adobe/view/125725-exam-ad0-e718-topic-1-question-39-discussion/",
+    "body": "An Architect needs to review a custom product feed export module that a developer created for a merchant. During final testing before the solution is deployed, the product feed output is verified as correct. All unit and integration tests for code pass.<br>However, once the solution is deployed to production, the product price values in the feed are incorrect for several products. The products with incorrect data are all currently part of a content staging campaign where their prices have been reduced.<br>What did the developer do incorrectly that caused the feed output to be incorrect for products in the content staging campaign?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe developer forgot to use the getContentStagingValue() method to retrieve the active campaign value of the product data.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe developer retrieved product data directly from the database using the entity_id column rather than a collection or repository.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe developer did not check for an active content staging campaign and emulates the campaign state when retrieving product data."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-10T08:52:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A is absolutely incorrect. THere is no such method like getContentStagingValue"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/adobe/view/125723-exam-ad0-e718-topic-1-question-40-discussion/",
+    "body": "An Adobe Commerce Architect needs to ensure zero downtime during the deployment process of Adobe Commerce on-premises.<br>Which two steps should the Architect follow? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun bin/magento setup:upgrade --keep-generated to upgrade database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun bin/magento setup:upgrade --dry-run=true to upgrade database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun bin/magento setup:upgrade --convert-old-scripts=true to upgrade database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable config flag under developer/zero_down_time/enabled",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable config flag under deployment/blue_green/enabled"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-10T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "there is no such flag as developer/zero_down_time/enabled"
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/adobe/view/125717-exam-ad0-e718-topic-1-question-48-discussion/",
+    "body": "An Adobe Commerce Architect is setting up a Development environment for an on-premises project that will be used for developers to specifically test functionality, not performance, before being passed to the Testing team.<br>The Magento application must run with the following requirements:<br>1. Errors should be logged and hidden from the user<br>2. Cache mode can only be changed from Command Line<br>3. Static files should be created dynamically and then cached<br>Which Application Mode is required to achieve this?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDefault Mode\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProduction Mode",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeveloper Mode"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-11-10T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "answer is A. Because of requirements. In developer mode errors are displayed but according to requirements they should be logged and not be displayed. Default mode fits this req.  \n\nAlso static files are not cached in developer mode."
+      }
+    ],
+    "examNameCode": "ad0-e718",
+    "topicNumber": "1"
+  }
+]

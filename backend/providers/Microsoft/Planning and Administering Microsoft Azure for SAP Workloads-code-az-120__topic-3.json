@@ -1,0 +1,2913 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23838-exam-az-120-topic-3-question-1-discussion/",
+    "body": "You have an Azure subscription.<br>You deploy Active Directory domain controllers to Azure virtual machines.<br>You plan to deploy Azure for SAP workloads.<br>You plan to segregate the domain controllers from the SAP systems by using different virtual networks.<br>You need to recommend a solution to connect the virtual networks. The solution must minimize costs.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta site-to-site VPN",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvirtual network peering\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tuser-defined routing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExpressRoute"
+    ],
+    "answer": "C",
+    "answerDescription": "You can create custom, or user-defined, routes in Azure to override Azure's default system routes, or to add additional routes to a subnet's route table. In Azure, you create a route table, then associate the route table to zero or more virtual network subnets.<br>Incorrect Answers:<br>D: ExpressRoute is a costly solution.",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-23T08:19:00.000Z",
+        "voteCount": 16,
+        "content": "Why not Virtual Network peering ? . Answer is Virtual Network peering"
+      },
+      {
+        "date": "2020-06-29T10:34:00.000Z",
+        "voteCount": 8,
+        "content": "ANS: Virtual Network peering"
+      },
+      {
+        "date": "2020-07-17T01:03:00.000Z",
+        "voteCount": 10,
+        "content": "The right answer should be B.\nhttps://azure.microsoft.com/en-us/blog/vnet-peering-and-vpn-gateways/\nUDR required the use of a GW to connect the VNETs than the cost is GW cost + Egress cost while vnet peering has Ingress + Egress cost but this is less than the previous one."
+      },
+      {
+        "date": "2021-10-16T22:29:00.000Z",
+        "voteCount": 1,
+        "content": "and udr is about routing, not for connectivity"
+      },
+      {
+        "date": "2024-01-24T02:12:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2023-06-13T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is VNET Peering. UDR works within the same VNET if the traffic shaping is required. It does not support traffic routing between different VNET. Peering is the most cost effective option here as compared to VPN gateway."
+      },
+      {
+        "date": "2021-09-26T08:21:00.000Z",
+        "voteCount": 1,
+        "content": "most cheap and technically elegant ans is vnet peering = B"
+      },
+      {
+        "date": "2021-06-08T14:08:00.000Z",
+        "voteCount": 1,
+        "content": "User-defined routes (UDRs) handle routing for on-premises traffic that passes to Azure.\nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/identity/adds-extend-domain"
+      },
+      {
+        "date": "2021-10-09T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "udr is about routing, not connectivity, cheapest of option provided is vnet peering"
+      },
+      {
+        "date": "2021-02-06T05:31:00.000Z",
+        "voteCount": 2,
+        "content": "B. virtual network peering"
+      },
+      {
+        "date": "2021-01-29T06:17:00.000Z",
+        "voteCount": 4,
+        "content": "Answer B : - if No Peering - then what's the usages of UDR ??"
+      },
+      {
+        "date": "2020-12-30T22:20:00.000Z",
+        "voteCount": 3,
+        "content": "Finally the conclusive go here .... is Vnet Peering ."
+      },
+      {
+        "date": "2020-12-26T14:48:00.000Z",
+        "voteCount": 3,
+        "content": "The UDR is applicable only inside the Vnet, in the question we are talking about different Vnets, so the answer should be Vnet peering"
+      },
+      {
+        "date": "2020-08-19T11:35:00.000Z",
+        "voteCount": 7,
+        "content": "There are 2 ways to connect VNs -  (actually 3 but Route via the Internet is a least secured option)\n1 - VPN 2 VPN\n2 - Peering\n\nVPN 2 VPN is costly as GW comes in picture.\n\nPS - UDR comes in picture when you create Peering between VMs.\n\nAnswer should be - Virtual Network peering"
+      },
+      {
+        "date": "2023-06-24T23:08:00.000Z",
+        "voteCount": 1,
+        "content": "In question, \"You need to recommend a solution to connect the virtual networks\"  (&lt;==not asking about connect VMs)\n\nSo I support you, it should be VN Peering"
+      },
+      {
+        "date": "2020-08-09T07:28:00.000Z",
+        "voteCount": 6,
+        "content": "VNET peering offers better speed, cheaper and goes via azure backbone. \nAzure recommends vnet peering\n\nhttps://github.com/MicrosoftDocs/azure-docs/issues/32537\nhttps://azure.microsoft.com/en-us/blog/vnet-peering-and-vpn-gateways/"
+      },
+      {
+        "date": "2020-08-04T01:45:00.000Z",
+        "voteCount": 5,
+        "content": "VNet peering is the answer.\nAzure AD DS can be put in a subnet within a VNET and the application VMs into a different subnet within the same VNET, in this case the VMs are part of the same virtual network, they can automatically perform name resolution and communicate with the Azure AD DS domain controllers.\nOther option is to put Azure AD DS is a separate VNET and application VMs into a separate VNET and peer the VNETs."
+      },
+      {
+        "date": "2020-07-17T07:43:00.000Z",
+        "voteCount": 3,
+        "content": "Since the question is segregation of Azure domain controller and SAP system the answer should be UDR"
+      },
+      {
+        "date": "2020-08-19T11:24:00.000Z",
+        "voteCount": 3,
+        "content": "You seems correct - If we need to use VN peering then what is the need of having 2 Virtual. \nCreating a peering means you are allowing the communication between 2 VM completely.\n\nWhile UDR, you can restrict the communication based on requirement ( Segregating)"
+      },
+      {
+        "date": "2020-07-05T23:38:00.000Z",
+        "voteCount": 5,
+        "content": "it should be Vnet peering...cost effective only flip side , it is unencrypted"
+      },
+      {
+        "date": "2020-06-29T20:21:00.000Z",
+        "voteCount": 6,
+        "content": "answer should be vnet peering"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/62588-exam-az-120-topic-3-question-2-discussion/",
+    "body": "You deploy an SAP environment on Azure.<br>Your company has a Service Level Agreement (SLA) of 99.99% for SAP.<br>You implement Azure Availability Zones that have the following components:<br>\u2711 Redundant SAP application servers<br>\u2711 ASCS/ERS instances that use a failover cluster<br>Database high availability that has a primary instance and a secondary instance<br><img src=\"/assets/media/exam-media/03992/0007900003.png\" class=\"in-exam-image\"><br>You need to validate the high availability configuration of the ASCS/ERS cluster.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAP Web Dispatcher",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Traffic Manager",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAPControl\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAP Solution Manager"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 4,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-01-24T02:15:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2023-10-09T13:24:00.000Z",
+        "voteCount": 1,
+        "content": "Clearly C\nhttps://learn.microsoft.com/en-us/azure/sap/workloads/high-availability-guide-suse#setting-up-a-highly-available-nfs-server"
+      },
+      {
+        "date": "2023-01-18T21:31:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse - Command used for testing is SAPControl : nw1-cl-0:nw1adm 54&gt; sapcontrol -nr 00 -function HAGetFailoverConfig"
+      },
+      {
+        "date": "2023-01-03T22:35:00.000Z",
+        "voteCount": 1,
+        "content": "SAP Solution Manager (SolMan) is a module of SAP that provides functionalities like integrated content, methodologies, tools etc. to implement, operate, monitor and support an enterprise\u2019s SAP solution.  https://www.guru99.com/overview-of-sap-solution-manager.html"
+      },
+      {
+        "date": "2022-10-01T20:25:00.000Z",
+        "voteCount": 2,
+        "content": "Azure Traffic Manager is a DNS-based traffic load balancer that enables you to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness so given answer is correct."
+      },
+      {
+        "date": "2022-12-18T23:56:00.000Z",
+        "voteCount": 1,
+        "content": "I guess the question is about validating high availability which Traffic Manager does by default. But SAP control doesn't specifically refer to this function so I'm also going with this answer"
+      },
+      {
+        "date": "2022-05-15T08:51:00.000Z",
+        "voteCount": 3,
+        "content": "References:\nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver\nsapcontrol -nr 00 -function HAGetFailoverConfig\nsapcontrol -nr 00 -function HACheckConfig\nsapcontrol -nr 00 -function HACheckFailoverConfig"
+      },
+      {
+        "date": "2022-12-18T23:54:00.000Z",
+        "voteCount": 1,
+        "content": "There is nothing in your link about SAP control"
+      },
+      {
+        "date": "2022-03-07T23:54:00.000Z",
+        "voteCount": 1,
+        "content": "References:\nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-netweaver\nsapcontrol -nr 00 -function HAGetFailoverConfig\nsapcontrol -nr 00 -function HACheckConfig\nsapcontrol -nr 00 -function HACheckFailoverConfig"
+      },
+      {
+        "date": "2021-10-19T08:58:00.000Z",
+        "voteCount": 1,
+        "content": "SolMan by me"
+      },
+      {
+        "date": "2021-10-05T07:18:00.000Z",
+        "voteCount": 3,
+        "content": "SAP Control is the correct answer"
+      },
+      {
+        "date": "2021-09-22T22:01:00.000Z",
+        "voteCount": 4,
+        "content": "SAPControl to validate HA configuration and HA status"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23829-exam-az-120-topic-3-question-3-discussion/",
+    "body": "DRAG DROP -<br>You are validating an SAP HANA on Azure (Large Instances) deployment.<br>You need to ensure that sapconf is installed and the kernel parameters are set appropriately for the active profile.<br>How should you complete the commands? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03992/0008100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0008100002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: sapconf -<br>The configuration is split into two parts:<br>/etc/sysconfig/sapconf<br>/usr/lib/tuned//tuned.conf<br><br>Box 2: tuned -<br>References:<br>https://www.suse.com/c/sapconf-a-way-to-prepare-a-sles-system-for-sap-workload-part-2/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-23T07:21:00.000Z",
+        "voteCount": 23,
+        "content": "sapconf  &amp; sap-hana"
+      },
+      {
+        "date": "2020-07-15T09:07:00.000Z",
+        "voteCount": 8,
+        "content": "Ans for 2nd box would be 'sap-hana'\nhttps://blogs.sap.com/2017/12/22/prepare-your-linux-for-your-sap-solution-with-saptune/"
+      },
+      {
+        "date": "2020-08-27T22:59:00.000Z",
+        "voteCount": 3,
+        "content": "Since we are looking for SAP hana system it should be sap-hana \nrefer to \"6. Customize an existing SUSE standard profile (sapconf)\" in below link\nhttps://blogs.sap.com/2017/12/22/prepare-your-linux-for-your-sap-solution-with-saptune/\nalso under \"Sounds complicated? Maybe a little picture helps:\" in below link \nhttps://www.suse.com/c/sapconf-a-way-to-prepare-a-sles-system-for-sap-workload-part-2/"
+      },
+      {
+        "date": "2022-09-25T00:32:00.000Z",
+        "voteCount": 4,
+        "content": "Sapconf and sap-hana"
+      },
+      {
+        "date": "2021-10-13T08:44:00.000Z",
+        "voteCount": 1,
+        "content": "sapconf  + sap-hana"
+      },
+      {
+        "date": "2021-10-05T07:18:00.000Z",
+        "voteCount": 2,
+        "content": "SAPCONF &amp; SAP-HANA"
+      },
+      {
+        "date": "2021-03-25T05:42:00.000Z",
+        "voteCount": 4,
+        "content": "On exam dated 25.03.2021. Similar questions and options.\nIt had SLES 15 added as OS"
+      },
+      {
+        "date": "2021-10-17T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "i think this comment must be for so,me other question)"
+      },
+      {
+        "date": "2021-02-06T05:23:00.000Z",
+        "voteCount": 3,
+        "content": "1. sapconf\n2. sap-hana"
+      },
+      {
+        "date": "2021-01-21T06:44:00.000Z",
+        "voteCount": 3,
+        "content": "sapconf\nsap-hana\nbecause its talking about HLI"
+      },
+      {
+        "date": "2020-11-13T01:37:00.000Z",
+        "voteCount": 5,
+        "content": "1. sapconf\n2. sap-hana"
+      },
+      {
+        "date": "2020-07-11T05:35:00.000Z",
+        "voteCount": 7,
+        "content": "sapconf and sap-hana\nThough sap-hana and sap-Netweaver are identical but the questions specifically mention HLI so more appropriate is 'sap-hana' option"
+      },
+      {
+        "date": "2020-06-30T05:56:00.000Z",
+        "voteCount": 3,
+        "content": "Right Answers are :\n/usr/lib/tuned/sap-netweaver/tuned.conf\n/etc/sysconfig/sapconf"
+      },
+      {
+        "date": "2020-06-30T17:34:00.000Z",
+        "voteCount": 3,
+        "content": "why \"sap-netweaver\" instead of \" sap-hana\" ?"
+      },
+      {
+        "date": "2020-06-29T03:14:00.000Z",
+        "voteCount": 4,
+        "content": "/usr/lib/tuned/&lt;profile&gt;/tuned.com\n&lt;profile&gt; is one of the profiles provided by sapconf\nThe profiles \u2018sap-ase\u2019 and \u2018sap-bobj\u2019 should not be used anymore!\nInstead choose \u2018sap-hana\u2019 or \u2018sap-netweaver\u2019 which are identical."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41092-exam-az-120-topic-3-question-4-discussion/",
+    "body": "You are deploying an SAP environment on Azure that will use an SAP HANA database server.<br>You provision an Azure virtual machine for SAP HANA by using the M64s virtual machine SKU.<br>You need to set the swap space by using the Microsoft Azure Linux Agent (waagent) configuration file.<br>Which two settings should you configure? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResourceDisk.EnableSwapEncryption=n",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAutoUpdate.Enabled=n",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResourceDisk.SwapSizeMB=229376\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResourceDisk.EnableSwap=y\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "To create a swap file in the directory that's defined by the ResourceDisk.MountPoint parameter, you can update the /etc/waagent.conf file by setting the following three parameters:<br><br>ResourceDisk.Format=y -<br><br>ResourceDisk.EnableSwap=y -<br><br>ResourceDisk.SwapSizeMB=xx -<br>Reference:<br>https://support.microsoft.com/en-us/help/4010058/how-to-add-a-swap-file-in-linux-azure-virtual-machines",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-12-30T23:26:00.000Z",
+        "voteCount": 5,
+        "content": "it seems C &amp; D is making sense ."
+      },
+      {
+        "date": "2021-09-26T08:29:00.000Z",
+        "voteCount": 1,
+        "content": "and ones that really making sense"
+      },
+      {
+        "date": "2021-02-06T05:21:00.000Z",
+        "voteCount": 5,
+        "content": "C and D are correct."
+      },
+      {
+        "date": "2021-10-03T08:19:00.000Z",
+        "voteCount": 1,
+        "content": "yes, it is waagent options"
+      },
+      {
+        "date": "2023-09-29T10:41:00.000Z",
+        "voteCount": 1,
+        "content": "Correct, reference on link\nhttps://learn.microsoft.com/en-us/troubleshoot/azure/virtual-machines/oom-swap-file-linux-vm"
+      },
+      {
+        "date": "2021-01-21T06:44:00.000Z",
+        "voteCount": 4,
+        "content": "Given answer is OK"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24062-exam-az-120-topic-3-question-5-discussion/",
+    "body": "HOTSPOT -<br>You have the following Azure Resource Manager template.<br><img src=\"/assets/media/exam-media/03992/0008300001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0008400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0008400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Count is 6.<br><br>Box 2: No -<br>Mode is serial.<br><br>Box 3: Yes -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/templates/copy-resources",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-25T12:33:00.000Z",
+        "voteCount": 27,
+        "content": "C is No, since its Premium_LRS , only GRS are replicated across regions"
+      },
+      {
+        "date": "2021-09-26T08:30:00.000Z",
+        "voteCount": 2,
+        "content": "ynn since Premium_LRS"
+      },
+      {
+        "date": "2020-06-29T14:49:00.000Z",
+        "voteCount": 18,
+        "content": "Yes, No, No"
+      },
+      {
+        "date": "2023-11-08T08:38:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, No No, since its Premium_LRS , only GRS are replicated across regions"
+      },
+      {
+        "date": "2023-09-29T10:43:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, No, No\nLRS will not replicate to another region"
+      },
+      {
+        "date": "2023-06-13T10:34:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, No, No. Storage will not be replicated to different regions since the storage type is Premium_LRS. Only GRS would be replicated."
+      },
+      {
+        "date": "2022-10-01T09:46:00.000Z",
+        "voteCount": 2,
+        "content": "C is no as it's Premium _LRS not GRS"
+      },
+      {
+        "date": "2021-02-09T04:53:00.000Z",
+        "voteCount": 4,
+        "content": "Ans: Yes, No, No"
+      },
+      {
+        "date": "2021-02-05T22:49:00.000Z",
+        "voteCount": 3,
+        "content": "the answer is Yes, No, No"
+      },
+      {
+        "date": "2021-01-21T06:44:00.000Z",
+        "voteCount": 3,
+        "content": "Yes - No - No"
+      },
+      {
+        "date": "2020-11-19T04:17:00.000Z",
+        "voteCount": 4,
+        "content": "yes, no, no(premium_LRS-replication within region)"
+      },
+      {
+        "date": "2020-11-13T03:31:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, No, No"
+      },
+      {
+        "date": "2020-07-06T00:43:00.000Z",
+        "voteCount": 6,
+        "content": "yes no no"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41093-exam-az-120-topic-3-question-6-discussion/",
+    "body": "You plan to deploy an SAP environment on Azure.<br>You plan to store all SAP connection strings securely in Azure Key Vault without storing credentials on the Azure virtual machines that host SAP.<br>What should you configure to allow the virtual machines to access the key vault?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Active Directory (Azure AD) Privilege Identity Manager (PIM)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trole-based access control (RBAC)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Managed Service Identity (MSI)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Custom Script Extension"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-29T10:45:00.000Z",
+        "voteCount": 1,
+        "content": "MSI is the recommended way to allow Azure resources like virtual machines to securely access Azure Key Vault without storing credentials on the VMs"
+      },
+      {
+        "date": "2022-12-26T08:43:00.000Z",
+        "voteCount": 2,
+        "content": "Azure key vault can be accessed using a Managed Identity.\nAzure AD and PIM - No as a managed identity get stored in Azure AD, and the PIM security wasn't required in the question.\nRBAC, wrong.\nD. the Custom Script Extension - Not required"
+      },
+      {
+        "date": "2021-02-06T05:17:00.000Z",
+        "voteCount": 4,
+        "content": "C. a Managed Service Identity (MSI)"
+      },
+      {
+        "date": "2021-10-03T08:21:00.000Z",
+        "voteCount": 1,
+        "content": "and is obvious"
+      },
+      {
+        "date": "2021-01-21T06:45:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is OK"
+      },
+      {
+        "date": "2020-12-31T00:02:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities"
+      },
+      {
+        "date": "2020-12-31T00:01:00.000Z",
+        "voteCount": 3,
+        "content": "MSI does help."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23765-exam-az-120-topic-3-question-7-discussion/",
+    "body": "HOTSPOT -<br>You deploy SAP HANA by using SAP HANA on Azure (Large Instances).<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0008600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0008600002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br><br>Box 2: Yes -<br>The SAP Azure Enhanced Monitoring Extension allows for collecting diagnostic data including OS and Application performance counters from Azure VMs running<br>SAP workloads.<br><br>Box 3: No -<br>Reference:<br>https://www.linkedin.com/pulse/important-operational-concepts-around-azure-extension-apparao-sanam",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-29T15:09:00.000Z",
+        "voteCount": 21,
+        "content": "Yes\nMonitor HANA Large Instances resources\u2014such as CPU, memory, network bandwidth, and storage space\u2014using SAP HANA Studio, SAP HANA Cockpit, SAP Solution Manager, and other native Linux tools. \nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/hana-large-instances\nYes\nhttps://azure.microsoft.com/en-in/blog/azure-enhanced-monitoring-for-sap/\nNo\nHWCCT is not a monitoring tool"
+      },
+      {
+        "date": "2021-02-13T23:02:00.000Z",
+        "voteCount": 3,
+        "content": "@johnnyj , the questions is about SAP HANA on Large Instance (Bare Metal Servers). The URL you posted is on Azure VMs. So not correct."
+      },
+      {
+        "date": "2020-06-22T12:37:00.000Z",
+        "voteCount": 14,
+        "content": "Answer is : Yes , No , No"
+      },
+      {
+        "date": "2020-06-25T12:35:00.000Z",
+        "voteCount": 2,
+        "content": "HWCCT can be used, but not to monitor instances, a bit tricky on language part,"
+      },
+      {
+        "date": "2023-10-28T12:46:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/architectur\n/reference-architectures/sap/hana-large-instances\n\nManageability\nMonitor HANA Large Instances resources\u2014such as CPU, memory, network bandwidth, and storage space\u2014using SAP HANA Studio, SAP HANA Cockpit, SAP Solution Manager, and other native Linux tools. HANA Large Instances Type I SKUs don't come with built-in monitoring tools. Type II SKUs offers prebuilt diagnostic tools for system activity logging and troubleshooting.\n\nMicrosoft offers basic tools and resources to help you monitor HANA Large Instances on Azure. The Microsoft support team can also assist you in troubleshooting technical issues."
+      },
+      {
+        "date": "2023-08-22T20:54:00.000Z",
+        "voteCount": 1,
+        "content": "it should be Yes Yes NO"
+      },
+      {
+        "date": "2021-10-05T07:20:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, Yes, No"
+      },
+      {
+        "date": "2021-06-21T18:03:00.000Z",
+        "voteCount": 2,
+        "content": "Yes\n\nNo (https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)\nFor the Type II SKUs of the HANA Large Instances, the server comes with the preloaded system diagnostic tools. You can use these diagnostic tools to do the system health check.\n\nNo"
+      },
+      {
+        "date": "2021-02-09T04:56:00.000Z",
+        "voteCount": 2,
+        "content": "YES,YES,NO"
+      },
+      {
+        "date": "2021-02-13T23:39:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong. This is not a Azure VM. This is a bare metal large instance. \nhttps://azure.microsoft.com/en-in/blog/azure-enhanced-monitoring-for-sap/."
+      },
+      {
+        "date": "2021-03-06T13:47:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Monitor for SAP Solutions is an Azure-native monitoring product for customers, running their SAP landscapes on Azure. The product works with both SAP on Azure Virtual Machines and SAP on Azure Large Instances. \n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-overview"
+      },
+      {
+        "date": "2021-02-02T22:07:00.000Z",
+        "voteCount": 2,
+        "content": "Yes - Yes - No"
+      },
+      {
+        "date": "2021-02-13T23:39:00.000Z",
+        "voteCount": 2,
+        "content": "Wrong. This is not a Azure VM. This is a bare metal large instance. \nhttps://azure.microsoft.com/en-in/blog/azure-enhanced-monitoring-for-sap/."
+      },
+      {
+        "date": "2021-03-06T13:48:00.000Z",
+        "voteCount": 3,
+        "content": "@gills your article is 6 years old. check following and you will say YES,YES,NO\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-overview"
+      },
+      {
+        "date": "2021-04-09T02:30:00.000Z",
+        "voteCount": 2,
+        "content": "Yes and it is still valid. azure-enhanced-monitoring-for-sap is an extension for  VM. A Large Instance is a physical server. There is no extensions to be installed. The Azure Enhanced Enhanced Monitoring service is based on the Azure Monitoring Extension for SAP . For Large Instance there is no use of extensions since it is not  a VM."
+      },
+      {
+        "date": "2021-01-21T06:46:00.000Z",
+        "voteCount": 2,
+        "content": "AEM is needed everywhere in SAP on Azure now"
+      },
+      {
+        "date": "2021-10-03T08:24:00.000Z",
+        "voteCount": 1,
+        "content": "just on vm, no way on hli"
+      },
+      {
+        "date": "2021-01-21T06:45:00.000Z",
+        "voteCount": 2,
+        "content": "Yes - Yes - No"
+      },
+      {
+        "date": "2021-02-13T23:39:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong. This is not a Azure VM. This is a bare metal large instance. \nhttps://azure.microsoft.com/en-in/blog/azure-enhanced-monitoring-for-sap/."
+      },
+      {
+        "date": "2021-01-03T17:16:00.000Z",
+        "voteCount": 4,
+        "content": "Yes, Yes, No\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-overview\nAzure Monitor for SAP Solutions is an Azure-native monitoring product for customers, running their SAP landscapes on Azure. The product works with both SAP on Azure Virtual Machines and SAP on Azure Large Instances."
+      },
+      {
+        "date": "2021-02-13T23:37:00.000Z",
+        "voteCount": 1,
+        "content": "The answer does not have anything to do about Azure Monitor."
+      },
+      {
+        "date": "2020-12-31T00:08:00.000Z",
+        "voteCount": 5,
+        "content": "shall we say - YES NO NO ?"
+      },
+      {
+        "date": "2020-10-03T08:00:00.000Z",
+        "voteCount": 2,
+        "content": "I am not sure why the site is not picking hana studio as monitoring solutions but studio cockpit and db13 are all same"
+      },
+      {
+        "date": "2020-08-29T12:58:00.000Z",
+        "voteCount": 5,
+        "content": "Yes, No, No"
+      },
+      {
+        "date": "2020-08-22T16:29:00.000Z",
+        "voteCount": 1,
+        "content": "SAP HANA on Azure (Large Instances) is no different from any other IaaS deployment .\nhttps://docs.microsoft.com/en-in/azure/virtual-machines/workloads/sap/troubleshooting-monitoring"
+      },
+      {
+        "date": "2021-02-13T23:08:00.000Z",
+        "voteCount": 2,
+        "content": "It is no different from the data points you need to collect. yet how you collect is very different. There is no VM extensions for large instances."
+      },
+      {
+        "date": "2020-08-19T02:33:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Monitoring Extension,Enhanced Monitoring,and Azure Extension for SAP: Describe one and the same. It describes a VM extension that needs to be deployed by you to provide some basic data about the Azure infrastructure to the SAP Host Agent.SAP in SAP notes might refer to it as Monitoring Extension or Enhanced monitoring. In Azure, we are referring to it as Azure Extension for SAP.\nhttps://techcommunity.microsoft.com/t5/running-sap-applications-on-the/azure-extended-monitoring-for-sap/ba-p/367780\nAzure Monitor for SAP Solutions is an Azure-native monitoring product for customers, running their SAP landscapes on Azure. The product works with both SAP on Azure Virtual Machines and SAP on Azure Large Instances.\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/azure-monitor-overview\n So answer is Yes, Yes, No"
+      },
+      {
+        "date": "2021-02-13T23:07:00.000Z",
+        "voteCount": 2,
+        "content": "For the Type II SKUs of the HANA Large Instances, the server comes with the preloaded system diagnostic tools. You can utilize these diagnostic tools to perform the system health check. \n\n\n\nThe question is about bare metal hardware (large instances). There is no such thing as VM extensions here.  \n\nAnswer is a clear Yes, No, No. Not Yes Yes No as you listed."
+      },
+      {
+        "date": "2020-07-17T23:24:00.000Z",
+        "voteCount": 7,
+        "content": "Yes, No, No"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24399-exam-az-120-topic-3-question-8-discussion/",
+    "body": "You plan to deploy SAP application servers that run Windows Server 2016.<br>You need to use PowerShell Desired State Configuration (DSC) to configure the SAP application server once the servers are deployed.<br>Which Azure virtual machine extension should you install on the servers?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure DSC VM Extension\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure virtual machine extension",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Chef extension",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Enhanced Monitoring Extension for SAP"
+    ],
+    "answer": "A",
+    "answerDescription": "The Azure Desired State Configuration (DSC) VM Extension is updated as-needed to support enhancements and new capabilities delivered by Azure, Windows<br>Server, and the Windows Management Framework (WMF) that includes Windows PowerShell.<br>Reference:<br>https://docs.microsoft.com/en-us/powershell/scripting/dsc/getting-started/azuredscexthistory",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-11T06:14:00.000Z",
+        "voteCount": 14,
+        "content": "the Azure DSC VM Extension\nhttps://docs.microsoft.com/en-us/archive/blogs/keithmayer/18-steps-for-end-to-end-iaas-provisioning-in-the-cloud-with-azure-resource-manager-arm-powershell-and-desired-state-configuration-dsc"
+      },
+      {
+        "date": "2023-09-29T10:46:00.000Z",
+        "voteCount": 1,
+        "content": "A It's correct"
+      },
+      {
+        "date": "2021-05-29T13:47:00.000Z",
+        "voteCount": 2,
+        "content": "The given answer is correct."
+      },
+      {
+        "date": "2021-02-06T05:15:00.000Z",
+        "voteCount": 3,
+        "content": "A. the Azure DSC VM Extension"
+      },
+      {
+        "date": "2021-01-21T06:46:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is OK"
+      },
+      {
+        "date": "2020-12-31T00:14:00.000Z",
+        "voteCount": 3,
+        "content": "It seems - we can go with A."
+      },
+      {
+        "date": "2020-06-29T15:16:00.000Z",
+        "voteCount": 4,
+        "content": "Azure VM Extension\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide#6f0a47f3-a289-4090-a053-2521618a28c3"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41094-exam-az-120-topic-3-question-9-discussion/",
+    "body": "You deploy an SAP environment on Azure by following the SAP workload on Azure planning and deployment checklist.<br>You need to verify whether Azure Diagnostics is enabled.<br>Which cmdlet should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-AzureVMAvailableExtension",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGet-AzVmDiagnosticsExtension\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTest-AzDeployment",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTest-VMConfigForSAP"
+    ],
+    "answer": "B",
+    "answerDescription": "The Get-AzVMDiagnosticsExtension cmdlet gets the settings of the Azure Diagnostics extension on a virtual machine.<br>Incorrect Answers:<br>D: You can check the configuration of a virtual machine by calling the Test-VMConfigForSAP_GUI commandlet.<br>Reference:<br>https://docs.microsoft.com/en-us/powershell/module/az.compute/get-azvmdiagnosticsextension",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-29T10:56:00.000Z",
+        "voteCount": 1,
+        "content": "B it's ok"
+      },
+      {
+        "date": "2021-05-29T13:48:00.000Z",
+        "voteCount": 4,
+        "content": "B is correct."
+      },
+      {
+        "date": "2021-10-03T08:28:00.000Z",
+        "voteCount": 1,
+        "content": "and obvious as see to noun-verb notation of cmdlet)"
+      },
+      {
+        "date": "2021-02-06T05:12:00.000Z",
+        "voteCount": 4,
+        "content": "B. Get-AzVmDiagnosticsExtension"
+      },
+      {
+        "date": "2021-01-21T06:47:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer is OK"
+      },
+      {
+        "date": "2020-12-31T00:23:00.000Z",
+        "voteCount": 1,
+        "content": "Enable diagnostics using a storage account specified in a diagnostics configuration file\n\nSet-AzVMDiagnosticsExtension -ResourceGroupName \"ResourceGroup01\" -VMName \"VirtualMachine02\" -DiagnosticsConfigurationPath \"diagnostics_publicconfig.xml\""
+      },
+      {
+        "date": "2020-12-31T00:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://github.com/Azure/azure-powershell/blob/master/src/Compute/Compute/help/Get-AzVMDiagnosticsExtension.md"
+      },
+      {
+        "date": "2020-12-31T00:19:00.000Z",
+        "voteCount": 1,
+        "content": "Example : \nGet the diagnostics extension applied to a virtual machine\nPS C:\\&gt; Get-AzVMDiagnosticsExtension -ResourceGroupName \"ResourceGroup11\" -VMName \"ContosoVM22\""
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24063-exam-az-120-topic-3-question-10-discussion/",
+    "body": "DRAG DROP -<br>You need to connect SAP HANA on Azure (Large Instances) to an Azure Log Analytics workspace.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03992/0008900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0009000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Install the Azure Enhanced Monitoring.<br>The SAP Azure Enhanced Monitoring Extension allows for collecting diagnostic data including OS and Application performance counters from Azure VMs running<br>SAP workloads.<br>Step 2: Install the Log Analytics client on the SAP HANA on Azure (Large Instances) instance.<br>Step 3: Configure a Log Analytics gateway on the virtual network.<br>Step 4: On the gateway, run.<br>Reference:<br>http://www.deployazure.com/compute/virtual-machines/sap-azure-enhanced-monitoring-extension/ https://docs.microsoft.com/en-us/azure/azure-monitor/platform/gateway",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-17T22:25:00.000Z",
+        "voteCount": 22,
+        "content": "The right answer should be:\nConfigure a Log Analytics gateway on the virtual network that has connectivity to HLI\nInstall Log Analytics client on HLI\nConfigure a Log Analytics gateway server as proxy for the log analytics client on HLI\nOn the gateway import module OMSGateway and Add-OMSGatewayAllowedHosts"
+      },
+      {
+        "date": "2021-02-06T23:53:00.000Z",
+        "voteCount": 13,
+        "content": "Refer to https://docs.microsoft.com/en-us/azure/azure-monitor/platform/gateway\n\nAnswer should be: \n1.\tConfigure a Log Analytics gateway on the virtual network that has connectivity to the SAP HANA on Azure (Large Instances) instance.\n2.\tInstall the Log Analytics client on the SAP HANA on Azure (Large instances) instance.\n3.\tConfigure a Log Analytics gateway server as a proxy for the Log Analytics client on SAP HANA on Azure (Large Instances)\n4.\tOn the gateway, run Import-Module OMSGateway and Add-OMSGatewayAllowedHost."
+      },
+      {
+        "date": "2023-06-25T00:26:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/sap/large-instances/hana-overview-architecture\n\nHANA Large Instance service is in sunset mode and does not accept new customers anymore. Providing units for existing HANA Large Instance customers is still possible. For alternatives, please check the offers of HANA certified Azure VMs in the HANA Hardware Directory."
+      },
+      {
+        "date": "2021-10-05T07:23:00.000Z",
+        "voteCount": 1,
+        "content": "3524 is the correct answer"
+      },
+      {
+        "date": "2021-06-13T23:49:00.000Z",
+        "voteCount": 1,
+        "content": "3452 is my prefer choice."
+      },
+      {
+        "date": "2021-01-21T06:52:00.000Z",
+        "voteCount": 3,
+        "content": "3 5 2 4\nAEM is not for HLI"
+      },
+      {
+        "date": "2021-01-21T06:51:00.000Z",
+        "voteCount": 3,
+        "content": "3 5 2 4"
+      },
+      {
+        "date": "2021-01-01T23:14:00.000Z",
+        "voteCount": 2,
+        "content": "1. Install and configure the gateway.\n2. Configure the gateway proxy.\n3. Install agent.\n4. add allowed hosts\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/gateway"
+      },
+      {
+        "date": "2020-12-31T00:33:00.000Z",
+        "voteCount": 1,
+        "content": "If top to bottom the step is counted as 1 2 3 4 5 then...I will go as below,\n1 3 4 5 2 ...any one differ ?  then plos help justify with your answer - how /why ."
+      },
+      {
+        "date": "2021-01-05T03:44:00.000Z",
+        "voteCount": 3,
+        "content": "Perhaps you could justify your selection first"
+      },
+      {
+        "date": "2021-02-14T02:11:00.000Z",
+        "voteCount": 2,
+        "content": "You have not read the question. You only need to choose 4 actions. Not 5. Also you have no idea why you need the extension."
+      },
+      {
+        "date": "2020-06-25T12:52:00.000Z",
+        "voteCount": 3,
+        "content": "azure enhanced monitoring extension is for VMs , not for HLI, third step is to use log analytics as proxy."
+      },
+      {
+        "date": "2020-09-25T05:45:00.000Z",
+        "voteCount": 2,
+        "content": "I think we need to install the Monitoring extension for HLI also."
+      },
+      {
+        "date": "2021-02-14T02:11:00.000Z",
+        "voteCount": 2,
+        "content": "No. There is no such thing as a extension for a bare metal (large instance). It is a physical server."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24064-exam-az-120-topic-3-question-11-discussion/",
+    "body": "HOTSPOT -<br>You are planning the Azure network infrastructure for an SAP environment.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0009100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0009200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br><br>Box 2: No -<br>A design that's not supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that aren't peered with each other. We recommend that you segregate the SAP application layer and DBMS layer by using subnets within an Azure virtual network instead of by using different<br>Azure virtual networks.<br><br>Box 3: Yes -<br>Be aware that network traffic between two peered Azure virtual networks is subject to transfer costs. Huge data volume that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can accumulate substantial costs if the SAP application layer and DBMS layer are segregated between two peered Azure virtual networks.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-02T02:16:00.000Z",
+        "voteCount": 16,
+        "content": "No,YES,YES, why someone would do global peering for its application and database layer.."
+      },
+      {
+        "date": "2023-06-25T00:38:00.000Z",
+        "voteCount": 1,
+        "content": "but the question is whether you can or you cannot....\nNot why, recommended or not...\n\nso can we say \"can\"?  @.@\""
+      },
+      {
+        "date": "2020-06-25T12:54:00.000Z",
+        "voteCount": 14,
+        "content": "why B is No ? A should be No, Global Vnet peering is not possible as it indicates a regional deployment, B and C are yes"
+      },
+      {
+        "date": "2020-07-31T07:09:00.000Z",
+        "voteCount": 2,
+        "content": "agree to this"
+      },
+      {
+        "date": "2020-08-27T04:36:00.000Z",
+        "voteCount": 2,
+        "content": "I agree with you as the answer explanation."
+      },
+      {
+        "date": "2023-08-22T20:58:00.000Z",
+        "voteCount": 1,
+        "content": "No Yes Yes"
+      },
+      {
+        "date": "2023-06-13T10:46:00.000Z",
+        "voteCount": 1,
+        "content": "No, Yes, Yes\nNO because Although a possible configuration for segregating App and DB into different Peered Virtual Networks, it would be highly discouraged because of the high traffic between instances and incurred costs on traffic.\nYES because, it's a recommended configuration to segregate traffic between App and DB instances to different subnets within the same Virtual Network.\nYES because that's exactly why it is not recommended."
+      },
+      {
+        "date": "2022-05-12T13:49:00.000Z",
+        "voteCount": 2,
+        "content": "YES, YES, YES. Please find this notes in the microsoft article\n https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general\nAnother design that's not supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that aren't peered with each other. We recommend that you segregate the SAP application layer and DBMS layer by using subnets within an Azure virtual network instead of by using different Azure virtual networks.\n\nIf you decide not to follow the recommendation and instead segregate the two layers into different virtual networks, the two virtual networks must be peered.\n\nBe aware that network traffic between two peered Azure virtual networks is subject to transfer costs. Huge data volume that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can accumulate substantial costs if the SAP application layer and DBMS layer are segregated between two peered Azure virtual networks."
+      },
+      {
+        "date": "2021-10-05T07:25:00.000Z",
+        "voteCount": 2,
+        "content": "No, Yes, Yes.\nFor A, it should be VNet Peering, not the Global VNet Peering."
+      },
+      {
+        "date": "2021-09-25T05:28:00.000Z",
+        "voteCount": 1,
+        "content": "YYN, seems explanation provided in Box 3 must to be for Box 1))"
+      },
+      {
+        "date": "2021-09-25T05:35:00.000Z",
+        "voteCount": 1,
+        "content": "my bad, I mean NYY, seems explanation provided in Box 2 must to be for Box"
+      },
+      {
+        "date": "2021-06-09T12:39:00.000Z",
+        "voteCount": 1,
+        "content": "Y,Y,Y\nThe database VMs run in the same virtual network as the application layer, separated in a different subnet from the SAP application layer.\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general"
+      },
+      {
+        "date": "2021-10-09T01:17:00.000Z",
+        "voteCount": 1,
+        "content": "for 1st p.: it is bad idea to implement app layer in one region and db layer in another one, so nyy"
+      },
+      {
+        "date": "2021-05-01T14:52:00.000Z",
+        "voteCount": 1,
+        "content": "A design that is NOT supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that are not peered with each other. It is recommended to segregate the SAP application layer and DBMS layer using subnets within an Azure virtual network instead of using different Azure virtual networks. If you decide not to follow the recommendation and instead segregate the two layers into different virtual network, the two virtual networks need to be peered. Be aware that network traffic between two peered Azure virtual networks are subject of transfer costs. With the huge data volume in many Terabytes exchanged between the SAP application layer and DBMS layer substantial costs can be accumulated if the SAP application layer and DBMS layer is segregated between two peered Azure virtual networks.\nSource: SAP Note 2015553"
+      },
+      {
+        "date": "2021-03-22T22:14:00.000Z",
+        "voteCount": 3,
+        "content": "The correct answer is No, Yes, Yes."
+      },
+      {
+        "date": "2021-02-14T02:18:00.000Z",
+        "voteCount": 6,
+        "content": "NO YES YES. \nA lot of the replies below are just very misguided sadly :( \nGlobal VNet peering is for DR to live site. Within a deployment, APP and DB layers are within a VNet and different subnets. \n\n\nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/sap/sap-s4hana"
+      },
+      {
+        "date": "2021-02-12T19:25:00.000Z",
+        "voteCount": 3,
+        "content": "Yes yes yes - SAP note 2015553"
+      },
+      {
+        "date": "2021-02-12T21:45:00.000Z",
+        "voteCount": 5,
+        "content": "Because of the Global Vnet Peering (peering two vents in two ) answer should be \nNO,YES,YES\nSegregating SAP application layer and DB layer into two Vnets in two different regions creates huge latency\nAzure supports the following types of peering:\n\nVirtual network peering: Connect virtual networks within the same Azure region.\nGlobal virtual network peering: Connecting virtual networks across Azure regions.\nhttps://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview"
+      },
+      {
+        "date": "2021-02-10T04:56:00.000Z",
+        "voteCount": 1,
+        "content": "Shall we say, No, Yes, Yes / yes yes yes, Please confirm?"
+      },
+      {
+        "date": "2021-01-21T06:53:00.000Z",
+        "voteCount": 4,
+        "content": "A should be No, Global Vnet peering is not possible as it indicates a regional deployment, B and C are yes"
+      },
+      {
+        "date": "2020-12-27T07:56:00.000Z",
+        "voteCount": 1,
+        "content": "Y,Y,Y: for the segregation between subnets, you can do it using the NSG\nFor the Global Vnet peering you can connect two Vnets in different region"
+      },
+      {
+        "date": "2020-12-25T05:42:00.000Z",
+        "voteCount": 1,
+        "content": "Global vNet peering requires the use of network virtual appliances or vnet Gateways.\nthis is not supported as per this doc : https://docs.microsoft.com/en-us/learn/modules/plan-implement-sap-solutions/2-azure-vm-compute-network-storage-considerations-sap-workloads\n\n\" Keep in mind that configuring network virtual appliances in the communication path between the SAP application and the DBMS layer of an SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. \""
+      },
+      {
+        "date": "2020-12-27T07:51:00.000Z",
+        "voteCount": 1,
+        "content": "Global VNet peering in Azure is the ability to peer VNets across regions, it dosnt require a NVA."
+      },
+      {
+        "date": "2020-11-03T21:17:00.000Z",
+        "voteCount": 4,
+        "content": "Ans should be N Y Y\n1) it is asked explicitly for Global not local. if it is local then Yes. if it is global ans should be n.\n2) can be separated with subnet in with in same vlan. \n\n3) yes, cost will increase if you separate them using two vnets (must be peered )"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/40862-exam-az-120-topic-3-question-12-discussion/",
+    "body": "DRAG DROP -<br>You plan to deploy multiple SAP HANA virtual machines to Azure by using an Azure Resource Manager template.<br>How should you configure Accelerated Networking and Write Accelerator in the template? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03992/0009400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0009500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: true -<br>enableAcceleratedNetworking: If the network interface is accelerated networking enabled.<br>To further reduce network latency between Azure VMs, we [Micorosoft] recommend that you choose Azure Accelerated Networking. Use it when you deploy Azure<br>VMs for an SAP workload, especially for the SAP application layer and the SAP DBMS layer.<br><br>Box 2:  true -<br>Write Accelerator should be used for the volumes that contain the transaction log or redo logs of a DBMS. It is not recommended to use Write Accelerator for the data volumes of a DBMS as the feature has been optimized to be used against log disks.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-24T02:45:00.000Z",
+        "voteCount": 1,
+        "content": "following this\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/how-to-enable-write-accelerator\nboth are true"
+      },
+      {
+        "date": "2023-12-06T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "Its data disk but log volume , so TRUE, TRUE"
+      },
+      {
+        "date": "2023-09-19T19:53:00.000Z",
+        "voteCount": 1,
+        "content": "TRUE, FALSE\nRegarding to https://learn.microsoft.com/en-us/azure/virtual-machines/how-to-enable-write-accelerator#planning-for-using-write-accelerator, Write Accelerator should NOT be enabled for data disks."
+      },
+      {
+        "date": "2023-07-23T21:25:00.000Z",
+        "voteCount": 1,
+        "content": "True, none\nWrite Accelerator should be used for the volumes that contain the transaction log or redo logs of a DBMS. It is not recommended to use Write Accelerator for the data volumes of a DBMS as the feature has been optimized to be used against log disks."
+      },
+      {
+        "date": "2023-07-18T01:40:00.000Z",
+        "voteCount": 1,
+        "content": "True, none\nWrite Accelerator should be used for the volumes that contain the transaction log or redo logs of a DBMS. It is not recommended to use Write Accelerator for the data volumes of a DBMS as the feature has been optimized to be used against log disks."
+      },
+      {
+        "date": "2021-05-29T14:01:00.000Z",
+        "voteCount": 3,
+        "content": "True, True"
+      },
+      {
+        "date": "2021-04-16T11:25:00.000Z",
+        "voteCount": 2,
+        "content": "Each value may be used once, more than once, or not at all. This is whole expectation, hence both can be true."
+      },
+      {
+        "date": "2021-02-09T05:37:00.000Z",
+        "voteCount": 3,
+        "content": "TRUE, TRUE"
+      },
+      {
+        "date": "2020-12-31T00:55:00.000Z",
+        "voteCount": 2,
+        "content": "Solution seems : true and true for both"
+      },
+      {
+        "date": "2020-12-31T00:54:00.000Z",
+        "voteCount": 1,
+        "content": "No ..........they also mentioned once , more than once ..."
+      },
+      {
+        "date": "2020-12-27T08:16:00.000Z",
+        "voteCount": 1,
+        "content": "In the question they said Each value may be used once,  how we can answer True twice?"
+      },
+      {
+        "date": "2021-09-26T09:10:00.000Z",
+        "voteCount": 1,
+        "content": "maybe bcoz of \"Each value may be used once, more than once, or not at all.\""
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23628-exam-az-120-topic-3-question-13-discussion/",
+    "body": "This question requires that you evaluate the underlined text to determine if it is correct.<br>You have an Azure resource group that contains the virtual machines for an SAP environment.<br>You must be assigned the Contributor role to grant permissions to the resource group.<br>Instructions: Review the underlined text. If it makes the statement correct, select `No change is needed`. If the statement is incorrect, select the answer choice that makes the statement correct.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo change is needed",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUser Access Administrator\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManaged Identity Contributor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSecurity Admin"
+    ],
+    "answer": "B",
+    "answerDescription": "Contributor - Can create and manage all types of Azure resources but can't grant access to others.<br>User Access Administrator - Lets you manage user access to Azure resources.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/role-based-access-control/overview",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-11T06:32:00.000Z",
+        "voteCount": 17,
+        "content": "Answer is B\nOwner - Has full access to all resources including the right to delegate access to others.\nContributor - Can create and manage all types of Azure resources but can't grant access to others.\nReader - Can view existing Azure resources.\nUser Access Administrator - Lets you manage user access to Azure resources."
+      },
+      {
+        "date": "2020-06-29T17:12:00.000Z",
+        "voteCount": 5,
+        "content": "underline is \" Contributor\""
+      },
+      {
+        "date": "2020-10-03T05:19:00.000Z",
+        "voteCount": 3,
+        "content": "Thanks Schalke04!\nThe answer is B."
+      },
+      {
+        "date": "2021-09-26T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "@Schalke04: where\\how we can see that?"
+      },
+      {
+        "date": "2023-09-29T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "B. User Access Administrator"
+      },
+      {
+        "date": "2021-05-29T14:03:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct."
+      },
+      {
+        "date": "2021-02-09T05:38:00.000Z",
+        "voteCount": 3,
+        "content": "B. User Access Administrator"
+      },
+      {
+        "date": "2020-12-31T00:59:00.000Z",
+        "voteCount": 4,
+        "content": "It is B ... 200%"
+      },
+      {
+        "date": "2020-10-03T08:21:00.000Z",
+        "voteCount": 4,
+        "content": "ans is User Access Adimin"
+      },
+      {
+        "date": "2020-06-29T17:50:00.000Z",
+        "voteCount": 1,
+        "content": "The answer would be A?"
+      },
+      {
+        "date": "2020-06-21T04:45:00.000Z",
+        "voteCount": 2,
+        "content": "I don't know what are the \"underlined text\"."
+      },
+      {
+        "date": "2020-06-25T12:56:00.000Z",
+        "voteCount": 2,
+        "content": "incomplete question"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24065-exam-az-120-topic-3-question-14-discussion/",
+    "body": "HOTSPOT -<br>Your on-premises network contains SAP and non-SAP applications.<br>You have JAVA-based SAP systems that use SPNEGO for single-sign on (SSO) authentication.<br>Your external portal uses multi-factor authentication (MFA) to authenticate users.<br>You plan to extend the on-premises authentication features to Azure and to migrate the SAP applications to Azure.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0009700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0009800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>Need AD FS for MFA. See box 3.<br>Note: Azure Active Directory (Azure AD) Pass-through Authentication allows your users to sign in to both on-premises and cloud-based applications using the same passwords. This feature is an alternative to Azure AD Password Hash Synchronization (see Box 2).<br><br>Box 2: Yes -<br>Password hash synchronization is one of the sign-in methods used to accomplish hybrid identity. Azure AD Connect synchronizes a hash, of the hash, of a users password from an on-premises Active Directory instance to a cloud-based Azure AD instance.<br>Password hash synchronization is an extension to the directory synchronization feature implemented by Azure AD Connect sync. You can use this feature to sign in to Azure AD services like Office 365. You sign in to the service by using the same password you use to sign in to your on-premises Active Directory instance.<br><br>Box 3: Yes -<br>If your organization is federated with Azure AD, you can use Azure Multi-Factor Authentication to secure AD FS resources, both on-premises and in the cloud.<br>Azure MFA enables you to eliminate passwords and provide a more secure way to authenticate.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-phs https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-01T23:29:00.000Z",
+        "voteCount": 10,
+        "content": "Last answer appears correct, Yes. The ask is AD FS for on-prem. Refer: https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs#microsoft-and-third-party-additional-authentication-methods"
+      },
+      {
+        "date": "2020-07-19T00:21:00.000Z",
+        "voteCount": 9,
+        "content": "No,Yes,Yes. On premise ADFS can be used to enable MFA."
+      },
+      {
+        "date": "2021-10-05T07:27:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, Yes, Yes"
+      },
+      {
+        "date": "2021-04-13T15:47:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is NO,YES,YES\nhttps://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity"
+      },
+      {
+        "date": "2021-03-18T06:32:00.000Z",
+        "voteCount": 3,
+        "content": "the first question is tricky : if by \"pass through authentication can be used to enable MFA\" they mean, can be used by itself, without additional components, than the answer is NO. PTA by itself does not support MFA. \nIf the question is of enablement - Conditional Access capabilities, including Azure AD Multi-Factor Authentication, work with Pass-through Authentication =&gt; PTA does not preclude MFA, but it requires additional components, so one might argue, a YES - PTA can be used for MFA. I think I'm splitting hairs here;  if I am to chose the answer to the question I think they meant to ask, the answer is NO - PTA by itself cannot be used to enable MFA.\nthe other answers are YES, YES"
+      },
+      {
+        "date": "2021-01-21T07:02:00.000Z",
+        "voteCount": 3,
+        "content": "Yes Yes Yes"
+      },
+      {
+        "date": "2021-02-14T03:33:00.000Z",
+        "voteCount": 3,
+        "content": "That is not correct. Pass Thru Authentication is to allow for authentication to happen on-prem domain controllers. That is all it does. It does not enable MFA. It is about deciding where the authentication needs to happen."
+      },
+      {
+        "date": "2021-01-20T06:38:00.000Z",
+        "voteCount": 7,
+        "content": "Pass through Authentication is for keeping your password on-premises and using the same password for SSO, it does not enable MFA. However, with MFA we avoid passwords for sign-in.  So ans is No, Yes &amp; YES"
+      },
+      {
+        "date": "2020-12-31T01:42:00.000Z",
+        "voteCount": 6,
+        "content": "all 3 YES- possible"
+      },
+      {
+        "date": "2021-02-14T03:33:00.000Z",
+        "voteCount": 3,
+        "content": "That is not correct. Pass Thru Authentication is to allow for  authentication to happen on-prem domain controllers. That is all it does. It does not enable MFA."
+      },
+      {
+        "date": "2020-12-14T12:15:00.000Z",
+        "voteCount": 3,
+        "content": "Y,Y,Y\nMFA is a features of Azure AD, as long as you are authenticated in Azure AD (PHS, PTA or ADFS)  you can apply the MFA using conditional access to users"
+      },
+      {
+        "date": "2020-08-20T01:27:00.000Z",
+        "voteCount": 3,
+        "content": "All 3 Yes-\n\nReference - https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta\n\nCheck the Video in the link.."
+      },
+      {
+        "date": "2020-08-18T01:04:00.000Z",
+        "voteCount": 6,
+        "content": "Ans - Yes, Yes, Yes.\nAzure Active Directory (Azure AD) Pass-through Authentication protects user accounts by working seamlessly with Azure AD Conditional Access policies, including Multi-Factor Authentication (MFA). So the answer to question 1 is 'Yes'.\nhttps://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-pta"
+      },
+      {
+        "date": "2020-09-03T14:48:00.000Z",
+        "voteCount": 6,
+        "content": "\u2018by working seamlessly with\u2019 means it (AD Pass-through) itself does not do, but takes help of other service (AD Conditional access policy such as MFA). So thinking on this thought of line answer to Q1 would be \u2018No\u2019. What\u2019s your thoughts?"
+      },
+      {
+        "date": "2020-07-17T06:54:00.000Z",
+        "voteCount": 4,
+        "content": "No Yes Yes Sign-in features not natively supported by Azure AD:\nSign-in using smartcards or certificates.\nSign-in using on-premises MFA Server.\nSign-in using third-party authentication solution.\nMulti-site on-premises authentication solution."
+      },
+      {
+        "date": "2020-07-14T21:45:00.000Z",
+        "voteCount": 1,
+        "content": "Yes  \nYes \nNo \nhttps://docs.microsoft.com/en-us/azure/active-directory/hybrid/choose-ad-authn"
+      },
+      {
+        "date": "2021-02-14T03:34:00.000Z",
+        "voteCount": 2,
+        "content": "That is not correct. Pass Thru Authentication is to allow for authentication to happen on-prem domain controllers. That is all it does. It does not enable MFA."
+      },
+      {
+        "date": "2020-06-25T13:00:00.000Z",
+        "voteCount": 1,
+        "content": "C is No, it says ADFS not Azure ADFS"
+      },
+      {
+        "date": "2023-06-25T01:00:00.000Z",
+        "voteCount": 1,
+        "content": "Azure ADFS is also ADFS okay?\n\nu are a human\nu are also a man"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24066-exam-az-120-topic-3-question-15-discussion/",
+    "body": "HOTSPOT -<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0009900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0010000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>To log in to a Linux VM with Azure AD credentials, install the Azure Active Directory login VM extension.<br>Note: Azure AD Connect is the Microsoft tool designed to meet and accomplish your hybrid identity goals.<br><br>Box 2: Yes -<br>If you deploy SAP VMs in a cross-premises scenario, where on-premises Active Directory and DNS are extended in Azure, it is expected that the VMs are joining an on-premises domain.<br><br>Box 3: No -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/deployment-guide",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-17T23:47:00.000Z",
+        "voteCount": 15,
+        "content": "Right Answers should be: No, No, No.\nExplanations are reported by Sourabh1703 for B and by the test for A and C."
+      },
+      {
+        "date": "2020-06-25T13:01:00.000Z",
+        "voteCount": 7,
+        "content": "B is No, there is no such mandatory requirement for Linux Azure VMs to join them to AD, this is optional"
+      },
+      {
+        "date": "2020-07-19T00:09:00.000Z",
+        "voteCount": 5,
+        "content": "The question is SAP Application server hosted on linux machine. If the system is not joined to the domain then application can't be accessed and proper authentication can't be provided."
+      },
+      {
+        "date": "2020-12-06T14:41:00.000Z",
+        "voteCount": 4,
+        "content": "You can access SAP Application server by using a local linux user.  Also, end users can access it by using their own SAP credentials (Created on SU01).\n\nThus, this is optional."
+      },
+      {
+        "date": "2021-10-05T07:28:00.000Z",
+        "voteCount": 3,
+        "content": "No, No, No. Joining the AD is optional, not mandatory."
+      },
+      {
+        "date": "2021-01-21T07:04:00.000Z",
+        "voteCount": 5,
+        "content": "No No No"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24067-exam-az-120-topic-3-question-16-discussion/",
+    "body": "HOTSPOT -<br>You are integrating SAP HANA and Azure Active Directory (Azure AD).<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0010100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0010100002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>To configure Azure AD single sign-on with SAP HANA, perform the following steps:<br>1. In the Azure portal, on the SAP HANA application integration page, select Single sign-on.<br>2. On the Select a Single sign-on method dialog, select SAML/WS-Fed mode to enable single sign-on.<br><img src=\"/assets/media/exam-media/03992/0010200001.png\" class=\"in-exam-image\"><br><br>Box 2: No -<br><br>Box 3: No -<br>Key security considerations for deploying SAP on Azure<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/saphana-tutorial",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-27T09:17:00.000Z",
+        "voteCount": 17,
+        "content": "The answer is correct as OAuth2 is for authorization not for authentication. So B is No."
+      },
+      {
+        "date": "2020-12-31T02:17:00.000Z",
+        "voteCount": 7,
+        "content": "YES NO NO &lt;&lt;"
+      },
+      {
+        "date": "2021-10-05T07:29:00.000Z",
+        "voteCount": 3,
+        "content": "As everyone else has said SAML 2.0 is for authentication and OAuth 2.0 is for authorization."
+      },
+      {
+        "date": "2020-10-16T22:43:00.000Z",
+        "voteCount": 2,
+        "content": "HANA Support -\nSAML 2.0 (authentication)\nOAuth 2.0 (authorization)"
+      },
+      {
+        "date": "2020-10-16T22:49:00.000Z",
+        "voteCount": 2,
+        "content": "correcion -OAuth2 is for authorization not for authentication. So B is No."
+      },
+      {
+        "date": "2020-09-12T03:38:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is : Yes,Yes,No"
+      },
+      {
+        "date": "2020-07-19T10:40:00.000Z",
+        "voteCount": 4,
+        "content": "In Azure SAP Netweaver supports both SAML and OAUTH for SSO - https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-netweaver-tutorial#configure-sap-netweaver-for-oauth\n\nSAP HANA in Azure supports only SAML for SSO - https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/saphana-tutorial"
+      },
+      {
+        "date": "2020-07-17T22:39:00.000Z",
+        "voteCount": 2,
+        "content": "As per the link only SAML for SSO regarding SAP HANA on Azure.Since the requirement is specific to Azure\n\nhttps://docs.microsoft.com/en-us/azure/active-directory/saas-apps/saphana-tutorial"
+      },
+      {
+        "date": "2020-07-16T06:41:00.000Z",
+        "voteCount": 5,
+        "content": "SAML 2.0 (authentication)\nOAuth 2.0 (authorization)"
+      },
+      {
+        "date": "2020-06-25T13:06:00.000Z",
+        "voteCount": 1,
+        "content": "B is yes - https://blogs.sap.com/2015/02/25/oauth2-authentication-using-hana-xs-basics-1/"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41107-exam-az-120-topic-3-question-17-discussion/",
+    "body": "HOTSPOT -<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0010300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0010400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>The SAP Azure Enhanced Monitoring Extension builds on top of the Azure Diagnostic extension, which stores its data in an Azure Storage account that you specify.<br><br>Box 2: Yes -<br>The Set-AzVMAEMExtension cmdlet updates the configuration of a virtual machine to enable or update the support for monitoring for SAP systems that are installed on the virtual machine. The cmdlet installs the Azure Enhanced Monitoring (AEM) extension that collects the performance data and makes it discoverable for the SAP system.<br>The -OSType specifies the OS. Either Windows or Linux.<br><br>Box 3: Yes -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/platform/diagnostics-extension-overview https://docs.microsoft.com/en-us/powershell/module/az.compute/set-azvmaemextension",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-14T00:04:00.000Z",
+        "voteCount": 4,
+        "content": "YYY is my choice."
+      },
+      {
+        "date": "2021-02-14T08:54:00.000Z",
+        "voteCount": 4,
+        "content": "YES YES YES because there is no mentioned the server installed on is Large Instance."
+      },
+      {
+        "date": "2021-02-09T06:03:00.000Z",
+        "voteCount": 3,
+        "content": "YES YES YES"
+      },
+      {
+        "date": "2021-01-21T07:05:00.000Z",
+        "voteCount": 3,
+        "content": "YES YES YES"
+      },
+      {
+        "date": "2020-12-31T02:26:00.000Z",
+        "voteCount": 3,
+        "content": "looks like - YES YES YES is correct."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41108-exam-az-120-topic-3-question-18-discussion/",
+    "body": "DRAG DROP -<br>You deploy an SAP environment on Azure.<br>You need to grant an SAP administrator read-only access to the Azure subscription. The SAP administrator must be prevented from viewing network information.<br>How should you configure the role-based access control (RBAC) role definition? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03992/0010500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0010600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: \"*/read\"<br>\"*/read\" allows you to view everything in the subscription.<br>You need to grant an SAP administrator read-only access to the Azure subscription<br>Box 2: \"Microsoft.Network/*/read\"<br>The SAP administrator must be prevented from viewing network information.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-30T08:40:00.000Z",
+        "voteCount": 3,
+        "content": "proposed ans is seemed correct and in path with trivial logics"
+      },
+      {
+        "date": "2021-02-09T06:04:00.000Z",
+        "voteCount": 3,
+        "content": "CORRECT"
+      },
+      {
+        "date": "2021-02-07T00:23:00.000Z",
+        "voteCount": 2,
+        "content": "ya, given answer seem correct."
+      },
+      {
+        "date": "2020-12-31T02:30:00.000Z",
+        "voteCount": 3,
+        "content": "seems given solution is correct.\nany question around it ?"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24068-exam-az-120-topic-3-question-19-discussion/",
+    "body": "You plan to migrate an SAP environment to Azure.<br>You need to design an Azure network infrastructure to meet the following requirements:<br>\u2711 Prevent end users from accessing the database servers.<br>\u2711 Isolate the application servers from the database servers.<br>\u2711 Ensure that end users can access the SAP systems over the Internet.<br>\u2711 Minimize the costs associated to the communications between the application servers and database servers.<br>Which two actions should you include in the solution? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn the same Azure virtual network, segregate the SAP application servers and database servers by using different subnets and network security groups.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSegregate the SAP application servers and database servers by using different Azure virtual networks.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a site-to-site VPN between the on-premises network and Azure.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure an internal Azure Standard Load Balancer for incoming connections.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Azure Traffic Manager to route incoming connections."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-30T04:04:00.000Z",
+        "voteCount": 13,
+        "content": "A is correct, because segregating application servers and database servers by using different subnets and network security groups is a minimum cost solution.\nC is correct, because S2S VPN is over the Internet.\nD is not correct, because users cannot access to SAP environment if you just use internal Azure Standard Load Balancer. unless you use external Load Balancer."
+      },
+      {
+        "date": "2020-08-29T05:32:00.000Z",
+        "voteCount": 8,
+        "content": "I like to explain why E is not the answer as below:\nAzure Traffic Manager is a Inter-Region Service, it can distribute traffic optimally to services across global Azure regions. There is not any requirements to use Azure Traffic Manager in the scenario.\nPlease refer to following articles:\nhttps://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview\nhttps://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview"
+      },
+      {
+        "date": "2020-06-29T18:43:00.000Z",
+        "voteCount": 11,
+        "content": "An internal load balancer is not the same as an external one. In this case they talk about an internal load balancer (this type of load balancing does not have the Internet) The correct answer would be A and E, Traffic Manager routes users through the Internet based on requests by DNS."
+      },
+      {
+        "date": "2024-05-22T17:25:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2024-02-22T12:44:00.000Z",
+        "voteCount": 1,
+        "content": "A and D are the most appropriate answers since standard load balancer can be used for external users via Natting"
+      },
+      {
+        "date": "2021-08-03T04:38:00.000Z",
+        "voteCount": 1,
+        "content": "CORRECT"
+      },
+      {
+        "date": "2021-03-24T09:40:00.000Z",
+        "voteCount": 1,
+        "content": "I somehow think E is also right."
+      },
+      {
+        "date": "2021-02-14T09:18:00.000Z",
+        "voteCount": 6,
+        "content": "Traffic Manager is out because there is no mention of dual region archiecture. \nInternal Load Balancers not going to be used as well for internet firewall. And internal std load balancer is for more HA setup. \n\nThe only thing possible is A and C (since access IS over internet since the site to site VPN does run over internet). Also remember end users are the users in an on prem customer."
+      },
+      {
+        "date": "2021-02-06T04:56:00.000Z",
+        "voteCount": 1,
+        "content": "Shall we say, A &amp; E are correct answers? Any thoughts?"
+      },
+      {
+        "date": "2020-11-05T03:39:00.000Z",
+        "voteCount": 6,
+        "content": "A and C are correct as per https://github.com/microsoft/SAP-on-Azure-Networking-Considerations. \"site to site vpn over internet\" is the key point"
+      },
+      {
+        "date": "2020-09-15T09:42:00.000Z",
+        "voteCount": 5,
+        "content": "Answer : A and C are correct\nhttps://github.com/microsoft/SAP-on-Azure-Networking-Considerations"
+      },
+      {
+        "date": "2020-08-11T02:50:00.000Z",
+        "voteCount": 2,
+        "content": "A is definitely correct.\nE seems to be a proper match which enables Internet connectivity."
+      },
+      {
+        "date": "2020-08-05T00:21:00.000Z",
+        "voteCount": 3,
+        "content": "C is incorrect because accessing via site to site vpn is not same as accessing anywhere from internet.\nD is incorrect because you cannot use internal standard load balancer for internet based traffic. It is only for traffic within a vnet.\nE is the closest solution which can route internet traffic."
+      },
+      {
+        "date": "2020-08-01T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "though S2S VPN is over internet but users need to be on-premise, it's not the same as accessing SAP over the internet. Isn't E is more appropriate to route traffic to the web dispatcher?"
+      },
+      {
+        "date": "2020-06-25T13:11:00.000Z",
+        "voteCount": 3,
+        "content": "A and D, S2S VPN is not needed, as users need internet access, for this a standard load balancer provides external connectivity"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41110-exam-az-120-topic-3-question-20-discussion/",
+    "body": "You are deploying SAP Fiori to an SAP environment on Azure.<br>You are configuring SAML 2.0 for an SAP Fiori instance named FPP that uses client 100 to authenticate to an Azure Active Directory (Azure AD) tenant.<br>Which provider named should you use to ensure that the Azure AD tenant recognizes the SAP Fiori instance?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thttps://FPP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tldap://FPP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thttps://FPP100\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tldap://FPP-100"
+    ],
+    "answer": "C",
+    "answerDescription": "By default, the provider name is in the format &lt;sid&gt;&lt;client&gt;. Azure AD expects the name in the format &lt;protocol&gt;://&lt;name&gt;. We recommend that you maintain the provider name as https://&lt;sid&gt;&lt;client&gt; so you can configure multiple SAP Fiori ABAP engines in Azure AD.<br>Example:<br><img src=\"/assets/media/exam-media/03992/0010800001.jpg\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-fiori-tutorial",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T17:26:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2021-09-17T01:24:00.000Z",
+        "voteCount": 3,
+        "content": "C is correct"
+      },
+      {
+        "date": "2021-02-06T04:51:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is correct"
+      },
+      {
+        "date": "2020-12-31T03:03:00.000Z",
+        "voteCount": 2,
+        "content": "yes - given solution seems fitting one."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36143-exam-az-120-topic-3-question-21-discussion/",
+    "body": "You have an SAP environment on Azure.<br>Your on-premises network connects to Azure by using a site-to-site VPN connection.<br>You need to alert technical support if the network bandwidth usage between the on-premises network and Azure exceeds 900 Mbps for 10 minutes.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNIPING",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Extension for SAP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Network Watcher",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Monitor\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "You set up alerts on Azure VPN Gateway metrics. Azure Monitor provides the ability to set up alerts for Azure resources. You can set up alerts for virtual network gateways of the \"VPN\" type.<br>Metric: AverageBandwidth: Average combined bandwidth utilization of all site-to-site connections on the gateway.<br>Reference:<br>https://docs.microsoft.com/bs-latn-ba/azure/vpn-gateway/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T17:27:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2021-03-06T09:43:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Monitor is correct answer"
+      },
+      {
+        "date": "2021-02-06T04:47:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Monitor"
+      },
+      {
+        "date": "2020-12-31T03:08:00.000Z",
+        "voteCount": 3,
+        "content": "Azure Monitor for Networks provides a comprehensive view of health and metrics for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like Connection Monitor, flow logging for network security groups (NSGs), and Traffic Analytics"
+      },
+      {
+        "date": "2020-12-31T03:06:00.000Z",
+        "voteCount": 3,
+        "content": "azure monitor"
+      },
+      {
+        "date": "2020-11-05T03:43:00.000Z",
+        "voteCount": 3,
+        "content": "Azure monitor metric AverageBandwidth\tBytes/s\t5 minutes\tAverage combined bandwidth utilization of all site-to-site connections on the gateway."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25883-exam-az-120-topic-3-question-22-discussion/",
+    "body": "DRAG DROP -<br>You have an SAP environment on Azure.<br>You are designing a training landscape that will be used 10 times a year.<br>You need to recommend a solution to create the training landscape. The solution must meet the following requirements:<br>\u2711 Minimize the effort to build the training landscape.<br>\u2711 Minimize costs.<br>In which order should you recommend the actions be performed for the first training session? To answer, move all actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03992/0011000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0011000002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-17T07:37:00.000Z",
+        "voteCount": 14,
+        "content": "I am assuming that a training session will change the training environment - i.e - students do hands-on activity that changes data . Under that assumption, we need to take the snapshots and create the custom image before we deliver the first training session.\nSo, the answer should be:\nBuild\nSnapshot\nCustom Image\nDeliver Training\nShutdown and Delete the VM"
+      },
+      {
+        "date": "2022-05-14T15:09:00.000Z",
+        "voteCount": 1,
+        "content": "The objective is make 10 training sessions for the same TEAM. the question talk about first training session, dont talk about sessions for other team. \"the actions be performed for the first training session\". Build, deliver, takesnap, customimege, shutdown."
+      },
+      {
+        "date": "2021-02-11T00:17:00.000Z",
+        "voteCount": 5,
+        "content": "Agree, the snapshot will be taken on a clean training machines. If you take the snapshot after the training is done, you will have dirty machines (has training data which most probably is not useful for next training since every training needs to start with clean machine with new training data)."
+      },
+      {
+        "date": "2022-05-14T15:08:00.000Z",
+        "voteCount": 1,
+        "content": "The objective is make 10 training sessions for the same TEAM. the question talk about first training session, dont talk about sessions for other team. \"the actions be performed for the first training session\". Build, deliver, takesnap, customimege, shutdown."
+      },
+      {
+        "date": "2021-09-30T08:45:00.000Z",
+        "voteCount": 1,
+        "content": "move deliver training 2 steps down"
+      },
+      {
+        "date": "2021-01-21T06:39:00.000Z",
+        "voteCount": 1,
+        "content": "4 2 1 3 5"
+      },
+      {
+        "date": "2021-02-06T23:06:00.000Z",
+        "voteCount": 1,
+        "content": "1.\tTake Snapshot of the virtual machine \n2.\tCreate a custom image by using the snapshot\n3.\tBuild the training landscape\n4.\tDeliver the training\n5.\tShut down and delete the virtual machines\n\nWhere did you get this information? any link?"
+      },
+      {
+        "date": "2020-12-30T04:44:00.000Z",
+        "voteCount": 5,
+        "content": "First build the landscape - it is required to take a snapshot next-- then from snapshot create the custom image ---- which will be reused for future re-use...... after the image ready - you can HO for training to start, when done - shutdown and delete the landscape to save cost....and then later next time we can re-build from the custom image created ."
+      },
+      {
+        "date": "2021-02-06T23:07:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with you. but, is there any link that can refer ?"
+      },
+      {
+        "date": "2020-09-30T22:58:00.000Z",
+        "voteCount": 2,
+        "content": "As question says\" Minimize cost\". so if we take snapshot before 1st training, the cost for those many days of training will increase. e.g. if training is 20 days then extra cost for 20 days for snapshots, image storage cost"
+      },
+      {
+        "date": "2020-10-24T17:48:00.000Z",
+        "voteCount": 2,
+        "content": "Hi, you mean that the snapshots&amp;images are taken during every training(e.g 20 days)?\nI think this question does not ask running cost, but initiating cost. because there is not any requirements to restore landscape.\nfor \"Minimize the effort\", we should take images to simplify creating landscape for 10 times a year. for \"Minimize costs\", we should delete the landscape after a training session.\nEven though you want to save the running cost, you should consider stopping the VMs on the night during a training(e.g 20 days) at first."
+      },
+      {
+        "date": "2020-10-24T17:51:00.000Z",
+        "voteCount": 4,
+        "content": "So, the Ans should be Build, Snapshot,Custom Image,Deliver Training and Delete."
+      },
+      {
+        "date": "2020-07-16T05:12:00.000Z",
+        "voteCount": 4,
+        "content": "Training will be delivered as a second last steps just before the vm is deleted."
+      },
+      {
+        "date": "2020-08-19T11:08:00.000Z",
+        "voteCount": 2,
+        "content": "I think so - \nBuild\nSnapshot Custom Image\nDeliver Training\nShutdown"
+      },
+      {
+        "date": "2020-08-19T11:09:00.000Z",
+        "voteCount": 20,
+        "content": "I think so - \nBuild\nSnapshot \nCustom Image\nDeliver Training\nShutdown"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24015-exam-az-120-topic-3-question-23-discussion/",
+    "body": "You plan to deploy an SAP environment on Azure.<br>During a bandwidth assessment, you identify that connectivity between Azure and an on-premises datacenter requires up to 5 Gbps.<br>You need to identify which connectivity method you must implement to meet the bandwidth requirement. The solution must minimize costs.<br>Which connectivity method should you identify?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan ExpressRoute connection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure site-to-site VPN that is route-based\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure site-to-site VPN that is policy-based",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGlobal VNet peering"
+    ],
+    "answer": "B",
+    "answerDescription": "Azure site-to-site VPN is cheaper.<br>Incorrect Answers:<br>A: ExpressRoute could be quite expensive.<br>C: Policy-based gateways use static routing, and only work with site-to-site connections.<br>References:<br>https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/vpn",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-07-11T05:14:00.000Z",
+        "voteCount": 11,
+        "content": "5 Gbps - 10 Gbps options are available with VPN (route based) and Express Route is too expensive comparatively.\nAns is B"
+      },
+      {
+        "date": "2020-08-09T06:59:00.000Z",
+        "voteCount": 9,
+        "content": "Answer should be B. Now even vpn supports upto 10GB. But when it comes to cheapest, it is VPN and not express route."
+      },
+      {
+        "date": "2020-08-27T19:44:00.000Z",
+        "voteCount": 2,
+        "content": "can User VPN upto 10GB\nhttps://azure.microsoft.com/en-us/pricing/details/vpn-gateway/"
+      },
+      {
+        "date": "2024-05-22T17:28:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2022-06-02T10:44:00.000Z",
+        "voteCount": 3,
+        "content": "For all who need to know, why it is B and not C:\nPolicy Based is only supported with SKU Basic which provides a bandwith of just up to 100Mb/s"
+      },
+      {
+        "date": "2021-10-22T08:27:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2021-05-29T11:16:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct."
+      },
+      {
+        "date": "2021-02-09T04:44:00.000Z",
+        "voteCount": 2,
+        "content": "Ans: B"
+      },
+      {
+        "date": "2021-01-21T06:39:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is OK"
+      },
+      {
+        "date": "2020-12-30T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "SAP work load we can only recommend express route irrespective of cost ."
+      },
+      {
+        "date": "2021-01-18T05:25:00.000Z",
+        "voteCount": 1,
+        "content": "so what this the answer A or B"
+      },
+      {
+        "date": "2020-12-30T07:21:00.000Z",
+        "voteCount": 3,
+        "content": "https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/ \n\n shows the rate card for VPN connections with different bandwidth\nfor our case, we can choose\nVpnGw4\t$2.10/hour\t5 Gbps\tMax 30\n1-10: Included\n11-30: $0.015/hour per tunnel\tMax 5000\n1-128: Included\n129-5000: $0.01/hour per connection\nhence the answer shall be B."
+      },
+      {
+        "date": "2020-12-02T05:55:00.000Z",
+        "voteCount": 2,
+        "content": "B should be correct, please note that cost Q contains - The solution must minimize costs."
+      },
+      {
+        "date": "2020-12-01T20:56:00.000Z",
+        "voteCount": 2,
+        "content": "The solution must minimize costs. ??? If no cost concern was mentioned for sure it would be A. In this case answer will be B for sure."
+      },
+      {
+        "date": "2020-11-06T12:29:00.000Z",
+        "voteCount": 2,
+        "content": "Site to Site VPN uses IPsec where the bandwidth is limited to 1.25GBps. Express Route is the correct option. Answer is A."
+      },
+      {
+        "date": "2020-07-16T12:47:00.000Z",
+        "voteCount": 1,
+        "content": "The right answer should be A.\nOn https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways\nis reported: \nOn a single tunnel a maximum of 1 Gbps throughput can be achieved. Aggregate Throughput Benchmark in the above table is based on measurements of multiple tunnels aggregated through a single gateway.  The Aggregate Throughput Benchmark is not a guaranteed throughput due to Internet traffic conditions and your application behaviors."
+      },
+      {
+        "date": "2020-07-17T07:32:00.000Z",
+        "voteCount": 4,
+        "content": "in the same link VPNGW4 of 5GB is available so answer is B since the requirement is the solution should be cost effective. ER is always expensive compared to site to site."
+      },
+      {
+        "date": "2020-07-01T22:59:00.000Z",
+        "voteCount": 1,
+        "content": "to reduce  the cost express route can not be used"
+      },
+      {
+        "date": "2020-06-30T11:30:00.000Z",
+        "voteCount": 1,
+        "content": "i also think, A is correct, VPN up to 1Gbps, ER up to 10:  https://docs.microsoft.com/de-de/azure/vpn-gateway/vpn-gateway-about-vpngateways"
+      },
+      {
+        "date": "2020-07-01T08:15:00.000Z",
+        "voteCount": 8,
+        "content": "I would use this VpnGw4 of 5Gbs, since express router is expensive, it says that it wants a \"less expensive method\"."
+      },
+      {
+        "date": "2020-06-25T03:28:00.000Z",
+        "voteCount": 5,
+        "content": "should be express route, anything above 1 Gbps for SAP is recommended to use ER"
+      },
+      {
+        "date": "2020-06-29T09:15:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed. A is correct"
+      },
+      {
+        "date": "2020-06-29T14:44:00.000Z",
+        "voteCount": 2,
+        "content": "Express Router is very expensive, a solution that minimizes cost is required."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41089-exam-az-120-topic-3-question-24-discussion/",
+    "body": "You plan to migrate an SAP environment to Azure.<br>You need to create a design to facilitate end-user access to SAP applications over the Internet, while restricting user access to the virtual machines of the SAP application servers.<br>What should you include in the design?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a public IP address for each SAP application server",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an internal Azure Standard Load Balancer for incoming connections",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse an SAP Web Dispatcher to route all incoming connections\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure point-to-site VPN connections for each user"
+    ],
+    "answer": "C",
+    "answerDescription": "1. A public internet user can reach the SAP Web-Dispatcher over port 443<br>2. The SAP Web-Dispatcher can reach the SAP Application server over port 443<br>3. The App Subnet accepts traffic on port 443 from 10.0.0.0/24<br>4. The SAP Application server sends traffic on port 30015 to the SAP DB server<br>5. The DB subnet accepts traffic on port 30015 from 10.0.1.0/24.<br>6. Public Internet Access is blocked on both App Subnet and DB Subnet.<br><img src=\"/assets/media/exam-media/03992/0011200001.jpg\" class=\"in-exam-image\"><br>References:<br>https://azure.microsoft.com/en-in/blog/sap-on-azure-architecture-designing-for-security/",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T17:30:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2021-10-22T08:28:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      },
+      {
+        "date": "2021-06-20T12:51:00.000Z",
+        "voteCount": 2,
+        "content": "D. SAP Web Dispatcher is only for HTTP/HTTPS"
+      },
+      {
+        "date": "2021-07-31T04:55:00.000Z",
+        "voteCount": 4,
+        "content": "Yes Web Dispatcher is only for HTTP / HTTPS --&gt; Which is exactly what is required: \"design to facilitate end-user access to SAP applications over the Internet, while restricting user access to the virtual machines of the SAP application servers.\" --&gt; Answer C"
+      },
+      {
+        "date": "2021-06-12T05:19:00.000Z",
+        "voteCount": 2,
+        "content": "I'll go with SAP Web dispatcher, as the book I am reading says that \"For Java-based systems or web services, load balancing can be done either by using SAP Web Dispatcher or a hardware load balancer such as F5 or A10 (acting as reverse proxy)\". \n\nIf web services comes under routing all incoming connections then \"C\" would be best option."
+      },
+      {
+        "date": "2021-02-09T04:45:00.000Z",
+        "voteCount": 3,
+        "content": "C. Use an SAP Web Dispatcher to route all incoming connections"
+      },
+      {
+        "date": "2021-02-06T05:34:00.000Z",
+        "voteCount": 3,
+        "content": "The given answer seems to be correct. Any thoughts?"
+      },
+      {
+        "date": "2021-09-30T08:49:00.000Z",
+        "voteCount": 1,
+        "content": "yes it 's best prsctice, on-prem also, to use lb"
+      },
+      {
+        "date": "2020-12-30T22:14:00.000Z",
+        "voteCount": 3,
+        "content": "I will go with solution given ..anyone has any doubt about it?"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/63605-exam-az-120-topic-3-question-25-discussion/",
+    "body": "You have an SAP Cloud Platform subscription and an Azure Active Directory (Azure AD) tenant.<br>You need to ensure that Azure AD users can access SAP Cloud App by using their Azure AD credentials.<br>What should you configure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive Directory Domain Services (AD DS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAP Cloud Platform Identity Authentication\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA conditional access policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAP Cloud Connector"
+    ],
+    "answer": "B",
+    "answerDescription": "When you integrate SAP Cloud Platform Identity Authentication with Azure AD, you can:<br>\u2711 Control in Azure AD who has access to SAP Cloud Platform Identity Authentication.<br>\u2711 Enable your users to be automatically signed-in to SAP Cloud Platform Identity Authentication with their Azure AD accounts.<br>\u2711 Manage your accounts in one central location - the Azure portal.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T17:30:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2022-05-08T22:44:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is B"
+      },
+      {
+        "date": "2021-10-04T21:16:00.000Z",
+        "voteCount": 2,
+        "content": "SAP Cloud Platform Identity Authentication is Correct.\nLink provided gives nice description how to begin use of this PaaS"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/63607-exam-az-120-topic-3-question-26-discussion/",
+    "body": "You migrate an SAP environment to Azure.<br>You need to inspect all the outbound traffic from the SAP application servers to the Internet.<br>Which two Azure resources should you use? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Traffic Manager",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Firewall\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetwork Performance Monitor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure user-defined routes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Load Balancer NAT rules",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Web Application Firewall (WAF) for Azure Application Gateway"
+    ],
+    "answer": "AF",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-11-15T16:45:00.000Z",
+        "voteCount": 8,
+        "content": "WAF is used to inbound connection. I think the correct answers are Azure Firewall and a user-defined routes to send all traffic to the firewall"
+      },
+      {
+        "date": "2024-05-22T17:32:00.000Z",
+        "voteCount": 1,
+        "content": "B and D is correct."
+      },
+      {
+        "date": "2023-12-05T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "User-defined rules in the spoke virtual networks route internet-bound traffic requests to the firewall.\n\nhttps://learn.microsoft.com/en-us/azure/architecture/guide/sap/sap-internet-inbound-outbound\n\nB and D"
+      },
+      {
+        "date": "2022-09-23T06:05:00.000Z",
+        "voteCount": 3,
+        "content": "should  B and D , because it is outbound traffic ,, UDR will route the traffic to the firewall"
+      },
+      {
+        "date": "2022-07-12T08:09:00.000Z",
+        "voteCount": 1,
+        "content": "Looks D (user defined outboud Routes) &amp; F (Outbound traffic Monitoring)"
+      },
+      {
+        "date": "2021-10-04T21:41:00.000Z",
+        "voteCount": 1,
+        "content": "do not think that ATM can inspect outbound client traffic, so AFW and WAF for AGW must be ans:\nB and F"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127868-exam-az-120-topic-3-question-27-discussion/",
+    "body": "HOTSPOT<br> -<br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image35.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image35-1.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-05T06:30:00.000Z",
+        "voteCount": 1,
+        "content": "No , No and No. \n1. No as its already clustered solution.\n2. No as if so called PAS goes down in 3 tier application, other application will continue to work. In 2 tier application even load balancer won't help.\n3. Availability group listener will take care of VIP move to connect application to right SQL server. you need not to have load balancer."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107283-exam-az-120-topic-3-question-29-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription that contains a resource group named RG1. The role assignments for RG1 are shown in the following exhibit.<br><br><img src=\"https://img.examtopics.com/az-120/image38.png\"><br><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image39.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image40.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-06T08:22:00.000Z",
+        "voteCount": 1,
+        "content": "User 1 and User 3 : Backup contributor can manage backup services but can not create recovery service vault."
+      },
+      {
+        "date": "2023-07-31T17:45:00.000Z",
+        "voteCount": 1,
+        "content": "User2 May be able to create vault. I see contradicting information from microsoft sites. \nhttps://learn.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault\n\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles But User 1 with contributor role can definitely create recovery services vault. Only user access administrator or owner can assign the owner role. so user3 is correct"
+      },
+      {
+        "date": "2023-04-24T00:48:00.000Z",
+        "voteCount": 1,
+        "content": "User with backup operator rol can\u00b4t create a recovery service vault, only user 1 with contributor rol can create it"
+      },
+      {
+        "date": "2023-05-04T22:57:00.000Z",
+        "voteCount": 1,
+        "content": "Backup contributor role (user 2) can create recovery service vault: https://learn.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault\n\nProvided answers looks correct."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106982-exam-az-120-topic-3-question-30-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an SAP landscape on Azure.<br><br>You plan to deploy a new SAP application server by using an Azure Resource Manager template.<br><br>You need to ensure that all new servers are deployed with Azure Disk Encryption enabled.<br><br>How should you complete the relevant component of the template? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image41.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image42.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-22T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "It\u00b4s correct"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106983-exam-az-120-topic-3-question-32-discussion/",
+    "body": "You deploy an SAP environment on Azure.<br><br>You need to monitor the performance of the SAP NetWeaver environment by using Azure Extension for SAP.<br><br>What should you do first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure CLI, install the Linux Diagnostic Extension",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, enable the Custom Script Extension",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Azure CLI, run the az vm aem set command\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Azure portal, enable the Azure Network Watcher Agent"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:12:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct."
+      },
+      {
+        "date": "2023-12-05T06:47:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      },
+      {
+        "date": "2023-04-23T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "To monitor the performance of the SAP NetWeaver environment by using Azure Extension for SAP, you should first install the Linux Diagnostic Extension using Azure CLI.\n\nTherefore, the correct answer is: A. From Azure CLI, install the Linux Diagnostic Extension."
+      },
+      {
+        "date": "2023-05-04T23:04:00.000Z",
+        "voteCount": 1,
+        "content": "OS is not specified, it may be Windows machine, then your answer can`t be correct."
+      },
+      {
+        "date": "2023-04-22T07:37:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is C. You must to perform action set before to enbale the extension. \n\nhttps://learn.microsoft.com/en-us/azure/sap/workloads/vm-extension-for-sap-new#fa4428b9-bed6-459a-9dfb-74cc27454481"
+      },
+      {
+        "date": "2023-04-23T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "\"az vm aem set\" command is used to configure the Azure Enhanced Monitoring Extension for SAP Host Agent (also known as Azure AEM Extension), which is a different extension than the Azure Extension for SAP that is mentioned in the question. The Azure Extension for SAP is used for monitoring the performance of the SAP NetWeaver environment and requires a different setup process than the Azure AEM Extension."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141066-exam-az-120-topic-3-question-33-discussion/",
+    "body": "You have an Azure virtual machine that runs SUSE Linux Enterprise Server (SLES). The virtual machine hosts a highly available deployment of SAP HANA.<br><br>You need to validate whether Accelerated Networking is operational for the virtual machine,<br><br>What should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tethtool\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnetsh",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiometer",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfio"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:13:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107127-exam-az-120-topic-3-question-34-discussion/",
+    "body": "You have an SAP production landscape that uses SAP HANA databases on Azure.<br><br>You need to deploy a disaster recovery solution to the SAP HANA databases. The solution must meet the following requirements:<br><br>\u2022\tSupport failover between Azure regions.<br>\u2022\tMinimize data loss in the event of a failover.<br><br>What should you deploy?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHANA system replication that uses asynchronous replication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Site Recovery",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways On availability group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHANA system replication that uses synchronous replication"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-05T06:51:00.000Z",
+        "voteCount": 1,
+        "content": "Ideally it should be asynchronous replication for DR, but as question specifically says minimum data loss then it should be D."
+      },
+      {
+        "date": "2023-11-27T06:23:00.000Z",
+        "voteCount": 1,
+        "content": "When setting up HSR for Disaster Recovery between two different regions we have to select async replication. The given answer is correct."
+      },
+      {
+        "date": "2023-04-23T03:17:00.000Z",
+        "voteCount": 1,
+        "content": "Option D - HANA system replication that uses synchronous replication - is the best option for this scenario.\n\nSynchronous replication ensures that changes are written to both the primary and secondary HANA databases before the transactions are committed. This ensures that there is no data loss in the event of a failover, as all changes are fully replicated to the secondary database. However, synchronous replication can have a higher impact on performance than asynchronous replication.\n\nAzure Site Recovery is a disaster recovery solution that can be used to replicate and failover virtual machines, but it is not specifically designed for SAP HANA databases.\n\nAlways On availability group is a SQL Server feature and is not applicable for SAP HANA databases."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107128-exam-az-120-topic-3-question-35-discussion/",
+    "body": "You plan to automate a deployment of SAP NetWeaver on Azure virtual machines by using Azure Resource Manager templates. The database tier will consist of two instances of an Azure Marketplace Microsoft SQL Server 2017 virtual machine image that each has 8 TB of RAM.<br><br>Which task should you include in the templates used to deploy the SQL Server virtual machines?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable read caching on the disks used to store the SQL Server database log files.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the SQL Server setup and specify the /ACTION=INSTALL and /SQLMAXMEMORY switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable buffer pool extensions in SQL Server.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRun the SQL Server setup and specify the /ACTION=REBUILDDATABASE and /SQLCOLLATION switches."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-23T03:19:00.000Z",
+        "voteCount": 2,
+        "content": "B. Run the SQL Server setup and specify the /ACTION=INSTALL and /SQLMAXMEMORY switches.\n\nWhen deploying SQL Server on Azure virtual machines, it's recommended to use a custom script extension in the Azure Resource Manager templates to automate the installation and configuration of SQL Server. By specifying the /ACTION=INSTALL and /SQLMAXMEMORY switches during the installation, you can ensure that SQL Server is configured with the appropriate maximum memory allocation for the virtual machine. This is especially important in scenarios where you have large amounts of RAM available on the virtual machine, such as in this case where the SQL Server virtual machine image has 8 TB of RAM."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127870-exam-az-120-topic-3-question-37-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You plan to deploy SAP on Azure.<br><br>The deployment must meet the following requirements:<br><br>\u2022\tSupport failover to another Azure region in the event of a regional outage.<br>\u2022\tMinimize data loss during a failover.<br>\u2022\tMinimize costs.<br><br>Which fault tolerance technology should you choose for the SAP Web Dispatcher and the Microsoft SQL Server 2017 servers to meet the requirements? To answer, drag the appropriate technologies to the correct targets. Each technology may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image48.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image49.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-06T08:40:00.000Z",
+        "voteCount": 1,
+        "content": "Availability set won't help in region failure which is pre-requisite so it should be Azure site recovery."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/108523-exam-az-120-topic-3-question-38-discussion/",
+    "body": "You have an SAP production landscape that uses SAP HANA databases on Azure. The HANA database server is a Standard_M32ms Azure virtual machine that has 864 GB of RAM.<br><br>The HANA database is 400 GB. You expect the database to grow by 40 percent during the next 12 months.<br><br>You resize the HANA database server virtual machine to Standard_m64ms and 1,024 GB of RAM.<br><br>You need to recommend additional changes to minimize performance degradation caused by database growth.<br><br>What should you recommend for the HANA database server?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure additional disks.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a scale out node.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a secondary network interface.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the number of vCPUs."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-13T02:13:00.000Z",
+        "voteCount": 1,
+        "content": "In the given answers A seems to be right. When you resize the VM, vCPUs also get added. So the remaining thing is adding additional disks."
+      },
+      {
+        "date": "2023-05-04T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "I do miss a proper answer, right now we have a machine with 800+ GB of RAM, DB is half of that and will be 560G in 1 year. There is no need to change VM, maybe just add disks, but there is no info regarding that in the question. Question with possible answers don`t make any sense."
+      },
+      {
+        "date": "2023-11-22T05:49:00.000Z",
+        "voteCount": 1,
+        "content": "SAP recommends that the RAM would be double the size of the data, as delta merge processes might take a lot of memory (potentially same as the data). that being said, I dont understand why adding additional disk might help with performance in this case..."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141068-exam-az-120-topic-3-question-39-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to deploy SAP HANA to an Azure virtual machine for a production landscape.<br><br>You need to stripe multiple disks together by using the HANA indexserver.<br><br>How should you configure the Azure disks? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image50.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image51.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-22T18:24:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106703-exam-az-120-topic-3-question-40-discussion/",
+    "body": "You deploy an SAP environment on Azure.<br><br>Your company has a Service Level Agreement (SLA) of 99.99% for SAP.<br><br>You implement Azure Availability Zones that have the following components:<br>\u2022\tRedundant SAP application servers<br>\u2022\tASCS/ERS instances that use a failover cluster<br>\u2022\tDatabase high availability that has a primary instance and a secondary instance<br><br>You need to initiate failover of the ASCS/ERS cluster.<br><br>What should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAP Web Dispatcher",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Traffic Manager",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAPControl\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSAP Solution Manager"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-06T12:07:00.000Z",
+        "voteCount": 1,
+        "content": "B.  is correct.  A - is LB, C-is stop/start sap, D-nothing to do with the question"
+      },
+      {
+        "date": "2023-04-23T03:33:00.000Z",
+        "voteCount": 1,
+        "content": "C. SAPControl is the correct option to initiate failover of the ASCS/ERS cluster. SAPControl is a central control and monitoring component for SAP systems, and it allows you to monitor and manage SAP instances and components. With SAPControl, you can perform tasks such as starting and stopping SAP instances, checking the status of instances, and initiating failover of the ASCS/ERS cluster. Azure Traffic Manager is a DNS-based traffic load balancer that distributes traffic across multiple endpoints, while the SAP Web Dispatcher is used to route incoming HTTP(S) requests to the appropriate SAP application server. SAP Solution Manager is a management platform for SAP systems, but it is not used to initiate failover of the ASCS/ERS cluster."
+      },
+      {
+        "date": "2023-04-19T05:15:00.000Z",
+        "voteCount": 2,
+        "content": "SAPContol for ASCS/ERS cluster failover.\nAzure traffic Manager is in this case only for SAP Application Servers."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104845-exam-az-120-topic-3-question-41-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You are validating SLES 15 for SAP Applications 15 running SAP HANA on Azure (Large Instances) deployment.<br><br>You need to ensure that sapconf is installed and the kernel parameters are set appropriately for the active profile.<br><br>How should you complete the commands? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image52.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image53.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-17T20:47:00.000Z",
+        "voteCount": 1,
+        "content": "The second option should be Sap-hana following the link below:\n\nhttps://bugzilla.redhat.com/show_bug.cgi?id=1861734"
+      },
+      {
+        "date": "2023-04-02T05:23:00.000Z",
+        "voteCount": 2,
+        "content": "repeated question. In the second part should be sap-hana"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107137-exam-az-120-topic-3-question-42-discussion/",
+    "body": "You plan to implement a highly available SAP HANA deployment by using two Azure virtual machines that run SUSE Linux Enterprise Server (SLES).<br><br>You need to create an Azure Fence agent STONITH block device (SBD).<br><br>What should you do first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a storage account.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a system-assigned managed identity.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an application registration in Azure Active Directory (Azure AD).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user-assigned managed identity."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-11-17T21:06:00.000Z",
+        "voteCount": 1,
+        "content": "Based on better understanding, a storage account is actually required because we are using SBD with Azure Shared Disk.\n\nThe correct answer should be to Create a storage account FIRST. ...Answer is A"
+      },
+      {
+        "date": "2023-11-09T13:36:00.000Z",
+        "voteCount": 2,
+        "content": "The Correct answer is B based on the link below\nhttps://learn.microsoft.com/en-us/azure/sap/workloads/high-availability-guide-suse-pacemaker#use-an-azure-fence-agent-1\n\nUsing managed identity\nTo create a managed identity (MSI), create a system-assigned managed identity for each VM in the cluster. Should a system-assigned managed identity already exist, it will be used. User assigned managed identities shouldn't be used with Pacemaker at this time. Azure fence agent, based on managed identity is supported for SLES 12 SP5 and SLES 15 SP1 and above."
+      },
+      {
+        "date": "2023-04-27T05:47:00.000Z",
+        "voteCount": 3,
+        "content": "Before creating an Azure Fence agent STONITH block device (SBD) for a highly available SAP HANA deployment on two Azure virtual machines running SUSE Linux Enterprise Server (SLES), you need to create a storage account to store the SBD.\n\nTherefore, the correct answer is A. Create a storage account."
+      },
+      {
+        "date": "2023-04-23T03:35:00.000Z",
+        "voteCount": 3,
+        "content": "Before creating an Azure Fence agent STONITH block device (SBD) for a highly available SAP HANA deployment on two Azure virtual machines running SUSE Linux Enterprise Server (SLES), you need to create a storage account to store the SBD.\n\nTherefore, the correct answer is A. Create a storage account."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125687-exam-az-120-topic-3-question-43-discussion/",
+    "body": "You plan to deploy a highly available SAP HANA system in a scale-out configuration with standby to Azure virtual machines.<br><br>You need to implement shared storage volumes by using Azure NetApp Files.<br><br>What should you create first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta service endpoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta private link",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta delegated subnet\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta private endpoint"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:53:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2023-11-09T13:43:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C is correct based on the link below from Microsoft\n\nhttps://learn.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-create-volumes"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141069-exam-az-120-topic-3-question-44-discussion/",
+    "body": "You have an SAP HANA virtual machine that performs daily backups to an Azure Storage account container.<br><br>You need to automatically delete backups that are older than 30 days.<br><br>Which type of policy should you create?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Information Protection (AIP)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCross-Origin Resource Sharing (CORS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlifecycle management\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConditional Access"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:26:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/126501-exam-az-120-topic-3-question-45-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription.<br><br>You plan to deploy an SAP landscape.<br><br>You need to configure an NFS cluster that will host the storage for the landscape. The solution must ensure that the cluster is available if an Azure datacentre fails.<br><br>How should you configure the cluster? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image96.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image97.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-17T21:23:00.000Z",
+        "voteCount": 1,
+        "content": "For Availability Zone Network Resiliency,  Load Balancer is a better option as its zone redundant, ensuring high availability across availability zones....\n\nhttps://learn.microsoft.com/en-us/azure/architecture/guide/technology-choices/load-balancing-overview\n\nHowever, it also supports both a regional deployment topology and a cross-region Load Balancer topology.\n\nhttps://learn.microsoft.com/en-us/azure/load-balancer/cross-region-overview"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115211-exam-az-120-topic-3-question-46-discussion/",
+    "body": "You migrate an on-premises instance of SAP HANA to HANA on Azure (Large Instances).<br><br>You project that you will replace HANA Large Instances with two smaller instances in two years.<br><br>You need to recommend a solution to minimize SAP HANA costs for the next three years.<br><br>What should you include in the recommendation?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Hybrid Benefit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta one-year reservation that has capacity priority",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta three-year reservation that has instance size flexibility",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta one-year reservation that has instance size flexibility"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-14T22:36:00.000Z",
+        "voteCount": 1,
+        "content": "Instance size flexibility isn't supported for HLI reserved capacity. A reservation applies only to the SKU and the region that you purchase it for.\n\nhttps://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity"
+      },
+      {
+        "date": "2024-04-07T13:17:00.000Z",
+        "voteCount": 1,
+        "content": "And also :\nYou can't SPLIT, merge, or update reservation scope."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141070-exam-az-120-topic-3-question-47-discussion/",
+    "body": "You have an SAP HANA on Azure (Large Instances) deployment that has two Type II SKU nodes. Each node is provisioned in a separate Azure region.<br><br>You need to monitor storage replication for the deployment.<br><br>What should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\txfsdump",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tazacsnap\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trear",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttar"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:29:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/126502-exam-az-120-topic-3-question-48-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have an Azure subscription that contains an availability set named AS1 and a virtual machine named VM1. VM1 hosts an SAP NetWeaver application.<br><br>You need to ensure that AS1 includes VM1.<br><br>Which four PowerShell cmdlets should you run in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/az-120/image98.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image99.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-17T21:37:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct, based on the steps given on the link below\n\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/windows/change-availability-set"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127875-exam-az-120-topic-3-question-49-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have two Azure virtual machines that run SUSE Linux Enterprise Server (SLES).<br><br>You plan to implement a highly available SAP HANA deployment.<br><br>You need to implement a STONITH block device (SBD) for the planned implementation.<br><br>What should you use? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image100.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image101.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-05T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "It should be Storage account and iSCSI"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127877-exam-az-120-topic-3-question-50-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to deploy two SAP NetWeaver landscapes named Production1 and Production2 to Azure. Production1 will contain an SAP NetWeaver central services (ASCS/SCS) instance hosted on a Windows failover cluster. Production2 will contain an SAP ASCS/SCS instance hosted on a Linux Pacemaker cluster.<br><br>You need to recommend a shared storage solution for each landscape. The solutions must meet the following requirements:<br><br>\u2022\tMinimize administrative effort.<br>\u2022\tMinimize costs.<br><br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image102.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image103.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-05T09:35:00.000Z",
+        "voteCount": 3,
+        "content": "https://learn.microsoft.com/en-us/training/modules/implement-high-availability-for-sap-workloads-azure/7-explore-high-availability-sap-ascs-scs-instances\n\nA shared disk is not supported. A clustered shared disk is required which can be provided by third party solution like SIOS Data keep or you can use file share with help of scale out file server.\n\nSo answer is scale-out file server and Netapp files."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127878-exam-az-120-topic-3-question-51-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to implement a highly available, three-tier deployment of an SAP NetWeaver landscape on Azure. The landscape will use SUSE Linux Enterprise Server (SLES).<br><br>You need to implement the SAP NetWeaver central services (ASCS/SCS) tier.<br><br>What should you do? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image150.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image151.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-05T09:46:00.000Z",
+        "voteCount": 3,
+        "content": "It should be Azure Netapp files and Pacemaker.\n\nhttps://learn.microsoft.com/en-us/training/modules/implement-high-availability-for-sap-workloads-azure/7-explore-high-availability-sap-ascs-scs-instances"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/142185-exam-az-120-topic-3-question-52-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to deploy an SAP NetWeaver landscape that will use SQL Server on Azure virtual machines.<br><br>The database tier must meet the following requirements:<br><br>\u2022\tMaintain database availability in the event of a single Azure datacenter failure.<br>\u2022\tMaximize IOPS.<br><br>How should you configure the database tier? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image152.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image153.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-08T16:49:00.000Z",
+        "voteCount": 1,
+        "content": "Should be &gt; b,a,c"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141071-exam-az-120-topic-3-question-53-discussion/",
+    "body": "You plan to deploy an SAP landscape to Azure virtual machines. The landscape will contain three virtual machines that will have the SAP Web Dispatcher role. The virtual machines will be in the same availability set.<br><br>You need to configure a traffic distribution solution for the Web Dispatcher. The solution must meet the following requirements:<br><br>\u2022\tUsers must be able to access the Web Dispatcher URL in the event of a virtual machine outage.<br>\u2022\tCosts must be minimized.<br><br>What should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Application Gateway",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Web Application Firewall (WAF)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Standard Load Balancer\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBasic Azure Load Balancer"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:41:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct."
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141073-exam-az-120-topic-3-question-54-discussion/",
+    "body": "You have an SAP production landscape on Azure that uses a two-node Pacemaker cluster.<br><br>You need to ensure that the cluster automatically fails over for Azure scheduled events.<br><br>What should you configure on each node?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure Monitor agent",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Linux diagnostics extension (LAD)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure fence agent\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Azure VM extension for SAP"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-22T18:43:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 52,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/142355-exam-az-120-topic-3-question-59-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an on-premises SAP HANA deployment that uses HANA system replication in synchronous mode.<br><br>You plan to migrate the on-premises deployment to Azure and use ultra disks as part of the HANA deployment on Azure.<br><br>You need to configure storage resources and high availability for the HANA deployment on Azure.<br><br>What should you do? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image157.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image158.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-12T13:45:00.000Z",
+        "voteCount": 1,
+        "content": "should be availability zones is best"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 53,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/116710-exam-az-120-topic-3-question-61-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an SAP on Azure production landscape that contains an SAP HANA database.<br><br>You create a backup policy as shown in the following exhibit.<br><br><img src=\"https://img.examtopics.com/az-120/image162.png\"><br><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image163.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image164.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-28T22:58:00.000Z",
+        "voteCount": 2,
+        "content": "You can choose either a differential or an incremental as a daily backup but not both.\n\nEach log backup is chained to the previous full backup to form a recovery chain. This full backup will be retained until the retention of the last log backup has expired. This might mean that the full backup is retained for an extra period to make sure all the logs can be recovered. \n\nhttps://learn.microsoft.com/en-us/azure/backup/backup-azure-sap-hana-database"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 54,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/138160-exam-az-120-topic-3-question-62-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You are designing a four-node SAP Web Dispatcher deployment for an SAP on Azure landscape.<br><br>You need to recommend a resiliency solution and a load-balancing solution for the deployment. The solution must meet the following requirements:<br><br>\u2022\tReceive the highest SLA from Microsoft.<br>\u2022\tLoad balance client connections.<br>\u2022\tMinimize administrative effort.<br><br>What should include in the recommendation for each solution? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image165.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image166.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-08T09:52:00.000Z",
+        "voteCount": 1,
+        "content": "Load balancer  max SLA 99,99%\nAppl Gateway max SLA 99,95 %\nhttps://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services?lang=1"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 55,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141446-exam-az-120-topic-3-question-64-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to deploy a highly available SAP NetWeaver system to Azure virtual machines on SUSE Linux Enterprise Server (SLES) for SAP Applications.<br><br>You need to configure a load balancer that will be deployed in front of the ABAP Central Services (ASCS) tier. The solution must minimize the number of required load balancing rules.<br><br>What should you configure? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image169.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image170.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-28T11:00:00.000Z",
+        "voteCount": 1,
+        "content": "it should be HSR for both options according following link \nhttps://learn.microsoft.com/en-us/azure/sap/workloads/disaster-recovery-sap-hana#hana-scale-up-add-hana-multitarget-system-replication-for-dr-purposes"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 56,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/116709-exam-az-120-topic-3-question-65-discussion/",
+    "body": "You have an SAP production landscape in Azure that contains an SAP HANA database.<br><br>You need to configure a Recovery Services vault that will be used to back up the HANA database server. The solution must ensure that the virtual machine and the HANA database can be restored manually to a paired region.<br><br>What should you do first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Recovery Services vault in the paired region.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable Cross Region Restore.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure zone-redundant storage (ZRS) replication for the storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a recovery plan."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-28T22:23:00.000Z",
+        "voteCount": 1,
+        "content": "As one of the restore options, Cross Region Restore (CRR) allows you to restore SAP HANA databases that are hosted on Azure VMs in a secondary region, which is an Azure paired region.\nhttps://learn.microsoft.com/en-us/azure/backup/sap-hana-database-restore#cross-region-restore"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 57,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/116708-exam-az-120-topic-3-question-66-discussion/",
+    "body": "You have a two-node SAP HANA cluster that is hosted on Azure virtual machines. Each cluster node uses Azure NetApp Files to store database files. The nodes replicate synchronously by using HANA system replication.<br><br>You need to implement a backup solution for the HANA databases. The solution must meet the following requirements:<br><br>\u2022\tBe cluster aware.<br>\u2022\tSupport the use of snapshots.<br>\u2022\tEnsure that backups are application consistent.<br><br>What should you include in the solution?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzAcSnap\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Az.NetAppFiles PowerShell module",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Azure Backup Server (MABS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe azure_hana_backup command"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-28T22:18:00.000Z",
+        "voteCount": 2,
+        "content": "AzAcSnap supports snapshot based backups for HANA Large Instance and Azure NetApp Files. \nhttps://learn.microsoft.com/en-us/azure/sap/workloads/hana-vm-operations-netapp"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 58,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/138172-exam-az-120-topic-3-question-71-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription.<br><br>You plan to deploy a highly available SAP NetWeaver system to an Azure region that contains three availability zones. The system will be hosted in an Azure virtual machine scale set.<br><br>You need to recommend which type of deployment and which platformFaultDomainCount value to use. The solution must maximize the availability of the system.<br><br>What should you recommend? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-120/image204.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-120/image205.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-08T12:14:00.000Z",
+        "voteCount": 1,
+        "content": "Does anyone know the reason for these responses?"
+      },
+      {
+        "date": "2024-04-08T12:17:00.000Z",
+        "voteCount": 1,
+        "content": "The solution must maximize availability of the system. So why not a Regional deployment?"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "3"
+  }
+]

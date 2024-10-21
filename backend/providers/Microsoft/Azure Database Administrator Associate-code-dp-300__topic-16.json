@@ -1,0 +1,115 @@
+[
+  {
+    "topic": 16,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/71349-exam-dp-300-topic-16-question-1-discussion/",
+    "body": "DRAG DROP -<br>You create all of the tables and views for ResearchDB1.<br>You need to implement security for ResearchDB1. The solution must meet the security and compliance requirements.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04275/0008400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04275/0008400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: - Register ResearchApp1 to Azure AD.<br>Box 2: Create an Azure Key Vault instance and configure an access policy.<br>Need to configure the key vault with an access policy to enable ResearchApp1 retrieval of the keys.<br>Box 3: Run the Always Encrypt wizard.<br>Run the Always Encrypt wizard to encrypt the columns and store the encryption keys in the vault.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-05-02T15:12:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2022-02-12T12:26:00.000Z",
+        "voteCount": 3,
+        "content": "Answer looks good. Link to alwaysEncryption is clear.\n- Register the app in AD\n- Configure the key vault with an access policy so the app can retrieve the keys\n- Run alwaysOn wizard to encrypt the columns and store the encryption keys in the vault"
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "16"
+  },
+  {
+    "topic": 16,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53744-exam-dp-300-topic-16-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to configure user authentication for the SERVER1 databases. The solution must meet the security and compliance requirements.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04275/0008600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04275/0008600002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Authenticate database users by using Active Directory credentials.<br>The configuration steps include the following procedures to configure and use Azure Active Directory authentication.<br>1. Create and populate Azure AD.<br>2. Optional: Associate or change the active directory that is currently associated with your Azure Subscription.<br>3. Create an Azure Active Directory administrator. (Step 1)<br>4. Connect to the databases using an Azure AD account (the Administrator account that was configured in the previous step). (Step 2)<br>5. Create contained database users in your database mapped to Azure AD identities. (Step 3)<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-28T21:35:00.000Z",
+        "voteCount": 13,
+        "content": "It should be D,E,C - You have to connect to the databases ,with the AD account and then to create contained users  . \n\"\nTo create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity, as a user with at least the ALTER ANY USER permission. \n\""
+      },
+      {
+        "date": "2021-08-09T22:53:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, this is more appropriate than the given answer since the question is what steps to take in configuring user accounts and this doesn't include log in as the users created."
+      },
+      {
+        "date": "2023-04-15T05:01:00.000Z",
+        "voteCount": 2,
+        "content": "answer might be correct if  #2 means connecting to database using AD admin account(in order to create contained db users)"
+      },
+      {
+        "date": "2022-05-02T15:13:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2022-02-21T07:32:00.000Z",
+        "voteCount": 2,
+        "content": "Create and populate Azure AD.\nOptional: Associate or change the active directory that is currently associated with your Azure Subscription.\nCreate an Azure Active Directory administrator.(D)\nConfigure your client computers.\nCreate contained database users in your database mapped to Azure AD identities.(C)\nConnect to your database by using Azure AD identities.(E)"
+      },
+      {
+        "date": "2022-12-30T09:27:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview?view=azuresql#overview\n\nI see the link you're looking at. It's just a bit confusing on which should come first. Do we create the contained db users and then connect or we connect first then we create the contained db users?"
+      },
+      {
+        "date": "2022-12-30T09:30:00.000Z",
+        "voteCount": 3,
+        "content": "After I thought about it, I think you are right:\n1- Create an Azure AD Admin.\n2- Create contained DB users in your db mapped to Azure AD identities.\n3- Connect to your DB by using the Azure AD identities (which we mapped in step 2 to the contained db users).\n\nwith that said the provided answer has the wrong order for step 2 and 3"
+      },
+      {
+        "date": "2023-04-29T01:25:00.000Z",
+        "voteCount": 1,
+        "content": "2.  CREATE USER [bob@contoso.com] FROM EXTERNAL PROVIDER;"
+      },
+      {
+        "date": "2023-01-05T04:12:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with you.\nAlso I have seen the same question on MeasureUp"
+      },
+      {
+        "date": "2023-01-11T02:20:00.000Z",
+        "voteCount": 1,
+        "content": "I have been reviewing the related question in Measure Up but that question requests a different thing (Create a database user and use it to verify the authentication). So for this one, I think the correct answer is: \n- Create Azure AD admin for the logical server\n- Connect to the dbs by using an Azure AD account (I understand that this is the Azure AD Admin account)\n- Create the contained users"
+      },
+      {
+        "date": "2022-02-12T12:46:00.000Z",
+        "voteCount": 2,
+        "content": "- Create Azure AD admin for the logical server\n- Connect to the dbs by using an Azure AD account\n- Create the contained users\n\nYou need to configure the azure AD admin before you can user AD accounts.\nAs the article describes also, you would then need to login to each db with an azure AD account to be able to create new contained users referencing AD users."
+      },
+      {
+        "date": "2021-10-16T11:12:00.000Z",
+        "voteCount": 2,
+        "content": "The Given answer is correct."
+      },
+      {
+        "date": "2021-07-26T22:34:00.000Z",
+        "voteCount": 1,
+        "content": "It should be B, E, C"
+      },
+      {
+        "date": "2021-06-29T22:27:00.000Z",
+        "voteCount": 2,
+        "content": "I also think answer is correct only 2nd and 3rd options should be the reverse"
+      },
+      {
+        "date": "2021-06-09T08:16:00.000Z",
+        "voteCount": 2,
+        "content": "In this link, the example described the question.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-overview\n\nI think the given answer is correct, it just omitted part of sentence as in the link (the connect to db and then) create contained user.\n\nFor E, it needs to say connect to the database with an Azure AD administrator, so you can create contained user. But the text just say \"A azure AD\", so really poor wording"
+      }
+    ],
+    "examNameCode": "dp-300",
+    "topicNumber": "16"
+  }
+]

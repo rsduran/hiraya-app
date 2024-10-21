@@ -1,0 +1,196 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52504-exam-az-140-topic-11-question-1-discussion/",
+    "body": "Which role should you assign to Operator2 to meet the technical requirements?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesktop Virtualization Session Host Operator",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesktop Virtualization Host Pool Contributor\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesktop Virtualization User Session Operator",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDesktop Virtualization Contributor"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-11T23:55:00.000Z",
+        "voteCount": 37,
+        "content": "should be B. Desktop Virtualization Host Pool Contributor\n\nRemote Desktop Protocol (RDP) properties under host pool setting.\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/customize-rdp-properties\n\n\nHost Pool Contributor\nThe Host Pool Contributor role lets you manage all aspects of host pools, including access to resources. You'll need an extra contributor role, Virtual Machine Contributor, to create virtual machines. You will need AppGroup and Workspace contributor roles to create host pool using the portal or you can use Desktop Virtualization Contributor role.\n\nThe following list describes which permissions this role can access:\n\nMicrosoft.DesktopVirtualization/hostpools/*\nMicrosoft.Resources/subscriptions/resourceGroups/read\nMicrosoft.Resources/deployments/*\nMicrosoft.Authorization/*/read\nMicrosoft.Insights/alertRules/*\nMicrosoft.Support/*"
+      },
+      {
+        "date": "2021-05-27T07:53:00.000Z",
+        "voteCount": 15,
+        "content": "B is correct.\nD will work too but to follow \"least privilege\" practice, we should set host pool contributor. Desktop virtualization contributor have more rights than we need to."
+      },
+      {
+        "date": "2022-05-20T12:48:00.000Z",
+        "voteCount": 2,
+        "content": "Principle of least privilege, Desktop Virtualization Host Pool Contributor."
+      },
+      {
+        "date": "2022-04-07T05:55:00.000Z",
+        "voteCount": 1,
+        "content": "B s correct answer."
+      },
+      {
+        "date": "2022-04-05T03:32:00.000Z",
+        "voteCount": 1,
+        "content": "Not A or C \nD gives full contributor access to all aspects of deployment. \nB is correct answer using least privilege. \n\n https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac\nhttps://docs.microsoft.com/en-gb/learn/modules/manage-access/2-role-based-access-control-for-azure-virtual-desktop"
+      },
+      {
+        "date": "2022-02-22T00:21:00.000Z",
+        "voteCount": 1,
+        "content": "It's B"
+      },
+      {
+        "date": "2022-02-20T07:53:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is B."
+      },
+      {
+        "date": "2021-11-30T13:52:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is B. The role which D gives is already assigned to Operator2.\n\nRDP properties are on the hostpool level."
+      },
+      {
+        "date": "2021-12-16T17:12:00.000Z",
+        "voteCount": 1,
+        "content": "I believe B is correct but Operator 2 is a User not a Desktop Virtualisation Contributer ;)"
+      },
+      {
+        "date": "2021-11-10T21:00:00.000Z",
+        "voteCount": 1,
+        "content": "We're going with \"Host Pool Contributor\"~"
+      },
+      {
+        "date": "2021-08-05T00:40:00.000Z",
+        "voteCount": 1,
+        "content": "I think answer D is correct. \n\nB has way to much rights: \nDesktop Virtualization Contributor: This role lets you manage all aspects of the deployment but doesn't grant access to compute resources.\n\nDesktop Virtualization Host Pool Contributor: This role lets you manage all aspects of host pools, including access to resources. To create virtual machines you need another role, Virtual Machine Contributor. You will also need Application Group Contributor and Workspace Contributor roles to create host pools using the portal, or you can use the Desktop Virtualization Contributor role."
+      },
+      {
+        "date": "2021-07-06T11:47:00.000Z",
+        "voteCount": 2,
+        "content": "Desktop Virtualization Contributor is correct. D is the answer\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbac"
+      },
+      {
+        "date": "2021-09-27T07:40:00.000Z",
+        "voteCount": 3,
+        "content": "nope, I tested it, answer B is enough, so MrHabanero is right"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64841-exam-az-140-topic-11-question-2-discussion/",
+    "body": "HOTSPOT -<br>Which users can create Pool4, and which users can join session hosts to the domain? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0011300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0011400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-08T13:58:00.000Z",
+        "voteCount": 15,
+        "content": "1. Admin2\n2. Operator1\n\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbachttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbac\n\n\"The Host Pool Contributor role lets you manage all aspects of host pools, including access to resources. You'll need an extra contributor role, Virtual Machine Contributor, to create virtual machines. You will need AppGroup and Workspace contributor roles to create host pool using the portal or you can use Desktop Virtualization Contributor role.The Host Pool Contributor role lets you manage all aspects of host pools, including access to resources. You'll need an extra contributor role, Virtual Machine Contributor, to create virtual machines. You will need AppGroup and Workspace contributor roles to create host pool using the portal or you can use Desktop Virtualization Contributor role.\""
+      },
+      {
+        "date": "2024-03-08T08:09:00.000Z",
+        "voteCount": 2,
+        "content": "-  by default, any domain user can join up to 10 devices. If there are not set up restrictions.\n- A user with the Server Operator role in Active Directory has elevated permissions, including the ability to join computers to the domain. If not set restrictions.\nSo All operators CAN by default join host to domain. But only operator1 can for sure join vm's to domain. I hate this kind of questions.."
+      },
+      {
+        "date": "2023-08-30T05:46:00.000Z",
+        "voteCount": 2,
+        "content": "Admin2 Only\nOperator1 Only\n\nDesktop Virtualization Host Pool Contributor\nThe Desktop Virtualization Host Pool Contributor role allows users to manage all aspects of host pools, including access to resources. You'll also need the Virtual Machine Contributor role to create virtual machines. You will need Desktop Virtualization Application Group Contributor and Desktop Virtualization Workspace Contributor roles to create host pools using the portal, or you can use the Desktop Virtualization Contributor role."
+      },
+      {
+        "date": "2023-07-12T11:40:00.000Z",
+        "voteCount": 1,
+        "content": "Here is my take regarding the question in which I will be selecting Admin2.\nThe requirement calls for creating the pool settings and VMs. The only role that can do this is Desktop Virtualization Contributor.  \nAdmin4 can create the pool and its settings but will not be able to add or create virtual machines in the pool unless the virtual machine contributor role is assigned."
+      },
+      {
+        "date": "2023-06-17T08:25:00.000Z",
+        "voteCount": 2,
+        "content": "1. Admin 2 and Admin 4 only - The case study does not state the host pool has to be created using the Azure portal; therefore, Admin 4 could create the host pool using PowerShell, the Azure CLI, or an ARM template.\n2. Operator 1"
+      },
+      {
+        "date": "2023-06-03T17:25:00.000Z",
+        "voteCount": 1,
+        "content": "Tested in the lab. only Admin2 can create pool4."
+      },
+      {
+        "date": "2022-07-24T11:14:00.000Z",
+        "voteCount": 2,
+        "content": "1. Admin2 Only - Admin4 won't work, see https://docs.microsoft.com/en-us/azure/virtual-desktop/rbac#desktop-virtualization-host-pool-contributor\n2. Operator 1"
+      },
+      {
+        "date": "2022-01-28T23:36:00.000Z",
+        "voteCount": 1,
+        "content": "1. admin2 only (not admin4)\n\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbac#desktop-virtualization-host-pool-contributor\n\nDesktop Virtualization Host Pool Contributor (admin4) still need VM contributor role to create VM.\n\nDuring creation of VMs IN HOST POOL and if you want to join VMs into the on-premises domain, you need to input Operator 1 (domain admin password)"
+      },
+      {
+        "date": "2021-11-26T18:27:00.000Z",
+        "voteCount": 2,
+        "content": "Admin 2\n\nOperator 1 Domain Admin\nand Operator 2 and 3 can join by default, authenticated users can join up to 10 Machines."
+      },
+      {
+        "date": "2021-12-15T02:32:00.000Z",
+        "voteCount": 2,
+        "content": "Domain users can join workstations to the domain by default - they cannot join servers.\n\nAnswer 2 therfore is Operator 1 I believe."
+      },
+      {
+        "date": "2023-08-25T15:00:00.000Z",
+        "voteCount": 1,
+        "content": "Windows 10 Multisession is not a Server Operating System"
+      },
+      {
+        "date": "2023-08-25T15:04:00.000Z",
+        "voteCount": 2,
+        "content": "Also only 5 VMs are being created for Pool4 so any of the domain users should be able to join them to the domain."
+      },
+      {
+        "date": "2021-11-25T03:23:00.000Z",
+        "voteCount": 1,
+        "content": "for first box, Admin2 and Admin 4\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbac?WT.mc_id=AZ-MVP-5004159#session-host-operator"
+      },
+      {
+        "date": "2021-11-03T08:43:00.000Z",
+        "voteCount": 2,
+        "content": "Admin2 and Admin4 only, Operator1"
+      },
+      {
+        "date": "2021-11-23T15:39:00.000Z",
+        "voteCount": 2,
+        "content": "I think only Admin 2 can create. I don't think Admin4 can create the pool because it says \"You will need AppGroup and Workspace contributor roles to create host pool using the portal or you can use Desktop Virtualization Contributor role.\"  Can anyone else confirm?  Also, Operator 1 only seems correct for domain join"
+      },
+      {
+        "date": "2021-10-26T11:35:00.000Z",
+        "voteCount": 2,
+        "content": "Admin 1 &amp; 3 are cloud only users, to domain join you need a domain admin which is operator1"
+      },
+      {
+        "date": "2021-11-10T21:59:00.000Z",
+        "voteCount": 7,
+        "content": "are you kidding? How's VM contributor or Session Host Operator can create a Pool? \nPlease step away from your PC and take a rest lol"
+      },
+      {
+        "date": "2022-06-24T13:44:00.000Z",
+        "voteCount": 1,
+        "content": "nice :DDD"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "11"
+  }
+]

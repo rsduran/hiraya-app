@@ -1,0 +1,1380 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19428-exam-dp-201-topic-4-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are designing a recovery strategy for your Azure SQL Databases.<br>The recovery strategy must use default automated backup settings. The solution must include a Point-in time restore recovery strategy.<br>You need to recommend which backups to use and the order in which to restore backups.<br>What should you recommend? To answer, select the appropriate configuration in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0029700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0029800001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "All Basic, Standard, and Premium databases are protected by automatic backups. Full backups are taken every week, differential backups every day, and log backups every 5 minutes.<br>Reference:<br>https://azure.microsoft.com/sv-se/blog/azure-sql-database-point-in-time-restore/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-01T13:24:00.000Z",
+        "voteCount": 9,
+        "content": "Bad reference. Use this one: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automated-backups?tabs=single-database"
+      },
+      {
+        "date": "2020-07-14T08:44:00.000Z",
+        "voteCount": 9,
+        "content": "This is right weekly full back up  followed bu daily diff and interday log back"
+      },
+      {
+        "date": "2021-04-10T08:54:00.000Z",
+        "voteCount": 2,
+        "content": "Why weekly backup as first, when you have the option to restore daily (24h) backup, then 12h backup as second?"
+      },
+      {
+        "date": "2020-12-09T05:53:00.000Z",
+        "voteCount": 5,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database:\n\"Both SQL Database and SQL Managed Instance use SQL Server technology to create full backups every week, differential backups every 12-24 hours, and transaction log backups every 5 to 10 minutes\"\nAnswer given is right"
+      },
+      {
+        "date": "2020-11-09T04:06:00.000Z",
+        "voteCount": 3,
+        "content": "I think the answer is right althought there is a mistake in the question. If the differential backup is made every day, it should be recovered the differential backup of the last 24 hours, not 12"
+      },
+      {
+        "date": "2020-10-25T11:24:00.000Z",
+        "voteCount": 6,
+        "content": "The given answer is correct."
+      },
+      {
+        "date": "2020-05-14T04:10:00.000Z",
+        "voteCount": 5,
+        "content": "For the second option - I believe it must be 'All differential backups since last full backup' Coz it's you should take all backups to recover database till Point in time."
+      },
+      {
+        "date": "2020-05-15T22:49:00.000Z",
+        "voteCount": 10,
+        "content": "Nope\nEach differential backup will contain all changes since the last full backup\nSo all you need to do is to take last available differential backup. It will include all changes since last full backup till the point it was taken"
+      },
+      {
+        "date": "2020-05-19T17:23:00.000Z",
+        "voteCount": 7,
+        "content": "A differential backup will backup all changes since the last full backup, therefore you only need the most recent differential backup when performing a restore."
+      },
+      {
+        "date": "2020-07-16T00:38:00.000Z",
+        "voteCount": 4,
+        "content": "Each time you create a new differential backup it will contain every extent changed since the last full backup.  When you go to restore your database, to get to the most current time you only need to restore the full backup and the most recent differential backup.  All of the other differential backups can be ignored. https://www.mssqltips.com/sqlservertutorial/9/sql-server-differential-backups/#:~:text=Each%20time%20you%20create%20a,differential%20backups%20can%20be%20ignored."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/31470-exam-dp-201-topic-4-question-2-discussion/",
+    "body": "You are developing a solution that performs real-time analysis of IoT data in the cloud.<br>The solution must remain available during Azure service updates.<br>You need to recommend a solution.<br>Which two actions should you recommend? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an Azure Stream Analytics job to two separate regions that are not in a pair.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an Azure Stream Analytics job to each region in a paired region.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMonitor jobs in both regions for failure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMonitor jobs in the primary region for failure.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy an Azure Stream Analytics job to one region in a paired region."
+    ],
+    "answer": "BC",
+    "answerDescription": "Stream Analytics guarantees jobs in paired regions are updated in separate batches. As a result there is a sufficient time gap between the updates to identify potential breaking bugs and remediate them.<br>Customers are advised to deploy identical jobs to both paired regions.<br>In addition to Stream Analytics internal monitoring capabilities, customers are also advised to monitor the jobs as if both are production jobs. If a break is identified to be a result of the Stream Analytics service update, escalate appropriately and fail over any downstream consumers to the healthy job output. Escalation to support will prevent the paired region from being affected by the new deployment and maintain the integrity of the paired jobs.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-job-reliability",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-19T07:20:00.000Z",
+        "voteCount": 3,
+        "content": "The given answer is correct"
+      },
+      {
+        "date": "2021-01-04T00:38:00.000Z",
+        "voteCount": 1,
+        "content": "Why not AC, my thought is paired region Azure service update may happen in the same time. A said deploy it on seperate region that are not pair?"
+      },
+      {
+        "date": "2021-01-15T07:40:00.000Z",
+        "voteCount": 7,
+        "content": "Azure service updates don't occur in paired regions at the same time. If the regions are not paired they can be done at the same time. Given answer is correct."
+      },
+      {
+        "date": "2020-09-17T07:47:00.000Z",
+        "voteCount": 1,
+        "content": "why not BE ?"
+      },
+      {
+        "date": "2020-09-22T02:46:00.000Z",
+        "voteCount": 3,
+        "content": "E says \"to one region\", so the service will not be available in any other region if this one region is having an update."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14856-exam-dp-201-topic-4-question-3-discussion/",
+    "body": "A company is developing a mission-critical line of business app that uses Azure SQL Database Managed Instance.<br>You must design a disaster recovery strategy for the solution/<br>You need to ensure that the database automatically recovers when full or partial loss of the Azure SQL Database service occurs in the primary region.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFailover-group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure SQL Data Sync",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSQL Replication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive geo-replication"
+    ],
+    "answer": "A",
+    "answerDescription": "Auto-failover groups is a SQL Database feature that allows you to manage replication and failover of a group of databases on a SQL Database server or all databases in a Managed Instance to another region (currently in public preview for Managed Instance). It uses the same underlying technology as active geo- replication. You can initiate failover manually or you can delegate it to the SQL Database service based on a user-defined policy.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auto-failover-group",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-05T23:37:00.000Z",
+        "voteCount": 11,
+        "content": "Answer provided is correct"
+      },
+      {
+        "date": "2021-05-19T07:23:00.000Z",
+        "voteCount": 6,
+        "content": "Given answer is correct.\n\n\"Active geo-replication is not supported by Azure SQL Managed Instance. For geographic failover of instances of SQL Managed Instance, use Auto-failover groups.\"\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/active-geo-replication-overview"
+      },
+      {
+        "date": "2020-09-03T14:29:00.000Z",
+        "voteCount": 4,
+        "content": "I think even Azure SQL DB PaaS - the answer would be fail-over group"
+      },
+      {
+        "date": "2020-10-25T11:32:00.000Z",
+        "voteCount": 1,
+        "content": "Think so, too!"
+      },
+      {
+        "date": "2020-02-25T12:07:00.000Z",
+        "voteCount": 1,
+        "content": "Answers is Active Geo replication"
+      },
+      {
+        "date": "2020-05-10T13:29:00.000Z",
+        "voteCount": 17,
+        "content": "Failover Group is correct, I'm sure of it."
+      },
+      {
+        "date": "2020-03-02T02:19:00.000Z",
+        "voteCount": 42,
+        "content": "Active geo-replication is not supported by managed instance. For geographic failover of managed instances, use Auto-failover groups  https://docs.microsoft.com/en-us/azure/sql-database/sql-database-active-geo-replication"
+      },
+      {
+        "date": "2020-05-04T09:00:00.000Z",
+        "voteCount": 2,
+        "content": "Indeed, secondly Active geo-replication does not allow automatic failover: 'The failover must be initiated manually by the application or the user. After failover, the new primary has a different connection end point.'\n\nhttps://docs.microsoft.com/en-us/azure/sql-database/sql-database-active-geo-replication"
+      },
+      {
+        "date": "2020-09-30T13:14:00.000Z",
+        "voteCount": 9,
+        "content": "wondering if you have passed the exam :p"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17759-exam-dp-201-topic-4-question-4-discussion/",
+    "body": "HOTSPOT -<br>A company has locations in North America and Europe. The company uses Azure SQL Database to support business apps.<br>Employees must be able to access the app data in case of a region-wide outage. A multi-region availability solution is needed with the following requirements:<br>\u2711 Read-access to data in a secondary region must be available only in case of an outage of the primary region.<br>\u2711 The Azure SQL Database compute and storage layers must be integrated and replicated together.<br>You need to design the multi-region high availability solution.<br>What should you recommend? To answer, select the appropriate values in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0030100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0030200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Standard -<br>The following table describes the types of storage accounts and their capabilities:<br><img src=\"/assets/media/exam-media/03774/0030300001.png\" class=\"in-exam-image\"><br><br>Box 2: Geo-redundant storage -<br>If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.<br>Note: If you opt for GRS, you have two related options to choose from:<br>GRS replicates your data to another data center in a secondary region, but that data is available to be read only if Microsoft initiates a failover from the primary to secondary region.<br>Read-access geo-redundant storage (RA-GRS) is based on GRS. RA-GRS replicates your data to another data center in a secondary region, and also provides you with the option to read from the secondary region. With RA-GRS, you can read from the secondary region regardless of whether Microsoft initiates a failover from the primary to secondary region.<br><img src=\"/assets/media/exam-media/03774/0030400001.jpg\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-07T07:35:00.000Z",
+        "voteCount": 91,
+        "content": "The answer should be PREMIUM: Premium and Business Critical service tiers leverage the Premium availability model, which integrates compute resources (SQL Server Database Engine process) and storage (locally attached SSD) on a single node. High availability is achieved by replicating both compute and storage to additional nodes creating a three to four-node cluster.: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-high-availability#premium-and-business-critical-service-tier-availability"
+      },
+      {
+        "date": "2020-04-09T07:25:00.000Z",
+        "voteCount": 16,
+        "content": "Agree. One of the requirement is \"The Azure SQL Database compute and storage layers must be integrated and replicated together.\" So, PREMIUM/Business Critical is the right answer."
+      },
+      {
+        "date": "2020-10-25T11:43:00.000Z",
+        "voteCount": 3,
+        "content": "That's a perfect explanation!"
+      },
+      {
+        "date": "2020-04-11T08:27:00.000Z",
+        "voteCount": 8,
+        "content": "Needs to be PREMIUM"
+      },
+      {
+        "date": "2021-03-01T06:38:00.000Z",
+        "voteCount": 1,
+        "content": "or even Business premium"
+      },
+      {
+        "date": "2021-04-29T14:36:00.000Z",
+        "voteCount": 1,
+        "content": "Premium, \"... design the multi-region high availability solution\""
+      },
+      {
+        "date": "2021-04-29T12:11:00.000Z",
+        "voteCount": 2,
+        "content": "Premium and Geo-replicated"
+      },
+      {
+        "date": "2021-03-27T02:50:00.000Z",
+        "voteCount": 1,
+        "content": "I think that Standart and Geo-Replication should be correct. Standard tier offers Standard geo-replication which provides access to read the data. Premium tier offers active geo-replication which also copy transactions among other things. As it says that it needs read access to the data I believe a Standard tier with geo-replication should be enough to satisfy the requirements for this question"
+      },
+      {
+        "date": "2021-02-24T08:33:00.000Z",
+        "voteCount": 1,
+        "content": "I think it should be premium or business critical"
+      },
+      {
+        "date": "2021-01-17T11:01:00.000Z",
+        "voteCount": 2,
+        "content": "It should be Premium and Geo-replicated\nhttps://docs.microsoft.com/en-in/azure/azure-sql/database/service-tier-business-critical\n\"Business Critical service tier is designed for applications that require low-latency responses from the underlying SSD storage (1-2 ms in average), fast recovery if the underlying infrastructure fails, or need to off-load reports, analytics, and read-only queries to the free of charge readable secondary replica of the primary database.\""
+      },
+      {
+        "date": "2020-11-21T16:53:00.000Z",
+        "voteCount": 2,
+        "content": "Premium and Business Critical service tier zone redundant availability\nhttps://docs.microsoft.com/en-us/azure/sql-database/sql-database-high-availability#premium-and-business-critical-service-tier-availability\nSupports replicas in different zones in the SAME region. Europe and America are not the same region. So premium service tier doesn't bring give you geo-redundancy.\nTo cross regions you need failover groups or active geo replication which you can use with any service tier. Sorry this doesn't give an answer."
+      },
+      {
+        "date": "2020-10-17T15:12:00.000Z",
+        "voteCount": 2,
+        "content": "Standard tier is enough read this: https://azure.microsoft.com/en-us/blog/new-azure-sql-database-service-tiers-generally-available-in-september-with-reduced-pricing-and-enhanced-sla/"
+      },
+      {
+        "date": "2020-09-28T13:52:00.000Z",
+        "voteCount": 1,
+        "content": "why the explaination is about  storage accounts ? shouldnt be about SQL Database?"
+      },
+      {
+        "date": "2020-08-21T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "According to below in documentation Service Tier should be PREMIUM to integrate Compute and Storage.\nPremium and Business Critical service tiers leverage the Premium availability model, which integrates compute resources (sqlservr.exe process) and storage (locally attached SSD) on a single node.\n\nStandard availability model that is based on a separation of compute and storage."
+      },
+      {
+        "date": "2020-06-26T05:00:00.000Z",
+        "voteCount": 6,
+        "content": "Premium and Geo Replication"
+      },
+      {
+        "date": "2020-06-20T09:40:00.000Z",
+        "voteCount": 3,
+        "content": "shouldnt it be Premium?"
+      },
+      {
+        "date": "2020-04-20T22:10:00.000Z",
+        "voteCount": 1,
+        "content": "Standard Service Tier of Azure SQL Database allow a Standby Read Replica. Premium service Tier enables always active read replicas."
+      },
+      {
+        "date": "2020-05-01T14:56:00.000Z",
+        "voteCount": 2,
+        "content": "You're missing the point: In standard tier you have a compute and storage separation, and they are not failed over together."
+      },
+      {
+        "date": "2020-04-01T05:18:00.000Z",
+        "voteCount": 5,
+        "content": "The answer is referencing azure storage not Sql Database."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/9438-exam-dp-201-topic-4-question-5-discussion/",
+    "body": "A company is designing a solution that uses Azure Databricks.<br>The solution must be resilient to regional Azure datacenter outages.<br>You need to recommend the redundancy type for the solution.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRead-access geo-redundant storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLocally-redundant storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGeo-redundant storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tZone-redundant storage"
+    ],
+    "answer": "C",
+    "answerDescription": "If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.<br>Reference:<br>https://medium.com/microsoftazure/data-durability-fault-tolerance-resilience-in-azure-databricks-95392982bac7",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-14T00:22:00.000Z",
+        "voteCount": 21,
+        "content": "zone is part od a region, not vice-versa, so D can't be the answer"
+      },
+      {
+        "date": "2021-03-24T01:24:00.000Z",
+        "voteCount": 4,
+        "content": "The question says if a data center goes down.. not if a region goes down. A region can host multiple data centers. So if one is down another data center from same region can take its place"
+      },
+      {
+        "date": "2021-05-19T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "\"The solution must be resilient to regional Azure datacenter outages.\". I believe that the given ans is correct."
+      },
+      {
+        "date": "2021-05-24T07:20:00.000Z",
+        "voteCount": 1,
+        "content": "Its does not say if \"a\" datacenter goes down, like in few previous question. given answer is correct."
+      },
+      {
+        "date": "2020-06-26T04:25:00.000Z",
+        "voteCount": 17,
+        "content": "I think the answer is correct; Answer should be (C) : geo-redundant storage\n\nSearch for geo-redundant storage in the below link\nhttps://docs.microsoft.com/en-us/azure/databricks/scenarios/howto-regional-disaster-recovery"
+      },
+      {
+        "date": "2021-11-15T13:07:00.000Z",
+        "voteCount": 1,
+        "content": "Zone-redundant storage (ZRS) replicates your Azure Storage data synchronously across three Azure availability zones in the primary region answer is D\nhttps://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      },
+      {
+        "date": "2021-09-21T13:31:00.000Z",
+        "voteCount": 1,
+        "content": "datacenter failure, so Zone-redundant storage"
+      },
+      {
+        "date": "2021-03-20T17:29:00.000Z",
+        "voteCount": 4,
+        "content": "D is the correct answer. Gave the exam"
+      },
+      {
+        "date": "2021-06-28T04:55:00.000Z",
+        "voteCount": 1,
+        "content": "you cannot know, you cannot get 100%"
+      },
+      {
+        "date": "2021-05-20T02:49:00.000Z",
+        "voteCount": 8,
+        "content": "how does giving the exam justify it when one doesnt know which ones are right..unless u got 100% :)"
+      },
+      {
+        "date": "2021-03-14T14:58:00.000Z",
+        "voteCount": 3,
+        "content": "D for region-wide outage\nC for region datacenter down\ncorrect: C"
+      },
+      {
+        "date": "2021-03-14T14:59:00.000Z",
+        "voteCount": 3,
+        "content": "sorry otherwise -\nC for region-wide outage\nD for region datacenter down\ncorrect: D"
+      },
+      {
+        "date": "2021-02-23T19:38:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is correct, as it mentions \"regional Azure datacenter outages\". Thus the outages are for all the data center in a region, therefore ZRS can be ruled out. GRS is correct"
+      },
+      {
+        "date": "2020-12-08T07:55:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/databricks/scenarios/howto-regional-disaster-recovery:\n\"Use geo-redundant storage\"\nAnyone would like to dispute this?"
+      },
+      {
+        "date": "2021-03-12T16:53:00.000Z",
+        "voteCount": 1,
+        "content": "there is a difference between 1 datacenter and the whole region.  Your link is a prove for ZRS"
+      },
+      {
+        "date": "2020-12-05T08:06:00.000Z",
+        "voteCount": 2,
+        "content": "\"regional Azure datacenter outages\" it says regional. so how it would be ZRS? GRS is the answer."
+      },
+      {
+        "date": "2020-09-26T08:53:00.000Z",
+        "voteCount": 2,
+        "content": "While regional outage happen databricks cannot replicate to zone so we need to create in another region"
+      },
+      {
+        "date": "2020-10-25T12:07:00.000Z",
+        "voteCount": 1,
+        "content": "But the question talks about regional datacenter outage. ZRS should suffice."
+      },
+      {
+        "date": "2020-08-21T08:12:00.000Z",
+        "voteCount": 2,
+        "content": "Services resiliency\nAll Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.\n\nseems it should be D - Zone Redundancy"
+      },
+      {
+        "date": "2020-06-20T09:51:00.000Z",
+        "voteCount": 1,
+        "content": "C it is"
+      },
+      {
+        "date": "2020-05-01T15:20:00.000Z",
+        "voteCount": 5,
+        "content": "On the second though, we need RA-GRS to configure Databricks recovery - you'll have to remount all the data mounts therefore, you'll need your data available, therefore, RA is necessary. Unless you want to remount your data during the disaster recovery."
+      },
+      {
+        "date": "2020-05-01T15:12:00.000Z",
+        "voteCount": 1,
+        "content": "Solution link from MS: https://docs.microsoft.com/en-us/azure/azure-databricks/howto-regional-disaster-recovery"
+      },
+      {
+        "date": "2020-05-28T04:48:00.000Z",
+        "voteCount": 4,
+        "content": "They indeed recommend using geo-redundant storage. So it is answer C as suggested."
+      },
+      {
+        "date": "2020-06-05T00:19:00.000Z",
+        "voteCount": 3,
+        "content": "they reccomend geo-redundand because they are speaking of creating your own regional disaster recovery topology,  the question is referring to a regional datacenter outage not a regional outage.  a datacenter outage , the datacenter is inside a region, the solution to me is zone redundant (another datacenter in the same region)"
+      },
+      {
+        "date": "2020-04-28T20:34:00.000Z",
+        "voteCount": 2,
+        "content": "I think its zone -&gt; https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      },
+      {
+        "date": "2020-03-16T20:20:00.000Z",
+        "voteCount": 8,
+        "content": "correct answer - C"
+      },
+      {
+        "date": "2019-12-07T11:47:00.000Z",
+        "voteCount": 5,
+        "content": "Yes D is the right answer as it says datacenter outage in a region. The jumbling of words is causing confusion here."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/27226-exam-dp-201-topic-4-question-6-discussion/",
+    "body": "You have a line-of-business (LOB) app that reads files from and writes files to Azure Blob storage in an Azure Storage account.<br>You need to recommend changes to the storage account to meet the following requirements:<br>Provide the highest possible availability.<br>Minimize potential data loss.<br>Which three changes should you recommend? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the app, query the LastSyncTime of the storage account.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the storage account, enable soft deletes.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the storage account, enable read-access geo-redundancy storage (RA-GRS).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the app, add retry logic to the storage account interactions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the storage account, enable a time-based retention policy."
+    ],
+    "answer": "BCE",
+    "answerDescription": "Soft delete protects blob data from being accidentally or erroneously modified or deleted. When soft delete is enabled for a storage account, blobs, blob versions<br>(preview), and snapshots in that storage account may be recovered after they are deleted, within a retention period that you specify.<br>Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages.<br>However, that data is available to be read only if the customer or Microsoft initiates a failover from the primary to secondary region. When you enable read access to the secondary region, your data is available to be read if the primary region becomes unavailable. For read access to the secondary region, enable read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS).<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/soft-delete-overview https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-11T18:29:00.000Z",
+        "voteCount": 27,
+        "content": "The question is \"You need to recommend *changes to the storage account* to meet the following requirements:\", not changes to the app.. so it is BCE"
+      },
+      {
+        "date": "2020-09-20T22:20:00.000Z",
+        "voteCount": 1,
+        "content": "I don't think so. That would be too easy."
+      },
+      {
+        "date": "2020-12-23T07:57:00.000Z",
+        "voteCount": 5,
+        "content": "BCD should be the correct answer, no disagreement with other comments on B and C. I would go with D because during failover some data transactions can potentially be lost hence the best practice is to have a re-try logic. This is one of the requirements as well \"Minimize potential data loss\". E to me doesn't make sense since it has to do more with data lifecycle management than minimizing potential data loss."
+      },
+      {
+        "date": "2021-06-28T05:12:00.000Z",
+        "voteCount": 2,
+        "content": "yes for that make changes to storage account(not to the app) cos that is the question about"
+      },
+      {
+        "date": "2020-10-27T08:52:00.000Z",
+        "voteCount": 17,
+        "content": "Am I the only one who says the correct answer is B, C, D?"
+      },
+      {
+        "date": "2020-12-23T07:55:00.000Z",
+        "voteCount": 2,
+        "content": "I agree, BCD should be the correct answer, no disagreement with other comments on B and C. I would go with D because as MOe pointed out, during failover some requests can potentially be lost hence the best practice is to have a re-try logic. This is one of the requirements as well \"Minimize potential data loss\". E to me doesnt make sense since it has to do more with data lifecycle management than minimizing potential data loss."
+      },
+      {
+        "date": "2021-06-28T05:12:00.000Z",
+        "voteCount": 2,
+        "content": "yes for that make changes to storage account(not to the app) cos that is the question about"
+      },
+      {
+        "date": "2021-08-18T21:10:00.000Z",
+        "voteCount": 1,
+        "content": "BCE is correct and not BCD. At first I also thought option E didn't make any sense, but it's not the \"Lifecycle Management\" feature (intended to move to cool or archive and then delete), this Time-Retention Policy is an access policy set up at container level to do exactly the opposite, to avoid deletes by setting up a time-retention period (and you can even lock those policies to comply with legal regulations). Definitely BCE."
+      },
+      {
+        "date": "2021-03-15T16:10:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: BCE correct agree"
+      },
+      {
+        "date": "2020-12-08T08:16:00.000Z",
+        "voteCount": 8,
+        "content": "Answer is correct\nRA-GRS for high availability\nsoft delete and time retention for data loss protection"
+      },
+      {
+        "date": "2020-12-06T04:42:00.000Z",
+        "voteCount": 7,
+        "content": "Time-based retention policy support: Users can set policies to store data for a specified interval. When a time-based retention policy is set, blobs can be created and read, but not modified or deleted. After the retention period has expired, blobs can be deleted but not overwritten.\nhttps://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-immutable-storage\n\nB,C,E"
+      },
+      {
+        "date": "2020-11-05T10:24:00.000Z",
+        "voteCount": 2,
+        "content": "I think the answers are right because of \"Minimize potential data loss.\""
+      },
+      {
+        "date": "2020-09-20T22:18:00.000Z",
+        "voteCount": 2,
+        "content": "This question could be interpreted another way: \"Minimize potential data loss if the primary region has an outage\". The question already mentions high availability, and there's no mention of file deletion, so I interpret this question as being focused entirely on high availability.\n\nIn which case the answer would be: A, C, D.\n\nEnable RA-GRS.\nIf the primary goes down, check the LastSyncTime of the storage account, and if data was written to the primary after the LastSyncTime, it will have been lost. Therefore, add retry logic to the app for storage account interactions to ensure such data is eventually written successfully.\n\nhttps://docs.microsoft.com/en-us/azure/storage/common/last-sync-time-get\n\nI know the question says \"changes to the storage account\", and there are indeed three answers that involve changes to the storage account, but that's effectively giving the solution away, and common sense suggests Microsoft aren't going to make it that easy for you :)"
+      },
+      {
+        "date": "2020-10-27T08:51:00.000Z",
+        "voteCount": 9,
+        "content": "Soft delete is aimed at \"minimizing potential data loss\". Last Sync Time query is not required since sending a request to an unavailable zone or region would fail anyway. The retry mechanism is to hold the application write requests until Azure re-directs them to the paired region when it becomes writable; as the result of automatic fail-over. Re-direction of the read requests happens instantaneously in case of an outage --- My answers would be B, C, D."
+      },
+      {
+        "date": "2020-12-23T07:54:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, BCD should be the correct answer, no disagreement with other comments on B and C. I would go with D because as MOe pointed out, during failover some requests can potentially be lost hence the best practice is to have a re-try logic. This is one of the requirements as well \"Minimize potential data loss\". E to me doesnt make sense since it has to do more with data lifecycle management than minimizing potential data loss."
+      },
+      {
+        "date": "2020-11-21T06:25:00.000Z",
+        "voteCount": 2,
+        "content": "Agree with you, the context of the question is based on reading and writing to the Storage account through app. There is no mention of deletion. Considering that, A,C,D looks logical."
+      },
+      {
+        "date": "2020-08-03T07:34:00.000Z",
+        "voteCount": 3,
+        "content": "ABC -  https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy#read-access-to-data-in-the-secondary-region"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24611-exam-dp-201-topic-4-question-7-discussion/",
+    "body": "A company is evaluating data storage solutions.<br>You need to recommend a data storage solution that meets the following requirements:<br>\u2711 Minimize costs for storing blob objects.<br>\u2711 Optimize access for data that is infrequently accessed.<br>\u2711 Data must be stored for at least 30 days.<br>\u2711 Data availability must be at least 99 percent.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPremium",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCold",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHot",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArchive"
+    ],
+    "answer": "B",
+    "answerDescription": "Azure's cool storage tier, also known as Azure cool Blob storage, is for infrequently-accessed data that needs to be stored for a minimum of 30 days. Typical use cases include backing up data before tiering to archival systems, legal data, media files, system audit information, datasets used for big data analysis and more.<br>The storage cost for this Azure cold storage tier is lower than that of hot storage tier. Since it is expected that the data stored in this tier will be accessed less frequently, the data access charges are high when compared to hot tier. There are no additional changes required in your applications as these tiers can be accessed using APIs in the same manner that you access Azure storage.<br>Reference:<br>https://cloud.netapp.com/blog/low-cost-storage-options-on-azure",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-01T23:18:00.000Z",
+        "voteCount": 27,
+        "content": "It should be 'Cool', not 'Cold' ;)\nhttps://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers"
+      },
+      {
+        "date": "2020-12-07T20:26:00.000Z",
+        "voteCount": 11,
+        "content": "that's cool"
+      },
+      {
+        "date": "2020-09-29T07:41:00.000Z",
+        "voteCount": 5,
+        "content": "you're totally right: cool"
+      },
+      {
+        "date": "2021-06-28T05:14:00.000Z",
+        "voteCount": 1,
+        "content": "If you cool it for 30 days then it becomes cold.. chill"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13553-exam-dp-201-topic-4-question-8-discussion/",
+    "body": "A company has many applications. Each application is supported by separate on-premises databases.<br>You must migrate the databases to Azure SQL Database. You have the following requirements:<br>\u2711 Organize databases into groups based on database usage.<br>\u2711 Define the maximum resource limit available for each group of databases.<br>You need to recommend technologies to scale the databases to support expected increases in demand.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRead scale-out",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManaged instances",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tElastic pools",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDatabase sharding"
+    ],
+    "answer": "C",
+    "answerDescription": "SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single Azure SQL Database server and share a set number of resources at a set price.<br>You can configure resources for the pool based either on the DTU-based purchasing model or the vCore-based purchasing model.<br>Incorrect Answers:<br>D: Database sharding is a type of horizontal partitioning that splits large databases into smaller components, which are faster and easier to manage.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-elastic-pool",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-26T04:34:00.000Z",
+        "voteCount": 24,
+        "content": "Answer is correct (C) Elastic Pool\n\nSearch for  \"maximum resource limit\" in the below link\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/scale-resources"
+      },
+      {
+        "date": "2020-12-08T07:57:00.000Z",
+        "voteCount": 6,
+        "content": "100% C for correct"
+      },
+      {
+        "date": "2020-05-13T04:24:00.000Z",
+        "voteCount": 2,
+        "content": "Why not B? Since its a migration case. Managed instance would be more suited."
+      },
+      {
+        "date": "2020-06-15T09:02:00.000Z",
+        "voteCount": 5,
+        "content": "Do not confuse"
+      },
+      {
+        "date": "2020-06-27T11:19:00.000Z",
+        "voteCount": 6,
+        "content": "How do you create database groups and allocate resources to those groups on managed instance? Elastic pools seems as an obvious answer considering the emphasis on \"groups\"."
+      },
+      {
+        "date": "2020-02-07T04:44:00.000Z",
+        "voteCount": 1,
+        "content": "Why is Elastic Pool when the increases are expected...?\u00bf"
+      },
+      {
+        "date": "2020-04-23T00:30:00.000Z",
+        "voteCount": 10,
+        "content": "because of \"Define the maximum resource limit available\""
+      },
+      {
+        "date": "2020-05-01T15:24:00.000Z",
+        "voteCount": 1,
+        "content": "Usually total demand of elastic pool is lower than sum of all demands of individual databases"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/38962-exam-dp-201-topic-4-question-9-discussion/",
+    "body": "You have an on-premises MySQL database that is 800 GB in size.<br>You need to migrate a MySQL database to Azure Database for MySQL. You must minimize service interruption to live sites or applications that use the database.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Database Migration Service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDump and restore",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImport and export",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMySQL Workbench"
+    ],
+    "answer": "A",
+    "answerDescription": "You can perform MySQL migrations to Azure Database for MySQL with minimal downtime by using the newly introduced continuous sync capability for the Azure<br>Database Migration Service (DMS). This functionality limits the amount of downtime that is incurred by the application.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/mysql/howto-migrate-online",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-20T15:46:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is correct.\nAzure DMS performs an initial load of your on-premises to Azure Database for MySQL, and then continuously syncs any new transactions to Azure while the application remains running. After the data catches up on the target Azure side, you stop the application for a brief moment (minimum downtime), wait for the last batch of data (from the time you stop the application until the application is effectively unavailable to take any new traffic) to catch up in the target, and then update your connection string to point to Azure. When you are finished, your application will be live on Azure!"
+      },
+      {
+        "date": "2020-12-05T23:07:00.000Z",
+        "voteCount": 3,
+        "content": "Other options are obviously wrong"
+      },
+      {
+        "date": "2021-05-23T11:18:00.000Z",
+        "voteCount": 2,
+        "content": "not obviously wrong! You can migrate db with dump/restore. But this is not cover the minimum downtime... so ANSWER IS CORRECT"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/6722-exam-dp-201-topic-4-question-10-discussion/",
+    "body": "You plan to deploy an Azure SQL Database instance to support an application. You plan to use the DTU-based purchasing model.<br>Backups of the database must be available for 30 days and point-in-time restoration must be possible.<br>You need to recommend a backup and recovery policy.<br>What are two possible ways to achieve the goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Premium tier and the default backup retention policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Basic tier and the default backup retention policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Standard tier and the default backup retention policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Standard tier and configure a long-term backup retention policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Premium tier and configure a long-term backup retention policy."
+    ],
+    "answer": "DE",
+    "answerDescription": "The default retention period for a database created using the DTU-based purchasing model depends on the service tier:<br>\u2711 Basic service tier is 1 week.<br>\u2711 Standard service tier is 5 weeks.<br>\u2711 Premium service tier is 5 weeks.<br>Incorrect Answers:<br>B: Basic tier only allows restore points within 7 days.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-database/sql-database-long-term-retention",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-10-17T11:03:00.000Z",
+        "voteCount": 59,
+        "content": "You have the right information, and the wrong answers.\nDefault backup retention for the Standard and Premium tiers is 35 days, and you need 30 days. So you do not need long-term retention set up."
+      },
+      {
+        "date": "2020-05-29T07:30:00.000Z",
+        "voteCount": 2,
+        "content": "Also presumably LTR does not give you PiT recovery?"
+      },
+      {
+        "date": "2020-06-27T11:22:00.000Z",
+        "voteCount": 1,
+        "content": "LTR, if needed, would be set up on top of PITR and standard backup retention."
+      },
+      {
+        "date": "2020-06-26T04:43:00.000Z",
+        "voteCount": 2,
+        "content": "Also this table shows the same default values :\nhttps://azure.microsoft.com/en-us/blog/azure-sql-database-point-in-time-restore/"
+      },
+      {
+        "date": "2020-12-26T04:12:00.000Z",
+        "voteCount": 13,
+        "content": "it was changed to 7 days - https://azure.microsoft.com/en-us/updates/default-backup-retention-period-for-dtu-based-azure-sql-databases-is-changing-soon/"
+      },
+      {
+        "date": "2021-05-23T11:25:00.000Z",
+        "voteCount": 3,
+        "content": "Yes.. only default duration is change to 7 days. But you can easily increase it up to 35 days. So you dont need LTR. Answer is A and C"
+      },
+      {
+        "date": "2021-05-25T07:45:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, you can change it up to 35 days (standard and premium tiers).\n\n\"With the exception of Hyperscale and Basic tier databases, you can change backup retention period per each active database in the 1-35 day range\"\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database#backup-retention"
+      },
+      {
+        "date": "2021-06-16T11:59:00.000Z",
+        "voteCount": 1,
+        "content": "So its, A &amp; D."
+      },
+      {
+        "date": "2019-11-19T03:17:00.000Z",
+        "voteCount": 48,
+        "content": "Correct answers are A and C"
+      },
+      {
+        "date": "2021-05-25T07:42:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, A &amp; C. \n\nStandard and Premium tiers allow 35 days of default backup. \nBasic tier allows 7 days of default backup. That is not sufficient in our case.\nLong-term backup is up to 10 years. That is not needed in our case since Standard and Premium default backups do the work.\n\nRef:\n1. https://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database#backup-retention\n2. https://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu#compare-the-dtu-based-service-tiers"
+      },
+      {
+        "date": "2021-06-16T11:55:00.000Z",
+        "voteCount": 1,
+        "content": "Can some please confirm https://azure.microsoft.com/en-us/blog/azure-sql-database-built-in-backups-vs-importexport-2/. According to this default for standard - 14 days only."
+      },
+      {
+        "date": "2021-05-26T03:52:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct:\nBackup retention for purposes of PITR within the last 1-35 days is sometimes called short-term backup retention. If you need to keep backups for longer than the maximum short-term retention period of 35 days, you can enable Long-term retention.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database"
+      },
+      {
+        "date": "2021-05-26T03:54:00.000Z",
+        "voteCount": 1,
+        "content": "I meant A and C"
+      },
+      {
+        "date": "2021-04-13T11:49:00.000Z",
+        "voteCount": 1,
+        "content": "Your choices:\nA. Use the Premium tier and the default backup retention policy.\nB. Use the Basic tier and the default backup retention policy.\nC. Use the Standard tier and the default backup retention policy.\nD. Use the Standard tier and configure a long-term backup retention policy.\nE. Use the Premium tier and configure a long-term backup retention policy.\n\nOnly two of them use long-term storage. As noted elsewhere the default retention periods have been aligned and are 7 days.\n\n7 days does not meet the requirements. Only D and E mention long-term backup and are thus the correct choice."
+      },
+      {
+        "date": "2021-03-17T06:39:00.000Z",
+        "voteCount": 1,
+        "content": "C,D -the best"
+      },
+      {
+        "date": "2021-03-07T10:05:00.000Z",
+        "voteCount": 7,
+        "content": "I think the right answer is A nd C. Still not very clear though cos the default is 7 days, but can be changed to up to 35 days (which is still within the short term retention). Setting up a long term retention policy is totally different and that is for backup requirements for over 35 days to up to 10 years.\n\nRef: https://docs.microsoft.com/en-us/azure/azure-sql/database/long-term-retention-overview"
+      },
+      {
+        "date": "2021-02-25T22:17:00.000Z",
+        "voteCount": 8,
+        "content": "Basic\tStandard\t    Premium\nMaximum backup retention\t7 days\t35 days\t  35 days\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/service-tiers-dtu"
+      },
+      {
+        "date": "2021-02-21T06:35:00.000Z",
+        "voteCount": 4,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database\nFor all new, restored, and copied databases, Azure SQL Database and Azure SQL Managed Instance retain sufficient backups to allow PITR within the last 7 days by default. With the exception of Hyperscale and Basic tier databases, you can change backup retention period per each active database in the 1-35 day range\n\nBackup retention for purposes of PITR within the last 1-35 days is sometimes called short-term backup retention. If you need to keep backups for longer than the maximum short-term retention period of 35 days, you can enable Long-term retention."
+      },
+      {
+        "date": "2021-01-16T05:23:00.000Z",
+        "voteCount": 2,
+        "content": "I think the correct  answer is just not there. You do not create a LTR policy as this is only required for storage longer than 35 days. But you can't use the default either as this is et to 7 days. Think the question is outdated. Only thing we can be sure of is that the basic tier will not do as this one cannot be set to higher than 7 days."
+      },
+      {
+        "date": "2020-12-24T06:38:00.000Z",
+        "voteCount": 6,
+        "content": "From 1st July 2019 the Default backup retention is set to 7 days not 35 days , so the given answers are correct ( the day I'm writing this)"
+      },
+      {
+        "date": "2020-12-08T08:04:00.000Z",
+        "voteCount": 4,
+        "content": "https://azure.microsoft.com/en-us/updates/default-backup-retention-period-for-dtu-based-azure-sql-databases-is-changing-soon/#:~:text=To%20facilitate%20smooth%20conversion%20from,35%20days%20to%207%20days.:\n\"the default backup retention period for point in time restore of the DTU-based Azure SQL Databases is changing from 35 days to 7 days.\"\nD and E are therefore correct"
+      },
+      {
+        "date": "2020-11-21T05:53:00.000Z",
+        "voteCount": 4,
+        "content": "The default retention policy for DTU based purchasing had changed from 35 days to 7 days starting from July of 2020. So, the specified answers are correct. \nhttps://azure.microsoft.com/en-in/updates/default-backup-retention-period-for-dtu-based-azure-sql-databases-is-changing-soon/#:~:text=Published%20date%3A%2014%20June%2C%202019,35%20days%20to%207%20days.&amp;text=The%20existing%20databases%20will%20remain%20unchanged."
+      },
+      {
+        "date": "2020-11-04T21:32:00.000Z",
+        "voteCount": 3,
+        "content": "The answer should be A &amp; C. Default backup is for 35 days."
+      },
+      {
+        "date": "2020-09-30T13:36:00.000Z",
+        "voteCount": 4,
+        "content": "D and E are correct"
+      },
+      {
+        "date": "2020-09-16T06:41:00.000Z",
+        "voteCount": 4,
+        "content": "the correct answer is A and C. It is very clear in explanation they have given."
+      },
+      {
+        "date": "2020-07-23T05:59:00.000Z",
+        "voteCount": 5,
+        "content": "as of jun 2020 new policies are default PiTR is 7 days for all db except hyperscale\nnot sure if this is updated to the new question database.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/automated-backups-overview?tabs=single-database"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52471-exam-dp-201-topic-4-question-11-discussion/",
+    "body": "You are designing an Azure Databricks cluster that runs user-defined local processes.<br>You need to recommend a cluster configuration that meets the following requirements:<br>\u2711 Minimize query latency.<br>\u2711 Reduce overall costs without compromising other requirements.<br>\u2711 Maximize the number of users that can run queries on the cluster at the same time.<br>Which cluster type should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStandard with Autoscaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHigh Concurrency with Auto Termination",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHigh Concurrency with Autoscaling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStandard with Auto Termination"
+    ],
+    "answer": "C",
+    "answerDescription": "High Concurrency clusters allow multiple users to run queries on the cluster at the same time, while minimizing query latency. Autoscaling clusters can reduce overall costs compared to a statically-sized cluster.<br>Incorrect Answers:<br>A, D: Standard clusters are recommended for a single user.<br>Reference:<br>https://docs.azuredatabricks.net/user-guide/clusters/create.html https://docs.azuredatabricks.net/user-guide/clusters/high-concurrency.html#high-concurrency https://docs.azuredatabricks.net/user-guide/clusters/terminate.html https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#enable-and-configure-autoscaling",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-11T16:46:00.000Z",
+        "voteCount": 4,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/16373-exam-dp-201-topic-4-question-12-discussion/",
+    "body": "You design data engineering solutions for a company that has locations around the world. You plan to deploy a large set of data to Azure Cosmos DB.<br>The data must be accessible from all company locations.<br>You need to recommend a strategy for deploying the data that minimizes latency for data read operations and minimizes costs.<br>What should you recommend?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a single Azure Cosmos DB account. Enable multi-region writes.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a single Azure Cosmos DB account Configure data replication.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse multiple Azure Cosmos DB accounts. For each account, configure the location to the closest Azure datacenter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse a single Azure Cosmos DB account. Enable geo-redundancy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse multiple Azure Cosmos DB accounts. Enable multi-region writes."
+    ],
+    "answer": "A",
+    "answerDescription": "With Azure Cosmos DB, you can add or remove the regions associated with your account at any time.<br>Multi-region accounts configured with multiple-write regions will be highly available for both writes and reads. Regional failovers are instantaneous and don't require any changes from the application.<br><img src=\"/assets/media/exam-media/03774/0031100001.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-12T02:20:00.000Z",
+        "voteCount": 67,
+        "content": "You need replicate data only for reading  and minimizes costs. So I think the correct answer is B. Use a single Azure Cosmos DB account Configure data replication.\nReference:\nhttps://docs.microsoft.com/en-us/learn/modules/distribute-data-globally-with-cosmos-db/2-global-distribution"
+      },
+      {
+        "date": "2021-04-08T01:10:00.000Z",
+        "voteCount": 12,
+        "content": "The highest voted answer is wrong. That kind of things doesn\u2019t help.\nThe answer given is correct."
+      },
+      {
+        "date": "2021-06-28T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "another proof here : https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#multi-region-accounts-with-a-single-write-region-write-region-outage"
+      },
+      {
+        "date": "2021-05-25T09:30:00.000Z",
+        "voteCount": 5,
+        "content": "Correct answer: B.\n\nRequirement is *minimized read latency at minimal cost*.\n\nBoth *Data replication* and *Multi-region writes* reduce the read latency - because both options increase the number of *read regions*. Larger number of read regions =&gt; less latency.\n- *Data replication* allows you to have one write region and *multiple read regions*.\n- *Multi-region writes* is an additional option under *Data replication* that allows you to have multiple *write regions*. It also increases the number of *read regions*, of course.\nBut multi-region writes offer more than we need here, since we do not have a requirement for faster write requests. \n\n*Multi-region writes* is a more expensive option because write requests are more expensive than read requests:\n- Single-region write account distributed across N regions: 0.008$\n- Multi-region write account with N regions: 0.016$"
+      },
+      {
+        "date": "2021-05-25T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "Pricing ref: https://azure.microsoft.com/en-us/pricing/details/cosmos-db/"
+      },
+      {
+        "date": "2020-03-17T07:16:00.000Z",
+        "voteCount": 20,
+        "content": "the given answer is correct. Enable multi-region writes"
+      },
+      {
+        "date": "2020-04-20T03:50:00.000Z",
+        "voteCount": 7,
+        "content": "Why ? there are not write requirements but there are reading requirements\nso i think it should be B"
+      },
+      {
+        "date": "2020-05-01T06:50:00.000Z",
+        "voteCount": 4,
+        "content": "but part of one of the requirements is \"and minimizes costs.\"  would data replication be cheapest way to accomplish?  I think given answer is correct."
+      },
+      {
+        "date": "2020-05-02T03:54:00.000Z",
+        "voteCount": 7,
+        "content": "Multi write will cost 3 times more than single write, multi read in this scenario."
+      },
+      {
+        "date": "2021-04-10T08:51:00.000Z",
+        "voteCount": 1,
+        "content": "There is no option for Data Replication. You can only set GeoRedundancy o Enable multi-region writes"
+      },
+      {
+        "date": "2021-05-05T07:36:00.000Z",
+        "voteCount": 2,
+        "content": "it's this option on Azure portal &gt; Cosmos DB Account &gt; \"Replicate data globally\""
+      },
+      {
+        "date": "2021-06-10T20:05:00.000Z",
+        "voteCount": 1,
+        "content": "I think answer is correct. If you configure multiple region writes, updating of data might be delayed based on consistency level configured but reads will be faster for already replicated data."
+      },
+      {
+        "date": "2021-06-28T06:18:00.000Z",
+        "voteCount": 1,
+        "content": "\"for already replicated data\" yes there is another answer for it"
+      },
+      {
+        "date": "2021-06-08T02:02:00.000Z",
+        "voteCount": 3,
+        "content": "The correct answer is : B :  Use a single Azure Cosmos DB account Configure data replication."
+      },
+      {
+        "date": "2021-06-02T12:09:00.000Z",
+        "voteCount": 3,
+        "content": "I think the correct answer is B.\n\nReference: Whizlabs Course!"
+      },
+      {
+        "date": "2021-04-29T12:39:00.000Z",
+        "voteCount": 3,
+        "content": "B. Use a single Azure Cosmos DB account Configure data replication."
+      },
+      {
+        "date": "2021-02-25T22:29:00.000Z",
+        "voteCount": 2,
+        "content": "From the reference below it appears A is the correct answer.\n\nTo ensure high write and read availability, configure your Azure Cosmos account to span at least two regions with multiple-write regions. This configuration will provide the highest availability, lowest latency, and best scalability for both reads and writes backed by SLAs. To learn more, see how to configure your Azure Cosmos account with multiple write-regions.\n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#building-highly-available-applications"
+      },
+      {
+        "date": "2021-02-27T15:59:00.000Z",
+        "voteCount": 1,
+        "content": "but what about the costs?"
+      },
+      {
+        "date": "2020-12-05T04:39:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-global-distribution-sql-api?tabs=dotnetv2%2Capi-async\nAnswer is B"
+      },
+      {
+        "date": "2020-11-04T21:58:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer. Requirement is Read availability at minimal cost"
+      },
+      {
+        "date": "2020-10-26T01:35:00.000Z",
+        "voteCount": 5,
+        "content": "Assuming that \"the company has locations around the world\" means there is multi-region writes required for the solution, the given answer is correct. I think the \"minimizes latency for data read\" requirement is the confusing part. But multi-region writes would minimize the read latency. On the other hand, \"and minimizes costs\" part seems not to be covered by this solution. All in all, I think A is a valid answer and in real-world circumstances, it should be used for international companies."
+      },
+      {
+        "date": "2020-09-26T09:17:00.000Z",
+        "voteCount": 1,
+        "content": "cost of replicating to a region is the same as the original region, so replicating to 3 additional regions, would cost approximately four times the original non-replicated database"
+      },
+      {
+        "date": "2020-08-14T18:09:00.000Z",
+        "voteCount": 7,
+        "content": "The answer is correct. The requirement is \"minimizes latency for data read\". The table (see link below) shows \"low\" read latency for Multi-region writes while \"Cross region\" for the rest.\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#availability-zone-support"
+      },
+      {
+        "date": "2020-08-28T21:42:00.000Z",
+        "voteCount": 1,
+        "content": "With B there z latency"
+      },
+      {
+        "date": "2020-08-03T22:34:00.000Z",
+        "voteCount": 2,
+        "content": "With multi-region writes, you can set session consistency (which read your own writes). With this you can minimize latency to read/write around the world and also required less RU's compare to Strong consistency so it minimize the cost as well. Another thing is if the application is being use around the world then read/writes happening around the world. In that scenarios, you need multi-region writes to minimize the latency and good partition key to for performance and reduce the costs for read/write operations."
+      },
+      {
+        "date": "2020-06-26T06:03:00.000Z",
+        "voteCount": 3,
+        "content": "Why not D. Use a single Azure Cosmos DB account. Enable geo-redundancy.?\nAs we need to minimize cost and we only need read not write"
+      },
+      {
+        "date": "2020-07-18T00:17:00.000Z",
+        "voteCount": 3,
+        "content": "Because you will need RA-RGS not just RGS."
+      },
+      {
+        "date": "2021-02-11T05:00:00.000Z",
+        "voteCount": 3,
+        "content": "Geo-redundancy is more related to failover mechanishms. what you need is a data replication technique here. You need to have single write region and multiple read regions to minimize the read latencies across the globe"
+      },
+      {
+        "date": "2020-06-22T02:23:00.000Z",
+        "voteCount": 3,
+        "content": "once data is replicated, the read consistency becomes 99.999 i.e. reads can happen from any region, for writes to offer 99.999 one must enable multi-master model, by enabling multi-region writes for other replicated regions. So B is appropriate here."
+      },
+      {
+        "date": "2020-06-12T22:19:00.000Z",
+        "voteCount": 1,
+        "content": "Single-region accounts may lose availability following a regional outage. It's always recommended to set up at least two regions (preferably, at least two write regions) with your Cosmos account to ensure high availability at all times.\n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/high-availability\nI think given answer is right."
+      },
+      {
+        "date": "2020-05-02T03:48:00.000Z",
+        "voteCount": 12,
+        "content": "So far, C is wrong because it will only replicate to 1 paired region.\nA seems to be overkill - there is no write redundancy requirement, and if current write region fail, Cosmos will auto failover to one of the read regions and will make it write enable.\nSo B looks like a right answer to me."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54681-exam-dp-201-topic-4-question-13-discussion/",
+    "body": "HOTSPOT -<br>You are designing a solution to store flat files.<br>You need to recommend a storage solution that meets the following requirements:<br>\u2711 Supports automatically moving files that have a modified date that is older than one year to an archive in the data store<br>\u2711 Minimizes costs<br>A higher latency is acceptable for the archived files.<br>Which storage location and archiving method should you recommend? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0031200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0031300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Storage location: Azure Blob Storage<br>Archiving method: A lifecycle management policy<br>Azure Blob storage lifecycle management offers a rich, rule-based policy for GPv2 and Blob storage accounts. Use the policy to transition your data to the appropriate access tiers or expire at the end of the data's lifecycle.<br>The lifecycle management policy lets you:<br>\u2711 Transition blobs to a cooler storage tier (hot to cool, hot to archive, or cool to archive) to optimize for performance and cost<br>\u2711 Delete blobs at the end of their lifecycles<br>\u2711 Define rules to be run once per day at the storage account level<br>Apply rules to containers or a subset of blobs<br><img src=\"/assets/media/exam-media/03774/0031300005.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/storage-lifecycle-management-concepts",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-05T19:44:00.000Z",
+        "voteCount": 3,
+        "content": "the answer is correct!"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/54682-exam-dp-201-topic-4-question-14-discussion/",
+    "body": "HOTSPOT -<br>You are planning the deployment of two separate Azure Cosmos DB databases named db1 and db2.<br>You need to recommend a deployment strategy that meets the following requirements:<br>\u2711 Costs for both databases must be minimized.<br>\u2711 Db1 must meet an availability SLA of 99.99% for both reads and writes.<br>\u2711 Db2 must meet an availability SLA of 99.99% for writes and 99.999% for reads.<br>Which deployment strategy should you recommend for each database? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0031500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0031600001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Db1: A single read/write region -<br>Db2: A single write region and multi read regions<br><img src=\"/assets/media/exam-media/03774/0031700001.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-05T19:45:00.000Z",
+        "voteCount": 6,
+        "content": "The answer is correct"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/55009-exam-dp-201-topic-4-question-15-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>A company is developing a solution to manage inventory data for a group of automotive repair shops. The solution will use Azure Synapse Analytics as the data store.<br>Shops will upload data every 10 days.<br>Data corruption checks must run each time data is uploaded. If corruption is detected, the corrupted data must be removed.<br>You need to ensure that upload processes and data corruption checks do not impact reporting and analytics processes that use the data warehouse.<br>Proposed solution: Insert data from shops and perform the data corruption check in a transaction. Rollback transfer if corruption is detected.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead, create a user-defined restore point before data is uploaded. Delete the restore point after data corruption checks complete.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/backup-and-restore",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-14T13:28:00.000Z",
+        "voteCount": 1,
+        "content": "But technically the proposed solution is correct. I wouldn't do it this way -I prefer the staging table- but from a technical perspective the answer could be YES. Any other thoughts on why it would be NO?"
+      },
+      {
+        "date": "2021-06-13T18:59:00.000Z",
+        "voteCount": 1,
+        "content": "I feel the answer should be NO. If the data is loaded and found to be corrupt, it's possible reporting has already been performed on the bad data before the data can be reset to the restore point and therefore reporting WAS impacted."
+      },
+      {
+        "date": "2021-06-09T14:36:00.000Z",
+        "voteCount": 2,
+        "content": "why not just upload to a separate table and drop it if it is corrupted, move it over if it isn't"
+      },
+      {
+        "date": "2021-06-16T12:17:00.000Z",
+        "voteCount": 1,
+        "content": "Yes Absolutely, populate to a staging table and run your data corruption checks there."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42501-exam-dp-201-topic-4-question-16-discussion/",
+    "body": "You manage a solution that uses Azure HDInsight clusters.<br>You need to implement a solution to monitor cluster performance and status.<br>Which technology should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure HDInsight.NET SDK",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure HDInsight REST API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAmbari REST API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Log Analytics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAmbari Web UI"
+    ],
+    "answer": "E",
+    "answerDescription": "Ambari is the recommended tool for monitoring utilization across the whole cluster. The Ambari dashboard shows easily glanceable widgets that display metrics such as CPU, network, YARN memory, and HDFS disk usage. The specific metrics shown depend on cluster type. The \"Hosts\" tab shows metrics for individual nodes so you can ensure the load on your cluster is evenly distributed. The Apache Ambari project is aimed at making Hadoop management simpler by developing software for provisioning, managing, and monitoring Apache Hadoop clusters. Ambari provides an intuitive, easy-to-use Hadoop management web UI backed by its RESTful APIs.<br>Reference:<br>https://azure.microsoft.com/en-us/blog/monitoring-on-hdinsight-part-1-an-overview/ https://ambari.apache.org/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T02:44:00.000Z",
+        "voteCount": 17,
+        "content": "good luck everyone!"
+      },
+      {
+        "date": "2021-01-15T20:08:00.000Z",
+        "voteCount": 5,
+        "content": "It also appeared in DP-200"
+      },
+      {
+        "date": "2021-04-22T02:40:00.000Z",
+        "voteCount": 2,
+        "content": "this is not the part of the exam anymore"
+      },
+      {
+        "date": "2021-03-20T15:40:00.000Z",
+        "voteCount": 1,
+        "content": "C Ambari Rest API For sure"
+      },
+      {
+        "date": "2021-06-05T19:47:00.000Z",
+        "voteCount": 1,
+        "content": "Ambari Rest Api is for developer"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/25089-exam-dp-201-topic-4-question-17-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>A company is developing a solution to manage inventory data for a group of automotive repair shops. The solution will use Azure Synapse Analytics as the data store.<br>Shops will upload data every 10 days.<br>Data corruption checks must run each time data is uploaded. If corruption is detected, the corrupted data must be removed.<br>You need to ensure that upload processes and data corruption checks do not impact reporting and analytics processes that use the data warehouse.<br>Proposed solution: Create a user-defined restore point before data is uploaded. Delete the restore point after data corruption checks complete.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "User-Defined Restore Points -<br>This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time.<br>Note: A data warehouse restore is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/backup-and-restore",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-08T05:36:00.000Z",
+        "voteCount": 9,
+        "content": "I think this should be NO, as rollback to restore point will affect the reporting and analytic processes...\nWhen the data is found corrupted, a rollback to previous restore point would happen, causing a lag.\nAnd even when the file is uploaded, the corrupted data would reside in the db until it is detected by corruption check and restored to previous point... that would also affect reporting...."
+      },
+      {
+        "date": "2020-11-23T04:32:00.000Z",
+        "voteCount": 4,
+        "content": "Although I've given you a thumb as I believe in real world your words make perfect sense, I must say that the question seems to be tricky as it states that the 'upload and corruption check shouldn't impact reporting', regardless of the restoration to a previous point. That way the answer is correct."
+      },
+      {
+        "date": "2020-07-23T07:23:00.000Z",
+        "voteCount": 9,
+        "content": "why not ingest into staging layer, perform validations and decide whether to load into DWH?"
+      },
+      {
+        "date": "2020-12-08T07:52:00.000Z",
+        "voteCount": 9,
+        "content": "https://docs.microsoft.com/en-us/azure/synapse-analytics/sql-data-warehouse/backup-and-restore#user-defined-restore-points:\n\"This feature enables you to manually trigger snapshots to create restore points of your data warehouse before and after large modifications. This capability ensures that restore points are logically consistent, which provides additional data protection in case of any workload interruptions or user errors for quick recovery time\"\nAnswer is correct"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56077-exam-dp-201-topic-4-question-18-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>A company is developing a solution to manage inventory data for a group of automotive repair shops. The solution will use Azure Synapse Analytics as the data store.<br>Shops will upload data every 10 days.<br>Data corruption checks must run each time data is uploaded. If corruption is detected, the corrupted data must be removed.<br>You need to ensure that upload processes and data corruption checks do not impact reporting and analytics processes that use the data warehouse.<br>Proposed solution: Configure database-level auditing in Azure Synapse Analytics and set retention to 10 days.<br>Does the solution meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead, create a user-defined restore point before data is uploaded. Delete the restore point after data corruption checks complete.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/sql-data-warehouse/backup-and-restore",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-25T11:12:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47326-exam-dp-201-topic-4-question-19-discussion/",
+    "body": "You plan to implement an Azure Data Lake Gen2 storage account.<br>You need to ensure that the data lake will remain available if a data center fails in the primary Azure region. The solution must minimize costs.<br>Which type of replication should you use for the storage account?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tgeo-redundant storage (GRS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tzone-redundant storage (ZRS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlocally-redundant storage (LRS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tgeo-zone-redundant storage (GZRS)"
+    ],
+    "answer": "A",
+    "answerDescription": "Geo-redundant storage (GRS) copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region.<br>Incorrect Answers:<br>B: Zone-redundant storage (ZRS) copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.<br>C: Locally redundant storage (LRS) copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability.<br>D: GZRS is more expensive compared to GRS.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-16T06:10:00.000Z",
+        "voteCount": 35,
+        "content": "B. zone-redundant storage (ZRS)\nif a data center fails in the primary rigion, another datacenter in the same region could be a good solution and less expensive, do it's ZRS"
+      },
+      {
+        "date": "2021-05-14T23:53:00.000Z",
+        "voteCount": 6,
+        "content": "key words are  \"fails in primary Azure region\" . ZRS is within same region so answer GRS is correct"
+      },
+      {
+        "date": "2021-05-19T06:04:00.000Z",
+        "voteCount": 4,
+        "content": "IMO, key words are: \"a data center fails\" and \"minimize costs\"  -&gt; ZRS"
+      },
+      {
+        "date": "2022-06-24T23:33:00.000Z",
+        "voteCount": 1,
+        "content": "I agree it says in the question that a \"data center fails in the primary Azure region\" not the full Azure region is down so the correct answer is B as cost needs to be reduced as well"
+      },
+      {
+        "date": "2021-05-25T19:28:00.000Z",
+        "voteCount": 2,
+        "content": "A region consists of more than one data center. If a data center fails, it doesn't mean the whole region is down. ZRS should be the right answer."
+      },
+      {
+        "date": "2021-05-22T20:00:00.000Z",
+        "voteCount": 4,
+        "content": "A is correct. To quote the provided link below: \"However, ZRS by itself may not protect your data against a regional disaster where multiple zones are permanently affected\". We can choose either GRS or GZRS. Since GRS is cheaper, it should be chosen.\nLink: https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy"
+      },
+      {
+        "date": "2021-05-23T11:46:00.000Z",
+        "voteCount": 3,
+        "content": "here is not mentioned regional disaster. you must focus to datacenter fails. So ZRS is enough.\n&gt;&gt;Zone-redundant storage (ZRS) copies your data synchronously across three Azure availability zones in the primary region."
+      },
+      {
+        "date": "2021-05-05T22:44:00.000Z",
+        "voteCount": 4,
+        "content": "I think the given ans is correct, it should be GRS"
+      },
+      {
+        "date": "2021-11-27T22:42:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is ZRS, as we have always more than one data center per region and we want to minimize costs."
+      },
+      {
+        "date": "2021-07-07T00:42:00.000Z",
+        "voteCount": 1,
+        "content": "Why? It says only a data centre has failed in the primary region, not that the whole region is fubared."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/46818-exam-dp-201-topic-4-question-20-discussion/",
+    "body": "HOTSPOT -<br>You are designing a solution that uses Azure Cosmos DB to store and serve data.<br>You need to design the Azure Cosmos DB storage to meet the following requirements:<br>\u2711 Provide high availability.<br>\u2711 Provide a recovery point objective (RPO) of less than 15 minutes.<br>\u2711 Provide a recovery time objective (RTO) of less than two minutes.<br>\u2711 Minimize data loss in the event of a disaster.<br>What should you include in the design? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0032200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0032300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Multiple -<br>For higher write availability, configure your Azure Cosmos account to have multiple write regions.<br><br>Box 2: Bounded staleness -<br><img src=\"/assets/media/exam-media/03774/0032400001.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability https://docs.microsoft.com/en-us/azure/cosmos-db/consistency-levels#consistency-levels-and-throughput",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-24T12:21:00.000Z",
+        "voteCount": 9,
+        "content": "according to the table in answer field, it should be multiple and session \nwhy session? high availability"
+      },
+      {
+        "date": "2021-04-10T09:46:00.000Z",
+        "voteCount": 5,
+        "content": "single write + session would meet the requirements according to the attached table. Not sure though which combination is cheaper, but costs optimizing was not the requirement."
+      },
+      {
+        "date": "2021-04-22T06:27:00.000Z",
+        "voteCount": 4,
+        "content": "what about rto &lt;2 mins?"
+      },
+      {
+        "date": "2021-05-19T18:54:00.000Z",
+        "voteCount": 3,
+        "content": "Sorry for my previous message. It should be multiple and session"
+      },
+      {
+        "date": "2021-05-19T18:35:00.000Z",
+        "voteCount": 3,
+        "content": "According to the table, it should be single write with multiple read and session.\nsingle write with multiple read can have high availability"
+      },
+      {
+        "date": "2021-03-20T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "For multi-region accounts the minimum value of K and T is 100,000 write operations or 300 seconds. This defines the minimum RPO for data when using Bounded Staleness."
+      },
+      {
+        "date": "2021-03-12T19:23:00.000Z",
+        "voteCount": 4,
+        "content": "Session will work as well"
+      },
+      {
+        "date": "2021-03-16T06:14:00.000Z",
+        "voteCount": 7,
+        "content": "it's indeed session, with session you've more availability so better be session"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47328-exam-dp-201-topic-4-question-21-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Data Lake Storage Gen2 account named account1 that stores logs as shown in the following table.<br><img src=\"/assets/media/exam-media/03774/0032500001.png\" class=\"in-exam-image\"><br>You do not expect that the logs will be accessed during the retention periods.<br>You need to recommend a solution for account1 that meets the following requirements:<br>\u2711 Automatically deletes the logs at the end of each retention period<br>\u2711 Minimizes storage costs<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03774/0032600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0032700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Store the infrastructure in the Cool access tier and the application logs in the Archive access tier.<br>Cool - Optimized for storing data that is infrequently accessed and stored for at least 30 days.<br>Archive - Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements, on the order of hours.<br>Box 2: Azure Blob storage lifecycle management rules<br>Blob storage lifecycle management offers a rich, rule-based policy that you can use to transition your data to the best access tier and to expire data at the end of its lifecycle.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-16T06:17:00.000Z",
+        "voteCount": 23,
+        "content": "Box one is wrong; You do not expect that the logs will be accessed during the retention periods.==&gt;archive for both"
+      },
+      {
+        "date": "2021-07-07T01:02:00.000Z",
+        "voteCount": 4,
+        "content": "Wrong. You can't store files in Archive unless they've been around for at least 180 days."
+      },
+      {
+        "date": "2021-12-05T09:23:00.000Z",
+        "voteCount": 1,
+        "content": "wrong, not a requirement but a best practice. where is the link to prove your statement?"
+      },
+      {
+        "date": "2021-05-05T07:58:00.000Z",
+        "voteCount": 21,
+        "content": "Infra logs should be kept in Cool tier as it's only 60 days retention period, there's Early deletion charge otherwise\n\n\"Any blob that is moved into the cool tier (GPv2 accounts only) is subject to a cool early deletion period of 30 days. Any blob that is moved into the archive tier is subject to an archive early deletion period of 180 days. This charge is prorated.\" https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers?tabs=azure-portal"
+      },
+      {
+        "date": "2021-12-06T01:27:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be correct. We want to minimize costs, but we also do get a penalty if we delete data before the retention period.\n\"Data must remain in the Archive tier for at least 180 days or be subject to an early deletion charge. For example, if a blob is moved to the Archive tier and then deleted or moved to the Hot tier after 45 days, you'll be charged an early deletion fee equivalent to 135 (180 minus 45) days of storing that blob in the Archive tier.\"\nhttps://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview\nTherefore infrastructure has to be cool as there the penalty period is 30 days, while archive 180 days."
+      },
+      {
+        "date": "2021-08-22T06:14:00.000Z",
+        "voteCount": 2,
+        "content": "What is the correct answer finally ? Lot of comments confuse actually."
+      },
+      {
+        "date": "2021-05-25T10:25:00.000Z",
+        "voteCount": 3,
+        "content": "I believe the \"Azure Blob storage lifecycle management rules\" are just for Azure Blob Storage, not for Data Lake.\nData Lake has a new option from July 2020 \"Azure Data Lake Storage lifecycle management\".\n\nWith these provided options, I would go for Data Factory pipeline (with delete activity).\n\nhttps://azure.microsoft.com/en-us/updates/lifecycle-management-for-azure-data-lake-storage-is-now-generally-available/\nhttps://azure.microsoft.com/it-it/blog/clean-up-files-by-built-in-delete-activity-in-azure-data-factory/"
+      },
+      {
+        "date": "2021-03-16T18:11:00.000Z",
+        "voteCount": 11,
+        "content": "Clearly archive for both set of logs since they are not expected to be assessed."
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "4"
+  }
+]

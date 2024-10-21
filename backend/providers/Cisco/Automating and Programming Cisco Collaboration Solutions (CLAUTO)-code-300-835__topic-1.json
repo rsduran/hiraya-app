@@ -1,0 +1,1211 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43370-exam-300-835-topic-1-question-3-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0000400001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Which code snippet is used to mention the bot CiscoDevNet@webex.bot?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&lt;@personEmail.CiscoDevNet@webex.bot&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t@CiscoDevNet@webex.bot",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t@personEmail.CiscoDevNet@webex.bot",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t(@personEmail.CiscoDevNet@webex.bot)"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-27T05:35:00.000Z",
+        "voteCount": 6,
+        "content": "I guess this should be A.\nMention by Email\nHi &lt;@personEmail:banderson@example.com|Bobby&gt;, your order has been processed.\n\nAus &lt;https://developer.webex.com/docs/api/basics&gt;"
+      },
+      {
+        "date": "2021-08-24T05:26:00.000Z",
+        "voteCount": 2,
+        "content": "Agree With A, From the Webex Messaging Api sdk: \n\n{\n  \"roomId\" : \"{{_room}}\",\n  \"markdown\" : \"Hi &lt;@personEmail:CiscoDevNet@webex.bot|CiscoDevNet&gt;, your order has been processed.\"\n}"
+      },
+      {
+        "date": "2021-08-18T10:43:00.000Z",
+        "voteCount": 1,
+        "content": "Yes A\nhttps://documenter.getpostman.com/view/30210/71CYsEp\ncurl --location --request POST 'https://webexapis.com/v1/messages' \\\n--header 'Authorization: Bearer {{access_token}}' \\\n--header 'Content-Type: application/json' \\\n--data-raw '{\n  \"roomId\" : \"{{_room}}\",\n  \"markdown\" : \"Hi &lt;@personEmail:CiscoDevNet@webex.bot|CiscoDevNet&gt;, your order has been processed.\"\n}'"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/cisco/view/50120-exam-300-835-topic-1-question-5-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the code to complete the curl command that creates a halfwake brand logo using the xAPI HTTP API. Not all options are used. Code can be used more than one time.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0000700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0000800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-22T06:43:00.000Z",
+        "voteCount": 2,
+        "content": "From the CiscoDevNet github repo you can import all the xAPI requests in a Postman collection. The authentacation is Basic (not Beared as some suggest). The cURL command from the DevNet repo:\n\ncurl --location --request POST 'http://192.168.1.32/putxml' \\\n--header 'Content-Type: text/xml' \\\n--header 'Authorization: Basic cmVtb3Rlc3VwcG9ydDo2US82a0JDYnJ0DQo=' \\\n--data-raw '&lt;Command&gt;\n &lt;UserInterface&gt;\n \t&lt;Branding&gt;\n \t\t&lt;Upload&gt;\n \t\t\t&lt;Type&gt;HalfwakeBranding&lt;/Type&gt;\n \t\t\t&lt;body&gt;iVBORw0KGgoAAAANSUhEUgAAARAAAAEQCAYAAAB4CisVAAAAAXNSR0IArs4c6QAAACBjSFJNAAB6JgAAgIQAAPoAAACA...&lt;/body&gt;\n \t\t&lt;/Upload&gt;\n \t&lt;/Branding&gt;\n &lt;/UserInterface&gt;\n&lt;/Command&gt;'"
+      },
+      {
+        "date": "2021-12-28T02:06:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is right\nputxml, basic, Branding, body,Branding"
+      },
+      {
+        "date": "2021-11-17T18:51:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely Bearer auth"
+      },
+      {
+        "date": "2021-10-27T11:40:00.000Z",
+        "voteCount": 1,
+        "content": "https://documenter.getpostman.com/view/30210/SVfUrmLa\n\nPOSTCommand Brand Logo (Halfwake)"
+      },
+      {
+        "date": "2021-08-04T06:24:00.000Z",
+        "voteCount": 1,
+        "content": "Authorization: Basic\nhttps://developer.cisco.com/learning/lab/collab-xapi-branding/step/4\ncurl -X POST \\\n    http://192.168.1.34/putxml \\\n    -H 'Authorization: Basic aW50ZWdyYXRvcjppbnRlZ3JhdG9yDQo=' \\\n    -H 'Content-Type: text/xml' \\\n    -d '&lt;Configuration&gt;\n        &lt;UserInterface&gt;\n            &lt;CustomMessage&gt;Hey from Postman&lt;/CustomMessage&gt;\n        &lt;/UserInterface&gt;\n    &lt;/Configuration&gt;'"
+      },
+      {
+        "date": "2021-04-14T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "-H \"Authorization: Bearer"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/cisco/view/74139-exam-300-835-topic-1-question-6-discussion/",
+    "body": "Which two statements describe advantages of consuming APIs with asynchronous versus synchronous requests? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll Cisco APIs are designed to be invoked asynchronously.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPIs respond more quickly when invoked asynchronously.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAsynchronous request coding is less complex.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication threads do not block waiting for an asynchronous response.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMultiple asynchronous requests can be sent simultaneously.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "DE",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-20T08:13:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is DE\nA - maybe but thats no advantage to the dev\nB - A Server to does not differenciate between async and sync calls. It canot do that\nC - that is not true, you need to handle async, awaits in python that is an advanced concept\nD - correct a thread may continue executing\nE - also correct"
+      },
+      {
+        "date": "2022-04-22T07:29:00.000Z",
+        "voteCount": 1,
+        "content": "B cannot be correct. How fast an API responds is not related to how the API request is called prgrammatically sync/async.\n\nOn the other hand you can manage multiple parallel calls with async requests\n\nSo C and D is correct the correct answer."
+      },
+      {
+        "date": "2022-04-22T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "I meant C and E is the correct answer."
+      },
+      {
+        "date": "2022-04-27T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, I meant D&amp;E"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/cisco/view/133459-exam-300-835-topic-1-question-7-discussion/",
+    "body": "Using the Finesse REST APIs coupled with the Finesse notifications, which two use cases can be accomplished? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd video calling capabilities to an existing application such as a CRM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd outbound call capabilities to an existing application such as a CRM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevelop a secure monitoring application that captures the agent's states and dialog information of every agent in the contact center system.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevelop a fully functioning custom agent desktop that has call control, workflows, and client logging.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDevelop a fully functioning custom agent desktop for chat, email, and SMS interactions including the content of the chat, email, and SMS."
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-09T10:54:00.000Z",
+        "voteCount": 2,
+        "content": "Tough pick, but I'd say C and D based on the Finesse REST API documentation...\nhttps://developer.cisco.com/docs/finesse/#!cisco-finesse-rest-apis\nThe Finesse configuration APIs support the Finesse administration console, providing the ability to configure resources (such as reason codes, wrap-up reasons, and workflows).\nThe Finesse APIs support the following capabilities:\nUser Sign In/Sign Out\nAgent States\nConfigurations\nSubscriptions\nCall Control\nReason Codes\nWrap-up Reasons\nTeams\nTeam Resource\nQueues\nTask Routing\nMobile Agents\nWorkflows\nTeamMessages\nDesktop Chat\n\nClearly, agent states, workflows and logging is noted, nothing about integrating CRM or SMS. All of the options are doable, but the only native elements are those noted in C &amp; D."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/cisco/view/74145-exam-300-835-topic-1-question-8-discussion/",
+    "body": "Which two characteristics of REST APIs? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResources are accessed using Uniform Resource Identifiers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAPI operations for Create/Read/Update/Delete are mapped to standard HTTP methods.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCookies are used for the duration of the session.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREST API extends Remote Procedure Call.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe server manages the session state."
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-05-29T01:40:00.000Z",
+        "voteCount": 2,
+        "content": "Agree to disagree :) \nHere are the 5 basic design guidelines that make a RESTful API:\n    Resources (URIs)\n    HTTP methods\n    HTTP headers\n    Query parameters\n    Status Codes"
+      },
+      {
+        "date": "2022-04-22T07:42:00.000Z",
+        "voteCount": 2,
+        "content": "No URI are used in RESTfull APIs requests. So A is wrong.\nOn the other hand, during the duration of the session, cookies are used to make follow up requests.\n\nSo B and C is the correct answer."
+      },
+      {
+        "date": "2024-05-09T13:27:00.000Z",
+        "voteCount": 2,
+        "content": "Rest is by definition stateless, so no session is involved (https://en.wikipedia.org/wiki/REST)\nURI's are used as a way to reference resources (https://en.wikipedia.org/wiki/REST#Uniform_interface).\nSo, correct answers are A,B"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/cisco/view/74147-exam-300-835-topic-1-question-10-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0001200001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Which value of \"a\" is displayed when the Python code is executed?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t13\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t18",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t21"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-04-22T07:50:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/cisco/view/74151-exam-300-835-topic-1-question-13-discussion/",
+    "body": "Which two files must be downloaded from a Cisco Unified Communications Manager server in order to build requests for the AXL API? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAXLEnums.xsd\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAXL_CUCM.xsd",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAXLSoap.xsd\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCUCM_AXL.json",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAXLWSDL.xml"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-04-22T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "Three files are needed:\nAXLAPI.wsdl\nAXLEnums.xsd\nAXLSoap.xsd\n\nSo the correct answer is indeed A and C"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/cisco/view/60502-exam-300-835-topic-1-question-14-discussion/",
+    "body": "Which statement describe the function of the perfmonCollectCounterData operation used in the Cisco Unified Communications Manager Serviceability Perfmon<br>API?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt returns the Perfmon data for all counters that belong to an object on a particular host.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt collects files from RTMT.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt collects the Perfmon data for all counters that have been added with perfmonAddCounter to the session handle returned from perfmonOpenSession.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt returns the list of available Perfmon objects and counters on a particular host."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-24T06:04:00.000Z",
+        "voteCount": 6,
+        "content": "A is correct https://developer.cisco.com/docs/sxml/#!perfmon-api-reference/perfmoncollectcounterdata"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/cisco/view/50190-exam-300-835-topic-1-question-15-discussion/",
+    "body": "Which two capabilities can be implemented in a custom application using the Cisco Unified IP Phone Services API? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAuthenticate the phone to the network.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisplay corporate directory information.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPlay multicast messages.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade phone firmware.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate new phone devices."
+    ],
+    "answer": "CE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-15T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "B&amp;C is correct. Creating devices is not possible with phone services"
+      },
+      {
+        "date": "2021-11-17T19:14:00.000Z",
+        "voteCount": 3,
+        "content": "Agreed with B and C. Provisioning devices is not part of this API so it can't be E"
+      },
+      {
+        "date": "2021-08-18T11:13:00.000Z",
+        "voteCount": 4,
+        "content": "May be B and C\nhttps://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cuipph/all_models/xsi/9-1-1/CUIP_BK_P82B3B16_00_phones-services-application-development-notes/CUIP_BK_P82B3B16_00_phones-services-application-development-notes_chapter_0100.html#CUIP_TP_CF307524_00\nComponent API Overview\nIn addition to the primary phone XSI API, the following two additional component APIs are available:\n\nApplication Management API\n\nRTP Streaming API"
+      },
+      {
+        "date": "2021-04-15T07:08:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is A and B. None of the others are possible with IP Phone services."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/cisco/view/45906-exam-300-835-topic-1-question-19-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0002100001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Based on the schema diagram in the exhibit, which two XML objects are valid AXL &lt;getPhone&gt; request &lt;Body&gt; elements? (Choose two.)<br>A.<br><img src=\"/assets/media/exam-media/03564/0002200001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0002200002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0002200003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0002200004.png\" class=\"in-exam-image\"><br>E.<br><img src=\"/assets/media/exam-media/03564/0002200005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "E",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-22T04:27:00.000Z",
+        "voteCount": 6,
+        "content": "I tested all of them with SoapUI software.\n\nA. Not correct\n        \n       &lt;returnedtags&gt; instead of &lt;returnedTags&gt;\n\nC. Not correct\n\n       it's a choice from &lt;name&gt; and &lt;uuid&gt;. \n       Here there are defined both.\n\nE. Not correct\n\n       &lt;returnedTags&gt;All&lt;/returnedTags&gt; \n\n       \"All\" is not allowed.\n\nSo, the right answers are\n\nB. Correct (get by name, return only model tag)\nD. Correct (get by uuid, return all tags)"
+      },
+      {
+        "date": "2021-08-06T01:25:00.000Z",
+        "voteCount": 1,
+        "content": "I think \u0421 and D correct\n\nA, B - incorrect \nmust be\n  &lt;returnedTags ctiid=\"?\" uuid=\"?\"&gt;&lt;model&gt;?&lt;/model&gt;&lt;/returnedTags&gt;\n\u0421 - correct - can use both UID and name\nD- correct returnedTags- not mandatory\nE - incorrect. All - not correct tags so no tags returned"
+      },
+      {
+        "date": "2021-08-21T12:46:00.000Z",
+        "voteCount": 2,
+        "content": "C is not correct. field is a choice between &lt;name&gt; and &lt;uuid&gt;.\nB is correct. getPhone by name, return only model tag and not all tags."
+      },
+      {
+        "date": "2021-08-27T23:36:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, you are right.\nD is correct\nB is correct"
+      },
+      {
+        "date": "2021-03-12T03:13:00.000Z",
+        "voteCount": 2,
+        "content": "It can be A, B or D, no idea, but select 2. C is incorrect, there has to be name OR uuid, E is incorrect, there is no tag All."
+      },
+      {
+        "date": "2021-03-04T04:59:00.000Z",
+        "voteCount": 2,
+        "content": "Isnt D also correct, because returnedTags is optional?"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43459-exam-300-835-topic-1-question-21-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0002500001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. When a Calling Search Space is updated and a new member is added, how is a member defined?<br>A.<br><img src=\"/assets/media/exam-media/03564/0002600001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0002600002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0002600003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0002600004.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-02T10:37:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, C\n&lt;addMembers&gt;\n            &lt;!--Zero or more repetitions:--&gt;\n            &lt;member&gt;\n               &lt;routePartitionName uuid=\"?\"&gt;?&lt;/routePartitionName&gt;\n               &lt;index&gt;?&lt;/index&gt;\n            &lt;/member&gt;\n         &lt;/addMembers&gt;\n         &lt;!--Optional:--&gt;"
+      },
+      {
+        "date": "2021-05-01T01:09:00.000Z",
+        "voteCount": 4,
+        "content": "I think that C is the correct answer\nName is not a parameter and in the doc it's \n\n&lt;members&gt;\n &lt;routePartitionName uuid=\"\"&gt; P_test &lt;/routePartitionName&gt;\n &lt;index&gt;1 &lt;/index&gt;\n&lt;/members&gt;"
+      },
+      {
+        "date": "2021-03-05T04:48:00.000Z",
+        "voteCount": 1,
+        "content": "How can the element \"RoutePartitionName\" have child items, when it has the three horizontal lines which means that it is the last item and has no children?"
+      },
+      {
+        "date": "2021-01-28T08:58:00.000Z",
+        "voteCount": 3,
+        "content": "I think this sould be C.\nThere is no \"name\" parameter.."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/cisco/view/133460-exam-300-835-topic-1-question-22-discussion/",
+    "body": "Which two use cases can be accomplished using the Finesse JavaScript library? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIntegrate customer relationship management capabilities into the Finesse agent desktop.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBuild a custom browser-based agent desktop.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBuild a Finesse gadget to add quick dial to the Finesse agent desktop.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBuild a Finesse gadget to create new agents on the Finesse system.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBuild a Finesse gadget to configure Finesse log levels for the Finesse administrator console."
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-09T11:14:00.000Z",
+        "voteCount": 2,
+        "content": "Another tough one, since another answer is doable, but the most obvious answers are B &amp; C. The JavaScript library is used to develop gadgets. Gadgets are placed to create a custom desktop. A quick dial gadget is one simple example. Two of the answers are system admin functionalities and not applicable, another answer relies on third-party application integration, which requires additional config on that end."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/cisco/view/45955-exam-300-835-topic-1-question-26-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the code snippets into the correct order to create a Python Webex Teams REST API script that performs this sequence of tasks: create a Space, add a user to the Space, post the word \"test\" in the Space. Assume that the Python \"requests\" module has already been imported.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0003300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0003400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-25T11:00:00.000Z",
+        "voteCount": 7,
+        "content": "This is the correct script:\n\nimport requests\ntoken = \"put token here\" \n\nheaders = {\"Content-type\": \"application/json\",\"Authorization\":f\"Bearer {token}\"}\nurl = \"https://webexapis.com/v1\"\n\npayload = {\"title\":\"test\"}\nresp1 = requests.post(url + \"/rooms\", headers=headers, json=payload)\n\npayload = {\"roomId\": resp1.json()['id'], \"personEmail\": \"test@test.com\"}\nrequests.post(url + \"/memberships\", headers=headers, json=payload)\n\npayload = {'roomId': resp1.json()['id'], \"text\":\"test\"}\nresp2 = requests.post(url + \"/messages\", headers=headers, json=payload)\n\nif resp2.status_code == 200:\n    print(\"succes!\")"
+      },
+      {
+        "date": "2021-03-05T05:24:00.000Z",
+        "voteCount": 6,
+        "content": "the answer is wrong, the 2nd and 3rd are swapped"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/cisco/view/60650-exam-300-835-topic-1-question-28-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the correct items from the right to complete this Python script to automate the creation of Cisco Webex Teams spaces and memberships. Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0003600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0003700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-09T11:33:00.000Z",
+        "voteCount": 1,
+        "content": "json instead of data. Very similar to a DevNet sample script..\n\nThe post() method has an argument that is named json which takes a Python object, converts it to JSON format and uses it for the request body:\n\nresponse = requests.post( url = apiUrl, json = body, headers = httpHeaders )"
+      },
+      {
+        "date": "2021-08-25T11:53:00.000Z",
+        "voteCount": 1,
+        "content": "the correct answer isn't here, if you try \nresponse = requests.post(url = url, headers = headers, data = body) the answer will be 400 bad Request\nresponse = requests.post(url = url, headers = headers, json = body) works but the id can't be extracted with the provided answers. to exctract the id you could use: response1.json()['id']"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/cisco/view/60651-exam-300-835-topic-1-question-29-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0003800001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Which snippet of code does a user with the administrator role use in the missing \"body\" section to create a new user in a Webex Teams organization?<br>A.<br><img src=\"/assets/media/exam-media/03564/0003800002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0003800003.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0003800004.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0003900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-25T11:59:00.000Z",
+        "voteCount": 6,
+        "content": "Should be answer D, source: https://developer.webex.com/docs/api/v1/people/create-a-person"
+      },
+      {
+        "date": "2022-04-24T01:44:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct. Check Webex API documentation for creating a new user here: https://developer.webex.com/docs/api/v1/people/create-a-person"
+      },
+      {
+        "date": "2021-11-03T05:09:00.000Z",
+        "voteCount": 2,
+        "content": "I agree, is D. I did the test with SANDBOX LABS\nimport requests\nimport json\n\napiKey = 'MzZkMWEx5NzAtZWQ4_P0A1_a42af19e-df0d-4dc1-ab0b-f5c639b0a4cc'\n\nA1 = input('ingrese email:')\nA2 = input('ingrese Nombre:')\nA3 = input('ingrese Apellido:')\nA4 = input('ingrese su Alias:')\n\ndef createUser(apiKey, email, firstName, lastName, displayName):\n    apiKey_bearer = 'Bearer' +' '+ apiKey\n    url1 = 'https://api.ciscospark.com/v1/people'\n    headers1 = {'Authorization': apiKey_bearer, 'Content-Type': 'application/json'}\n    body = {'emails': [email], 'displayName': displayName, 'firstName': firstName, 'lastName': lastName}\n    response = requests.post(url=url1, headers=headers1, json=body)\n    return response\n\ncreateUser(apiKey,A1,A2,A3,A4)"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43494-exam-300-835-topic-1-question-30-discussion/",
+    "body": "DRAG DROP -<br>This Python script automates the creation of a Webex Teams space and adds participants to the space. Drag and drop code on the snippet to complete the script.<br>Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0004000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0004100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T00:54:00.000Z",
+        "voteCount": 7,
+        "content": "I guess this should be:\n1.  application/json\n2.  title\n3.  (/)memberships\n4.  personEmail"
+      },
+      {
+        "date": "2021-08-30T08:39:00.000Z",
+        "voteCount": 1,
+        "content": "You are 100% correct!"
+      },
+      {
+        "date": "2024-02-09T12:28:00.000Z",
+        "voteCount": 1,
+        "content": "title, not name - https://developer.webex.com/docs/api/v1/rooms/create-a-room\nthe url is /memberships and personEmail is the object, which are reversed in the solution - https://developer.webex.com/docs/api/v1/memberships/create-a-membership"
+      },
+      {
+        "date": "2021-05-01T01:45:00.000Z",
+        "voteCount": 2,
+        "content": "I have the same thing than mosling"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/cisco/view/50731-exam-300-835-topic-1-question-31-discussion/",
+    "body": "A Webex Teams bot receives a Webhook payload, which notifies the bot that a message was created in a space. Which two API requests must be issued for the bot to answer the author of the message? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPOST /v1/messages\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGET /v1/messages/{messageId}\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGET /v1/webhooks/{webhookId}",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPUT /v1/messages/{messageId}",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPOST /v1/webhooks"
+    ],
+    "answer": "CE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AE",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-04-21T18:47:00.000Z",
+        "voteCount": 5,
+        "content": "Pretty sure this is A and C. The bot is not going to POST a Webhook back to the author."
+      },
+      {
+        "date": "2022-04-24T02:53:00.000Z",
+        "voteCount": 2,
+        "content": "Why would the bot need to get the details of the webehook with /webhook/{webhookids}?"
+      },
+      {
+        "date": "2024-02-09T12:51:00.000Z",
+        "voteCount": 1,
+        "content": "Heavily debated but after researching, I'm going with this...\nhttps://developer.webex.com/docs/webhooks\nA. POST /webhooks\n\"-To begin receiving platform events, you first need to register a webhook with Webex. To create a webhook, make an HTTP POST to /webhooks\"\n\nand B. POST /messages\n\"-When one of your webhooks is triggered by an event, Webex will send an HTTP POST to the backend targetUrl that you've specified. The body of the POST will look something like this:\n{\n  \"id\": \"Y2lzY29zcGFyazovL3VzL1dFQkhPT0svZjRlNjA1NjAtNjYwMi00ZmIwLWEyNWEtOTQ5ODgxNjA5NDk3\",\n  \"name\": \"New message in 'Project Unicorn' room\",\n  \"resource\": \"messages\",...\""
+      },
+      {
+        "date": "2023-02-23T10:13:00.000Z",
+        "voteCount": 1,
+        "content": "You don't post to a webhook, as this just creates a webhook..."
+      },
+      {
+        "date": "2022-09-24T16:18:00.000Z",
+        "voteCount": 1,
+        "content": "B and E"
+      },
+      {
+        "date": "2022-04-24T02:58:00.000Z",
+        "voteCount": 4,
+        "content": "To me it seems like A and B is the correct answers.\nFirst it will need to get the message content using the /message/{messageId} from the object of the webhook response, parse it and then post a proper reply with /message."
+      },
+      {
+        "date": "2021-11-17T20:30:00.000Z",
+        "voteCount": 2,
+        "content": "A and E"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/cisco/view/59113-exam-300-835-topic-1-question-32-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the code to create a Webex Teams Recents Widget in an existing HTML page. Not all items are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0004300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0004400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-30T08:58:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer should be: \n1. recents\n2. recentsWidget\n3. rooms:selected"
+      },
+      {
+        "date": "2021-08-05T02:01:00.000Z",
+        "voteCount": 4,
+        "content": "I am not sure, but...\n\n&lt;div id=\"recents\" /&gt;\n  var widgetEl = document.getElementById('recents');\n    webex.widget(widgetEl).recentsWidget({\n    accessToken: 'ACCESS_TOKEN',\n    onEvent: callback\n  });\n\n  function callback(type, detail) {\n    if (type === 'rooms:selected'\n\t\n\tso\n\trecents\n\trecentsWidget\n\trooms:selected\n\thttps://developer.webex.com/docs/widgets#recents-widget"
+      },
+      {
+        "date": "2021-08-02T02:24:00.000Z",
+        "voteCount": 2,
+        "content": "my-recent-widget\nrecentsWidget\nrooms:selected"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/cisco/view/45041-exam-300-835-topic-1-question-33-discussion/",
+    "body": "DRAG DROP -<br><img src=\"/assets/media/exam-media/03564/0004500001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. A bot is receiving notifications such as the one displayed in the exhibit. Drag and drop the code onto the snippet to complete the API request that was sent to Webex Teams so that the bot will receive these notifications. Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0004600001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0004700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-21T01:32:00.000Z",
+        "voteCount": 7,
+        "content": "POST\nwebhooks\nAuthorization: Bearer\n\"secret\": \"VERY SECRET\"\nhttps://developer.webex.com/docs/api/guides/webhooks"
+      },
+      {
+        "date": "2021-03-02T14:03:00.000Z",
+        "voteCount": 2,
+        "content": "pelowso is right"
+      },
+      {
+        "date": "2021-03-02T13:54:00.000Z",
+        "voteCount": 2,
+        "content": "I gues the second one should be messages because the response includes  resource:messages\n\nresource\tIndicates the noun being observed and will generally match the plural form of one of the Webex APIs (i.e. messages)."
+      },
+      {
+        "date": "2021-02-17T12:54:00.000Z",
+        "voteCount": 3,
+        "content": "I guess the third one should be \"Authorization : Bearer\" Instead of \"Authenticaton : Bearer\""
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43501-exam-300-835-topic-1-question-34-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0004700002.png\" class=\"in-exam-image\"><br>Refer to the exhibit. The code includes the beginning of a short Python script that is constructed to notify the guard in case of an intruder alert. Which code snippet completes the script?<br>A.<br><img src=\"/assets/media/exam-media/03564/0004800001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0004800002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0004800003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0004800004.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-09T13:10:00.000Z",
+        "voteCount": 1,
+        "content": "both /rooms are incorrect. POST to /rooms creates a room. PUT to /rooms updates its details.\nEither of the other answers are correct IF the guard is a member of that room, which we're not told. The best real-world solution would be B so that not only one person is responsible for acting on the alarm, but the question asks to alert the guard specifically, so using the /messages POST to their email is the only actual correct answer."
+      },
+      {
+        "date": "2021-08-31T00:55:00.000Z",
+        "voteCount": 1,
+        "content": "A: PUT should be POST and /rooms should be /messages\nB: roomId shouild be 'roomId': room,\nC: /rooms should be /messages\nD: request should be requests, api.ciscospark should be webexapis and data should be json but I guess this answer is closest to being correct."
+      },
+      {
+        "date": "2021-05-01T02:05:00.000Z",
+        "voteCount": 4,
+        "content": "The answer is D.\nBecause A is PUT message"
+      },
+      {
+        "date": "2021-01-29T03:40:00.000Z",
+        "voteCount": 3,
+        "content": "I guess this should be D.\nSend the message  directly to the guard.."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43502-exam-300-835-topic-1-question-35-discussion/",
+    "body": "Which two functions are provided by the Java-based computer telephony applications API? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvide call blocking and screening for applications.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvide analytics about Cisco Unified Communications Manager endpoints and users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tControl and observe Cisco Unified Communications Manager phones.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRoute calls by using computer telephony integration ports and route points (virtual devices).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAllow provisioning of Cisco Unified Communications Manager endpoints and users."
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T03:46:00.000Z",
+        "voteCount": 11,
+        "content": "This should be C, D\n&lt;https://www.cisco.com/c/en/us/td/docs/voice_ip_comm/cucm/jtapi_dev/11_0_1/CUCM_BK_J2445637_00_jtapi-developers-guide_1101/Overview.html#CUCM_TP_J497F049_00&gt;"
+      },
+      {
+        "date": "2021-05-01T02:08:00.000Z",
+        "voteCount": 2,
+        "content": "+1 for moslig"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/cisco/view/46666-exam-300-835-topic-1-question-37-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0005000001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. An administrator is creating a script using the Python xAPI over WebSockets(pyxows) library. The goal of this script is to monitor the volume of the endpoint and set the volume to 60 whenever the volume has been set higher than that amount. Which code snippet accomplishes this task when it is added?<br>A.<br><img src=\"/assets/media/exam-media/03564/0005000002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0005000003.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0005000004.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0005000005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-03T09:35:00.000Z",
+        "voteCount": 3,
+        "content": "I agree, is A.\nhttps://github.com/CiscoDevNet/xapi-samples/blob/master/pyxows/control_volume.py"
+      },
+      {
+        "date": "2021-05-01T02:11:00.000Z",
+        "voteCount": 1,
+        "content": "It's A because it's xcommand"
+      },
+      {
+        "date": "2021-03-12T03:35:00.000Z",
+        "voteCount": 1,
+        "content": "has to be A, you have to specify variable names directly"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/cisco/view/46667-exam-300-835-topic-1-question-38-discussion/",
+    "body": "Which two Webex technologies can be used to embed voice and video collaboration into a company web page? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWebex Teams Widgets",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWebex Teams Browser SDK",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWebex Meetings XML API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWebex Teams REST API",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWebex Teams Java SDK"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-12T03:36:00.000Z",
+        "voteCount": 5,
+        "content": "correct answers is A &amp; B - webex widget &amp; browser SDK"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/cisco/view/46669-exam-300-835-topic-1-question-39-discussion/",
+    "body": "Which statement is true for JavaScript Macros deployed on a Cisco Collaboration room device?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMacros can register to receive any event that is local to the device.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThere is no hard limit to the number of macros that can be deployed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA macro can store data using a local JavaScript datastore.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMacros execute in the order defined in the Macro Editor."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-23T10:18:00.000Z",
+        "voteCount": 1,
+        "content": "There is no local datastore on the room devices"
+      },
+      {
+        "date": "2023-02-23T10:18:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is A"
+      },
+      {
+        "date": "2022-04-24T06:24:00.000Z",
+        "voteCount": 1,
+        "content": "I don't think that \"Javascript datastore\" exists. So A is correct."
+      },
+      {
+        "date": "2021-08-22T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "C can be right. I faced another related question what formulate as following - A developer wants to deploy a room device. The manager  wants to store date using a LOCAL JavaScript DATASTORE. How can the developer achieve this objective?"
+      },
+      {
+        "date": "2021-03-12T03:37:00.000Z",
+        "voteCount": 4,
+        "content": "correct answer is A: macros can react to any local event on the device, there is no such thing as a javascript datastore for macros"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/cisco/view/46670-exam-300-835-topic-1-question-40-discussion/",
+    "body": "When the behavior of a Cisco collaboration device is customized, which use case requires an external control system because implementing JavaScript macro does not suffice?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a Join Webex meeting button to the touch panel.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the shutters up and down.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTrigger a \"room-reset\" to restore default configurations.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement an in-room control panel for speed-dialing."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-12T03:38:00.000Z",
+        "voteCount": 6,
+        "content": "correct answer is B.\nyou can make speed dial via macros, and obviously you need something external to move shutters"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/cisco/view/89214-exam-300-835-topic-1-question-41-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0005200001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. This Python script uses the websocket-based, xAPI library \"pyxows' to monitor and print event details to the console when users interact with<br>UI Extension/In-Room Control \"\u02dcAction Buttons' deployed to the Touch-10 interface of a Webex room device. Which two code snippets successfully capture such events? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tawait client.xEvent([\"\u02dcEvent', \"\u02dc**'], callback)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tawait client.subscribe([\"\u02dcEvent', \"\u02dcActionButton', \"\u02dcClicked'], callback)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tawait client.subscribe([\"\u02dcEvent', \"\u02dc**'], callback)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tawait client.xEvent([\"\u02dcEvent', \"\u02dcUserInterface', \"\u02dcExtensions', \"\u02dcPanel', \"\u02dcClicked'], callback)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tawait client.subscribe([\"\u02dcEvent', \"\u02dcUserInterface', \"\u02dcExtensions', \"\u02dcPanel', \"\u02dcClicked'], callback)"
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-29T00:34:00.000Z",
+        "voteCount": 3,
+        "content": "i tested on my lab. and the answer is:\n\nC, E"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/cisco/view/66273-exam-300-835-topic-1-question-45-discussion/",
+    "body": "An In-Room Control Panel can be configured as \"global\" (always available). Which order panel type is supported?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBackground",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDo Not Disturb",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNever",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOut-of-Call"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-17T21:57:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.cisco.com/c/dam/en/us/td/docs/telepresence/endpoint/ce97/codec-plus-administrator-guide-ce97.pdf\nAs before, there are three types of in-room control\npanels: global panels (always available), in-call panels\n(available only when in call), and out-of-call panels\n(only available when not in a call). T"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/cisco/view/74488-exam-300-835-topic-1-question-48-discussion/",
+    "body": "DRAG DROP -<br>A small Python script is constructed that creates a Webex Meeting for John Doe scheduled for the current time. Drag and drop the code snippets at the bottom onto the areas of the source code exhibit to create a program. Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0005900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0006000001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-25T09:11:00.000Z",
+        "voteCount": 1,
+        "content": "Is this XML API for Webex meetings still in the exam? It is now depricated... We should use developer.webex.com RESTfull API."
+      },
+      {
+        "date": "2023-02-24T00:22:00.000Z",
+        "voteCount": 1,
+        "content": "knowing cisco, it still is..."
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/cisco/view/57795-exam-300-835-topic-1-question-49-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0006100001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Alice is a Webex Meetings admin for her organization. Which code snippet completes a Webex Meetings XML API request that returns all users?<br>A.<br><img src=\"/assets/media/exam-media/03564/0006100002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0006100003.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0006100004.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0006100005.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-13T10:14:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is B."
+      },
+      {
+        "date": "2021-08-31T01:49:00.000Z",
+        "voteCount": 1,
+        "content": "Looks correct: https://developer.cisco.com/docs/webex-xml-api-reference-guide/#!lstsummaryuser/lstsummaryuser"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/cisco/view/61129-exam-300-835-topic-1-question-50-discussion/",
+    "body": "What is the expiration time for a Cisco Webex Meeting API key to access the Webex API as an anonymous user?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t3 months",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t12 hours",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tone week",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t6 months"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-31T01:47:00.000Z",
+        "voteCount": 3,
+        "content": "6 Months is correct, source: https://developer.cisco.com/docs/webex-meetings/#!api-key-registration/renewing-an-api-key"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/cisco/view/61132-exam-300-835-topic-1-question-51-discussion/",
+    "body": "Which URI for XML APIs is used in Cisco Webex Meetings to manage users, meetings, events, and trainings?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thttps://api.webex.com/v1/",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thttps://api.webex.com/WBXService/XMLService",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thttps://api.webex.com/v1/meetings",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thttps://api.webex.com/MeetingsService/XMLService"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-31T01:53:00.000Z",
+        "voteCount": 3,
+        "content": "Answer B is correct: https://developer.cisco.com/docs/webex-xml-api-reference-guide/#!xml-request-and-response-documents"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/cisco/view/59329-exam-300-835-topic-1-question-52-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the code to create a valid Cisco Meeting Server REAST API Python script that creates a CMS coSpace and prints the URI to the console. Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0006300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0006400001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-03T11:10:00.000Z",
+        "voteCount": 1,
+        "content": "1. x-www-form-urlencoded\n2. Basic\n3. coSpaces\n4. resp.body.location (but the script doesn't have body  element)"
+      },
+      {
+        "date": "2021-08-31T03:33:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is:\n\n1. x-www-form-urlencoded\n2. Basic\n3. coSpaces\n4. resp.headers[\"Location\"]\n\nAnswer 4 is not in the list, I would pick resp.headers.Location"
+      },
+      {
+        "date": "2021-08-05T10:20:00.000Z",
+        "voteCount": 3,
+        "content": "x-www-form-urlencoded\nBasic\ncoSpaces\nresp.body.location\n\nMake sure you have enabled authentication and Basic Auth in your requests.\nl When using POST and PUT methods, make sure you use the request Body and ContentType: x-www-form-urlencoded\nhttps://www.cisco.com/c/dam/en/us/td/docs/conferencing/ciscoMeetingServer/Reference_Guides/Version-3-2/Cisco-Meeting-Server-API-Reference-Guide-3-2.pdf"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/cisco/view/61149-exam-300-835-topic-1-question-53-discussion/",
+    "body": "Which Cisco Meeting Server REST API object resource is used to retrieve active call information?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/activecalls",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/calls",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/getactivecalls",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/callProfiles"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-31T03:38:00.000Z",
+        "voteCount": 1,
+        "content": "/calls works, example response: &lt;calls total=\"0\"&gt;&lt;/calls&gt;"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43530-exam-300-835-topic-1-question-54-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0006500001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Based on this Webex Meetings XML API schema snippet, which XML object is a valid &lt;metaData&gt; element?<br>A.<br><img src=\"/assets/media/exam-media/03564/0006600001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/03564/0006600002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/03564/0006600003.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/03564/0006600004.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T12:35:00.000Z",
+        "voteCount": 7,
+        "content": "I guess this should be B.\nconfname doesn't exit - but confName does"
+      },
+      {
+        "date": "2021-08-31T03:46:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with answer B, source: https://developer.cisco.com/docs/webex-xml-api-reference-guide/#createmeeting/createmeeting\n\nDataTypes used:\nconfName: string\nmeetingType: long\nagenda: string, max length 2500\nisInternal: boolean"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43531-exam-300-835-topic-1-question-55-discussion/",
+    "body": "DRAG DROP -<br>The Python script executes a REST API to retrieve information from the Cisco Meeting Server about the call with an identifier of \"987654321\". Drag and drop the code onto the snippet to complete the Python script. Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0006700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0006800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T12:42:00.000Z",
+        "voteCount": 5,
+        "content": "the last entry should be GET.\nhttps://ciscocms.docs.apiary.io/#reference/call-related-methods/call-methods"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/cisco/view/50788-exam-300-835-topic-1-question-56-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0006900001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. Which API call made to Cisco Meeting Server removes the inbound dial plan rule matching cms.lab domain?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE to /api/v1/inboundDialPalnRules/ with body attribute id=\"2c5662ab-7e5a-45a8-a133-5f4d6c6cb509\".",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE to /api/v1/inboundDialPalnRules/2c5662ab-7e5a-45a8-a133-5f4d6c6cb509.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPUT to /api/v1/inboundDialPalnRules/2c5662ab-7e5a-45a8-a133-5f4d6c6cb509 with body attribute delete=\"True\".",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPUT to /api/v1/inboundDialPalnRules/2c5662ab-7e5a-45a8-a133-5f4d6c6cb509."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-22T09:20:00.000Z",
+        "voteCount": 6,
+        "content": "The answer is B"
+      },
+      {
+        "date": "2022-04-26T07:09:00.000Z",
+        "voteCount": 1,
+        "content": "Search for /inboundDialPlanRules/&lt;inbound dial plan rule id&gt; https://ciscocms.docs.apiary.io/#introduction/general-structure-of-methods/object-hierarchy"
+      },
+      {
+        "date": "2022-05-20T06:36:00.000Z",
+        "voteCount": 1,
+        "content": "It looks like A :)"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/cisco/view/43532-exam-300-835-topic-1-question-57-discussion/",
+    "body": "<img src=\"/assets/media/exam-media/03564/0007000001.png\" class=\"in-exam-image\"><br>Refer to the exhibit. A Webex Meetings XML API HTTP request message with several invalid portions is shown. Which reference points to a line in the exhibit that correctly indicates that this is a LstsummaryUser request?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tline 17",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tline 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tline 18",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tline 14"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T12:58:00.000Z",
+        "voteCount": 5,
+        "content": "I guess this should be C\nhttps://developer.cisco.com/docs/webex-xml-api-reference-guide/#!lstsummarymeeting/lstsummarymeeting"
+      },
+      {
+        "date": "2021-11-17T22:41:00.000Z",
+        "voteCount": 1,
+        "content": "Line 1 is not right because you should be posting just to the XMLservice with a full https url\nhttps://community.cisco.com/t5/collaboration-documents/using-webex-meeting-services-xml-api/ta-p/3621639"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/cisco/view/50791-exam-300-835-topic-1-question-59-discussion/",
+    "body": "Which two methods can be used to add a custom UI panel to a Webex room device? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImport an existing panel configuration file by connecting a USB storage drive to the device.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse xAPI to push a JSON panel configuration to the device.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a panel using the device UI Extensions Editor (previously In-Room Controls).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRestore a device backup file present on a PC that contains a panel configuration.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom a T-shell session, use the git command to merge the XML configuration of a panel."
+    ],
+    "answer": "AE",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-22T09:40:00.000Z",
+        "voteCount": 2,
+        "content": "wrong url, here is the correct one\nhttps://www.ciscolive.com/c/dam/r/ciscolive/emea/docs/2020/pdf/BRKDEV-3244.pdf"
+      },
+      {
+        "date": "2021-04-22T09:39:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is B and C \nhttps://www.examtopics.com/exams/cisco/300-835/view/15/"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/cisco/view/61143-exam-300-835-topic-1-question-60-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the elements to create the command to initiate a call to device@company.com using the Webex Devices xAPI SSH Interface. Not all options are used.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03564/0007200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03564/0007300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-31T02:53:00.000Z",
+        "voteCount": 2,
+        "content": "Correct, from admin guide:\n\nUSAGE:\nxCommand Dial Number: \"Number\" ............\n\nExplanation of \"Number\"\nEnter the number or address"
+      }
+    ],
+    "examNameCode": "300-835",
+    "topicNumber": "1"
+  }
+]

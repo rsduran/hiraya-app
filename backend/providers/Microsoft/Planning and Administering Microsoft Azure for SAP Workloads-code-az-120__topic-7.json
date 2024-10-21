@@ -1,0 +1,95 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41140-exam-az-120-topic-7-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the proposed backup policy.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0001200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0001200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Scenario: Technical requirements: Ensure that an application server can be restored from a backup created during the last five days within 15 minutes.<br>Instant Restore has 'The instance recovery snapshot(s) for 5 Day(s)'.<br><br>Box 2: No -<br>Scenario: Ensure that all the production application servers can restore daily backups from the last 21 days.<br>The Retention of daily backup point is set to for 14 days only.<br><br>Box 3: Yes -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-27T14:47:00.000Z",
+        "voteCount": 1,
+        "content": "The YES, NO, NO is for the case in which the file was created after the retention policy was activated, and depending when the file was created &amp; subsequently deleted relative to the backup schedule, the ability to recover the file is not guaranteed - @Ksseba gave a good example of that.\nBut if the file existed before the policy was activated, the answer is YES, NO, YES - as either based on monthly of early backups, we should be able to recover some instance of that file ( but by no means,  the latest copy of the file before deletion)."
+      },
+      {
+        "date": "2021-05-07T18:48:00.000Z",
+        "voteCount": 6,
+        "content": "This is a tricky question, but I prefer YES, NO, YES.\nIf you answer YES, NO, NO. I cannot say you are wrong, because that is the case.\nAnd you even should say that we cannot guarantee the file that you deleted today for example. Isn't it? because the file may be created today!"
+      },
+      {
+        "date": "2021-03-27T14:31:00.000Z",
+        "voteCount": 1,
+        "content": "YES, NO, NO"
+      },
+      {
+        "date": "2021-02-18T18:04:00.000Z",
+        "voteCount": 1,
+        "content": "It depends on when the deleted file was created. In case the file was created last year between two monthly backups and deleted before the next monthly backup, one won't be able to recover it. Answer is YES NO NO"
+      },
+      {
+        "date": "2021-01-01T05:04:00.000Z",
+        "voteCount": 3,
+        "content": "YES NO YES"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/24104-exam-az-120-topic-7-question-2-discussion/",
+    "body": "HOTSPOT -<br>You are planning replication of the SAP HANA database for the disaster recovery environment in Azure.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03992/0001400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03992/0001400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>SAP HANA Replication consists of one primary node and at least one secondary node. Changes to the data on the primary node are replicated to the secondary node synchronously or asynchronously.<br><br>Box 2: No -<br>Since SPS11 SAP HANA system replication can be run in two different operation modes:<br>\u2711 delta_datashipping<br>\u2711 logreplay<br><br>Box 3: Yes -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel https://blogs.sap.com/2018/01/08/your-sap-on-azure-part-4-high-availability-for-sap-hana-using-system-replication/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-20T03:35:00.000Z",
+        "voteCount": 6,
+        "content": "Option A - No. Sync mode is mostly used for High Availability, also recommended when the nodes are within 100Kms distance.\nOption B - Must be No. Operation modes must be identical between nodes in a Multi node replication and there is nothing mentioned in the question about the modes.\nOption C - ? Azure AD application for failover, not sure about this."
+      },
+      {
+        "date": "2020-08-01T10:05:00.000Z",
+        "voteCount": 6,
+        "content": "Azure AD application is required for the STONITH using azure fencing agent, to shut down VMs and prevent splitbrain. Using the fencing agent instead of using a VM as iSCSI STONITH device is to meet the business requirements to - minimize costs whenever possible."
+      },
+      {
+        "date": "2021-05-20T03:44:00.000Z",
+        "voteCount": 1,
+        "content": "Is STONITH used for disaster recovery?"
+      },
+      {
+        "date": "2021-02-09T23:05:00.000Z",
+        "voteCount": 6,
+        "content": "Option C, should be Yes,"
+      },
+      {
+        "date": "2024-06-10T18:13:00.000Z",
+        "voteCount": 1,
+        "content": "Answers should be all No.  3rd question should be No (as AD has nothing to do with failover, it is for network authentication)"
+      },
+      {
+        "date": "2022-09-22T20:11:00.000Z",
+        "voteCount": 1,
+        "content": "i think N/Y/Y"
+      },
+      {
+        "date": "2021-03-26T15:39:00.000Z",
+        "voteCount": 1,
+        "content": "Option B, NO is correct.\nMinimize the bandwidth used for database synchronization.\nhttps://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/627bd11e86c84ec2b9fcdf585d24011c.html"
+      },
+      {
+        "date": "2020-06-25T20:56:00.000Z",
+        "voteCount": 3,
+        "content": "first box is indeed No, although case study indicates that they need minimal downtime, across regions, from on-prem to Azure scenarios only support asyc replication ( more than 100 kms)"
+      }
+    ],
+    "examNameCode": "az-120",
+    "topicNumber": "7"
+  }
+]

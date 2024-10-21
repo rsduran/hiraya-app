@@ -1,0 +1,678 @@
+[
+  {
+    "topic": 13,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10410-exam-az-500-topic-13-question-1-discussion/",
+    "body": "HOTSPOT -<br>What is the membership of Group1 and Group2? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0021400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0021500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: User1, User2, User3, User4<br>Contains \"ON\" is true for Montreal (User1), MONTREAL (User2), London (User 3), and Ontario (User4) as string and regex operations are not case sensitive.<br><br>Box 2: Only User3 -<br>Match \"*on\" is only true for London (User3) as 'London' is the only word that ends with 'on'.<br>Scenario:<br>Contoso.com contains the users shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0021600001.png\" class=\"in-exam-image\"><br>Contoso.com contains the security groups shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0021600002.png\" class=\"in-exam-image\"><br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/groups-dynamic-membership",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-20T20:26:00.000Z",
+        "voteCount": 58,
+        "content": "The answer is correct. Group 1 - U1, U2, U3 &amp; U4  AND for Group 2 - U3."
+      },
+      {
+        "date": "2021-04-25T12:52:00.000Z",
+        "voteCount": 28,
+        "content": "Tested in lab.. \n &gt;&gt;&gt; -match \"*on\" &gt;&gt;&gt; is an incorrect expression, it will not allow you to save the this, so the group will not contain any members.\n... valid expression could be \".*on\"  (with a dot in front) ... so make sure in exam you see the dot, if no dot ... then, no members."
+      },
+      {
+        "date": "2024-08-08T16:38:00.000Z",
+        "voteCount": 1,
+        "content": "match and contains differs in a way that match supports regular expressions, but in this example - they work the same. both are case insensitive and saying \"there is a match for 'on'' and \"it contains 'on'\" - are equivalent. \nit will be u1,2,3,4 for both"
+      },
+      {
+        "date": "2022-03-22T06:04:00.000Z",
+        "voteCount": 10,
+        "content": "In the exam its - Match \"on\" \nno dot selected no members"
+      },
+      {
+        "date": "2021-05-09T03:09:00.000Z",
+        "voteCount": 2,
+        "content": "you're right, the syntacx is evaluated only on this format (user.displayName -match \".*as\")"
+      },
+      {
+        "date": "2023-12-20T11:41:00.000Z",
+        "voteCount": 1,
+        "content": "To back the CASGTI.\nhttps://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-membership\nUsing the -match operator\nThe -match operator is used for matching any regular expression\nuser.displayName -match \".*vid\""
+      },
+      {
+        "date": "2024-07-19T20:16:00.000Z",
+        "voteCount": 2,
+        "content": "This case study was in Exam 19/07/2024\nI Selected users 1234 for both groups."
+      },
+      {
+        "date": "2024-07-04T02:53:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with the answers users 1-4 for each answer section https://learn.microsoft.com/en-us/entra/identity/users/groups-dynamic-rule-more-efficient. The relevant section Minimize the usage of the match operator in rules as much as possible. Instead, explore if it's possible to use the startswith or -eq operators. Considering using other properties that allow you to write rules to select the users you want to be in the group without using the -match operator. For example, if you want a rule for the group for all users whose city is Lagos, then instead of using rules like:\n\nuser.city -match \"ago\""
+      },
+      {
+        "date": "2024-06-20T03:47:00.000Z",
+        "voteCount": 4,
+        "content": "Tested in Lab!\n\ncorrect answer:\nGroup1: User1, User2, User3, User4\nGroup2: User1, User2, User3, User4\n\nuser.city -contains \"ON\" = and user.city -match \"on\" are not case sensitive and will show the same result.\n\nBut looks like the -match command is more flexible.\n\nContains: \nuser.city -contains \"ON\" = ok\nuser.city -contains \".*ON\"  = error1\nuser.city -contains \".ON\"  = error1\nuser.city -contains \"*ON\" = error1\nuser.city -contains \"*.ON\" = error1\n\nMatch\nuser.city -match \"on\" = ok\nuser.city -match \".*on\"  = ok\nuser.city -match \".on\"  = ok\nuser.city -match \"*on\" = error2\nuser.city -match\"*.on\" = error2\n\n\nerror1: Dynamic membership rule validation error: Invalid operator. Invalid operator '-contain'\nerror2: Unable to complete due to service connection error. Please try again later. (its not a temporary error ;-)"
+      },
+      {
+        "date": "2024-07-13T14:40:00.000Z",
+        "voteCount": 1,
+        "content": "what was the results for ? is it only ?User 3 - London?\nuser.city -match \".*on\" = ok\nuser.city -match \".on\" = ok"
+      },
+      {
+        "date": "2024-05-07T10:09:00.000Z",
+        "voteCount": 5,
+        "content": "Passed. \n\nExam duration 100 min + 20.\n\nOn the Microsoft site:\nhttps://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification\nYou will have 100 minutes to complete this assessment.\nLast Updated 04/30/2024\n\n55 questions (46+9)\ncontoso, 6 questions \nThis question in exam (study case)\nMy answer\nGroup1: User1, User2, User3, User4\nGroup2: User1, User2, User3, User4\n\nNew 3 or 4 questions\nVM1, SQL1, VNET1, AKS in Google Cloud.\nWhat items are protected by Microsoft Defender &amp; default period scan."
+      },
+      {
+        "date": "2024-05-03T10:30:00.000Z",
+        "voteCount": 2,
+        "content": "Tested in lab\n\nThe two membership conditions are case insesitive and give the same result (the same memberhip for the test groups).\n\nAll give the same result.\n(user.city -match \"on\")\n(user.city -match \".*on\")\n(user.city -contains \"ON\")\n\nGroup1: User1, User2, User3, User4\nGroup2: User1, User2, User3, User4\n\nIt's not valid expression:\nFailed to save group. Failed to save dynamic group. \n(user.city -match \"*on\")\n(user.city -match \"*.on\")"
+      },
+      {
+        "date": "2024-01-30T11:48:00.000Z",
+        "voteCount": 5,
+        "content": "In exam 1/28/24"
+      },
+      {
+        "date": "2024-01-12T05:24:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is U1 U2 U3 and U4 four both \n\nThe -match operator is used for matching any regular expression. Examples:\n\n\nCopy\nuser.displayName -match \"^Da.*\"   \nDa, Dav, David evaluate to true, aDa evaluates to false."
+      },
+      {
+        "date": "2023-11-22T14:37:00.000Z",
+        "voteCount": 2,
+        "content": "Explanation:\nBox 1: User1, User2, User3, User4\nContains \"ON\" is true for Montreal (User1), MONTREAL (User2), London (User 3), and Ontario (User4) as string\nand regex operations are not case sensitive.\nBox 2: Only User3 -\nMatch \"*on\" is only true for London (User3) as 'London' is the only word that ends with 'on'."
+      },
+      {
+        "date": "2023-10-31T13:07:00.000Z",
+        "voteCount": 3,
+        "content": "Tested in lab.\n\nGroup1 is: User1, User2, User3, User4\nGroup2 is: User1, User2, User3, User4 (With -macth \"on\" and with -match \".*on\")"
+      },
+      {
+        "date": "2024-03-29T02:11:00.000Z",
+        "voteCount": 1,
+        "content": "Also tested it and same result."
+      },
+      {
+        "date": "2023-10-17T04:08:00.000Z",
+        "voteCount": 1,
+        "content": "both are case insesitive where one is classical substring match \"contains\" and 2nd is regex match(/ig). Both will give the same output"
+      },
+      {
+        "date": "2023-10-09T09:23:00.000Z",
+        "voteCount": 1,
+        "content": "According to the question, Group 2: No Members"
+      },
+      {
+        "date": "2023-10-09T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "It should return Group2 =&gt; U1, U2,U3,U4\n\nOnly User3 will be if the expression \".*on\"."
+      },
+      {
+        "date": "2023-09-23T04:50:00.000Z",
+        "voteCount": 3,
+        "content": "I tested it with this script\n# Define an array of colors\n$colors = \"RED\", \"Green\", \"Blue\"\n\n# Check if \"Red\" exists in the array (case-sensitive)\nif ($colors -contains \"Red\") {\n    Write-Host \"The array contains 'Red'.\"\n} else {\n    Write-Host \"The array does not contain 'Red'.\"\n}\n\n# Check if \"red\" exists in the array (case-sensitive)\nif ($colors -contains \"red\") {\n    Write-Host \"The array contains 'red'.\"\n} else {\n    Write-Host \"The array does not contain 'red'.\"\n}\n\nif ($colors -match \"red\") {\n    Write-Host \"The array match 'red'.\"\n} else {\n    Write-Host \"The array does not match 'red'.\"\n}\n\n***************************\nConsole shows this result\n\nThe array contains 'Red'.\nThe array contains 'red'.\nThe array match 'red'.\n****************************\nMy conclusion is \nGroup 1 =&gt; U1,U2,U3,U4\nGroup2 =&gt; U1, U2,U3,U4"
+      },
+      {
+        "date": "2023-09-23T04:52:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/active-directory/enterprise-users/groups-dynamic-membership#:~:text=String%20and%20regex%20operations%20aren%27t%20case%20sensitive."
+      },
+      {
+        "date": "2023-07-08T00:03:00.000Z",
+        "voteCount": 1,
+        "content": "user.displayName -match \"Da.*\"   \nDa, Dav, David evaluate to true, aDa evaluates to false.\nTherefore in this case -match \"on\" there are no match for group 2"
+      },
+      {
+        "date": "2023-06-24T04:57:00.000Z",
+        "voteCount": 1,
+        "content": "is the \"-match\" operator case-sensitive ?"
+      },
+      {
+        "date": "2024-01-05T12:09:00.000Z",
+        "voteCount": 1,
+        "content": "No, all string operations are case insensitive."
+      },
+      {
+        "date": "2023-05-10T04:41:00.000Z",
+        "voteCount": 4,
+        "content": "Gotten this in May 2023 exam."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/46543-exam-az-500-topic-13-question-2-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the security of the network communication between the virtual machines in Sub2.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0021700001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0021700002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes. All traffic is allowed out to the Internet so you can ping the public IP.<br>NSG1, NSG2, NSG3, and NSG4 have the outbound security rules shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0021800001.png\" class=\"in-exam-image\"><br>Box 2: Yes. VM3 is on Subnet12. There is no NSG attached to Subnet12 so the traffic will be allowed by default.<br><img src=\"/assets/media/exam-media/04258/0021800002.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/04258/0021800003.png\" class=\"in-exam-image\"><br>Box 3: No (because VM5 is in a separate VNet).<br>Note: Sub2 contains the virtual machines shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0021900001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/04258/0021900002.png\" class=\"in-exam-image\">",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-19T07:02:00.000Z",
+        "voteCount": 99,
+        "content": "1 -- No, as traffic would be sourced from internet since it is destined to the public IP address of VM2.\n2 -- Yes, as VM3 has no NSGs interfering and traffic is contained within the same vnet.\n3 -- No, as VM5 is in a separate vnet and there is no mention of any peering going on."
+      },
+      {
+        "date": "2023-12-20T05:22:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is No, Yes, No.\n\nPlease note that \"Network security groups are processed after Azure translates a public IP address to a private IP address for inbound traffic, and before Azure translates a private IP address to a public IP address for outbound traffic.\".\n\nHere is the link for reference.\nhttps://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview\n\nIt means you need to use some other means to prevent traffic from reaching the public IP of VM2. NSGs will only come in action once the public-to-private IP address translation has taken place."
+      },
+      {
+        "date": "2021-03-11T11:49:00.000Z",
+        "voteCount": 20,
+        "content": "1. [No] because VM1 is trying to reach VM2 with VM2's PUBLIC IP address which should be blocked by NSG1.\n2. [Yes] because VM1 and VM3 are in the same VNET and you can reach each other with the private IP address. \n3. [Yes] VM5 has NSG4 which allows internet traffic. VM1 can reach VM5 through internet using the public IP."
+      },
+      {
+        "date": "2021-07-02T03:50:00.000Z",
+        "voteCount": 5,
+        "content": "Question asked for Privet IP..and not Public IP of VM5"
+      },
+      {
+        "date": "2021-05-27T01:38:00.000Z",
+        "voteCount": 2,
+        "content": "The ping to the private ip address of VM5 is No . Because, VM5 do not have application security group, it only true if VM5 configure that."
+      },
+      {
+        "date": "2021-03-17T02:20:00.000Z",
+        "voteCount": 8,
+        "content": "3. it states private IP, not public IP. Plus, VM5 is on a different network. 3 is No IMO."
+      },
+      {
+        "date": "2021-03-19T12:43:00.000Z",
+        "voteCount": 5,
+        "content": "good observation. The question does not tell anything about peering and routing between the 2 vnets. So, No for sure for 3rd box."
+      },
+      {
+        "date": "2021-12-22T03:31:00.000Z",
+        "voteCount": 7,
+        "content": "Option 3 can never be True/Yes, it must be NO...because they are talking abt Private IP not public one and secondly VM1 and VM5 are in different Vnets and also have no Peering between them."
+      },
+      {
+        "date": "2024-07-19T20:17:00.000Z",
+        "voteCount": 1,
+        "content": "In Exam20/07/2024"
+      },
+      {
+        "date": "2024-05-07T10:09:00.000Z",
+        "voteCount": 3,
+        "content": "Passed. \n\nExam duration 100 min + 20.\n\nOn the Microsoft site:\nhttps://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification\nYou will have 100 minutes to complete this assessment.\nLast Updated 04/30/2024\n\n55 questions (46+9)\ncontoso, 6 questions \nThis question in exam (study case)\nMy answer\nY N Y \n\nNew 3 or 4 questions\nVM1, SQL1, VNET1, AKS in Google Cloud.\nWhat items are protected by Microsoft Defender &amp; default period scan."
+      },
+      {
+        "date": "2024-01-30T11:49:00.000Z",
+        "voteCount": 4,
+        "content": "In exam 1/28/24"
+      },
+      {
+        "date": "2023-11-13T14:43:00.000Z",
+        "voteCount": 3,
+        "content": "Explanation:\n1 -- No, as traffic would be sourced from internet since it is destined to the public IP address of VM2.2 -- Yes, as VM3 has no NSGs interfering and traffic is contained within the same vnet.3 -- No, as VM5 is in a separate vnet and there is no mention of any peering going on."
+      },
+      {
+        "date": "2023-11-04T11:54:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is N N N\n\nBox 1: No. All traffic is allowed out to the Internet as per the outbound rule. However, the inbound rules on the NSG1 does not have a rule to allow traffic from Internet and on NSG2 is set to allow traffic from the Internet on port TCP 80 only, hence, Ping will be denied.\n\nBox 2: No. VM3 is on Subnet12(same VNet). However, there is no NSG attached to Subnet12 so the traffic will be blocked.\nAll network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them.\nFrom &lt;https://learn.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works#inbound-traffic&gt; \nHowever, kindly note that if it was the opposite, ping from VM3 to VM1 then the outbound traffic from VM3 will be allowed as the default rule for the outbound traffic is to allow any. \n\nBox 3: No (because VM5 is in a separate VNet)."
+      },
+      {
+        "date": "2023-10-09T09:59:00.000Z",
+        "voteCount": 1,
+        "content": "Ans is N, Y, N.\n\nFor 1st question, NSG2 only allows traffic from Internet on Port 80."
+      },
+      {
+        "date": "2023-05-10T04:41:00.000Z",
+        "voteCount": 7,
+        "content": "Gotten this in May 2023 exam."
+      },
+      {
+        "date": "2023-04-21T00:24:00.000Z",
+        "voteCount": 2,
+        "content": "No, Yes, No - Is correct. I have really looked it through."
+      },
+      {
+        "date": "2023-04-04T06:34:00.000Z",
+        "voteCount": 3,
+        "content": "This is like a sick Microsoft mind bending puzzle."
+      },
+      {
+        "date": "2023-03-04T13:17:00.000Z",
+        "voteCount": 5,
+        "content": "NO\nYES\nNO"
+      },
+      {
+        "date": "2022-11-01T10:22:00.000Z",
+        "voteCount": 2,
+        "content": "in exam oct. 31st"
+      },
+      {
+        "date": "2022-10-31T00:17:00.000Z",
+        "voteCount": 1,
+        "content": "Associate a public IP address to a virtual machine | Microsoft Learn\nPublic IP addresses are associated to network interfaces attached to a VM\nAllow network traffic to the VM\nBefore you can connect to the public IP address from the internet, ensure that you have the necessary ports open in any network security group that you might have associated to the network interface, the subnet of the network interface, or both. Though security groups filter traffic to the private IP address of the network interface, once inbound internet traffic arrives at the public IP address, Azure translates the public address to the private IP address, so if a network security group prevents the traffic flow, the communication with the public IP address fails."
+      },
+      {
+        "date": "2022-10-24T08:11:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is \nNO-YES-NO"
+      },
+      {
+        "date": "2022-10-18T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "In Exam 10/18/2022. One case study(6 ques), no lab."
+      },
+      {
+        "date": "2022-08-21T19:39:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is Correct\n1 . NSG 2 is assign in Subnet 11 So First answer is Yes. NSG 1 is assign in NIC 2. In this case, 2 NSG assign Subnet and NIC in VM 2. If you apply any rule in NIC or Subnet, this rule will be effect in VM."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13747-exam-az-500-topic-13-question-3-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the effect of the application security groups on the network communication between the virtual machines in Sub2.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0022000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0022000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No.  VM4 is in Subnet13 which has NSG3 attached to it.<br>VM1 is in ASG1. NSG3 would only allow ICMP pings from ASG2 but not ASG1.  Only TCP traffic is allowed from ASG1.<br>NSG3 has the inbound security rules shown in the following table.<br><img src=\"/assets/media/exam-media/04258/0022100001.png\" class=\"in-exam-image\"><br>Box 2: Yes.<br>VM2 is in ASG2.  Any protocol is allowed from ASG2 so ICMP ping would be allowed.<br>Box3. VM1 is in ASG1. TCP traffic is allowed from ASG1 so VM1 could connect to the web server as connections to the web server would be on ports TCP 80 or<br>TCP 443.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-10T08:22:00.000Z",
+        "voteCount": 51,
+        "content": "q1: dont forget ping is not tcp.. I know better but forgot."
+      },
+      {
+        "date": "2020-04-17T04:34:00.000Z",
+        "voteCount": 5,
+        "content": "lol, I was about to kick off, until I read your comment. Face palmed myself and thought I'm an idiot, I also know better"
+      },
+      {
+        "date": "2020-11-26T10:51:00.000Z",
+        "voteCount": 2,
+        "content": "Well excuse me...:\nVerifies IP-level connectivity to another TCP/IP computer by sending Internet Control Message Protocol (ICMP) echo Request messages. The receipt of corresponding echo Reply messages are displayed, along with round-trip times. ping is the primary TCP/IP command used to troubleshoot connectivity, reachability, and name resolution. Used without parameters, this command displays Help content.\n\nand\n\nThis command is available only if the Internet Protocol (TCP/IP) is installed as a component in the properties of a network adapter in Network Connections.\n\nhttps://docs.microsoft.com/en-us/windows-server/administration/windows-commands/ping\n\nsounds to me like icmp is operating within TCP and therefore the answer to Q1 should be YES in my opinion."
+      },
+      {
+        "date": "2021-01-27T15:10:00.000Z",
+        "voteCount": 9,
+        "content": "No ICMP itself is a protocol just like TCP, UDP. Dont confuse them with ports, hence it does not fall under TCP."
+      },
+      {
+        "date": "2021-08-11T09:37:00.000Z",
+        "voteCount": 1,
+        "content": "Test this in Azure and you'll see that its wrong. Allow TCP does not allow ICMP (or UDP), the NSG rules are protocol specific and ICMP is its own protocol."
+      },
+      {
+        "date": "2020-11-28T09:26:00.000Z",
+        "voteCount": 8,
+        "content": "ICMP is a network-layer protocol. There is no TCP or UDP port number associated with ICMP packets as these numbers are associated with the transport layer above. So comparing to HTTP, which has a port 80 or 443 , there for the underlying protocol tcp is mapped to that protocol as well. ICMP is different. \n\nSS"
+      },
+      {
+        "date": "2023-02-18T11:27:00.000Z",
+        "voteCount": 1,
+        "content": "missed that there is rule with 200 priority which will not allow any communication.. \nIgnore my query above."
+      },
+      {
+        "date": "2021-02-28T13:29:00.000Z",
+        "voteCount": 26,
+        "content": "Answer is correct - No, Yes, Yes.\n\nYou cannot ping the private address of VM4. VM4 is in ASG1 connected to Subnet13 that is associated with NSG3. NSG3 allows only allows TCP from ASG1 and ICMP is not TCP, therefore the answer is no.\n\nFrom VM2, you can ping the private IP address of VM4 as NSG3 allows inbound connections on any protocol from ASG2.\n\nFrom VM1, you can connect to the web server on VM4 as NSG3 allows all TCP connections from ASG1 to ASG1, and both VM1 and VM4 are in ASG1."
+      },
+      {
+        "date": "2024-07-19T20:18:00.000Z",
+        "voteCount": 2,
+        "content": "In Exam20/07/2024"
+      },
+      {
+        "date": "2024-05-07T10:08:00.000Z",
+        "voteCount": 1,
+        "content": "Passed. \n\nExam duration 100 min + 20.\n\nOn the Microsoft site:\nhttps://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification\nYou will have 100 minutes to complete this assessment.\nLast Updated 04/30/2024\n\n55 questions (46+9)\ncontoso, 6 questions \nThis question in exam (study case)\nMy answer\nN Y N\n\nNew 3 or 4 questions\nVM1, SQL1, VNET1, AKS in Google Cloud.\nWhat items are protected by Microsoft Defender &amp; default period scan."
+      },
+      {
+        "date": "2024-05-07T10:25:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry: N Y Y"
+      },
+      {
+        "date": "2024-05-27T14:00:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry: Pings use a different protocol than TCP\nNYN.... goodbye"
+      },
+      {
+        "date": "2024-01-30T11:50:00.000Z",
+        "voteCount": 3,
+        "content": "In exam 1/28/24"
+      },
+      {
+        "date": "2023-10-19T06:39:00.000Z",
+        "voteCount": 2,
+        "content": "ANSWER:\nNO- PROTOCOL IS TCP that is why\nYES\nYES"
+      },
+      {
+        "date": "2023-10-17T04:31:00.000Z",
+        "voteCount": 1,
+        "content": "answer is correct"
+      },
+      {
+        "date": "2023-10-09T10:21:00.000Z",
+        "voteCount": 2,
+        "content": "Answers are correct.\n\nTCP and ICP are NOT same."
+      },
+      {
+        "date": "2023-09-23T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "Tips :\n\n\"You can connect\" means via protocol(TCP) - communication with acknowledge flags etc.\n\n\"Ping\" is not TCP protocol. This is ICMP (Internet Control Message Protocol) - Just control :)"
+      },
+      {
+        "date": "2023-09-23T05:58:00.000Z",
+        "voteCount": 1,
+        "content": "ICMP ping example =&gt; ping google.com"
+      },
+      {
+        "date": "2023-06-04T22:36:00.000Z",
+        "voteCount": 1,
+        "content": "so what is the correct answer? NYY?"
+      },
+      {
+        "date": "2023-05-10T04:41:00.000Z",
+        "voteCount": 1,
+        "content": "Gotten this in May 2023 exam."
+      },
+      {
+        "date": "2023-03-04T13:19:00.000Z",
+        "voteCount": 4,
+        "content": "NO\nYES\nYES"
+      },
+      {
+        "date": "2023-02-18T11:26:00.000Z",
+        "voteCount": 1,
+        "content": "Q1 : Rule 65000 allowing any protocol with in virtual network and should allow PING as well from VM1 to VM4"
+      },
+      {
+        "date": "2022-11-01T10:24:00.000Z",
+        "voteCount": 1,
+        "content": "in exam oct. 31st."
+      },
+      {
+        "date": "2022-10-20T15:55:00.000Z",
+        "voteCount": 6,
+        "content": "N, Y, Y\n1 = N , because only TCP is allowed from ASG1, not icmp\n2 = Y, because ASG2 is allowed any inbound\n3 = Y, because tcp is allowed as explained for 1."
+      },
+      {
+        "date": "2022-10-21T06:46:00.000Z",
+        "voteCount": 1,
+        "content": "Item 3: This is true in case connection to Web server is done on the private IP. Otherwise it is NO - packets from Internet are dropped."
+      },
+      {
+        "date": "2022-10-18T06:10:00.000Z",
+        "voteCount": 2,
+        "content": "In Exam 10/18/2022. One case study(6 ques), no lab."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21857-exam-az-500-topic-13-question-4-discussion/",
+    "body": "You need to meet the technical requirements for VNetwork1.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new subnet on VNetwork1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the NSGs from Subnet11 and Subnet13.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssociate an NSG to Subnet12.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure DDoS protection for VNetwork1."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 12,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-01T20:29:00.000Z",
+        "voteCount": 37,
+        "content": "Indeed. VNet1 has not subnet for AzureFirewall. Create a new subnet for AzureFirewall named as exactly as AzureFirewallSubnet."
+      },
+      {
+        "date": "2021-11-28T07:38:00.000Z",
+        "voteCount": 1,
+        "content": "VNET1 is for Sub1. The scope of the question is the virtual network VNetwork1 under the subscription Sub2."
+      },
+      {
+        "date": "2020-07-01T02:40:00.000Z",
+        "voteCount": 19,
+        "content": "A, for sure."
+      },
+      {
+        "date": "2024-07-19T20:18:00.000Z",
+        "voteCount": 1,
+        "content": "In Exam20/07/2024"
+      },
+      {
+        "date": "2024-05-07T10:07:00.000Z",
+        "voteCount": 2,
+        "content": "Passed. \n\nExam duration 100 min + 20.\n\nOn the Microsoft site:\nhttps://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification\nYou will have 100 minutes to complete this assessment.\nLast Updated 04/30/2024\n\n55 questions (46+9)\ncontoso, 6 questions \nThis question in exam (study case)\nMy answer\n Create a new subnet on VNetwork1.\n\nNew 3 or 4 questions\nVM1, SQL1, VNET1, AKS in Google Cloud.\nWhat items are protected by Microsoft Defender &amp; default period scan."
+      },
+      {
+        "date": "2024-01-30T11:51:00.000Z",
+        "voteCount": 2,
+        "content": "In exam 1/28/24"
+      },
+      {
+        "date": "2023-10-09T10:23:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer: A"
+      },
+      {
+        "date": "2023-05-06T00:42:00.000Z",
+        "voteCount": 3,
+        "content": "A is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal\nUnder Subnet name, select default and change it to AzureFirewallSubnet. The firewall will be in this subnet, and the subnet name must be AzureFirewallSubnet.\nThe size of the AzureFirewallSubnet subnet is /26."
+      },
+      {
+        "date": "2023-03-04T13:20:00.000Z",
+        "voteCount": 5,
+        "content": "A. Create a new subnet on VNetwork1."
+      },
+      {
+        "date": "2022-11-01T10:24:00.000Z",
+        "voteCount": 1,
+        "content": "in exam oct. 31st"
+      },
+      {
+        "date": "2022-10-18T06:10:00.000Z",
+        "voteCount": 2,
+        "content": "In Exam 10/18/2022. One case study(6 ques), no lab."
+      },
+      {
+        "date": "2022-06-20T02:01:00.000Z",
+        "voteCount": 2,
+        "content": "In Exam - 20/6/2022 - 1 Case Study ( 6 ) - Lab ( 10 Tasks )"
+      },
+      {
+        "date": "2022-03-23T23:19:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct answer"
+      },
+      {
+        "date": "2021-12-29T11:38:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer. In exam Dec'21. 40 questions, 1 case study, no labs.."
+      },
+      {
+        "date": "2021-11-28T07:37:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A is correct. In this case: https://docs.microsoft.com/en-us/azure/firewall/tutorial-firewall-deploy-portal\nthe tutorial also tells \"the subnet name must be AzureFirewallSubnet\""
+      },
+      {
+        "date": "2021-09-29T17:55:00.000Z",
+        "voteCount": 1,
+        "content": "#exam ques # 29 Sep"
+      },
+      {
+        "date": "2021-09-20T14:31:00.000Z",
+        "voteCount": 2,
+        "content": "## Exam Question -  17 Sept 2021 ##"
+      },
+      {
+        "date": "2021-09-07T15:23:00.000Z",
+        "voteCount": 2,
+        "content": "firewall, baston, gateway all require dedicated subnet"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "13"
+  },
+  {
+    "topic": 13,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/46802-exam-az-500-topic-13-question-5-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the security of VM1, VM2, and VM3 in Sub2.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0022200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0022200002.png\" class=\"in-exam-image\">",
+    "answerDescription": "VM1: Yes. NSG2 applies to VM1 and this allows inbound traffic on port 80.<br>VM2: No. NSG2 and NSG1 apply to VM2.  NSG2 allows the inbound traffic on port 80 but NSG1 does not allow it.<br>VM3: Yes.  There are no NSGs applying to VM3 so all ports will be open.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-12T15:56:00.000Z",
+        "voteCount": 33,
+        "content": "Answers correct! Y, N, Y"
+      },
+      {
+        "date": "2021-03-28T09:02:00.000Z",
+        "voteCount": 19,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works\nFor anyone who doesn't understand how multiple NSGs work. This explains it perfect\nAnswers are correct"
+      },
+      {
+        "date": "2024-07-19T20:19:00.000Z",
+        "voteCount": 1,
+        "content": "In Exam20/07/2024"
+      },
+      {
+        "date": "2024-05-07T10:07:00.000Z",
+        "voteCount": 2,
+        "content": "Passed. \n\nExam duration 100 min + 20.\n\nOn the Microsoft site:\nhttps://learn.microsoft.com/en-us/credentials/certifications/azure-security-engineer/?practice-assessment-type=certification\nYou will have 100 minutes to complete this assessment.\nLast Updated 04/30/2024\n\n55 questions (46+9)\ncontoso, 6 questions \nThis question in exam (study case)\nMy answer\nY N Y\n\nNew 3 or 4 questions\nVM1, SQL1, VNET1, AKS in Google Cloud.\nWhat items are protected by Microsoft Defender &amp; default period scan."
+      },
+      {
+        "date": "2024-01-30T11:51:00.000Z",
+        "voteCount": 2,
+        "content": "In exam 1/28/24"
+      },
+      {
+        "date": "2024-01-20T15:28:00.000Z",
+        "voteCount": 1,
+        "content": "How NGS1 is applicable to VM2?"
+      },
+      {
+        "date": "2024-01-20T15:29:00.000Z",
+        "voteCount": 1,
+        "content": "NSG1 is attached to VM1's NIC only"
+      },
+      {
+        "date": "2023-11-22T14:40:00.000Z",
+        "voteCount": 3,
+        "content": "VM1: Yes. NSG2 applies to VM1 and this allows inbound traffic on port 80.\nVM2: No. NSG2 and NSG1 apply to VM2. NSG2 allows the inbound traffic on port 80 but NSG1 does not allow\nit.\nVM3: Yes. There are no NSGs applying to VM3 so all ports will be open."
+      },
+      {
+        "date": "2023-11-13T15:01:00.000Z",
+        "voteCount": 3,
+        "content": "VM1: Yes. NSG2 applies to VM1 and this allows inbound traffic on port 80.\nVM2: No. NSG2 and NSG1 apply to VM2. NSG2 allows the inbound traffic on port 80 but NSG1 does not allow it.\nVM3: Yes. There are no NSGs applying to VM3 so all ports will be op"
+      },
+      {
+        "date": "2023-11-03T08:44:00.000Z",
+        "voteCount": 4,
+        "content": "Y N N\nReg 3, All network traffic is blocked through a subnet and network interface if they don't have a network security group associated to them."
+      },
+      {
+        "date": "2023-11-14T21:11:00.000Z",
+        "voteCount": 3,
+        "content": "Agree on YNN unless MS's example on this page is incorrect for VM4 Inbound where traffic is blocked\nhttps://learn.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works"
+      },
+      {
+        "date": "2024-03-29T13:32:00.000Z",
+        "voteCount": 1,
+        "content": "This is wrong information. If your VM has a public IP and no NSG associated, all traffic from the internet is allowed.\nhttps://learn.microsoft.com/en-us/azure/virtual-network/diagnose-network-traffic-filter-problem"
+      },
+      {
+        "date": "2024-04-11T02:43:00.000Z",
+        "voteCount": 2,
+        "content": "There is a slightly detail about that. Without NSG all internal traffic is allowed. About traffic coming from Internet, you have two cases:\n-&gt; If you are using a Basic SKU Public IP, then the IN/OUT public traffic is allowed by default without an NSG on the NIC/Subnet\n-&gt; If you are using a standard SKU Public IP, then the IN/OUT public traffic is NOT allowed by default and you need to create an NSG\n\nAs the question on that exam seems pretty old and there is no precisions about the Public IP SKU (Basic or Standard), we can assume that it is YNY. But assuming the SKU is standard, the answer would be YNN.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses#sku\n\nWhatever, in september 2025, the basic SKU will disappear. At that time, the answer will be definitively YNN if the exam content is updated &amp; the exam still exist on MS side :)"
+      },
+      {
+        "date": "2023-10-17T05:42:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct: YNY\n2nd:\nThe problem is that NSG1 is the last resolved NSG in the NSG order where NSG2 is resolved before which allows the connection through. Then comes NSG1 which has NSG1 and the traffic denies.\n3rd: \nNo NSG == access allowed"
+      },
+      {
+        "date": "2023-10-09T10:30:00.000Z",
+        "voteCount": 3,
+        "content": "Answers are correct : Y, N, Y"
+      },
+      {
+        "date": "2023-09-23T06:30:00.000Z",
+        "voteCount": 1,
+        "content": "VM1 and VM2 is connected to the same NIC and subnet. \nyou connect to VM1 from internet, yess i got it.\nBut why NO, when you connect to VM2 from internet. \nThe same case but different results. Is there any one can write an explanation?"
+      },
+      {
+        "date": "2023-09-23T06:35:00.000Z",
+        "voteCount": 1,
+        "content": "VM1 associated to subnet11 =&gt; NIC2\nVM2 associated to subnet11 =&gt; NIC2\n\nNIC2 inbound rule says 80 / TCP (Source = internet, destination=VirtualNetwork)\n\nWhy is it different, where connection requests are coming from internet ?"
+      },
+      {
+        "date": "2023-10-17T05:40:00.000Z",
+        "voteCount": 1,
+        "content": "The problem is that NSG1 is the last resolved NSG in the NSG order where NSG2 is resolved before which allows the connection through. Then comes NSG1 which has NSG1 and the traffic denies."
+      },
+      {
+        "date": "2023-05-10T04:40:00.000Z",
+        "voteCount": 4,
+        "content": "Gotten this in May 2023 exam."
+      },
+      {
+        "date": "2023-03-04T13:21:00.000Z",
+        "voteCount": 4,
+        "content": "YES\nNO\nYES"
+      },
+      {
+        "date": "2023-01-06T15:21:00.000Z",
+        "voteCount": 7,
+        "content": "Its YNN the default inbound rule does not allow traffic from the Internet you guys are confusing this with the default outbound rule which does allow all traffic to the Internet"
+      },
+      {
+        "date": "2023-01-18T09:17:00.000Z",
+        "voteCount": 4,
+        "content": "well actually it is dependent on the public ip SKU, basic allows everything by default while Standard blocks everything by default"
+      },
+      {
+        "date": "2023-04-12T09:17:00.000Z",
+        "voteCount": 4,
+        "content": "you are correct. By default nothing from Internet is allowed if there is no NSG. Tested in lab by disassociating NSG from VM NIC and it stopped connectivity."
+      },
+      {
+        "date": "2024-07-07T08:12:00.000Z",
+        "voteCount": 1,
+        "content": "There is not before nsg in the condition of question:\nAll virtual machines have public IP addresses and the Web Server (IIS) role installed. The firewalls for each virtual machine allow ping requests and web requests."
+      },
+      {
+        "date": "2022-11-01T10:25:00.000Z",
+        "voteCount": 1,
+        "content": "in exam oct. 31st"
+      },
+      {
+        "date": "2022-10-20T15:58:00.000Z",
+        "voteCount": 1,
+        "content": "Y, N, Y\nGiven answer is correct."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "13"
+  }
+]

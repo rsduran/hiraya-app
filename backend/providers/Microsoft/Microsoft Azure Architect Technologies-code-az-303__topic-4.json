@@ -1,0 +1,677 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41233-exam-az-303-topic-4-question-1-discussion/",
+    "body": "HOTSPOT -<br>You have the Azure SQL Database servers shown in the following table.<br><img src=\"/assets/media/exam-media/03862/0024200001.png\" class=\"in-exam-image\"><br>You have the Azure SQL databases shown in the following table.<br><img src=\"/assets/media/exam-media/03862/0024200002.png\" class=\"in-exam-image\"><br>You create a failover group named failover1 that has the following settings:<br>\u2711 Primary server: sqlserver1<br>\u2711 Secondary server: sqlserver2<br>\u2711 Read/Write failover policy: Automatic<br>\u2711 Read/Write grace period (hours): 1 hour<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03862/0024300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03862/0024300002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br><br>DB1 is on the primary server -<br><br>Box 2: No -<br>DB3 is on the secondary server.<br>You can put all or several databases within an elastic pool into the same failover group.<br><br>Box 3: No -<br>A failover group is a named group of databases managed by a single server or within a managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.<br>The secondary cannot be in the same region as the primary.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-15T04:45:00.000Z",
+        "voteCount": 78,
+        "content": "To do auto-failover, you must have primary and secondary servers in different regions. If you want to failover databases in an elastic pool, then the secondary server must have the same pool name. You can also failover a database that is not part of a pool to a secondary server.\n\nSo answer is correct:\nYes - You can add DB1 (not part of any pool) to failover group.\nNo - You can't add DB3 to the failover group since it is already part of the secondary server and has the same pool name, to provide failover from the primary.\nNo - Primary and secondary servers must be in different regions for auto-failover"
+      },
+      {
+        "date": "2021-07-22T00:47:00.000Z",
+        "voteCount": 3,
+        "content": "Good explain"
+      },
+      {
+        "date": "2021-01-02T09:03:00.000Z",
+        "voteCount": 10,
+        "content": "The question has issue\nI found the important tips from https://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview\nYou can create multiple pools on a server, but you can't add databases from different servers into the same pool.\n\nso that means the POOL1 only have 1 sql server"
+      },
+      {
+        "date": "2021-03-11T06:27:00.000Z",
+        "voteCount": 3,
+        "content": "Pools are per server. But a second server may have a pool with the same name."
+      },
+      {
+        "date": "2021-12-09T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "Question appeared On AZ-303 exam on 08/12/2021 - 49 questions, 4Q - Fabrikan case study"
+      },
+      {
+        "date": "2021-12-08T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "Question appeared On AZ-303 exam on 08/12/2021 - 49 questions, 4Q - Fabrikan case study"
+      },
+      {
+        "date": "2021-09-18T22:57:00.000Z",
+        "voteCount": 1,
+        "content": "Multiple pools can be created on the server, but databases belonging to different servers cannot be added to the same pool."
+      },
+      {
+        "date": "2021-08-28T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "1. You can add failover to a database that is not part of a pool.\n2. DB3 is part of sqlserver2. You cannot add DB3 to the failover group.\n3. Primary and secondary servers must be in different regions for auto-failover.\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/elastic-pool-overview\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/failover-group-add-elastic-pool-tutorial?tabs=azure-portal\n\nYes No No is correct"
+      },
+      {
+        "date": "2021-06-10T00:56:00.000Z",
+        "voteCount": 3,
+        "content": "tested, answers are CORRECT"
+      },
+      {
+        "date": "2021-06-07T18:32:00.000Z",
+        "voteCount": 4,
+        "content": "On exam 6/7/21"
+      },
+      {
+        "date": "2021-05-02T09:10:00.000Z",
+        "voteCount": 1,
+        "content": "Elastic pool is shared between Pri&amp;Sec SQL servers. See section 3) https://docs.microsoft.com/en-us/azure/azure-sql/database/failover-group-add-elastic-pool-tutorial?tabs=azure-portal"
+      },
+      {
+        "date": "2021-02-14T01:29:00.000Z",
+        "voteCount": 1,
+        "content": "CCCorrect....\nBecause auto-failover groups involve multiple databases, these databases must be configured on the primary server."
+      },
+      {
+        "date": "2021-02-11T05:19:00.000Z",
+        "voteCount": 4,
+        "content": "Yes No No is correct"
+      },
+      {
+        "date": "2021-02-02T19:53:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer is NYN, becasue \n\"You can put all or several databases within an elastic pool into the same failover group.\""
+      },
+      {
+        "date": "2021-01-18T19:51:00.000Z",
+        "voteCount": 1,
+        "content": "confusing"
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41282-exam-az-303-topic-4-question-2-discussion/",
+    "body": "Your company plans to develop an application that will use a NoSQL database. The database will be used to store transactions and customer information by using<br>JSON documents.<br>Which two Azure Cosmos DB APIs can developers use for the application? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGremlin (graph)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMongoDB\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCassandra",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCore (SQL)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Table"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 11,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-02-24T22:54:00.000Z",
+        "voteCount": 57,
+        "content": "This is from Az-303 Exam Manual:\nAzure Cosmos DB currently provides the following APIs in general availability (GA). \n\u25a0&nbsp;&nbsp;&nbsp;Core (SQL) API and MongoDB API for JSON document data.\n\u25a0&nbsp;&nbsp;&nbsp;Cassandra for a columnar or column-family datastore.\n\u25a0&nbsp;&nbsp;&nbsp;Azure Table API for key-value datastore.\n\u25a0&nbsp;&nbsp;&nbsp;Gremlin (graph) API for graph data."
+      },
+      {
+        "date": "2022-01-10T00:26:00.000Z",
+        "voteCount": 4,
+        "content": "Correct A D\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/faq#can-i-use-multiple-apis-to-access-my-data-"
+      },
+      {
+        "date": "2022-02-12T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "Gremlin is for graphs! A is obviously wrong"
+      },
+      {
+        "date": "2022-01-26T14:20:00.000Z",
+        "voteCount": 2,
+        "content": "Wrong!\nIt's B &amp; D\nB - MongoDB (JSON)\nD - Core (JSON)\nAustin is right, do not respond if you are not 100% sure, it just makes this confusing!"
+      },
+      {
+        "date": "2021-03-30T03:39:00.000Z",
+        "voteCount": 1,
+        "content": "It is very difficult to verify this information, this information is neither in my AZ-303 nor AZ-304 course material and the only google search result for any of those lines is this examtopics discussion."
+      },
+      {
+        "date": "2021-04-18T10:52:00.000Z",
+        "voteCount": 5,
+        "content": "Core (SQL) and Mongo DB API according to MS Learn: https://docs.microsoft.com/en-us/learn/modules/choose-api-for-cosmos-db/2-identify-the-technology-options"
+      },
+      {
+        "date": "2021-04-30T10:21:00.000Z",
+        "voteCount": 15,
+        "content": "Answer should be B &amp; D"
+      },
+      {
+        "date": "2021-05-09T04:06:00.000Z",
+        "voteCount": 1,
+        "content": "B is wrong"
+      },
+      {
+        "date": "2021-11-18T07:12:00.000Z",
+        "voteCount": 4,
+        "content": "I'm afraid it's you who are wrong in this case."
+      },
+      {
+        "date": "2021-01-07T13:04:00.000Z",
+        "voteCount": 39,
+        "content": "given answer is correct as per below link\nzure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. \nEach API operates independently, except the Gremlin and SQL API, which are interoperable.\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/faq"
+      },
+      {
+        "date": "2021-07-12T07:11:00.000Z",
+        "voteCount": 2,
+        "content": "MongoDB may use BSON internally, but you can use JSON with the MongoDB API for CosmosDB ..."
+      },
+      {
+        "date": "2022-12-12T09:36:00.000Z",
+        "voteCount": 1,
+        "content": "Keyword is \"JSON\" API.  Look below\n\nAzure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a result, we recommend using the same API for all access to the data in a given account.\n\nEach API operates independently, except the API for Gremlin and NoSQL, which are interoperable."
+      },
+      {
+        "date": "2022-03-03T15:21:00.000Z",
+        "voteCount": 1,
+        "content": "if we say MongoDB uses BSON. \nthen, Choosing Gremlin as the API provides a graph-based view over the data. Remember that at the lowest level, all data in any Azure Cosmos DB is stored in an ARS format  (Results will be returned in GraphSON format, ).\n\nSo A is not right.\nhttps://docs.microsoft.com/en-us/learn/modules/choose-api-for-cosmos-db/2-identify-the-technology-options"
+      },
+      {
+        "date": "2022-03-02T00:51:00.000Z",
+        "voteCount": 1,
+        "content": "B &amp; D is correct answer"
+      },
+      {
+        "date": "2022-02-16T19:28:00.000Z",
+        "voteCount": 1,
+        "content": "AD is correct as the question clearly asks for JSON. Here are the protocols : Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a result, we recommend using the same API for all access to the data in a given account.\n\nEach API operates independently, except the Gremlin and SQL API, which are interoperable.\nREAD : https://docs.microsoft.com/en-us/azure/cosmos-db/faq"
+      },
+      {
+        "date": "2022-01-13T10:29:00.000Z",
+        "voteCount": 3,
+        "content": "Mongo and Core SQL\n\nMongo: https://docs.mongodb.com/guides/server/introduction/\nIn MongoDB, data is stored as documents. These documents are stored in MongoDB in JSON (JavaScript Object Notation) format. JSON documents support embedded fields, so related data and lists of data can be stored with the document instead of an external table."
+      },
+      {
+        "date": "2022-01-07T13:12:00.000Z",
+        "voteCount": 3,
+        "content": "B and D, used it in a real life scenario"
+      },
+      {
+        "date": "2022-01-05T08:30:00.000Z",
+        "voteCount": 1,
+        "content": "I think B&amp;D are correct"
+      },
+      {
+        "date": "2022-01-04T09:04:00.000Z",
+        "voteCount": 2,
+        "content": "I will go with B&amp;D"
+      },
+      {
+        "date": "2021-12-30T19:26:00.000Z",
+        "voteCount": 1,
+        "content": "B. MongoDB &amp; D. Core SQL"
+      },
+      {
+        "date": "2021-11-15T17:21:00.000Z",
+        "voteCount": 2,
+        "content": "Only Gremlin and SQL can support JSON."
+      },
+      {
+        "date": "2021-11-18T07:11:00.000Z",
+        "voteCount": 1,
+        "content": "Gremlin is for Graph applications. \nB and D correct here."
+      },
+      {
+        "date": "2021-11-11T05:44:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be B &amp; D"
+      },
+      {
+        "date": "2021-08-28T18:49:00.000Z",
+        "voteCount": 4,
+        "content": "Core (SQL) - Core (SQL) is the default API for Azure Cosmos DB, which provides you with a view of your data that resembles a traditional NoSQL document store. You can query the hierarchical JSON documents with a SQL-like language.\n\nMongoDB - The data is stored in document format, which is the same as using Core (SQL).\n\nhttps://docs.microsoft.com/en-us/learn/modules/choose-api-for-cosmos-db/2-identify-the-technology-options\n\nB and D are correct"
+      },
+      {
+        "date": "2021-08-01T03:12:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/cosmos-db/faq\nCan I use multiple APIs to access my data?\nFor example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a result, we recommend using the same API for all access to the data in a given account."
+      },
+      {
+        "date": "2021-07-15T09:48:00.000Z",
+        "voteCount": 2,
+        "content": "I had this question in the exam that i took on July 14th 2021"
+      },
+      {
+        "date": "2021-07-14T21:39:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be B &amp; D\nAnswer should be A &amp; D\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/faq\nAzure Cosmos DB is Microsoft's globally distributed, multi-model database service. Where multi-model means Azure Cosmos DB supports multiple APIs and multiple data models, different APIs use different data formats for storage and wire protocol. For example, SQL uses JSON, MongoDB uses BSON, Table uses EDM, Cassandra uses CQL, Gremlin uses JSON format. As a result, we recommend using the same API for all access to the data in a given account.\n\nEach API operates independently, except the Gremlin and SQL API, which are interoperable."
+      },
+      {
+        "date": "2021-08-16T08:36:00.000Z",
+        "voteCount": 1,
+        "content": "Uh, check the next question. It's Mongo and Core only."
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41230-exam-az-303-topic-4-question-3-discussion/",
+    "body": "The developers at your company request that you create databases in Azure Cosmos DB as shown in the following table.<br><img src=\"/assets/media/exam-media/03862/0024500001.png\" class=\"in-exam-image\"><br>You need to create the Azure Cosmos DB databases to meet the developer request. The solution must minimize costs.<br>What are two possible ways to achieve the goal? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate three Azure Cosmos DB accounts, one for the databases that use the Core (SQL) API, one for CosmosDB2, and one for CosmosDB4.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate two Azure Cosmos DB accounts, one for CosmosDB2 and CosmosDB4 and one for CosmosDB1 and CosmosDB3.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate one Azure Cosmos DB account for each database.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate three Azure Cosmos DB accounts, one for the databases that use the MongoDB API, one for CosmosDB1, and one for CosmosDB3.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BD",
+    "answerDescription": "Note:<br>Microsoft recommends using the same API for all access to the data in a given account.<br>One throughput provisioned container per subscription for SQL, Gremlin API, and Table accounts.<br>Up to three throughput provisioned collections per subscription for MongoDB accounts.<br>The throughput provisioned on an Azure Cosmos container is exclusively reserved for that container. The container receives the provisioned throughput all the time.<br>Incorrect Answers:<br>A: DB2 and DB4 can use the same account.<br>C: The most costly alternative.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/set-throughput#set-throughput-on-a-container",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-01-07T13:25:00.000Z",
+        "voteCount": 65,
+        "content": "Correct answers are C and D following is the justification for the same.\nDB1 and DB3 cannot share same CosmosDB account as multiple-write is available on account level not on Database level. DB1 needs multiple write regions but DB1 must has only one write region\nanswer A and B is ruled out as A is saying one account for core SQL API it means DB1 and DB3 will be added to same account same in B where it saying one ac for DB1 and DB3 which is not possibe due to different write regions which is set at ac level hence need different ac for this 2 db is required at least.\nthroughput can be set at DB level or container level or both ,container lever is preffered.\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/how-to-multi-master?tabs=api-async\nCosmos accounts initially configured with single write region can be configured to multiple write regions with zero down time hence it is at ac level"
+      },
+      {
+        "date": "2021-07-09T09:48:00.000Z",
+        "voteCount": 4,
+        "content": "exactly!"
+      },
+      {
+        "date": "2021-06-11T04:42:00.000Z",
+        "voteCount": 1,
+        "content": "D can't be the option as the cost need to minimize."
+      },
+      {
+        "date": "2021-04-30T23:10:00.000Z",
+        "voteCount": 1,
+        "content": "i don't see option \"C\" as complete solution, though!"
+      },
+      {
+        "date": "2021-04-30T23:11:00.000Z",
+        "voteCount": 2,
+        "content": "No ignore my above comment. C &amp; D it is."
+      },
+      {
+        "date": "2021-01-02T19:37:00.000Z",
+        "voteCount": 18,
+        "content": "Correct answers are C and D\nDB1 and DB3 cannot share same CosmosDB account as multiple-write is available on account level not on Database level. DB1 needs multiple write regions but DB1 must has only one write region"
+      },
+      {
+        "date": "2022-03-28T22:27:00.000Z",
+        "voteCount": 1,
+        "content": "Appeared in exam on 28-03-2022"
+      },
+      {
+        "date": "2022-03-27T01:13:00.000Z",
+        "voteCount": 1,
+        "content": "In today's exam. Score 900+ \nCorrect answer. CD"
+      },
+      {
+        "date": "2022-02-19T10:23:00.000Z",
+        "voteCount": 1,
+        "content": "On exam today 19-2-2022.. Passed with 871."
+      },
+      {
+        "date": "2022-01-21T14:38:00.000Z",
+        "voteCount": 1,
+        "content": "on Exam today 21st Jan, 2022"
+      },
+      {
+        "date": "2022-01-07T05:21:00.000Z",
+        "voteCount": 1,
+        "content": "I will go with C&amp;D"
+      },
+      {
+        "date": "2022-01-06T08:21:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; D is correct"
+      },
+      {
+        "date": "2022-01-06T07:24:00.000Z",
+        "voteCount": 1,
+        "content": "I will go with C&amp;D"
+      },
+      {
+        "date": "2021-12-31T22:39:00.000Z",
+        "voteCount": 1,
+        "content": "This question appeared on AZ304 with the same option.B &amp; D aren't right?"
+      },
+      {
+        "date": "2021-12-30T19:29:00.000Z",
+        "voteCount": 1,
+        "content": "answer is C &amp; D"
+      },
+      {
+        "date": "2021-12-27T17:08:00.000Z",
+        "voteCount": 1,
+        "content": "Multi-region write is deinfedable at the DB account level. So DB1 and DB3 must be of different accounts. RUs are definable at the container level, which you don;t need to worry about too much at when creating the DB account (still need to budget for the total RUs).\nAs a result, CD are correct."
+      },
+      {
+        "date": "2021-12-08T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "Question appeared On AZ-303 exam on 08/12/2021 - 49 questions, 4Q - Fabrikan case study"
+      },
+      {
+        "date": "2021-11-19T07:47:00.000Z",
+        "voteCount": 3,
+        "content": "On exam today 19/11/21. Select C and D. Score 860."
+      },
+      {
+        "date": "2021-10-23T15:19:00.000Z",
+        "voteCount": 1,
+        "content": "C,D\n---\nSeparate multi region write db"
+      },
+      {
+        "date": "2021-08-27T18:38:00.000Z",
+        "voteCount": 7,
+        "content": "If you provision throughput on a database, all the containers, for example collections/tables/graphs within that database can share the throughput based on the load. Throughput reserved at the database level is shared unevenly, depending on the workload on a specific set of containers.\n\nCosmosDB1 needs multi write regions. This is costly compared to single region write. Combining CosmosDB1 with CosmosDB3 will make both of these databases multi write regions and further increases cost.\n\nSo, either we can create separate Cosmos database for each request or merge only MongoDB API databases as one database and create separate databases for SQL API databases. Both of these options will give us same price.\n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/optimize-cost-throughput"
+      },
+      {
+        "date": "2021-08-27T18:38:00.000Z",
+        "voteCount": 2,
+        "content": "C and D are the answers"
+      },
+      {
+        "date": "2021-07-15T09:50:00.000Z",
+        "voteCount": 2,
+        "content": "I had this question in the exam that i took on July 14th 2021"
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41166-exam-az-303-topic-4-question-4-discussion/",
+    "body": "You have the Azure SQL Database servers shown in the following table.<br><img src=\"/assets/media/exam-media/03862/0024700001.png\" class=\"in-exam-image\"><br>You plan to specify sqlserver1 as the primary server in a failover group.<br>Which servers can be used as a secondary server?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsqlserver4 and sqlserver5 only\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsqlserver2 and sqlserver3 only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsqlserver2, sqlserver3, sqlserver4, and sqlserver5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsqlserver2 and sqlserver4 only"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-01-01T18:27:00.000Z",
+        "voteCount": 129,
+        "content": "Incorect: Correct answer: A\nThe secondary cannot be in the same region as the primary."
+      },
+      {
+        "date": "2021-07-09T09:50:00.000Z",
+        "voteCount": 3,
+        "content": "exactly!"
+      },
+      {
+        "date": "2021-05-12T05:31:00.000Z",
+        "voteCount": 17,
+        "content": "Just tested. Correct is A as you say. Failover secondary must be on a different region and it may be on a different resource group."
+      },
+      {
+        "date": "2022-03-14T02:36:00.000Z",
+        "voteCount": 1,
+        "content": "What about RGs? \"The Resource Group must be the same\", but primary server is in RG1 and secondary server in RG2?"
+      },
+      {
+        "date": "2021-01-02T01:57:00.000Z",
+        "voteCount": 24,
+        "content": "Correct answer should be A (sqlserver4 &amp; sqlserver5). Per doc, the secondary cannot be in the same region as the primary. \nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#terminology-and-capabilities"
+      },
+      {
+        "date": "2022-03-29T05:16:00.000Z",
+        "voteCount": 1,
+        "content": "for failover the secondary should be in different region when compare to primary server"
+      },
+      {
+        "date": "2022-03-28T22:27:00.000Z",
+        "voteCount": 1,
+        "content": "Appeared in exam on 28-03-2022"
+      },
+      {
+        "date": "2022-02-23T11:31:00.000Z",
+        "voteCount": 1,
+        "content": "cannot be in the same region"
+      },
+      {
+        "date": "2022-02-19T10:23:00.000Z",
+        "voteCount": 1,
+        "content": "On exam today 19-2-2022.. Passed with 871."
+      },
+      {
+        "date": "2022-02-12T08:57:00.000Z",
+        "voteCount": 1,
+        "content": "Failover groups cannot be created between two servers or instances in the same Azure region.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell"
+      },
+      {
+        "date": "2022-01-21T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is D. I tested this, location can be the same it selects a different availability zone, Server5 is in RG2 which is not configurable, failgroup servers must be in the same RG"
+      },
+      {
+        "date": "2021-12-30T19:32:00.000Z",
+        "voteCount": 1,
+        "content": "A. sqlserver4 and sqlserver5 only. \nSecondary must be on different region"
+      },
+      {
+        "date": "2021-12-30T07:03:00.000Z",
+        "voteCount": 1,
+        "content": "I think A is correct"
+      },
+      {
+        "date": "2021-12-29T09:59:00.000Z",
+        "voteCount": 1,
+        "content": "It is A: Secondary must be in an other Region"
+      },
+      {
+        "date": "2021-12-27T22:58:00.000Z",
+        "voteCount": 2,
+        "content": "It's A and below question in training:\n\nYou are advising an auto parts company that is running the following Azure SQL Database servers:\nOEM_SQLSvr_1:\n\nResource Group: Resource_Group_1\n\nLocation: East US\n\nOEM_SQLSvr_2:\n\nResource Group: Resource_Group_1\n\nLocation: East US\n\nOEM_SQLSvr_3:\n\nResource Group: Resource_Group_1\n\nLocation: North Europe\n\nOEM_SQLSvr_4:\n\nResource Group: Resource_Group_2\n\nLocation: North Europe\n\nThe plan to make OEM_SQLSvr_1 as the primary server within a failover group.\nWhich server should you recommend as the secondary server?\n\nOEM_SQLSvr_3 and OEM_SQLSvr_4\nOEM_SQLSvr_2 and OEM_SQLSvr_3\nOEM_SQLSvr_2 and OEM_SQLSvr_4\nExplanation\n\nCorrect answer: OEM_SQLSvr_3 and OEM_SQLSvr_4. OEM_SQLSvr_1 is located in East US, and both OEM_SQLSvr_3 and OEM_SQLSvr_4 are located in North Europe."
+      },
+      {
+        "date": "2021-12-22T00:54:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be A.\nPrimary\nThe server or managed instance that hosts the primary databases in the failover group.\nSecondary\nThe server or managed instance that hosts the secondary databases in the failover group. The secondary cannot be in the same region as the primary."
+      },
+      {
+        "date": "2021-12-19T20:54:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is A according to MS AZ 303 preparation guide in skillpipe."
+      },
+      {
+        "date": "2021-11-11T05:51:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer: A"
+      },
+      {
+        "date": "2021-11-08T16:05:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell"
+      },
+      {
+        "date": "2021-09-30T03:41:00.000Z",
+        "voteCount": 2,
+        "content": "I think, Resource groups come into picture here. in Azure it is all about regions. Hence primary and secondary should be in different region, sqlserver2 is incorrect and correct answer is A."
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/29521-exam-az-303-topic-4-question-5-discussion/",
+    "body": "You have two Azure SQL Database managed instances in different Azure regions.<br>You plan to configure the managed instances in an instance failover group.<br>What should you configure before you can add the managed instances to the instance failover group?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan internal Azure Load Balancer instance that has managed instance endpoints in a backend pool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Private Link that has endpoints on two virtual networks",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Application Gateway that has managed instance endpoints in a backend pool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Site-to-Site VPN between the virtual networks that contain the instances\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-08-24T20:39:00.000Z",
+        "voteCount": 32,
+        "content": "correct: https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell"
+      },
+      {
+        "date": "2020-11-07T12:13:00.000Z",
+        "voteCount": 5,
+        "content": "Yes answer is correct"
+      },
+      {
+        "date": "2021-05-20T23:44:00.000Z",
+        "voteCount": 2,
+        "content": "Enabling geo-replication between managed instances and their VNets:\n\nYour secondary instance of SQL Managed Instance must be empty (no user databases).\n\nThe virtual networks used by the instances of SQL Managed Instance need to be connected through a VPN Gateway or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is supported with the limitation described in the note below."
+      },
+      {
+        "date": "2021-08-16T08:49:00.000Z",
+        "voteCount": 2,
+        "content": "Why wouldn't it work with peered VNETs?"
+      },
+      {
+        "date": "2021-11-26T05:14:00.000Z",
+        "voteCount": 1,
+        "content": "On 9/22/2020 support for global virtual network peering for newly created virtual clusters was announced, but it is not one of the answers"
+      },
+      {
+        "date": "2021-10-04T00:05:00.000Z",
+        "voteCount": 4,
+        "content": "No, it is not. https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal#use-private-link\nAns is B."
+      },
+      {
+        "date": "2021-11-26T05:20:00.000Z",
+        "voteCount": 1,
+        "content": "although it seems logical answer, however the link you provided is talking about failover group for Azure SQL Database not managed instance.!!!"
+      },
+      {
+        "date": "2021-12-20T07:46:00.000Z",
+        "voteCount": 1,
+        "content": "Did you actually read the article? The instances mentioned in the article are SQL Managed Instances, not Azure SQL Database instances. VPN is just an option, it is not a must, so the Answer is B."
+      },
+      {
+        "date": "2022-02-12T03:42:00.000Z",
+        "voteCount": 1,
+        "content": "No it is not. \"Create a failover group between two managed instances in Azure SQL Managed Instance ...You will need to either configure ExpressRoute or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group. \nNow, Using a private link allows you to associate a logical server to a specific private IP address within the virtual network and subnet, but you're not asked to do that. You could do this but you would STILL need to configure ExpressRoute or create a gateway before you could create a private link."
+      },
+      {
+        "date": "2021-08-27T18:06:00.000Z",
+        "voteCount": 8,
+        "content": "For two managed instances to participate in a failover group, there must be either ExpressRoute or a gateway configured between the virtual networks of the two managed instances to allow network communication.\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#create-a-primary-gateway\n\nD is correct"
+      },
+      {
+        "date": "2022-03-03T15:39:00.000Z",
+        "voteCount": 2,
+        "content": "Please note,  Azure SQL Database managed instances,  Not Azure SQL Database,   \nBecause each managed instance is isolated in its own VNet, two-directional traffic between these VNets must be allowed. See Azure VPN gateway\n\nRefer to Enable geo-replication traffic between two instances\nhttps://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/auto-failover-group-sql-mi?tabs=azure-powershell"
+      },
+      {
+        "date": "2022-02-21T13:35:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct. One of the prerequisites to creating a failover group between two managed instances is to create a connection (could be VPN or an Express Route) between the VNETs hosting the primary and the secondary managed instances. See the link below for the guide to creating a failover group for managed instanced. \nYou will need to either configure ExpressRoute or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group.\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal#sql-managed-instance\n\nThere is also an option to configure PrivateLink with the failover group but that is not required for the failover group to work."
+      },
+      {
+        "date": "2022-02-09T12:56:00.000Z",
+        "voteCount": 1,
+        "content": "Correct is D.\nHere is the docu for the Azure SQL \"Managed Instances\" https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal#sql-managed-instance"
+      },
+      {
+        "date": "2022-01-21T14:38:00.000Z",
+        "voteCount": 1,
+        "content": "on Exam today 21st Jan, 2022"
+      },
+      {
+        "date": "2022-01-06T08:24:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-12-26T14:12:00.000Z",
+        "voteCount": 1,
+        "content": "I think this is the sentence which makes the answer D (site-to-site VPN), from https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal#sql-managed-instance\n\nYou will need to either configure ExpressRoute or create a gateway for the virtual network of each SQL Managed Instance, connect the two gateways, and then create the failover group.\n\nAs others have said, private link is only an option for Azure SQL Database, as per https://docs.microsoft.com/en-us/azure/private-link/availability"
+      },
+      {
+        "date": "2021-11-23T22:42:00.000Z",
+        "voteCount": 2,
+        "content": "the majority of commenters here didn't have any clue about what peering is... It's clearly B."
+      },
+      {
+        "date": "2021-08-01T04:14:00.000Z",
+        "voteCount": 4,
+        "content": "To use the primary link, the primary and secondary servers are needed to be in a paired region. It is mentioned in the question that servers are in different regions. Hence correct Answer is D."
+      },
+      {
+        "date": "2021-07-23T23:59:00.000Z",
+        "voteCount": 5,
+        "content": "Careful!\nthe document most cited here is https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal, which clearly says: \n\"require Azure ExpressRoute, global VNet peering, or two connected VPN gateways.\" In other words, VPN is one solution but not required if you peer the networks. The document further explains the VPN option but also says that if the global networks are connected, you can skip this part. So VPN is not a must. \nHowever, there is another doc: https://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-configure?tabs=azure-portal#use-private-link\nThis is a much simpler setup where private link is the first step to achieve auto fail-over. \nIn my humble opinion, using VPN within Azure networks is essentially wrong, and hence answer B is correct."
+      },
+      {
+        "date": "2021-11-16T05:51:00.000Z",
+        "voteCount": 1,
+        "content": "To use the primary link, the primary and secondary servers are needed to be in a paired region."
+      },
+      {
+        "date": "2021-06-26T06:09:00.000Z",
+        "voteCount": 3,
+        "content": "26-June-21, Passed the exam. Correct Answer"
+      },
+      {
+        "date": "2021-06-11T23:49:00.000Z",
+        "voteCount": 2,
+        "content": "6/12/2021. Passed the exam. Site to site VPN"
+      },
+      {
+        "date": "2021-06-02T09:58:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct. \nManaged instances participating in a failover group require Azure ExpressRoute, global VNet peering, or two connected VPN gateways. \nhttps://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal"
+      },
+      {
+        "date": "2021-05-16T11:34:00.000Z",
+        "voteCount": 3,
+        "content": "FYI, peering is now supported.\n\nhttps://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#enabling-geo-replication-between-managed-instances-and-their-vnets"
+      },
+      {
+        "date": "2021-02-28T07:19:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct, as per the link https://docs.microsoft.com/en-us/azure/azure-sql/managed-instance/failover-group-add-instance-tutorial?tabs=azure-portal#4---create-a-primary-gateway"
+      },
+      {
+        "date": "2021-01-21T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "Correct: https://docs.microsoft.com/de-de/azure/azure-sql/database/auto-failover-group-overview?tabs=azure-powershell#enabling-geo-replication-between-managed-instances-and-their-vnets"
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "4"
+  }
+]

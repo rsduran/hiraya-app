@@ -1,0 +1,381 @@
+[
+  {
+    "topic": 15,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79430-exam-az-104-topic-15-question-1-discussion/",
+    "body": "HOTSPOT -<br>You implement the planned changes for NSG1 and NSG2.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04223/0052300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04223/0052300002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br><br>NSG2 blocks RDP to VM2 -<br><br>Box 2: Yes -<br><br>ICMP is not blocked -<br><br>Box 3: No -<br><br>NSG2 blocks RDP from VM2 -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-network/network-security-group-how-it-works",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-02T07:30:00.000Z",
+        "voteCount": 104,
+        "content": "I think the Answers should be: YYN\n\nVM1 has inbound rules, so no restriction on outbound.\nVM2 has outbound rules, so no restrictions on inbound.\n\nHence VM1 can establish RDP  to VM2.\n\nVM2 \u2014ping\u2014&gt; VM3:  Yes(no restriction other than outbound RDP)\nVM2 \u2014RDP\u2014&gt; VM3: No(outbound RDP is not allowed on VM2)\n\nPlease correct me if I am wrong.\nTmrw I have my exam."
+      },
+      {
+        "date": "2022-09-06T11:15:00.000Z",
+        "voteCount": 12,
+        "content": "I agree that is YYN:\n\n1-The rule is configured inbound from VM1 and VM2 will allow the traffic because of stateful firewall inspection, the traffic is allowed to come in. If the traffic is initiated from VM2 them it wouldn't work.\n\n2-ping will be allow because the vnets are already peered\n3-No, traffic is initiated from VM2 and the outbound rule will block it.\n\nFeel free to correct me if I am wrong."
+      },
+      {
+        "date": "2022-09-03T09:22:00.000Z",
+        "voteCount": 9,
+        "content": "Passed the exam today with 920/1000.\nThis case was not there in my exam."
+      },
+      {
+        "date": "2023-09-07T02:53:00.000Z",
+        "voteCount": 8,
+        "content": "Ill say Y Y Y\nVnet 2 and 3 are peered so NGS shouldnt consider them different Vnet to apply restrictions unless you block the traffic\nhttps://blog.aelterman.com/2021/01/08/defaulting-azure-virtual-network-peering-from-allowing-to-denying-traffic/"
+      },
+      {
+        "date": "2023-02-23T04:55:00.000Z",
+        "voteCount": 14,
+        "content": "Answer valid! This question was on the exam 22/02/2023. Scored 920."
+      },
+      {
+        "date": "2022-10-05T09:25:00.000Z",
+        "voteCount": 29,
+        "content": "From VM1, you can Esablish a Remote Desktop sesion to VM2: Yes\n\n\tThey are in the same subnet and VM1 doesn't have  restriction on outbound and VM2  doesn't have  restriction on inbound\n\nFrom VM2, you can ping VM3: No\n\n\tRule 400 only permit ping from 10.0.2.0/24 to 10.0.1.0/24. VM3 has 172.16.1.4 IP address\n\n\nFrom VM2, you can establish a Remote Desktop sesion to VM3: No \n\n\tRule 200 only permit  virtualNetwork (VNET1) destination RDP and VM3 is in VirtualNetwork VNET2"
+      },
+      {
+        "date": "2022-10-19T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, I made a mistake in the explanation:\n\nFrom VM2, you can establish a Remote Desktop sesion to VM3: No\nRule 200 blocks RDP traffic"
+      },
+      {
+        "date": "2022-10-25T06:30:00.000Z",
+        "voteCount": 19,
+        "content": "Sorry I can't update the answer and I have to make a new post:\n\nFinaly I think is : YYN\n\nFrom VM1, you can Esablish a Remote Desktop sesion to VM2: Yes\n\nThey are in the same VNET and VM1 doesn't have restriction on outbound and VM2 doesn't have restriction on inbound\n\n\nFrom VM2, you can ping VM3: Yes\n\nRule 400 only permit ping from 10.0.2.0/24 to 10.0.1.0/24. VM3 has 172.16.1.4 IP address, but there are implicit rules:  any(port) any(protocol) virtualnetwork(source) to virtualnetwork (destination). The VNETs are peered and ping works.\n\n\nFrom VM2, you can establish a Remote Desktop sesion to VM3: No\n\nRule 200 blocks RDP traffic"
+      },
+      {
+        "date": "2024-10-13T11:44:00.000Z",
+        "voteCount": 1,
+        "content": "WRONG\n\nYes\nYes\nNo"
+      },
+      {
+        "date": "2024-10-03T11:49:00.000Z",
+        "voteCount": 2,
+        "content": "N - There is an TLS handshaking process to establish an RDP connection between 2 VMs.\nBoth inbound and outbound rules must allow TCP protocol &amp;&amp; Port 3389 (default for RDP) to open for both VMs.\nInbound itself (or outbound itself) is not enough for the connection because of the handshake steps.\nY\nN"
+      },
+      {
+        "date": "2024-09-25T02:48:00.000Z",
+        "voteCount": 1,
+        "content": "In Existing Environment section, it said \"No network security groups (NSGs) are associated to the network interfaces or the subnets.\".\n\nThen, in planned changes section, NSG1 is attached to VM1's NIC and NSG2 is attached to VNET1/Subnet2. Thus, VM3 has no NSG attached to its NIC nor its subnet. There is no single inbound rule allow any traffic.\n\nI tested in Lab. From VM2, you can NOT ping VM3 AND you can NOT establish a Remote Desktop session to VM3. \n\nSo, my answer is YNN."
+      },
+      {
+        "date": "2024-06-10T08:07:00.000Z",
+        "voteCount": 3,
+        "content": "1. From VM1, you can establish a Remote Desktop session to VM2.\nNo because NSG2 outbound rule will prevent the RDP connection\n2. From VM2, you can ping VM3.\nYes because No rules prevent this ping.\n3. From VM2, you can establish a Remote Desktop session to VM3.\nNo because NSG2 prevent his RDP connection"
+      },
+      {
+        "date": "2024-07-30T02:36:00.000Z",
+        "voteCount": 2,
+        "content": "\"1. From VM1, you can establish a Remote Desktop session to VM2.\nNo because NSG2 outbound rule will prevent the RDP connection\"\n\nYou're wrong! It's only outbound rule attached to Subnet2 (which contains only VM2). So from VM2 this rule indeed would block RDP connection to VM1 (or any other), but from VM1 it doesn't apply, as then it's inbound rule from VM2(subnet2) perspective."
+      },
+      {
+        "date": "2024-05-26T21:53:00.000Z",
+        "voteCount": 1,
+        "content": "When there is no restriction means that default it is allowed.\nhttps://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#default-security-rules\nhttps://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview#default-security-rules:~:text=You%20can%27t%20remove%20the%20default%20rules%2C%20but%20you%20can%20override%20them%20by%20creating%20rules%20with%20higher%20priorities."
+      },
+      {
+        "date": "2024-05-04T21:10:00.000Z",
+        "voteCount": 5,
+        "content": "No: Traffic is allowed from NSG1 but blocked by NSG2\n\nVM1--&gt;--NGS1--X--NSG2----VM2\n\nYes: No rules applied; networks are peered\n\nVM2--&gt;--NSG2--&gt;--VM3\n\nNo: NSG2 blocks traffic by the very same rule tha blocks from VM1 (same ip range)\n\nVM2--X--NSG2----VM3"
+      },
+      {
+        "date": "2024-03-21T09:45:00.000Z",
+        "voteCount": 2,
+        "content": "Yes\nYes\nNo"
+      },
+      {
+        "date": "2024-03-14T05:13:00.000Z",
+        "voteCount": 2,
+        "content": "Yes\nYes\nNo"
+      },
+      {
+        "date": "2023-12-29T12:00:00.000Z",
+        "voteCount": 3,
+        "content": "Seeing so many conflicting answers, I tested this in my lab.\n\nInitially, without testing, my answer was No, Yes, No but I was surprised with the test results.\n\nI have basically replicated the scenario given and double checked that everything was configured correctly. Here are the results:\n\n- From VM1, I can RDP into VM2\n- From VM2, I can ping VM3 (only if I disable Windows Firewall) - not sure what the state of the firewall is on this VM but I assume it's off because the question focuses on the NSG rules and your understanding of them.\n- From VM2, I can establish a RDP session to VM3.\n\nTherefore, I would say the answer is Y, Y, Y."
+      },
+      {
+        "date": "2023-12-29T12:06:00.000Z",
+        "voteCount": 2,
+        "content": "If you wonder why the NSGs don't apply, is because the traffic is not leaving the VNETs since they are peered, so everything is considered \"internal\" traffic just like if the VMs were on the same VNET/Subnet.\n\nThe only point that you can argue is Box2, where if you don't intentionally disable Windows Firewall or allow ICMP on the VM itself, the answer would be NO as ping is blocked by default in Windows Firewall, so you need to take your chances here. Either read the question as if they were testing your understanding of the NSGs and how the rules would apply given the scenario in question, or read it like a sysadmin would and don't make assumptions. For instance, if they don't say Windows Firewall is off on VM3 then assume it's not as the default configuration has all firewall profiles turned on.\n\nY/Y/Y if you make an assumption and turn off Windows Firewall or Y/N/Y if you don't assume anything."
+      },
+      {
+        "date": "2023-11-08T00:36:00.000Z",
+        "voteCount": 1,
+        "content": "How do many people know that the vnets are peered? I can't find it in te case text."
+      },
+      {
+        "date": "2023-11-11T15:25:00.000Z",
+        "voteCount": 1,
+        "content": "Look at 2nd table, the one with the headings of \"Name\" and \"Subnet' and \"Peered with\""
+      },
+      {
+        "date": "2023-10-07T05:44:00.000Z",
+        "voteCount": 2,
+        "content": "NSG Rules :\nNSG1 (VM1 Level)\nvm1 can be pinged by any servers in Vnet\nvm1 cannot accept RDP from vnet1/subnet2 (vm2)   [vm2 to vm1 not possible]\n---------\nNSG2 (Subnet Level ) [10.0.2.0/24]\n vm2 cannot RDP any server [Source : 10.0.0.0/16] \n vm2 can ping vm1\n-------------\nQ1.From VM1 to VM2 (RDP)  : No  [blocked by NSG2]\nQ2. VM2 to ping Vm3 :  No NSG rule, but 2 different  Vnet1 to Vnet2\n as per Default NSG Rules : Yes\nQ3.vm2 to vm3 (RDP) : No [blocked by NSG2]\n\nGiven Answer is Correct..."
+      },
+      {
+        "date": "2023-09-22T01:42:00.000Z",
+        "voteCount": 1,
+        "content": "Box1 = NO, here's why VM1 cannot connect to VM2. Let's check the data flow rules. Vnet1 and Vnet2 are peered so they can communicate between them. NSG1 is tied to VM1's NIC; NSG1 will block RDP connections attempts originated from [vnet1/subnet2]; that is an inbound rdp block rule on VM1, so nobody from subnet2 can RDP to VM1, however that's not what we are looking for. Now let's check NSG2: it is tied to [vnet1/subnet2] so it applies to VM2. NSG2 is blocking RDP connection attempts orignitated form the whole VNET1 (10.0.0.0/16 includes the following range: 10.0.0.0--&gt;10.0.255.255) so RDP packet will never reach VM2."
+      },
+      {
+        "date": "2023-09-14T12:26:00.000Z",
+        "voteCount": 1,
+        "content": "I did the lab and I found:\n\nY,NY\nAnd ping to VM3 no work only because Windows Firewall is enable. If you disable windows firewall Ping works."
+      },
+      {
+        "date": "2023-08-24T15:12:00.000Z",
+        "voteCount": 3,
+        "content": "This was in Exam 23-08-23"
+      },
+      {
+        "date": "2023-07-21T02:22:00.000Z",
+        "voteCount": 1,
+        "content": "YYN is correct!"
+      }
+    ],
+    "examNameCode": "az-104",
+    "topicNumber": "15"
+  },
+  {
+    "topic": 15,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79846-exam-az-104-topic-15-question-3-discussion/",
+    "body": "You need to add VM1 and VM2 to the backend pool of LB1.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnect VM2 to VNET1/Subnet1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedeploy VM1 and VM2 to the same availability zone.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedeploy VM1 and VM2 to the same availability set.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new NSG and associate the NSG to VNET1/Subnet1."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 44,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 10,
+        "isMostVoted": false
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-09-07T19:20:00.000Z",
+        "voteCount": 27,
+        "content": "You can not use basic load balancer to balance between single VMs . the have to be in a scale set or availability set"
+      },
+      {
+        "date": "2023-01-10T14:04:00.000Z",
+        "voteCount": 15,
+        "content": "de ja vu"
+      },
+      {
+        "date": "2024-08-22T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "the question is about what we ve to do first i thing the correct answer is A cause for basic lb we ve to meet 2 criteria's the 2 vm has to be in same subnet, as well as the 2 vm as to be in availability set"
+      },
+      {
+        "date": "2024-06-23T15:57:00.000Z",
+        "voteCount": 1,
+        "content": "if it is standard LB- then option A is correct (Same Vnet) , if it is basic LB then option C is correct(availability set/virtual scale set).."
+      },
+      {
+        "date": "2024-06-23T15:59:00.000Z",
+        "voteCount": 1,
+        "content": "but in the question : Create an internal Basic Azure Load Balancer named LB1 and connect the load balancer to VNET1/Subnet1, mentioned Basic LB so C is correct again confused on vnet1/subnet1 (in this case again A is correct ans)"
+      },
+      {
+        "date": "2024-06-15T02:21:00.000Z",
+        "voteCount": 2,
+        "content": "C) is correct.\nfor a basic loadbalancer, only the Availability Set is needed, therefore you need to redeploy the VMs. They may stay in different subnets - verified in lab. LB and VM1 into VNet1/Subnet1, VM2 into Vnet1/subnet2"
+      },
+      {
+        "date": "2024-05-19T06:25:00.000Z",
+        "voteCount": 2,
+        "content": "What happened to question #2?"
+      },
+      {
+        "date": "2024-05-17T03:10:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C is correct because,\nYou cannot load balance multiple VMs that are not in the same availability set in Basic Internal Load balancer.\n\nAnswer A is also correct as for an Internal load balancer, both LB and VMs should be in same subnet. But first thing to do here is to add both VMs to same availability zone and on process of creating same availability zone, you can create VMs in same subnet as LB."
+      },
+      {
+        "date": "2024-04-08T22:55:00.000Z",
+        "voteCount": 1,
+        "content": "To add VM1 and VM2 to the backend pool of LB1, the first step you should take is to ensure that both virtual machines are connected to the same virtual network and subnet that LB1 is associated with. Therefore, the correct action to take first would be:\nA. Connect VM2 to VNET1/Subnet1.\nThis ensures that both VM1 and VM2 are in the same network segment as LB1, allowing them to be added to LB1\u2019s backend pool1."
+      },
+      {
+        "date": "2024-03-14T05:16:00.000Z",
+        "voteCount": 1,
+        "content": "C is right"
+      },
+      {
+        "date": "2024-02-20T07:10:00.000Z",
+        "voteCount": 1,
+        "content": "accorrding to Azure documentatioon, Basic Load Balancer only supports within-zone load balancer, and the back end poos needs to be a scale set or availability set. So the given answer is correct, connect VM2 to VNET1/Subnet1.\nhttps://learn.microsoft.com/en-us/azure/load-balancer/skus"
+      },
+      {
+        "date": "2023-12-29T04:23:00.000Z",
+        "voteCount": 4,
+        "content": "The Points are \"the LB's  SKU\" AND \"What should you do FIRST?\" ....\n\nThe Lb is basic LB. We have two important requirements here: The machines must be in a VMSS or Availability Set AND deployed into the subnet.\n\nAGAIN: \"What should you do FIRST?\"\n\nTo satisfy all requirements you MUST recreate all VMs in an availability set (possible only during the creation) AND you can choose the same subnet for all VMs during the process.\n\nOK, You could move the VM to another subnet (creating a new NIC attached to the subnet and removing the first one) without recreating it but can\u00b4t migrate the VM to an Availability set without recreating it.\n\nMoving to another is incomplete and you would be required to recreate VMs to satisfy the second requirement.\n\nThe answer is Letter A because the requirement  \"What should you do FIRST?\"."
+      },
+      {
+        "date": "2023-12-29T04:26:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry. I mean Letter C (Redeploy VM1 and VM2 to the same availability set)"
+      },
+      {
+        "date": "2023-11-18T21:03:00.000Z",
+        "voteCount": 2,
+        "content": "Since it is saying Basic Load Balancer, the Scale Set should be set up, the first step to set up Scale Set is to have the VMs in the same Subnet.\n\nBelow is my conversation with GPT:\nMe:\ntalking about Scale sets, is it a requirement for VMs to be in the same subnet?\n\nChatGPT\nFor Azure Virtual Machine Scale Sets (VMSS), it is indeed a requirement for all instances within a scale set to be deployed into the same subnet. When you create a VMSS, you specify the subnet during the initial configuration, and the VMSS manager then places each VM instance into that subnet."
+      },
+      {
+        "date": "2023-10-07T06:03:00.000Z",
+        "voteCount": 4,
+        "content": "This question is missing the SKU of the LB.\nIf LB is standard , Opt A and C is correct.\nif LB is Basic, Opt C is correct. \n\nMay be Opt C is the Wise Choice."
+      },
+      {
+        "date": "2023-10-17T11:36:00.000Z",
+        "voteCount": 3,
+        "content": "Read the question again: \"Create an internal Basic Azure Load Balancer named LB1 and connect the load balancer to VNET1/Subnet1\""
+      },
+      {
+        "date": "2023-09-25T14:32:00.000Z",
+        "voteCount": 2,
+        "content": "it's not necessary to have an availability set to associate 2 VMs to LB, they just have to be in the same VNet/subnet"
+      },
+      {
+        "date": "2023-09-29T07:25:00.000Z",
+        "voteCount": 3,
+        "content": "Wrong. Basic Load Balancer -&gt; Backend pool endpoints -&gt; Virtual machines in a single availability set or virtual machine scale set. https://learn.microsoft.com/en-us/azure/load-balancer/skus"
+      },
+      {
+        "date": "2023-08-24T15:11:00.000Z",
+        "voteCount": 6,
+        "content": "This was in Exam 23-08-23"
+      },
+      {
+        "date": "2023-07-09T12:27:00.000Z",
+        "voteCount": 4,
+        "content": "where is topic 15 question 2???"
+      },
+      {
+        "date": "2023-07-03T21:34:00.000Z",
+        "voteCount": 4,
+        "content": "Found this Q in the exam 3/7/2023"
+      }
+    ],
+    "examNameCode": "az-104",
+    "topicNumber": "15"
+  },
+  {
+    "topic": 15,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/94277-exam-az-104-topic-15-question-4-discussion/",
+    "body": "You need to ensure that VM1 can communicate with VM4. The solution must minimize administrative effort.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user-defined route from VNET1 to VNET3.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an NSG and associate the NSG to VM1 and VM4.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign VM4 an IP address of 10.0.1.5/24.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEstablish peering between VNET1 and VNET3.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-12T14:00:00.000Z",
+        "voteCount": 7,
+        "content": "The correct option is D. Establish peering between VNET1 and VNET3.\n\nTo ensure that VM1 can communicate with VM4, we need to establish connectivity between the two virtual networks (VNET1 and VNET3) where the VMs reside. VNet peering enables us to connect two virtual networks together so that VMs in either network can communicate with each other. With VNet peering, the virtual networks are connected directly using the Azure backbone network, so we do not need to create any user-defined routes or assign specific IP addresses to VMs. Additionally, peering reduces administrative effort by eliminating the need for complex network configurations."
+      },
+      {
+        "date": "2023-09-25T01:38:00.000Z",
+        "voteCount": 2,
+        "content": "ok, where tf is the question? Where VNET 3 is mentioned??"
+      },
+      {
+        "date": "2023-10-31T13:40:00.000Z",
+        "voteCount": 1,
+        "content": "This is about the case about Contoso, Ltd., the consulting company.\n\nAnswer is correct."
+      },
+      {
+        "date": "2024-04-26T11:11:00.000Z",
+        "voteCount": 9,
+        "content": "I work for Contoso and this is correct."
+      },
+      {
+        "date": "2023-09-22T15:31:00.000Z",
+        "voteCount": 1,
+        "content": "Peer VNET1 &amp; VNET3"
+      },
+      {
+        "date": "2023-03-29T05:21:00.000Z",
+        "voteCount": 1,
+        "content": "But vnet2 is peered with vnet1 and vnet3, so we shall not required to peer vnet1 to vnet3.\nSo there is no need to do anything.\nvm1 can communicate with vm3"
+      },
+      {
+        "date": "2023-04-18T07:21:00.000Z",
+        "voteCount": 9,
+        "content": "VNETs are non-transitive"
+      },
+      {
+        "date": "2023-03-03T11:05:00.000Z",
+        "voteCount": 1,
+        "content": "From contoso topic. D. Establish peering between VNET1 and VNET3."
+      },
+      {
+        "date": "2023-02-28T23:33:00.000Z",
+        "voteCount": 1,
+        "content": "Hello there. Why would you peer VNET1 and VNET3 in order to let VNET4 communicate with VNET1 ? Am I missing something? \nShouldn't we be peering VNET1 and VNET4 both ways? The answer doesn't seem to make sense. \nThank you."
+      },
+      {
+        "date": "2023-03-06T07:12:00.000Z",
+        "voteCount": 1,
+        "content": "The question is to let VM1 and VM4 communicate. Not vNets"
+      },
+      {
+        "date": "2023-07-16T07:59:00.000Z",
+        "voteCount": 1,
+        "content": "d'ou l'option A"
+      },
+      {
+        "date": "2023-03-03T11:11:00.000Z",
+        "voteCount": 2,
+        "content": "VM1 is connected to VNET1, VM4 is connected to VNET3, so establish a peering between the two can ensure VM1 can communicate with VM4"
+      },
+      {
+        "date": "2023-01-07T09:17:00.000Z",
+        "voteCount": 3,
+        "content": "i can\u00b4t see any issue to create a peering\nD. Establish peering between VNET1 and VNET3."
+      },
+      {
+        "date": "2023-01-07T03:28:00.000Z",
+        "voteCount": 1,
+        "content": "Peering"
+      }
+    ],
+    "examNameCode": "az-104",
+    "topicNumber": "15"
+  }
+]

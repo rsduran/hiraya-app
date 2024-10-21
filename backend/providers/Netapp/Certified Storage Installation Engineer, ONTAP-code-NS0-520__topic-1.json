@@ -1,0 +1,1875 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106702-exam-ns0-520-topic-1-question-1-discussion/",
+    "body": "A customer wants to deploy NVMe/FC along with an existing FC SAN fabric using ONTAP 9.8.<br>In this scenario, which two actions are correct? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable NVMe/FC on the existing FC SVM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate new zoning on fabric switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade your FC switches from 16 GB to 32 GB.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse existing zoning on fabric switches."
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-19T05:13:00.000Z",
+        "voteCount": 7,
+        "content": "A y D\nhttps://www.netapp.com/es/media/12579-nvme-modern-san-primer.pdf\nhttps://techdocs.broadcom.com/us/en/fibre-channel-networking/fabric-os/fabric-os-administration/9-1-x/Configuring-NVMe-91x/v26763705.html"
+      },
+      {
+        "date": "2024-01-31T01:52:00.000Z",
+        "voteCount": 3,
+        "content": "B&amp;C \n\nhttps://docs.netapp.com/us-en/ontap/nvme/support-limitations.html#protocols\n\n\n    A. Enable NVMe/FC on the existing FC SVM. ---&gt; wrong no NVME and FC on the same SVM that means they will utilize new npiv virtual interfaces.\n    B. Create new zoning on fabric switches. ; Yes zone the new npivs \n    C. Upgrade your FC switches from 16 GB to 32 GB. ; you need 32GB FC according to netapp doc site.\n    D. Use existing zoning on fabric switches. ; since NVME and FC can not coexist than you can not use the FC zones you need new zoning."
+      },
+      {
+        "date": "2023-10-10T12:02:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; D\n\"NVME/FC is supported on the platforms listed below with 32GB FC HBAs.\" https://docs.netapp.com/us-en/ontap/nvme/support-limitations.html#protocols\n\nNot A. \"Beginning with ONTAP 9.8, you can configure SCSI, NAS and NVMe protocols on the same storage virtual machine (SVM). \" but not FC protocol."
+      },
+      {
+        "date": "2023-05-11T04:29:00.000Z",
+        "voteCount": 4,
+        "content": "A&amp;B\nOntap 9.8 and later nvme can coexist with other protocolo on same svm. \nYou can reuse fabric switch, but you need to create new lif with data-protocol nvme-fc. data-protocol cannot be modified after lif is created, so you cannot change any fc lif to nvme-lif and you need to create new. If you create new lif that lif have a new wwpn. So you can use the same switch-fabric but you need to create new zone to add in zoning configuration."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99284-exam-ns0-520-topic-1-question-2-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image2.png\"><br>You are configuring a new NetApp ONTAP cluster and are connecting the nodes to Cisco MDS SAN switches. You connect one of the nodes to switch port fc1/11 and run the commands that are shown in the exhibit. The SAN LIFs are enabled but are not operationally online, and none of the SAN hosts can access their LUNs on the ONTAP cluster.<br>In this scenario, which configuration would cause this problem?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNPIV is not enabled on the switches.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInteroperability mode is not enabled on the switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNPV is not enabled on the switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe in-order guarantee is not enabled on the switch."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-15T04:16:00.000Z",
+        "voteCount": 6,
+        "content": "NPIV should be enabled"
+      },
+      {
+        "date": "2024-01-31T02:00:00.000Z",
+        "voteCount": 1,
+        "content": "Enable NPIV \n\nThis is easy to identify \n\nUsually the physical HBA ports on netapp start with 50:xx:x:xx:xx:xx:xx:xx ; NPIV start with 20:xx:x:xx:xx:xx:xx:xx."
+      },
+      {
+        "date": "2023-03-18T21:52:00.000Z",
+        "voteCount": 3,
+        "content": "A correct"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106705-exam-ns0-520-topic-1-question-3-discussion/",
+    "body": "You are installing an AFF A250 system with ONTAP 9.8 software. Your customer asks you about the recommended LIF configuration for the iSCSI protocol.<br>In this scenario, which two statements are correct? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach node in an iSCSI configuration must be connected to a minimum of two Ethernet switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach SVM in an iSCSI configuration must have a minimum of two LIFs per node.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll LIFs from the SVM are connected to a single Ethernet switch.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEach SVM in an iSCSI configuration must have a minimum of one LIF per node."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-19T05:23:00.000Z",
+        "voteCount": 5,
+        "content": "A y B\nYou are installing an AFF A250 system with ONTAP 9.8 software. Your customer asks you about the recommended LIF configuration for the iSCSI protocol."
+      },
+      {
+        "date": "2024-02-05T01:38:00.000Z",
+        "voteCount": 1,
+        "content": "one lif per node aka 2x lifs min .\n\nA&amp;B"
+      },
+      {
+        "date": "2024-01-10T11:52:00.000Z",
+        "voteCount": 1,
+        "content": "A and B are correct choices."
+      },
+      {
+        "date": "2023-10-24T09:08:00.000Z",
+        "voteCount": 2,
+        "content": "I would go for A,B \nIn the wizard you have to fill out 2 IP Adresses per node, so altogether 4"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99282-exam-ns0-520-topic-1-question-4-discussion/",
+    "body": "A customer has a 4-node cluster consisting of a FAS8020 system and an AFF A220 system that is running iSCSI workloads across two separate SVMs. The FAS8020 system is reaching end of support, so they add a new AFF A400 system to migrate workloads off the FAS8020 system. The customer wants to migrate data off the FAS8020 aggregate n1_aggr1 on SVM2 to the AFF A400 aggregate n5_aggr1 on SVM1.<br>In this scenario, which NetApp command would accomplish this task?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvolume move",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taggregate reallocation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvolume reallocation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tvolume rehost\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-22T10:22:00.000Z",
+        "voteCount": 5,
+        "content": "Volume rehost enables you to reassign NAS or SAN volumes from one storage virtual machine (SVM, formerly known as Vserver) to another SVM without requiring a SnapMirror copy. The volume rehost procedures depend upon the protocol type and the volume type. Volume rehost is a disruptive operation for data access and volume management.\n\nhttps://docs.netapp.com/us-en/ontap/volumes/rehost-volume-another-svm-task.html\n\n*********************************************************************************\n\n\nWith the vol move;\n\nYou can move a FlexVol volume to a different aggregate, node, or both within the same storage virtual machine (SVM) to balance storage capacity after determining that there is a storage capacity imbalance\n\nso the most accurate answer is vol rehost option D, which allows us to migrate volS across two separate SVMs"
+      },
+      {
+        "date": "2023-02-15T04:13:00.000Z",
+        "voteCount": 1,
+        "content": "volume volume within an SVM"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99286-exam-ns0-520-topic-1-question-5-discussion/",
+    "body": "Which NetApp tool provides a detailed inventory of SAN components?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHardware Universe",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive IQ Config Advisor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInteroperability Matrix Tool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive IQ OneCollect\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-15T04:31:00.000Z",
+        "voteCount": 5,
+        "content": "NetApp Onecollect tool is used to collect end to end configuration"
+      },
+      {
+        "date": "2024-02-05T01:35:00.000Z",
+        "voteCount": 1,
+        "content": "onecollect D"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/netapp/view/118626-exam-ns0-520-topic-1-question-6-discussion/",
+    "body": "You want to move a SAN LIF and preserve its configuration information and avoid rezoning the switch fabric.<br>In this scenario, which two steps must be performed to fulfill this goal? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tKeep the SAN LIF online before it is moved.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTake the SAN LIF offline before it is moved.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the SAN LIFs to another node in a cluster on different storage virtual machines (SVMs).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the SAN LIFs to another node in a cluster on existing storage virtual machines (SVMs).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-01-31T02:20:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.netapp.com/us-en/ontap/san-admin/move-san-lifs-task.html\n\nYou have to put the lif in down state after that you assign it to a new node and modify the state back on .\n\nAn alternative is to restroy the lif and recreate it with the same npiv .\n\nIn this context B&amp;D are correct .\n\nNote that on ASA you can live migrate ISCSI lifs  ; on AFF/FAS you can not do that."
+      },
+      {
+        "date": "2023-08-21T10:20:00.000Z",
+        "voteCount": 3,
+        "content": "B &amp; D is correct"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/netapp/view/102661-exam-ns0-520-topic-1-question-7-discussion/",
+    "body": "Your customer asks you how to connect a host for SAN access to the newly installed AFF A400 system.<br>In this scenario, which two statements are correct? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDirect connection to the nodes from the hosts with FC is not supported.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDirect connection to the nodes from the hosts with iSCSI is not supported.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDirect connection to the nodes from the hosts with iSCSI is supported.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDirect connection to the nodes from the hosts with FC is supported."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-12T06:25:00.000Z",
+        "voteCount": 6,
+        "content": "iSCSI direct connect is supported. FC not.\nhttps://docs.netapp.com/us-en/ontap/san-config/configure-fc-nvme-hosts-ha-pairs-reference.html\nhttps://docs.netapp.com/us-en/ontap/san-config/configure-iscsi-san-hosts-ha-pairs-reference.html"
+      },
+      {
+        "date": "2023-06-02T06:34:00.000Z",
+        "voteCount": 3,
+        "content": "Direct FC is not supported"
+      },
+      {
+        "date": "2023-04-19T05:30:00.000Z",
+        "voteCount": 4,
+        "content": "SCSI direct connect is supported. FC not."
+      },
+      {
+        "date": "2023-03-15T00:14:00.000Z",
+        "voteCount": 1,
+        "content": "Both are supported with direct connect"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99368-exam-ns0-520-topic-1-question-8-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image7.png\"><br>In an NVMe/FC environment, the host cannot discover the namespace on the AFF system.<br>Referring to the exhibit, what is the problem?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe NQN is not correct.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe host MPIO drivers are not installed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNVMe is not supported on the FC adapter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe NVMe service is not running on the SVM."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T05:32:00.000Z",
+        "voteCount": 3,
+        "content": "NQN is not correct in the exhibit"
+      },
+      {
+        "date": "2023-02-15T23:13:00.000Z",
+        "voteCount": 4,
+        "content": "NQN is not correct in the exhibit"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106710-exam-ns0-520-topic-1-question-9-discussion/",
+    "body": "You are designing a new 4-node AFF A400 SAN cluster with 20 iSCSI hosts. Each AFF A400 node will have four data LIFs. Each iSCSI host needs to access every LUN over two LIFs per node on every SAN node.<br>In this scenario, which NetApp SAN feature enables this connectivity?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselective LUN mapping",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tport sets\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHBA queue depth",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tasymmetric namespace"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T05:41:00.000Z",
+        "voteCount": 5,
+        "content": "Port sets"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99369-exam-ns0-520-topic-1-question-10-discussion/",
+    "body": "You are planning on implementing a new SAN on AFF A400 controllers. The data set consists of unique 1 KB files that will be encrypted before being written to the SAN.<br>In this scenario, which ONTAP inline storage efficiency will provide 4:1 savings for this workload?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tautogrow",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdeduplication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcompression",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcompaction\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-15T23:15:00.000Z",
+        "voteCount": 5,
+        "content": "Compaction is the right answer"
+      },
+      {
+        "date": "2024-04-02T19:05:00.000Z",
+        "voteCount": 1,
+        "content": "Compaction\n\nCompaction reduces the amount of physical storage required for a volume by taking data chunks that are stored in 4 KB blocks, but that are less than 4 KB in size, and combining them into a single block. Compaction takes place while data is still in memory so unnecessary space is never consumed on disks. It is enabled by default on AFF and ASA systems. You need to manually enable compaction on FAS systems.\nhttps://docs.netapp.com/us-en/ontap/concepts/storage-efficiency-overview.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99370-exam-ns0-520-topic-1-question-11-discussion/",
+    "body": "While changing the network connections on your ONTAP cluster from twinax to fiber, the ports experience network connectivity issues. You want to verify which speeds the ports support and ensure that you have supported transceivers.<br>In this scenario, which two action would accomplish this task? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Hardware Universe to determine the supported port speeds.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Interoperability Matrix Tool to determine the supported port speeds.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Hardware Universe to determine the supported transceivers.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the Interoperability Matrix Toll to determine the supported transceivers."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-15T23:16:00.000Z",
+        "voteCount": 7,
+        "content": "Hardware universe is the right place to check this"
+      },
+      {
+        "date": "2023-07-10T08:08:00.000Z",
+        "voteCount": 4,
+        "content": "A and C are the correct answers."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99371-exam-ns0-520-topic-1-question-12-discussion/",
+    "body": "An administrator is configuring their existing Ethernet network switches to provide iSCSI LUNs to several servers. The network switches are also used for other traffic from various hosts.<br>In this scenario, which statement is true?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse multiple VLANs to isolate iSCSI traffic from other network traffic.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the MTU size to be larger on the switch and storage than on the host.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the ratio of access ports to trunk ports to 2:1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetApp recommends using the same LIFs for NFS and iSCSI traffic."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-15T23:17:00.000Z",
+        "voteCount": 7,
+        "content": "right answer is A"
+      },
+      {
+        "date": "2024-02-09T05:46:00.000Z",
+        "voteCount": 1,
+        "content": "ans should be A"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/netapp/view/102663-exam-ns0-520-topic-1-question-13-discussion/",
+    "body": "You are configuring FC ports on front-end SAN switches for a 4-node MetroCluster configuration across two data centers. You need to ensure that each data center serves FC LUNs when a FC port goes offline in one data center.<br>In this scenario, which front-end switch setting must be modified to avoid overlap when a new port comes online?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNPIV enabled",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tANA mapped",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWWPN reject\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWWNN reject"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-09T11:35:00.000Z",
+        "voteCount": 5,
+        "content": "It should be C\nhttps://docs.netapp.com/us-en/ontap/san-admin/prevent_port_overlap_between_switchover.html"
+      },
+      {
+        "date": "2024-02-09T06:05:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.netapp.com/us-en/ontap/san-admin/prevent_port_overlap_between_switchover.html"
+      },
+      {
+        "date": "2023-07-19T02:12:00.000Z",
+        "voteCount": 4,
+        "content": "C seems correct\nthansk FURKA for the link provided"
+      },
+      {
+        "date": "2023-05-18T05:05:00.000Z",
+        "voteCount": 3,
+        "content": "If the FC port on the disaster is not yet removed, the fabric login attempt of the FC port at the surviving site might be rejected due to a duplicate WWPN. This behavior of the FC switches can be changed to honor the login of the previous device and not the existing one.\nOn Cisco you do \nswitch(config)# no fcns reject-duplicate-pwwn vsan 1"
+      },
+      {
+        "date": "2023-03-15T00:21:00.000Z",
+        "voteCount": 2,
+        "content": "A is the right answer"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99372-exam-ns0-520-topic-1-question-14-discussion/",
+    "body": "You are testing FPC path failures on a 2-node NetApp AFF All SAN Array and verify that persistent ports are correctly enabled. Before testing, a host sees four optimized paths to a LUN. You perform a node takeover and re-check the host.<br>Which statement is true after the node takeover?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe host sees two optimized paths and two non-optimized paths to the LUN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe host sees two optimized paths and two dead paths to the LUN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe host sees two non-optimized paths and two dead paths to the LUN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe host sees four optimized paths to the LUN.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-19T02:16:00.000Z",
+        "voteCount": 6,
+        "content": "D is correct\nhttps://www.netapp.com/pdf.html?item=/media/10680-tr4080pdf.pdf"
+      },
+      {
+        "date": "2023-08-14T00:38:00.000Z",
+        "voteCount": 3,
+        "content": "Right, see the 9.8 features (persistent is the keyword)"
+      },
+      {
+        "date": "2023-10-10T13:16:00.000Z",
+        "voteCount": 1,
+        "content": "D\n\"With the NetApp ASA, active-active paths through both controllers means that the host OS does not need to wait for active paths to come down before activating alternative paths. The host was already using all paths on all controllers and the host always has active paths whether the system is in a steady state or performing a controller failover operation\"\nhttps://www.netapp.com/pdf.html?item=/media/10680-tr4080pdf.pdf"
+      },
+      {
+        "date": "2023-06-09T11:41:00.000Z",
+        "voteCount": 3,
+        "content": "It's D. All lifs are always active and optimized regardless of storage failover state."
+      },
+      {
+        "date": "2023-02-15T23:20:00.000Z",
+        "voteCount": 3,
+        "content": "B is the correct answer"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99373-exam-ns0-520-topic-1-question-15-discussion/",
+    "body": "You have implemented FabricPool on your AFF ASA ONTAP 9.8 cluster. An archived database has become very active, and it requires FabricPool adjustments.<br>Which two steps are required to address this issue? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the space guarantee on the volume.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the tiering-policy to none.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the promote cloud-retrieval-policy.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove all Snapshot copies."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BC",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-15T23:21:00.000Z",
+        "voteCount": 7,
+        "content": "B&amp;C is the right answer"
+      },
+      {
+        "date": "2023-10-10T13:19:00.000Z",
+        "voteCount": 1,
+        "content": "B and C\nhttps://www.netapp.com/media/17239-tr4598.pdf - page 31"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/netapp/view/110821-exam-ns0-520-topic-1-question-16-discussion/",
+    "body": "You are asked to configure a small environment for a branch office. The customer has two new VMware ESXi hosts and a NetApp FAS2750 for the site. They want to allocate 10 GB for their iSCSI network to be used for datastores. However, they do not want to purchase any new switches for the environment.<br>In this scenario, which statement is correct?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe SMB protocol will need to be used.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure direct attached connections between the two hosts and storage.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe environment will have to be configured with 1 Gb networking.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10 Gb switches are required for this configuration."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-01T10:44:00.000Z",
+        "voteCount": 5,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2023-10-10T13:22:00.000Z",
+        "voteCount": 3,
+        "content": "iSCSI supports direct connections"
+      },
+      {
+        "date": "2023-07-10T07:07:00.000Z",
+        "voteCount": 1,
+        "content": "D is the correct answer.\nYou can still directly attach a 10GB HBA Network from the Netapp to the server."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/netapp/view/99374-exam-ns0-520-topic-1-question-17-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image10.png\"><br>Referring to the exhibit, which two actions would you perform to ensure that each host has valid multipathing? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerity that the VLANs are properly configured on the switches.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that the iSCSI service is started on the ONTAP cluster.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that ALUA is enabled on the switches.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that the VLANs are properly configured on the ONTAP cluster.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AD",
+        "count": 4,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AC",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-05-04T15:40:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely A and D are correct.  \nIf iSCSI were not enabled you would not see the iqn information shown in the exhibit.  ALUA is configured on the host, not on the switches."
+      },
+      {
+        "date": "2023-08-14T00:59:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; C in my opinion"
+      },
+      {
+        "date": "2023-04-19T05:49:00.000Z",
+        "voteCount": 4,
+        "content": "the iscsi service is started according to the illustration, otherwise you would not see the iqn."
+      },
+      {
+        "date": "2023-10-05T14:14:00.000Z",
+        "voteCount": 3,
+        "content": "A &amp; D \nC is wrong as ALUA is enabled at the host level not switches and iSCSI LIF's would not be up if iscsi wasnt enabled"
+      },
+      {
+        "date": "2023-02-15T23:56:00.000Z",
+        "voteCount": 1,
+        "content": "A&amp;B are the correct answers"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106712-exam-ns0-520-topic-1-question-20-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image11.png\"><br>Your customer asks you to configure a newly installed FAS8300 for an FC host connection.<br>Referring to the exhibit, which step accomplishes this task?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguring the ports 0e and 0f as a type of target.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguring the ports 0e and 0f as status admin up.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguring the ports 0e and 0f as a mode of CNA.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfiguring the ports 0e and 0f as status admin down."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T05:51:00.000Z",
+        "voteCount": 6,
+        "content": "Target"
+      },
+      {
+        "date": "2024-03-22T07:20:00.000Z",
+        "voteCount": 1,
+        "content": "Ports are already offline, and Storage side is a target, not initiator"
+      },
+      {
+        "date": "2023-10-10T13:45:00.000Z",
+        "voteCount": 2,
+        "content": "Target"
+      },
+      {
+        "date": "2023-06-10T08:32:00.000Z",
+        "voteCount": 2,
+        "content": "Target is 100% because storage ports work in initiator mode when you want to connect another storage as target (FLI etc.)"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106713-exam-ns0-520-topic-1-question-21-discussion/",
+    "body": "You have deployed an AFF A400 system for iSCSI workloads and want to ensure maximum performance to the hosts.<br>In this scenario, which two steps should be configured? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable jumbo frames on the broadcast domain.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable jumbo frames on the IPspace.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable jumbo frames on the network switch.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable jumbo frames on the LIF."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AD",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-02T14:31:00.000Z",
+        "voteCount": 8,
+        "content": "AC\nbroadcast domain and network switch"
+      },
+      {
+        "date": "2024-03-22T07:22:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; C - only place Jumbo frames are enabled are the broadcast domain, switches and hosts, not individual LIFS or IPspaces"
+      },
+      {
+        "date": "2023-10-10T13:49:00.000Z",
+        "voteCount": 1,
+        "content": "A and C\nyou can't enable MTU on a LIF. only port or broadcast-domain."
+      },
+      {
+        "date": "2023-07-16T23:36:00.000Z",
+        "voteCount": 4,
+        "content": "broadcast domain and switch!"
+      },
+      {
+        "date": "2023-06-15T08:36:00.000Z",
+        "voteCount": 1,
+        "content": "A and D is the correct answer!"
+      },
+      {
+        "date": "2023-04-19T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "broadcast domain and network switch"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/netapp/view/118471-exam-ns0-520-topic-1-question-22-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image12.png\"><br>File deletions from a SAN-attached host that is using Windows Server 2016 are not freeing up space in LUN lun3.<br>Referring to the exhibit, which setting is preventing the SCSI UNMAP operation?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpace Reservation is set to disabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tClone Autodelete Enabled is set to false.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpace Reservation Honored is set to false.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSpace Allocation is set to disabled.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-22T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "For a LUN to advertise support for and accept SCSI UNMAP commands, enable the space-allocation option on LUNs, which you expect to use this feature with."
+      },
+      {
+        "date": "2024-01-10T12:37:00.000Z",
+        "voteCount": 1,
+        "content": "its right option."
+      },
+      {
+        "date": "2023-08-18T16:43:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.netapp.com/us-en/ontap/san-admin/enable-space-allocation-scsi-thin-provisioned-luns-task.html"
+      },
+      {
+        "date": "2023-08-18T16:43:00.000Z",
+        "voteCount": 1,
+        "content": "given answer is correct:\nhttps://docs.netapp.com/us-en/ontap/san-admin/enable-space-allocation-scsi-thin-provisioned-luns-task.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106715-exam-ns0-520-topic-1-question-23-discussion/",
+    "body": "You are configuring a FAS8300 HA pair running ONTAP 9.8 with two hosts that require SAN LUNs. The cluster is in a secure data center without switches.<br>In this scenario, which block protocol is supported on the hosts?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCoE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNVMe",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiSCSI\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T05:55:00.000Z",
+        "voteCount": 7,
+        "content": "data center without switches"
+      },
+      {
+        "date": "2023-07-10T14:37:00.000Z",
+        "voteCount": 2,
+        "content": "D is the correct answer.\niSCSI can be used as a direct-attached configuration."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/netapp/view/140000-exam-ns0-520-topic-1-question-24-discussion/",
+    "body": "You want to configure namespaces to support NVMe over Fibre Channel (NVMe/FC) using ONTAP 9.8.<br>Which action will accomplish this task?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd FC to the list of SVM protocols.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a LIF for the NVMe protocol.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable ALUA on the namespaces that should use the NVMe protocol.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove any protocols from the SVM before adding the NVMe protocol."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-04T15:52:00.000Z",
+        "voteCount": 1,
+        "content": "B is the answer.  NVMe requires a dedicated LIF to run on an SVM using the FC protocol.  With ONTAP 9.8 and above, it will run on the same SVM as other protocols."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106716-exam-ns0-520-topic-1-question-25-discussion/",
+    "body": "You are configuring a Windows Server 2019 system to attach to an iSCSI presented LUN. There are multiple physical paths from the Windows Server to the NetApp cluster.<br>Which two changes are required to the Windows Server to enable multipath? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a Converged Network Adapter (CNA).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the Ethernet network adapter.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the \u201cEnable multi-path\u201d checkbox on the iSCSI software initiator.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable MPIO by selecting the option in the MPIO properties administrative application.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T05:57:00.000Z",
+        "voteCount": 7,
+        "content": "Select the \u201cEnable multi-path\u201d checkbox on the iSCSI software initiator."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/netapp/view/122558-exam-ns0-520-topic-1-question-26-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image15.png\"><br>Referring to the exhibit, which security feature would guarantee that the Host A system that is mapped to LUN XYZ on the NetApp storage system is the only host that accesses the LUN?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tigroup setup with the IQN of the iSCSI software initiator on Host A\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCHAP configured on Host A and the NetApp Storage System",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIPsec configured on both Host A and the NetApp storage system",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tigroup setup with no IQNs"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 3,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-22T07:32:00.000Z",
+        "voteCount": 2,
+        "content": "Picture already has igroup created and CHAP is a security feature"
+      },
+      {
+        "date": "2024-01-11T10:48:00.000Z",
+        "voteCount": 1,
+        "content": "PIC Already has the igroup mapping..So I Guess it should be B option."
+      },
+      {
+        "date": "2023-12-04T15:48:00.000Z",
+        "voteCount": 3,
+        "content": "\"A\" can be, only you need map the IQN of Host A to LUN, is the first level of security."
+      },
+      {
+        "date": "2023-10-05T14:51:00.000Z",
+        "voteCount": 3,
+        "content": "B the question says \"which security feature would\" maping a iqn to a igroup is not a security feature"
+      },
+      {
+        "date": "2024-03-27T03:36:00.000Z",
+        "voteCount": 1,
+        "content": "But CHAP works on the iSCSI level and does not control access to the LUN, but rather access to the iSCSI storage interface."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/netapp/view/102664-exam-ns0-520-topic-1-question-27-discussion/",
+    "body": "What are two considerations when creating a physical Reference: drawing for adding an ASA AFF A700 system to your existing FC SAN environment? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitch connectivity\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tavailable cooling",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tavailable rack space\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thardware compatibility"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-15T00:41:00.000Z",
+        "voteCount": 7,
+        "content": "Think this is the right answer"
+      },
+      {
+        "date": "2024-05-04T16:17:00.000Z",
+        "voteCount": 1,
+        "content": "Definitely A and C are correct."
+      },
+      {
+        "date": "2024-03-22T07:32:00.000Z",
+        "voteCount": 1,
+        "content": "Others are not part of a physical reference drawing"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/netapp/view/118473-exam-ns0-520-topic-1-question-28-discussion/",
+    "body": "A customer has an existing legacy iSCSI storage environment that is connected to upstream network switches with various Windows hosts. The customer wants to purchase a new NetApp array to migrate their data.<br>In this scenario, which two tools would help to validate the prerequisites for this NetApp configuration? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive IQ Config Advisor",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHardware Universe (HWU)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInteroperability Matrix Tool (IMT)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive IQ OneCollect\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-18T16:50:00.000Z",
+        "voteCount": 6,
+        "content": "Since netapp is not deployed in this scenario, we need tools that work with 3rd party:\nOne Collect and IMT"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106721-exam-ns0-520-topic-1-question-29-discussion/",
+    "body": "You are asked to separate production FC traffic from test development FC traffic.<br>In this scenario, at a minimum, which two configurations would accomplish this task? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCisco VSANs\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshared igroup",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVLANs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSVMs\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AD",
+        "count": 6,
+        "isMostVoted": true
+      },
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:18:00.000Z",
+        "voteCount": 5,
+        "content": "SVM will help us to separate traffic creating production-LIFs"
+      },
+      {
+        "date": "2023-10-11T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "It refer to FC traffic, not ethernet, so it's correct SVMs and Cisco VSANs"
+      },
+      {
+        "date": "2023-10-10T14:29:00.000Z",
+        "voteCount": 1,
+        "content": "C and D\nNetApp documenation references VLANs for increased security. VSANs are only mentioned in metrocluster configs. \nhttps://library.netapp.com/ecm/ecm_download_file/ECMLP2427463"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106723-exam-ns0-520-topic-1-question-30-discussion/",
+    "body": "A storage administrator needs to ensure that an ONTAP FC LUN is accessible from a remote data center. The ISL ports are reporting errors. The trunkshow command output from a Brocade switch is show below. switch01:admin&gt; trunkshow 1: 10-&gt; 10 10:00:50:eb:1a:20:83:96 5 deskew 15 MASTER 2:11-&gt; 11 10:00:50:eb:1a:20:83:96 5 deskew 16 MASTER<br>In this scenario, which action would you perform to configure the ISLs correctly?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the ISL ports as FL_Ports.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the ISL ports as E_Ports.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the ISL ports as F_Ports.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the ISL ports as N_Ports."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:22:00.000Z",
+        "voteCount": 5,
+        "content": "B\nhttps://library.netapp.com/ecmdocs/ECMP1636017/html/GUID-B2BBB025-02A9-442C-9910-00FEF253CE52.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/netapp/view/111837-exam-ns0-520-topic-1-question-31-discussion/",
+    "body": "You have a 100 GB volume with the space guarantee set to volume. This volume contains two space reserved 20 GB LUNs. Both LUNs are at 50% use. You then create a Snapshot copy of the volume. No modifications were performed since the Snapshot copy was completed, and all actions were performed using the CLI.<br>In this scenario, how much free space does the volume have?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t80 GB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t40 GB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t20 GB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t60 GB\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-10T08:58:00.000Z",
+        "voteCount": 4,
+        "content": "This is just simple math. 100-20-20= 60. All LUNs are thick"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/netapp/view/116820-exam-ns0-520-topic-1-question-32-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image17.png\"><br>Referring to the exhibit, which WWPN would safely be removed from the zone?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t20:09:00:a0:98:32:99:07",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t50:0a:09:84:8d:7c:51:d5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t20:07:00:a0:98:32:99:07",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t21:00:00:c0:dd:19:4b:f3"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-30T13:15:00.000Z",
+        "voteCount": 5,
+        "content": "Answer B"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106724-exam-ns0-520-topic-1-question-33-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image18.png\"><br>During testing, an administrator notices that the wrong subsystem was returned using the nvme discover command. The administrator was expecting test0_subsystem as the subsystem.<br>Referring to the exhibit, what would cause this discrepancy?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe wrong NQN was mapped to the subsystem.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe wrong WWPN was used in the discover command.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe NVMe was not configured on the test0 SVM.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAsymmetric Namespace Access (ANA) was not properly configured."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:23:00.000Z",
+        "voteCount": 6,
+        "content": "nqn wrong"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106726-exam-ns0-520-topic-1-question-35-discussion/",
+    "body": "You have an 8-node AFF A400 ONTAP 9.8 cluster that is serving FC and iSCSI LUNs. You have three SVMs for FC and one SVM for iSCSI, each for separate VMware vSphere clusters. The VMware clusters are on separate, non-routable, networks. You are asked to set up SnapCenter software for backups of the virtual machine datastores.<br>What is the minimum management LIF count that is needed to satisfy this requirement?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\teight",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttwo",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfour\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tone"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:25:00.000Z",
+        "voteCount": 6,
+        "content": "C  \n4 SVM"
+      },
+      {
+        "date": "2024-02-17T11:07:00.000Z",
+        "voteCount": 1,
+        "content": "I belive you can setup Snapcenter only using Cluster management Lif. So i keen to option D."
+      },
+      {
+        "date": "2024-02-21T02:10:00.000Z",
+        "voteCount": 1,
+        "content": "i tried to replicate same environment in ontap lab on demand, using only one cluster lif and as I mentioned before its working just using cluster lif, there is no need to create and configure svm management lifs"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109891-exam-ns0-520-topic-1-question-36-discussion/",
+    "body": "You want to perform online data migration using Foreign LUN Import.<br>In this scenario, which two conditions are required to support this task? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCP protocol LIFs must be added to the data SVM.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCP initiator ports must be available.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiSCSI targets must be added to the ONTAP iSCSI initiator.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiSCSI protocol LIFs must be added to the data SVM."
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-15T03:07:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.netapp.com/us-en/ontap-fli/san-migration/task_importing_non_fc_luns.html"
+      },
+      {
+        "date": "2023-05-22T05:02:00.000Z",
+        "voteCount": 3,
+        "content": "A&amp;B...FLI does not support iSCSI connections directly. In order for iSCSI LUNs to be migrated using FLI, the LUN\ntype must be changed to FC. After the migration is complete, the LUN type is changed back to\niSCSI.\nYou can find more information on this link:\nhttps://docs.netapp.com/us-en/ontap-fli/sanmigration/\nconcept_lun_requirements_and_limitations.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/netapp/view/111887-exam-ns0-520-topic-1-question-37-discussion/",
+    "body": "During maintenance of an AFF A250 none, you want to move the SAN LIFs that are members of a port set.<br>In this scenario, which two statements are true? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou need to disable the zoning of the LIF WWPN.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou must disable SLM for the node that hosts the LIF.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou must take the SAN LIF offline.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe LIF must be removed from the port set.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-11T04:44:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; D are correct"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109894-exam-ns0-520-topic-1-question-38-discussion/",
+    "body": "You are a system administrator and responsible for a NetApp AFF A800 2-node ONTAP 9.8 cluster that is used only for SAN. Your SAN uses FC and FCoE on the same Cisco switches. You want to add NVMe from the ONTAP controller to the same Cisco fabric.<br>Which two statements are correct in this scenario? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFC and NVMe can share the same 32 Gb physical port.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe same SVM can serve both the FC and the FCoE protocols.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe same SVM cannot serve both the FC and the NVMe protocols.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCoE and NVMe can share the same physical port."
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-11T09:31:00.000Z",
+        "voteCount": 2,
+        "content": "Beginning with ONTAP 9.8, it is not necessary to remove other protocols when adding NVMe.\nhttps://docs.netapp.com/us-en/ontap/san-admin/configure-svm-nvme-task.html"
+      },
+      {
+        "date": "2023-08-18T17:02:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.netapp.com/us-en/ontap/san-config/zoning-restrictions-cisco-fc-fcoe-switches-reference.html\nMultiple LIFs for the FC and FCoE protocols, can share physical ports on a node as long as they are in different zones.\n\nFC-NVMe and FCoE cannot share the same physical port.\n\nFC and FC-NVMe can share the same 32 Gb physical port.\n\nCisco FC and FCoE switches require each LIF on a given port to be in a separate zone from the other LIFs on that port.\n\nA single zone can have both FC and FCoE LIFs. A zone can contain a LIF from every target port in the cluster, but be careful to not exceed the host\u2019s path limits and verify the SLM configuration.\n\nLIFs on different physical ports can be in the same zone.\n\nCisco switches require that LIFs be separated.\n\nThough not required, separating LIFs is recommended for all switches"
+      },
+      {
+        "date": "2023-05-22T05:23:00.000Z",
+        "voteCount": 1,
+        "content": "A&amp;B..\nFC and FC-NVMe can share the same 32 Gb physical port. The same SVM can serve both FC and NVMe protocols using the same physical infrastructure with different LIFs FCoE and NVMe can NOT share the same infrastructure, they go through different physical hardware\nhttps://docs.netapp.com/ontap-9/index.jsp?topic=%2Fcom.netapp.doc.dot-cm-sanconf%2FGUID-7D5EA321-97AE-497D-9925-BEF2553DF9F1.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/netapp/view/111889-exam-ns0-520-topic-1-question-42-discussion/",
+    "body": "You are reconfiguring a VMware vSphere host for FC access to a NetApp ONTAP cluster.<br>In this scenario, which two tasks does NetApp recommend performing on the vSphere host? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the NetApp Virtual Storage Console to configure the host settings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the queue depth on the host to 8.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the HBA driver.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tZone the host by using the host WWNNs."
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-07T21:53:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer: A,C"
+      },
+      {
+        "date": "2023-06-11T05:19:00.000Z",
+        "voteCount": 3,
+        "content": "A &amp; C could be correct answers. NetApp recommends wwpn zoning, not wwnn"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106729-exam-ns0-520-topic-1-question-43-discussion/",
+    "body": "You are configuring a 4-node AFF A400 ONTAP 9.8 cluster. The data center switches have limited ports, and you are given one 10-Gigabit Ethernet port per node for external access.<br>In this scenario, which three protocols share the same physical port? (Choose three.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNVMe/FC",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCoE\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiSCSI\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSnapMirror\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFC"
+    ],
+    "answer": "BCD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BCD",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:34:00.000Z",
+        "voteCount": 8,
+        "content": "Iscsi, Snapmirror and FCoE"
+      },
+      {
+        "date": "2023-05-22T06:29:00.000Z",
+        "voteCount": 3,
+        "content": "If we have only ethernet switches available, we can only enable protocols over ethernet such as FCoE, ISCSI and Snapmirror.\nNVMe/FC and FC need a SAN Fabric switch to work."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106730-exam-ns0-520-topic-1-question-45-discussion/",
+    "body": "You need to migrate boot LUNs from a third-party array onto a NetApp FAS8700.<br>Which three actions are required to complete this task? (Choose three.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConvert every FC target port on each controller to an FC initiator port.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate zoning between the third-party array to the FAS8700.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConvert a single FC port on each controller to an FC initiator port.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify third-party array support by using the Interoperability Matrix Tool (IMT).\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReboot the third-party SAN to prepare for the LUN import."
+    ],
+    "answer": "BCD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BCD",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-22T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "We only need to convert one FC to initiator per node, if you need to enable multipath with 2 switches, then you need 2 ports on initiator mode per node."
+      },
+      {
+        "date": "2023-04-19T06:36:00.000Z",
+        "voteCount": 4,
+        "content": "IMT mATRIZ"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106731-exam-ns0-520-topic-1-question-46-discussion/",
+    "body": "You want to use ANA on SUSE Enterprise Linux.<br>Which two components need to be verified in this scenario? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify the version of ONTAP.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that ALUA must be enabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify the version of SUSE Enterprise Linux.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that the ANA driver is installed."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:39:00.000Z",
+        "voteCount": 5,
+        "content": "A y  C\nthe versi\u00f3n Ontap +9.4"
+      },
+      {
+        "date": "2023-05-22T06:44:00.000Z",
+        "voteCount": 3,
+        "content": "ANA Supportability\nNVMe/FC is supported on ONTAP 9.6 or later for the following versions of SLES:\nSLES15 SP1 host can run both NVMe/FC, &amp; FCP traffic through the same fiber channel initiator adapter ports.\nhttps://docs.netapp.com/us-en/ontap-sanhost/nvme_sles15_sp1.html#supportability"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/netapp/view/118477-exam-ns0-520-topic-1-question-47-discussion/",
+    "body": "You have a NetApp ONTAP cluster and are configuring iSCSI for some new hosts. You want to ensure that iSCSI connectivity can survive physical network failures.<br>In this scenario, which two features would help fulfill this requirement? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tbroadcast domains",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMPIO\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfailover groups",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinterface groups\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-11T09:01:00.000Z",
+        "voteCount": 2,
+        "content": "failover groups and broadcast domain are not used on ISCSI lif.\nMPIO and port-channel are correct"
+      },
+      {
+        "date": "2023-08-18T20:47:00.000Z",
+        "voteCount": 3,
+        "content": "The correct Answer is B and D. \n\nMPIO and IF Group"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109908-exam-ns0-520-topic-1-question-48-discussion/",
+    "body": "You created a LUN in a new volume on your NetApp ONTAP cluster. You enabled the default Snapshot schedule and enabled Snapshot autodelete on the volume.<br>In this scenario, in which three situations does the Snapshot autodelete feature automatically delete Snapshot copies in the volume? (Choose three.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe aggregate is nearly full.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Snapshot reserve space is nearly full.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe LUN is nearly full.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe volume is nearly full.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe overwrite reserve space is full.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BCD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BDE",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-05-22T07:46:00.000Z",
+        "voteCount": 6,
+        "content": "It is B, D and E"
+      },
+      {
+        "date": "2023-10-11T09:36:00.000Z",
+        "voteCount": 2,
+        "content": "https://kb.netapp.com/onprem/ontap/os/How_to_use_Snapshot_Autodelete"
+      },
+      {
+        "date": "2023-05-22T07:44:00.000Z",
+        "voteCount": 3,
+        "content": "A, D and E.....Depending on what is selected in the \"Trigger\" option, Snapshot Autodelete will automatically delete a snapshot when, either the volume space utilized, or the snapshot reserve reaches a threshold capacity specified below.\nAutomatic deletion of Snapshot copies from flexible volumes Data ONTAP can automatically delete one or more Snapshot copies on the volume, provided the Data ONTAP Snapshot copy autodeletion policy is enabled and set to trigger when the overwrite reserve is nearly full on the volume.\nYou can find more information on this link:\nhttps://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_use_Snapshot_Autodelete\nhttps://library.netapp.com/ecmdocs/ECMP1217281/html/GUID-98FB8EC4-F3AE-4D25-AF44-E3200AFEB1AB.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/netapp/view/106732-exam-ns0-520-topic-1-question-49-discussion/",
+    "body": "An administrator enabled the FCP protocol on an SVM and created a boot LUN for a Windows Server 2019 server host. The host is attached using multiple paths to the storage SVM. After correctly adding the LUN to the igroup and setting its LUN ID to 1, the host is unable to boot using the installed FC HBA.<br>In this scenario, which statement is correct?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDuring the boot process, using FCP is not supported by NetApp.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDuring the boot process, using FCP is not supported by Microsoft.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe LUN ID must be set to 0.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe LUN ID must be set to 255."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-19T06:41:00.000Z",
+        "voteCount": 6,
+        "content": "The lun ID 0"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/netapp/view/104210-exam-ns0-520-topic-1-question-50-discussion/",
+    "body": "You have deployed a FAS8300 system and want to enable SAN protocols.<br>In this scenario, which two protocols are available to serve SAN data? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFCP\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tiSCSI\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInfiniband",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNVMe"
+    ],
+    "answer": "AD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AB",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-28T07:38:00.000Z",
+        "voteCount": 8,
+        "content": "It should be A &amp; B isnt it?"
+      },
+      {
+        "date": "2023-10-11T09:19:00.000Z",
+        "voteCount": 1,
+        "content": "NVMe is supported only on AFF and ASA\nhttps://docs.netapp.com/us-en/ontap/nvme/support-limitations.html#protocols\nSo it's correct ISCSI and FCP"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109909-exam-ns0-520-topic-1-question-51-discussion/",
+    "body": "A customer is deploying a SAN cluster of A700 nodes and wants to ensure that the SAN cluster will maintain a quorum in the event of a rack level power failure.<br>Which two statements are true in this scenario? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThree racks are required.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTwo racks are required.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSix nodes are required.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFour nodes are required."
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-22T07:51:00.000Z",
+        "voteCount": 8,
+        "content": "A&amp;C...The quorum rule states that to make changes to the configuration in our cluster, we need to have more than half of the nodes available. This prevents configuration conflicts if we lose connectivity between the nodes in our cluster. So, if we have only 2 racks and 4 nodes we could never get more than half of the nodes available if one of those racks power fails. We need 6 nodes separated on 3 racks, so we can have more than half of the nodes available if one of those racks power fails."
+      },
+      {
+        "date": "2024-04-10T19:33:00.000Z",
+        "voteCount": 1,
+        "content": "B &amp; D are correct.\nBecause there is the possibility of a tie in a cluster that has an even number of nodes, one node has an extra fractional voting weight called epsilon. If the connectivity between two equal portions of a large cluster fails, the group of nodes containing epsilon maintains quorum, assuming that all of the nodes are healthy. For example, the following illustration shows a four-node cluster in which two of the nodes have failed. However, because one of the surviving nodes holds epsilon, the cluster remains in quorum even though there is not a simple majority of healthy nodes.\nhttps://docs.netapp.com/us-en/active-iq-unified-manager/health-checker/concept_understand_quorum_and_epsilon.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/netapp/view/133513-exam-ns0-520-topic-1-question-52-discussion/",
+    "body": "You have a two-node NetApp ONTAP cluster that is hosting FC LUNs for 90 SAN hosts. The hosts are experiencing occasional performance problems and receiving QFULL responses from the cluster nodes.<br>Which action would solve this issue?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the queue depth on the target ports.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the queue depth on the initiator ports.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure additional FC target ports.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure additional FC ports on the hosts."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-10T22:52:00.000Z",
+        "voteCount": 4,
+        "content": "C is correct answer"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109910-exam-ns0-520-topic-1-question-53-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image25.png\"><br>After performing failover testing on a newly deployed MetroCluster configuration, some aggregates remain in a degraded state.<br>Referring to the exhibit, which statement is true?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA disk shelf is powered off.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe ONTAP Mediator service is misconfigured.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA cluster switch is powered off.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe MetroCluster Tiebreaker software is misconfigured."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-22T08:02:00.000Z",
+        "voteCount": 3,
+        "content": "A....The aggregate with drives on the powered-off shelf should have a degraded RAID status, and drives on the affected plex should have a failed status\nYou can find more information on this link:\nhttps://docs.netapp.com/us-en/ontap-metrocluster/installip/task_test_the_mcc_configuration.html#verifying-operation-after-loss-of-a-single-storage-shelf"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/netapp/view/119341-exam-ns0-520-topic-1-question-54-discussion/",
+    "body": "An administrator is asked to provision a SAN environment in which host applications can monitor LUN space and perform space reclamation.<br>Which LUN type would satisfy these requirements?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetApp thick provisioned volume",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSCSI thin provisioned LUN\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetApp thin provisioned volume",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSCSI thick provisioned LUN"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-29T18:48:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.netapp.com/us-en/ontap/san-admin/automatic-host-side-space-management-concept.html"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 48,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109912-exam-ns0-520-topic-1-question-55-discussion/",
+    "body": "In a Linux environment, issues are reported concerning multipathing. You want to view the direct and indirect paths.<br>In this scenario, which command would you use to accomplish this task?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the lspci command.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the sanlun command.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the systemctl command.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the ifconfig command."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-22T08:15:00.000Z",
+        "voteCount": 5,
+        "content": "B...\n[rool;_@root~]#_ anlunl!!n, show -p\n\nVserver1:/        lun2\nONTAP Path: Vservre1:/vol/vloname/lun2                          \nLUN:  1\nLUN  Size: 200g HostDevice:360a990003246665c422b397a54625875\nMode: C\nMultipath Policy:round-robin 0\nDM-MP Features: 1 gueueif po 2ath. Hardi&lt;are Handler:1 !!.!la  Multipaht Provider: Native\n\n\nhost         vserver                        host:\nm.-me     path    !!at      /dev/  mau:\n!:,                                                                                                 \n  major:\nstate              type      node   id:lun      u\nF                                   minor\nactive     up      primary   a.!!&amp;       9:0:0:1     fcp_lif 1                               8:48\nactive     up      primary          10:0:2:1    fcp_lif 2                               8:240\nactive     up       seconadr;t  sdf   9:0:1:1     f&lt;p_lif 3                               8:80\nactive     up       secondar;t  sdr   10:0:3:1    fcp_lif 4                               65:16"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 49,
+    "url": "https://www.examtopics.com/discussions/netapp/view/111893-exam-ns0-520-topic-1-question-56-discussion/",
+    "body": "What are two benefits of implementing VLANs for iSCSI configurations? (Choose two.)",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tincreased performance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tincreased resiliency",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\treduced number of broadcast domains",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tincreased security"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-07T21:46:00.000Z",
+        "voteCount": 1,
+        "content": "C &amp; D are correct"
+      },
+      {
+        "date": "2023-08-13T06:56:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.netapp.com/us-en/ontap/san-config/benefits-vlans-iscsi-concept.html"
+      },
+      {
+        "date": "2023-06-11T06:02:00.000Z",
+        "voteCount": 4,
+        "content": "C &amp; D are correct"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 50,
+    "url": "https://www.examtopics.com/discussions/netapp/view/111894-exam-ns0-520-topic-1-question-57-discussion/",
+    "body": "Click the Exhibit button.<br><img src=\"https://img.examtopics.com/ns0-520/image28.png\"><br>You install an ASA AFF A400 system with 32 GB FC SFP+ modules in port 0e and 0f. After creating the SVM and configuring the FCP protocol, the physical port stays offline.<br>Referring to the exhibit, which statement is correct?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe admin status is manually set to down.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe current type of the ports must be configured as an initiator.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe current mode for the ports must be set as an NVMe/FC port.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe current mode for the ports must be configured as an FC port.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-18T17:17:00.000Z",
+        "voteCount": 3,
+        "content": "FC port"
+      },
+      {
+        "date": "2023-06-11T06:05:00.000Z",
+        "voteCount": 3,
+        "content": "D. ASA systems cannot have CNA"
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 51,
+    "url": "https://www.examtopics.com/discussions/netapp/view/109915-exam-ns0-520-topic-1-question-58-discussion/",
+    "body": "You have finished deploying a NetApp AFF All SAN Array cluster and want to test the persistent ports feature.<br>In this scenario, how would you accomplish this task?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisconnect an FCP initiator port.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable a SAN LIF.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisconnect an FCP target port.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerform a takeover of a node.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-10-11T06:22:00.000Z",
+        "voteCount": 1,
+        "content": "Perform a takeover:\nhttps://docs.netapp.com/us-en/ontap/asa/support-limitations.html#san-protocols-and-nodes-per-cluster"
+      },
+      {
+        "date": "2023-05-22T08:39:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is D. If we don't have OnCommand Insight, then we should not pull out a cable as test because it won't be detected properly. Doing a planned takeover will meet the requirements asked."
+      }
+    ],
+    "examNameCode": "ns0-520",
+    "topicNumber": "1"
+  }
+]

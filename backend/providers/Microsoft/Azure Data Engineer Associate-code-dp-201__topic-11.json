@@ -1,0 +1,105 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/18630-exam-dp-201-topic-11-question-1-discussion/",
+    "body": "You need to recommend a security solution that meets the requirements of Health Review.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdynamic data masking",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransport Layer Security (TLS)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\trow-level security"
+    ],
+    "answer": "C",
+    "answerDescription": "Must ensure that sensitive health data is encrypted at rest and in transit.<br>Always Encrypted is a feature designed to protect sensitive data stored in Azure SQL Database or SQL Server databases. Always Encrypted allows clients to encrypt sensitive data inside client applications and never reveal the encryption keys to the database engine (SQL Database or SQL Server).<br>Reference:<br>https://docs.microsoft.com/en-us/azure/security/fundamentals/encryption-atrest https://docs.microsoft.com/en-us/azure/security/fundamentals/database-security-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-18T16:11:00.000Z",
+        "voteCount": 17,
+        "content": "Answer is C - Always Encrypted.\n\nIn Microsoft article it is not indicated that TLS enforces TDE, and its clearly stated that TLS protects data in transit only. Source: https://docs.microsoft.com/en-us/azure/azure-sql/database/security-overview\n\n\"Always Encrypted protects the data, stored in encrypted columns, at rest and in transit. However, unless your goal is to protect sensitive data in use, TDE is the recommended choice for encryption at rest, and we recommend TLS for protecting data in-transit. In fact, it is often advised to use Always Encrypted, TDE, and TLS together\"\n\nTDE as the first line of defense (and to meet common compliance requirements) to encrypt the entire database at rest.\nTLS to protect all traffic to the database.\nAlways Encrypted to protect highly sensitive data from high-privilege users and malware in the database environment.\n\nSource: https://azure.microsoft.com/pl-pl/blog/transparent-data-encryption-or-always-encrypted/"
+      },
+      {
+        "date": "2020-12-08T03:03:00.000Z",
+        "voteCount": 2,
+        "content": "Ensure that sensitive health data is encrypted at rest and in transit.\nAnswer is C"
+      },
+      {
+        "date": "2020-12-05T08:28:00.000Z",
+        "voteCount": 1,
+        "content": "Always encrypted is used only for specific columns and it relates to situation when data should never be exposed to database users, even highly privliged DBAs. If you want encryption at rest use TDE, TLS is always enforced, eventually db is always encrypted.\nStop confusing this with always encrypted, it's completely different feature"
+      },
+      {
+        "date": "2020-09-21T22:30:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/always-encrypted-azure-key-vault-configure?tabs=azure-powershell"
+      },
+      {
+        "date": "2020-07-17T06:55:00.000Z",
+        "voteCount": 3,
+        "content": "\"Ensure that sensitive health data is encrypted at rest and in transit.\"\nBy the other clues its sure that the Database is a Azure SQL DB. \nNow all the Azure SQL DB have got the default setting of TDE which is used for \"Encryption at rest\".\nSo here TDE is by default and for Encryption at transit we need to use TLS.\nAs a result I guess B should be the answer which is TLS.\nCan anyone help me to validate my understanding reg this answer."
+      },
+      {
+        "date": "2020-08-06T05:04:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is B - requirement is \" encrypted at rest and in transit\" which is using TDE and TLS"
+      },
+      {
+        "date": "2020-08-11T00:10:00.000Z",
+        "voteCount": 10,
+        "content": "C correct: Communication between a client application and an Azure Storage account is encrypted using Transport Layer Security (TLS). Here the case is about Azure SQL DB.\n\nTDE is a given feature and Always encrypted is needed as extra.\n\nhttps://docs.microsoft.com/en-us/azure/storage/common/transport-layer-security-configure-minimum-version?tabs=portal"
+      },
+      {
+        "date": "2020-10-26T09:26:00.000Z",
+        "voteCount": 1,
+        "content": "Always encrypted revokes the access to the sensitive data from database admins/operators - only the application using a private key has the capability to access the data. So data is encrypted on the database level while in TDE the data is encrypted on the storage level. In this question, it seems like the AE is required since the health data is highly sensitive!"
+      },
+      {
+        "date": "2020-06-22T18:48:00.000Z",
+        "voteCount": 1,
+        "content": "It doesn't hide it, rather encrypts it."
+      },
+      {
+        "date": "2020-04-17T23:05:00.000Z",
+        "voteCount": 1,
+        "content": "Isn't always encrypte designed to hide a specific column?"
+      },
+      {
+        "date": "2020-04-21T12:49:00.000Z",
+        "voteCount": 4,
+        "content": "You are talking about column-level security."
+      },
+      {
+        "date": "2020-07-10T01:32:00.000Z",
+        "voteCount": 1,
+        "content": "Req: \"Ensure that sensitive health data is encrypted at rest and in transit.\""
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/53380-exam-dp-201-topic-11-question-2-discussion/",
+    "body": "You need to recommend a solution to quickly identify all the columns in Health Review that contain sensitive health data.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData Discovery and Classifications",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdata masking",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSQL Server auditing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure tags"
+    ],
+    "answer": "A",
+    "answerDescription": "Data Discovery &amp; Classification introduces a set of advanced capabilities aimed at protecting data and not just the data warehouse itself. Classification/Labeling \u05d2\u20ac\"<br>Sensitivity classification labels tagged on the columns can be persisted in the data warehouse itself.<br>Reference:<br>https://azure.microsoft.com/sv-se/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/<br>Design for data security and compliance",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-22T21:13:00.000Z",
+        "voteCount": 10,
+        "content": "Answer is correct"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "11"
+  }
+]

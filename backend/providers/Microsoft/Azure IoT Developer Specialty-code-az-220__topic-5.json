@@ -1,0 +1,691 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26252-exam-az-220-topic-5-question-1-discussion/",
+    "body": "You have 10 IoT devices that connect to an Azure IoT hub named Hub1.<br>From Azure Cloud Shell, you run az iot hub monitor-events --hub-name Hub1 and receive the following error message: \"az iot hub: 'monitor-events' is not in the 'az iot hub' command group. See 'az iot hub --help'.\"<br>You need to ensure that you can run the command successfully.<br>What should you run first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz iot hub monitor-feedback --hub-name Hub1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz iot hub generate-sas-token --hub-name Hub1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz iot hub configuration list --hub-name Hub1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\taz extension add -name azure-cli-iot-ext"
+    ],
+    "answer": "D",
+    "answerDescription": "Execute az extension add --name azure-cli-iot-ext once and try again.<br>In order to read the telemetry from your hub by CLI, you have to enable IoT Extension with the following commands:<br>Add: az extension add --name azure-cli-iot-ext<br>Reference:<br>https://github.com/MicrosoftDocs/azure-docs/issues/20843",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-20T09:56:00.000Z",
+        "voteCount": 15,
+        "content": "The azure-cli-iot-ext is deprecated so I expect it'll be culled soon and this question retired. For those of our who get a question similar in the future I expect the answer to be az extension add --name azure-iot\n\nThe legacy IoT extension Id azure-cli-iot-ext is deprecated in favor of the new modern Id azure-iot. azure-iot is a superset of azure-cli-iot-ext and any new features or fixes will apply to azure-iot only. Also the legacy and modern IoT extension should never co-exist in the same CLI environment."
+      },
+      {
+        "date": "2021-11-28T07:25:00.000Z",
+        "voteCount": 3,
+        "content": "answer is correct."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/69133-exam-az-220-topic-5-question-2-discussion/",
+    "body": "You have an Azure Stream Analytics job that connects to an Azure IoT hub named Hub1445 as a streaming data source. Hub1445 is configured as shown in the exhibit.<br><img src=\"/assets/media/exam-media/04123/0013800001.jpg\" class=\"in-exam-image\"><br>The Stream Analytics job fails to receive any messages from the IoT hub.<br>What should you do to resolve the issue?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the Route1 route.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable the Route3 route.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the Route2 route.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable the fallback route."
+    ],
+    "answer": "B",
+    "answerDescription": "Events are not getting through as Route3, with an events Endpoint, is not enabled.<br>Note: Azure IoT Hub is a highly scalable publish-subscribe event ingestor optimized for IoT scenarios.<br>The default timestamp of events coming from an IoT Hub in Stream Analytics is the timestamp that the event arrived in the IoT Hub, which is<br>EventEnqueuedUtcTime.<br>Reference:<br>https://www.darenmay.com/office365/2019/01/27/azure-iot-streaming-analytics-data-lake-analytics-and-json.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-31T02:58:00.000Z",
+        "voteCount": 1,
+        "content": "B is ok as from\nhttps://docs.microsoft.com/en-us/azure/iot-hub/troubleshoot-message-routing\nyou may take it the same as with l3 routing, i.e if on vlan there is a route other then default"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48118-exam-az-220-topic-5-question-3-discussion/",
+    "body": "You are troubleshooting an Azure IoT hub.<br>You discover that some telemetry messages are dropped before they reach downstream processing.<br>You suspect that IoT Hub throttling is the root cause.<br>Which log in the Diagnostics settings of the IoT hub should you use to capture the throttling error events?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRoutes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeviceTelemetry",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnections",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tC2DCommands"
+    ],
+    "answer": "B",
+    "answerDescription": "The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.<br>Note: The metric d2c.telemetry.ingress.sendThrottle is the number of throttling errors due to device throughput throttles.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-monitor-resource-health",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-22T12:49:00.000Z",
+        "voteCount": 3,
+        "content": "Device telemetry is correct"
+      },
+      {
+        "date": "2021-05-25T05:18:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/ja-jp/azure/iot-hub/monitor-iot-hub-reference#device-telemetry"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22126-exam-az-220-topic-5-question-6-discussion/",
+    "body": "You have 1,000 devices that connect to an Azure IoT hub.<br>You are performing a scheduled check of deployed IoT devices.<br>You plan to run the following command from the Azure CLI prompt. az iot hub query --hub-name hub1 --query-command \"SELECT * FROM devices WHERE connectionState = 'Disconnected'\"<br>What does the command return?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Device Disconnected events",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe device twins",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Connections logs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe device credentials"
+    ],
+    "answer": "B",
+    "answerDescription": "Device twin queries: IoT Hub exposes the device twins as a document collection called devices. For example, the following query retrieves the whole set of device twins:<br><br>SELECT * FROM devices -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language#device-and-module-twin-queries",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-04T14:47:00.000Z",
+        "voteCount": 20,
+        "content": "seems like it should return the device twins of the disconnected devices"
+      },
+      {
+        "date": "2021-06-29T10:52:00.000Z",
+        "voteCount": 1,
+        "content": "correct, confirmed here (see connectionState)&gt; \nhttps://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-identity-registry#device-heartbeat"
+      },
+      {
+        "date": "2020-06-13T01:19:00.000Z",
+        "voteCount": 14,
+        "content": "should be device twins."
+      },
+      {
+        "date": "2021-02-26T09:41:00.000Z",
+        "voteCount": 3,
+        "content": "the Device Disconnected events"
+      },
+      {
+        "date": "2021-02-05T00:54:00.000Z",
+        "voteCount": 2,
+        "content": "Question says what does command return ? device twin is not something (telemetry or event or signal)\n which device return to hub. In my opinion A is correct."
+      },
+      {
+        "date": "2020-11-26T05:59:00.000Z",
+        "voteCount": 4,
+        "content": "Indeed B...Tested with production data"
+      },
+      {
+        "date": "2020-11-10T02:47:00.000Z",
+        "voteCount": 1,
+        "content": "Device twin\nIoT Hub exposes the device twins as a document collection called devices. For example, the following query retrieves the whole set of device twins:\nSQL\nSELECT * FROM devices\nSource: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language"
+      },
+      {
+        "date": "2020-09-21T03:13:00.000Z",
+        "voteCount": 3,
+        "content": "It will be Device Twin only for the disconnected Device"
+      },
+      {
+        "date": "2020-08-25T06:14:00.000Z",
+        "voteCount": 5,
+        "content": "Correct option is B. \nThe command returns the Device twin of the disconnected devices."
+      },
+      {
+        "date": "2020-07-21T16:26:00.000Z",
+        "voteCount": 5,
+        "content": "Device twins"
+      },
+      {
+        "date": "2020-07-21T16:26:00.000Z",
+        "voteCount": 4,
+        "content": "Tried, returns data tiwns."
+      },
+      {
+        "date": "2020-06-18T05:21:00.000Z",
+        "voteCount": 1,
+        "content": "Not disconnected devices\n\nThe IoT Hub identity registry contains a field called connectionState. Only use the connectionState field during development and debugging. IoT solutions should not query the field at run time. For example, do not query the connectionState field to check if a device is connected before you send a cloud-to-device message or an SMS."
+      },
+      {
+        "date": "2020-06-17T19:17:00.000Z",
+        "voteCount": 5,
+        "content": "Yes. It should be Device twins.\nhttps://docs.microsoft.com/en-us/cli/azure/ext/azure-cli-iot-ext/iot/hub?view=azure-cli-latest#ext-azure-cli-iot-ext-az-iot-hub-query-examples"
+      },
+      {
+        "date": "2020-10-07T14:57:00.000Z",
+        "voteCount": 1,
+        "content": "Review the section labeled Device and module twin queries, displaying arbitrary JSON objects, which IoT Hub enables you to query device twins and module twins. Such as; \"connectionState\"\n\nhere is the article: https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-query-language#device-and-module-twin-queries"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22084-exam-az-220-topic-5-question-7-discussion/",
+    "body": "You have an Azure IoT solution that includes several Azure IoT hubs.<br>A new alerting feature was recently added to the IoT devices. The feature uses a new device twin reported property named alertCondition.<br>You need to send alerts to an Azure Service Bus queue named MessageAlerts. The alerts must include alertCondition and the name of the IoT hub.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure File upload for each IoT hub. Configure the device to send a file to an Azure Storage container that contains the device name and status message.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the following message enrichments: Name = iotHubName Value = $twin.tag.location Endpoint = MessageAlerts",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an IoT Hub routing rule that has a data source of Device Twin Change Events and select the endpoint for MessageAlerts.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the following message enrichments: Name = iotHubName Value = $iothubname Endpoint = MessageAlerts\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate an IoT Hub routing rule that has a data source of Device Telemetry Messages and select the endpoint for MessageAlerts."
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-04T03:11:00.000Z",
+        "voteCount": 22,
+        "content": "The correct answer are: C &amp; D"
+      },
+      {
+        "date": "2020-06-09T14:36:00.000Z",
+        "voteCount": 11,
+        "content": "agree with C &amp; D"
+      },
+      {
+        "date": "2022-10-12T22:51:00.000Z",
+        "voteCount": 1,
+        "content": "agree with CD"
+      },
+      {
+        "date": "2022-03-24T23:02:00.000Z",
+        "voteCount": 2,
+        "content": "Agree with CD"
+      },
+      {
+        "date": "2020-08-25T07:06:00.000Z",
+        "voteCount": 1,
+        "content": "B &amp; D is surely not the correct option. As Message Enrichment require unique property name . In B &amp; D options, the property name is provided same as 'iotHubName'."
+      },
+      {
+        "date": "2020-08-21T02:54:00.000Z",
+        "voteCount": 3,
+        "content": "The correct options should be C &amp; D"
+      },
+      {
+        "date": "2020-07-20T10:27:00.000Z",
+        "voteCount": 8,
+        "content": "C&amp;D are right"
+      },
+      {
+        "date": "2020-10-07T16:33:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-messages-d2c#:~:text=For%20example%2C%20if%20a%20route%20is%20created%20with,indicating%20whether%20the%20device%20was%20deleted%20or%20created.\n\nmessage routing also enables sending device twin change events, device lifecycle events, and digital twin change events. For example, if a route is created with data source set to device twin change events, IoT Hub sends messages to the endpoint that contain the change in the device twin"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26528-exam-az-220-topic-5-question-8-discussion/",
+    "body": "DRAG DROP -<br>You have 100 devices that connect to an Azure IoT hub.<br>You need to be notified about failed local logins to a subset of the devices.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04123/0014600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04123/0014600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Enable Azure Security Center for IoT<br>Security alerts, such as failed local IoT hub logins, are stored in AzureSecurityOfThings.SecurityAlert table in the Log Analytics workspace configured for the<br>Azure Security Center for IoT solution.<br>Step 2: Select a device security group<br>Update a device security group..<br>Step 3: Create a custom alert rule<br>..by creating a custom alert rule<br>Reference:<br>https://docs.microsoft.com/bs-latn-ba/azure/asc-for-iot/how-to-security-data-access https://docs.microsoft.com/en-us/rest/api/securitycenter/devicesecuritygroups/createorupdate",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-23T16:44:00.000Z",
+        "voteCount": 3,
+        "content": "Ans is correct:\n\n1. Enable Security Center (this is a requirement for all the scenarios)\n2. SecurityGroups\n3. Create a rule.\n\nhttps://docs.microsoft.com/en-us/azure/asc-for-iot/quickstart-create-custom-alerts"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/66561-exam-az-220-topic-5-question-9-discussion/",
+    "body": "You have an Azure IoT solution that includes a basic tier Azure IoT hub named Hub1 and a Raspberry Pi device named Device1. Device1 connects to Hub1.<br>You back up Device1 and restore the backup to a new Raspberry Pi device.<br>When you start the new Raspberry Pi device, you receive the following error message in the diagnostic logs of Hub1: \"409002 LinkCreationConflict.\"<br>You need to ensure that Device1 and the new Raspberry Pi device can run simultaneously without error.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOn the new Raspberry Pi device, modify the connection string.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Hub1, modify the device shared access policy.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade Hub1 to the standard tier.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Hub1, create a new consumer group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Hub1, create a new IoT device."
+    ],
+    "answer": "AE",
+    "answerDescription": "Note: Symptoms -<br>You see the error 409002 LinkCreationConflict in logs along with device disconnection or cloud-to-device message failure.<br><br>Cause -<br>Generally, this error happens when IoT Hub detects a client has more than one connection. In fact, when a new connection request arrives for a device with an existing connection, IoT Hub closes the existing connection with this error.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-troubleshoot-error-409002-linkcreationconflict#symptoms https://devblogs.microsoft.com/iotdev/understand-different-connection-strings-in-azure-iot-hub/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-22T12:58:00.000Z",
+        "voteCount": 2,
+        "content": "- From Hub1, create a new IoT device.\n- On the new Raspberry Pi device, modify the connection string."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48120-exam-az-220-topic-5-question-10-discussion/",
+    "body": "You have 1,000 devices that connect to an Azure IoT hub.<br>You discover that some of the devices fail to send data to the IoT hub.<br>You need to ensure that you can use Azure Monitor to troubleshoot the device connectivity issues.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Diagnostics settings of the IoT hub, select Archive to a storage account.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCollect the DeviceTelemetry, Connections, and Routes logs.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCollect all metrics.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Diagnostics settings of the IoT hub, select Send to Log Analytic.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCollect the JobsOperations, DeviceStreams, and FileUploadOperations logs."
+    ],
+    "answer": "BD",
+    "answerDescription": "The IoT Hub resource logs connections category emits operations and errors having to do with device connections. The following screenshot shows a diagnostic setting to route these logs to a Log Analytics workspace:<br><img src=\"/assets/media/exam-media/04123/0014900001.jpg\" class=\"in-exam-image\"><br>Note: Azure Monitor: Route connection events to logs:<br>IoT hub continuously emits resource logs for several categories of operations. To collect this log data, though, you need to create a diagnostic setting to route it to a destination where it can be analyzed or archived. One such destination is Azure Monitor Logs via a Log Analytics workspace, where you can analyze the data using Kusto queries.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-troubleshoot-connectivity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-06-29T11:15:00.000Z",
+        "voteCount": 2,
+        "content": "Answers are correct. \nD is clear, see reference. \nC and E are basically nonsense, can be discarded. \nA is a valid option for trouble-shooting, but not with Azure Monitor. It is for offline analysis, ref. https://docs.microsoft.com/en-us/azure/iot-hub/monitor-iot-hub"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48121-exam-az-220-topic-5-question-11-discussion/",
+    "body": "You have an Azure IoT solution that includes an Azure IoT hub.<br>You plan to deploy 10,000 IoT devices.<br>You need to validate the performance of the IoT solution while 10,000 concurrently connected devices stream telemetry. The solution must minimize effort.<br>What should you deploy?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure IoT Device Simulation from Azure IoT Solution Accelerator",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure function, an IoT Hub device SDK, and a timer trigger",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure IoT Central application and a template for the retail industry",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure IoT Edge gateway configured as a protocol translation gateway"
+    ],
+    "answer": "A",
+    "answerDescription": "The IoT solution accelerators are complete, ready-to-deploy IoT solutions that implement common IoT scenarios. The scenarios include connected factory and device simulation.<br>Use the Device Simulation solution accelerator to run simulated devices that generate realistic telemetry. You can use this solution accelerator to test the behavior of the other solution accelerators or to test your own custom IoT solutions.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-accelerators/about-iot-accelerators",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-08T04:02:00.000Z",
+        "voteCount": 1,
+        "content": "As of Sep 2021, this question should be removed."
+      },
+      {
+        "date": "2021-06-29T11:18:00.000Z",
+        "voteCount": 2,
+        "content": "Correct. \nA is the only option to test at scale. \nB, C and D are good options for development and proof-of-concept work with a few devices"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56993-exam-az-220-topic-5-question-13-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have 20 IoT devices deployed across two floors of a building. The devices on the first floor must be set to 60 degrees. The devices on the second floor must be set to 80 degrees.<br>The device twins are configured to use a tag that identifies the floor on which the twins are located.<br>You create the following automatic configuration for the devices on the first floor.<br><img src=\"/assets/media/exam-media/04123/0015200001.jpg\" class=\"in-exam-image\"><br>You create the following automatic configuration for the devices on the second floor.<br><img src=\"/assets/media/exam-media/04123/0015300001.jpg\" class=\"in-exam-image\"><br>The IoT devices on the first floor report that the temperature is set to 80 degrees.<br>You need to ensure that the first-floor devices are set to the correct temperature.<br>Solution: In the automatic configuration for the second-floor devices, you set targetCondition to \"tags.floor='second'\".<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/iot-edge/module-deployment-monitoring?view=iotedge-2020-11 https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-automatic-device-management-cli",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-11-15T00:53:00.000Z",
+        "voteCount": 1,
+        "content": "It is yes as the config for the first floor is already set. The * in the target condition of the second floor overrides the first config so you should specify the target more precise."
+      },
+      {
+        "date": "2022-03-30T01:05:00.000Z",
+        "voteCount": 1,
+        "content": "Vote A"
+      },
+      {
+        "date": "2021-11-22T13:03:00.000Z",
+        "voteCount": 1,
+        "content": "Yes - it is correct"
+      },
+      {
+        "date": "2021-07-03T00:32:00.000Z",
+        "voteCount": 2,
+        "content": "Answer should be B \"NO\". The `tag.floor=first` should be used."
+      },
+      {
+        "date": "2021-07-14T12:58:00.000Z",
+        "voteCount": 1,
+        "content": "Could you please explain why it is No?"
+      },
+      {
+        "date": "2023-01-20T01:52:00.000Z",
+        "voteCount": 1,
+        "content": "I think that is just a typo, and should be\n\"targetCondition\": \"tags.floor=first\",\nConsidering the otherwise correct solution i would choose A: correct."
+      },
+      {
+        "date": "2023-01-20T01:53:00.000Z",
+        "voteCount": 1,
+        "content": "... aaand I forgot the quotes around first :)\n\"targetCondition\": \"tags.floor='first'\","
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96482-exam-az-220-topic-5-question-15-discussion/",
+    "body": "You have an Azure IoT hub that has 1,000 registered devices.<br>You create an Azure logic app.<br>You need to send Device Connected and Device Disconnected events in real time to the logic app.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Message routing blade of the IoT hub, add a route, Route DeviceLifecycleEvents to an Azure Service Bus queue.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Diagnostic settings blade of the IoT hub, add a diagnostic setting. Route the connection logs to a Log Analytics workspace.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Events blade of the IoT hub, add an event subscription. Configure the Filter to Event Types setting and route the events to a webhook."
+    ],
+    "answer": "C",
+    "answerDescription": "Adding an Event subscription. Example:<br>To proceed with Event Grid events, go back to the Event tab in your IoT Hub.<br>Add an Event subscription and name it 'DeviceRelated'. The default selected event types to send are device creation, device deletion, device connected, device disconnected.<br>And we see the event schemas:<br><img src=\"/assets/media/exam-media/04123/0015800001.jpg\" class=\"in-exam-image\"><br>Just keep it to the Event Grid Schema. You can experiment with other schemas on your own.<br>Because we added the subscription from within our IoT Hub, this IoT Hub is selected as Topic resource.<br>For the endpoint, select 'Webhook' as the type and fill in your assembled endpoint URL.<br>Reference:<br>https://sandervandevelde.wordpress.com/2019/12/20/subscribe-your-iothub-to-eventgrid-as-event-source/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-22T05:42:00.000Z",
+        "voteCount": 1,
+        "content": "For me, correct answer is A. The is no \"Events\" blade on the Iot Hub....there is on a EventGrid."
+      },
+      {
+        "date": "2023-02-04T14:35:00.000Z",
+        "voteCount": 2,
+        "content": "There definitely is an Events blade on IoT Hub. As of Feb 2023, it's five spaces under \"Overview\" in the menu."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/71125-exam-az-220-topic-5-question-16-discussion/",
+    "body": "DRAG DROP -<br>You are troubleshooting device connections to and disconnections from an Azure IoT hub.<br>You configure diagnostic logging for the IoT hub to send to Log Analytics.<br>You need to generate a report that displays the device connection and disconnection events.<br>How should you complete the query? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all.<br>You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04123/0015900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04123/0016000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: ResourceProvider ==<br>Query to monitor your IoT hub connectivity Errors: Identify device connection errors.<br><br>AzureDiagnostics -<br>| where ResourceProvider == \"MICROSOFT.DEVICES\" and ResourceType == \"IOTHUBS\"<br>| where Category == \"Connections\" and Level == \"Error\"<br>Box 2: ResourceType ==<br>Box 3: Category ==<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/monitor-iot-hub",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-07T01:20:00.000Z",
+        "voteCount": 4,
+        "content": "Correct Ans follow the link: https://docs.microsoft.com/en-us/azure/iot-hub/monitor-iot-hub"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/71127-exam-az-220-topic-5-question-17-discussion/",
+    "body": "You have an Azure IoT hub.<br>You need to check whether the IoT hub was affected by an outage.<br>What should you select in the Azure portal? To answer, select the appropriate option in the answer area.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResource health",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMetrics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlerts",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDiagnostic settings"
+    ],
+    "answer": "A",
+    "answerDescription": "Azure Service Health service helps you monitor service-level events like outages.<br>You can check the health status of your IoT hub directly from the portal.<br>To see status and status history of your IoT hub using the portal, follow these steps:<br>1. In Azure portal, go to your IoT hub in Azure portal.<br>2. On the left pane, under Support + troubleshooting, select Resource Health.<br><img src=\"/assets/media/exam-media/04123/0016100001.jpg\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-azure-service-health-integration",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-07T01:29:00.000Z",
+        "voteCount": 2,
+        "content": "Correct ans"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/71129-exam-az-220-topic-5-question-20-discussion/",
+    "body": "You have an Azure IoT solution that contains an Azure IoT hub.<br>You need to ensure that the IoT hub configuration is compliant with the Health Insurance Portability and Accountability Act (HIPAA) audit logging requirements.<br>What should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Advisor recommendations",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Policy definition",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Monitor alerts",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Sentinel workspace"
+    ],
+    "answer": "B",
+    "answerDescription": "Regulatory Compliance in Azure Policy provides Microsoft created and managed initiative definitions, known as built-ins, for the compliance domains and security controls related to different compliance standards, including HIPAA auditing logging.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/iot-hub/security-controls-policy",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-07T01:42:00.000Z",
+        "voteCount": 2,
+        "content": "given Ans is correct"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109578-exam-az-220-topic-5-question-23-discussion/",
+    "body": "You have an Azure subscription that contains an Azure IoT hub and two Azure IoT Edge devices named Device1 and Device2.<br><br>You need to ensure that the IoT hub only accepts connections from Device1 and Device2.<br><br>What should you configure?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Defender for IoT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Active Directory (Azure AD) External Identities",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Active Directory (Azure AD) Identity Protection",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan IP filter\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-28T10:53:00.000Z",
+        "voteCount": 1,
+        "content": "IP Filter"
+      },
+      {
+        "date": "2023-06-27T08:27:00.000Z",
+        "voteCount": 1,
+        "content": "IP Filter"
+      },
+      {
+        "date": "2023-05-22T12:30:00.000Z",
+        "voteCount": 2,
+        "content": "IP Filter.\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-ip-filtering\n\nAzure AD is for limiting connection to SERVICE APIs\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-dev-guide-azure-ad-rbac\n\n\"Azure AD and RBAC integration is supported for IoT hub service APIs only.\"\nhttps://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-security"
+      },
+      {
+        "date": "2023-05-17T13:24:00.000Z",
+        "voteCount": 2,
+        "content": "D - IP filter"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104102-exam-az-220-topic-5-question-24-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have the following Azure Stream Analytics query.<br><br><img src=\"https://img.examtopics.com/az-220/image74.png\"><br><br>You need to build a Stream Analytics query that will use a JavaScript user-defined aggregate (UDA) function named UDA1 to sum the TemperatureDB values.<br><br>How should you complete the function? To answer, drag the appropriate values to the correct targets. Each value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-220/image75.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image76.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-03-27T11:00:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct: https://learn.microsoft.com/en-us/azure/stream-analytics/stream-analytics-javascript-user-defined-aggregates#accumulateonly-aggregates"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109926-exam-az-220-topic-5-question-25-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have an Azure IoT solution that contains an Azure IoT Edge device. <br><br>You need to perform the following tasks on the device: <br><br>\u2022 Collect all the logs from the device. <br>\u2022 Identify issues with the config file and the container engine that prevent the device from connecting to the cloud. <br>\u2022 Verify that the IoT Edge runtime can access ports on the device, and that all the IoT Edge components can connect to an Azure IoT hub. <br><br>Which command should you use to perform each task? To answer, drag the appropriate commands to the correct tasks. Each command may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content. <br><br>NOTE: Each correct selection is worth one point. <br><br><img src=\"https://img.examtopics.com/az-220/image77.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-220/image78.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-22T12:36:00.000Z",
+        "voteCount": 3,
+        "content": "First one should be \"support-bundle\", because the question says \"ALL logs\"\nhttps://learn.microsoft.com/en-us/azure/iot-edge/troubleshoot?view=iotedge-1.4#gather-debug-information-with-support-bundle-command"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104103-exam-az-220-topic-5-question-26-discussion/",
+    "body": "You have an Azure IoT solution that contains an Azure IoT hub and Azure IoT Edge devices.<br><br>You need to configure the metrics-collector module on the devices to send metrics to the IoT hub as device-to-cloud messages.<br><br>Which environment variable should you update?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAllowedMetrics",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLogAnalyticsWorkspaceId",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUploadTarget",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMetricsEndpointsCSVc"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-03-27T11:06:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct. The message must be sent to IoT hub, hence UploadTarget must be IoTMessage.https://learn.microsoft.com/en-us/azure/iot-edge/how-to-collect-and-transport-metrics?view=iotedge-1.4&amp;tabs=iothub#metrics-collector-configuration"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/108929-exam-az-220-topic-5-question-27-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an Azure IoT solution.<br><br>You receive the following error in Azure Monitor \"403006 DeviceMaximumActiveFileUploadLimitExceeded.\"<br><br>You need to ensure that the file upload code is configured correctly.<br><br>Solution: You limit the maximum concurrent file uploads to ten and notify an Azure IoT hub that a file upload has completed by using the REST API.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-11T01:17:00.000Z",
+        "voteCount": 2,
+        "content": "Correct A:\n1. IoT Hub quotas and throttling - Other limits - File uploads - 10 concurrent file uploads per device (https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling#other-limits)\n2. notify the IoT Hub file upload completion (https://learn.microsoft.com/en-us/azure/iot-hub/troubleshoot-error-codes)"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/108931-exam-az-220-topic-5-question-28-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You have an Azure IoT solution.<br><br>You receive the following error in Azure Monitor \"403006 DeviceMaximumActiveFileUploadLimitExceeded.\"<br><br>You need to ensure that the file upload code is configured correctly.<br><br>Solution: You limit the maximum concurrent file uploads to 10 and notify an Azure IoT hub that a file upload has completed by using a module twin property.<br><br>Does this meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-11T01:19:00.000Z",
+        "voteCount": 1,
+        "content": "Correct A:\n1. IoT Hub quotas and throttling - Other limits - File uploads - 10 concurrent file uploads per device (https://learn.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling#other-limits)\n2. notify the IoT Hub file upload completion (https://learn.microsoft.com/en-us/azure/iot-hub/troubleshoot-error-codes)"
+      },
+      {
+        "date": "2023-05-11T01:23:00.000Z",
+        "voteCount": 2,
+        "content": "typing error, correct B - No."
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/109581-exam-az-220-topic-5-question-30-discussion/",
+    "body": "You have an Azure subscription named Sub1.<br><br>You need to ensure that when a new Azure IoT hub is created in Sub1, a warning appears indicating that communication must be allowed only from known networks. The solution must minimize development and administrative effort.<br><br>What should you include in the solution?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan application security group rule",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure function",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure policy\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure Monitor alert"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-05T05:16:00.000Z",
+        "voteCount": 2,
+        "content": "Answer D should be correct according to this:\n\nhttps://techcommunity.microsoft.com/t5/azure/how-to-get-alert-on-mail-when-any-new-azure-service-gets-created/m-p/2071861"
+      },
+      {
+        "date": "2023-06-03T03:13:00.000Z",
+        "voteCount": 3,
+        "content": "should be C"
+      },
+      {
+        "date": "2023-05-22T17:41:00.000Z",
+        "voteCount": 3,
+        "content": "This is policy, not monitoring"
+      },
+      {
+        "date": "2023-05-17T13:33:00.000Z",
+        "voteCount": 1,
+        "content": "I'm not sure but I'd vote for C\nhttps://learn.microsoft.com/en-us/azure/iot-hub/policy-reference"
+      }
+    ],
+    "examNameCode": "az-220",
+    "topicNumber": "5"
+  }
+]

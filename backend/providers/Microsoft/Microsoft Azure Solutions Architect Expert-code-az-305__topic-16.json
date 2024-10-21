@@ -1,0 +1,131 @@
+[
+  {
+    "topic": 16,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/82044-exam-az-305-topic-16-question-1-discussion/",
+    "body": "HOTSPOT -<br>You design a solution for the web tier of WebApp1 as shown in the exhibit.<br><img src=\"/assets/media/exam-media/04224/0012800009.jpg\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04224/0012900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04224/0012900002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Any new deployments to Azure must be redundant in case an Azure region fails.<br>Traffic Manager is resilient to failure, including the failure of an entire Azure region.<br><br>Box 2: No -<br>Traffic Manager provides load balancing, but not auto-scaling.<br><br>Box 3: No -<br>Automatic failover using Azure Traffic Manager: when you have complex architectures and multiple sets of resources capable of performing the same function, you can configure Azure Traffic Manager (based on DNS) to check the health of your resources and route the traffic from the non-healthy resource to the healthy resource.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview https://docs.microsoft.com/en-us/azure/networking/disaster-recovery-dns-traffic-manager",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-28T06:42:00.000Z",
+        "voteCount": 64,
+        "content": "Should be Y,Y,N\n(Yes) Traffic manager distributes load to two sites (redundancy). (Yes) The graphic clearly shows an \"Azure Web App\", which is production. By default, production web apps support auto scale. (No) Azure Traffic manager does automatic failover, so no manual configuration is necessary."
+      },
+      {
+        "date": "2022-09-29T12:05:00.000Z",
+        "voteCount": 11,
+        "content": "YYN\n\"In this way, the App Service plan is the scale unit of the App Service apps. If the plan is configured to run five VM instances, then all apps in the plan run on all five instances. If the plan is configured for autoscaling, then all apps in the plan are scaled out together based on the autoscale settings.\"\nhttps://learn.microsoft.com/en-us/azure/app-service/overview-hosting-plans"
+      },
+      {
+        "date": "2022-10-23T09:57:00.000Z",
+        "voteCount": 3,
+        "content": "YYN, with Std Web App plan you get autoscale vertical and horizontal.\nhttps://learn.microsoft.com/en-us/azure/app-service/manage-scale-up\nhttps://azure.microsoft.com/en-us/pricing/details/app-service/windows/"
+      },
+      {
+        "date": "2024-10-13T14:49:00.000Z",
+        "voteCount": 1,
+        "content": "By default, Azure App Service is configured with manual scaling. This means that when you initially deploy an App Service, you would need to manually specify the number of instances to run your app on. Since the diagram doesn't indicate whether autoscaling is configured, and because manual scaling is the default, we assume that the design does not automatically support autoscaling unless otherwise stated. so it is YNN"
+      },
+      {
+        "date": "2024-07-29T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "In my opinion answer is correct.\n1. Y - TM supports here a redundancy. We have two regions and we can add more if it is necessary.\n2. No - TM has nothing to do with autoscaling. Autoscaling is on AppService level. Design as a whole has nothing with that.\n3. No - if azure region fails no need to do anything manual."
+      },
+      {
+        "date": "2024-04-27T23:34:00.000Z",
+        "voteCount": 1,
+        "content": "I will go for YYN\n1- Y - Yep all requirements are met\n2- Y - All app service STD and onwards support auto-scaling\n3- N - Because Traffic Manager DNS-based traffic load balancer =&gt; using Endpoints, in this case of type Azure and target type App services, then routing method in this case you could use either weighted or priority - preferably weighted with 1 and 1 hence equal workload and if one fails then routed to the other, if priority is used then 1 and 2 assigned but one assigned 1 will do all work and if fails then other region kicks in, of course other routing methods are performance, subnet, Multivalue, Geographic - really more info required to chose the correct one"
+      },
+      {
+        "date": "2024-03-09T04:11:00.000Z",
+        "voteCount": 1,
+        "content": "Y,Y,N\nAutoscale now is working for webapps https://learn.microsoft.com/nl-nl/azure/app-service/manage-automatic-scaling?tabs=azure-portal"
+      },
+      {
+        "date": "2024-02-23T04:49:00.000Z",
+        "voteCount": 1,
+        "content": "Y, N,N\nAuto scaling is only supported in Premium, also it is a preview feature (Feb 2024)"
+      },
+      {
+        "date": "2023-12-11T10:12:00.000Z",
+        "voteCount": 1,
+        "content": "Y,Y,N\n\"Whenever possible, solutions must be deployed to Azure by using the Standard pricing tier of Azure App Service.\"\n- Standard Plan supports auto-scaling up to 10 instances."
+      },
+      {
+        "date": "2023-11-22T04:15:00.000Z",
+        "voteCount": 3,
+        "content": "it was a exam Question"
+      },
+      {
+        "date": "2023-08-20T20:31:00.000Z",
+        "voteCount": 3,
+        "content": "YNN , let's end the discussion guys: \n1. Y for obvious reasons I can't bother explaining\n2. N autoscaling web apps are in preview mode so you absolutely should not use this in production as of August 2023, PERIOD!\n3. N it will auto fail-over same behavior as with AWS route 53"
+      },
+      {
+        "date": "2023-08-18T11:03:00.000Z",
+        "voteCount": 1,
+        "content": "Should be Y N N:\nY - Redundancy is okay, we have two regions\nN - Azure Web App means nothing. There are different plans in Azure App Plan. Plans Standard and above provides autoscale. Basic plan does not. We can't assume they have Standard or Premium plan.\nNo - No auto failover"
+      },
+      {
+        "date": "2024-03-25T17:10:00.000Z",
+        "voteCount": 1,
+        "content": "Its std plan --   Standard pricing tier of Azure App Service. given in the case study.  And it suports autoscaling"
+      },
+      {
+        "date": "2024-03-17T00:22:00.000Z",
+        "voteCount": 1,
+        "content": "\"We can't assume they have Standard or Premium plan\" - you don't need to. \nYou just need to read the actual problem and you will find out you are told specifically to deploy using Standard whenever possible."
+      },
+      {
+        "date": "2023-09-29T07:27:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, we can assume it is Standard plan.\n\"Whenever possible, solutions must be deployed to Azure by using the Standard pricing tier of Azure App Service.\""
+      },
+      {
+        "date": "2023-08-18T11:04:00.000Z",
+        "voteCount": 1,
+        "content": "By third I meant that it should automatically failover"
+      },
+      {
+        "date": "2023-08-05T20:47:00.000Z",
+        "voteCount": 5,
+        "content": "This Case Study was in Exam Aug 5th, 2023. For all questions go through the discussions. I got only 1 question from outside. Only 1 case study."
+      },
+      {
+        "date": "2023-04-28T07:03:00.000Z",
+        "voteCount": 1,
+        "content": "I think YYN\n\nSame question as AZ-304\nhttps://www.examtopics.com/discussions/microsoft/view/49469-exam-az-304-topic-13-question-2-discussion/\nAnd the answer provided is YYN and all comment sections agrees. \n\nSo the problem is with the wording of the question? We all agree TM doesn't provide auto scale and webapp does, so its a question of whether you are looking at the design as a whole or only at TM. I am inclined towards design as a whole."
+      },
+      {
+        "date": "2023-09-23T09:21:00.000Z",
+        "voteCount": 1,
+        "content": "All 3 statements specifically state \"The design ... blah\".  The entire picture = the design.  No problem here, and it's not \"\"a question of whether you look at the design as a whole or only TM\"."
+      },
+      {
+        "date": "2023-03-09T22:28:00.000Z",
+        "voteCount": 4,
+        "content": "gentlemen I have counted the questions of this dump, from the first of the topic 1 to the last of T16 - 1 There are 202 questions and not 209, moderator at least tell the questions."
+      },
+      {
+        "date": "2023-02-22T01:15:00.000Z",
+        "voteCount": 1,
+        "content": "It should YYN.\nStatement is asking if design supports autoscaling not if traffic manager supports it and in design they have Azure webapp that support autoscale."
+      },
+      {
+        "date": "2023-02-02T11:33:00.000Z",
+        "voteCount": 4,
+        "content": "Y,Y,N.\n\n1:Y - Traffic manager regional redundancy \n\n2: Y - Sure traffic manager doesn't offer auto-scaling but Azure web app does offer Auto-scaling.\nhttps://learn.microsoft.com/en-us/azure/azure-monitor/autoscale/autoscale-get-started\n\n3: N - Traffic manager auto fails over."
+      },
+      {
+        "date": "2023-01-25T09:37:00.000Z",
+        "voteCount": 3,
+        "content": "They are talking about the design though, and traffic manager doesnt support autoscale"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "16"
+  }
+]

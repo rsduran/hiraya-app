@@ -1,0 +1,66 @@
+[
+  {
+    "topic": 14,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/76501-exam-az-700-topic-14-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to restrict traffic from VMScaleSet1 to VMScaleSet2. The solution must meet the virtual networking requirements.<br>What is the minimum number of custom NSG rules and NSG assignments required? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04253/0016400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04253/0016500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 2: One NSG -<br>The minimum requirement is one NSG.  You could attach the NSG to VMScaleSet1 and restrict outbound traffic, or you could attach the NSG to VMScaleSet2 and restrict inbound traffic.  Either way you would need two custom NSG rules.<br><br>Box 1: Two custom rules -<br>With the NSG attached to VMScaleSet2, you would need to create a custom rule blocking all traffic from VMScaleSet1.  Then you would need to create another custom rule with a higher priority than the first rule that allows traffic on port 443.<br>The default rules in the NSG will allow all other traffic to VMScaleSet2.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-07-25T07:29:00.000Z",
+        "voteCount": 27,
+        "content": "2 Rules 1 Assignment\nReminds me of an old video I once saw on the internet..."
+      },
+      {
+        "date": "2022-08-10T11:02:00.000Z",
+        "voteCount": 1,
+        "content": "Right, validated!"
+      },
+      {
+        "date": "2022-10-06T12:42:00.000Z",
+        "voteCount": 2,
+        "content": "I saw a variant of that movie : 3 rHoles 1 Assgnment\nI just saw a few minutes though"
+      },
+      {
+        "date": "2022-10-07T00:56:00.000Z",
+        "voteCount": 3,
+        "content": "I tested your movie in lab - got all Yesses"
+      },
+      {
+        "date": "2024-06-26T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "My 2 cents on this:\n1 Custom Rule and 1 assignment\nCustome rule: Allow trafic from VMSS1 to VMSS2 on port 443.\nAssignment: NSG assigned to subnet since they reside inside the same subnet.\nNow the caveat... With each NSG we have a standard rule to ALLOW inbound Vnet communications. If you DENY that traffic you don't need to create another custom rule to deny the traffic within the subnet.\nAm I wrong ?\nPlease"
+      },
+      {
+        "date": "2024-01-09T23:19:00.000Z",
+        "voteCount": 1,
+        "content": "why not 1:1 ?\n1 - assignment to just VMSS2 as \"Network Security Groups can be applied directly to a scale set, by adding a reference to the network interface configuration section of the scale set virtual machine properties.\"\n\n1 rule - block TCP/443 with source of subnet1 and deny. REST VNET's cidrs would be allowed by default. \nout of the scope of this question I guess  but you could assign ASG to VMSS1 and use that as source in that single blocking rule assigned directly to VMSS2"
+      },
+      {
+        "date": "2024-01-11T00:33:00.000Z",
+        "voteCount": 2,
+        "content": "my bad - I misread the requirements \n1:2 \n1 assignment\n2 rules: 1st allow tcp/443, 2nd block subnet1 as source"
+      },
+      {
+        "date": "2023-03-28T10:10:00.000Z",
+        "voteCount": 3,
+        "content": "To restrict traffic from VMScaleSet1 to VMScaleSet2 on TCP port 443, we need to create a custom NSG rule to allow traffic on port 443 and apply it to both VMScaleSet1 and VMScaleSet2. We also need to create a custom NSG rule to deny all traffic and apply it to VMScaleSet1.\n\nSo the minimum number of custom NSG rules and NSG assignments required would be:\n\n2 custom NSG rules: 1 to allow traffic on TCP port 443 and 1 to deny all traffic\n2 NSG assignments: 1 for VMScaleSet1 and 1 for VMScaleSet2\nTherefore, the answer is:\nMinimum number of custom NSG rules = 2\nMinimum number of NSG assignments = 2\n\nNote: It's important to note that we could potentially use an existing NSG that is already assigned to the virtual machines and add the necessary rules to it. In that case, the minimum number of NSG assignments would be 1."
+      },
+      {
+        "date": "2023-04-14T12:28:00.000Z",
+        "voteCount": 7,
+        "content": "You could just apply the NSG to the subnet that both VMSS are in.\n\nMin number of rules = 2\nMin number of assignments = 1"
+      },
+      {
+        "date": "2022-06-02T06:40:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "az-700",
+    "topicNumber": "14"
+  }
+]

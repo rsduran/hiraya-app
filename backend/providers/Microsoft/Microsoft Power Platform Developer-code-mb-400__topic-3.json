@@ -1,0 +1,363 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23474-exam-mb-400-topic-3-question-1-discussion/",
+    "body": "A multinational company requires that all phone numbers be standardized as country code + area code + phone number.<br>The application design team decides that a custom PowerApps component framework (PCF) control should be used to prompt users for an area code and correctly format the phone number.<br>You need to get the list of valid area codes when a contact record is opened and before the user enters a new phone number.<br>In which function should you call webAPI.retrieveMultipleRecords?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tupdateView",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tgetOutputs",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnotifyOutputChanged"
+    ],
+    "answer": "A",
+    "answerDescription": "The updateView method will be called when any value in the property bag has changed. This includes field values, data-sets, global values such as container height and width, offline status, component metadata values such as label, visible, etc.<br>Set the value of the field component to the raw value from the configured field.<br>Note: webAPI.retrieveMultipleRecords retrieves a collection of entity records.<br>Incorrect Answers:<br>B: getOutputs is called by the framework prior to a component receiving the new data. Returns an object based on nomenclature defined in manifest, expecting objects[s] for the property marked as bound or output.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/component-framework/reference/control/updateview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-18T17:42:00.000Z",
+        "voteCount": 14,
+        "content": "init is used to initialize the component instance. Components can kick off remote server calls and other initialization actions. Data-set values cannot be initialized here, use the updateView method to achieve that.  Therefore, you cannot use init."
+      },
+      {
+        "date": "2020-07-09T23:39:00.000Z",
+        "voteCount": 4,
+        "content": "Agree, UpdateView is correct"
+      },
+      {
+        "date": "2021-04-24T11:43:00.000Z",
+        "voteCount": 1,
+        "content": "I will wote for C: init\nThe reason:\nComponent should allow you to select country code and then format phone number accordingly.\nLooks like your component will contain two pieces: \n- dropdown with country codes\n- textbox (input) to enter phone number\nInside init you do construct the html for those 2 pieces \nand there you can call webAPI.RetrieveMultiple to obtain all country codes from \"CountryCode\" \ncustom entity and add them as options to dropdown.\nThis will solve the requirements \n\"You need to get the list of valid area codes when a contact record \nis opened and BEFORE the user enters a new phone number\""
+      },
+      {
+        "date": "2020-12-11T11:12:00.000Z",
+        "voteCount": 2,
+        "content": "It is INIT couse:\nYou need to get the list of valid area codes when a contact record is opened and before the user enters a new phone number.\n\nSo we have to retrieve it before any change run updateView"
+      },
+      {
+        "date": "2020-12-10T08:46:00.000Z",
+        "voteCount": 1,
+        "content": "Correct A"
+      },
+      {
+        "date": "2020-06-24T05:54:00.000Z",
+        "voteCount": 3,
+        "content": "I say Init. Data-set provides properties and methods to work with data on grids and views. WIth a single field, this is not the case. Notice that updateView is not called for field null values: Always use a required field that is guaranteed to have a value. If your field does not have a value, your embedded canvas app will not refresh in response to any change in data on the host model-driven form."
+      },
+      {
+        "date": "2020-09-25T07:46:00.000Z",
+        "voteCount": 2,
+        "content": "init is for initializing the data and components. As per the framework event pipeline, updateView is invoked after init. So, I would do a webApi call in updateView.\nLook at this webApi component - https://docs.microsoft.com/en-us/powerapps/developer/component-framework/sample-controls/webapi-control\n\nall webapi calls are in updateView method."
+      },
+      {
+        "date": "2020-09-29T01:26:00.000Z",
+        "voteCount": 1,
+        "content": "I think ClairFraser is right, documentation says init is used for remote server calls. Actually querying web api is a remote server call. Furthermore area codes sound like static data, therefore it is enough to query them once, instead of query them everytime updateView is called.\nAlso the dataset value initialization is no limitation here, because the component is bound to a field not a subgrid."
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21975-exam-mb-400-topic-3-question-2-discussion/",
+    "body": "DRAG DROP -<br>A company uses Common Data Service (CDS) and manages their engineers using a model-driven app.<br>You create a new reusable custom component using the PowerApps component framework (PCF).<br>You need to package the custom component to be deployed into the model-driven app.<br>Which three commands should you run in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0005900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0006000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: npm install -<br><br>Install Npm -<br>Step 2: pac pcf init ..<br>Commands for working with Power Apps component framework. It has the following parameters:<br>\u2711 init: Initializes the code component project. It has the following parameters<br>\u2711 namespace: Namespace of the code component.<br>\u2711 name: Name of the code component.<br>\u2711 template: Field or dataset<br>Step 3: pac solution add-reference<br>Commands for working with Common Data Service solution projects. It has the following parameters: add-References:<br>Sets the reference path to the component project folder by passing the path parameter.<br>Syntax: pac solution add-reference --path &lt;path to your Power Apps component framework project&gt;<br>Incorrect Answers:<br>pac solution init ..<br>Commands for working with Common Data Service solution projects. We are working with a PowerApps component framework project though.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/powerapps-cli",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-13T21:17:00.000Z",
+        "voteCount": 54,
+        "content": "1. pac solution init --publisher-name &lt;publisher&gt; --publisher-prefix &lt;prefix&gt;\n2. pac solution add-reference --path &lt;control path&gt;\n3. msbuild /t:build /restore"
+      },
+      {
+        "date": "2020-07-10T00:50:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, this is correct as need to deploy the control...."
+      },
+      {
+        "date": "2020-10-22T00:05:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with this answer. You need to pack the solution, add it and build the solution via msbuild."
+      },
+      {
+        "date": "2020-06-02T19:05:00.000Z",
+        "voteCount": 14,
+        "content": "Wrong Answer:\nhttps://docs.microsoft.com/en-us/powerapps/developer/component-framework/import-custom-controls"
+      },
+      {
+        "date": "2020-12-28T10:12:00.000Z",
+        "voteCount": 1,
+        "content": "In exam"
+      },
+      {
+        "date": "2020-12-11T11:23:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/powerapps/developer/component-framework/use-sample-components regarding to above:\n1. pac solution init --publisher-name &lt;publisher&gt; --publisher-prefix &lt;prefix&gt;\n2. pac solution add-reference --path &lt;control path&gt;\n3. msbuild /t:build /restore"
+      },
+      {
+        "date": "2020-12-10T08:47:00.000Z",
+        "voteCount": 1,
+        "content": "step 6,5,2"
+      },
+      {
+        "date": "2020-10-16T03:08:00.000Z",
+        "voteCount": 1,
+        "content": "- pac solution init --publisher-name developer --publisher-prefix dev\n- pac solution add-reference --path c:\\downloads\\mysamplecomponent\n- msbuild /t:build /restore"
+      },
+      {
+        "date": "2020-09-30T05:35:00.000Z",
+        "voteCount": 6,
+        "content": "The question says \u201cYOU NEED TO PACKAGE\u201d: \nhttps://docs.microsoft.com/en-us/powerapps/developer/component-framework/implementing-controls-using-typescript#packaging-your-code-components\npac solution init --publisher-name developer --publisher-prefix dev\npac solution add-reference --path c:\\users\\LinearComponent\nmsbuild /t:restore\nhttps://docs.microsoft.com/en-us/powerapps/developer/component-framework/import-custom-controls\npac solution init --publisher-name developer --publisher-prefix dev\npac solution add-reference --path c:\\downloads\\mysamplecomponent\nmsbuild /t:build /restore"
+      },
+      {
+        "date": "2020-06-22T01:38:00.000Z",
+        "voteCount": 14,
+        "content": "1-pac solution init --publisher-name &lt;publisher name&gt; --publisher-prefix &lt;prefix&gt;\n2-pac solution add-reference --path \"Project Path\"\n3- msbuild /t:restore"
+      },
+      {
+        "date": "2020-06-20T08:28:00.000Z",
+        "voteCount": 7,
+        "content": "you should order ALL the items:\n1. pac pcf init -namespace&lt;namespace&gt; --name\n&lt;control name&gt; --template field\n2. npm install\n3. npm run build\n4. npm start\n5. pac solution init --publisher-name- &lt;publisher \nname&gt; --publisher-prefix &lt;publisher prefix&gt;\n6. pac solution add-reference --path &lt;control\npath&gt;\n7. msbuild /t.build /restore"
+      },
+      {
+        "date": "2020-06-24T00:12:00.000Z",
+        "voteCount": 4,
+        "content": "No, check this link: https://docs.microsoft.com/en-us/powerapps/developer/component-framework/import-custom-controls"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/22690-exam-mb-400-topic-3-question-3-discussion/",
+    "body": "DRAG DROP -<br>A travel company has a Common Data Service (CDS) environment.<br>The company requires the following:<br>\u2711 Custom entities that track which countries/regions their clients have traveled.<br>\u2711 The dates their clients traveled to these countries/regions.<br>You need to create the entities and relationships to meet the requirements.<br>Which three actions should perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>NOTE: More than one order of answer choices is correct. You will receive credit for any of the correct order you select.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0006200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0006300001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "You can configure a sub-grid on a form to display a list of records or a chart.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/customize/sub-grid-properties-legacy",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-13T21:43:00.000Z",
+        "voteCount": 66,
+        "content": "Wrong answer, because 1:N - One contact can visit more country, but only one time (missed date)\nRight answer:\n1. Create the Country entity\n2. Create an intersect entity named Contact country and create two N:1 relationships to Contact and to Country\n3. On the main form for ContactCountry, add the lookup fields for the Contact and Country, and a date field for the visit date"
+      },
+      {
+        "date": "2020-06-15T13:38:00.000Z",
+        "voteCount": 4,
+        "content": "correct"
+      },
+      {
+        "date": "2020-06-17T12:14:00.000Z",
+        "voteCount": 3,
+        "content": "I'm agree"
+      },
+      {
+        "date": "2020-06-25T01:40:00.000Z",
+        "voteCount": 2,
+        "content": "And just for more explanation, if we implement it this way, we can not have two contacts that visit the same country."
+      },
+      {
+        "date": "2020-06-28T13:41:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry. I have forgotten to say.\nI agree :)"
+      },
+      {
+        "date": "2020-12-28T10:12:00.000Z",
+        "voteCount": 1,
+        "content": "In exam"
+      },
+      {
+        "date": "2020-12-11T11:35:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong it should be\n1. Create the Country entity\n2. Create an intersect entity named Contact country and create two N:1 relationships to Contact and to Country\n3. On the main form for ContactCountry, add the lookup fields for the Contact and Country, and a date field for the visit date\n\nOR \n\n1. Create the Country entity\n2. Create N:N relationship from Contact to the countrry entity (it will create new cross entity witf lookups to contact and country)\n3. On the main form for ContactCountry, add the lookup fields for the Contact and Country, and a date field for the visit date"
+      },
+      {
+        "date": "2020-12-27T03:06:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry wwaki but the second solution is wrong\n1. Create the Country entity\n2. Create N:N relationship from Contact to the countrry entity (it will create new cross entity witf lookups to contact and country)\n3. On the main form for ContactCountry, add the lookup fields for the Contact and Country, and a date field for the visit date\n\nIf you create the OOB n:n relationship you are not able to access the intrsect entity and add custom fields\nhttps://taagung.com/many-to-man\ny-relationship-dynamics-365/"
+      },
+      {
+        "date": "2020-12-10T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "Steps 5,7,1"
+      },
+      {
+        "date": "2020-11-23T14:26:00.000Z",
+        "voteCount": 1,
+        "content": "1. Create the Country entity.\n2. Create 1:N relationship from Contact to Country entity, (ie. one contact per multiple countries).\n3. On the main form for Contact entity, add the lookup fields for the contact and Country and a date field for the Visit date.\n\nThe last is a detail none of you mentioned and in my opinion is incorrect in the solution."
+      },
+      {
+        "date": "2020-06-22T01:45:00.000Z",
+        "voteCount": 1,
+        "content": "Right sequence is : \n5,8,1"
+      },
+      {
+        "date": "2020-06-22T01:46:00.000Z",
+        "voteCount": 4,
+        "content": "sorry 5,7,1"
+      },
+      {
+        "date": "2020-06-09T14:58:00.000Z",
+        "voteCount": 2,
+        "content": "Why would that be a 1:N relationship between Contact &amp; Country?  So each country will only be associated with only ONE contact?  Multiple clients can go to the same country right?  Also only N:N will generate \"ContactCountry\""
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23384-exam-mb-400-topic-3-question-4-discussion/",
+    "body": "HOTSPOT -<br>A fine arts school uses a custom canvas application based on the Common Data Service (CDS) platform.<br>Artists experience errors on their Artist canvas app and delays when switching pages.<br>You need to identify the root causes of these issues.<br>Which troubleshooting methods should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03197/0006400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0006500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Site Map validation -<br>When you validate the app, the app designer canvas shows you details about the assets that are missing.<br>In the app designer, select Validate.<br>A notification bar appears and shows you whether the app has any errors or warnings. The notification bar shows warnings in cases where, for example, an entity has no forms or views, or the app doesn't contain any components. An error might appear if a site map isn't configured for the app.<br><img src=\"/assets/media/exam-media/03197/0006600001.png\" class=\"in-exam-image\"><br>Incorrect Answers:<br>With Solution checker, you can inspect your code against a set of best practice development rules specific to customizing and extending the CDS for Apps platform. Get access to rich detailed reports listing issues identified, severity, locations, and sometimes the line code, with linkage to detailed prescriptive guidance on how to fix the problem.<br>PowerApp Checker checks your solution for any usage of code that was deprecated or any performance or security issues in the code. It checks the plugin code as well as web resources.<br>Box 2: Service Performance in Power Apps Analytic<br>Regarding Microsoft Power Apps Canvas Driven Apps: for reviewing performance bottlenecks and API calls, admins can leverage the Service Performance report for connection health. Admins can gain insights into the least and best performing services, the mean response time and success rate for connectors and the 50th,<br>75th and 95th percentile markers for response time. Each of these can be filtered down by service or connector, device, player version and regionally.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/customize/validate-app https://community.dynamics.com/crm/b/crminthefield/posts/monitoring-the-power-platform-canvas-driven-apps---power-apps-analytics",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-17T12:19:00.000Z",
+        "voteCount": 27,
+        "content": "For the first issue, the answer should be App Checker"
+      },
+      {
+        "date": "2020-06-24T11:46:00.000Z",
+        "voteCount": 7,
+        "content": "should be App Checker (Y) \nhttps://powerapps.microsoft.com/en-us/blog/powerapps-checker-now-includes-app-checker-results-for-canvas-apps-in-solutions/"
+      },
+      {
+        "date": "2020-07-10T01:33:00.000Z",
+        "voteCount": 8,
+        "content": "PowerApps Checker\nService Performance in Power Apps Analytics"
+      },
+      {
+        "date": "2020-12-28T10:12:00.000Z",
+        "voteCount": 1,
+        "content": "In exam"
+      },
+      {
+        "date": "2020-12-10T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "First Power app checker \nSecond is correct"
+      },
+      {
+        "date": "2020-06-19T05:12:00.000Z",
+        "voteCount": 5,
+        "content": "Here is the Microsoft link for Power App Analytics:  https://docs.microsoft.com/en-us/power-platform/admin/analytics-powerapps"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23387-exam-mb-400-topic-3-question-5-discussion/",
+    "body": "A client uses a model-driven app that is deployed by using a managed solution in the production environment. The app contains only entities and UI components and has no custom code or extensions to the platform.<br>The client needs an exact copy of the app with a different name in the production environment.<br>You need to recreate this app in production without disrupting the end users.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the original model-driven app, select Edit, and then select Save As.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new model-driven app. Select the Use existing solution to create the App check box, and then select the solution that contains the original app.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSelect the managed solution and select Clone.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new model-driven app, manually add each component, and then recreate its original functions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the original app to a solution, export it as unmanaged, import it into a test environment and rename it, and then deploy it back into production."
+    ],
+    "answer": "B",
+    "answerDescription": "The option Use existing solution allow users to select a specific solution for this app. Users can create a whole new design from scratch by not checking check box of use existing solution.<br>Reference:<br>https://www.inogic.com/blog/2019/02/create-model-driven-app-cds-environment/",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-06-17T12:28:00.000Z",
+        "voteCount": 9,
+        "content": "Correct answer"
+      },
+      {
+        "date": "2023-12-21T06:19:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2020-12-10T08:49:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct"
+      },
+      {
+        "date": "2020-09-30T06:17:00.000Z",
+        "voteCount": 3,
+        "content": "B is correct. \nHere is the link of MS Doc: https://docs.microsoft.com/en-us/powerapps/maker/model-driven-apps/create-edit-app"
+      },
+      {
+        "date": "2020-07-10T01:41:00.000Z",
+        "voteCount": 3,
+        "content": "B is correct"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/23212-exam-mb-400-topic-3-question-6-discussion/",
+    "body": "DRAG DROP -<br>A company has a Common Data Service (CDS) environment. The company creates model-driven apps for different sets of users to allow them to manage and monitor projects.<br>Finance team users report that the current app does not include all the entities they require and that the existing project form is missing cost information. Cost information must be visible only to finance team users.<br>You create a security role for finance team users.<br>You need to create a new app for finance team users.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03197/0006800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03197/0006900001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Edit the Project main form. Select Save as..<br>Step 2: Create a new model-driven app. Add the project entity, and select the Finance form.<br>Step 3: Enable security roles and select the Finance Security role on the Finance<br>Assign security roles to the main form. Use this to make a main form available to specific groups.<br>Step 4: In the Maker portal, share the Finance app and select the Finance Security role.<br>Sharing a model-driven app involves two primary steps. First, associate a one or more security role(s) with the app then assign the security role(s) to users.<br>\u2711 Visit https://make.powerapps.com<br>\u2711 Select a model-driven app and click Share.<br>Select the app then choose a security role from the list.<br><img src=\"/assets/media/exam-media/03197/0006900004.png\" class=\"in-exam-image\"><br>Reference:<br>https://docs.microsoft.com/dynamics365/customer-engagement/admin/assign-security-roles-for<br>Configure business process automation",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-15T13:43:00.000Z",
+        "voteCount": 35,
+        "content": "Step 1: Edit the Project main form. Select Save as....\nStep 2: Enable security roles and select the Finance Security role on the Finance Form..\nStep 3: Create a new model-driven app. Add the project entity, and select the Finance form.\nStep 4: In the Maker portal, share the Finance app and select the Finance Security role."
+      },
+      {
+        "date": "2020-06-22T02:00:00.000Z",
+        "voteCount": 3,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-06-25T03:42:00.000Z",
+        "voteCount": 1,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-06-26T16:10:00.000Z",
+        "voteCount": 1,
+        "content": "I agree"
+      },
+      {
+        "date": "2020-07-10T02:47:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2020-12-10T08:51:00.000Z",
+        "voteCount": 2,
+        "content": "Steps 1,5,4,2"
+      },
+      {
+        "date": "2020-11-14T06:13:00.000Z",
+        "voteCount": 2,
+        "content": "\"Enable security roles and select the Finance Security role on the Finance Form..\" is not restricted. That can be step 2, 3, 4."
+      },
+      {
+        "date": "2020-06-25T04:19:00.000Z",
+        "voteCount": 3,
+        "content": "Notice for the last one the difference from the My Apps page is than in the maker portal you can also assign the security role to users"
+      }
+    ],
+    "examNameCode": "mb-400",
+    "topicNumber": "3"
+  }
+]

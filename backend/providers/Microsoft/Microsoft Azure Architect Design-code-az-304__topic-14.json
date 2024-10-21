@@ -1,0 +1,131 @@
+[
+  {
+    "topic": 14,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/61229-exam-az-304-topic-14-question-1-discussion/",
+    "body": "HOTSPOT -<br>You plan to migrate App1 to Azure.<br>You need to recommend a high-availability solution for App1. The solution must meet the resiliency requirements.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04027/0025100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04027/0025200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: 3 -<br>Scenario: App1 must meet the following requirements:<br>\u2711 Be hosted in an Azure region that supports availability zones.<br>\u2711 Maintain availability if two availability zones in the local Azure region fail.<br>A host group is a resource that represents a collection of dedicated hosts. You create a host group in a region and an availability zone, and add hosts to it.<br>Use Availability Zones for fault isolation<br>Availability zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. A host group is created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts accordingly.<br><br>Box 2: 1 -<br>Scenario: App1 must meet the following requirements:<br>\u2711 Be hosted on Azure virtual machines that support automatic scaling.<br>An Azure virtual machine scale set can automatically increase or decrease the number of VM instances that run your application. This automated and elastic behavior reduces the management overhead to monitor and optimize the performance of your application.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-31T21:38:00.000Z",
+        "voteCount": 38,
+        "content": "When using Virtual Machine Scale Sets with Dedicated Hosts, they must be linked to a Host Group. Thus if we have 3 Host Groups we also need 3 Scale Sets.\n\n3/3"
+      },
+      {
+        "date": "2022-01-17T06:37:00.000Z",
+        "voteCount": 1,
+        "content": "\"To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts accordingly.\"\n\n\"The host group and the scale set must be using the same availability zone.\"\n\n3/3"
+      },
+      {
+        "date": "2022-01-31T06:21:00.000Z",
+        "voteCount": 1,
+        "content": "It's seems 3/3 is correct, but it's so strange to have 3 vmss when you need only one. Of course you can use load balancer, but that make setup more complex."
+      },
+      {
+        "date": "2022-05-22T15:34:00.000Z",
+        "voteCount": 1,
+        "content": "Yeah. I have the same question.\nHaving to create 3 VM-scale-sets doesn't make much sense but it seem to be the only option considering VMSS cannot have more than one host-group assigned"
+      },
+      {
+        "date": "2021-09-14T23:07:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal%2Cportal2#create-a-scale-set"
+      },
+      {
+        "date": "2022-02-26T07:29:00.000Z",
+        "voteCount": 1,
+        "content": "1/1 - Lab Tested \nCreate 1 Host Group with no Zone selected &amp; Automatic VM placement: Supported\nCreate 1 VM Scale set on 3 availability zones with 3x VM count on the Host Group"
+      },
+      {
+        "date": "2021-09-08T00:25:00.000Z",
+        "voteCount": 7,
+        "content": "Given answer is correct because scale set can be zone-redundant\nhttps://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones"
+      },
+      {
+        "date": "2022-07-08T06:55:00.000Z",
+        "voteCount": 1,
+        "content": "3 and 3. \n\nFrom: https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts\n'To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts accordingly.'\n'The host group and the scale set must be using the same availability zone.'"
+      },
+      {
+        "date": "2022-06-04T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Dedicated hosts are physical servers which can host one or more VMs. Dedicated host is within a region, availability zone and fault domain. \n\nThe requirement is \"Maintain availability if two availability zones in the local Azure region fail.\". Means need THREE availability zones and THREE host group one per availability zone."
+      },
+      {
+        "date": "2022-05-06T15:06:00.000Z",
+        "voteCount": 1,
+        "content": "When using Virtual Machine Scale Sets with Dedicated Hosts, they must be linked to a Host Group. If we have to cover 3 zones, we need 3 Host Groups. \nWhen creating VMSS, you need to pick one of the host groups from the dropdown. So even though there is an ability to create VMSS across multiple zones, you will need 3 VMSS for 3 dedicated host groups."
+      },
+      {
+        "date": "2022-02-24T01:12:00.000Z",
+        "voteCount": 2,
+        "content": "My take on this is 1 and 1\nOne host group without specifying an AZ\nOne VMSS with 3 minimum instances spread across AZ"
+      },
+      {
+        "date": "2021-12-24T03:48:00.000Z",
+        "voteCount": 2,
+        "content": "On exam 24.12.2021"
+      },
+      {
+        "date": "2021-12-22T02:55:00.000Z",
+        "voteCount": 2,
+        "content": "On exam today 22-Dec-21"
+      },
+      {
+        "date": "2021-10-31T12:33:00.000Z",
+        "voteCount": 2,
+        "content": "3/3\n---"
+      },
+      {
+        "date": "2021-10-28T08:04:00.000Z",
+        "voteCount": 3,
+        "content": "one hostgroup can choose 3 availability zones. so answer is 1/1"
+      },
+      {
+        "date": "2021-10-30T00:39:00.000Z",
+        "voteCount": 3,
+        "content": "Nope, only one or none"
+      },
+      {
+        "date": "2021-10-08T10:59:00.000Z",
+        "voteCount": 2,
+        "content": "Given Answers are correct."
+      },
+      {
+        "date": "2021-10-08T00:43:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts\n\nYou create a host group in a region and an availability zone, and add hosts to it.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal%2Cportal2#create-a-scale-set\n\nIn Host group, select the host group from the drop-down.\n\n3 for both"
+      },
+      {
+        "date": "2021-09-30T19:56:00.000Z",
+        "voteCount": 2,
+        "content": "- Maintain availability if two availability zones in the local Azure region fail.\n- Be hosted in an Azure region that supports availability zones\n- Be hosted on Azure virtual machines that support automatic scaling.\nAbove requirements clearly indicate that you need at least 3 zones. You can create a scale set across Availability Zones. Azure regions that support Availability Zones have a minimum of three separate zones. BOX 2 should be 1 scale set\n\n- Deploy the Azure virtual machines that will host App1 to Azure dedicated hosts.\nYou need dedicated hosts in each hots group. A host group is a resource that represents a collection of dedicated hosts. When you span across multiple availability zones, you are required to have a host group in each of the zones you wish to use. This answers BOX 1, you need 3 host groups for 3 zones."
+      },
+      {
+        "date": "2021-09-30T20:09:00.000Z",
+        "voteCount": 2,
+        "content": "Correct on BOX 2, it should 3. When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts. Which means one scale set for each host group with dedicated hosts."
+      },
+      {
+        "date": "2021-12-13T07:24:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. The link below says:\n\"The host group and the scale set must be using the same availability zone.\"\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts"
+      },
+      {
+        "date": "2021-09-13T19:57:00.000Z",
+        "voteCount": 4,
+        "content": "Given answer is correct. Host group should be available in each zone and scaleset in the host group.\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal%2Cportal2"
+      },
+      {
+        "date": "2021-09-03T01:46:00.000Z",
+        "voteCount": 1,
+        "content": "can confirm?"
+      }
+    ],
+    "examNameCode": "az-304",
+    "topicNumber": "14"
+  }
+]

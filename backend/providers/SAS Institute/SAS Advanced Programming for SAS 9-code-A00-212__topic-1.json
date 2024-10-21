@@ -1,0 +1,834 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/117321-exam-a00-212-topic-1-question-17-discussion/",
+    "body": "The following SAS program is submitted:<br>%let a=cat;<br>%macro animal(a=frog);<br>%let a=bird;<br>%mend;<br>%animal(a=pig)<br>%put a is &amp;a;<br>What is written to the SAS log?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta is pig",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta set cat",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta is frog",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta is bird"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-04T03:30:00.000Z",
+        "voteCount": 1,
+        "content": "a is pig\n%let a=cat creates variable a in global symbol table; %macro animal (a=frog): as this is parameter, variable a with value of frog is created in local symbol table %put a is &amp;a is to print variable a. As this is inside a macro, this will look at local symbol table first and take value of frog. %let a=bird looks at the local symbol table first and will find and overwrite variable a =frog with a=bird. \nWhen the macro is called with parameter, SAS will look at local symbol table and find and overwrite variable a with a =pig"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/8038-exam-a00-212-topic-1-question-21-discussion/",
+    "body": "Given the SAS data sets ONE and TWO:<br><img src=\"/assets/media/exam-media/02386/0001500001.jpg\" class=\"in-exam-image\"><br>The following SAS program is submitted:<br>Data combine;<br>Merge one two;<br>By id;<br>Run;<br>Which SQL procedure program procedures the same results?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tproc sql; Create table combine as Select coalesce (one.id, two.id) as id, Name,salary from one, two where one.id=two.id; Quit;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tproc sql; Create table combine as Select one.id, Name, salary from one full join two where one.id=two.id; Quit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tproc sql; Create table combine as Select one.id,name,salary from one inner join two on one.id=two.id Quit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tproc sql; Create table combine as Select coalesce (one id, two id) as id, Name,salary from one full join two on one.id=two.id;"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-18T08:21:00.000Z",
+        "voteCount": 1,
+        "content": "given answer is D correct, s. test code below\n\ndata ONE;\ninfile datalines;\ninput ID NAME $;\ndatalines;\n112 Smith\n243 Wei\n457 Jones\n;\n\ndata TWO;\ninfile datalines;\ninput ID SALARY;\ndatalines;\n213 150000\n355 45000\n523 75000\n;\n\ndata combine;\nmerge one two;\nby id;\nrun;\n\n/*\nproc sql; Create table combine as Select coalesce (one.id, two.id) as id, Name,salary from one, two where one.id=two.id; Quit;\nproc sql; Create table combine as Select one.id, Name, salary from one full join two where one.id=two.id; Quit;\nproc sql; Create table combine as Select one.id,name,salary from one inner join two on one.id=two.id; Quit;\n*/\nproc sql; Create table combinesql as Select coalesce (one.id, two.id) as id, Name,salary from one full join two on one.id=two.id; Quit;"
+      },
+      {
+        "date": "2019-11-12T15:01:00.000Z",
+        "voteCount": 2,
+        "content": "answer is A"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60159-exam-a00-212-topic-1-question-59-discussion/",
+    "body": "Given the following SAS data set ONE:<br><br>ONE -<br><br>REP COST -<br><br>SMITH 200 -<br><br>SMITH 400 -<br><br>JONES 100 -<br><br>SMITH 600 -<br><br>JONES 100 -<br><br>JONES 200 -<br><br>JONES 400 -<br><br>SMITH 800 -<br><br>JONES 100 -<br><br>JONES 300 -<br>The following SAS program is submitted:<br>proc sql;<br>select rep, avg(cost) as AVERAGE<br>from one<br>group by rep<br>having avg(cost) &gt; (select avg(cost) from one);<br>quit;<br>Which one of the following reports is generated?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREP AVERAGE JONES 200",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREP AVERAGE JONES 320",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREP AVERAGE SMITH 320",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREP AVERAGE"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-21T08:51:00.000Z",
+        "voteCount": 1,
+        "content": "REP \tAVERAGE\nSMITH \t500"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60201-exam-a00-212-topic-1-question-103-discussion/",
+    "body": "Given the following SAS data set ONE:<br><br>ONE -<br><br>LEVEL AGE -<br>1 10<br>2 20<br>3 20<br>2 10<br>1 10<br>2 30<br>3 10<br>2 20<br>3 30<br>1 10<br>The following SAS program is submitted:<br>proc sql;<br>select level, max(age) as MAX<br>from one<br>group by level<br>having max(age) &gt; (select avg(age) from one);<br>quit;<br>Which one of the following reports is generated?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLEVEL AGE 2 20 3 20",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLEVEL AGE 2 30 3 30",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLEVEL MAX 2 20 3 30",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLEVEL MAX 2 30"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-21T21:39:00.000Z",
+        "voteCount": 2,
+        "content": "LEVEL \tMAX\n2 \t30\n3 \t30"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/814-exam-a00-212-topic-1-question-133-discussion/",
+    "body": "This question will ask you to provide a segment of missing code.<br>The following SAS program submitted:<br><img src=\"/assets/media/exam-media/02386/0009100001.jpg\" class=\"in-exam-image\"><br>Which segment of code will successfully run an in-line view?<br><img src=\"/assets/media/exam-media/02386/0009100002.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption A",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption B",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption C",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption D"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T03:09:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is C"
+      },
+      {
+        "date": "2019-04-02T09:02:00.000Z",
+        "voteCount": 1,
+        "content": "I would say C...the (whole in-line view), instead of leaving apart the SELECT"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/257-exam-a00-212-topic-1-question-134-discussion/",
+    "body": "Given the SAS data sets:<br><img src=\"/assets/media/exam-media/02386/0009200001.jpg\" class=\"in-exam-image\"><br>The SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0009200002.jpg\" class=\"in-exam-image\"><br>What output will be produced?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tName ---------- Lauren Smith Patel Farmer Chang Hiller",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tName ---------- Chang Chang Lauren",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tName ---------- Patel Chang",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tName ---------- Lauren Patel Chang"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T03:18:00.000Z",
+        "voteCount": 1,
+        "content": "yes, B"
+      },
+      {
+        "date": "2019-04-02T09:01:00.000Z",
+        "voteCount": 1,
+        "content": "I agree, it is B"
+      },
+      {
+        "date": "2019-02-04T02:01:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B here, it cannot be A, please fix this"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/815-exam-a00-212-topic-1-question-135-discussion/",
+    "body": "Given the SAS data sets:<br><img src=\"/assets/media/exam-media/02386/0009400001.jpg\" class=\"in-exam-image\"><br>A SAS program is submitted and the following is written to SAS to:<br><img src=\"/assets/media/exam-media/02386/0009400002.jpg\" class=\"in-exam-image\"><br>What would allow the program to successfully execute without errors?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tQualify the column names with the table names.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the 104 with: Where EMPLOYEE.Name = Any (Select names separated with , From WORK.NEWEMPLOYEE Where Salary &gt; 40000);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the where clause with: Where EMPLOYEE.Name = (Select Names delimited with , From WORK.NEWEMPLOYEE Where Salary &gt; 40000);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tReplace the equal sign with In operator."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T03:21:00.000Z",
+        "voteCount": 1,
+        "content": "yes, D"
+      },
+      {
+        "date": "2019-04-02T09:05:00.000Z",
+        "voteCount": 1,
+        "content": "I would say D. Replace the equal sign with In operator.\nThe B is a strange mix with the INTO to define macro variables"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/816-exam-a00-212-topic-1-question-136-discussion/",
+    "body": "Given the data sets:<br><img src=\"/assets/media/exam-media/02386/0009500001.jpg\" class=\"in-exam-image\"><br>The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0009500002.jpg\" class=\"in-exam-image\"><br>Which result set would be generated?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t100",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t200",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t300",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t400"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T03:41:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D"
+      },
+      {
+        "date": "2019-04-02T09:08:00.000Z",
+        "voteCount": 2,
+        "content": "I would say D. 400...it is right join, the 1 will be duplicate + once the second"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/8775-exam-a00-212-topic-1-question-138-discussion/",
+    "body": "Given the SAS data set WORK TRANSACT:<br><img src=\"/assets/media/exam-media/02386/0009700001.jpg\" class=\"in-exam-image\"><br>The following output is desired:<br><img src=\"/assets/media/exam-media/02386/0009700002.jpg\" class=\"in-exam-image\"><br>Which SQL statement was used?<br><img src=\"/assets/media/exam-media/02386/0009800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption A",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption B",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption C",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption D"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T04:33:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/817-exam-a00-212-topic-1-question-140-discussion/",
+    "body": "This question will ask you to provide a segment of missing code.<br>Given the SAS data set WORK EXAM:<br><br>TotalScore -<br>----------------<br>512<br>657<br>*<br>782<br>The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0010100001.jpg\" class=\"in-exam-image\"><br>The following output is desired:<br><br>TotalScore -<br>--------------<br>512<br>657<br>782<br>Which WHERE expression completes the program and generates the desired output?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhere TotalScore is not missing",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhere TotalScore is null",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhere TotalScore is not",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhere AddToStringYN= \u2018Y\u2019"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-02T09:10:00.000Z",
+        "voteCount": 2,
+        "content": "A. Where TotalScore is not missing"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/818-exam-a00-212-topic-1-question-142-discussion/",
+    "body": "Given the SAS data sets shown on the left, the SAS program on the right is submitted.<br><img src=\"/assets/media/exam-media/02386/0010300001.jpg\" class=\"in-exam-image\"><br>What will be the result when this program is executed?<br><img src=\"/assets/media/exam-media/02386/0010400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption A",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption B",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption C",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption D"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-02T09:12:00.000Z",
+        "voteCount": 2,
+        "content": "A. Option A\nIt could not be the other, it has 400 when it comes from the right...when it is a left join"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/819-exam-a00-212-topic-1-question-145-discussion/",
+    "body": "Given the data sets shown on the left, the SAS program shown on the right is submitted.<br><img src=\"/assets/media/exam-media/02386/0010800001.jpg\" class=\"in-exam-image\"><br>What will be output by the program?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tERROR: Subquery evaluated to more than one row",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAverage of Employment 6",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAverage of Employment 5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAverage of employment 7"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-02T09:14:00.000Z",
+        "voteCount": 4,
+        "content": "I would say...D. Average of employment 7"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/1701-exam-a00-212-topic-1-question-146-discussion/",
+    "body": "Given the following partial SAS log:<br><img src=\"/assets/media/exam-media/02386/0010900001.jpg\" class=\"in-exam-image\"><br>Which SQL procedure statement generated this output?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDECREASE TABLE SASHELP.CLASS;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCONTENTS TABLE SASHELP.CLASS;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDESCRIBE TABLE=SASHELP.CLASS;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tATTRIBUTE TABLE=SASHELP.CLASS"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference: http://www.sascommunity.org/wiki/Macro_CallText",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T14:35:00.000Z",
+        "voteCount": 1,
+        "content": "C is the answer... never heard of option A"
+      },
+      {
+        "date": "2019-11-21T14:48:00.000Z",
+        "voteCount": 1,
+        "content": "the equal sign in C in not required"
+      },
+      {
+        "date": "2019-06-10T14:09:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/1702-exam-a00-212-topic-1-question-147-discussion/",
+    "body": "This question will ask you to provide a segment of missing code.<br>Given the following program and data:<br><img src=\"/assets/media/exam-media/02386/0011000001.jpg\" class=\"in-exam-image\"><br>What is the WHERE statement that successfully completes the PROC PRINT and selects the observation from Barb?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhere Birthday=&amp;\"Want\";",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhere Birthday=&amp;\u2018Want\u2019 d;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBirthday=&amp;Want;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBirthday=&amp;\"Want\" d;"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-21T14:56:00.000Z",
+        "voteCount": 1,
+        "content": "\"&amp;Want\"d is the answer"
+      },
+      {
+        "date": "2019-06-10T14:17:00.000Z",
+        "voteCount": 1,
+        "content": "there is no correct answer given"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/820-exam-a00-212-topic-1-question-150-discussion/",
+    "body": "The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0011400001.jpg\" class=\"in-exam-image\"><br>What is written to the SAS log?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMv is bicycle",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMv is shoes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMv is tents",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMv is clothes"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-02T09:19:00.000Z",
+        "voteCount": 3,
+        "content": "A. Mv is bicycle"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60009-exam-a00-212-topic-1-question-155-discussion/",
+    "body": "SIMULATION -<br>The question will ask you to provide a segment of missing code.<br>The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0011800001.jpg\" class=\"in-exam-image\"><br>The text box above, complete the %PUT statement to produce the following log output:<br><img src=\"/assets/media/exam-media/02386/0011800002.jpg\" class=\"in-exam-image\"><br>Case is ignored and standard SAS syntax rules apply.<br>",
+    "options": [],
+    "answer": "_sample_",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-19T22:07:00.000Z",
+        "voteCount": 1,
+        "content": "_user_"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60012-exam-a00-212-topic-1-question-158-discussion/",
+    "body": "Which title statement would always display current date?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttitle \" Today is: &amp; today.\";",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttitle \"Today is: sysfunc (today (), worddate)\";",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttitle \"Today is:  &amp; sysdate. \";",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttitle \"Today is:  &amp;sysdate.\";"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-19T22:24:00.000Z",
+        "voteCount": 1,
+        "content": "only if sas invocation is daily"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60066-exam-a00-212-topic-1-question-159-discussion/",
+    "body": "SIMULATION -<br>This question will ask you to provide a segment of missing code.<br>Given the two data sets on the left, the SAS program on the right is submitted.<br><img src=\"/assets/media/exam-media/02386/0012100001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02386/0012200001.jpg\" class=\"in-exam-image\"><br>In the text box in the program above, complete the program so that it will properly use the macro variable to select the corresponding cities.<br>Case is ignored and standard SAS syntax rules apply.<br>",
+    "options": [],
+    "answer": "North Carolina",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T07:40:00.000Z",
+        "voteCount": 1,
+        "content": "\"&amp;selection\""
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60070-exam-a00-212-topic-1-question-160-discussion/",
+    "body": "The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0012300001.jpg\" class=\"in-exam-image\"><br>How will the variable be listed?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHeight Weight Name Age",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeight Height",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeight Height Name Age",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tName Age Weight Height"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T08:19:00.000Z",
+        "voteCount": 1,
+        "content": "answer C"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/821-exam-a00-212-topic-1-question-162-discussion/",
+    "body": "This question will ask you to provide a segment of missing code.<br>Given the SAS data set SASUSER.ORDERS:<br><img src=\"/assets/media/exam-media/02386/0012400001.jpg\" class=\"in-exam-image\"><br>The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0012500001.jpg\" class=\"in-exam-image\"><br>Which statement completes the program completely so that it will produce a report with the total number of orders for California?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCall syntax (\u2018num\u2019 California)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNum = California",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t&amp;num = California",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSyntax (\u2018num\u2019, California)"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-02T09:45:00.000Z",
+        "voteCount": 1,
+        "content": "CALL SYMPUT Routine...."
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60072-exam-a00-212-topic-1-question-163-discussion/",
+    "body": "Given the data set SASHELP.CLASS:<br><img src=\"/assets/media/exam-media/02386/0012600001.jpg\" class=\"in-exam-image\"><br>The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0012600002.jpg\" class=\"in-exam-image\"><br>The PROC steps execute successfully?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPROC PRINT only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPROC MEANS and PROC PRINT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPROC MEANS only",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo PROC steps execute successfully"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T08:51:00.000Z",
+        "voteCount": 2,
+        "content": "answer is A"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/188-exam-a00-212-topic-1-question-164-discussion/",
+    "body": "Given the data set shown in the left, the SAS program on the right is submitted.<br><img src=\"/assets/media/exam-media/02386/0012700001.jpg\" class=\"in-exam-image\"><br>Which program will result in the identical report?<br><img src=\"/assets/media/exam-media/02386/0012800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption A",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption B",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption C",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption D"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference: http://www2.sas.com/proceedings/sugi31/030-31.pdf",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-01-31T00:46:00.000Z",
+        "voteCount": 3,
+        "content": "Option B is correct, default sort is ascending not descending"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60075-exam-a00-212-topic-1-question-165-discussion/",
+    "body": "This question will ask you to provide missing option.<br><img src=\"/assets/media/exam-media/02386/0012900001.jpg\" class=\"in-exam-image\"><br>Which option is required to complete the program correctly?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCAMPLIB",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFMTSEARCH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLIBREF",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUTILLOC"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T09:03:00.000Z",
+        "voteCount": 1,
+        "content": "OPTIONS CMPLIB=libref.table"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60082-exam-a00-212-topic-1-question-168-discussion/",
+    "body": "The SAS set WORK CHECK has an index on the variable Code and the following SAS program is submitted.<br><br>proc sort data=WORK.CHECK;<br>by Code;<br>run;<br>What describes the result of submitting SAS program?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe index on Code is updates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe sort does not execute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe index on Code is deleted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe index on the Code unaffected"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T10:14:00.000Z",
+        "voteCount": 1,
+        "content": "ERROR: Indexed data set cannot be sorted in place unless the FORCE option is used."
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60107-exam-a00-212-topic-1-question-169-discussion/",
+    "body": "SIMULATION -<br>This item will ask you to provide a segment of missing code.<br>Given the input data set shown on the left and the output data set shown on the right:<br><img src=\"/assets/media/exam-media/02386/0013200001.jpg\" class=\"in-exam-image\"><br>In the text below, enter the code that will complete the program to produce the output set shown above on the right.<br><img src=\"/assets/media/exam-media/02386/0013200002.jpg\" class=\"in-exam-image\"><br>Case is ignored and standard SAS syntax rules apply.<br>",
+    "options": [],
+    "answer": "N",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T21:27:00.000Z",
+        "voteCount": 1,
+        "content": "first.model"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60083-exam-a00-212-topic-1-question-170-discussion/",
+    "body": "A data set stored on a network drive has the following characteristics:<br>\u2711 14 Million observations<br>\u2711 400 numeric variables<br>\u2711 0 character variables of length 20<br>\u2711 Binary compression<br>A DATA Step query requires only 3 character and 15 numeric variables from this data set. What is the best way to reduce computer resource utilization in this<br>DATA Step?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA KEEP= data set option used on the SET Statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA KEEP Statement used within the DATA Step",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA KEEP= data set option used on the DATA Statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA DROP= data set option used on the DATA Statement"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "eventually A? A KEEP= data set option used on the SET Statement"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60108-exam-a00-212-topic-1-question-172-discussion/",
+    "body": "The SAS data set WORK.TEMP is indexed on variable Id:<br><img src=\"/assets/media/exam-media/02386/0013400001.jpg\" class=\"in-exam-image\"><br>The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0013400002.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStops because the data is not descending order",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerates a report without a problem",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStops because the data is not in ascending order",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerates a report, but only if the index = USE option is turned on"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T21:34:00.000Z",
+        "voteCount": 1,
+        "content": "B. Generates a report without a problem"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60109-exam-a00-212-topic-1-question-174-discussion/",
+    "body": "Which SAS produce can be used to report Page Size?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPRINT Procedure",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCATALOG Procedure",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tREPORT Procedure",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCONTENTS Procedure"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T21:44:00.000Z",
+        "voteCount": 1,
+        "content": "proc contents data=work.combine;\nrun;"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/822-exam-a00-212-topic-1-question-176-discussion/",
+    "body": "The following SAS program is submitted:<br><img src=\"/assets/media/exam-media/02386/0014000001.jpg\" class=\"in-exam-image\"><br>The purpose of FILEVAR = option on the INFILE statement is to name the variable next, whose value:<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPoints to a new input file",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPoints to an aggregate storage location",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIs output to the SAS data set WORK.NEW",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIs an input SAS data set reference"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference: http://support.sas.com/documentation/cdl/en/lrdict/64316/HTML/default/viewer.htm#a000146932.htm (see FILEVAR=variable)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-02T10:27:00.000Z",
+        "voteCount": 1,
+        "content": "A. Points to a new input file"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60110-exam-a00-212-topic-1-question-178-discussion/",
+    "body": "Given the data set shown on the left, the SAS program on the right is submitted:<br><img src=\"/assets/media/exam-media/02386/0014100001.jpg\" class=\"in-exam-image\"><br>Which statement is true regarding the WORK.MISSING data set?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe descriptor portion of WORK.MISSING is created when the DATA step is submitted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe data set is created when the DATA step is submitted",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWhen the view ONE is used in another SAS step, the data set is created",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe data set not created because the DATA statement contains a syntax error"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T22:20:00.000Z",
+        "voteCount": 1,
+        "content": "my best guess is answer A"
+      },
+      {
+        "date": "2021-08-20T22:19:00.000Z",
+        "voteCount": 1,
+        "content": "sorry, there is no syntax error, .. please ignore my first comment"
+      },
+      {
+        "date": "2021-08-20T22:14:00.000Z",
+        "voteCount": 1,
+        "content": "ERROR: Unable to create WORK.ONE.VIEW because WORK.ONE.DATA already exists.\n ERROR: Unable to save DATA STEP view WORK.ONE."
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60117-exam-a00-212-topic-1-question-182-discussion/",
+    "body": "Given the following SAS program:<br><img src=\"/assets/media/exam-media/02386/0014400001.jpg\" class=\"in-exam-image\"><br>What will be the output from the PRINT Procedure?<br><img src=\"/assets/media/exam-media/02386/0014500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption A",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption B",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption C",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOption D"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T23:20:00.000Z",
+        "voteCount": 1,
+        "content": "answer is A, incl. warning message in the log:\n\nWARNING: Partial value initialization of the array multi.\n\ndata work.lookup1;\narray multi [1:2,2] (1,2);\ndo i = 1 to 2;\n\tdo j = 1 to 2;\n\tOutValue = multi[i,j];\n\toutput work.lookup1;\n\tend;\nend;\nrun;\n\nproc print data=work.lookup1 noobs;\nvar i j OutValue;\nrun;"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60118-exam-a00-212-topic-1-question-183-discussion/",
+    "body": "The question will ask you to provide a segment of missing code.<br>Given the following SAS program:<br><img src=\"/assets/media/exam-media/02386/0014600001.jpg\" class=\"in-exam-image\"><br>Which segment of code completes the program to use finance.new SAS view?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData = finance.new",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData = finance.new / view = finance.new",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tData = finance.new / view",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tView = finance.new"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T23:26:00.000Z",
+        "voteCount": 1,
+        "content": "A. Data = finance.new"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/sas-institute/view/60119-exam-a00-212-topic-1-question-184-discussion/",
+    "body": "Given the unsorted data set WORK.ORDERS<br><img src=\"/assets/media/exam-media/02386/0014700001.jpg\" class=\"in-exam-image\"><br>The following three programs are submitted:<br><img src=\"/assets/media/exam-media/02386/0014700002.jpg\" class=\"in-exam-image\"><br>Which program will create a list of unique Customer_ID values in the WORK.ORDERS data set?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnly programs 2 and 3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnly programs 1 and 2",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPrograms 1, 2, and 3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnly programs 1and 2"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-20T23:38:00.000Z",
+        "voteCount": 1,
+        "content": "B. Only programs 1 and 2"
+      }
+    ],
+    "examNameCode": "a00-212",
+    "topicNumber": "1"
+  }
+]

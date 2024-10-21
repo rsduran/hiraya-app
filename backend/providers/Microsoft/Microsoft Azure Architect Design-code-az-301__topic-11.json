@@ -1,0 +1,469 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10544-exam-az-301-topic-11-question-1-discussion/",
+    "body": "You need to recommend a solution for implementing the back-end tier of the payment processing system in Azure.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure SQL Database managed instance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta SQL Server database on an Azure virtual machine",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure SQL Database single database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tan Azure SQL Database elastic pool"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-03T21:15:00.000Z",
+        "voteCount": 56,
+        "content": "Maintenance of the database is performed by using SQL Server\nAgent jobs.\n\nShould it be managed instance"
+      },
+      {
+        "date": "2020-07-30T12:58:00.000Z",
+        "voteCount": 5,
+        "content": "Yes, Its A for sure. I second the comments from @kewl and @wlfjck.\n\nAdditionally, I want to highlight this \"Whenever possible, Azure managed services must be used to minimize management overhead\""
+      },
+      {
+        "date": "2020-08-05T18:41:00.000Z",
+        "voteCount": 5,
+        "content": "Agent jobs.  it should be managed instance"
+      },
+      {
+        "date": "2020-09-05T03:08:00.000Z",
+        "voteCount": 3,
+        "content": "Agree. \n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/job-automation-overview\n\nSQL Agent Jobs are classic and battle-tested SQL Server job scheduling component that is available in Azure SQL Managed Instance. SQL Agent Jobs are not available in Azure SQL Database."
+      },
+      {
+        "date": "2019-12-18T05:26:00.000Z",
+        "voteCount": 34,
+        "content": "Why not a. an Azure SQL Database managed instance? Managed instance would be compatible with existing on-premise SQL Server features and it would meet the requirement to minimise the effort required to modify the middle tier and backend tier of the payment processing system"
+      },
+      {
+        "date": "2020-09-20T03:47:00.000Z",
+        "voteCount": 3,
+        "content": "A is ok"
+      },
+      {
+        "date": "2021-03-09T08:31:00.000Z",
+        "voteCount": 1,
+        "content": "A. an Azure SQL Database managed instance"
+      },
+      {
+        "date": "2021-01-02T18:51:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct answer."
+      },
+      {
+        "date": "2020-09-12T15:03:00.000Z",
+        "voteCount": 2,
+        "content": "should be A for sure"
+      },
+      {
+        "date": "2020-09-06T04:57:00.000Z",
+        "voteCount": 4,
+        "content": "As already serval times mentioned above, the key is \"SQL Agents\" are not supported on Azure Single DB, they are only supported on Managed Instance. \nI can recommend the following Ignite Video as a comparison:\nSee: at Time 11:08 (no SQL Agent support for MS SQL Single DB) and time 15.31 SQL Agent Support for Managed Instance.\nManaged Instance is the Azure Solution for \"almost\" an On Premise DB, without the general limitations.\n\nRef:\nhttps://azure.microsoft.com/en-us/resources/videos/ignite-2018-azure-sql-database-managed-instance-comparison-to-azure-sql-database/"
+      },
+      {
+        "date": "2020-08-26T07:21:00.000Z",
+        "voteCount": 4,
+        "content": "One of the requirement is:\n\"Support blocking inbound and outbound traffic based on the source IP address, the destination IP address, and the port number.\"\nI think this can not be achieved by SQL Server Firewall hence we need NSG. That is why best option look like Azure Managed Instance."
+      },
+      {
+        "date": "2020-08-17T08:13:00.000Z",
+        "voteCount": 2,
+        "content": "\u201cUsing SQL Server Agent jobs\u201d is talking about existing environment right? And the question is about implementing a new solution - so why bother?"
+      },
+      {
+        "date": "2020-07-20T01:15:00.000Z",
+        "voteCount": 27,
+        "content": "A. an Azure SQL Database managed instance\n- Does support \"SQL Agent Jobs\" \n\nB. a SQL Server database on an Azure virtual machine\n- Can be ruled out, as the technical requirements say to use a PaaS whenever possible\n\nC. an Azure SQL Database single database\n- Can be ruled out, as it doesn't support \"SQL Agent Jobs\"\n\nD. an Azure SQL Database elastic pool\n- There is only one production database so no added value when using elastic pools\n\n=&gt; Conclusion: Answer A)"
+      },
+      {
+        "date": "2020-07-21T13:54:00.000Z",
+        "voteCount": 2,
+        "content": "A should be the correct answer\nlittle is said about the backend database. only that it uses SQL Agent jobs.\n\nAnd as at now only Managed Instances support SQL agent jobs"
+      },
+      {
+        "date": "2020-07-21T13:55:00.000Z",
+        "voteCount": 3,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-sql/database/job-automation-overview"
+      },
+      {
+        "date": "2021-01-11T12:44:00.000Z",
+        "voteCount": 1,
+        "content": "\"Minimize the effort required to modify the middle-tier API and the back-end tier of the payment processing system\""
+      },
+      {
+        "date": "2021-02-15T13:51:00.000Z",
+        "voteCount": 1,
+        "content": "this justification looks more correct to me."
+      },
+      {
+        "date": "2020-07-03T06:15:00.000Z",
+        "voteCount": 3,
+        "content": "\"Minimize the effort required to modify the middle-tier API and the back-end tier of the payment processing system\" this can be achieved only using managed instance which is nearly a 100% compatibility to on-prem and needs no to almost no changes."
+      },
+      {
+        "date": "2020-06-29T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "C. an Azure SQL Database single database"
+      },
+      {
+        "date": "2020-06-10T02:36:00.000Z",
+        "voteCount": 1,
+        "content": "I thinks it should be: B\nAs mentioned on the question that \"The middle-tier API uses the Entity Framework to communicate to the SQL Server database. Maintenance of the database is performed by using SQL Server Agent jobs.\"\nAnd here's the list of supported DBs under Entity framework:\nhttps://docs.microsoft.com/en-us/ef/core/providers/?tabs=dotnet-core-cli\nApart from supported Azure DBs, it support directly only \"Azure Cosmos DB SQL API\" or any normal SQL 2012 DB or above that's why i recommend \"B\"."
+      },
+      {
+        "date": "2020-07-16T21:06:00.000Z",
+        "voteCount": 1,
+        "content": "You can perform automated jobs with both Azure SQL database and managed insurance https://docs.microsoft.com/en-us/azure/azure-sql/database/job-automation-overview"
+      },
+      {
+        "date": "2020-05-25T09:55:00.000Z",
+        "voteCount": 1,
+        "content": "Now LTR is supported for SQL Managed Instance.\nhttps://docs.microsoft.com/en-us/azure/sql-database/sql-database-long-term-retention#managed-instance-support"
+      },
+      {
+        "date": "2020-05-01T09:15:00.000Z",
+        "voteCount": 1,
+        "content": "Do we have to consider 'Support blocking inbound and outbound traffic based on the source IP address, the destination IP address, and the port number.'? Does SQL server managed instance support it?"
+      },
+      {
+        "date": "2020-05-07T00:29:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, we can control the traffic with Firewall and NSG.\nRef: https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-connectivity-architecture"
+      },
+      {
+        "date": "2020-04-28T02:30:00.000Z",
+        "voteCount": 4,
+        "content": "Answer should be A\u2026\n\n\nMigration Requirements ;- \nWhenever possible, Azure managed services must be used to minimize management overhead."
+      },
+      {
+        "date": "2020-04-22T08:47:00.000Z",
+        "voteCount": 6,
+        "content": "I believe the answer to be Azure SQL Database managed instance for a number of reasons. Reason 1 - Minimize the effort required to modify the middle-tier API and the back-end tier of the payment processing system. Managed instance gives most of the features of an on premise SQL server.\nReason 2 - Keep backups of the data in two separate physical locations that are at least 200 miles apart and can be restored for up to seven years. Managed instances support T-SQL backup database statements. Copy_only backups are supported and can be backed up to blob storage that is geo-replicated, it will remain there till deleted"
+      },
+      {
+        "date": "2020-03-30T00:45:00.000Z",
+        "voteCount": 1,
+        "content": "Encrypt data in transit and rest supports SQL database and sql server"
+      },
+      {
+        "date": "2020-04-21T19:59:00.000Z",
+        "voteCount": 2,
+        "content": "So is Managed SQL right? it says to use managed services when possible. I would say A"
+      }
+    ],
+    "examNameCode": "az-301",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12066-exam-az-301-topic-11-question-2-discussion/",
+    "body": "You need to recommend a solution for protecting the content of the payment processing system.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTransparent Data Encryption (TDE)",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Storage Service Encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted with randomized encryption",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAlways Encrypted with deterministic encryption"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-10T17:57:00.000Z",
+        "voteCount": 19,
+        "content": "Given Answer is correct:\nUsing the \u201cAlways Encrypted with deterministic encryption\u201d feature would allow for data to be encrypted at rest and in transit. Transparent Data Encryption would only encrypt data at rest. Data Masking will only hide sensitive data. Azure Storage Service Encryption is used for encrypting data in storage accounts."
+      },
+      {
+        "date": "2020-08-08T04:28:00.000Z",
+        "voteCount": 1,
+        "content": "why not randomized encryption?"
+      },
+      {
+        "date": "2020-11-30T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "'cause the randomized encrypted all data and not allow you action with database"
+      },
+      {
+        "date": "2020-02-18T00:33:00.000Z",
+        "voteCount": 7,
+        "content": "I think answer shout be A --Transparent Data Encryption (TDE) \nWhile, Always Encrypted with determinates Encryption is best choose for small Application architecture where data is encrypted as it travels over the internal or external network.\nBut on Question SQL server version is  \u201cMicrosoft SQL Server 2014\u201d, where \u201cAlways Encryption\u201d features does not support.  \nReference URL: https://azure.microsoft.com/en-in/blog/transparent-data-encryption-or-always-encrypted/"
+      },
+      {
+        "date": "2020-02-25T00:24:00.000Z",
+        "voteCount": 2,
+        "content": "Good Observation. A- is only option left as Always encrypted will not work on SQL Server 2014."
+      },
+      {
+        "date": "2020-04-28T02:32:00.000Z",
+        "voteCount": 3,
+        "content": "A is incorrect..TDE is only for Encryption at rest and not encryption at transit."
+      },
+      {
+        "date": "2020-08-26T16:43:00.000Z",
+        "voteCount": 1,
+        "content": "Prior to SQL Server 2016 (13.x) SP1, Always Encrypted was limited to the Enterprise Edition. Does this mean Microsoft SQL Server 2014 Enterprise Edition will have Always Encrypted  support ?"
+      },
+      {
+        "date": "2020-08-26T17:13:00.000Z",
+        "voteCount": 4,
+        "content": "Also in the requirements it does not say that the solution on Azure has to be \"Microsoft SQL Server 2014\""
+      },
+      {
+        "date": "2021-03-09T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "D. Always Encrypted with deterministic encryption"
+      },
+      {
+        "date": "2021-02-15T13:55:00.000Z",
+        "voteCount": 1,
+        "content": "given answer is correct\nUsing the \u201cAlways Encrypted with deterministic encryption\u201d feature would allow for data to be encrypted at rest and in transit. Transparent Data Encryption would only encrypt data at rest. AZURE Storage Service Encryption is used for encrypting data in storage accounts."
+      },
+      {
+        "date": "2021-02-12T02:41:00.000Z",
+        "voteCount": 1,
+        "content": "Key sentence is \"Payment processing system must be able to use grouping and joining tables on encrypted columns\",  hence deterministic encryption is correct ans\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15#selecting--deterministic-or-randomized-encryption"
+      },
+      {
+        "date": "2021-01-29T21:28:00.000Z",
+        "voteCount": 3,
+        "content": "One requirement was missing from this question which is \"Payment processing system must be able to use grouping and joining tables on encrypted columns.\" which narrow down the answer to AE Deterministic. \n\nReview the same question here.\nhttps://www.examtopics.com/exams/microsoft/az-304/view/24/"
+      },
+      {
+        "date": "2021-02-12T02:27:00.000Z",
+        "voteCount": 1,
+        "content": "u r right, udemy also said the same"
+      },
+      {
+        "date": "2021-01-02T18:53:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct answer."
+      },
+      {
+        "date": "2020-09-12T08:15:00.000Z",
+        "voteCount": 2,
+        "content": "Deterministic encryption always generates the same encrypted value for any given plain text value. Using deterministic encryption allows point lookups, equality joins, grouping and indexing on encrypted columns. However, it may also allow unauthorized users to guess information about encrypted values by examining patterns in the encrypted column, especially if there's a small set of possible encrypted values, such as True/False, or North/South/East/West region. Deterministic encryption must use a column collation with a binary2 sort order for character columns.\n\n    Randomized encryption uses a method that encrypts data in a less predictable manner. Randomized encryption is more secure, but prevents searching, grouping, indexing, and joining on encrypted columns."
+      },
+      {
+        "date": "2020-09-10T22:54:00.000Z",
+        "voteCount": 2,
+        "content": "D appears the correct"
+      },
+      {
+        "date": "2020-08-21T04:28:00.000Z",
+        "voteCount": 1,
+        "content": "Hard one... Could be A or D but recommended is A (TDE) so i would go with that one instead....\n\nhttps://azure.microsoft.com/en-gb/blog/transparent-data-encryption-or-always-encrypted/\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15"
+      },
+      {
+        "date": "2020-08-29T04:57:00.000Z",
+        "voteCount": 2,
+        "content": "On a second thought and because the requirement is to \"recommend a solution for protecting the content of the payment processing system.\" and because we are handling sensitive data (payments) D might be the 'most' correct answer for the current scenario."
+      },
+      {
+        "date": "2020-08-21T02:24:00.000Z",
+        "voteCount": 1,
+        "content": "Since it's a payment processing system, it's possible that it will contain details such as people's credit cards. On that note, I'd select the most secure option,  randomised."
+      },
+      {
+        "date": "2020-07-21T14:00:00.000Z",
+        "voteCount": 4,
+        "content": "C should be the answer\nRandomized is more secure than deterministic\nDeterministic gives space to guess the key.\n\nhttps://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-ver15#:~:text=Deterministic%20encryption%20always%20generates%20the,any%20given%20plain%20text%20value.&amp;text=Randomized%20encryption%20uses%20a%20method,and%20joining%20on%20encrypted%20columns."
+      },
+      {
+        "date": "2020-09-05T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. Quite a tricky question but based on all the requirements it seems that C is the right answer. Needs both TDE and Always Encrypted."
+      },
+      {
+        "date": "2020-07-20T01:40:00.000Z",
+        "voteCount": 3,
+        "content": "Requirements:\n\n- Encrypt data in transit and at rest\n- Only the front-end and middle-tier components must be able to access the encryption keys that protect the data store.\n- The middle-tier and the web front end must continue to operate without any additional configurations.\n- Minimize the effort required to modify the middle-tier API and the back-end tier of the payment processing system\n- Host the middle tier of the payment processing system on a virtual machine.\n\nPossible Answers\n\nA. Transparent Data Encryption (TDE)\n- encrypts the storage of an entire database at rest only \n\nB. Azure Storage Service Encryption\n- only encrypts data at rest and won't help with our database \n\nC. Always Encrypted with randomized encryption\n- is transparent \n- is currently supported in .NET Framework Data Provider for SQL Server (so matches our technology stack)\n- more secure than \"deterministic encryption\"\n\nD. Always Encrypted with deterministic encryption\n- same applies then answer C, although not that secure \n\nConclusion: Answer C)"
+      },
+      {
+        "date": "2020-07-24T12:59:00.000Z",
+        "voteCount": 6,
+        "content": "In order to support querying, use deterministic encryption."
+      },
+      {
+        "date": "2020-07-30T15:22:00.000Z",
+        "voteCount": 2,
+        "content": "Use deterministic encryption for columns that will be used as search or grouping parameters. For example, a government ID number. Use randomized encryption for data such as confidential investigation comments, which aren't grouped with other records and aren't used to join tables.\nSince we are dealing with payment systems and not just isolated data like comments it would appear Deterministic encryption is recommended."
+      },
+      {
+        "date": "2020-08-04T00:58:00.000Z",
+        "voteCount": 8,
+        "content": "Matze2ooo, good comments always. Thank you.\n\nYou miss something this time.  First of all, there is no specific requirement demanding more security than the security obtained by the deterministic option. Thus, there is no obligation, based on requirements, to select C. In such case, it is up to you to decide what is the best considering the context. Having in mind that not deterministic option does not allow for querying and comparisons. Do you believe that you will be in position to run such a system without them? Hardly so. Only based on that I would choose deterministic. \n\nIn any case, in the case study you have a hint: \"The middle-tier API uses the Entity Framework to communicate to the SQL Server database.\" Where \u201cEntity Framework Core is a modern object-database mapper for .NET. It supports LINQ queries, change tracking, updates, and schema migrations.\u201d"
+      },
+      {
+        "date": "2020-08-07T04:36:00.000Z",
+        "voteCount": 7,
+        "content": "Thanks for pointing that out. I went through the docs again and I think I would now use deterministic over randomized as well (for the reasons you have stated)."
+      },
+      {
+        "date": "2020-07-16T22:07:00.000Z",
+        "voteCount": 3,
+        "content": "I don't see any specific requirements for deterministic encryption, I'd go for randomized"
+      },
+      {
+        "date": "2020-06-30T20:00:00.000Z",
+        "voteCount": 1,
+        "content": "they are migrating the db to cosmos db.  I don't believe cosmos db supports always encrypted.  does it?"
+      },
+      {
+        "date": "2020-07-16T22:06:00.000Z",
+        "voteCount": 1,
+        "content": "Only the historical transaction query system is being migrated to cosmosdb, not the payment processing system"
+      },
+      {
+        "date": "2020-06-29T00:02:00.000Z",
+        "voteCount": 2,
+        "content": "D. Always Encrypted with deterministic encryption"
+      },
+      {
+        "date": "2020-06-26T07:47:00.000Z",
+        "voteCount": 1,
+        "content": "Question is protecting the content of the payment processing system, means A"
+      }
+    ],
+    "examNameCode": "az-301",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/7769-exam-az-301-topic-11-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to recommend a solution for the data store of the historical transaction query system.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02744/0009600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02744/0009700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-06T21:47:00.000Z",
+        "voteCount": 26,
+        "content": "Both answers look OK.\nBox1: requirement is to provide Azure Table storage that will not grow more than 50 Gb.\nUsing Table storage with fixed settings.\nBox 2: requirement is for resiliency if a single Azure data center fails.  \nUsing RA-GRS type of storage will add another READ region."
+      },
+      {
+        "date": "2019-12-18T05:39:00.000Z",
+        "voteCount": 15,
+        "content": "you are correct in saying that the answers are correct. However, the case study requirements state that the transaction query system needs to be moved to Azure Cosmos DB. Cosmos DB can also provide a fixed capacity (10 gb per partition, so you will need 5 partitions) and have an additional read region to meet the requirements"
+      },
+      {
+        "date": "2019-12-18T21:02:00.000Z",
+        "voteCount": 5,
+        "content": "Correction: the first box answer should be table that has an unlimited capacity. Using a table api in Como's, a container is realised as a table, and a container can have an unlimited storage capacity as per faq :https://docs.microsoft.com/en-us/azure/cosmos-db/faq"
+      },
+      {
+        "date": "2020-01-04T01:47:00.000Z",
+        "voteCount": 1,
+        "content": "existing env: The data in the table storage is 50 GB and is not expected to increase."
+      },
+      {
+        "date": "2020-09-20T04:01:00.000Z",
+        "voteCount": 3,
+        "content": "&gt; A table that has a fixed capacity\n&gt; An additional read region"
+      },
+      {
+        "date": "2020-05-16T06:10:00.000Z",
+        "voteCount": 5,
+        "content": "Good analogy but hy will you want a table with unlimited capacity when the requirement clearly states that the  data is 50G and is NOT expected to increase?"
+      },
+      {
+        "date": "2020-07-01T02:02:00.000Z",
+        "voteCount": 3,
+        "content": "I agree. Multiple tables, fixed capacity makes more sense if the size is not expected to increase beyond 50GB which is clearly stated."
+      },
+      {
+        "date": "2020-07-22T17:35:00.000Z",
+        "voteCount": 4,
+        "content": "Read: Minimize the effort required to modify the .NET web service querying Azure Cosmos DB.\n\nIf we modify the storage scheme of the table contents then we will need to modift how the .NET web service queries the table.\nIf we have a single table with fixed storage then we accommodate all requirements. (fixed because the size is not expected to change)."
+      },
+      {
+        "date": "2021-03-09T08:32:00.000Z",
+        "voteCount": 3,
+        "content": "&gt; A table that has a fixed capacity\n&gt; An additional read region"
+      },
+      {
+        "date": "2021-02-15T14:03:00.000Z",
+        "voteCount": 2,
+        "content": "answer is \nan additional read region\nIn Azure Cosmos DB , you can implement a new read region. This would ensure the data is available in another region in case of a region wide failure to the primary region.\nmutiple table that have fixed capacity as we have current issuee The Contoso IT team discovers poor performance of the historical transaction query system, at the queries frequently cause table scans so in proposed solution we want to minimize the frequency of table scans.\t\nHere the issue is that the queries are based on different attributes of the item. Hence it would be ideal to create multiple tables. Each table can have the same values and specify a different partition key. Even though in Azure Cosmos DB , you can have virtually unlimited capacity, you can choose to limit the capacity since the data size is not going to increase for the system."
+      },
+      {
+        "date": "2021-01-08T14:42:00.000Z",
+        "voteCount": 2,
+        "content": "It must be \"Multiple table with fixed size\". Because requirements says: \"Migrate the historical transaction data to Azure Cosmos DB to address the performance issues.\". If they have performance issue and partition key table size should be max. 20GB (as Tester5463 mentioned). You need to create multiple tables with multiple partition keys for better performance and faster response."
+      },
+      {
+        "date": "2021-02-12T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "agreed to improve the performance, Here the issue is that the queries are based on different attributes of the item. Hence it would be ideal to create multiple tables. Each table can have the same values and specify a different partition key. Even though in Azure Cosmos DB , you can have virtually unlimited capacity, you can choose to limit the capacity since the data size is not going to increase for the system."
+      },
+      {
+        "date": "2021-01-02T18:55:00.000Z",
+        "voteCount": 1,
+        "content": "given answer is correct."
+      },
+      {
+        "date": "2020-08-20T06:15:00.000Z",
+        "voteCount": 2,
+        "content": "For the Single vs Multi table debate:\n\nThe requirement is that the data is 50GB and will not increase.\n\nA table maps to a CosmosDB Collection.\nThe max size for a collection is 50GB.\n\nTherefore we should use a Single Table.\n\nReference: https://docs.microsoft.com/en-us/azure/cosmos-db/concepts-limits#serverless"
+      },
+      {
+        "date": "2020-08-11T06:53:00.000Z",
+        "voteCount": 4,
+        "content": "Sizing requirements: \n\n&gt; A table that has a fixed capacity\n\n==&gt; Because current table storage is 50 GB and is not expected to increase\n\nResiliency: \n\n&gt; An additional read region\n\n==&gt; Because the historical transactions query system should available without any administrative intervention in case of a failure."
+      },
+      {
+        "date": "2020-07-30T15:12:00.000Z",
+        "voteCount": 2,
+        "content": "Why not Multiple tables with fixed capacity since it mentions that it is a database?"
+      },
+      {
+        "date": "2020-07-30T15:18:00.000Z",
+        "voteCount": 1,
+        "content": "Pls ignore. The question relates to Historical data. The answer provided is correct."
+      },
+      {
+        "date": "2020-07-17T12:16:00.000Z",
+        "voteCount": 2,
+        "content": "I'm not sure I understand the question, you can't set limits to tables, you can create a fixed size or unlimited container... you can't define a size for a table"
+      },
+      {
+        "date": "2020-07-12T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "Box 1 should be Multiple tables that have fixed capacity. \nReasons: \n1. The data in the table storage is 50 GB and is not expected to increase.\n2. The storage space for the data associated with each partition key can't exceed 20 GB, which is the size of one physical partition in Azure Cosmos DB. So, if your single userID or productId record is going to be larger than 20 GB, think about using a composite key instead so that each record is smaller. An example of a composite key would be userID-date, which would look like CustomerName-08072018. This composite key approach would enable you to create a new partition for each day a user visited the site. \nhttps://docs.microsoft.com/en-us/learn/modules/create-cosmos-db-for-scale/4-how-to-choose-a-partition-key"
+      },
+      {
+        "date": "2020-04-02T01:47:00.000Z",
+        "voteCount": 3,
+        "content": "Sizing requirements: \"A table that has unlimited capacity\" --&gt; When a collection is created, we can specify a fixed storage capacity of 10 GB or unlimited capacity.\nResiliency: \"An availability zone\" --&gt; https://docs.microsoft.com/en-us/azure/cosmos-db/high-availability#availability-zone-support"
+      },
+      {
+        "date": "2020-05-27T22:00:00.000Z",
+        "voteCount": 1,
+        "content": "Availability zone is not the correct answer as the system needs to stay available during a regional outage.\n\n\"If a region fails, ensure that the historical transactions query system remains available without any administrative intervention.\""
+      },
+      {
+        "date": "2020-07-22T17:43:00.000Z",
+        "voteCount": 1,
+        "content": "thats what an Availability Zone in Cosmos DB is for, however we should not require read and write access to the DB, we only need read (this is for HISTORIC data). So an additional Read Region is all that is required, to minimise costs."
+      },
+      {
+        "date": "2020-04-21T20:10:00.000Z",
+        "voteCount": 1,
+        "content": "this link is for Cosmos db. the data is stored in Table Storage"
+      },
+      {
+        "date": "2020-05-21T14:34:00.000Z",
+        "voteCount": 3,
+        "content": "The data is actually stored in azure storage table but will be migrated to cosmos"
+      }
+    ],
+    "examNameCode": "az-301",
+    "topicNumber": "11"
+  }
+]

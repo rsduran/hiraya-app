@@ -1,0 +1,328 @@
+[
+  {
+    "topic": 20,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14845-exam-az-203-topic-20-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to add code at line PC32 in Processing.cs to implement the GetCredentials method in the Processing class.<br>How should you complete the code? To answer, drag the appropriate code segments to the correct locations. Each code segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box 1: AzureServiceTokenProvider()<br>Box 2: tp.GetAccessTokenAsync(\"..\")<br>Acquiring an access token is then quite easy. Example code:<br>private async Task&lt;string&gt; GetAccessTokenAsync()<br>{<br>var tokenProvider = new AzureServiceTokenProvider();<br>return await tokenProvider.GetAccessTokenAsync(\"https://storage.azure.com/\");<br>}<br>References:<br>https://joonasw.net/view/azure-ad-authentication-with-azure-storage-and-managed-service-identity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-23T10:14:00.000Z",
+        "voteCount": 5,
+        "content": "correct answer"
+      },
+      {
+        "date": "2020-06-28T03:54:00.000Z",
+        "voteCount": 3,
+        "content": "https://vceguide.com/wp-content/uploads/2019/10/Microsoft-AZ-203-date-01-06-2019-00001_Page_081_Image_0001.jpg"
+      },
+      {
+        "date": "2020-03-14T05:20:00.000Z",
+        "voteCount": 1,
+        "content": "options please !"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "20"
+  },
+  {
+    "topic": 20,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10795-exam-az-203-topic-20-question-2-discussion/",
+    "body": "You need to construct the link to the summary report for the email that is sent to users.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SharedAccessBlobPolicy and add it to the containers SharedAccessPolicies. Call GetSharedAccessSignature on the blob and use the resulting link.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SharedAccessAccountPolicy and call GetSharedAccessSignature on storage account and use the resulting link.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SharedAccessBlobPolicy and set the expiry time to two weeks from today. Call GetSharedAccessSignature on the blob and use the resulting link.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a SharedAccessBlobPolicy and set the expiry time to two weeks from today. Call GetSharedAccessSignature on the container and use the resulting link."
+    ],
+    "answer": "D",
+    "answerDescription": "Scenario: Processing is performed by an Azure Function that uses version 2 of the Azure Function runtime. Once processing is completed, results are stored in<br>Azure Blob Storage and an Azure SQL database. Then, an email summary is sent to the user with a link to the processing report. The link to the report must remain valid if the email is forwarded to another user.<br>Create a stored access policy to manage signatures on a container's resources, and then generate the shared access signature on the container, setting the constraints directly on the signature.<br>Code example: Add a method that generates the shared access signature for the container and returns the signature URI. static string GetContainerSasUri(CloudBlobContainer container)<br>{<br>//Set the expiry time and permissions for the container.<br>//In this case no start time is specified, so the shared access signature becomes valid immediately.<br>SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy(); sasConstraints.SharedAccessExpiryTime = DateTimeOffset.UtcNow.AddHours(24); sasConstraints.Permissions = SharedAccessBlobPermissions.List | SharedAccessBlobPermissions.Write;<br>//Generate the shared access signature on the container, setting the constraints directly on the signature. string sasContainerToken = container.GetSharedAccessSignature(sasConstraints);<br>//Return the URI string for the container, including the SAS token. return container.Uri + sasContainerToken;<br>}<br>Incorrect Answers:<br>C: Call GetSharedAccessSignature on the container, not on the blob.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-22T03:30:00.000Z",
+        "voteCount": 42,
+        "content": "correct ans:\nC. Create a SharedAccessBlobPolicy and set the expiry time to two weeks from today. Call GetSharedAccessSignature on the blob and use the resulting link."
+      },
+      {
+        "date": "2020-07-10T17:25:00.000Z",
+        "voteCount": 2,
+        "content": "IMO, To be specific, to secure the summary report is to secure a blob."
+      },
+      {
+        "date": "2021-02-17T23:26:00.000Z",
+        "voteCount": 1,
+        "content": "The link must remain valid. There is no mention about two weeks, therefore cannot be C or D."
+      },
+      {
+        "date": "2020-05-07T10:27:00.000Z",
+        "voteCount": 8,
+        "content": "It should be A and use a stored access policy.\n\"In the case of a security breach, access to all summary reports must be revoked without impacting other parts of the system.\"\nhttps://docs.microsoft.com/en-us/azure/storage/common/storage-stored-access-policy-define-dotnet"
+      },
+      {
+        "date": "2020-05-21T12:15:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed, A should be the correct answer because we must be able to revoke it after."
+      },
+      {
+        "date": "2020-05-26T07:12:00.000Z",
+        "voteCount": 2,
+        "content": "But the same article states: \"Stored access policies are supported for a service SAS only. Stored access policies are not supported for account SAS or user delegation SAS.\"\nTherefore it can't be used here"
+      },
+      {
+        "date": "2020-06-01T21:28:00.000Z",
+        "voteCount": 1,
+        "content": "It means that policy can be applied to the scope of particular service (Blob, File, Table, etc.) and not to the entire storage account"
+      },
+      {
+        "date": "2021-03-27T12:01:00.000Z",
+        "voteCount": 1,
+        "content": "So what's the Final Answer. is it A?"
+      },
+      {
+        "date": "2020-09-04T12:15:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct I think.\n\"In the case of a security breach, access to all summary reports must be revoked without impacting other parts of the system.\"\n- So that we can revoke in one go. 2 weeks is also good for security."
+      },
+      {
+        "date": "2020-08-09T22:17:00.000Z",
+        "voteCount": 2,
+        "content": "I would go with A. \nThere is nothing mentioned about a requirement for the two weeks. \nYou should access the blob, not the account or the container."
+      },
+      {
+        "date": "2021-01-10T02:01:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, but I think because it is SAS, there is always an expire date"
+      },
+      {
+        "date": "2020-05-19T05:34:00.000Z",
+        "voteCount": 6,
+        "content": "Ans A is correct. \nThe second way to create an SAS URI is to set up a stored access policy for the container and specify a name, start time, expiration time, permissions, etc. Then when you need an SAS URI, you can create it and specify the name of the stored access policy instead of all of the parameters required on the ad hoc version of the URI. The information will be retrieved from the stored access policy when authorization takes place. Also, unlike with the adhoc SAS URI, if you want to revoke access, you can simply change the stored access policy and all SAS URI\u2019s that inherited from that stored access policy will immediately be modified; this is preferable to changing the storage account key!\nhttps://www.red-gate.com/simple-talk/cloud/platform-as-a-service/azure-blob-storage-part-9-shared-access-signatures/"
+      },
+      {
+        "date": "2020-05-02T15:51:00.000Z",
+        "voteCount": 1,
+        "content": "return container.Uri + sasContainerToken; it's incorrect the url should be to the blob file not to the container. answer: C"
+      },
+      {
+        "date": "2020-04-26T10:52:00.000Z",
+        "voteCount": 3,
+        "content": "The given answer is correct"
+      },
+      {
+        "date": "2020-04-07T23:42:00.000Z",
+        "voteCount": 2,
+        "content": "Container mean AKS Container ?\n==&gt; Blob mean Blob container"
+      },
+      {
+        "date": "2020-02-28T10:28:00.000Z",
+        "voteCount": 5,
+        "content": "https://markheath.net/post/azure-container-shared-access-signature"
+      },
+      {
+        "date": "2020-05-18T23:59:00.000Z",
+        "voteCount": 2,
+        "content": "So D is right."
+      },
+      {
+        "date": "2020-05-21T12:19:00.000Z",
+        "voteCount": 7,
+        "content": "Not really.  You can create a SAS for a container or a blob - https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-service-sas-create-dotnet\n\nSo blob or container?  It is actually depending on the requirement - for this question, the requirement is for the blob.  Plus, we need to be able to revoke it if something goes wrong.\n\nSo answer is A."
+      },
+      {
+        "date": "2020-02-09T01:36:00.000Z",
+        "voteCount": 4,
+        "content": "Should be C"
+      },
+      {
+        "date": "2020-07-24T08:46:00.000Z",
+        "voteCount": 1,
+        "content": "Agree, It should be C.\nThe access should be on Blob which is the receipt user uploaded."
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "20"
+  },
+  {
+    "topic": 20,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14847-exam-az-203-topic-20-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure that security requirements are met.<br>What value should be used for the ConnectionString field on line DB03 in the Database class? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box 1: Integrated Security=SSPI -<br>Integrated security: For all data source types, connect using the current user account.<br>For SqlClient you can use Integrated Security=true; or Integrated Security=SSPI;<br>Scenario: All access to Azure Storage and Azure SQL database must use the application's Managed Service Identity (MSI)<br><br>Box 2: Encrypt = True -<br>Scenario: All data must be protected in transit.<br>References:<br>https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/connection-string-syntax",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-25T20:36:00.000Z",
+        "voteCount": 15,
+        "content": "options\nhttps://www.examtopics.com/assets/media/exam-media/02522/0001100001.png"
+      },
+      {
+        "date": "2020-02-25T06:38:00.000Z",
+        "voteCount": 7,
+        "content": "https://www.testpassport.com/T/T-COM/images/uploads/exams/AZ-203_12/image044.jpg"
+      },
+      {
+        "date": "2021-02-01T00:18:00.000Z",
+        "voteCount": 2,
+        "content": "You cannot use Integrated Security=True/SSPI when connecting to Azure SQL Database.. Take a look at the note.\nhttps://www.connectionstrings.com/sqlconnection/integrated-windows-authentication-with-an-azure-ad-identity/\n\nSo, I think that the correct answers are\n- Trusted_Connection=False\n- Encrypt=True"
+      },
+      {
+        "date": "2021-03-14T08:11:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. As others member said, this is the correct answer:\n- Box 1: Truster_Connection=False,\n- Box 2: Encrypt=True\nThanks a lot everyone"
+      },
+      {
+        "date": "2021-01-16T23:23:00.000Z",
+        "voteCount": 1,
+        "content": "Answer correct\nhttps://www.connectionstrings.com/azure-sql-database/"
+      },
+      {
+        "date": "2020-12-25T16:38:00.000Z",
+        "voteCount": 2,
+        "content": "Integrated Security is deprecated but has the right value (SSPI=&gt;True). Trusted_Connection value in the option is 'False'. Only the exam creators can provide the right answer."
+      },
+      {
+        "date": "2020-09-21T20:15:00.000Z",
+        "voteCount": 4,
+        "content": "provided answer is correct but deprecated \n\nhttps://docs.microsoft.com/en-us/sql/connect/oledb/features/using-azure-active-directory?view=sql-server-ver15#integrated-windows-authentication-using-security-support-provider-interface-sspi"
+      },
+      {
+        "date": "2020-07-24T14:19:00.000Z",
+        "voteCount": 6,
+        "content": "Sql Connection : Server=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True \n\nAns should be : Trusted_connection =False , Encrypt =True"
+      },
+      {
+        "date": "2020-07-06T13:03:00.000Z",
+        "voteCount": 2,
+        "content": "Integrated Security (synonym: Trusted_Connection) = FALSE\nEncrypt = TRUE\n\n\"All access to Azure Storage and Azure SQL database must use the application's Managed Service Identity (MSI)\"\n\nhttps://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?tabs=azure-powershell#azure-ad-token\n\nstring ConnectionString =@\"Data Source=n9lxnyuzhv.database.windows.net; Initial Catalog=testdb;\"\nSqlConnection conn = new SqlConnection(ConnectionString);\nconn.AccessToken = \"Your JWT token\"\nconn.Open();"
+      },
+      {
+        "date": "2020-05-19T09:43:00.000Z",
+        "voteCount": 5,
+        "content": "https://www.connectionstrings.com/azure-sql-database/\n\nStandard\nServer=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True;\n\nAzure SQL Database\nWith MARS enabled\nServer=tcp:myserver.database.windows.net,1433;Database=myDataBase;User ID=mylogin@myserver;Password=myPassword;Trusted_Connection=False;Encrypt=True;MultipleActiveResultSets=True;"
+      },
+      {
+        "date": "2020-07-21T17:10:00.000Z",
+        "voteCount": 2,
+        "content": "I think you are correct. Right options should be:\n - Trusted_Connection=False\n - Encrypt=True"
+      },
+      {
+        "date": "2020-05-19T09:41:00.000Z",
+        "voteCount": 1,
+        "content": "Integrated authentication (i.e. SSPI in the connection string) is NOT supported in SQL Azure. Only SQL Authentication is supported (i.e. username &amp; password in the connection string)"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "20"
+  },
+  {
+    "topic": 20,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8289-exam-az-203-topic-20-question-4-discussion/",
+    "body": "DRAG DROP -<br>You need to ensure disaster recovery requirements are met.<br>What code should you add at line PC16?<br>To answer, drag the appropriate code fragments to the correct locations. Each code fragment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02838/0009000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02838/0009000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Disaster recovery. Regional outage must not impact application availability. All DR operations must not be dependent on application running and must ensure that data in the DR region is up to date.<br><br>Box 1: DirectoryTransferContext -<br>We transfer all files in the directory.<br>Note: The TransferContext object comes in two forms: SingleTransferContext and DirectoryTransferContext. The former is for transferring a single file and the latter is for transferring a directory of files.<br>Box 2: ShouldTransferCallbackAsync<br>The DirectoryTransferContext.ShouldTransferCallbackAsync delegate callback is invoked to tell whether a transfer should be done.<br><br>Box 3: False -<br>If you want to use the retry policy in Copy, and want the copy can be resume if break in the middle, you can use SyncCopy (isServiceCopy = false).<br>Note that if you choose to use service side copy ('isServiceCopy' set to true), Azure (currently) doesn't provide SLA for that. Setting 'isServiceCopy' to false will download the source blob loca<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-use-data-movement-library https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.datamovement.directorytransfercontext.shouldtransfercallbackasync?view=azure- dotnet",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-27T09:59:00.000Z",
+        "voteCount": 16,
+        "content": "Box 1: singletransferContext \nBox 2: ShouldOverwriteCallbackAsync\nBox 3: true"
+      },
+      {
+        "date": "2020-06-03T03:39:00.000Z",
+        "voteCount": 3,
+        "content": "Box3:false, cause wir download the file and then upload to blob !"
+      },
+      {
+        "date": "2021-03-14T08:33:00.000Z",
+        "voteCount": 1,
+        "content": "I'm not sure if it's the answer, but it's the one that convince me !"
+      },
+      {
+        "date": "2020-02-06T04:16:00.000Z",
+        "voteCount": 9,
+        "content": "Box1 SingletransferContext \nand Box2 shoul have ShouldOverwriteCallbackAsync, because it's only exists on SingletransferContext"
+      },
+      {
+        "date": "2020-06-03T03:38:00.000Z",
+        "voteCount": 4,
+        "content": "It is correct"
+      },
+      {
+        "date": "2021-01-05T11:48:00.000Z",
+        "voteCount": 3,
+        "content": "Note, that a method / property shouldTRANSFERCallbackAsync does not even exist on that class:\nhttps://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.datamovement.singletransfercontext?view=azure-dotnet"
+      },
+      {
+        "date": "2020-11-07T03:39:00.000Z",
+        "voteCount": 2,
+        "content": "Box 1: singletransferContext\nBox 2: ShouldOverwriteCallbackAsync\nBox 3: true\n\nIts in the loop, therefore single.\nShouldTransferCallbackAsync does not exist for single"
+      },
+      {
+        "date": "2020-08-25T23:49:00.000Z",
+        "voteCount": 2,
+        "content": "Box 1: SingleTransferContext \nIt transfers a single blob in the code\nBox 2: ShouldTransferCallbackAsync\nIt copies blog to another blob for DR, so nothing related to \"overwirte\"\nBox 3: Ture\nThis is blog-to-blog copy, so it's service side copy"
+      },
+      {
+        "date": "2020-07-05T03:44:00.000Z",
+        "voteCount": 1,
+        "content": "In this case, what is the correct answer for Box 3 -? Thanks"
+      },
+      {
+        "date": "2020-07-14T06:38:00.000Z",
+        "voteCount": 2,
+        "content": "Box3 is True\n\"must ensure that data in the DR region is up to date.\""
+      },
+      {
+        "date": "2020-05-03T11:47:00.000Z",
+        "voteCount": 7,
+        "content": "\"All DR operations must not be dependent on application running...\"\nIsServiceCopy: true\n\nIf false, the app will have to run while it's doing the transfer."
+      },
+      {
+        "date": "2020-06-03T01:13:00.000Z",
+        "voteCount": 2,
+        "content": "isServiceCopy :\nA flag indicating whether the copy is service-side asynchronous copy or not. If this flag is set to true, service-side asychronous copy will be used; if this flag is set to false, file is downloaded from source first, then uploaded to destination."
+      },
+      {
+        "date": "2020-07-21T17:32:00.000Z",
+        "voteCount": 1,
+        "content": "I think Mvii is right. It should be true (IsServiceCopy: true) as well because otherwise, the processing.cs would have to wait for each and every blob to be downloaded/uploaded which will stall the whole application."
+      },
+      {
+        "date": "2020-04-03T14:08:00.000Z",
+        "voteCount": 3,
+        "content": "var copyOptions = new CopyOptions();\nvar context = new SingleFileTransferContext(ms);\ncontext.ShouldTransferCallbackAsync = (source, destination) =&gt; Task.FromResult(true);\nawait TransferManager.CopyAsync(blob, GetDRBlob(blob), isServiceCopy:true,\n\tcontext:context, options:copyOptions);\n\nsourceUriUri\nThe&nbsp;Uri&nbsp;of the source file.\ndestFileCloudFile\nThe&nbsp;CloudFile&nbsp;that is the destination Azure file.\nisServiceCopyBoolean\nA flag indicating whether the copy is service-side asynchronous copy or not. If this flag is set to true, service-side asychronous copy will be used; if this flag is set to false, file is downloaded from source first, then uploaded to destination.\noptionsCopyOptions\nA&nbsp;CopyOptions&nbsp;object that specifies additional options for the operation.\ncontextSingleTransferContext\nA&nbsp;SingleTransferContext&nbsp;object that represents the context for the current operation."
+      },
+      {
+        "date": "2020-03-17T09:49:00.000Z",
+        "voteCount": 5,
+        "content": "SingleTransferContext for box1...the snippet has to be inserted in a loop that enumerates file in the container"
+      },
+      {
+        "date": "2020-02-24T04:50:00.000Z",
+        "voteCount": 1,
+        "content": "And it should be overwrite."
+      },
+      {
+        "date": "2020-02-24T04:26:00.000Z",
+        "voteCount": 1,
+        "content": "Right, directorycontext is only used for copydirectory"
+      },
+      {
+        "date": "2019-11-15T09:49:00.000Z",
+        "voteCount": 8,
+        "content": "Box1 should have singletransferContext as it is copying one blob.\nReference: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-data-movement-library"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "20"
+  }
+]

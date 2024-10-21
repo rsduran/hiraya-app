@@ -1,0 +1,111 @@
+[
+  {
+    "topic": 15,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/19371-exam-md-100-topic-15-question-1-discussion/",
+    "body": "You need to meet the technical requirement for User6.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd User6 to the Remote Desktop Users group in the domain.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove User6 from Group2 in the domain.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd User6 to the Remote Desktop Users group on Computer2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAnd User6 to the Administrators group on Computer2."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2020-04-30T06:45:00.000Z",
+        "voteCount": 20,
+        "content": "User6 is a member of a group that has 'Deny' rights to remote desktop. First step is to remove User6 from the group."
+      },
+      {
+        "date": "2021-03-31T03:52:00.000Z",
+        "voteCount": 3,
+        "content": "Not right, User6 is member of Group2 and Group3.\nGroup2 - Deny access to this computer from the network\nGroup3 -  Allow log on through Remote Desktop Services."
+      },
+      {
+        "date": "2021-09-13T11:35:00.000Z",
+        "voteCount": 1,
+        "content": "Rule deny win the allow."
+      },
+      {
+        "date": "2021-08-20T04:03:00.000Z",
+        "voteCount": 2,
+        "content": "I think the more restrictive rule would win here. So they would still be denied access."
+      },
+      {
+        "date": "2022-06-03T03:56:00.000Z",
+        "voteCount": 1,
+        "content": "Tested. RDP is block so answer B is correct"
+      },
+      {
+        "date": "2021-03-31T03:53:00.000Z",
+        "voteCount": 1,
+        "content": "But I think it can block RDP. You are right."
+      },
+      {
+        "date": "2022-12-29T15:06:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the information in the question, User6 will not be able to connect remotely via Remote Desktop. One of two measures is required for this to happen:\n\n1 - Remove Group2 from Deny access to this computer from the network policy (LGPO or GPO).\n2 - Remove User6 from Group2 in the domain.\n\nAn extra step should still occur which would be any of the alternatives A, C and D.\n\nIt is mandatory that User6 be part of the Remote Desktop User group (local or domain). Or, as a last resort, breaking the principle of least privilege, add User6 to the administrators group (local or domain).\n\nSo the answer is B. Then it goes to the extra step."
+      },
+      {
+        "date": "2022-08-05T06:54:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct ! Deny Access to the computer from the network includes RDP, SMB etc... So user MUST be removed form group 2 in order to connect via RDP."
+      },
+      {
+        "date": "2021-08-25T21:42:00.000Z",
+        "voteCount": 4,
+        "content": "Correct Answer. Deny over Access."
+      },
+      {
+        "date": "2022-03-19T23:02:00.000Z",
+        "voteCount": 2,
+        "content": "Agreed. Given answer is correct."
+      },
+      {
+        "date": "2021-08-24T06:27:00.000Z",
+        "voteCount": 2,
+        "content": "User6 needs to be added to the Remote Desktop Users group on Computer2.\n\n\"Note that Deny access to this computer from the network denies only remote SMB connections; it does not prevent interactive logon or RDP access.\"\nhttps://security.stackexchange.com/questions/130208/why-does-disa-stig-recommend-deny-access-to-this-computer-from-the-network-for\n\n\"Deny log on through Remote Desktop Services\" would prevent a user from logging in through Remote Desktop.\nhttps://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/deny-log-on-through-remote-desktop-services"
+      }
+    ],
+    "examNameCode": "md-100",
+    "topicNumber": "15"
+  },
+  {
+    "topic": 15,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11693-exam-md-100-topic-15-question-2-discussion/",
+    "body": "You need to meet the technical requirement for the IT department users.<br>What should you do first?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIssue computer certificates",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDistribute USB keys to the IT department users.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable screen saver and configure a timeout.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTurn on Bluetooth."
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://support.microsoft.com/en-za/help/4028111/windows-lock-your-windows-10-pc-automatically-when-you-step-away-from",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-09T14:29:00.000Z",
+        "voteCount": 8,
+        "content": "D.  https://www.windowscentral.com/workaround-set-dynamic-lock-windows-10-build-15031"
+      },
+      {
+        "date": "2020-09-01T10:27:00.000Z",
+        "voteCount": 6,
+        "content": "\"dynamic lock\" not look"
+      }
+    ],
+    "examNameCode": "md-100",
+    "topicNumber": "15"
+  }
+]

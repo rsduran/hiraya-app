@@ -1,0 +1,376 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/cisco/view/7683-exam-400-101-topic-1-question-16-discussion/",
+    "body": "Which Cisco IOS XE process administers routing and forwarding?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tForwarding manager",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterface manager",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCisco IOS",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHost manager \"Pass Any Exam. Any Time.\" - www.actualtests.com 21"
+    ],
+    "answer": "C",
+    "answerDescription": "Some of the processes are listed in the table below:<br><br>Process -<br><br>Purpose -<br><br>Affected FRUs -<br><br>SubPackage Mapping -<br><br>Host Manager -<br>Provides an interface between the IOS process and many of the information-gathering functions of the underlying platform kernel and operating system.<br>RP (one instance per RP)<br>SIP (one instance per SIP)<br>ESP (one instance per ESP)<br><br>RPControl -<br><br>SIPBase -<br><br>ESPBase -<br><br>Interface Manager -<br>Provides an interface between the IOS process and the per-SPA interface processes on the SIP.<br>RP (one instance per RP)<br>SIP (one instance per SIP)<br><br>RPControl -<br><br>SIPBase -<br><br>IOS -<br>The IOS process implements all forwarding and routing features for the router. RP (one per software redundancy instance per RP). Maximum of two instances per<br>RP.<br><br>RPIOS -<br><br>Forwarding Manager -<br>Manages the downloading of configuration to each of the ESPs and the communication of forwarding plane information, such as statistics, to the IOS process.<br>RP (one per software redundancy instance per RP). Maximum of two instances per RP.<br>ESP (one per ESP)<br><br>RPControl -<br><br>ESPBase -<br>Reference:<br>http://www.cisco.com/c/en/us/td/docs/routers/asr1000/configuration/guide/chassis/asrswcfg/Softwa<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 22<br>re_Packaging_Architecture.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-04T11:00:00.000Z",
+        "voteCount": 1,
+        "content": "It is IOS, as per following document:\n\ncisco.com/c/en/us/td/docs/routers/asr1000/configuration/guide/chassis/asr1000-software-config-guide/sftw-pkg-archi-asr.pdf"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/cisco/view/5552-exam-400-101-topic-1-question-17-discussion/",
+    "body": "Which circumstance can cause packet loss due to a microburst?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tslow convergence",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta blocked spanning-tree port",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tprocess switching",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinsufficient buffers"
+    ],
+    "answer": "D",
+    "answerDescription": "Micro-bursting is a phenomenon where rapid bursts of data packets are sent in quick succession, leading to periods of full line-rate transmission that can overflow packet buffers of the network stack, both in network endpoints and routers and switches inside the network. Symptoms of micro bursts will manifest in the form of ignores and/ or overruns (also shown as accumulated in \"input error\" counter within show interface output). This is indicative of receive ring and corresponding packet buffer being overwhelmed due to data bursts coming in over extremely short period of time (microseconds).<br>Reference: http://ccieordie.com/?tag=micro-burst",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-21T17:35:00.000Z",
+        "voteCount": 1,
+        "content": "If the cloud is the internet the private ip address will not be routed."
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/cisco/view/139050-exam-400-101-topic-1-question-19-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/01676/0001800001.png\" class=\"in-exam-image\"><br>Routers R1 and R2 are configured as shown, and traffic from R1 fails to reach host 209.165.201.254.<br>Which action can you take to correct the problem?<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 24<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnsure that R2 has a default route in its routing table.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the OSPF area type on R1 and R2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEdit the router configurations so that address 209.165.201.254 is a routable address.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the default-information originate command from the OSPF configuration of R2."
+    ],
+    "answer": "A",
+    "answerDescription": "Not sure that any of these answers are correct, it appears that this configuration is valid for reaching that one specific host IP. Answer A does have a route to that host so it would not need a default route to get to it. Choice B is incorrect as the area types have nothing to do with this. C is incorrect as that IP address is routable, and D is needed so that R1 will have a default route advertised to it from R2 so that it can reach this destination.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-17T19:11:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct. The router will not advertise the route to the host because there is not a network statement for the 209.165.202.x network in OSPF.  And there has to be a default route in the routing table for the \"default-information originate\" command to advertise that default route in OSPF. Unless you use the \"default-information originate always\" command, then it will always advertise a default route into OSPF."
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/cisco/view/9800-exam-400-101-topic-1-question-23-discussion/",
+    "body": "Which two Cisco Express Forwarding tables are located in the data plane? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe forwarding information base",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe label forwarding information base",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe IP routing table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe label information table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe adjacency table"
+    ],
+    "answer": "AB",
+    "answerDescription": "The control plane runs protocols such as OSPF, BGP, STP, LDP. These protocols are needed so<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 27<br>that routers and switches know how to forward packets and frames.<br>The data plane is where the actual forwarding takes place. The data plane is populated based on the protocols running in the control plane. The Forwarding<br>Information Base (FIB) is used for IP traffic and the Label FIB is used for MPLS.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-05T13:09:00.000Z",
+        "voteCount": 1,
+        "content": "Cisco Express Forwarding (CEF) maintains two tables in the data plane. Specifically, the Forwarding Information Base (FIB) maintains Layer 3 forwarding information, whereas the adjacency table maintains Layer 2 information for next hops listed in the FIB."
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/cisco/view/67769-exam-400-101-topic-1-question-49-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/01676/0005700001.png\" class=\"in-exam-image\"><br>Which statement describes the effect on the network if FastEthernet0/1 goes down temporarily?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastEthernet0/2 forwards traffic only until FastEthernet0/1 comes back up.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastEthernet0/2 stops forwarding traffic until FastEthernet0/1 comes back up.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastEthernet0/2 forwards traffic indefinitely.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastEthernet0/1 goes into standby."
+    ],
+    "answer": "C",
+    "answerDescription": "\"Pass Any Exam. Any Time.\" - www.actualtests.com 55<br><br>Use the switchport backup interface interface configuration command on a Layer 2 interface to configure Flex Links, a pair of interfaces that provide backup to each other. Use the no form of this command to remove the Flex Links configuration.<br>With Flex Links configured, one link acts as the primary interface and forwards traffic, while the other interface is in standby mode, ready to begin forwarding traffic if the primary link shuts down. The interface being configured is referred to as the active link; the specified interface is identified as the backup link. The feature provides an alternative to the Spanning Tree Protocol (STP), allowing users to turn off STP and still retain basic link redundancy.<br>Reference: http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst2960/software/release/12- 2_53_se/command/reference/2960ComRef/cli3.html#wp3269214",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-12T16:55:00.000Z",
+        "voteCount": 1,
+        "content": "since the preempt option is off, FA0/1 will come back online nor goes into stand by"
+      },
+      {
+        "date": "2021-12-12T16:56:00.000Z",
+        "voteCount": 1,
+        "content": "since the preempt option is off, FA0/1 will not  come back online nor goes into stand by"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/cisco/view/67772-exam-400-101-topic-1-question-50-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/01676/0005800001.png\" class=\"in-exam-image\"><br>Which technology does the use of bi-directional BPDUs on all ports in the topology support?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRSTP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMST",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBridge Assurance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tLoop Guard",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRoot Guard \"Pass Any Exam. Any Time.\" - www.actualtests.com 56",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUDLD"
+    ],
+    "answer": "C",
+    "answerDescription": "Spanning Tree Bridge Assurance -<br><img src=\"/assets/media/exam-media/01676/0005900001.png\" class=\"in-exam-image\"><br>Bridge Assurance (BA) can help protect against bridging loops where a port becomes designated because it has stopped receiving BPDUs. This is similar to the function of loop guard.<br>Reference: http://lostintransit.se/tag/convergence/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-12T17:44:00.000Z",
+        "voteCount": 1,
+        "content": "by default, BPDU moves in one direction. to make it bidirectional, simply configure bridge assurance to detect if a peer goes down"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/cisco/view/10372-exam-400-101-topic-1-question-90-discussion/",
+    "body": "Which command enables L2 QoS support in all VLANs (including the native VLAN)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitchport priority extend cos",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmls qos trust dscp",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmls qos rewrite ip dscp",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tswitchport trunk native vlan tag"
+    ],
+    "answer": "D",
+    "answerDescription": "You can enter the switchport trunk native vlan tag command to enable the tagging of native VLAN traffic on a per-port basis. When tagging is enabled, all the packets on the native VLAN are tagged and all incoming untagged data packets are dropped, but untagged control packets are accepted. When tagging is enabled, it will allow for L2 QoS support in all VLANs, including the native VLAN.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-22T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "Layer 2 802.1Q frame headers have a 2-byte Tag Control Information field that carries the CoS value in the three most-significant bits, which are called the User Priority bits. On interfaces configured as Layer 2 802.1Q trunks, all traffic is in 802.1Q frames except for traffic in the native VLAN.\nhttps://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst4500/12-2/25ewa/configuration/guide/conf/qos.html"
+      },
+      {
+        "date": "2019-12-15T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "the correct answer is \"mls qos trust dscp\""
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/cisco/view/12792-exam-400-101-topic-1-question-168-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/01676/0018800001.png\" class=\"in-exam-image\"><br>Which two pieces of information in this Wireshark capture indicate that you are viewing EIGRP traffic? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe header length",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe protocol number \"Pass Any Exam. Any Time.\" - www.actualtests.com 187",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe destination address",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Class Selector",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe source address",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe header checksum"
+    ],
+    "answer": "BC",
+    "answerDescription": "EIGRP uses protocol number 88, which shows as EIGRP in the capture. Also, we in the capture that the destination IP address is 224.0.0.10, which is the<br>Enhanced Interior Gateway Routing Protocol (EIGRP) group address is used to send routing information to all EIGRP routers on a network segment.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-26T10:34:00.000Z",
+        "voteCount": 1,
+        "content": "sure this is nt the write answer"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/cisco/view/13243-exam-400-101-topic-1-question-201-discussion/",
+    "body": "DRAG DROP -<br>Drag and drop the BGP state on the left to the action that defines it on the right.<br><img src=\"/assets/media/exam-media/01676/0022000001.png\" class=\"in-exam-image\"><br>A.<br>B.<br>C.<br>D.<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "\"Pass Any Exam. Any Time.\" - www.actualtests.com 212<br><img src=\"/assets/media/exam-media/01676/0022100001.png\" class=\"in-exam-image\"><br><br><img src=\"/assets/media/exam-media/01676/0022200001.png\" class=\"in-exam-image\">",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-01T03:06:00.000Z",
+        "voteCount": 1,
+        "content": "Cisco press BGP fundomentatls\nIdle\n\nConnect\n\nActive\n\nOpenSent\n\nOpenConfirm"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/cisco/view/68667-exam-400-101-topic-1-question-218-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/01676/0024400001.png\" class=\"in-exam-image\"><br>Which statement is true?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tR2 is directly connected to the receiver for this group and is the winner of an assert mechanism.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tR2 is directly connected to the receiver for this group, and it forwards the traffic onto Ethernet3/0, but it is forwarding duplicate traffic onto Ethernet3/0.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tR2 has the A flag (Accept flag) set on Ethernet 3/0. This is fine, since the group is in BIDIR-PIM mode.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tR2 is directly connected to the receiver for this group and is the loser of an assert mechanism.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe A flag is set until the SPT threshold is reached for this multicast group."
+    ],
+    "answer": "A",
+    "answerDescription": "show ip mroute Field Descriptions<br><br>Field -<br><br>Description -<br><br>RPF neighbor or RPF nbr -<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 228<br>IP address of the upstream router to the source. Tunneling indicates that this router is sending data to the RP encapsulated in register packets.<br>The hexadecimal number in parentheses indicates to which RP it is registering. Each bit indicates a different RP if multiple RPs per group are used. If an asterisk<br>(*) appears after the IP address in this field, the RPF neighbor has been learned through an assert.<br>Reference:<br>http://www.cisco.com/c/en/us/td/docs/ios/12_2/ipmulti/command/reference/fiprmc_r/1rfmult3.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-27T17:06:00.000Z",
+        "voteCount": 1,
+        "content": "* means it is a winner of assert mechanism"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/cisco/view/71116-exam-400-101-topic-1-question-441-discussion/",
+    "body": "Refer to the exhibit.<br><img src=\"/assets/media/exam-media/01676/0048700001.png\" class=\"in-exam-image\"><br>Which two statements about the EEM applet configuration are true? (Choose two.)<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 421<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe EEM applet runs before the CLI command is executed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe EEM applet runs after the CLI command is executed.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe EEM applet requires a case-insensitive response.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe running configuration is displayed only if the letter Y is entered at the CLI."
+    ],
+    "answer": "AD",
+    "answerDescription": "sync<br>Indicates whether the policy should be executed synchronously before the CLI command executes. nocase<br>(Optional) Specifies case insensitive comparison.<br>Here we see that the sync knob was enabled so A is correct. However, C is not correct as the nocase argument was not used, so the applet is configured to display the config only if a capital Y is issued.<br>Reference: http://www.cisco.com/c/en/us/td/docs/ios-xml/ios/eem/command/eem-cr-book/eem-cr- a2.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-06T19:56:00.000Z",
+        "voteCount": 1,
+        "content": "I think the C is correct, because \"action 1.3 string toupper \"$response\"\", i think the toupper will convert input to capital letter"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/cisco/view/45832-exam-400-101-topic-1-question-473-discussion/",
+    "body": "Which statement about VRRP is true?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt supports load balancing.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt can be configured with HSRP on a switch or switch stack.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt supports IPv4 and IPv6.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt supports encrypted authentication."
+    ],
+    "answer": "B",
+    "answerDescription": "\"Pass Any Exam. Any Time.\" - www.actualtests.com 449<br><br>VRRP Limitations -<br>Reference:<br>http://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3750x_3560x/software/release/12- 2_58_se/configuration/guide/3750xscg/swhsrp.html#pgfId-1107127",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-02T19:34:00.000Z",
+        "voteCount": 1,
+        "content": "D.\nB can't be correct as per : https://www.cisco.com/c/en/us/td/docs/switches/lan/catalyst3750/software/release/12-2_58_se/configuration/guide/3750scg/swhsrp.html\n\nVRRP Limitations\nThe switch supports either HSRP or VRRP, but not both. The switch cannot join a stack that has both HSRP and VRRP configured."
+      },
+      {
+        "date": "2021-05-29T11:58:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C.\nVRRP doesnt support encrypted authentication"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/cisco/view/70066-exam-400-101-topic-1-question-528-discussion/",
+    "body": "Which two statements about reverse ARP are true? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIts servers require static mappings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt works with AutoInstall to configure new devices.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt provides IP addresses for subnet masks.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt provides IP addresses for default gateways.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt requires less maintenance than DHCP."
+    ],
+    "answer": "AB",
+    "answerDescription": "\"Pass Any Exam. Any Time.\" - www.actualtests.com 490",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-15T06:36:00.000Z",
+        "voteCount": 1,
+        "content": "answers are correct \nReverse ARP\nReverse ARP (RARP) as defined by RFC 903 works the same way as the Address Resolution Protocol (ARP), except that the RARP request packet requests an IP address instead of a media access control (MAC) address. RARP often is used by diskless workstations because this type of device has no way to store IP addresses to use when they boot. The only address that is known is the MAC address because it is burned in to the hardware.\n\nhttps://www.cisco.com/c/en/us/td/docs/ios-xml/ios/ipaddr_arp/configuration/15-mt/arp-15-mt-book/arp-config-arp.html#GUID-E3CE88B7-69BD-4FB0-8A4F-7384A2BAFA42"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/cisco/view/3488-exam-400-101-topic-1-question-609-discussion/",
+    "body": "DRAG DROP -<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 539<br>Drag each statement about EtherChannel protocols on the left to the matching EtherChannel protocol on the right.<br><img src=\"/assets/media/exam-media/01676/0064000001.png\" class=\"in-exam-image\"><br>A.<br>B.<br>C.<br>D.<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "<img src=\"/assets/media/exam-media/01676/0064100001.png\" class=\"in-exam-image\"><br><br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 540<br><img src=\"/assets/media/exam-media/01676/0064200001.png\" class=\"in-exam-image\">",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-08-11T23:27:00.000Z",
+        "voteCount": 1,
+        "content": "Wrong answers !!!  PAgP should be the Cisco proprietary protocol, using auto and desirable configuration modes."
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/cisco/view/70287-exam-400-101-topic-1-question-619-discussion/",
+    "body": "Refer to the exhibit.<br>\"Pass Any Exam. Any Time.\" - www.actualtests.com 548<br><img src=\"/assets/media/exam-media/01676/0065400001.png\" class=\"in-exam-image\"><br>Two multicast domains are configured as shown and connected with MSDP, but the two domains are unable to communicate. Which two actions can you take to correct the problem? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the peering IP address in AS 65220 to 10.0.0.20.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the peering AS on R2 to 65210.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that UDP port 639 is open.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tVerify that TCP port 139 is open.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the MSDP originator-id to GigabitEthernet 0/0/0 on both routers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the MSDP peering IP address on R2 to 172.16.1.13."
+    ],
+    "answer": "AB",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-19T04:16:00.000Z",
+        "voteCount": 1,
+        "content": "none of the giving answers is correct \nthe peer AS on R2 is already 65210 so B is incorrect \nA&gt;&gt; incorrect as the Lo of the R2 is already configured with 10.0.0.20"
+      }
+    ],
+    "examNameCode": "400-101",
+    "topicNumber": "1"
+  }
+]

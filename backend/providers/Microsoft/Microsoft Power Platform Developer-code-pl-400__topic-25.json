@@ -1,0 +1,221 @@
+[
+  {
+    "topic": 25,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/61696-exam-pl-400-topic-25-question-1-discussion/",
+    "body": "You need to determine the primary cause of the issue reported by interns when they use the app.<br>What is the primary cause?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterns have the System Customizer security role but need the Environment Maker security role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterns have the Common Data Service User security role but need the Environment Maker security role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterns have the Environment Maker security role but need the Common Data Service User security role.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterns have the Environment Maker security role but need the System Customizer security role.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInterns have the Environment Maker security role but need the Delegate security role."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-01-11T00:48:00.000Z",
+        "voteCount": 5,
+        "content": "D - i think"
+      },
+      {
+        "date": "2022-01-11T00:56:00.000Z",
+        "voteCount": 3,
+        "content": "Common Data Service User security role renamed to Basic User\nhttps://docs.microsoft.com/en-us/power-platform-release-plan/2020wave2/data-platform/common-data-service-user-security-role-renamed-basic-user\n\nBasic User - Read, Create (self), write (self), delete (self) Can run an app within the environment and perform common tasks for the rows that they own. \n\nSystem Customizer  - Create (self), Read (self), Write (self), Delete (self), Customizations\tHas full permission to customize the environment. However, can only view rows for environment tables that they create. More information: Privileges required for customization\n\nIf Interns can create apps \"Privileges required for customization\" make sense"
+      },
+      {
+        "date": "2022-02-06T23:59:00.000Z",
+        "voteCount": 10,
+        "content": "C makes sense to me, according to the least privilege principle"
+      },
+      {
+        "date": "2023-08-13T22:33:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. It should be C. https://learn.microsoft.com/en-us/power-pages/admin/admin-roles"
+      },
+      {
+        "date": "2023-08-17T17:30:00.000Z",
+        "voteCount": 1,
+        "content": "Wait, change my mind - it does specify their own data- so maybe it is system customizer."
+      },
+      {
+        "date": "2023-04-07T00:23:00.000Z",
+        "voteCount": 2,
+        "content": "The issue in scenario is \"Interns can create apps but cannot interact with their own data.\" To access on data they only need CDS user (basic role) not a System Customizer role =&gt; Answer C"
+      },
+      {
+        "date": "2022-03-14T13:41:00.000Z",
+        "voteCount": 4,
+        "content": "https://docs.microsoft.com/en-us/power-platform/admin/database-security -&gt; totally states to the System Customizer (create apps and see you own data)"
+      },
+      {
+        "date": "2021-11-09T13:18:00.000Z",
+        "voteCount": 3,
+        "content": "System customizer role does not provide access to data, so it's not D.  I vote for C."
+      },
+      {
+        "date": "2021-11-09T17:14:00.000Z",
+        "voteCount": 2,
+        "content": "Changed my mind. I agree it's D."
+      },
+      {
+        "date": "2021-09-23T11:13:00.000Z",
+        "voteCount": 4,
+        "content": "Actually it seems Tournament is a custom entity. C wouldn't work as this role dont work for custom entities. Has to be D."
+      },
+      {
+        "date": "2022-08-28T15:51:00.000Z",
+        "voteCount": 2,
+        "content": "Agreed, Common Data Service User (now known as Basic User) gives access to read data only to default entities. But we have custom entities which Basic User doesn't give access to. That's the detail that makes it D."
+      },
+      {
+        "date": "2021-09-23T11:10:00.000Z",
+        "voteCount": 1,
+        "content": "Unsure about C or D. C seems proper, but other people said D"
+      },
+      {
+        "date": "2021-09-08T04:39:00.000Z",
+        "voteCount": 3,
+        "content": "C. Interns have the Environment Maker security role but need the Common Data Service User security role."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "25"
+  },
+  {
+    "topic": 25,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84036-exam-pl-400-topic-25-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to assign security roles to groups of users.<br>Which security roles should you use? To answer, drag the appropriate security types to the correct roles. Each security type may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04332/0006100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0006100002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: The company identifies the following job roles:<br><img src=\"/assets/media/exam-media/04332/0006200001.png\" class=\"in-exam-image\"><br>You must grant users the minimum permissions required to perform their job tasks.<br><br>Intern: Environment Maker -<br>Environment Maker: Can create new resources associated with an environment, including apps, connections, custom APIs, gateways, and flows using Microsoft<br>Power Automate. However, this role doesn't have any privileges to access data within an environment.<br>Manager: System Administrator:<br>System Administrator: Has full permission to customize or administer the environment, including creating, modifying, and assigning security roles. Can view all data in the environment.<br>Sales representative: Common Data Service User<br>Basic User/ Common Data Service User: Read (self), Create (self), Write (self), Delete (self)<br>Can run an app within the environment and perform common tasks for the records that they own.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-29T08:19:00.000Z",
+        "voteCount": 11,
+        "content": "Haven't we established that Interns should be System Customizers in the previous question?"
+      },
+      {
+        "date": "2022-12-18T07:26:00.000Z",
+        "voteCount": 4,
+        "content": "It is said they complain they do not have access. the box of role requirements makes it \"enivronment maker\""
+      },
+      {
+        "date": "2023-01-23T07:20:00.000Z",
+        "voteCount": 2,
+        "content": "So in order not to have any troule they should get the System Customizer role. Would MS really be looking for the wrongly assigned role that they have now in this question? That would be a particular kind of stupid."
+      },
+      {
+        "date": "2023-01-23T07:21:00.000Z",
+        "voteCount": 1,
+        "content": "+ It says that YOU need to assign roles, so best to select the correct ones."
+      },
+      {
+        "date": "2023-03-19T08:27:00.000Z",
+        "voteCount": 1,
+        "content": "Indeed, that's confusing because according to requirement \"environment maker\" role is enough for interns and it also says \"You must grant users the minimum permissions required to perform their job tasks.\" System Customizer does not give permission to create apps and other components outside dataverse, as required. \"Environment maker\" is the correct answer in my opinion. I'll be aware if this question happens in my exam"
+      },
+      {
+        "date": "2024-07-03T15:56:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer"
+      },
+      {
+        "date": "2023-08-27T19:48:00.000Z",
+        "voteCount": 1,
+        "content": "Even if each questions are independent, the interns still create apps, so they need system customization security role."
+      },
+      {
+        "date": "2023-08-03T09:22:00.000Z",
+        "voteCount": 1,
+        "content": "Intern should be system customizer to solve the issue in the case that they cannot see their own data"
+      },
+      {
+        "date": "2023-07-03T23:38:00.000Z",
+        "voteCount": 3,
+        "content": "\"Each question is independent of the other questions in this case study.\"\nso i think based on only the information in the given table then it should be Environment Maker"
+      },
+      {
+        "date": "2023-08-05T03:02:00.000Z",
+        "voteCount": 2,
+        "content": "that is true but if you read the case, the Issue that Interns cannot access the data from the apps they created is still there if you give them Envronment Maker role. so they need to be given system customizer role"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "25"
+  },
+  {
+    "topic": 25,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/68165-exam-pl-400-topic-25-question-3-discussion/",
+    "body": "HOTSPOT -<br>You need to select data types for required fields.<br>Which data types should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04332/0006300001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04332/0006400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Text -<br>The company is organized into the following divisions:<br><br>Baseball -<br><img src=\"/assets/media/exam-media/04332/0006400002.png\" class=\"in-exam-image\"><br>\u2711 Hockey<br>\u2711 Soccer<br><br>Box 2: Date only -<br>When team members create tournament records they must enter the start date for a tournament. The end date of the tournament must be automatically calculated.<br><br>Box 3: Lookup -<br>Customer information is stored in the Accounts entity. Each tournament record must list the associated sales representative as the tournament owner.<br>Note: When you create a new lookup column you are creating a new Many-to-One (N:1) table relationship between the table you're working with and the Target<br>Row Type defined for the lookup. There are additional configuration options for this relationship that are described in Create and edit relationships between tables.<br>But all custom lookups can only allow for a reference to a single row for a single target row type.<br>Reference:<br>https://docs.microsoft.com/en-us/powerapps/maker/data-platform/types-of-fields",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-12-17T00:40:00.000Z",
+        "voteCount": 50,
+        "content": "Division should be Option Set"
+      },
+      {
+        "date": "2022-03-14T13:47:00.000Z",
+        "voteCount": 3,
+        "content": "Agree! Because you cannot create your own \"Hello World\" Division, which you could if it was just a text (string)"
+      },
+      {
+        "date": "2022-11-12T09:44:00.000Z",
+        "voteCount": 11,
+        "content": "Option Set\nDate Only\nLookup"
+      },
+      {
+        "date": "2023-08-05T03:04:00.000Z",
+        "voteCount": 3,
+        "content": "Option Set\nDate Only\nLookup"
+      },
+      {
+        "date": "2023-04-07T00:27:00.000Z",
+        "voteCount": 2,
+        "content": "Should be Option Set. See the hint in the Scenario: \"Each division has tournaments that take place in specific locations. Users must be able to select the division for a tournament location.\""
+      },
+      {
+        "date": "2022-11-02T06:45:00.000Z",
+        "voteCount": 3,
+        "content": "Option Set\nDate Only\nLookup"
+      },
+      {
+        "date": "2022-09-29T03:28:00.000Z",
+        "voteCount": 1,
+        "content": "shouldn't EndDate be a calculated field?"
+      },
+      {
+        "date": "2022-11-13T03:13:00.000Z",
+        "voteCount": 2,
+        "content": "A calculated field isn't a data type, this is selected after choosing the data type, which is not the question here."
+      },
+      {
+        "date": "2022-06-20T04:19:00.000Z",
+        "voteCount": 2,
+        "content": "If Division is Text type then anyone can create random divisions which sounds wrong. It should be Option Set."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "25"
+  }
+]

@@ -1,0 +1,761 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115963-exam-az-720-topic-5-question-1-discussion/",
+    "body": "HOTSPOT -<br><br>Case study -<br>This is a case study. Case studies are not timed separately. You can use as much exam time as you would like to complete each case. However, there may be additional case studies and sections on this exam. You must manage your time to ensure that you are able to complete all questions included on this exam in the time provided.<br>To answer the questions included in a case study, you will need to reference information that is provided in the case study. Case studies might contain exhibits and other resources that provide more information about the scenario that is described in the case study. Each question is independent of the other questions in this case study.<br>At the end of this case study, a review screen will appear. This screen allows you to review your answers and to make changes before you move to the next section of the exam. After you begin a new section, you cannot return to this section.<br><br>To start the case study -<br>To display the first question in this case study, click the Next button. Use the buttons in the left pane to explore the content of the case study before you answer the questions. Clicking these buttons displays information such as business requirements, existing environment, and problem statements. When you are ready to answer a question, click the Question button to return to the question.<br><br>Background -<br>Contoso, Ltd. is a financial services company based in Boston, MA, United States. Contoso hires you to manage their Azure environment and resolve several operational issues.<br><br>Current environment -<br><br>General -<br>Contoso's Azure environment contains the following resources. All resources are associated with the same subscription and are located in the East US region:<br><img src=\"https://img.examtopics.com/az-720/image73.png\"><br>VPN users use Windows 10 computers with the built-in SSTP VPN client software.<br><br>Recent changes -<br>\u2022 You extend the IP address space of VNet1 and create subnets in the new IP address space.<br>\u2022 You allow users with computers that run the current version of MacOS to use the built-in VPN client for connecting to the point-to-site VPN.<br>\u2022 You enable a service endpoint on contosostorage1 to provide direct access to the storage content from all subnets in VNet1.<br>\u2022 You configure all business critical VM workloads to use encryption keys stored in all five key vaults.<br>\u2022 You enable a private endpoint on CosmosDB1 to provide direct access to its content from VNet1.<br>\u2022 The Contoso's data engineering team was recently tasked with using contosostorage1 blob storage to store database backups.<br>\u2022 You develop an automated process to deploy Azure VMs by using Azure Bicep. The passwords for the local administrator accounts are stored in the key vaults. You grant the team that initiates the deployment the Reader RBAC role to all key vaults.<br>\u2022 You deploy a multi-tier SharePoint Server environment into a subnet in VNet2. You implement network security groups (NSGs) to allow only specific ports between tiers in the subnet. You configure NSGs to use application security groups (ASGs) when designating the source and destination of cross-tier traffic.<br>\u2022 You deploy a secondary multi-tier SharePoint Server environment into a subnet in VNet3.<br>You create the following resources:<br><img src=\"https://img.examtopics.com/az-720/image74.png\"><br><br>Issues -<br><br>DNS issues -<br><br>Reverse DNS lookup -<br>\u2022 Reverse DNS lookups from VNet1 return two records. One DNS record is in the format [vmname].contoso.com and the other DNS record is in the format [vmname].internal.cloudapp.net.<br>\u2022 Reverse DNS lookups from VNet2 and VNet3 return DNS names in the format [vmname].internal.cloudapp.net.<br>\u2022 VMs on each virtual network can only resolve reverse DNS lookup names of VMs on the same virtual network.<br><br>Public DNS lookup -<br>You are notified that name resolution requests for www.contoso.com are using the DNS zone hosted by the DNS registrar where the zone was originally created.<br><br>Connectivity and routing issues -<br><br>Windows VPN -<br>Windows VPN clients cannot connect to Azure VMs on the subnets recently added to VNet1.<br><br>Sales department VPN -<br>The sales department users cannot connect by using the MacOS VPN client.<br><br>Azure Storage connectivity -<br>\u2022 Server Message Block (SMB)-mounts from VMs on VNet2 and VNet3 to file shares in contosostorage1 are failing.<br>\u2022 Azure Storage Explorer connections using access keys from on-premises computers to contosostorage1 are failing.<br><br>Cosmos DB connectivity -<br>You observe that connections to CosmosDB1 from the on-premises environment are using the CosmosDB1 public endpoint. However, connections to CosmosDB1 from the on-premises environment should be using the private endpoint. You verify that connections to CosmosDB1 from VNet1 are using the private endpoint.<br><br>VM1 routing -<br>Internet traffic from VM1 is routed directly to the Internet.<br><br>VM2 routing -<br>After configuring RT12 to route internet traffic from VM1 through VM2, traffic reaches VM2 but then it is dropped. You verify that routing for VM2 is configured correctly.<br><br>Azure and SharePoint issues -<br><br>Azure Key Vault -<br>Access attempts to Azure Key Vault by VM workloads intermittently fail with the HTTP response code 429.<br><br>SharePoint in VNet2 -<br>SharePoint traffic between tiers is blocked by NSGs which is causing application failures.<br><br>SharePoint in VNet3 -<br>ASGs used in the NSG rules associated with the VNet2 subnet are not visible when configuring NSG rules in VNet3.<br><br>Permission issues -<br><br>Data engineering team -<br>The Contoso data engineering team is unable to view the contosostorage1 account in the Azure portal.<br><br>Azure VM deployment -<br>Azure VM deployments that use Azure Bicep are failing with an authorization error. The error indicates there are insufficient access permissions to retrieve the password of the local administrator account in the key vault.<br><br>Requirements -<br><br>DNS requirements -<br><br>Reverse DNS lookup -<br>You must identify the reason for the differences between reverse DNS lookup results in the hub and the spoke networks and recommend a solution that provides the reverse DNS lookup in the format [vmname].contoso.com for all three virtual networks.<br><br>Public DNS lookup -<br>You must verify that the Azure public DNS zone is currently used to resolve DNS name requests for www.contoso.com and recommend a solution that uses the Azure public DNS zone.<br>Connectivity and routing requirements<br><br>Windows VPN -<br>You must verify if VPN client connectivity issues are related to routing and recommend a solution.<br><br>MacOS VPN -<br>You must verify if Remote ID and Local ID VPN client settings on the MacOS devices are properly configured.<br><br>Azure Storage connectivity -<br>You must resolve the issues with the SMB-mounts from VNet2 and VNet3 as well as ensure that on-premises connections to contosostorage1 are successful. Your solution must ensure that, whenever possible, network traffic does not traverse public internet.<br><br>Cosmos DB connectivity -<br>You must verify if on-premises connections to CosmosDB1 are using the CosmosDB1 public endpoint. You need to recommend a solution if connections are not using private endpoints.<br><br>VM1 routing -<br>RT12 must be configured to route internet traffic from VM1 through VM2.<br><br>VM2 routing -<br>VM2 must be configured to route internet traffic from VM1.<br>Azure and SharePoint requirements<br><br>Azure Key Vault -<br>You must identify the reason for the failures and recommend a solution.<br><br>SharePoint in VNet2 -<br>You need to identify the NSG rules that are blocking traffic. You also need to collect the data that is blocked by the NSG rules. The solution must minimize administrative effort.<br><br>SharePoint in VNet3 -<br>You need to create NSG rules for VNet3 with the same name, source and destination settings that are configured for the NSG associated with VNet2. The solution must minimize administrative effort.<br><br>Permission requirements -<br><br>Azure Bicep -<br>You must identify the minimum privileges required to provision Azure VMs using Azure Bicep.<br><br>Data engineering team -<br>You must identify the role-based access control (RBAC) roles required by the data engineering team to access the storage account by using Azure portal. They also require permission to backup and restore blobs in contosostorage1.<br>You need to troubleshoot the issues with the SharePoint workload in VNet2.<br>What should you do? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br><img src=\"https://img.examtopics.com/az-720/image75.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image76.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T06:18:00.000Z",
+        "voteCount": 1,
+        "content": "Connection troubleshoot and IP Flow Verify\n\n\"Connection Troubleshoot\" in Azure Network Watcher helps you diagnose connectivity issues between your resources. In this scenario, where SharePoint traffic between tiers is blocked by NSGs, it would be beneficial to use Connection Troubleshoot to gather the required logs.\n\nOnce the logs have been collected, \"Traffic Analytics\" can be used to access and analyze these logs. Traffic Analytics provides detailed insights into the network traffic and can help you identify the NSG rules that are blocking the traffic.\n\nWhile \"IP Flow Verify\" can also be useful for checking security rules, it checks if a packet is allowed or denied to or from a VM based on 5-tuple information (Source IP, Source Port, Destination IP, Destination Port, and Protocol). In this case, where you want to understand broader connectivity issues and access patterns, Traffic Analytics is more suitable."
+      },
+      {
+        "date": "2023-07-21T06:19:00.000Z",
+        "voteCount": 1,
+        "content": "Oops I mean Connection troubleshoot AND traffic analytics"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106095-exam-az-720-topic-5-question-41-discussion/",
+    "body": "HOTSPOT -<br>A company deploys a new application and places the application behind an Azure Application Gateway Web Application Firewall (WAF).<br>A user with the client IP 203.0.113.26 reports that they cannot access the application.<br>You need to troubleshoot the the issue.<br>How should you complete the query? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br><img src=\"https://img.examtopics.com/az-720/image77.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image78.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T06:24:00.000Z",
+        "voteCount": 1,
+        "content": "where ResourceProvider == \"MICROSOFT.NETWORK\" and Category == \"ApplicationGatewayFirewallLog\" filters for entries related to the Application Gateway WAF.\nwhere clientIP_s == \"203.0.113.26\" filters for entries where the client IP address is 203.0.113.26.\nThis will provide the WAF logs related to the client with IP 203.0.113.26, providing insights into whether the firewall is blocking the user's requests. You might see entries related to rule matches, actions taken (like Block or Allow), and more detailed information that could help identify the problem."
+      },
+      {
+        "date": "2023-04-13T01:10:00.000Z",
+        "voteCount": 2,
+        "content": "Correct!\n\nhttps://learn.microsoft.com/en-us/azure/application-gateway/log-analytics"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106986-exam-az-720-topic-5-question-42-discussion/",
+    "body": "HOTSPOT -<br>A company deploys Azure Traffic Manager load balancing for an Azure App Service solution.<br>Load balancing performance is showing a degraded status after deployment, and new HTTPS probes are failing to reach the Traffic Manager endpoints.<br>You need to troubleshoot the probe failure.<br>How should you complete the PowerShell script? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br><img src=\"https://img.examtopics.com/az-720/image79.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image80.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-22T08:02:00.000Z",
+        "voteCount": 2,
+        "content": "Correct. Here is the doc supporting the answer.\n\nhttps://learn.microsoft.com/en-us/azure/traffic-manager/traffic-manager-troubleshooting-degraded#troubleshooting\n\nadd-type @\"\nusing System.Net;\nusing System.Security.Cryptography.X509Certificates;\npublic class TrustAllCertsPolicy : ICertificatePolicy {\n    public bool CheckValidationResult(\n    ServicePoint srvPoint, X509Certificate certificate,\n    WebRequest request, int certificateProblem) {\n    return true;\n    }\n}\n\"@\n[System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96818-exam-az-720-topic-5-question-43-discussion/",
+    "body": "A company has an Azure tenant. The company deploys an Azure Firewall named FW1 using the Standard SKU. You configure FW1 using classic firewall rules.<br>The company creates an application rule collection with the following settings:<br><br>Priority: 100 -<br><br>Action: Deny -<br><br>Rule type: FQDN -<br><br>Source type: IP address -<br>Source: *<br><br>Protocol: http:80,https:443 -<br>Target FQDN: *.cloud.contoso.com<br>An engineer observes that traffic to console.cloud.contoso.com is still allowed by FW1.<br>You need to determine why the traffic is allowed.<br>What should you review?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNetwork rules\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApplication rules",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInfrastructure rules",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWeb categories"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-22T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "A si correct, Net rules are processed first then App rules."
+      },
+      {
+        "date": "2023-01-27T20:56:00.000Z",
+        "voteCount": 3,
+        "content": "A - Answer is correct\n\nApplication rules are always processed after Network rules, which are processed after DNAT rules regardless of Rule collection group or Rule collection priority and policy inheritance.\n\nhttps://learn.microsoft.com/en-us/azure/firewall/rule-processing"
+      },
+      {
+        "date": "2023-04-13T01:14:00.000Z",
+        "voteCount": 1,
+        "content": "Thank you for the explanation."
+      },
+      {
+        "date": "2023-01-25T04:18:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be B. More info on: https://learn.microsoft.com/en-us/azure/firewall/policy-rule-sets"
+      },
+      {
+        "date": "2023-01-27T20:56:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is A\n\nhttps://learn.microsoft.com/en-us/azure/firewall/rule-processing"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106481-exam-az-720-topic-5-question-44-discussion/",
+    "body": "HOTSPOT -<br>A company implements Azure Firewall and deploys an Azure Firewall policy.<br>The policy incudes multiple application and network rules for the company's infrastructure. After deployment, an application is not accessible from on-premises computers.<br>You need to enable diagnostic logging for the following settings:<br>\u2022 AzureFirewallApplicationRule<br>\u2022 AzureFirewallNetworkRule<br>\u2022 AzureFirewallDnsProxy<br>How should you complete the PowerShell cmdlet? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br><img src=\"https://img.examtopics.com/az-720/image81.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image82.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-17T06:46:00.000Z",
+        "voteCount": 2,
+        "content": "Seems correct: https://learn.microsoft.com/en-us/powershell/module/az.monitor/set-azdiagnosticsetting?view=azps-8.3.0#example-7-enable-all-categories-for-a-subscription"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96819-exam-az-720-topic-5-question-46-discussion/",
+    "body": "A company deploys the Azure Application Gateway Web Application Firewall (WAF) to protect their web applications.<br>Users in a remote office location report the following issues:<br>\u2022 Unable to access part of a web application.<br>\u2022 Part of the web application is failing to load.<br>\u2022 Parts of the web application has activities that are not performing as expected.<br>You need to troubleshoot the issue.<br>Which diagnostic log should you review?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Activity",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAccess\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPerformance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFirewall"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "It seems plausible to start with the Access logs. Access logs in Azure Application Gateway provide detailed information about incoming client requests, including client IP, request type, URI, response status, and transaction latency, which are valuable for debugging application behaviour and issues.\n\nIt's crucial to understand that while the Firewall logs can provide insight into whether the WAF is blocking requests based on its rule set, the Access logs can give a more holistic view of what's happening, including requests that are not being blocked by the WAF but are still failing or causing performance issues.\n\nTherefore, in the context of the question where users are experiencing varied issues (access issues, load failures, and performance discrepancies), starting with Access logs (Option B) can indeed be the most beneficial approach. Once you have more information from the Access logs, you can then investigate other logs like Firewall or Performance logs as necessary."
+      },
+      {
+        "date": "2023-04-23T08:19:00.000Z",
+        "voteCount": 2,
+        "content": "Access log is the way to start checking for this type of issue - see my updated comments."
+      },
+      {
+        "date": "2023-04-22T08:20:00.000Z",
+        "voteCount": 1,
+        "content": "I would totally go for C.\n\n\"Performance log: You can use this log to view how Application Gateway instances are performing. This log captures performance information for each instance, including total requests served, throughput in bytes, total requests served, failed request count, and healthy and unhealthy backend instance count. A performance log is collected every 60 seconds. The Performance log is available only for the v1 SKU. For the v2 SKU, use Metrics for performance data.\"\n\nhttps://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics#diagnostic-logging"
+      },
+      {
+        "date": "2023-04-23T08:18:00.000Z",
+        "voteCount": 1,
+        "content": "OK, so this question has been bugging me a lot.\n\nI reached out to an SME (Subject Matter Expert) on AppGW, and concluded that Access logs are actually the best way to go - they hold info about Correlation and Transaction IDs which could further be checked on WAFlogs (aka FW logs), backend server latency and gives you the URIs of the requests received in the AppGW which are great to understand any unusual behavior or perhaps why the requests are failing narrowing to the cause.\n\nAfter checking the Access Logs, based on those findings you can move to the Performance or FW logs - but the Access log is where you would want to start.\n\nHence, I change my answer and say that the given answer is actually correct.\n\nPlease forgive me if I confused you with all my posts here. :)"
+      },
+      {
+        "date": "2023-04-13T01:18:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the link that ADrem has provided, I would say the answer is D (Firewall).\n\nThe link says the Firewall log as follows:\n\nFirewall log: You can use this log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds."
+      },
+      {
+        "date": "2023-04-23T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "Usually FW specific issues are either allowed or denied not that a page is not fully loading or parts of it is having issues. \nThis is either a backend issue or an AppGW platform issue (CPU/scale, etc) and in some cases, yes, it could be that depending on what HTTP requests are sent (headers/args, etc), WAF blocks, but, I just find it that the Performance logs would be a better approach to start investigating and then go to WAF logs. :)\n\nJust my thoughts on this..."
+      },
+      {
+        "date": "2023-04-23T08:18:00.000Z",
+        "voteCount": 1,
+        "content": "yeah, ignore this above message and look at the newest one I wrote about the Access Logs."
+      },
+      {
+        "date": "2023-03-02T13:33:00.000Z",
+        "voteCount": 3,
+        "content": "Why is not D correct answer? In the below article, in case of using WAF, it is displayed can use Firewall log."
+      },
+      {
+        "date": "2023-01-25T04:19:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be C. More info on: https://learn.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/99327-exam-az-720-topic-5-question-47-discussion/",
+    "body": "A company has an ExpressRoute gateway between their on-premises site and Azure. The ExpressRoute gateway is on a virtual network named VNet1. The company enables FastPath on the gateway. You associate a network security group (NSG) with all of the subnets.<br>Users report issues connecting to VM1 from the on-premises environment. VM1 is on a virtual network named VNet2. Virtual network peering is enabled between VNet1 and VNet2.<br>You create a flow log named FlowLog1 and enable it on the NSG associated with the gateway subnet.<br>You discover that FlowLog1 is not reporting outbound flow traffic.<br>You need to resolve the issue with FlowLog1.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable the public endpoint for the FlowLog1 storage account.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the FlowTimeoutInMinutes property on VNet1 to a non-null value.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable FlowLog1 in a network security group associated with the network interface of VM1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the FlowTimeoutInMinutes property on VNet2 to a non-null value."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T06:38:00.000Z",
+        "voteCount": 1,
+        "content": "C. Enable FlowLog1 in a network security group associated with the network interface of VM1.\n\nWhen FastPath is enabled, traffic from on-premises networks bypasses the Azure gateway and goes directly to VMs in your VNet. This means that flow logs on the gateway will not capture this traffic, which is why you are not seeing outbound traffic in the flow logs for the gateway.\n\nIn order to capture traffic information for VM1 (including the issues users are experiencing when connecting to VM1 from on-premises), you need to enable flow logging on the network security group (NSG) associated with VM1's network interface. This will capture traffic information for VM1, including any inbound and outbound traffic."
+      },
+      {
+        "date": "2023-04-13T01:23:00.000Z",
+        "voteCount": 4,
+        "content": "From what I read from another site:\n\nWhen FastPath is enabled on an ExpressRoute gateway, network traffic between your on-premises network and your virtual network bypasses the gateway and goes directly to virtual machines in the virtual network. Therefore, if you want to capture outbound flow traffic from VM1, you need to enable flow logging on an NSG associated with the subnet of VM1."
+      },
+      {
+        "date": "2023-03-19T17:18:00.000Z",
+        "voteCount": 1,
+        "content": "A. Enable the public endpoint for the FlowLog1 storage account.\n\nThe issue here is that FlowLog1 is not reporting outbound flow traffic, which means that the logs are not being sent to the storage account. To resolve this, we need to ensure that the storage account can be accessed from the virtual network associated with the NSG. To achieve this, we can enable the public endpoint for the storage account, which allows traffic to be sent to the storage account over the public internet. Once this is done, FlowLog1 should start reporting outbound flow traffic."
+      },
+      {
+        "date": "2023-02-15T14:53:00.000Z",
+        "voteCount": 1,
+        "content": "I think C is incorrect. Because NSG cannot be attached with NIC."
+      },
+      {
+        "date": "2023-02-15T15:01:00.000Z",
+        "voteCount": 1,
+        "content": "Perhaps, it may be attached with NIC..."
+      },
+      {
+        "date": "2023-04-22T08:26:00.000Z",
+        "voteCount": 1,
+        "content": "NSGs can be attached to both Subnets and NICs"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115965-exam-az-720-topic-5-question-9-discussion/",
+    "body": "A company has virtual machines (VMs) in the following Azure regions:<br>\u2022 West Central US<br>\u2022 Australia East<br>The company uses ExpressRoute private peering to provide connectivity to VMs hosted in each region and on-premises services.<br>The company implements global VNet peering between a VNet in each region. After configuring VNet peering, VM traffic attempts to use ExpressRoute private peering.<br>You need to ensure that traffic uses global VNet peering instead of ExpressRoute private peering. The solution must preserve existing on-premises connectivity to Azure VNets.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a user-defined route to the subnets route table.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a filter to the on-premises routers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the ExpressRoute peering connections for one of the regions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd a second VNet to the virtual machines and configure VNet peering between the VNets."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T06:39:00.000Z",
+        "voteCount": 1,
+        "content": "A. Add a user-defined route to the subnets route table.\n\nWhen Azure needs to route traffic, it uses some pre-defined system routes. However, you can override these routes by creating a user-defined route (UDR) in the subnet's route table. This enables you to make traffic follow a path that you specify.\n\nIn this case, to ensure that traffic uses global VNet peering instead of ExpressRoute private peering, you should create a user-defined route and associate it with the subnets that the VMs are connected to. This will direct the traffic from the VMs to the peered VNet, rather than routing it over the ExpressRoute connection.\n\nThe other options (B, C, D) do not provide a valid solution to the problem. Changing the on-premises routers or disabling ExpressRoute peering could disrupt the existing on-premises connectivity, and adding a second VNet would not change the existing traffic flow between the VMs and the on-premises services."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/94867-exam-az-720-topic-5-question-49-discussion/",
+    "body": "A company uses Azure virtual machines (VMs) in multiple regions. The VMs have the following configuration:<br><img src=\"https://img.examtopics.com/az-720/image85.png\"><br>The backend pool of an internal Azure Load Balancer (ILB) named ILB1 contains VM1 and VM2. The ILB uses the Basic SKU and is in a resource group named RG2.<br>Virtual network peering has been configured between VNet1 and VNet2.<br>Users report that they are unable to connect to resources on VM1 and VM2 by using ILB1 from VM3.<br>You need to resolve the connectivity issues.<br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove ILB1 to RG1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedeploy the ILB using the Standard SKU.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedeploy VM1 and VM2 into availability zones.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove VM1 and VM2 into RG3."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T06:42:00.000Z",
+        "voteCount": 1,
+        "content": "B. Redeploy the ILB using the Standard SKU.\n\nThe Basic SKU for the Azure Load Balancer does not support cross-VNet or peering scenarios. By deploying the ILB with a Standard SKU, it would support the required scenario where resources from one VNet need to connect to resources in another VNet.\n\nThe other options do not address the root issue:\n\nA. Moving ILB1 to RG1 wouldn't help since the Load Balancer SKU is the issue, not the resource group it resides in.\n\nC. Redeploying VM1 and VM2 into availability zones would increase their resilience, but it wouldn't solve the issue of VM3 not being able to connect to VM1 and VM2 via the ILB.\n\nD. Moving VM1 and VM2 into RG3 would not resolve the issue for the same reason as option A - the problem lies with the Load Balancer SKU, not the resource group of the VMs."
+      },
+      {
+        "date": "2023-04-22T08:35:00.000Z",
+        "voteCount": 1,
+        "content": "Since VM3 is in EUS2 and the backend VMs of the Basic iLB are in EUS, the iLB needs upgraded/redeployed as Standard SKU, since it doesn't support cross region communication."
+      },
+      {
+        "date": "2023-04-13T01:29:00.000Z",
+        "voteCount": 1,
+        "content": "Based on the link and comments, I agree that it is B."
+      },
+      {
+        "date": "2023-01-27T21:06:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B.\n\nhttps://learn.microsoft.com/en-us/azure/load-balancer/skus"
+      },
+      {
+        "date": "2023-01-11T19:51:00.000Z",
+        "voteCount": 1,
+        "content": "The answer cannot be A since the resource group is a logical container.  The correct answer is B since a Standard Load Balancer will allow connectivity between regions."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106994-exam-az-720-topic-5-question-50-discussion/",
+    "body": "DRAG DROP -<br>A customer has an Azure subscription. Microsoft Defender for servers is enabled for the subscription. The customer has not configured network security groups.<br>The customer configures a resource group named RG1 that contains the following resources:<br>\u2022 A virtual machine named VM1.<br>\u2022 A network interface named NIC1 that is attached to VM1.<br>The customer grants a user named Admin1 the following permission for RG1: Microsoft.Security/locations/jitNetworkAccessPolicies/write.<br>Admin1 reports that the JIT VM access pane in the Azure portal does not show any entries. When you view the same pane, VM1 appears on the Unsupported tab.<br>You need to ensure that Admin1 can enable just-in-time (JIT) VM access for VM1. The solution must adhere to the principle of least privilege.<br>Which three actions should you recommend be performed in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><img src=\"https://img.examtopics.com/az-720/image86.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image87.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T06:54:00.000Z",
+        "voteCount": 1,
+        "content": "1.Grant Admin1 Contributor access to RG1: Admin1 needs the Contributor role in order to create and associate a network security group (NSG). The Microsoft.Security/locations/jitNetworkAccessPolicies/write permission is not enough for these actions.\n\n2.Create NSG in RG1: A network security group needs to be created to control inbound and outbound traffic to resources such as VMs. This is a requirement for JIT VM Access.\n\n3.Associate NSG to the VM NIC: The NSG that was created needs to be associated with the network interface of the VM for which JIT VM access is needed.\n\nThe JIT VM access feature of Azure Security Center leverages NSGs to lock down inbound traffic to Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. Thus, without an NSG, JIT VM access won't work.\n\nThis is why, when viewing the JIT VM access pane, VM1 appears on the Unsupported tab - because there is no NSG associated with it. By following these steps, you should be able to resolve this issue."
+      },
+      {
+        "date": "2023-04-22T08:48:00.000Z",
+        "voteCount": 1,
+        "content": "Correct.\n\n1. Grant admin1 Contributor access to RG1.\n2. Create NSG in RG1\n3. Associate NSG to the VM NIC\n\nSo, if the JIT shows the VM as unsupported, this means that there is either a need of an NSG or AZFW for JIT to work.\n\nIn our case here, there is no NSG and the easiest and less privileged way to fix is to create one and associate it to the NIC.\n\nhttps://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage#work-with-jit-vm-access-using-microsoft-defender-for-cloud\n\nUnsupported - VMs that don't support JIT because:\nMissing network security group (NSG) or Azure Firewall - JIT requires an NSG to be configured or a Firewall configuration (or both)"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106997-exam-az-720-topic-5-question-51-discussion/",
+    "body": "A company has a virtual machine (VM) named VM1 in a virtual network. The company also uses Azure Firewall Standard.<br><br>An administrator creates application rules to filter outbound traffic from VM1 and configure fully qualified domain names (FQDN) on the application rules.<br><br>The administrator discovers that outbound traffic from VM1 to the FQDNs are not being filtered by the firewall.<br><br>You need to resolve the issue with filtering.<br><br>What should you do first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a CNAME type DNS record that references the firewall",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpgrade to the Azure Firewall Premium SKU.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the firewall for a negative cache.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure VM1 to use Azure Firewall as its DNS server.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T06:59:00.000Z",
+        "voteCount": 1,
+        "content": "Option D: \"Configure VM1 to use Azure Firewall as its DNS server\" is the correct choice.\n\nBy setting Azure Firewall as the DNS server for the virtual machines, it ensures that the Firewall and the VMs are using the same DNS resolution, preventing any inconsistencies in the application of the firewall's rules.\n\nWithout this configuration, the DNS resolution used by the Firewall to interpret FQDN-based rules may differ from that used by the VMs, causing traffic that should be blocked by the Firewall's rules to inadvertently pass through. Thus, setting the Azure Firewall as the DNS server for the VMs is a crucial step for the correct application of FQDN-based rules."
+      },
+      {
+        "date": "2023-04-22T09:02:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct.\n\nIt's not that clear even from the official article but yes, in order for the app FQDN rules to work fine, the VMs that need to be filtered need to have the AZFW set as DNS. Usually this is done by setting the DNS on VNET level but if that is not intended, then yeah, only on VM NIC level. \n\nhttps://learn.microsoft.com/en-us/azure/firewall-manager/fqdn-filtering-network-rules"
+      },
+      {
+        "date": "2023-04-23T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "Found a better part of another doc that confirms the answer.\n\nhttps://learn.microsoft.com/en-us/azure/firewall/dns-settings#dns-proxy\n\n\"If you enable FQDN filtering in network rules, and you don't configure client virtual machines to use the firewall as a DNS proxy, then DNS requests from these clients might travel to a DNS server at a different time or return a different response compared to that of the firewall. It\u2019s recommended to configure client virtual machines to use the Azure Firewall as their DNS proxy. This puts Azure Firewall in the path of the client requests to avoid inconsistency.\""
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106096-exam-az-720-topic-5-question-52-discussion/",
+    "body": "A company deploys a new file sharing application on four Standard_D2_v3 virtual machines (VMs) behind an Azure Load Balancer. The company implements Azure Firewall.<br><br>Users report that the application is slow during peak usage periods. An engineer reports that the peak usage for each VM is approximately 1 Gbps.<br><br>You need to implement a solution that supports a minimum of 10 Gbps.<br><br>What should you do to increase the throughput?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDisable the Azure Firewall and implement network security groups in its place.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove two of the servers behind a separate load balancer and configure round robin routing in Traffic Manager.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the size of the VM instance.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRequest an increase in networking quotas."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:01:00.000Z",
+        "voteCount": 1,
+        "content": "The best way to increase the throughput in this scenario is by increasing the size of the VM instances (Option C).\n\nIn Azure, the size of the VM determines the amount of network bandwidth a VM has. Standard_D2_v3 VMs have moderate networking performance up to 1,000 Mbps (~1 Gbps). If you need a higher network throughput, you should consider a larger VM size. For example, the Standard_D16s_v3 has a network bandwidth up to 12,000 Mbps (~12 Gbps), which would meet your requirement of 10 Gbps.\n\nIt's worth noting that other changes such as disabling Azure Firewall and replacing it with network security groups (Option A), or splitting servers behind different load balancers (Option B), or increasing networking quotas (Option D), do not directly increase the network throughput of individual VMs."
+      },
+      {
+        "date": "2023-04-23T01:26:00.000Z",
+        "voteCount": 1,
+        "content": "C - Given answer is the best approach - upgrading to a better VM size offering more throughput power is the way to go here."
+      },
+      {
+        "date": "2023-04-13T01:36:00.000Z",
+        "voteCount": 1,
+        "content": "B would be the most logical options than the original answer."
+      },
+      {
+        "date": "2023-04-13T14:55:00.000Z",
+        "voteCount": 2,
+        "content": "If they were in different geo regions then yes.  but the problem statement does not say anything to support that theory."
+      },
+      {
+        "date": "2023-04-14T00:12:00.000Z",
+        "voteCount": 1,
+        "content": "You are right. It seems I misread the questions. So from what I reread is that the current scenario has 4 VMs in which each VM uses on avg. 1Gbps. You need propose a solution for 10Gbps and thus, increasing the VM instances would be a great solution. If I could remove my main comment in this question, then I would've done it myself."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/102573-exam-az-720-topic-5-question-53-discussion/",
+    "body": "A company has an ExpressRoute gateway between their on-premises site and Azure. The ExpressRoute gateway is on a virtual network named VNet1. The company enables FastPath on the gateway. You associate a network security group (NSG) with all of the subnets.<br><br>Users report issues connecting to VM1 from the on-premises environment. VM1 is on a virtual network named VNet2. Virtual network peering is enabled between VNet1 and VNet2.<br><br>You create a flow log named FlowLog1 and enable it on the NSG associated with the gateway subnet.<br><br>You discover that FlowLog1 is not reporting outbound flow traffic.<br><br>You need to resolve the issue with FlowLog1.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the FlowTimeoutInMinutes property on VNet2 to a non-null value.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure FlowLog1 for version 2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate the storage account for FlowLog1 as a premium page blob.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable FlowLog1 in a network security group associated with the subnet of VM1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 3,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:03:00.000Z",
+        "voteCount": 1,
+        "content": "If FastPath is enabled, traffic can bypass the ExpressRoute gateway. That's why enabling FlowLog1 in a network security group (NSG) associated with the subnet of VM1 is recommended (D). By doing so, you can ensure that outbound flows to virtual machines are captured, even if traffic bypasses the ExpressRoute gateway due to FastPath. This will be crucial for successful troubleshooting and resolving of the reported connectivity issues."
+      },
+      {
+        "date": "2023-04-23T01:30:00.000Z",
+        "voteCount": 1,
+        "content": "D is the answer.\n\n\"We don't recommend that you log flows on an Azure ExpressRoute gateway subnet because traffic can bypass that type of gateway (for example, FastPath). If an NSG is linked to an ExpressRoute gateway subnet and NSG flow logs are enabled, then outbound flows to virtual machines might not be captured. Such flows must be captured at the subnet or NIC of the VM.\"\n\nhttps://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#network-security-group-on-an-expressroute-gateway-subnet"
+      },
+      {
+        "date": "2023-04-13T01:40:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with feeeb due to the link explanation."
+      },
+      {
+        "date": "2023-04-11T06:58:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is D - https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#network-security-group-on-an-expressroute-gateway-subnet"
+      },
+      {
+        "date": "2023-03-14T04:39:00.000Z",
+        "voteCount": 1,
+        "content": "incorrect, I go with C"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115976-exam-az-720-topic-5-question-15-discussion/",
+    "body": "A company migrates existing Ubuntu Linux servers from their on-premises vSphere infrastructure to Azure.<br><br>The virtual machines (VMs) are experiencing a low network throughput of 20 Mbps. The VMs are expected to sustain 300 Mbps.<br><br>You need to ensure that the VMs are compatible with Azure.<br><br>Which change should you make?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the network interfaces to 1000 Mbps/full duplex.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the TCP buffers and window size kernel parameters.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedeploy the VM with Accelerated Networking enabled.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall a kernel name that ends with -azure."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:05:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Accelerated Networking is a feature that significantly enhances the performance you get out of a virtual machine. This feature enables a high-performance path and bypasses the host from the datapath, reducing latency, jitter, and CPU utilization, for use with the most demanding network workloads on supported VM types. Therefore, the correct option here would be:\n\nC. Redeploy the VM with Accelerated Networking enabled.\n\nThis should allow the VMs to reach their expected network throughput. It should be noted that certain VM sizes are needed to use Accelerated Networking, so one should ensure that the VMs being used are of the supported size."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105678-exam-az-720-topic-5-question-55-discussion/",
+    "body": "HOTSPOT -<br><br>A company uses Azure Standard Load Balancer which is configured to export metrics to Azure Monitor.<br><br>You receive an email alert for a potential outbound port exhaustion issue from an Azure virtual machine. You add additional front-end IPs to the load balancer.<br><br>You need to monitor the load balancer.<br><br>How should you complete the configuration? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-720/image107.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image108.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T07:09:00.000Z",
+        "voteCount": 1,
+        "content": "To monitor an Azure Standard Load Balancer for a potential outbound port exhaustion issue, you would want to track the \"Used SNAT ports\". SNAT (Source Network Address Translation) ports are used for outbound connections. If these ports are being exhausted, it means your VM might be having trouble making new outbound connections.\n\nIn Azure Monitor, you can create a graph to visually represent these metrics over time. This can help you identify trends or spikes that could indicate a problem. Here's how you might set it up:\n\n1.In the Azure Monitor, create a new graph.\n2.For the metric namespace, select \"Network\".\n3.For the metric, select \"Used SNAT ports\". This represents the number of SNAT ports currently in use.\nSimilarly, tracking the \"Allocated SNAT ports\" can give you information about how many SNAT ports have been allocated by the Load Balancer to your VM or VMSS.\n\nSo in the answer area, you would want to select:\n\nFor the first dropdown: \"Used SNAT ports\"\nFor the second dropdown: \"Allocated SNAT ports\""
+      },
+      {
+        "date": "2023-04-09T14:17:00.000Z",
+        "voteCount": 3,
+        "content": "Looks correct.  Please see: https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections"
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/107123-exam-az-720-topic-5-question-56-discussion/",
+    "body": "You manage an Azure Firewall named FW1. FW1 includes a policy named Policy1. The policy contains a single rule collection group with the priority 300 and the following settings:<br><br>\u2022\tA network rule collection with the priority 500<br>\u2022\tA destination network address translation (DNAT) rule collection with the priority 300<br><br>You use the public IP address assigned to FW1 to connect to an Azure virtual machine (VM) named VM1 by using Remote Desktop from a home computer.<br><br>An administrator creates a policy named Policy2. The policy contains a single rule collection group with the priority 500 and the following settings:<br><br>\u2022\tA network rule collection with the priority 600<br>\u2022\tA DNAT rule collection with the priority 400<br>\u2022\tThreat intelligence<br>\u2022\tTLS inspection<br><br>The administrator configures Policy2 as a parent of Policy1.<br><br>You observe that you no longer can connect to VM1 with Remote Desktop by using the public IP address assigned to FW1 from your home computer.<br><br>You need to repair the connection.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the priority of the DNAT rule collection of Policy2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the priority of the rule connection group of Policy2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify TLS inspection settings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify threat-intelligence settings.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-23T03:05:00.000Z",
+        "voteCount": 1,
+        "content": "D - Threat Intelligence is what I would check as already explain in my other comment."
+      },
+      {
+        "date": "2023-04-23T03:04:00.000Z",
+        "voteCount": 2,
+        "content": "A or B cannot be the answer. Parent Policy takes precedence over any child policy and hence increasing the prio on either the DNAT rule collection or the Group itself, makes no sense, as it has priority anyway.\n\nhttps://learn.microsoft.com/en-us/azure/firewall/rule-processing#rule-processing-using-firewall-policy\n\nThen C is not the answer also as this is specific for OUTBOUND traffic and since we are talking about DNAT (INBOUND), it's not appliable.\n\nThen D, is what I chose as it's the most probable cause for the deny - even though by default Threat Intelligence is in Alert Mode, it's not specified if it was changed or not and since the answer says \"modify Threat intelligence settings\" but also based on this below doc, I would go with D.\n\nhttps://learn.microsoft.com/en-us/azure/firewall/rule-processing#threat-intelligence\n\n\"Threat-intelligence filtering may deny traffic before any configured rules are processed.\""
+      },
+      {
+        "date": "2023-07-21T07:14:00.000Z",
+        "voteCount": 1,
+        "content": "The information provided in the question doesn't specifically state that Threat Intelligence is blocking the traffic, but given the provided options and your analysis, option D seems the most plausible. In the context of a multiple-choice exam, and given these options, I would probably go with option D: \"Modify threat-intelligence settings\".\n\nHowever, it's important to note that, in a real-world scenario, further investigation would be necessary. Changes to the settings, especially security settings like Threat Intelligence, should not be made without a clear understanding of what's causing the issue to avoid potential security risks. Also, it is generally better to adjust the specific rules causing the issue rather than modifying global settings."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115981-exam-az-720-topic-5-question-18-discussion/",
+    "body": "HOTSPOT -<br><br>You create an Azure Traffic Manager profile with five endpoints. Each endpoint is a web app running in an Azure virtual machine (VM).<br><br>You observe that one of the endpoints has a degraded status. You plan to verify whether the endpoint is responding to the Traffic Manager health probe with a valid status code.<br><br>You need to identify the PowerShell cmdlet to use and the status code that the cmdlet should return.<br><br>Which value should you use for each requirement? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-720/image128.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-720/image129.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-21T07:18:00.000Z",
+        "voteCount": 1,
+        "content": "Invoke-WebRequest for the PowerShell cmdlet and 200 for the status code.\n\nThis is because:\n\nThe Invoke-WebRequest cmdlet can be used to send a request to a Traffic Manager endpoint (or any other URL), allowing you to manually check the HTTP response.\n\nA 200 HTTP status code generally indicates a successful HTTP request. If an endpoint is healthy and functioning correctly, it should respond with a 200 status code.\n\nPlease note that this method does not directly check the status of the Azure Traffic Manager's health probe. To directly verify the status of a Traffic Manager endpoint, you would typically use the Get-AzTrafficManagerEndpoint cmdlet. However, as this cmdlet is not among the provided options, Invoke-WebRequest is the closest available option for this scenario."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115986-exam-az-720-topic-5-question-20-discussion/",
+    "body": "You manage an Azure subscription that contains the following resources:<br><br><img src=\"https://img.examtopics.com/az-720/image131.png\"><br><br>An on-premises environment is connected to VNet1 by using ERGW1.<br><br>An administrator measures network latency for on-premises traffic that targets VM1 and VM2 by using the front-end IP address of the load balancer. The administrator enables ExpressRoute FastPath on ERGW1 and observes that the latency has not changed.<br><br>You need to resolve the issue that is preventing the network latency improvements offered by ExpressRoute FastPath from taking effect.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRedeploy the load balancer as a Standard SKU.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the SKU for the ExpressRoute gateway.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tResize VM1 and VM2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable accelerated networking on VM1 and VM2."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:25:00.000Z",
+        "voteCount": 1,
+        "content": "ExpressRoute FastPath is designed to improve the network performance of inbound traffic, from on-premises to Azure. The benefits of FastPath are not visible for traffic that goes through Azure's internal Basic SKU Load Balancer, as it introduces an additional network hop. The latency improvement will not be noticeable because the traffic goes to the load balancer first, and then to the virtual machines.\n\nTherefore, to resolve this issue, you should:\n\nA. Redeploy the load balancer as a Standard SKU.\n\nThe Azure Standard Load Balancer directly supports scenarios such as hairpinning and bidirectional NAT, enabling more scenarios where the benefits of FastPath can be observed. Switching to a Standard Load Balancer would remove the additional network hop, thus making the benefits of FastPath noticeable."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115987-exam-az-720-topic-5-question-21-discussion/",
+    "body": "A company has an Azure tenant. The company deploys an Azure firewall named FW1 to control access from an on-premises datacenter to an Azure virtual machine named VM1.<br><br>The company troubleshoots ICMP connectivity from the on-premises datacenter to VM1. You are unable to ping VM1 from an on-premises server.<br><br>You need to determine if ICMP connectivity to VM1 is allowed on FW1.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the ping command targeting the IP address of VM1 and review the Network rules log of FW1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the ping command targeting the IP address of VM1 and review the command\u2019s response.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the ping command targeting the IP address of VM1 and review the Infrastructure rules log of FW1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse the ping command targeting the fully qualified domain name of VM1 and review the command\u2019s response."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:26:00.000Z",
+        "voteCount": 1,
+        "content": "The Azure Firewall uses network rules to handle ICMP (Internet Control Message Protocol) traffic, as it's not application-based traffic.\n\nTo verify if ICMP traffic is allowed to VM1, you should:\n\nA. Use the ping command targeting the IP address of VM1 and review the Network rules log of FW1.\n\nThe network rules log of the Azure Firewall will show whether the ICMP packets are being allowed or blocked by FW1.\n\nOption B is not correct because the response of the ping command only tells you whether the ICMP request was successful or not. It does not indicate if the ICMP traffic is allowed through FW1 or not.\n\nOption C is not correct because there is no \"Infrastructure rules log\" in Azure Firewall.\n\nOption D is not correct because the FQDN is not used in ICMP traffic, ICMP operates on the network layer and uses IP addresses, not domain names. Also, similar to B, this will not indicate whether the ICMP traffic is being allowed or blocked by FW1."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115988-exam-az-720-topic-5-question-22-discussion/",
+    "body": "A company hosts a highly available application using Azure Load Balancer.<br><br>A virtual machine (VM) on the backend pool stops responding to health probes. The health probes are configured to use HTTP.<br><br>You are troubleshooting the incoming traffic issue. You run a Netsh trace on port 80. No incoming packets are detected on the VM. Outgoing packets are detected.<br><br>What is the cause of the issue?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA network security group is preventing incoming traffic to the port.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA proxy is configured.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSession persistence is configured.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn application on the VM is blocking the port."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "A. A network security group is preventing incoming traffic to the port.\n\nThe Network Security Group (NSG) could be incorrectly configured to block inbound traffic on port 80, which is used for HTTP. This would prevent the Azure Load Balancer's health probes from reaching the VM, leading to it being marked as unhealthy.\n\nOption B, a proxy being configured, would typically not prevent health probes from reaching the VM.\n\nOption C, session persistence being configured, should not impact health probes as they would be independent of client sessions.\n\nOption D is less likely because if an application on the VM was blocking the port, outgoing packets would likely be affected too, which is not the case as per your description. However, it could be possible if there is some misconfiguration within the application or firewall settings at the OS level. But, in this context, it's more plausible that NSG rules are affecting the inbound traffic."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/115991-exam-az-720-topic-5-question-23-discussion/",
+    "body": "A company has a pay-as-you-go subscription named Sub1.<br><br>The company has a virtual machine (VM) named VM1 in a subnet named Subnet1.<br><br>You create the following network security group (NSG) named NSG1 and associate it with Subnet1.<br><br><img src=\"https://img.examtopics.com/az-720/image132.png\"><br><br>You observe that an application on VM1 is unable to send email to recipients outside the company.<br><br>You need to resolve the issue.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the protocol for the NSG1 rule with a priority of 1000 to TCP.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the source and destination ports for the NSG1 rule with a priority of 1000 to 587.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMigrate Sub1 to a cloud service provider subscription.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRemove the NSG1 rule with a priority of 2000.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign NSG1 to the network interface on VM1."
+    ],
+    "answer": "E",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-07-21T07:33:00.000Z",
+        "voteCount": 1,
+        "content": "The issue seems to be related to how Azure's Network Security Group (NSG) is evaluating the rules. Here's a bit of context:\n\nThe default standard email protocol (SMTP) uses port 25 for email communication.\nHowever, many Internet Service Providers (ISPs) and cloud services, including Azure, block outbound SMTP traffic over port 25 to prevent spam.\nGiven the situation, the problem could be that the email traffic is being sent over port 25, which might be blocked. Hence, it's not an issue with the priority of the rules, the protocol, or the application of the NSG itself. The issue is likely related to the port being used for the email traffic.\n\nAzure recommends using port 587 for secure email transmission or SMTP relay.\n\nTherefore, the correct answer should be:\n\nB. Configure the source and destination ports for the NSG1 rule with a priority of 1000 to 587.\n\nThis change should allow the email application on VM1 to send emails successfully to external recipients."
+      }
+    ],
+    "examNameCode": "az-720",
+    "topicNumber": "5"
+  }
+]

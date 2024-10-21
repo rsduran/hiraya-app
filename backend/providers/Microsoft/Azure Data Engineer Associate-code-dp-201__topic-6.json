@@ -1,0 +1,36 @@
+[
+  {
+    "topic": 6,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/50972-exam-dp-201-topic-6-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to design the system for notifying law enforcement officers about speeding vehicles.<br>How should you design the pipeline? To answer, drag the appropriate services to the correct locations. Each service may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03774/0011900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03774/0011900002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "<img src=\"/assets/media/exam-media/03774/0012000001.jpg\" class=\"in-exam-image\"><br>Scenario:<br>Information about vehicles that have been detected as going over the speed limit during the last 30 minutes must be available to law enforcement officers. Several law enforcement organizations may respond to speeding vehicles.<br><br>Telemetry Capture -<br>The telemetry capture system records each time a vehicle passes in front of a sensor. The sensors run on a custom embedded operating system and record the following telemetry data:<br>\u2711 Time<br>\u2711 Location in latitude and longitude<br>\u2711 Speed in kilometers per hour (kmph)<br>\u2711 Length of vehicle in meters<br>Reference:<br>https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks<br>Design data processing solutions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-20T14:45:00.000Z",
+        "voteCount": 18,
+        "content": "Should be Kafka + Databricks!"
+      },
+      {
+        "date": "2021-06-29T21:45:00.000Z",
+        "voteCount": 1,
+        "content": "Kafka should be an event reader, but data processing should be done by Azure Databricks &amp; store in Cosmos DB or Azure SQL.  \n\nGiven answer looks correct to me"
+      },
+      {
+        "date": "2021-04-25T22:45:00.000Z",
+        "voteCount": 2,
+        "content": "As per the description, first box should be KAFKA"
+      },
+      {
+        "date": "2021-04-29T13:24:00.000Z",
+        "voteCount": 2,
+        "content": "Telemetry data should be stored in NOSQL database preferably Cosmos DB or blob storage.\n\nHowever in this question, Cosmos DB is not an option given. If given that would have been the best answer.\n\nComing to why Azure Server. Below is what the case study states and storage doesn't support query language\n\nRequirement :The solution must allow for searches of vehicle images by license plate to support law enforcement investigations. Searches must be able to be performed using a query language and must support fuzzy searches to compensate for license plate detection errors.\n\n\n\nhttps://docs.microsoft.com/en-us/azure/architecture/reference-architectures/data/stream-processing-databricks"
+      }
+    ],
+    "examNameCode": "dp-201",
+    "topicNumber": "6"
+  }
+]

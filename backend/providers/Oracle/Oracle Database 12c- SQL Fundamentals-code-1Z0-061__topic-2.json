@@ -1,0 +1,546 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/oracle/view/33703-exam-1z0-061-topic-2-question-1-discussion/",
+    "body": "Evaluate the SQL statement:<br>TRUNCATE TABLE DEPT;<br>Which three are true about the SQL statement? (Choose three.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt releases the storage space used by the table.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt does not release the storage space used by the table.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can roll back the deletion of rows after the statement executes.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can NOT roll back the deletion of rows after the statement executes.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn attempt to use DESCRIBE on the DEPT table after the TRUNCATE statement executes will display an error.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou must be the owner of the table or have DELETE ANY TABLE system privileges to truncate the DEPT table"
+    ],
+    "answer": "ADF",
+    "answerDescription": "A: The TRUNCATE TABLE Statement releases storage space used by the table,<br>D: Can not rollback the deletion of rows after the statement executes,<br>F: You must be the owner of the table or have DELETE ANY TABLE system privilege to truncate the DEPT table.<br>Incorrect answer:<br><br>C. is not true -<br><br>D. is not true -<br><br>E. is not true -<br>Refer: Introduction to Oracle9i: SQL, Oracle University Study Guide, 8-18",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-05T10:14:00.000Z",
+        "voteCount": 1,
+        "content": "A TRUNCATE statement also specifies whether space currently allocated for the table is returned to the containing tablespace after truncation. You can truncate any table or cluster in your own schema. Any user who has the DROP ANY TABLE system privilege can truncate a table or cluster in any schema.\nhttps://docs.oracle.com/html/E25494_01/general003.htm"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/oracle/view/61455-exam-1z0-061-topic-2-question-3-discussion/",
+    "body": "Here is the structure and data of the CUST_TRANS table:<br>Exhibit:<br><img src=\"/assets/media/exam-media/02258/0009100001.png\" class=\"in-exam-image\"><br>Dates are stored in the default date format dd-mm-rr in the CUST_TRANS table.<br>Which three SQL statements would execute successfully? (Choose three.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT transdate + '10' FROM cust_trans;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT * FROM cust_trans WHERE transdate = '01-01-07';",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT transamt FROM cust_trans WHERE custno &gt; '11';",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT * FROM cust_trans WHERE transdate='01-JANUARY-07';",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT custno + 'A' FROM cust_trans WHERE transamt &gt; 2000;"
+    ],
+    "answer": "ACD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-04T07:48:00.000Z",
+        "voteCount": 1,
+        "content": "data format is dd-mm-rr' or 'dd-mon-rr'?"
+      },
+      {
+        "date": "2021-09-03T07:06:00.000Z",
+        "voteCount": 1,
+        "content": "data format is dd-mm-rr. And B is correct too"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/oracle/view/94593-exam-1z0-061-topic-2-question-6-discussion/",
+    "body": "Evaluate these two SQL statements:<br>SELECT last_name, salary, hire_date FROM EMPLOYEES ORDER BY salary DESC;<br>SELECT last_name, salary, hire_date FROM EMPLOYEES ORDER BY 2 DESC;<br>What is true about them?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe two statements produce identical results.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe second statement returns a syntax error.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThere is no need to specify DESC because the results are sorted in descending order by default.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe two statements can be made to produce identical results by adding a column alias for the salary column in the second SQL statement. A"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "the two statement produce identical results as ORDER BY 2 will take the second column as sorting column.<br>Incorrect answer:<br><br>B. there is no syntax error -<br>C. result are sorted in ascending order by default<br>D. ORDER BY 2 will take the second column as sorting column.<br>Refer: Introduction to Oracle9i: SQL, Oracle University Study Guide, 2-22",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-01-09T07:34:00.000Z",
+        "voteCount": 1,
+        "content": "column aliases and/or number as order in the select for the col are allowed in order by clause. default is ASC so DESC is needed"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/oracle/view/2918-exam-1z0-061-topic-2-question-7-discussion/",
+    "body": "Where can sub queries be used? (Choose all that apply)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfield names in the SELECT statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe FROM clause in the SELECT statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe HAVING clause in the SELECT statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe GROUP BY clause in the SELECT statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe WHERE clause in only the SELECT statement",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe WHERE clause in SELECT as well as all DML statements"
+    ],
+    "answer": "ABCF",
+    "answerDescription": "SUBQUERIES can be used in the SELECT list and in the FROM, WHERE, and HAVING clauses of a query.<br>A subquery can have any of the usual clauses for selection and projection. The following are required clauses:<br> A SELECT list<br> A FROM clause<br>The following are optional clauses:<br> WHERE<br> GROUP BY<br> HAVING<br>The subquery (or subqueries) within a statement must be executed before the parent query that calls it, in order that the results of the subquery can be passed to the parent.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-07-26T07:26:00.000Z",
+        "voteCount": 1,
+        "content": "In your answers, you mentioned GROUP BY as optional and you did not include D as correct answer. you have a lot of errors"
+      },
+      {
+        "date": "2021-06-04T21:39:00.000Z",
+        "voteCount": 1,
+        "content": "It's because a subquery can't be used in a GROUP BY clause"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/oracle/view/4646-exam-1z0-061-topic-2-question-18-discussion/",
+    "body": "The ORDERS TABLE belongs to the user OE. OE has granted the SELECT privilege on the ORDERS table to the user HR.<br>Which statement would create a synonym ORD so that HR can execute the following query successfully?<br>SELECT * FROM ord;<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE SYNONYM ord FOR orders; This command is issued by OE.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PUBLIC SYNONYM ord FOR orders; This command is issued by OE.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE SYNONYM ord FOR oe.orders; This command is issued by the database administrator.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE PUBLIC SYNONYM ord FOR oe.orders; This command is issued by the database administrator."
+    ],
+    "answer": "D",
+    "answerDescription": "Creating a Synonym for an Object<br>To refer to a table that is owned by another user, you need to prefix the table name with the name of the user who created it, followed by a period. Creating a synonym eliminates the need to qualify the object name with the schema and provides you with an alternative name for a table, view, sequence, procedure, or other objects.<br>This method can be especially useful with lengthy object names, such as views.<br>In the syntax:<br>PUBLIC Creates a synonym that is accessible to all users synonym Is the name of the synonym to be created object Identifies the object for which the synonym is created<br><br>Guidelines -<br>The object cannot be contained in a package.<br>A private synonym name must be distinct from all other objects that are owned by the same user.<br>If you try to execute the following command (alternative B, issued by OE):",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-03T11:06:00.000Z",
+        "voteCount": 2,
+        "content": "D - correct.\n\nB - not:\nCREATE PUBLIC SYNONYM ord FOR orders\nError report -\nORA-01031: insufficient privileges"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/oracle/view/638-exam-1z0-061-topic-2-question-19-discussion/",
+    "body": "Evaluate this SQL statement:<br><br>SELECT e.emp_name, d.dept_name -<br><br>FROM employees e -<br><br>JOIN departments d -<br>USING (department_id)<br>WHERE d.department_id NOT IN (10, 40)<br>ORDER BY dept_name;<br>The statement fails when executed. Which change fixes the error?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tremove the ORDER BY clause",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tremove the table alias prefix from the WHERE clause",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tremove the table alias from the SELECT clause",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tprefix the column in the USING clause with the table alias",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tprefix the column in the ORDER BY clause with the table alias",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\treplace the condition \"d.department_id NOT IN (10, 40)\" in the WHERE clause with \"d.department_id &lt;&gt; 10 AND d.department_id &lt;&gt; 40\""
+    ],
+    "answer": "CE",
+    "answerDescription": "Prefix the column in the ORDER BY Clause would cause the statement to succeed, assuming that the statement failed because the dept_name existed in employee &amp; department tables.<br>Not C: Removing the alias from the columns in the SELECT clause would cause the Statement to fail if the columns existing in both tables.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-03T11:22:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct.\nWhen you\u2019re using the NATURAL JOIN or JOIN USING syntax, you can\u2019t use\nalias or table names to qualify the column names on the columns used in\nthe join operation anywhere in the query."
+      },
+      {
+        "date": "2019-08-26T06:07:00.000Z",
+        "voteCount": 2,
+        "content": "Is only B. Alias can't be used in where clause."
+      },
+      {
+        "date": "2019-07-27T09:56:00.000Z",
+        "voteCount": 1,
+        "content": "ONLY E is the correct answer. this is very basic"
+      },
+      {
+        "date": "2019-05-14T07:44:00.000Z",
+        "voteCount": 2,
+        "content": "B is the correct answer...can we get this updated please?"
+      },
+      {
+        "date": "2019-03-22T20:27:00.000Z",
+        "voteCount": 2,
+        "content": "The answer should be B \nB. remove the table alias prefix from the WHERE clause\nRest all is not needed to done."
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/oracle/view/2940-exam-1z0-061-topic-2-question-28-discussion/",
+    "body": "See the exhibit and examine the structure of the CUSTOMERS and GRADES tables:<br><img src=\"/assets/media/exam-media/02258/0011300001.png\" class=\"in-exam-image\"><br>You need to display names and grades of customers who have the highest credit limit.<br>Which two SQL statements would accomplish the task? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT custname, grade FROM customers, grades WHERE (SELECT MAX(cust_credit_limit) FROM customers) BETWEEN startval and endval;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT custname, grade FROM customers, grades WHERE (SELECT MAX(cust_credit_limit) FROM customers) BETWEEN startval and endval AND cust_credit_limit BETWEEN startval AND endval;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT custname, grade FROM customers, grades WHERE cust_credit_limit = (SELECT MAX(cust_credit_limit) FROM customers) AND cust_credit_limit BETWEEN startval AND endval;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT custname, grade FROM customers , grades WHERE cust_credit_limit IN (SELECT MAX(cust_credit_limit) FROM customers) AND MAX(cust_credit_limit) BETWEEN startval AND endval;"
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-07-27T22:02:00.000Z",
+        "voteCount": 3,
+        "content": "my goodness!!! B is so WRONG!!!!!! \ntry it yourself!!!! please!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      },
+      {
+        "date": "2021-01-28T03:26:00.000Z",
+        "voteCount": 1,
+        "content": "B is right"
+      },
+      {
+        "date": "2021-08-11T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "I wonder what is going to happen if 2 customers in the highest grade.\nWould it retrieval those 2 customers using B?"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/oracle/view/1321-exam-1z0-061-topic-2-question-30-discussion/",
+    "body": "Which two are true about aggregate functions? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can use aggregate functions in any clause of a SELECT statement.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can use aggregate functions only in the column list of the select clause and in the WHERE clause of a SELECT statement.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can mix single row columns with aggregate functions in the column list of a SELECT statement by grouping on the single row columns.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can pass column names, expressions, constants, or functions as parameter to an aggregate function.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou can use aggregate functions on a table, only by grouping the whole table as one single group.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou cannot group the rows of a table by more than one column while using aggregate functions. AD"
+    ],
+    "answer": "Explanation",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-02-01T15:11:00.000Z",
+        "voteCount": 1,
+        "content": "A-B : False (We can't use agg functions in where clause)\nE-F : False\nSo C&amp;B are Good. \nD : True, we can use expressions in agg functions, i'ts not only for column name, we can do more like sum( case  when col_1 &gt; 2 then 1 else 0 end) for a count etc in test case..\nC : True"
+      },
+      {
+        "date": "2022-02-01T15:12:00.000Z",
+        "voteCount": 1,
+        "content": "So C&amp;D"
+      },
+      {
+        "date": "2021-08-11T08:41:00.000Z",
+        "voteCount": 1,
+        "content": "I think its B,C.\nThe aggregate function can only use on select clause.\nAnd C is obvious.\nAs to D, I cant imagine putting a function inside"
+      },
+      {
+        "date": "2019-07-27T22:14:00.000Z",
+        "voteCount": 1,
+        "content": "They themselves dont know the answer. Hence, no answer provided.\nC is the only answer here."
+      },
+      {
+        "date": "2019-07-24T11:44:00.000Z",
+        "voteCount": 1,
+        "content": "A &amp; D ?"
+      },
+      {
+        "date": "2019-05-14T08:02:00.000Z",
+        "voteCount": 3,
+        "content": "I believe answers are C &amp; D...is this correct, and if so, can it be added to question please?"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/oracle/view/2941-exam-1z0-061-topic-2-question-33-discussion/",
+    "body": "See the Exhibits and examine the structures of PRODUCTS, SALES and CUSTOMERS table:<br><img src=\"/assets/media/exam-media/02258/0011700001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02258/0011700002.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02258/0011800001.png\" class=\"in-exam-image\"><br>You issue the following query:<br><img src=\"/assets/media/exam-media/02258/0011800002.png\" class=\"in-exam-image\"><br>Which statement is true regarding the outcome of this query?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt produces an error because the NATURAL join can be used only with two tables",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt produces an error because a column used in the NATURAL join cannot have a qualifier",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt produces an error because all columns used in the NATURAL join should have a qualifier",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt executes successfully"
+    ],
+    "answer": "B",
+    "answerDescription": "Creating Joins with the USING Clause<br>Natural joins use all columns with matching names and data types to join the tables. The<br>USING clause can be used to specify only those columns that should be used for an equijoin.<br><br>The Natural JOIN USING Clause -<br>The format of the syntax for the natural JOIN USING clause is as follows:<br>SELECT table1.column, table2.column<br><br>FROM table1 -<br>JOIN table2 USING (join_column1, join_column2);<br>While the pure natural join contains the NATURAL keyword in its syntax, the JOINUSING syntax does not.<br>An error is raised if the keywords NATURAL and USING occur in the same join clause. The JOINUSING clause allows one or more equijoin columns to be explicitly specified in brackets after the USING keyword. This avoids the shortcomings associated with the pure natural join. Many situations demand that tables be joined only on certain columns, and this format caters to this requirement.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-07-27T22:31:00.000Z",
+        "voteCount": 2,
+        "content": "This is very wrong..\n\nselect c.country_name , l.city, d.department_name\nfrom countries c\nnatural join locations l\nnatural join departments d\n\ntry the above and that worked\n\nor you can do this\n\nselect c.country_name , city, department_name\nfrom countries c\nnatural join locations l\nnatural join departments d\n\nPlease review it first before you post anything."
+      },
+      {
+        "date": "2019-09-17T10:16:00.000Z",
+        "voteCount": 1,
+        "content": "B correct:\nIt produces an error because a column used in the NATURAL join cannot have a qualifier \nORA-25155: column used in NATURAL join cannot have qualifier"
+      },
+      {
+        "date": "2021-08-12T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "I do a test.\nThe join column cannot have qualifier in select or where clause while the others, not join column can.\nError:\nSELECT employee.emp_id, emp_name,office_name \nFROM employee NATURAL JOIN office                 --join column : emp_id\nSuccess:\nSELECT emp_id, employee.emp_name, office.office_name \nFROM employee NATURAL JOIN office                 --join column : emp_id\n\nThe same situation if using \"JOIN...USING()\""
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/oracle/view/4011-exam-1z0-061-topic-2-question-34-discussion/",
+    "body": "You work as a database administrator at ABC.com. You study the exhibit carefully.<br>Exhibit:<br><img src=\"/assets/media/exam-media/02258/0012000001.png\" class=\"in-exam-image\"><br>You want to create a SALE_PROD view by executing the following SQL statements:<br><img src=\"/assets/media/exam-media/02258/0012100001.png\" class=\"in-exam-image\"><br>Which statement is true regarding the execution of the above statement?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe view will be created and you can perform DLM operations on the view",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe view will not be created because the join statements are not allowed for creating a view",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe view will not be created because the GROUP BY clause is not allowed for creating a view",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe view will be created but no DML operations will be allowed on the view"
+    ],
+    "answer": "D",
+    "answerDescription": "Rules for Performing DML Operations on a View<br>You cannot add data through a view if the view includes:<br><br>Group functions -<br><br>A GROUP BY clause -<br><br>The DISTINCT keyword -<br><br>The pseudocolumn ROWNUM keyword -<br><br>Columns defined by expressions -<br>NOT NULL columns in the base tables that are not selected by the view",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-17T10:40:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct.\n\nYou can create VIEW like this, but cant use  DML on it.\n\nCREATE VIEW q37 AS\nSELECT FIRST_NAME, LAST_NAME, SUM(SALARY) \"SUM\"\n    FROM employees\n    GROUP BY FIRST_NAME, LAST_NAME;"
+      },
+      {
+        "date": "2019-08-25T00:28:00.000Z",
+        "voteCount": 1,
+        "content": "The answer should be C\nnot a GROUP BY expression"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/oracle/view/4012-exam-1z0-061-topic-2-question-37-discussion/",
+    "body": "Which two statements are true regarding views? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA sub query that defines a view cannot include the GROUP BY clause",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA view is created with the sub query having the DISTINCT keyword can be updated",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA Data Manipulation Language (DML) operation can be performed on a view that is created with the sub query having all the NOT NULL columns of a table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA view that is created with the sub query having the pseudo column ROWNUM keyword cannot be updated"
+    ],
+    "answer": "CD",
+    "answerDescription": "Rules for Performing DML Operations on a View<br>You cannot add data through a view if the view includes:<br><br>Group functions -<br><br>A GROUP BY clause -<br><br>The DISTINCT keyword -<br><br>The pseudocolumn ROWNUM keyword -<br><br>Columns defined by expressions -<br>NOT NULL columns in the base tables that are not selected by the view",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-08-25T00:39:00.000Z",
+        "voteCount": 1,
+        "content": "it's true ??\ni can't use GROUP BY when create View"
+      },
+      {
+        "date": "2019-09-17T10:50:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, true.\n\nExample for HR schema:\n\nCREATE VIEW q37 AS\nSELECT FIRST_NAME, LAST_NAME, SUM(SALARY) \"SUM\"\n    FROM employees\n    GROUP BY FIRST_NAME, LAST_NAME;"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/oracle/view/59712-exam-1z0-061-topic-2-question-38-discussion/",
+    "body": "Examine the structure of the EMPLOYEES and NEW_EMPLOYEES tables:<br><img src=\"/assets/media/exam-media/02258/0012300001.png\" class=\"in-exam-image\"><br>Which DELETE statement is valid?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE FROM employees WHERE employee_id = (SELECT employee_id FROM employees);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE * FROM employees WHERE employee_id=(SELECT employee_id FROM new_employees);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE FROM employees WHERE employee_id IN (SELECT employee_id . FROM new_employees . WHERE name = Carrey);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE * FROM employees WHERE employee_id IN (SELECT employee_id . FROM new_employees . WHERE name = Carrey);"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-13T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "This is tricky. A and C both can run successfully. \nBut A will delete all data\ud83d\ude02."
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/oracle/view/59713-exam-1z0-061-topic-2-question-39-discussion/",
+    "body": "View the Exhibits and examine the structures of the PROMOTIONS and SALES tables.<br><img src=\"/assets/media/exam-media/02258/0012400001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02258/0012500001.png\" class=\"in-exam-image\"><br>Evaluate the following SQL statements:<br><img src=\"/assets/media/exam-media/02258/0012500002.png\" class=\"in-exam-image\"><br>Which statement is true regarding the output of the above query?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt gives details of product IDs that have been sold irrespective of whether they had a promo or not",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt gives the details of promos for which there have been no sales",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt gives the details of promos for which there have been sales",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt gives details of all promos irrespective of whether they have resulted in a sale or not"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-08-13T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "Something what I find is right outer join = right join"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/oracle/view/2943-exam-1z0-061-topic-2-question-40-discussion/",
+    "body": "Examine the structure of the EMPLOYEES table:<br><img src=\"/assets/media/exam-media/02258/0012500003.png\" class=\"in-exam-image\"><br>Which UPDATE statement is valid?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUPDATE employees SET first_name = John SET last_name = Smith WHERE employee_id = 180;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUPDATE employees SET first_name = John, SET last_name = Smoth WHERE employee_id = 180;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUPDATE employee SET first_name = John AND last_name = Smith WHERE employee_id = 180;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUPDATE employee SET first_name = John, last_name = Smith WHERE employee_id = 180;"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-02-24T17:06:00.000Z",
+        "voteCount": 1,
+        "content": "The answer should be B. D updates employee and the table name is employees. So B."
+      },
+      {
+        "date": "2021-08-13T10:47:00.000Z",
+        "voteCount": 1,
+        "content": "However, B is not seemed like a runnable syntax.\nNO answer is right!"
+      },
+      {
+        "date": "2019-07-28T01:32:00.000Z",
+        "voteCount": 1,
+        "content": "what i mean is first_name ='John'. anyway. its common sense"
+      },
+      {
+        "date": "2019-07-28T01:31:00.000Z",
+        "voteCount": 1,
+        "content": "Again, you made a mistake!\n\nthere is no answer for this. you know why?\n\nwhen updating characters. it should have ' '. Like 'John'\n\nPlease review the basic SQL before posting here."
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/oracle/view/2944-exam-1z0-061-topic-2-question-46-discussion/",
+    "body": "Examine the structure of the MARKS table:<br>Exhibit:<br><img src=\"/assets/media/exam-media/02258/0013100001.png\" class=\"in-exam-image\"><br>Which two statements would execute successfully? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT student_name, subject1 FROM marks WHERE subject1 &gt; AVG(subject1);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT student_name, SUM(subject1) FROM marks WHERE student_name LIKE 'R%';",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT SUM(subject1+subject2+subject3) FROM marks WHERE student_name IS NULL;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT SUM(DISTINCT NVL(subject1, 0)), MAX(subject1) FROM marks WHERE subject1 &gt; subject2;"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-18T09:21:00.000Z",
+        "voteCount": 3,
+        "content": "CD is correct"
+      },
+      {
+        "date": "2020-02-24T13:00:00.000Z",
+        "voteCount": 2,
+        "content": "A fails because it has an Aggregate Function in the WHERE clause\nB fails because it has a single column and an Aggregate Function in the SELECT clause but then it does not include a GROUP BY clause on the single column."
+      },
+      {
+        "date": "2019-07-28T02:00:00.000Z",
+        "voteCount": 2,
+        "content": "All will run successfully"
+      },
+      {
+        "date": "2019-08-25T00:59:00.000Z",
+        "voteCount": 1,
+        "content": "i think so :))))"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/oracle/view/2952-exam-1z0-061-topic-2-question-69-discussion/",
+    "body": "Which one is a system privilege?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDELETE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEXECUTE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER TABLE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCREATE TABLE"
+    ],
+    "answer": "E",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-07-28T08:44:00.000Z",
+        "voteCount": 1,
+        "content": "should be D and E"
+      },
+      {
+        "date": "2019-09-20T10:52:00.000Z",
+        "voteCount": 1,
+        "content": "E is correct, D - no.\n\nALTER ANY TABLE - Enables a user to alter any table in the database.\nCREATE TABLE - Enables a user to create a table owned by that user.\n\nThere is no \"ALTER TABLE\" system privilege"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/oracle/view/5522-exam-1z0-061-topic-2-question-71-discussion/",
+    "body": "Examine the structure of the INVOICE table:<br>Exhibit:<br><img src=\"/assets/media/exam-media/02258/0015600001.png\" class=\"in-exam-image\"><br>Which two SQL statements would execute successfully? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT inv_no, NVL2(inv_date, 'Pending', 'Incomplete') FROM invoice;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT inv_no, NVL2(inv_amt, inv_date, 'Not Available') FROM invoice;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT inv_no, NVL2(inv_date, sysdate-inv_date, sysdate) FROM invoice;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSELECT inv_no, NVL2(inv_amt, inv_amt*.25, 'Not Available') FROM invoice;"
+    ],
+    "answer": "AC",
+    "answerDescription": "The NVL2 Function -<br>The NVL2 function provides an enhancement to NVL but serves a very similar purpose. It evaluates whether a column or expression of any data type is null or not.<br>5-6 The NVL function\\<br>If the first term is not null, the second parameter is returned, else the third parameter is returned. Recall that the NVL function is different since it returns the original term if it is not null. The NVL2 function takes three mandatory parameters. Its syntax is NVL2(original, ifnotnull, ifnull), where original represents the term being tested. Ifnotnull is returned if original is not null, and ifnull is returned if original is null. The data types of the ifnotnull and ifnull parameters must be compatible, and they cannot be of type LONG.<br>They must either be of the same type, or it must be possible to convert ifnull to the type of the ifnotnull parameter. The data type returned by the NVL2 function is the same as that of the ifnotnull parameter.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-09-20T11:05:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct but Explanation - no.\n\nNVL2 (expr1,expr2,expr3)\n\nThe argument expr1 can have any datatype. The arguments expr2 and expr3 can have any datatypes except LONG.\n\nIf the datatypes of expr2 and expr3 are different:\n\n* If expr2 is character data, then Oracle Database converts expr3 to the datatype of expr2 before comparing them unless expr3 is a null constant. In that case, a datatype conversion is not necessary. Oracle returns VARCHAR2 in the character set of expr2.\n\n* If expr2 is numeric, then Oracle determines which argument has the highest numeric precedence, implicitly converts the other argument to that datatype, and returns that datatype.\n    \nhttps://docs.oracle.com/cd/B19306_01/server.102/b14200/functions106.htm"
+      }
+    ],
+    "examNameCode": "1z0-061",
+    "topicNumber": "2"
+  }
+]

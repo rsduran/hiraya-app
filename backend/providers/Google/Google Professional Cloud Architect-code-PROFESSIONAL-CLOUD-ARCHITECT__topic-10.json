@@ -1,0 +1,778 @@
+[
+  {
+    "topic": 10,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/google/view/60524-exam-professional-cloud-architect-topic-10-question-1/",
+    "body": "For this question, refer to the TerramEarth case study. You start to build a new application that uses a few Cloud Functions for the backend. One use case requires a Cloud Function func_display to invoke another Cloud Function func_query. You want func_query only to accept invocations from func_display. You also want to follow Google's recommended best practices. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a token and pass it in as an environment variable to func_display. When invoking func_query, include the token in the request. Pass the same token to func_query and reject the invocation if the tokens are different.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake func_query 'Require authentication.' Create a unique service account and associate it to func_display. Grant the service account invoker role for func_query. Create an id token in func_display and include the token to the request when invoking func_query.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake func_query 'Require authentication' and only accept internal traffic. Create those two functions in the same VPC. Create an ingress firewall rule for func_query to only allow traffic from func_display.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate those two functions in the same project and VPC. Make func_query only accept internal traffic. Create an ingress firewall for func_query to only allow traffic from func_display. Also, make sure both functions use the same service account."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 8,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-24T16:41:00.000Z",
+        "voteCount": 18,
+        "content": "B\n\nAuthentication function to function calls. Add calling function service account as a member on the receiving function and grant that member the cloud functions invoker\nhttps://cloud.google.com/functions/docs/securing/authenticating"
+      },
+      {
+        "date": "2021-10-31T08:14:00.000Z",
+        "voteCount": 14,
+        "content": "B is correct. You need both service account (Authorization) and id token (Authentication)\nWhen building services that connect multiple functions, it's a good idea to ensure that each function can only send requests to a specific subset of your other functions. For instance, if you have a login function, it should be able to access the user profiles function, but it probably shouldn't be able to access the search function.\nTo configure the receiving function to accept requests from a specific calling function, you need to grant the Cloud Functions Invoker (roles/cloudfunctions.invoker) role to the calling function's service account on the receiving function."
+      },
+      {
+        "date": "2021-10-31T08:15:00.000Z",
+        "voteCount": 8,
+        "content": "Because it will be invoking the receiving function, the calling function must also provide a Google-signed ID token to authenticate. This is a two step process:\n1.\tCreate a Google-signed ID token with the audience field (aud) set to the URL of the receiving function.\n2.\tInclude the ID token in an Authorization: Bearer ID_TOKEN header in the request to the function.\nhttps://cloud.google.com/functions/docs/securing/authenticating#authenticating_function_to_function_calls\nAuthentication function to function calls. Add calling function service account as a member on the receiving function and grant that member the cloud functions invoker."
+      },
+      {
+        "date": "2021-10-31T08:15:00.000Z",
+        "voteCount": 2,
+        "content": "Have the account you are using to access Cloud Functions assigned a role that contains the cloudfunctions.functions.invoke permission. By default, the Cloud Functions Admin and Cloud Functions Developer roles have this permission. https://cloud.google.com/functions/docs/securing/authenticating\nDepending on who or what is invoking your cloud function the process for setting up authentication will vary, however there are two requirements common to all types of authentication:\n1.\tThe person or service authorized to invoke the cloud function must be assigned the cloudfunctions.invoker role or some other role with the cloudfunctions.invoke permission.\n2.\tThe person or service authorized to invoke the cloud function must send a token along with the HTTP request to prove that they are authorized to invoke the cloud function.\nhttps://dev.to/jakewitcher/setting-up-authorization-for-http-cloud-functions-in-gcp-45bc"
+      },
+      {
+        "date": "2024-05-01T04:17:00.000Z",
+        "voteCount": 1,
+        "content": "Vote for B"
+      },
+      {
+        "date": "2024-03-03T06:57:00.000Z",
+        "voteCount": 1,
+        "content": "B is overkill.Option D provides a more secure, efficient, and manageable solution that adheres to Google's best practices. \nGoogle Cloud Functions already have built-in mechanisms for:\n- Authorization: Each Cloud Function has an associated service account assigned by default. This service account controls who can invoke the function based on its IAM roles.\n- Authentication: Cloud Functions automatically handle authentication for authorized invocations using a secure token exchange process. You don't need to manually manage ID tokens in this context."
+      },
+      {
+        "date": "2024-03-03T06:52:00.000Z",
+        "voteCount": 1,
+        "content": "B is overkill.Option D provides a more secure, efficient, and manageable solution that adheres to Google's best practices. \nGoogle Cloud Functions already have built-in mechanisms for:\n- Authorization: Each Cloud Function has an associated service account assigned by default. This service account controls who can invoke the function based on its IAM roles.\n- Authentication: Cloud Functions automatically handle authentication for authorized invocations using a secure token exchange process. You don't need to manually manage ID tokens in this context."
+      },
+      {
+        "date": "2022-11-21T02:50:00.000Z",
+        "voteCount": 1,
+        "content": "B is ok"
+      },
+      {
+        "date": "2022-09-18T08:11:00.000Z",
+        "voteCount": 1,
+        "content": "service account  - B!"
+      },
+      {
+        "date": "2022-08-01T12:52:00.000Z",
+        "voteCount": 1,
+        "content": "Just checking why not A?"
+      },
+      {
+        "date": "2022-07-04T19:28:00.000Z",
+        "voteCount": 2,
+        "content": "B makes sense without too much thinking.. This is strict enforcement.."
+      },
+      {
+        "date": "2022-04-25T04:25:00.000Z",
+        "voteCount": 3,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2021-12-29T07:37:00.000Z",
+        "voteCount": 1,
+        "content": "vote B"
+      },
+      {
+        "date": "2021-11-27T00:33:00.000Z",
+        "voteCount": 1,
+        "content": "vote B"
+      },
+      {
+        "date": "2021-08-30T19:49:00.000Z",
+        "voteCount": 8,
+        "content": "B. Make func_query 'Require authentication.' Create a unique service account and associate it to func_display. Grant the service account invoker role for func_query. Create an id token in func_display and include the token to the request when invoking func_query."
+      },
+      {
+        "date": "2021-08-24T07:56:00.000Z",
+        "voteCount": 3,
+        "content": "B is OK"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/google/view/60525-exam-professional-cloud-architect-topic-10-question-2/",
+    "body": "For this question, refer to the TerramEarth case study. You have broken down a legacy monolithic application into a few containerized RESTful microservices.<br>You want to run those microservices on Cloud Run. You also want to make sure the services are highly available with low latency to your customers. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy Cloud Run services to multiple availability zones. Create Cloud Endpoints that point to the services. Create a global HTTP(S) Load Balancing instance and attach the Cloud Endpoints to its backend.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy Cloud Run services to multiple regions. Create serverless network endpoint groups pointing to the services. Add the serverless NEGs to a backend service that is used by a global HTTP(S) Load Balancing instance.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy Cloud Run services to multiple regions. In Cloud DNS, create a latency-based DNS name that points to the services.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy Cloud Run services to multiple availability zones. Create a TCP/IP global load balancer. Add the Cloud Run Endpoints to its backend service."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 22,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-10-31T08:18:00.000Z",
+        "voteCount": 30,
+        "content": "B is correct. \nCloud Run is a regional service. \nTo serve global users you need to configure a Global HTTP LB and NEG as the backend.\nCloud Run services are deployed into individual regions and to route your users to different regions of your service, you need to configure external HTTP(S) Load Balancing.\nhttps://cloud.google.com/run/docs/multiple-regions\nA network endpoint group (NEG) specifies a group of backend endpoints for a load balancer. \nA serverless NEG is a backend that points to a Cloud Run, App Engine, or Cloud Functions service.\nhttps://cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts"
+      },
+      {
+        "date": "2021-08-26T20:18:00.000Z",
+        "voteCount": 25,
+        "content": "B\nhttps://cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts"
+      },
+      {
+        "date": "2021-10-08T06:46:00.000Z",
+        "voteCount": 4,
+        "content": "B is correct"
+      },
+      {
+        "date": "2024-05-01T04:32:00.000Z",
+        "voteCount": 1,
+        "content": "I Vote for B"
+      },
+      {
+        "date": "2023-05-08T18:46:00.000Z",
+        "voteCount": 1,
+        "content": "My guess is B"
+      },
+      {
+        "date": "2022-12-28T08:36:00.000Z",
+        "voteCount": 2,
+        "content": "The correct answer is B. Deploying the microservices to multiple regions will ensure high availability, as it will allow the services to continue running even if one region experiences an outage. Creating serverless network endpoint groups pointing to the services and adding them to a backend service used by a global HTTP(S) Load Balancer will allow the load balancer to route traffic to the closest region, reducing latency for customers."
+      },
+      {
+        "date": "2022-12-19T02:28:00.000Z",
+        "voteCount": 3,
+        "content": "Why the answer is not A refer to this diagram\nhttps://www.techgeeknext.com/google-cloud-architect/terramearth-case-study"
+      },
+      {
+        "date": "2024-05-01T04:31:00.000Z",
+        "voteCount": 2,
+        "content": "Cloud Endpoins are rather for building API Gateway and I think can't be a backed for global HTTP(s) Load Balancer"
+      },
+      {
+        "date": "2022-12-17T21:02:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2022-11-21T02:53:00.000Z",
+        "voteCount": 1,
+        "content": "B is ok"
+      },
+      {
+        "date": "2022-10-20T16:19:00.000Z",
+        "voteCount": 1,
+        "content": "correct answer is B https://cloud.google.com/run/docs/multiple-regions"
+      },
+      {
+        "date": "2022-09-14T07:39:00.000Z",
+        "voteCount": 1,
+        "content": "B is the answer.\n\nhttps://cloud.google.com/load-balancing/docs/negs/serverless-neg-concepts\nA serverless NEG is a backend that points to a Cloud Run, App Engine, Cloud Functions, or API Gateway service."
+      },
+      {
+        "date": "2022-07-04T19:31:00.000Z",
+        "voteCount": 1,
+        "content": "B is fine.. I agree with others .."
+      },
+      {
+        "date": "2022-04-25T04:27:00.000Z",
+        "voteCount": 6,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2021-12-25T19:50:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct. https://cloud.google.com/run/docs/multiple-regions"
+      },
+      {
+        "date": "2021-12-20T03:19:00.000Z",
+        "voteCount": 2,
+        "content": "B is OK"
+      },
+      {
+        "date": "2021-12-15T14:02:00.000Z",
+        "voteCount": 2,
+        "content": "https://cloud.google.com/run/docs/multiple-regions"
+      },
+      {
+        "date": "2021-12-10T04:04:00.000Z",
+        "voteCount": 1,
+        "content": "C is the  correct answer"
+      },
+      {
+        "date": "2021-12-08T08:16:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct."
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/google/view/60557-exam-professional-cloud-architect-topic-10-question-3/",
+    "body": "For this question, refer to the TerramEarth case study. You are migrating a Linux-based application from your private data center to Google Cloud. The<br>TerramEarth security team sent you several recent Linux vulnerabilities published by Common Vulnerabilities and Exposures (CVE). You need assistance in understanding how these vulnerabilities could impact your migration. What should you do? (Choose two.)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOpen a support case regarding the CVE and chat with the support engineer.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRead the CVEs from the Google Cloud Status Dashboard to understand the impact.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRead the CVEs from the Google Cloud Platform Security Bulletins to understand the impact.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPost a question regarding the CVE in Stack Overflow to get an explanation.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPost a question regarding the CVE in a Google Cloud discussion group to get an explanation."
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "AC",
+        "count": 60,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AD",
+        "count": 4,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-12-04T10:34:00.000Z",
+        "voteCount": 36,
+        "content": "A&amp;C. Though if in real life we will do D :-)"
+      },
+      {
+        "date": "2021-09-06T10:15:00.000Z",
+        "voteCount": 29,
+        "content": "A. Open a support case regarding the CVE and chat with the support engineer.\nC. Read the CVEs from the Google Cloud Platform Security Bulletins to understand the impact."
+      },
+      {
+        "date": "2024-05-28T12:01:00.000Z",
+        "voteCount": 1,
+        "content": "AC are right options."
+      },
+      {
+        "date": "2023-10-15T04:33:00.000Z",
+        "voteCount": 3,
+        "content": "A &amp; C definitely"
+      },
+      {
+        "date": "2023-06-17T07:36:00.000Z",
+        "voteCount": 1,
+        "content": "I think C&amp;E"
+      },
+      {
+        "date": "2022-12-17T21:07:00.000Z",
+        "voteCount": 2,
+        "content": "A , C is the correct answer"
+      },
+      {
+        "date": "2022-11-21T02:57:00.000Z",
+        "voteCount": 1,
+        "content": "AC are ok"
+      },
+      {
+        "date": "2022-10-20T16:22:00.000Z",
+        "voteCount": 1,
+        "content": "best answers are A &amp; C"
+      },
+      {
+        "date": "2022-07-31T02:06:00.000Z",
+        "voteCount": 2,
+        "content": "we are OK with AC!"
+      },
+      {
+        "date": "2022-07-13T12:12:00.000Z",
+        "voteCount": 4,
+        "content": "This is about vulnerabilities in the Linux based application of Terram Earth. You will not find anything in Google dashboards and bulletins for these. Option A and D are correct as that would be the most logical steps."
+      },
+      {
+        "date": "2023-04-23T10:26:00.000Z",
+        "voteCount": 2,
+        "content": "Crazy that nonsensical post like that got 4 upvotes..."
+      },
+      {
+        "date": "2022-08-21T00:55:00.000Z",
+        "voteCount": 7,
+        "content": "CVEs are known vulnerabilities for open source and are not specific to Terram Earth. The details are available in Google Cloud Platform Security Bulletins:\nhttps://cloud.google.com/support/bulletins"
+      },
+      {
+        "date": "2022-07-04T19:47:00.000Z",
+        "voteCount": 1,
+        "content": "A,C is right"
+      },
+      {
+        "date": "2022-05-19T20:56:00.000Z",
+        "voteCount": 5,
+        "content": "I laugh so hard when they reveal the answer including D\nVote A and C"
+      },
+      {
+        "date": "2022-08-01T12:59:00.000Z",
+        "voteCount": 4,
+        "content": ":P Stackoverflow in GCP PCA exam !! really?? !!"
+      },
+      {
+        "date": "2024-01-25T02:19:00.000Z",
+        "voteCount": 1,
+        "content": "Google said stackoverflow community is a ok \"For Q&amp;A around programming and development. Given the size of the community, this is a reasonable default for questions about many products\"\nhttps://cloud.google.com/support/docs/stackexchange"
+      },
+      {
+        "date": "2022-04-25T04:28:00.000Z",
+        "voteCount": 5,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-04-08T14:43:00.000Z",
+        "voteCount": 2,
+        "content": "The question does not provide sufficient details. Option A assumes that the customer has a support package that is more than just basic support (because with basic support, engineers would only respond to billing requests). Customers with basic support are advised to consult StackExchange or Google Discussion groups.\nhttps://cloud.google.com/support\nhttps://cloud.google.com/support/docs/community"
+      },
+      {
+        "date": "2022-01-10T01:36:00.000Z",
+        "voteCount": 2,
+        "content": "I vote A&amp;C."
+      },
+      {
+        "date": "2021-12-10T02:12:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is A &amp; C"
+      },
+      {
+        "date": "2021-12-05T14:02:00.000Z",
+        "voteCount": 2,
+        "content": "D marked is wrong"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/google/view/60562-exam-professional-cloud-architect-topic-10-question-4/",
+    "body": "For this question, refer to the TerramEarth case study. TerramEarth has a legacy web application that you cannot migrate to cloud. However, you still want to build a cloud-native way to monitor the application. If the application goes down, you want the URL to point to a \"Site is unavailable\" page as soon as possible. You also want your Ops team to receive a notification for the issue. You need to build a reliable solution for minimum cost. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a scheduled job in Cloud Run to invoke a container every minute. The container will check the application URL. If the application is down, switch the URL to the \"Site is unavailable\" page, and notify the Ops team.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a cron job on a Compute Engine VM that runs every minute. The cron job invokes a Python program to check the application URL. If the application is down, switch the URL to the \"Site is unavailable\" page, and notify the Ops team.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Cloud Monitoring uptime check to validate the application URL. If it fails, put a message in a Pub/Sub queue that triggers a Cloud Function to switch the URL to the \"Site is unavailable\" page, and notify the Ops team.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse Cloud Error Reporting to check the application URL. If the application is down, switch the URL to the \"Site is unavailable\" page, and notify the Ops team."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 21,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-24T18:09:00.000Z",
+        "voteCount": 30,
+        "content": "C\nCloud monitoring for Uptime check to validate the application URL and leverage pub/sub to trigger Cloud Function to switch URL\nhttps://cloud.google.com/monitoring/uptime-checks?hl=en"
+      },
+      {
+        "date": "2021-08-26T20:26:00.000Z",
+        "voteCount": 3,
+        "content": "will cloud monitoring work for on prem app without installing stackdriver agent ?"
+      },
+      {
+        "date": "2021-08-27T08:36:00.000Z",
+        "voteCount": 4,
+        "content": "Looks like cloud monitor will work on prem .. c looks correct\nhttps://cloud.google.com/architecture/monitoring-on-premises-resources-with-blue-medora"
+      },
+      {
+        "date": "2021-10-25T01:55:00.000Z",
+        "voteCount": 2,
+        "content": "@raf2121,\nYou had submitted this question, so you should update the Suggested Answer accordingly. \nSuch wrong answer configurations creates confusion.\nAnyways thanks for submitting the questions."
+      },
+      {
+        "date": "2023-12-31T02:35:00.000Z",
+        "voteCount": 1,
+        "content": "https://cloud.google.com/monitoring/api/resources?hl=en#tag_uptime_url\n\nCloud monitoring works with on-prem?\nYes.\nhttps://cloud.google.com/architecture/monitoring-on-premises-resources-with-bindplane"
+      },
+      {
+        "date": "2023-06-20T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "If A is the correct answer what;s the point in the uptime checks in cloud monitoring?  Why wouldn't we always use Clour Run for this purpose?"
+      },
+      {
+        "date": "2023-05-11T12:37:00.000Z",
+        "voteCount": 2,
+        "content": "I understand now... the key is in the question \"you still want to build a cloud-native way \"... hence only option C, even if A is the cheapest, it is not cloud-native way."
+      },
+      {
+        "date": "2023-05-11T12:36:00.000Z",
+        "voteCount": 1,
+        "content": "though if you think about it really hard - Option A *does* the job and does it at *MINIMAL* cost... so it should be A?"
+      },
+      {
+        "date": "2023-05-11T12:34:00.000Z",
+        "voteCount": 1,
+        "content": "should be C..."
+      },
+      {
+        "date": "2022-12-17T21:10:00.000Z",
+        "voteCount": 1,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2022-11-21T03:01:00.000Z",
+        "voteCount": 1,
+        "content": "C is ok"
+      },
+      {
+        "date": "2022-10-20T16:23:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct https://cloud.google.com/blog/products/management-tools/how-to-use-pubsub-as-a-cloud-monitoring-notification-channel"
+      },
+      {
+        "date": "2022-07-04T19:47:00.000Z",
+        "voteCount": 1,
+        "content": "C is right"
+      },
+      {
+        "date": "2022-04-25T04:29:00.000Z",
+        "voteCount": 4,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-01-03T07:03:00.000Z",
+        "voteCount": 2,
+        "content": "use cloud monitoring"
+      },
+      {
+        "date": "2021-12-15T11:42:00.000Z",
+        "voteCount": 3,
+        "content": "Cloud monitor uptime check can check http(s) outside of GCP.  This is different from getting other matric like CPU, mem etc."
+      },
+      {
+        "date": "2021-12-10T02:23:00.000Z",
+        "voteCount": 2,
+        "content": "C is the correct answer"
+      },
+      {
+        "date": "2021-12-05T14:04:00.000Z",
+        "voteCount": 2,
+        "content": "Marked A is wrong.\nCloud Monitoring is right for uptime checks."
+      },
+      {
+        "date": "2021-12-04T10:38:00.000Z",
+        "voteCount": 1,
+        "content": "Select C"
+      },
+      {
+        "date": "2021-11-27T00:39:00.000Z",
+        "voteCount": 2,
+        "content": "vote C"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/google/view/60563-exam-professional-cloud-architect-topic-10-question-5/",
+    "body": "For this question, refer to the TerramEarth case study. You are building a microservice-based application for TerramEarth. The application is based on Docker containers. You want to follow Google-recommended practices to build the application continuously and store the build artifacts. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a trigger in Cloud Build for new source changes. Invoke Cloud Build to build container images for each microservice, and tag them using the code commit hash. Push the images to the Container Registry.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a trigger in Cloud Build for new source changes. The trigger invokes build jobs and build container images for the microservices. Tag the images with a version number, and push them to Cloud Storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Scheduler job to check the repo every minute. For any new change, invoke Cloud Build to build container images for the microservices. Tag the images using the current timestamp, and push them to the Container Registry.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a trigger in Cloud Build for new source changes. Invoke Cloud Build to build one container image, and tag the image with the label 'latest.' Push the image to the Container Registry."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 24,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-26T07:51:00.000Z",
+        "voteCount": 30,
+        "content": "https://cloud.google.com/architecture/best-practices-for-building-containers#tagging_using_the_git_commit_hash\nA is ok"
+      },
+      {
+        "date": "2021-10-24T22:23:00.000Z",
+        "voteCount": 8,
+        "content": "Just above that section, there is a section for the version number.\nhttps://cloud.google.com/architecture/best-practices-for-building-containers#tagging_using_semantic_versioning\n\nThe difference between A and B is how it gets triggered. \nA has \"Invoke Cloud Build to build container images\"\nsame with C and D.\nB has \"The trigger invokes build jobs\"\n\nYour pipeline should not have manual steps.\nThat's why I would choose B.\nB is correct."
+      },
+      {
+        "date": "2022-04-08T15:06:00.000Z",
+        "voteCount": 17,
+        "content": "B talks about pushing the images to Cloud Storage, which is not a best practice. A is correct"
+      },
+      {
+        "date": "2021-08-25T10:19:00.000Z",
+        "voteCount": 9,
+        "content": "A, commit hash is required"
+      },
+      {
+        "date": "2024-05-01T05:05:00.000Z",
+        "voteCount": 1,
+        "content": "I vote for A"
+      },
+      {
+        "date": "2024-03-03T07:27:00.000Z",
+        "voteCount": 2,
+        "content": "Commit Hash Tagging: Tagging images with the code commit hash improves version control and allows identifying the specific code used in each image.\nContainer Registry Storage: Pushing images to the Container Registry is a Google-managed service specifically designed for storing container images, providing security, access control, and integration with other Google Cloud services."
+      },
+      {
+        "date": "2023-11-25T08:02:00.000Z",
+        "voteCount": 1,
+        "content": "A\nContainer Registry and not Cloud Storage."
+      },
+      {
+        "date": "2023-10-08T20:14:00.000Z",
+        "voteCount": 2,
+        "content": "Always give a version number for all images in container registry. No latest hash or anything"
+      },
+      {
+        "date": "2022-12-28T08:44:00.000Z",
+        "voteCount": 5,
+        "content": "A. Configure a trigger in Cloud Build for new source changes. Invoke Cloud Build to build container images for each microservice, and tag them using the code commit hash. Push the images to the Container Registry.\n\nThis option follows Google-recommended practices for building and storing the build artifacts for a microservice-based application. By configuring a trigger in Cloud Build, you can automate the build process and ensure that the build artifacts are created whenever there are new source changes. By tagging the images with the code commit hash, you can track the changes and have a record of the build history. Finally, by storing the images in the Container Registry, you can manage and deploy the artifacts easily."
+      },
+      {
+        "date": "2022-12-17T21:12:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      },
+      {
+        "date": "2022-10-20T16:26:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct"
+      },
+      {
+        "date": "2022-10-16T05:03:00.000Z",
+        "voteCount": 1,
+        "content": "A is fine"
+      },
+      {
+        "date": "2022-07-04T20:23:00.000Z",
+        "voteCount": 2,
+        "content": "A is perfect"
+      },
+      {
+        "date": "2022-06-14T09:16:00.000Z",
+        "voteCount": 2,
+        "content": "A is the correct answer. The question referred to Docker containers not cloud storage. https://cloud.google.com/architecture/best-practices-for-building-containers#tagging_using_the_git_commit_hash"
+      },
+      {
+        "date": "2022-05-16T08:13:00.000Z",
+        "voteCount": 2,
+        "content": "I will go with commit hash to tag inwages or time stamp A is better than C so A."
+      },
+      {
+        "date": "2022-04-25T04:30:00.000Z",
+        "voteCount": 3,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-04-07T00:55:00.000Z",
+        "voteCount": 2,
+        "content": "Vote for A"
+      },
+      {
+        "date": "2022-01-04T02:45:00.000Z",
+        "voteCount": 1,
+        "content": "I go with B rather than A because the trigger should invoke the build and versioning is a better way to tag rather than commit coments"
+      },
+      {
+        "date": "2021-12-20T02:47:00.000Z",
+        "voteCount": 4,
+        "content": "A is correct answer.\nGoogle Cloud has two services for storing and managing container images such as Artifact Registry and Container Registry.\nhttps://cloud.google.com/container-registry/docs/overview"
+      },
+      {
+        "date": "2022-02-22T11:59:00.000Z",
+        "voteCount": 3,
+        "content": "Agree. B could be an option only if it wasn't for Cloud Storage which can't be used to store container images."
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/google/view/60483-exam-professional-cloud-architect-topic-10-question-6/",
+    "body": "For this question, refer to the TerramEarth case study. TerramEarth has about 1 petabyte (PB) of vehicle testing data in a private data center. You want to move the data to Cloud Storage for your machine learning team. Currently, a 1-Gbps interconnect link is available for you. The machine learning team wants to start using the data in a month. What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRequest Transfer Appliances from Google Cloud, export the data to appliances, and return the appliances to Google Cloud.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the Storage Transfer service from Google Cloud to send the data from your data center to Cloud Storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMake sure there are no other users consuming the 1Gbps link, and use multi-thread transfer to upload the data to Cloud Storage.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExport files to an encrypted USB device, send the device to Google Cloud, and request an import of the data to Cloud Storage."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 35,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 7,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-09-07T07:42:00.000Z",
+        "voteCount": 50,
+        "content": "USB...where can I buy a 1 PB USB ...?"
+      },
+      {
+        "date": "2024-02-28T12:52:00.000Z",
+        "voteCount": 2,
+        "content": "Have you tried B&amp;H? \n\njk, that thing would be the size of a small bus and weight severalk tons at least"
+      },
+      {
+        "date": "2022-08-01T13:09:00.000Z",
+        "voteCount": 7,
+        "content": "After this question I am sure why all answers are wrong, so the we come to the discussion and increase our knowledge levels by reading from the high value notes shared by everyone."
+      },
+      {
+        "date": "2021-09-09T03:25:00.000Z",
+        "voteCount": 7,
+        "content": "Lol :)"
+      },
+      {
+        "date": "2021-09-12T00:03:00.000Z",
+        "voteCount": 8,
+        "content": "Who puts the answer here?  how can you say that put the data in a USB....It should be A"
+      },
+      {
+        "date": "2021-09-14T00:54:00.000Z",
+        "voteCount": 3,
+        "content": "definitely A is answer, why has someone placed a trap here?"
+      },
+      {
+        "date": "2021-10-11T01:23:00.000Z",
+        "voteCount": 1,
+        "content": ";) ;) ;)"
+      },
+      {
+        "date": "2024-01-29T12:56:00.000Z",
+        "voteCount": 1,
+        "content": "A. transfer appliance take up 20 days and we have a month: https://cloud.google.com/transfer-appliance/docs/4.0/overview#transfer-speeds"
+      },
+      {
+        "date": "2023-01-02T11:42:00.000Z",
+        "voteCount": 3,
+        "content": "Why can't we use storage transfer service ?"
+      },
+      {
+        "date": "2023-06-29T17:15:00.000Z",
+        "voteCount": 1,
+        "content": "Storage Transfer Service is usually for inter cloud, if you don't see any other cloud or cloud storage compliant service as the source you can ignore that option, as it is in this question - Storage Transfer Service\nTransfer data quickly and securely between object and file storage across Google Cloud, Amazon, Azure, on-premises, and more."
+      },
+      {
+        "date": "2022-12-26T12:48:00.000Z",
+        "voteCount": 2,
+        "content": "1 pb to move in one month with 1 gbps you need an appliance it will take 3 weeks.\nAns A"
+      },
+      {
+        "date": "2022-12-26T01:31:00.000Z",
+        "voteCount": 6,
+        "content": "jus purchased 1pb usb"
+      },
+      {
+        "date": "2022-12-17T21:19:00.000Z",
+        "voteCount": 1,
+        "content": "A Is the best answer \n1 Pb Data Transfer with 1 Gbps speed takes 124 days to transfer data"
+      },
+      {
+        "date": "2023-04-23T10:37:00.000Z",
+        "voteCount": 1,
+        "content": "92, but doesn't matter."
+      },
+      {
+        "date": "2022-10-16T05:04:00.000Z",
+        "voteCount": 2,
+        "content": "A is perfect for this use case"
+      },
+      {
+        "date": "2022-10-08T10:05:00.000Z",
+        "voteCount": 3,
+        "content": "It will take 123 days to transfer \nThe right answer is to use Transfer Appliance\nhttps://cloud.google.com/architecture/migration-to-google-cloud-transferring-your-large-datasets#time"
+      },
+      {
+        "date": "2022-08-14T15:38:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is a A..\n123 days to transfer 1PB of data using a 1GB link... this is from DC edge to GCP... this may be longer due to internal DC Fabric design"
+      },
+      {
+        "date": "2022-07-04T20:21:00.000Z",
+        "voteCount": 1,
+        "content": "USB is big joke whoever wrote this question they should have make it much better,  Transfer Appliance is perfect for 1PB. A is right."
+      },
+      {
+        "date": "2022-05-30T03:36:00.000Z",
+        "voteCount": 3,
+        "content": "Transfer appliance can be used to transfer data more than 10 TB from on-prem"
+      },
+      {
+        "date": "2022-05-16T08:16:00.000Z",
+        "voteCount": 2,
+        "content": "There is no special use care to call for B like third party cloud.or any special massage of data required. A is the always way to go for private sturge and peta byto of data .\n\nA"
+      },
+      {
+        "date": "2022-04-25T04:32:00.000Z",
+        "voteCount": 3,
+        "content": "Had this question on my exam."
+      },
+      {
+        "date": "2022-04-03T05:47:00.000Z",
+        "voteCount": 2,
+        "content": "IT's A, \nWhoever answered B did you calculate how long it will take for the data to be transferred ? it have to be less than 1 month from the question requirement \nhttps://cloud.google.com/architecture/migration-to-google-cloud-transferring-your-large-datasets#time"
+      },
+      {
+        "date": "2022-04-02T02:35:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is A. \nhttps://cloud.google.com/transfer-appliance/docs/4.0/overview#location-availability\nWith a typical network bandwidth of 100 Mbps, one petabyte of data takes about 3 years to upload. However, with Transfer Appliance, you can receive the appliance and capture a petabyte of data in under 25 days. Your data can be accessed in Cloud Storage within another 25 days, all without consuming any outbound network bandwidth.\nwith 1GBps - online STS will take 124 days .."
+      },
+      {
+        "date": "2021-12-29T12:42:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is A"
+      }
+    ],
+    "examNameCode": "professional-cloud-architect",
+    "topicNumber": "10"
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/29218-exam-70-464-topic-7-question-8-discussion/",
+    "body": "You need to ensure that a new execution plan is used by usp_GetOrdersByProduct each time the stored procedure runs.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecute sp_help usp_GetOrdersByProduct\\",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd WITH (FORCESEEK) to line 69 in usp.GetOrdersByProduct.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd WITH RECOMPILE to line 64 in usp.GetOrdersByProduct.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tExecute sp_recompile usp.GetOrdersByProduct'."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-07T01:35:00.000Z",
+        "voteCount": 4,
+        "content": "FORCESEEK: Specifies that the query optimizer uses only an index lookup operation as the path to data in the table or view.\n\nWhen you create a stored procedure using the WITH RECOMPILE option, it gets a brand new execution plan every time it runs."
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/36337-exam-70-464-topic-7-question-12-discussion/",
+    "body": "You need to modify usp_GetOrdersAndItems to ensure that an order is NOT retrieved by usp_GetOrdersAndItems while the order is being updated.<br>What should you add to usp_getOrdersAndItems?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd SET TRANSACTION ISOLATION LEVEL SERIALIZABLE to line 44",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd WITH (UPDLOCK) to the end of line 42",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd SET TRANSACTION ISOLATION LEVEL SNAPSHOT to line 44",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd WITH (READPAST) to the end of line 42"
+    ],
+    "answer": "A",
+    "answerDescription": "The SET TRANSACTION ISOLATION LEVEL SERIALIZABLE statement specifies that no other statement can read data that has been modified but not yet committed by other transactions.<br>Incorrect Answers:<br>B: The WITH (UPDLOCK) table hint specifies that the database engine will not update or delete a row that is locked by other transactions.<br>C: The SET TRANSACTION ISOLATION LEVEL SNAPSHOT statement specifies that data read by any statement in a transaction will be the transactionally consistent version of the data that existed at the start of the transaction. It does not prevent data that is being updated from being read.<br>D: The WITH (READPAST) table hint specifies that the database engine will skip past a row that is locked by other transactions. However, READPAST can only be specified for a table referenced in an UPDATE or DELETE statement, or for table referenced in a FROM clause.<br>References:<br>https://docs.microsoft.com/en-us/sql/t-sql/statements/set-transaction-isolation-level-transact-sql?view=sql-server-2017 https://docs.microsoft.com/en-us/sql/t-sql/queries/hints-transact-sql-table?view=sql-server-2017",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-07T02:21:00.000Z",
+        "voteCount": 1,
+        "content": "READPAST WORKS: https://blog.sqlauthority.com/i/e/readpast.jpg"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "7"
+  },
+  {
+    "topic": 7,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/28972-exam-70-464-topic-7-question-17-discussion/",
+    "body": "You need to modify the Orders table to store the XML data used by the retailers.<br>Which statement should you execute?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER Orders ADD originalOrder XML (ValidateOrder);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER Orders ADD originalOrder XML;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER Orders ADD originalOrder varchar(max);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tALTER Orders ADD originalOrder varbinary(max);"
+    ],
+    "answer": "D",
+    "answerDescription": "Topic 7, Fourth Coffee",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-18T04:40:00.000Z",
+        "voteCount": 1,
+        "content": "B is the correct answer"
+      }
+    ],
+    "examNameCode": "70-464",
+    "topicNumber": "7"
+  }
+]

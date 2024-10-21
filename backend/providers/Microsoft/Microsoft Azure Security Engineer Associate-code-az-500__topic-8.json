@@ -1,0 +1,406 @@
+[
+  {
+    "topic": 18,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57088-exam-az-500-topic-8-question-1-discussion/",
+    "body": "You need to configure WebApp1 to meet the data and application requirements.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpload a public certificate.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTurn on the HTTPS Only protocol setting.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the Minimum TLS Version protocol setting to 1.2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tChange the pricing tier of the App Service plan.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTurn on the Incoming client certificates protocol setting.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BE",
+        "count": 47,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AB",
+        "count": 4,
+        "isMostVoted": false
+      },
+      {
+        "answer": "AE",
+        "count": 2,
+        "isMostVoted": false
+      },
+      {
+        "answer": "CE",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-07-04T07:48:00.000Z",
+        "voteCount": 36,
+        "content": "B. Turn on the HTTPS Only protocol setting. (x) &gt; To force 'mutual auth' you must turn off HTTP \nE. Turn on the Incoming client certificates protocol setting. (X) &gt; must set it to 'Require'"
+      },
+      {
+        "date": "2021-08-18T00:45:00.000Z",
+        "voteCount": 2,
+        "content": "Someone please correct me if I'm wrong but since the website is already accessible via https then option E would already be on. So the answer may be B &amp; C? Seems to fit best"
+      },
+      {
+        "date": "2021-10-25T10:02:00.000Z",
+        "voteCount": 3,
+        "content": "It can't be B as you'd effectively block HTTP"
+      },
+      {
+        "date": "2021-12-15T14:37:00.000Z",
+        "voteCount": 4,
+        "content": "Incorrect, the setting under TTL/SSL in the left pane shows the following:\nHTTPS Only: (Hover of (I) for info: Enable this feature to redirect all HTTP traffic to HTTPS"
+      },
+      {
+        "date": "2023-07-15T12:57:00.000Z",
+        "voteCount": 17,
+        "content": "A. We know that the app il already accessible by using https://, so a public certificate is already configured. =&gt; NO\nB. The requirement is to ENFORCE mutual authentication so HTTPS only must be activated. And we know that the app is currently accessible using http:// so this setting is not turned on. =&gt; YES\nC. The TLS version is not relevant, it's just a security increase. =&gt; NO\nD. The app is already accessible with https:// meaning that the actual pricing tier already supports TLS/SSL (Basic tier minimum). =&gt; NO\nE. This settings is not turned on by default and is mandatory for mutual authentication. =&gt; YES\n\nhttps://learn.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth?tabs=azurecli"
+      },
+      {
+        "date": "2024-05-06T18:23:00.000Z",
+        "voteCount": 1,
+        "content": "Look no further.. here you go... hats off sigvast!!"
+      },
+      {
+        "date": "2023-11-04T07:18:00.000Z",
+        "voteCount": 3,
+        "content": "You don't need anything than this explanation.  Thanks, sigvast."
+      },
+      {
+        "date": "2023-05-08T05:53:00.000Z",
+        "voteCount": 4,
+        "content": "BE is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth?tabs=azurecli\nYou can restrict access to your Azure App Service app by enabling different types of authentication for it. One way to do it is to request a client certificate when the client request is over TLS/SSL and validate the certificate. This mechanism is called TLS mutual authentication or client certificate authentication."
+      },
+      {
+        "date": "2023-03-29T02:51:00.000Z",
+        "voteCount": 3,
+        "content": "B and E is correct!"
+      },
+      {
+        "date": "2023-03-13T10:26:00.000Z",
+        "voteCount": 1,
+        "content": "B is there by defafult ((HTTPS only) so no need to configure it.\nA is required (need to have a cert for encrypted communication)\nE is required for mutual AuthN\n\nMinimum TLS version is not specified so can't be C\nwe have no information on pricing tier. We can just guess it's not shared plan so can't be D."
+      },
+      {
+        "date": "2024-08-02T04:45:00.000Z",
+        "voteCount": 1,
+        "content": "Description says that IS already available via https and http. So we already have a certificate (A is not required) but http is allowed (B is required)."
+      },
+      {
+        "date": "2023-03-14T06:45:00.000Z",
+        "voteCount": 2,
+        "content": "Regarding A:  Upload a private certificate - not public cert."
+      },
+      {
+        "date": "2023-03-04T12:15:00.000Z",
+        "voteCount": 3,
+        "content": "B. Turn on the HTTPS Only protocol setting.\nE. Turn on the Incoming client certificates protocol setting."
+      },
+      {
+        "date": "2023-02-24T11:07:00.000Z",
+        "voteCount": 1,
+        "content": "People, please don't get confused, the correct answers are given A,C, since it is asking for mutual authentication."
+      },
+      {
+        "date": "2024-08-02T04:45:00.000Z",
+        "voteCount": 1,
+        "content": "Not A because we already have a certificate, and we definitely need E and B."
+      },
+      {
+        "date": "2022-10-24T05:28:00.000Z",
+        "voteCount": 4,
+        "content": "Correct answer is: \nB \nE"
+      },
+      {
+        "date": "2022-10-20T03:14:00.000Z",
+        "voteCount": 5,
+        "content": "A. Upload a public certificate.\nNo. It helps you secure internet connections by encrypting data sent between your browser, websites that you visit, and the website server.\n\nB. Turn on the HTTPS Only protocol setting. Most Voted\nYes. If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.\n\nC. Set the Minimum TLS Version protocol setting to 1.2.\nNo. Not relevant\n\nD. Change the pricing tier of the App Service plan.\nProbably. There is no info about current pricing tier. Make sure that your web app isn't in the F1 or D1 tier, which doesn't support custom TLS/SSL\n\nE. Turn on the Incoming client certificates protocol setting.\nYes. From the left navigation of your app's management page, select Configuration &gt; General Settings. Set Client certificate mode to Require. Click Save at the top of the page.\n\nSource: https://learn.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth"
+      },
+      {
+        "date": "2022-10-18T22:23:00.000Z",
+        "voteCount": 2,
+        "content": "especially considering mutual client cert auth requirement as other have explained as well."
+      },
+      {
+        "date": "2022-10-11T10:10:00.000Z",
+        "voteCount": 1,
+        "content": "It's mutual authentication.\nSo we need a certificate for the server =&gt; Then A. Upload a certificate\nand we need to force client certificate ==&gt; Then E (as described by Microsoft doc).\n\nB.Turn on the HTTPS Only protocol setting. =&gt; is not mandatory to enable client certificate."
+      },
+      {
+        "date": "2022-10-11T10:11:00.000Z",
+        "voteCount": 2,
+        "content": "Error from my comment, it's B, because A is a public certificate. FOr the server we need to have the private key. The last good answer is then B.\n\nGood answer: BE"
+      },
+      {
+        "date": "2024-08-02T04:46:00.000Z",
+        "voteCount": 1,
+        "content": "We already have a certificate, it's available on https and http currently"
+      },
+      {
+        "date": "2022-10-09T13:29:00.000Z",
+        "voteCount": 3,
+        "content": "It's a bit confusing but I would go with BE.\nReference: https://learn.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth\nFor webapp1, it can be accessed by both HTTP and HTTPS. \n[If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.] So turn on HTTPS only protocol setting is required.\nThen the steps listed are:\n1. Check the pricing tier\n2. Enable client certificates (set client cert mode to required). It's not the exact same wording as E but I think they are saying the same thing.\nIn this case scenario the Azure Security Center tier is set to standard but we don't know the app tier so I would not go with D."
+      },
+      {
+        "date": "2022-10-08T18:29:00.000Z",
+        "voteCount": 3,
+        "content": "1. Since WebApp1 is already support both https and http, so TLS version should be already on 1.2, and App Service plan should be already upgraded to standard or above (Not free option).\n2. To meet mutual authentication, need to disable Http, and allow Https only. And also need to enable Client certificate mode to Require.\n\nSo option B and option E should be selected."
+      },
+      {
+        "date": "2022-09-15T13:05:00.000Z",
+        "voteCount": 3,
+        "content": "Quite clear.\nhttps://docs.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth"
+      },
+      {
+        "date": "2022-02-12T00:48:00.000Z",
+        "voteCount": 3,
+        "content": "In exam today"
+      },
+      {
+        "date": "2022-01-27T12:38:00.000Z",
+        "voteCount": 2,
+        "content": "Whizlabs similar case study has tls 1.2 and incoming certs"
+      },
+      {
+        "date": "2022-01-23T13:48:00.000Z",
+        "voteCount": 2,
+        "content": "WebApp is accessible by using \"HTTPS\" and \"HTTP\", taking that into consideration, we clearly need to enforce HTTPS only [1]. The study case doesn't mention in which tier the WebApp is hosted, so it's kinda unclear if we need that or not. \nFinally, \"client certificate mode\" must be required, this setting is under the \"Incoming client certifications\" app setting.\n\nI'd go for :\nB and E (Although the wording for the option \"E\" is not so clear, I would go with it)\n\n\n[1] \"If you access your site over HTTP and not HTTPS, you will not receive any client certificate. So if your application requires client certificates, you should not allow requests to your application over HTTP.\"\n-\nhttps://docs.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 18,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56801-exam-az-500-topic-8-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to create Role1 to meet the platform protection requirements.<br>How should you complete the role definition of Role1? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04258/0045500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0045600001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: A new custom RBAC role named Role1 must be used to delegate the administration of the managed disks in RG1. Role1 must be available only for<br>RG1.<br>Azure RBAC template managed disks \"Microsoft.Storage/\"<br>Reference:<br>https://blogs.msdn.microsoft.com/azureedu/2017/02/11/new-managed-disk-storage-option-for-your-azure-vms/ https://blogs.msdn.microsoft.com/azure4fun/2016/10/21/custom-azure-rbac-roles-and-how-to-extend-existing-role-definitions-scope/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-07-30T10:34:00.000Z",
+        "voteCount": 89,
+        "content": "1) Microsoft.Compute/\n2) disks\n3) /subscrption/{subscriptionId}/resourceGroups/{Resource Group Id}"
+      },
+      {
+        "date": "2021-12-03T22:11:00.000Z",
+        "voteCount": 5,
+        "content": "This is the correct answer! ET please correct your answers. SMH!"
+      },
+      {
+        "date": "2021-08-10T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "I believe you are right"
+      },
+      {
+        "date": "2022-01-07T08:04:00.000Z",
+        "voteCount": 1,
+        "content": "This is right"
+      },
+      {
+        "date": "2023-03-23T14:13:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, I believe this is correct:\nMicrosoft.Compute\nDisks\n/su/sub/resgroup/resgroupId"
+      },
+      {
+        "date": "2021-07-01T08:46:00.000Z",
+        "voteCount": 9,
+        "content": "https://www.examtopics.com/discussions/microsoft/view/6772-exam-az-500-topic-11-question-2-discussion/"
+      },
+      {
+        "date": "2021-08-22T08:22:00.000Z",
+        "voteCount": 1,
+        "content": "Explanations help."
+      },
+      {
+        "date": "2021-08-22T08:23:00.000Z",
+        "voteCount": 1,
+        "content": "Disregrd."
+      },
+      {
+        "date": "2023-09-15T14:12:00.000Z",
+        "voteCount": 1,
+        "content": "FROM MICROSOFT:\nManaged disks are under Microsoft.Compute resource provider, not Microsoft.Storage. Microsoft.Storage is used for unmanaged disks that require a storage account to hold the VHD files1. Managed disks are block-level storage volumes that are managed by Azure and used with Azure Virtual Machines2. They do not need a storage account and can be created using the Microsoft.Disks resource provider"
+      },
+      {
+        "date": "2023-03-04T12:19:00.000Z",
+        "voteCount": 5,
+        "content": "1) Microsoft.Compute/\n2) disks\n3) /subscrption/{subscriptionId}/resourceGroups/{Resource Group Id}"
+      },
+      {
+        "date": "2022-10-24T12:51:00.000Z",
+        "voteCount": 2,
+        "content": "1) Microsoft.Compute/\n2) disks\n3) /subscrption/{subscriptionId}/resourceGroups/{Resource Group Id}"
+      },
+      {
+        "date": "2022-02-04T00:06:00.000Z",
+        "voteCount": 1,
+        "content": "Is there no way to select RG only in AssignableScopes?\nhttps://docs.microsoft.com/en-us/azure/role-based-access-control/role-definitions#assignablescopes"
+      },
+      {
+        "date": "2021-11-27T01:15:00.000Z",
+        "voteCount": 3,
+        "content": "# This shows that to manage disks, you need to have permissions to the storage account\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/using-managed-disks-template-deployments\n\n# This shows that the scope should incl. resource group\n\nhttps://vincentlauzon.com/2018/08/15/rbac-and-role-assignment-using-arm-templates/#:~:text=RBAC%20and%20role%20assignment%20using%20ARM%20Templates%20Solution,scope%20%28resource%2C%20resource%20group%2C%20subscription%20or%20management%20group%29.\n\n1) Microsoft.Storage\n2) storageAccounts/*\n3) /subscrption/{subscriptionId}/resourceGroups/{Resource Group Id}"
+      },
+      {
+        "date": "2023-02-24T22:44:00.000Z",
+        "voteCount": 1,
+        "content": "I think you are right"
+      },
+      {
+        "date": "2023-03-06T07:16:00.000Z",
+        "voteCount": 1,
+        "content": "\"With Azure Managed Disks, the disk becomes a top-level resource and no longer requires a storage account to be created by the user\"\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/using-managed-disks-template-deployments"
+      },
+      {
+        "date": "2024-01-12T06:55:00.000Z",
+        "voteCount": 2,
+        "content": "{\n    \"type\": \"Microsoft.Compute/disks\",\n    \"apiVersion\": \"2018-06-01\",\n    \"name\": \"[concat(variables('vmName'),'-datadisk1')]\",\n    \"location\": \"[resourceGroup().location]\",\n    \"sku\": {\n        \"name\": \"Standard_LRS\"\n    },\n    \"properties\": {\n        \"creationData\": {\n            \"createOption\": \"Empty\"\n        },\n        \"diskSizeGB\": 1023"
+      },
+      {
+        "date": "2021-09-29T17:54:00.000Z",
+        "voteCount": 1,
+        "content": "#exam ques # 29 Sep"
+      },
+      {
+        "date": "2021-09-22T05:21:00.000Z",
+        "voteCount": 6,
+        "content": "Congrats those who completed all qsts.. all the best"
+      },
+      {
+        "date": "2021-09-18T07:06:00.000Z",
+        "voteCount": 6,
+        "content": "1) Microsoft.Compute/\n2) disks\n3) /subscrption/{subscriptionId}/resourceGroups/{Resource Group Id}\n\nExplaination:\nA new custom RBAC role named Role1 must be used to delegate the administration of the managed disks in Resource Group1. Role1 must be available only for Resource Group1.\n\nThis proves we need to maintain scope to ResourceGroup 1 only.\nAlso Resource gropu 1 contanins VNet1, VM0, and VM1 none of them are storage disks"
+      },
+      {
+        "date": "2021-11-03T21:07:00.000Z",
+        "voteCount": 2,
+        "content": "as confirmed here https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#virtual-machine-contributor"
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 18,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56811-exam-az-500-topic-8-question-3-discussion/",
+    "body": "DRAG DROP -<br>You need to configure SQLDB1 to meet the data and application requirements.<br>Which three actions should you recommend be performed in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04258/0045700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04258/0045800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-gb/azure/azure-sql/database/authentication-aad-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-27T14:22:00.000Z",
+        "voteCount": 29,
+        "content": "Wrote the exam today and passed with a score of 760, 1 case study.. no labs or simulations at all! If you're reading this, all the best my friend!"
+      },
+      {
+        "date": "2021-08-10T08:27:00.000Z",
+        "voteCount": 28,
+        "content": "Studied the reference link in Solution section and found the proper order to be:\n1) From the Azure Portal, create an Azure AD administrator for LitwareSQLServer1.\n2) In SQLDB1, create contained database users.\n3) Connect to SQLDB1 by using Microsoft SQL Server Management Studio."
+      },
+      {
+        "date": "2023-04-28T11:51:00.000Z",
+        "voteCount": 3,
+        "content": "How can you create contained database users without connecting to SSMS? I believe the order is correct in the given answer."
+      },
+      {
+        "date": "2023-01-04T10:31:00.000Z",
+        "voteCount": 6,
+        "content": "This cannot be right. SSMS (Microsoft SQL Server Management Studio) is the tool you use to do the database administration work, including creating contained database users."
+      },
+      {
+        "date": "2023-09-15T14:19:00.000Z",
+        "voteCount": 2,
+        "content": "2 and 3 should be swapped. YOU WOULD NEED TO LOGIN TO THE DB FIRST BEFORE YOU CAN CREATE A CONTAINER USER."
+      },
+      {
+        "date": "2022-10-20T02:34:00.000Z",
+        "voteCount": 8,
+        "content": "Order provided in the answer is correct. To create an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database"
+      },
+      {
+        "date": "2024-07-21T08:01:00.000Z",
+        "voteCount": 1,
+        "content": "Congratulations to all for reaching the end of the mock test.\nLong journey, but very enriching path.\n\nhttps://learn.microsoft.com/en-gb/azure/azure-sql/database/authentication-aad-overview?view=azuresql\n\nThe configuration steps include the following procedures to configure and use Microsoft Entra authentication.\n\nCreate and populate a Microsoft Entra tenant.\nOptional: Associate or change the current directory that is associated with your Azure Subscription.\nCreate a Microsoft Entra administrator.\nConfigure your client computers.\nCreate contained database users in your database mapped to Microsoft Entra identities.\nConnect to your database with Microsoft Entra identities.\nAnswer:\n) create an Azure AD administrator for LitwareSQLServer1.\n2) In SQLDB1, create contained database users.\n3) Connect to SQLDB1 by using Microsoft SQL Server Management Studio."
+      },
+      {
+        "date": "2024-05-27T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "My Case study isn't on here from test 5/24/2023"
+      },
+      {
+        "date": "2024-05-27T12:40:00.000Z",
+        "voteCount": 1,
+        "content": "I redact this. My case study was Topic 9. Please remove both of these."
+      },
+      {
+        "date": "2024-05-06T18:33:00.000Z",
+        "voteCount": 4,
+        "content": "You reached end of the page.. Congratulations all!!"
+      },
+      {
+        "date": "2024-04-26T09:30:00.000Z",
+        "voteCount": 6,
+        "content": "Took the exam on 24 April 2024, these are still valid. Had 50 questions and 1 study case. 98% of questions are from here. Some questions had the answers in different order.\n\nOn the exam page it is mentioned that exam questions will be updated on 30 April 2024. So take care, as long as they don't change the exam name (like: AZ-501, AZ-502) you should be safe with these.\n\nCheers and good luck, don't forget - sharing is caring"
+      },
+      {
+        "date": "2024-04-28T08:03:00.000Z",
+        "voteCount": 2,
+        "content": "Did you pass? I'm taking it tomorrow."
+      },
+      {
+        "date": "2023-06-24T08:40:00.000Z",
+        "voteCount": 2,
+        "content": "1- From the Azure Portal, create an Azure AD administrator for LitwareSQLServer1\n2- In SQLDB1, create contained database users\n3- Connect to SQLDB1 by using Microsoft SQL Server Management Studio\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql&amp;tabs=azure-powershell"
+      },
+      {
+        "date": "2023-03-04T12:21:00.000Z",
+        "voteCount": 7,
+        "content": "1.From the Azure portal, create an Azure AD administrator for LitwareSQLServer1\n2. Connect to SQLDB1 by using SSMS\n3. In SQLDB1, create contained database users"
+      },
+      {
+        "date": "2023-06-04T00:09:00.000Z",
+        "voteCount": 1,
+        "content": "I totally agree with you. See following link.\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-configure?view=azuresql&amp;tabs=azure-powershell\nSection \"Connect to the database using SSMS or SSDT\"\nTo confirm the Azure AD administrator is properly set up, connect to the master database using the Azure AD administrator account. To provision an Azure AD-based contained database user (other than the server administrator that owns the database), connect to the database with an Azure AD identity that has access to the database."
+      },
+      {
+        "date": "2021-11-04T06:17:00.000Z",
+        "voteCount": 3,
+        "content": "Exam - 4/11/21"
+      },
+      {
+        "date": "2021-08-14T05:16:00.000Z",
+        "voteCount": 4,
+        "content": "Correct Ans"
+      },
+      {
+        "date": "2021-08-04T14:46:00.000Z",
+        "voteCount": 3,
+        "content": "In Exam 8/4/2021."
+      },
+      {
+        "date": "2021-07-01T09:48:00.000Z",
+        "voteCount": 18,
+        "content": "https://www.examtopics.com/discussions/microsoft/view/9125-exam-az-500-topic-11-question-3-discussion/"
+      },
+      {
+        "date": "2022-04-16T06:23:00.000Z",
+        "voteCount": 1,
+        "content": "Agree that given answer is correct."
+      }
+    ],
+    "examNameCode": "az-500",
+    "topicNumber": "8"
+  }
+]

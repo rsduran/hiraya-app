@@ -1,0 +1,115 @@
+[
+  {
+    "topic": 2,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/27021-exam-az-100-topic-2-question-5-discussion/",
+    "body": "You have an Azure subscription that contains a storage account named account1.<br>You plan to upload the disk files of a virtual machine to account1 from your on-premises network. The on-premises network uses a public IP address space of<br>131.107.1.0/24.<br>You plan to use the disk files to provision an Azure virtual machine named VM1. VM1 will be attached to a virtual network named VNet1. VNet1 uses an IP address space of 192.168.0.0/24.<br>You need to configure account1 to meet the following requirements:<br>\u2711 Ensure that you can upload the disk files to account1.<br>\u2711 Ensure that you can attach the disks to VM1.<br>\u2711 Prevent all other access to account1.<br>Which two actions should you perform? Each correct selection presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Firewalls and virtual networks blade of account1, add the 131.107.1.0/24 IP address range.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Firewalls and virtual networks blade of account1, select Selected networks.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Firewalls and virtual networks blade of acount1, add VNet1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Firewalls and virtual networks blade of account1, select Allow trusted Microsoft services to access this storage account.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Service endpoints blade of VNet1, add a service endpoint."
+    ],
+    "answer": "BE",
+    "answerDescription": "B: By default, storage accounts accept connections from clients on any network. To limit access to selected networks, you must first change the default action.<br><br>Azure portal -<br>1. Navigate to the storage account you want to secure.<br>2. Click on the settings menu called Firewalls and virtual networks.<br>3. To deny access by default, choose to allow access from 'Selected networks'. To allow traffic from all networks, choose to allow access from 'All networks'.<br>4. Click Save to apply your changes.<br>E: Grant access from a Virtual Network<br>Storage accounts can be configured to allow access only from specific Azure Virtual Networks.<br>By enabling a Service Endpoint for Azure Storage within the Virtual Network, traffic is ensured an optimal route to the Azure Storage service. The identities of the virtual network and the subnet are also transmitted with each request.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-network-security",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-30T20:39:00.000Z",
+        "voteCount": 2,
+        "content": "To Upload files to account01 you need A right?"
+      }
+    ],
+    "examNameCode": "az-100",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26588-exam-az-100-topic-2-question-6-discussion/",
+    "body": "SIMULATION -<br>Click to expand each objective. To connect to the Azure portal, type https://portal.azure.com in the browser address bar.<br><img src=\"/assets/media/exam-media/02518/0007400001.png\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02518/0007500001.jpg\" class=\"in-exam-image\"><br><img src=\"/assets/media/exam-media/02518/0007600001.jpg\" class=\"in-exam-image\"><br>When you are finished performing all the tasks, click the \"\u02dcNext' button.<br>Note that you cannot return to the lab once you click the \"\u02dcNext' button. Scoring occur in the background while you complete the rest of the exam.<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You plan to store media files in the rg1lod7523691n1 storage account.<br>You need to configure the storage account to store the media files. The solution must ensure that only users who have access keys can download the media files and that the files are accessible only over HTTPS.<br>What should you do from Azure portal?<br>",
+    "options": [],
+    "answer": "See solution below.",
+    "answerDescription": "We should create an Azure file share.<br>Step 1: In the Azure portal, select All services. In the list of resources, type Storage Accounts. As you begin typing, the list filters based on your input. Select<br>Storage Accounts.<br>On the Storage Accounts window that appears.<br>Step 2: Locate the rg1lod7523691n1 storage account.<br>Step 3: On the storage account page, in the Services section, select Files.<br><img src=\"/assets/media/exam-media/02518/0007800001.jpg\" class=\"in-exam-image\"><br>Step 4: On the menu at the top of the File service page, click + File share. The New file share page drops down.<br>Step 5: In Name type myshare. Click OK to create the Azure file share.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-24T17:52:00.000Z",
+        "voteCount": 1,
+        "content": "Why Fileshare... isn't it should be BLOB ?"
+      }
+    ],
+    "examNameCode": "az-100",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26589-exam-az-100-topic-2-question-10-discussion/",
+    "body": "SIMULATION -<br><br>Overview -<br>The following section of the exam is a lab. In this section, you will perform a set of tasks in a live environment. While most functionality will be available to you as it would be in a live environment, some functionality (e.g., copy and paste, ability to navigate to external websites) will not be possible by design.<br>Scoring is based on the outcome of performing the tasks stated in the lab. In other words, it doesn't matter how you accomplish the task, if you successfully perform it, you will earn credit for that task.<br>Labs are not timed separately, and this exam may have more than one lab that you must complete. You can use as much time as you would like to complete each lab. But, you should manage your time appropriately to ensure that you are able to complete the lab(s) and all other sections of the exam in the time provided.<br>Please note that once you submit your work by clicking the Next button within a lab, you will NOT be able to return to the lab.<br><br>To start the lab -<br>You may start the lab by clicking the Next button.<br>You plan to prevent users from accidentally deleting blob data from Azure.<br>You need to ensure that administrators can recover any blob data that is deleted accidentally from the storagelod8095859 storage account for 14 days after the deletion occurred.<br>What should you do from the Azure portal?<br>",
+    "options": [],
+    "answer": "See explanation below.",
+    "answerDescription": "Task A: Create a Recovery Services vault (if a vault already exists skip this task, go to Task B below)<br>A1. From Azure Portal, On the Hub menu, click All services and in the list of resources, type Recovery Services and click Recovery Services vaults.<br><img src=\"/assets/media/exam-media/02518/0010200001.jpg\" class=\"in-exam-image\"><br>If there are recovery services vaults in the subscription, the vaults are listed.<br>A2. On the Recovery Services vaults menu, click Add.<br><img src=\"/assets/media/exam-media/02518/0010200002.jpg\" class=\"in-exam-image\"><br>A3. The Recovery Services vault blade opens, prompting you to provide a Name, Subscription, Resource group, and Location<br><br>Task B. Create a backup goal -<br>B1. On the Recovery Services vault blade (for the vault you just created), in the Getting Started section, click Backup, then on the Getting Started with Backup blade, select Backup goal.<br><img src=\"/assets/media/exam-media/02518/0010300001.jpg\" class=\"in-exam-image\"><br>The Backup Goal blade opens. If the Recovery Services vault has been previously configured, then the Backup Goal blades opens when you click Backup on the<br>Recovery Services vault blade.<br>B2. From the Where is your workload running? drop-down menu, select Azure.<br><img src=\"/assets/media/exam-media/02518/0010400001.jpg\" class=\"in-exam-image\"><br>B3. From the What do you want to backup? menu, select Blob Storage, and click OK.<br>B4. Finish the Wizard.<br>Task C. create a backup schedule<br>C1. Open the Microsoft Azure Backup agent. You can find it by searching your machine for Microsoft Azure Backup.<br><img src=\"/assets/media/exam-media/02518/0010500001.png\" class=\"in-exam-image\"><br>C2. In the Backup agent's Actions pane, click Schedule Backup to launch the Schedule Backup Wizard.<br><img src=\"/assets/media/exam-media/02518/0010500002.png\" class=\"in-exam-image\"><br>C3. On the Getting started page of the Schedule Backup Wizard, click Next.<br>C4. On the Select Items to Backup page, click Add Items.<br>The Select Items dialog opens.<br>C5. Select Blob Storage you want to protect, and then click OK.<br>C6.In the Select Items to Backup page, click Next.<br>On the Specify Backup Schedule page, specify Schedule a backup every day, and click Next.<br><img src=\"/assets/media/exam-media/02518/0010600001.jpg\" class=\"in-exam-image\"><br>C7. On the Select Retention Policy page, set it to 14 days, and click Next.<br><img src=\"/assets/media/exam-media/02518/0010600002.jpg\" class=\"in-exam-image\"><br>C8. Finish the Wizard.<br>References:<br>https://docs.microsoft.com/en-us/azure/backup/backup-configure-vault",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-24T18:08:00.000Z",
+        "voteCount": 1,
+        "content": "isn't it should be about Blob Soft Delete feature?"
+      }
+    ],
+    "examNameCode": "az-100",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110502-exam-az-100-topic-2-question-14-discussion/",
+    "body": "You have an Azure subscription named Subscription1.<br>You have 5 TB of data that you need to transfer to Subscription1.<br>You plan to use an Azure Import/Export job.<br>What can you use as the destination of the imported data?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure SQL Database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure File Storage",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn Azure Cosmos DB database",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe Azure File Sync Storage Sync Service",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Data Factory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tA virtual machine"
+    ],
+    "answer": "B",
+    "answerDescription": "Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure datacenter.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-05-29T11:23:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Import/Export service is used to securely import large amounts of data to Azure Blob storage and Azure Files by shipping disk drives to an Azure\ndatacenter.\nThe maximum size of an Azure Files Resource of a file share is 5 TB.\nNote:\nThere are several versions of this question in the exam. The question has two correct answers:\n1. Azure File Storage\n2. Azure Blob Storage\nThe question can have other incorrect answer options, including the following:\nAzure Data Lake Store\nAzure SQL Database\nAzureDataFactory\nReference:\nhttps://docs.microsoft.com/en-us/azure/storage/common/storage-import-export-service"
+      }
+    ],
+    "examNameCode": "az-100",
+    "topicNumber": "2"
+  },
+  {
+    "topic": 2,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/20303-exam-az-100-topic-2-question-18-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure subscription named Subscription1.<br>In Subscription1, you create an Azure file share named share1.<br>You create a shared access signature (SAS) named SAS1 as shown in the following exhibit.<br><img src=\"/assets/media/exam-media/02518/0012100001.png\" class=\"in-exam-image\"><br>To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02518/0012200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02518/0012300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Will have no access -<br>The IP 193.77.134.1 does not have access on the SAS.<br>Box 2: Will have read, write, and list access<br>The net use command is used to connect to file shares.<br>References:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1 https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-24T20:40:00.000Z",
+        "voteCount": 1,
+        "content": "SAS as password in netuse???"
+      },
+      {
+        "date": "2020-05-11T09:12:00.000Z",
+        "voteCount": 1,
+        "content": "net use works with SMB protocol , but the access is given only with http and https. How come it can access the shares?"
+      }
+    ],
+    "examNameCode": "az-100",
+    "topicNumber": "2"
+  }
+]

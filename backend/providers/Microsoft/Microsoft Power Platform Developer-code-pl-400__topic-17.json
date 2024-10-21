@@ -1,0 +1,71 @@
+[
+  {
+    "topic": 17,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/103094-exam-pl-400-topic-17-question-1-discussion/",
+    "body": "You need to ensure that Adventure Works Cycles can track information from visitors to bike fairs.<br>What should you create?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Power Automate flow that connects with the bike fair Power Apps app to create a lead in Dynamics 365 Sales\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Power Automate flow that generates a new customer record in SharePoint.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta Power Automate flow to capture customer data from the bike fair Power Apps app in SharePoint and create a lead in Microsoft Teams.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta business process flow in Dynamics 365 Sales for capturing leads."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-09-03T02:36:00.000Z",
+        "voteCount": 2,
+        "content": "Correct: \n-The customer uses Dynamics 365 Sales. Dynamics 365 Customer Service and Dynamics 365 Field Service\n-A canvas app is being developed to capture customer information when customers check in at the retail location"
+      },
+      {
+        "date": "2023-03-18T11:57:00.000Z",
+        "voteCount": 4,
+        "content": "Looks correct"
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "17"
+  },
+  {
+    "topic": 17,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/120166-exam-pl-400-topic-17-question-2-discussion/",
+    "body": "You need to reduce the number of Azure consumption API calls for User2.<br>Which markup segment should you use?<br>A.<br><img src=\"/assets/media/exam-media/04332/0034100001.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/04332/0034100002.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/04332/0034200001.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/04332/0034200002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "C",
+    "answerDescription": "Scenario: User2 reports that Azure consumption for API calls has increased significantly to 100 calls per minute in the last month.<br>Example:<br>In the following example, the rate limit of 10 calls per 60 seconds is keyed by the caller IP address. After each policy execution, the remaining calls allowed in the time period are stored in the variable remainingCallsPerIP.<br>&lt;policies&gt;<br>&lt;inbound&gt;<br>&lt;base /&gt;<br>&lt;rate-limit-by-key  calls=\"10\"<br>renewal-period=\"60\"<br>increment-condition=\"@(context.Response.StatusCode == 200)\"<br>counter-key=\"@(context.Request.IpAddress)\"<br>remaining-calls-variable-name=\"remainingCallsPerIP\"/&gt;<br>&lt;/inbound&gt;<br>&lt;outbound&gt;<br>&lt;base /&gt;<br>&lt;/outbound&gt;<br>&lt;/policies&gt;<br>Note: The rate-limit-by-key policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this call rate is exceeded, the caller receives a 429 Too Many Requests response status code.<br>Incorrect Answers:<br>A: With renewal-period=\"30\" 200 calls/minute would be allowed.<br>B: This would increase the calls/minute limit to 1000.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/api-management/api-management-access-restriction-policies",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-04T00:24:00.000Z",
+        "voteCount": 1,
+        "content": "Hi, I just summarize as \nA: 200 calls/min \nB: ~666 calls/min\nC: 1 call/min\nD 200 calls mins\n\n=&gt; C is correct. Am I right?"
+      },
+      {
+        "date": "2023-09-07T03:01:00.000Z",
+        "voteCount": 1,
+        "content": "I still dont get why is C. Any idea? For me A makes mroe sense since we stablish a limit in 100."
+      },
+      {
+        "date": "2023-10-29T08:57:00.000Z",
+        "voteCount": 2,
+        "content": "Renewal Period is 30 and as per description it is in seconds so with that logic it will go upto 200 calls / min."
+      },
+      {
+        "date": "2023-09-25T23:52:00.000Z",
+        "voteCount": 3,
+        "content": "I guess C because in scenario we can see that User2 already complain that his calls number already is around 100."
+      }
+    ],
+    "examNameCode": "pl-400",
+    "topicNumber": "17"
+  }
+]

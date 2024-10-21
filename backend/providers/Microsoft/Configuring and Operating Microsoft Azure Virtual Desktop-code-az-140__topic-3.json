@@ -1,0 +1,1740 @@
+[
+  {
+    "topic": 3,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52155-exam-az-140-topic-3-question-1-discussion/",
+    "body": "You have an Azure Virtual Desktop host pool named Pool1 and an Azure Storage account named Storage1. Storage1 stores FSLogix profile containers in a share folder named share1.<br>You create a new group named Group1. You provide Group1 with permission to sign in to Pool1.<br>You need to ensure that the members of Group1 can store the FSLogix profile containers in share1. The solution must use the principle of least privilege.<br>Which two privileges should you assign to Group1? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Storage Blob Data Contributor role for storage1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe List folder / read data NTFS permissions for share1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Modify NTFS permissions for share1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Storage File Data SMB Share Reader role for storage1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Storage File Data SMB Share Elevated Contributor role for storage1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe Storage File Data SMB Share Contributor role for storage1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CF",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CF",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-08T13:45:00.000Z",
+        "voteCount": 11,
+        "content": "Correct"
+      },
+      {
+        "date": "2024-05-01T08:52:00.000Z",
+        "voteCount": 1,
+        "content": "C. the Modify NTFS permissions for share1\nF. the Storage File Data SMB Share Contributor role for storage1"
+      },
+      {
+        "date": "2024-01-09T16:05:00.000Z",
+        "voteCount": 1,
+        "content": "C. the Modify NTFS permissions for share1\nF. the Storage File Data SMB Share Contributor role for storage1"
+      },
+      {
+        "date": "2023-01-30T06:26:00.000Z",
+        "voteCount": 3,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      },
+      {
+        "date": "2022-11-11T07:17:00.000Z",
+        "voteCount": 4,
+        "content": "C &amp; F\nRef: https://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds\n\nAssign RBAC role to users\nUsers needing to store profiles in the file share will need permission to access it. To do this, you'll need to assign each user the Storage File Data SMB Share Contributor role\n\nThen set NTFS permissions for example ((M) is for Modify):\nicacls y: /grant \"avdusers@contoso.com:(M)\"\nicacls y: /grant \"Creator Owner:(OI)(CI)(IO)(M)\""
+      },
+      {
+        "date": "2022-10-20T05:33:00.000Z",
+        "voteCount": 1,
+        "content": "Weird question. It does only say login, nothing about saving stuff. You don't need write perms to simply log in, just read / list NTFS and read SMB. Obvs anything you do wont be saved. But you should be able to log in with the above perms."
+      },
+      {
+        "date": "2023-10-01T09:14:00.000Z",
+        "voteCount": 1,
+        "content": "you need these permissions for fslogix to work. my vm froze completely when it tried to create fslogix profile without the correct permissions."
+      },
+      {
+        "date": "2022-06-05T01:56:00.000Z",
+        "voteCount": 1,
+        "content": "in windows server its creator owner permissions to the profile folder, modify permissions to the root folder but not to sub folders. that should do it."
+      },
+      {
+        "date": "2022-05-23T08:59:00.000Z",
+        "voteCount": 3,
+        "content": "Correct C F \nhttps://docs.microsoft.com/en-us/azure/storage/files/storage-files-identity-ad-ds-configure-permissions#azure-rbac-permissions"
+      },
+      {
+        "date": "2021-12-09T14:45:00.000Z",
+        "voteCount": 2,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2021-11-22T13:24:00.000Z",
+        "voteCount": 1,
+        "content": "D-F for my and coumentations say  \"All users that need to have FSLogix profiles stored on the storage account must be assigned the Storage File Data SMB Share Contributor role\"."
+      },
+      {
+        "date": "2021-10-31T18:15:00.000Z",
+        "voteCount": 3,
+        "content": "C &amp; F are correct."
+      },
+      {
+        "date": "2021-08-21T14:59:00.000Z",
+        "voteCount": 1,
+        "content": "Isn't it BF?\nIsn't Modify NTFS too much permission at Share1? That way they can delete other user's VHDs."
+      },
+      {
+        "date": "2022-02-28T14:23:00.000Z",
+        "voteCount": 2,
+        "content": "B is a read access, so they can't write into shared folder, so C is correct"
+      },
+      {
+        "date": "2021-08-21T15:07:00.000Z",
+        "voteCount": 2,
+        "content": "CF is Correct.\nYou give the user Modify AND remove authenticated users and builtin/users, so that only one user has access to each profile container.\nAdmins continue to have access if that was given correctly."
+      },
+      {
+        "date": "2021-06-11T07:03:00.000Z",
+        "voteCount": 3,
+        "content": "This question was shown at 2021/06/11"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52477-exam-az-140-topic-3-question-2-discussion/",
+    "body": "You have a Azure Virtual Desktop host pool.<br>You need to install Microsoft Antimalware for Azure on the session hosts.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd an extension to each session host.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom a Group Policy Object (GPO), enable Windows 10 security features.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure the RDP Properties of the host pool.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSign in to each session host and install a Windows feature."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-11T19:38:00.000Z",
+        "voteCount": 11,
+        "content": "A. Add an extension to each session host.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-machines/extensions/iaas-antimalware-windows"
+      },
+      {
+        "date": "2024-01-09T16:06:00.000Z",
+        "voteCount": 1,
+        "content": "A. Add an extension to each session host."
+      },
+      {
+        "date": "2023-10-03T13:24:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct."
+      },
+      {
+        "date": "2023-01-30T06:26:00.000Z",
+        "voteCount": 2,
+        "content": "Took the exam last Jan 28, 2023 and this question is not included"
+      },
+      {
+        "date": "2022-09-06T01:43:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/iaas-antimalware-windo"
+      },
+      {
+        "date": "2022-06-23T12:24:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/iaas-antimalware-windows"
+      },
+      {
+        "date": "2022-04-07T01:15:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct answer."
+      },
+      {
+        "date": "2021-10-31T18:16:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct."
+      },
+      {
+        "date": "2021-10-29T12:02:00.000Z",
+        "voteCount": 2,
+        "content": "Correct~"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57657-exam-az-140-topic-3-question-3-discussion/",
+    "body": "HOTSPOT -<br>You have a Azure Virtual Desktop deployment.<br>You need to ensure that all the connections to the managed resources in the host pool require multi-factor authentication (MFA).<br>Which two settings should you modify in a conditional access policy? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0009400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0009600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-01T06:29:00.000Z",
+        "voteCount": 20,
+        "content": "Cloud Apps &amp; Actions &gt;&gt;&gt; Select Windows Virtual Desktop as the app\nGrant &gt;&gt;&gt; Grant Access &gt;&gt;&gt; Require MFA\n\nGiven answers are correct."
+      },
+      {
+        "date": "2023-01-30T06:26:00.000Z",
+        "voteCount": 6,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      },
+      {
+        "date": "2024-01-09T16:07:00.000Z",
+        "voteCount": 2,
+        "content": "Cloud Apps &amp; Actions\nGrant"
+      },
+      {
+        "date": "2023-06-01T05:32:00.000Z",
+        "voteCount": 1,
+        "content": "Cloud Apps &amp; Actions -&gt; Select Apps -&gt; Azure Virtual Desktop"
+      },
+      {
+        "date": "2022-06-07T06:45:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct."
+      },
+      {
+        "date": "2022-04-05T03:49:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct. \nhttps://docs.microsoft.com/en-gb/learn/modules/manage-security/3-implement-multifactor-authentication-azure-virtual-desktop"
+      },
+      {
+        "date": "2021-12-22T02:39:00.000Z",
+        "voteCount": 3,
+        "content": "Correct. Here is the right reference: https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa"
+      },
+      {
+        "date": "2021-10-29T12:07:00.000Z",
+        "voteCount": 2,
+        "content": "\"Managed resources\" is your Cloud Apps. Grant - is where u select MFA"
+      },
+      {
+        "date": "2021-07-11T13:48:00.000Z",
+        "voteCount": 3,
+        "content": "For those wondering, Conditions do not need to be configured here due to:\n\nBy default, all newly created Conditional Access policies will apply to all client app types even if the client apps condition is not configured."
+      },
+      {
+        "date": "2021-09-05T16:34:00.000Z",
+        "voteCount": 2,
+        "content": "so is the given answer correct? Thanks"
+      },
+      {
+        "date": "2021-10-31T11:45:00.000Z",
+        "voteCount": 2,
+        "content": "the given answer is correct."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64679-exam-az-140-topic-3-question-4-discussion/",
+    "body": "HOTSPOT -<br>Your company has the offices shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0009700001.png\" class=\"in-exam-image\"><br>The company has an Azure Active Directory (Azure AD) tenant named contoso.com that contains a user named User1.<br>Users connect to a Azure Virtual Desktop deployment named WVD1. WVD1 contains session hosts that have public IP addresses from the 52.166.253.0/24 subnet.<br>Contoso.com has a conditional access policy that has the following settings:<br>\u2711 Name: Policy1<br>\u2711 Assignments:<br>- Users and groups: User1<br>- Cloud apps or actions: Azure Virtual Desktop<br>\u2711 Access controls:<br>- Grant: Grant access, Require multi-factor authentication<br>\u2711 Enable policy: On<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0009800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0009800002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/active-directory/authentication/tutorial-enable-azure-mfa",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-25T02:10:00.000Z",
+        "voteCount": 26,
+        "content": "Yes, Yes, No"
+      },
+      {
+        "date": "2024-10-13T00:34:00.000Z",
+        "voteCount": 1,
+        "content": "Yes\nYes\nNo"
+      },
+      {
+        "date": "2024-01-09T16:09:00.000Z",
+        "voteCount": 2,
+        "content": "Yes\nYes\nNo"
+      },
+      {
+        "date": "2023-01-30T06:26:00.000Z",
+        "voteCount": 2,
+        "content": "Took the exam last Jan 28, 2023 and this question is not included"
+      },
+      {
+        "date": "2022-10-30T00:04:00.000Z",
+        "voteCount": 1,
+        "content": "Correct. YYN"
+      },
+      {
+        "date": "2022-04-05T03:51:00.000Z",
+        "voteCount": 2,
+        "content": "Yes / Yes / No."
+      },
+      {
+        "date": "2022-04-07T01:18:00.000Z",
+        "voteCount": 1,
+        "content": "I have a feeling MS may through in a MFA exclusion tab on new questions to check if we know if Boston office IP exclusion overrules CAP."
+      },
+      {
+        "date": "2022-01-21T12:52:00.000Z",
+        "voteCount": 2,
+        "content": "Yes / Yes / No"
+      },
+      {
+        "date": "2021-12-22T02:43:00.000Z",
+        "voteCount": 4,
+        "content": "Yes / Yes / NO.\nI run this on my own AVD and ca confirm that the MFA is just deployed for AVD, not for any M365 services in AVD."
+      },
+      {
+        "date": "2021-12-09T14:45:00.000Z",
+        "voteCount": 4,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2021-11-28T10:10:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, Yes, No is correct\nThere are no named locations where MFA should not occur. In the CA policy in Cloud apps there is Azure Virtual Desktop configured. This policy only applies for making a connection to Azure Virtual Desktop. Not for Exchange Online or other M365 services, even within the virtual desktop itself."
+      },
+      {
+        "date": "2021-10-31T18:21:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, Yes, No - the conditional access is set to only Azure Virtual Desktop. Exchange online would need to be selected in order for the 3rd one to be Yes, but since its not selected and we don't know that it is, this is the reasoning for No."
+      },
+      {
+        "date": "2021-11-09T10:12:00.000Z",
+        "voteCount": 1,
+        "content": "Im going with YYN. I was just playing. Wanted to see ur explanation."
+      },
+      {
+        "date": "2021-10-29T13:04:00.000Z",
+        "voteCount": 1,
+        "content": "It says \"Cloud app\" or azure resources - Azure Virtual Desktop. To grant access, but require MFA. There is no \"Allow\" or \"Blocked\" location/IP address. So, why is last one NO?"
+      },
+      {
+        "date": "2021-10-30T00:45:00.000Z",
+        "voteCount": 4,
+        "content": "Because it's connecting to Exchange online and the Conditional access policy is configured for Azure virtual desktop"
+      },
+      {
+        "date": "2021-11-09T10:07:00.000Z",
+        "voteCount": 1,
+        "content": "Sunshine, read the question lol\nMFA is for Azure Virtual Desktop - grant access with MFA, NOT Exchange Online lol\nStep 1 - you connecting to Azure VD, then you log in to Exchange Online. Capish?"
+      },
+      {
+        "date": "2021-11-13T03:17:00.000Z",
+        "voteCount": 1,
+        "content": "are you sur its YYY ?"
+      },
+      {
+        "date": "2022-07-14T12:30:00.000Z",
+        "voteCount": 3,
+        "content": "Domza, stop polluting ExamTopics, every answer you give are wrong.\nThe question state: You connect to Exchange FROM a AVD, meaning it's already logged into the AVD..."
+      },
+      {
+        "date": "2023-08-21T05:57:00.000Z",
+        "voteCount": 2,
+        "content": "\"Cloud App or Action\" is the category for configuration, \"Azure Virtual Desktop\" is the specific app being targeted. (The previous question had the graphic which makes it much more clear). \n\nAnswer is YYN\n\nAs explained by others the final no is because Azure Virtual Desktop is Targeted as the app to require MFA through the \"Grant\" access control. So when you sign into Exchange Online regardless of your originating IP you will not be prompted for MFA. The fact that they specify that you're signed into an AVD session is just to throw you off. #loveMicrosoft"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52478-exam-az-140-topic-3-question-5-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Virtual Desktop host pool named Pool1 that is integrated with an Azure Active Directory Domain Services (Azure AD DS) managed domain.<br>You need to configure idle session timeout settings for users that connect to the session hosts in Pool1.<br>Solution: From an Azure AD DS-joined computer, you modify the AADDC Users GPO settings.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 14,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-11T19:53:00.000Z",
+        "voteCount": 12,
+        "content": "NO\n\nshould be a GPO for computer \n\nhttps://www.ciraltos.com/auto-start-and-stop-session-hosts-in-windows-virtual-desktop-spring-update-arm-edition-with-an-azure-function/"
+      },
+      {
+        "date": "2021-07-11T13:52:00.000Z",
+        "voteCount": 7,
+        "content": "Timeout sessions can be configured on the user GPO site as well."
+      },
+      {
+        "date": "2024-02-18T15:11:00.000Z",
+        "voteCount": 1,
+        "content": "No\nhttps://learn.microsoft.com/en-us/training/modules/configure-user-experience-settings/6-configure-session-timeout-properties"
+      },
+      {
+        "date": "2023-12-18T06:42:00.000Z",
+        "voteCount": 1,
+        "content": "I would say NO, the question states this is Azure Active Directory Services with an AAAD joined machine, where does GPO come into this?"
+      },
+      {
+        "date": "2023-11-08T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "I would say YES. \n\nWhy can you not integrate this policy: https://admx.help/?Category=Windows_10_2016&amp;Policy=Microsoft.Policies.TerminalServer::TS_Session_End_On_Limit_1\ninto 'AADDC Users GPO settings'?"
+      },
+      {
+        "date": "2023-11-09T06:26:00.000Z",
+        "voteCount": 1,
+        "content": "Note: This policy setting appears in both Computer Configuration and User Configuration. If both policy settings are configured, the Computer Configuration policy setting takes precedence."
+      },
+      {
+        "date": "2023-09-29T15:05:00.000Z",
+        "voteCount": 1,
+        "content": "GPO settings is in the computer node"
+      },
+      {
+        "date": "2023-09-11T07:24:00.000Z",
+        "voteCount": 4,
+        "content": "Modifying the AADDC Users GPO (Group Policy Object) settings on an Azure AD DS-joined computer will not configure idle session timeout settings for users connecting to the Azure Virtual Desktop session hosts in Pool1. Idle session timeout settings for Azure Virtual Desktop are typically configured at the Azure Virtual Desktop host pool level or using Group Policy settings directly on the session hosts themselves. Modifying the AADDC Users GPO may affect Azure AD DS user-related policies but won't directly address the idle session timeout configuration for Azure Virtual Desktop.\n\nTo configure idle session timeout settings for Azure Virtual Desktop users, you should use Azure Virtual Desktop-specific settings or Group Policy settings on the session hosts directly, not Azure AD DS GPOs."
+      },
+      {
+        "date": "2023-08-21T06:14:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is B for this variant\n\nI initially was thinking use of a Conditional Access Policy controlling \"Sing-in Frequency\" would meet the objective. However that would affect all hosts not just the ones in host pool Pool1. For more granular targeting GPO is the way to go specifically the computer side settings for session time out. \n\n Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Remote Desktop Services &gt; Remote Desktop Session Host &gt; Session Time Limits"
+      },
+      {
+        "date": "2023-06-02T16:15:00.000Z",
+        "voteCount": 1,
+        "content": "It's a Computer Configuration setting."
+      },
+      {
+        "date": "2023-06-01T10:37:00.000Z",
+        "voteCount": 1,
+        "content": "No, modifying the AADDC Users GPO settings from an Azure AD DS-joined computer does not meet the goal of configuring idle session timeout settings for users connecting to the session hosts in the Azure Virtual Desktop host pool (Pool1)."
+      },
+      {
+        "date": "2023-06-01T06:16:00.000Z",
+        "voteCount": 1,
+        "content": "It's a Computer Configuration setting."
+      },
+      {
+        "date": "2023-05-30T01:43:00.000Z",
+        "voteCount": 1,
+        "content": "NO\n\nshould be a GPO for computer"
+      },
+      {
+        "date": "2023-01-31T05:45:00.000Z",
+        "voteCount": 3,
+        "content": "- This policy setting appears in both Computer Configuration and User Configuration. If both policy settings are configured, the Computer Configuration policy setting takes precedence.\n- You can find the same RDP timeout settings in the user GPO section: User Configuration -&gt; Administrative Templates -&gt; Windows Components. Using the policy from the user section, you can more flexibly configure user groups with different limits on the duration of RDP sessions."
+      },
+      {
+        "date": "2022-12-09T01:41:00.000Z",
+        "voteCount": 3,
+        "content": "Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the AADDC Users and AADDC Computers containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the Azure AD DC administrators group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs\n\nhttps://learn.microsoft.com/en-us/azure/active-directory-domain-services/manage-group-policy"
+      },
+      {
+        "date": "2022-10-14T09:03:00.000Z",
+        "voteCount": 1,
+        "content": "its a computer setting"
+      },
+      {
+        "date": "2022-07-28T17:39:00.000Z",
+        "voteCount": 1,
+        "content": "Azure ADDS has the same capability than AD; hence you can configure and define GPO settings\nAs AVD is integrated with Azure ADDS, answer is YES"
+      },
+      {
+        "date": "2022-06-01T09:44:00.000Z",
+        "voteCount": 2,
+        "content": "this sim questions are 3.5, 3.6, 3.7, 3.12"
+      },
+      {
+        "date": "2022-04-07T01:18:00.000Z",
+        "voteCount": 2,
+        "content": "No is correct answer."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52869-exam-az-140-topic-3-question-6-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Virtual Desktop host pool named Pool1 that is integrated with an Azure Active Directory Domain Services (Azure AD DS) managed domain.<br>You need to configure idle session timeout settings for users that connect to the session hosts in Pool1.<br>Solution: From an Azure AD DS-joined computer, you modify the AADDC Computers GPO settings.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-16T04:20:00.000Z",
+        "voteCount": 7,
+        "content": "correct, it's a computer gpo"
+      },
+      {
+        "date": "2023-10-03T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "You are supposed to configure this computer GPO on the session host VM according to documentation. So it seems this answer is still not completely correct? It says we are configuring it on a aadds domain joined computer? That is not the same as the session host IMO? \n\nBut having said this the other options are definitly incorrect so I guess this is the right answer.."
+      },
+      {
+        "date": "2023-10-03T07:47:00.000Z",
+        "voteCount": 1,
+        "content": "Actually I was wrong the ms docs say that you have to configure the computer gpo on \u201ca server\u201d so in this case on the aadds server I guess? Source: https://learn.microsoft.com/en-us/training/modules/configure-user-experience-settings/6-configure-session-timeout-properties"
+      },
+      {
+        "date": "2023-08-21T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is A for this variant\n\nI initially was thinking use of a Conditional Access Policy controlling \"Sing-in Frequency\" would meet the objective. However that would affect all hosts not just the ones in host pool Pool1. For more granular targeting GPO is the way to go specifically the computer side settings for session time out. \n\n Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Remote Desktop Services &gt; Remote Desktop Session Host &gt; Session Time Limits"
+      },
+      {
+        "date": "2023-05-11T02:33:00.000Z",
+        "voteCount": 4,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2023-01-30T06:27:00.000Z",
+        "voteCount": 3,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      },
+      {
+        "date": "2022-04-07T01:18:00.000Z",
+        "voteCount": 1,
+        "content": "Yes is correct answer."
+      },
+      {
+        "date": "2022-03-22T08:41:00.000Z",
+        "voteCount": 1,
+        "content": "Yes. COMPUTER Gpo settings"
+      },
+      {
+        "date": "2021-06-10T01:01:00.000Z",
+        "voteCount": 2,
+        "content": "AADDC=Azure Active Directory Domain Controller, given answer was correct!"
+      },
+      {
+        "date": "2021-10-18T14:57:00.000Z",
+        "voteCount": 1,
+        "content": "That isn't what AADDC means - in AD DS, 'AADDC Users' and 'AADDC Computers' are two default groups.\n\nAzure AD DS managed domains include the following two built-in OUs:\nAADDC Computers - contains computer objects for all computers that are joined to the managed domain.\nAADDC Users - includes users and groups synchronized in from the Azure AD tenant.\n\nTaken from: https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou\n\nThis being said the setting can be applied via a Computer GPO without the need for loopback processing as would be the case if it were a User GPO."
+      },
+      {
+        "date": "2021-10-18T14:58:00.000Z",
+        "voteCount": 1,
+        "content": "NB: They're not groups sorry they're GPO's!\n\nBut IMHO given answer is correct."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/52479-exam-az-140-topic-3-question-7-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Virtual Desktop host pool named Pool1 that is integrated with an Azure Active Directory Domain Services (Azure AD DS) managed domain.<br>You need to configure idle session timeout settings for users that connect to the session hosts in Pool1.<br>Solution: From the Azure portal, you modify the Session behavior settings in the RDP Properties of Pool1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-05-11T19:59:00.000Z",
+        "voteCount": 9,
+        "content": "B. No\n\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/customize-rdp-properties"
+      },
+      {
+        "date": "2023-09-28T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "It's a GPO Policy. \nB is correct."
+      },
+      {
+        "date": "2023-08-21T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is B for this variant\n\nI initially was thinking use of a Conditional Access Policy controlling \"Sing-in Frequency\" would meet the objective. However that would affect all hosts not just the ones in host pool Pool1. For more granular targeting GPO is the way to go specifically the computer side settings for session time out. \n\n Computer Configuration &gt; Administrative Templates &gt; Windows Components &gt; Remote Desktop Services &gt; Remote Desktop Session Host &gt; Session Time Limits"
+      },
+      {
+        "date": "2023-06-01T10:36:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, modifying the Session behavior settings in the RDP Properties of Pool1 from the Azure portal meets the goal of configuring idle session timeout settings for users connecting to the session hosts in the Azure Virtual Desktop host pool."
+      },
+      {
+        "date": "2023-06-26T10:59:00.000Z",
+        "voteCount": 1,
+        "content": "The session behavior doesn't have any option for timeout.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/rdp-properties"
+      },
+      {
+        "date": "2023-01-30T06:27:00.000Z",
+        "voteCount": 3,
+        "content": "Took the exam last Jan 28, 2023 and this question is not included"
+      },
+      {
+        "date": "2023-05-05T02:20:00.000Z",
+        "voteCount": 2,
+        "content": "you get a random set of 55 questions from a pool of around 200. Just because it wasn't on YOUR exam does not mean someone else won't get it."
+      },
+      {
+        "date": "2022-04-06T04:00:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct answer. \nhttps://docs.microsoft.com/en-gb/learn/modules/configure-user-experience-settings/6-configure-session-timeout-properties"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64658-exam-az-140-topic-3-question-8-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment.<br>You have a RemoteApp named App1.<br>You discover that from the Save As dialog box of App1, users can run executable applications other than App1 on the session hosts.<br>You need to ensure that the users can run only published applications on the session hosts.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a conditional access policy in Azure Active Directory (Azure AD).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the Access control (IAM) settings of the host pool.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the RDP Properties of the host pool.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure an AppLocker policy on the session hosts.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-10-31T12:29:00.000Z",
+        "voteCount": 15,
+        "content": "The given answer D is correct.   Here is my reference \"Prevent unwanted software from running on session hosts. You can enable App Locker for additional security on session hosts, ensuring that only the apps you allow can run on the host.\"  https://docs.microsoft.com/en-us/azure/virtual-desktop/security-guide#other-security-tips-for-session-hosts"
+      },
+      {
+        "date": "2023-01-30T06:27:00.000Z",
+        "voteCount": 5,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      },
+      {
+        "date": "2024-01-09T12:02:00.000Z",
+        "voteCount": 1,
+        "content": "D. Configure an AppLocker policy on the session hosts."
+      },
+      {
+        "date": "2023-09-28T09:13:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct"
+      },
+      {
+        "date": "2022-10-30T00:23:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer. App Locker is only tool from all mentioned that allows control app policies in OS level."
+      },
+      {
+        "date": "2022-06-07T06:47:00.000Z",
+        "voteCount": 1,
+        "content": "D is correct answer"
+      },
+      {
+        "date": "2022-04-07T01:19:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct answer."
+      },
+      {
+        "date": "2021-11-09T10:16:00.000Z",
+        "voteCount": 1,
+        "content": "all, please provide a reference link to support ur answer."
+      },
+      {
+        "date": "2021-10-25T00:40:00.000Z",
+        "voteCount": 1,
+        "content": "A is the correct answer"
+      },
+      {
+        "date": "2021-10-30T05:52:00.000Z",
+        "voteCount": 1,
+        "content": "And how is that possible?"
+      },
+      {
+        "date": "2021-11-01T00:08:00.000Z",
+        "voteCount": 1,
+        "content": "Have a look, https://docs.microsoft.com/en-us/azure/virtual-desktop/security-guide#enable-conditional-access"
+      },
+      {
+        "date": "2021-11-02T19:51:00.000Z",
+        "voteCount": 3,
+        "content": "My opinion only but I think my reference is much more clearly answering the question asked."
+      },
+      {
+        "date": "2021-11-03T08:30:00.000Z",
+        "voteCount": 3,
+        "content": "Agree with you, the answer is D"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65096-exam-az-140-topic-3-question-9-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Virtual Desktop Deployment that contains a workspace named Workspace1 and a user named User1. Workspace1 contains a Desktop application group named Pool1Desktop.<br>At 09:00, you create a conditional access policy that has the following settings:<br>\u2711 Assignments:<br>- Users and groups: User1<br>- Cloud apps or actions: Azure Virtual Desktop<br>- Conditions: 0 conditions selected<br>\u2711 Access controls<br>- Grant: Grant access, Require multi-factor authentication<br>- Sessions: Sign-in frequency 1 hour<br>User1 performs the actions shown in the following table.<br><img src=\"/assets/media/exam-media/04272/0010100003.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0010200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0010200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-24T02:29:00.000Z",
+        "voteCount": 15,
+        "content": "Yes - Subscription to workspace need authentication, hence MFA required\nNo \u2013 No action performed at 10:20\nYes \u2013 Connect to Pool1 need authentication at 13:50"
+      },
+      {
+        "date": "2021-11-27T02:07:00.000Z",
+        "voteCount": 11,
+        "content": "It's actually 9:20 on exam not 10:20"
+      },
+      {
+        "date": "2024-09-28T11:32:00.000Z",
+        "voteCount": 1,
+        "content": "Should be YYY, 9:10am Subscribe to workspace1requires MFA, connect to pool1 which should require MFA for first time. Connecting again to pool1 over an hour later at 1:50pm should require MFA again.\n\nIf user signed out and connecting again in less than 1 hours like 9:30am and 9:45am then wouldn't require MFA."
+      },
+      {
+        "date": "2023-05-11T02:33:00.000Z",
+        "voteCount": 6,
+        "content": "Got this question on exam today."
+      },
+      {
+        "date": "2023-04-11T11:44:00.000Z",
+        "voteCount": 1,
+        "content": "Y,N,Y\nThe last one is mentioned under Create a Conditional Access policy in the provided document link\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa\n\nIf you're using Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on two different apps:\n\nAzure Virtual Desktop (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to a feed and authenticates to the Azure Virtual Desktop Gateway during a connection."
+      },
+      {
+        "date": "2023-02-22T11:29:00.000Z",
+        "voteCount": 1,
+        "content": "I just tested this in my Dev environment.\nYNY is defo the correct answer"
+      },
+      {
+        "date": "2022-10-30T00:56:00.000Z",
+        "voteCount": 3,
+        "content": "YNN\n\nMFA policy enabled for Azure Virtual Desktop which applies when user subscribes. Mentioned conditions do not force user resubscribe to the workspace. So he would not be needed reenter MFA untill next time when he will have resubscribe."
+      },
+      {
+        "date": "2022-09-14T01:56:00.000Z",
+        "voteCount": 4,
+        "content": "The given answer is correct. \n\nthis is actually covered in the MS link shown in the reference\n\n\"If you're using Azure Virtual Desktop (based on Azure Resource Manager), you can configure MFA on two different apps:\n\n- Azure Virtual Desktop (app ID 9cdead84-a844-4324-93f2-b2e6bb768d07), which applies when the user subscribes to a feed and authenticates to the Azure Virtual Desktop Gateway during a connection.\n\n- Microsoft Remote Desktop (app ID a4a365df-50f1-4397-bc59-1a1564b8bb9c), which applies when the user authenticates to the session host when single sign-on is enabled.\"\n\nThere is no mention of SSO in the question so the CA policy would be enforced on both the subscription at 9:10 and the connection at 13:50.\n\nY\nN\nY"
+      },
+      {
+        "date": "2022-06-24T08:53:00.000Z",
+        "voteCount": 2,
+        "content": "Yes / No / No\n3rd is no because it is a simple user login to the domain, not to the Azure."
+      },
+      {
+        "date": "2023-08-21T06:23:00.000Z",
+        "voteCount": 1,
+        "content": "The question does not mention that the Hosts are AD joined or joined to AADDS. They could be Azure AD connected which would utilize Azure AD as the identity provider/auth method for sign in."
+      },
+      {
+        "date": "2022-05-23T10:38:00.000Z",
+        "voteCount": 3,
+        "content": "Its Yes/No/No - the user will not be prompted connected to the virtual desktop, only when subscribing."
+      },
+      {
+        "date": "2022-06-24T13:03:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2022-11-29T01:03:00.000Z",
+        "voteCount": 1,
+        "content": "not correct"
+      },
+      {
+        "date": "2022-05-21T01:49:00.000Z",
+        "voteCount": 1,
+        "content": "Y N Y \n\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime\n\nexamples user sign-in frequency is set to 1 hour\n\nExample 2:\n\nAt 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.\nAt 00:30, the user gets up and takes a break locking their device.\nAt 00:45, the user returns from their break and unlocks the device.\nAt 01:45, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator since the last sign-in happened at 00:45."
+      },
+      {
+        "date": "2022-04-07T01:21:00.000Z",
+        "voteCount": 3,
+        "content": "Yes / No / No"
+      },
+      {
+        "date": "2022-03-07T15:10:00.000Z",
+        "voteCount": 1,
+        "content": "Should be YYY even if the second time is 9.20\nhttps://docs.microsoft.com/en-us/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime"
+      },
+      {
+        "date": "2022-03-07T15:13:00.000Z",
+        "voteCount": 1,
+        "content": "From the document \n\"Example 1:\n\nAt 00:00, a user signs in to their Windows 10 Azure AD joined device and starts work on a document stored on SharePoint Online.\nThe user continues working on the same document on their device for an hour.\nAt 01:00, the user is prompted to sign in again based on the sign-in frequency requirement in the Conditional Access policy configured by their administrator."
+      },
+      {
+        "date": "2022-03-02T08:15:00.000Z",
+        "voteCount": 6,
+        "content": "I have tested this. catamag i think your are right. I am prompted for MFA when subscribing to the feed but then not prompted again after that even after closing the remote desktop app and opening again. Its Yes, No, No"
+      },
+      {
+        "date": "2022-01-21T12:54:00.000Z",
+        "voteCount": 1,
+        "content": "Yes / No / Yes"
+      },
+      {
+        "date": "2022-01-21T05:36:00.000Z",
+        "voteCount": 1,
+        "content": "the user signed out at 11:20 so the session for ten doesnt MFA"
+      },
+      {
+        "date": "2021-12-18T10:58:00.000Z",
+        "voteCount": 3,
+        "content": "It could also be Yes, No, No. The first 2 are definitely correct, but the last one I'm not 100% sure. You are prompted for MFA only when subscribing to the feed, at 13:50 the user Connects to the Desktop which shouldn't trigger the MFA ( the authentication will happen at DC level ). But unfortunately I'm unable to test, because I don't have any rights to alter the CA rule. :("
+      },
+      {
+        "date": "2023-08-21T06:29:00.000Z",
+        "voteCount": 1,
+        "content": "This variant of the question does not mention that the hosts are AD or AADDS joined. So they may be utilizing AAD as their identity provider/auth mech, which would prompt for MFA based on the conditional access policy. \n\nI believe the correct answer is YNY"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74815-exam-az-140-topic-3-question-10-discussion/",
+    "body": "You deploy an Azure Virtual Desktop session host pool that includes ten virtual machines.<br>You need to provide a group of pilot users access to the virtual machines in the pool.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a role definition.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the users to a Remote Desktop Users group on the virtual machines.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd the users to the local Administrators group on the virtual machines.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a role assignment.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-01-30T06:28:00.000Z",
+        "voteCount": 5,
+        "content": "Took the exam last Jan 28, 2023 and this question is not included"
+      },
+      {
+        "date": "2023-06-04T21:02:00.000Z",
+        "voteCount": 5,
+        "content": "This question was for today's exam"
+      },
+      {
+        "date": "2024-10-13T01:07:00.000Z",
+        "voteCount": 1,
+        "content": "D for sure."
+      },
+      {
+        "date": "2022-10-30T01:00:00.000Z",
+        "voteCount": 3,
+        "content": "Correct.\n\nAzure Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role."
+      },
+      {
+        "date": "2022-07-09T15:59:00.000Z",
+        "voteCount": 2,
+        "content": "Yes D is correct"
+      },
+      {
+        "date": "2022-04-28T16:11:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct: d"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74938-exam-az-140-topic-3-question-11-discussion/",
+    "body": "You have an Azure Active Directory Domain Services (Azure AD DS) managed domain named contoso.com.<br>You create an Azure Virtual Desktop host pool named Pool1. You assign the Virtual Machine Contributor role for the Azure subscription to a user named Admin1.<br>You need to ensure that Admin1 can add session hosts to Pool1. The solution must use the principle of least privilege.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign Admin1 the Desktop Virtualization Host Pool Contributor role for Pool1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign Admin1 the Desktop Virtualization Session Host Operator role for Pool1\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdd Admin1 to the AAD DC Administrators group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign a Microsoft 365 Enterprise E3 license to Admin1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tGenerate a registration token\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BE",
+        "count": 50,
+        "isMostVoted": true
+      },
+      {
+        "answer": "AE",
+        "count": 25,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-07-30T07:32:00.000Z",
+        "voteCount": 16,
+        "content": "Answer is correct it's B and E if you read the microsoft document properly you will get to know.\n\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbac"
+      },
+      {
+        "date": "2022-07-31T08:55:00.000Z",
+        "voteCount": 5,
+        "content": "\"users assigned this role can add session hosts to the host pool outside of the Azure portal if they also have the Virtual Machine Contributor role\"\n\nNowhere does it say the user also has that role..."
+      },
+      {
+        "date": "2022-09-02T02:34:00.000Z",
+        "voteCount": 20,
+        "content": "bro it literally says the user has that role in the 3rd sentence of the question: \"You assign the Virtual Machine Contributor role for the Azure subscription to a user named Admin1.\""
+      },
+      {
+        "date": "2023-11-19T13:07:00.000Z",
+        "voteCount": 1,
+        "content": "If the registration token is valid (generated and not expired). A and E is correct."
+      },
+      {
+        "date": "2022-06-08T06:55:00.000Z",
+        "voteCount": 13,
+        "content": "Correct A and E  since  - Desktop Virtualization Session Host Operator: This role lets you view and remove session hosts, and change drain mode. You CAN'T ADD session hosts using the Azure portal because you don't have write permission for host pool objects."
+      },
+      {
+        "date": "2023-11-17T09:38:00.000Z",
+        "voteCount": 2,
+        "content": "You can if you have the Virtual Machine Contributor role, which this question states they do, so i'd go with B and E"
+      },
+      {
+        "date": "2024-10-07T11:26:00.000Z",
+        "voteCount": 1,
+        "content": "Desktop Virtualization Session Host Operator role:\n\nThis role can't add session hosts using the Azure portal because it doesn't have write permission for host pool objects. For adding session hosts outside of the Azure portal, if the registration token is valid (generated and not expired), this role can add session hosts to the host pool if the Virtual Machine Contributor role is also assigned.\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/rbac#desktop-virtualization-session-host-operator\n\nThe answer must be A &amp; E"
+      },
+      {
+        "date": "2024-06-12T02:47:00.000Z",
+        "voteCount": 2,
+        "content": "A &amp; E\nNot B because, The Desktop Virtualization User Session Operator role allows sending messages, disconnecting sessions, and using the logoff function to sign users out of a session host. However, this role doesn't allow host pool or session host management like removing a session host, changing drain mode, and so on."
+      },
+      {
+        "date": "2024-05-01T09:45:00.000Z",
+        "voteCount": 1,
+        "content": "I'll go for A&amp;E because the user has already the \"Virtual Machine Contributor\" role and as the MS doc clearly states that:\n\n\"The Desktop Virtualization Session Host Operator role allows viewing and removing session hosts, and changing drain mode. This role can't add session hosts using the Azure portal because it doesn't have write permission for host pool objects. \n\nFor adding session hosts outside of the Azure portal, if the registration token is valid (generated and not expired), this role can add session hosts to the host pool if the Virtual Machine Contributor role is also assigned\"\n\nAlso the question demands that the solution must use the principle of least privilege.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/rbac#desktop-virtualization-session-host-operator"
+      },
+      {
+        "date": "2024-04-12T16:17:00.000Z",
+        "voteCount": 1,
+        "content": "Answer BE is correct. Microsoft article clearly states that:\nThe Desktop Virtualization Session Host Operator role allows viewing and removing session hosts, and changing drain mode\nSo it mandatory to have operator role assigned."
+      },
+      {
+        "date": "2024-01-11T03:38:00.000Z",
+        "voteCount": 1,
+        "content": "B. Assign Admin1 the Desktop Virtualization Session Host Operator role for Pool1\nE. Generate a registration token"
+      },
+      {
+        "date": "2023-10-06T09:29:00.000Z",
+        "voteCount": 2,
+        "content": "\"You assign the Virtual Machine Contributor role for the Azure subscription to a user named Admin1.\nYou need to ensure that Admin1 can add session hosts to Pool1. The solution must use the principle of least privilege.\" - To follow this principle B+E are the correct ones. Check the link I've put below and you will come to the same conclusion.\n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/rbac#desktop-virtualization-session-host-operator:~:text=If%20the%20registration%20token%20is%20valid%20(generated%20and%20not%20expired)%2C%20users%20assigned%20this%20role%20can%20add%20session%20hosts%20to%20the%20host%20pool%20outside%20of%20the%20Azure%20portal%20if%20they%20also%20have%20the%20Virtual%20Machine%20Contributor%20role."
+      },
+      {
+        "date": "2023-09-17T11:31:00.000Z",
+        "voteCount": 2,
+        "content": "E. Generate a registration token. is required.\nand to generate a registration token, A. Desktop Virtualization Session Host Operator is required role.\n(Microsoft.DesktopVirtualization/hostpools/retrieveRegistrationToken/action is the required action and B. Desktop Virtualization Session Host Operator dont have this action)\n\nhttps://learn.microsoft.com/azure/virtual-desktop/rbac#desktop-virtualization-host-pool-contributor\nhttps://learn.microsoft.com/azure/role-based-access-control/resource-provider-operations#microsoftdesktopvirtualization\n\nhttps://learn.microsoft.com/azure/virtual-desktop/rbac#desktop-virtualization-session-host-operator"
+      },
+      {
+        "date": "2023-08-21T11:40:00.000Z",
+        "voteCount": 6,
+        "content": "Answer B and E meets the requirement of Least Privilege. Very tricky question!\n\nQuestion states that you have assigned the \"Virtual Machine Contributor\" role for the subscription to Admin1. So with a valid token and \"Desktop Virtualization Session Host operator\" role Admin1 can add session hosts outside of the Azure Portal. (PowerShell or CLI)\n\n\nhttps://docs.microsoft.com/en-us/azure/virtual-desktop/rbac\n\nDesktop Virtualization Session Host Operator\nThe Desktop Virtualization Session Host Operator role allows users to view and remove session hosts, as well as change drain mode. Users can't add session hosts using the Azure portal because they don't have write permission for host pool objects. ****If the registration token is valid (generated and not expired), users assigned this role can add session hosts to the host pool outside of the Azure portal**** if they also have the ****Virtual Machine Contributor role****."
+      },
+      {
+        "date": "2023-07-12T13:31:00.000Z",
+        "voteCount": 2,
+        "content": "A. Assign Admin1 the \"Desktop Virtualization Host Pool Contributor\" role for Pool1.\nThis role provides permissions to create and manage host pools and session hosts in Azure Virtual Desktop.\n\nE. Generate a registration token.\nThe registration token is required for adding session hosts to a host pool in Azure Virtual Desktop. The Admin1 can use this token to register new session hosts to Pool1.\n\nOption B would allow for management of individual session hosts, but not for adding new hosts to the pool. Option C is not required for managing Azure Virtual Desktop, as it pertains to Azure AD DS administration. Option D involves assigning a license which is not directly related to the task of adding session hosts to an Azure Virtual Desktop host pool."
+      },
+      {
+        "date": "2023-06-22T10:51:00.000Z",
+        "voteCount": 2,
+        "content": "BE - Resposta Correta.\n\nDesktop Virtualization Session Host Operator \u2192 \"If the registration token is valid (generated and not expired), users assigned this role can add session hosts to the host pool outside of the Azure portal if they also have the Virtual Machine Contributor role\"\n\nhttps://learn.microsoft.com/pt-br/azure/virtual-desktop/rbac"
+      },
+      {
+        "date": "2023-06-01T06:34:00.000Z",
+        "voteCount": 2,
+        "content": "Virtual Machine Contributor role  + Desktop Virtualization Session Host Operator will do."
+      },
+      {
+        "date": "2023-05-29T16:54:00.000Z",
+        "voteCount": 3,
+        "content": "Since the user already has the Virtual Machine Contributor role, the correct answers are B and E."
+      },
+      {
+        "date": "2023-05-02T23:39:00.000Z",
+        "voteCount": 1,
+        "content": "The correct actions to perform to ensure that Admin1 can add session hosts to Pool1 using the principle of least privilege are A and E.\n\nA. Assign Admin1 the Desktop Virtualization Host Pool Contributor role for Pool1: This role allows Admin1 to manage the entire lifecycle of host pools, including creating, updating, and deleting host pools. It also enables the user to add, update, and remove session hosts from the pool.\n\nE. Generate a registration token: A registration token is required to register a new session host with a host pool. By generating the token, Admin1 can provide it to the new session host, which will enable it to register with the host pool.\n\nChatGPT"
+      },
+      {
+        "date": "2023-05-02T23:39:00.000Z",
+        "voteCount": 1,
+        "content": "B. Assign Admin1 the Desktop Virtualization Session Host Operator role for Pool1: This role allows the user to manage the session hosts in the host pool, including starting and stopping the hosts and accessing the remote desktop session of a host. However, it does not allow the user to add new session hosts to the host pool.\n\nC. Add Admin1 to the AAD DC Administrators group: This group has full administrative access to the Azure AD DS managed domain, including the ability to manage users, groups, and domain controllers. This level of access is not necessary for the specific task of adding session hosts to a host pool.\n\nD. Assign a Microsoft 365 Enterprise E3 license to Admin1: A Microsoft 365 license is not required for the specific task of adding session hosts to a host pool."
+      },
+      {
+        "date": "2024-03-09T08:13:00.000Z",
+        "voteCount": 1,
+        "content": "Like Nvoism has descriptied Session Host Operator cannot add new session host to host pool. But That is requirement so A is right one\nvalid registration token is needed but also joining to Entra Id domain services. So by the roles perspective A and C are valid options. Note that solution must use the principle of least privilege so I would select only roles"
+      },
+      {
+        "date": "2023-03-29T09:43:00.000Z",
+        "voteCount": 2,
+        "content": "correct answer is BE"
+      },
+      {
+        "date": "2023-01-30T06:29:00.000Z",
+        "voteCount": 3,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74404-exam-az-140-topic-3-question-12-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Virtual Desktop host pool named Pool1 that is integrated with an Azure Active Directory Domain Services (Azure AD DS) managed domain.<br>You need to configure idle session timeout settings for users that connect to the session hosts in Pool1.<br>Solution: From the Azure portal, you modify the Advanced settings in the RDP Properties of Pool1.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-01-30T06:29:00.000Z",
+        "voteCount": 3,
+        "content": "Passed the exam last Jan 28 2023 and this question is included.\nProvided answer is correct."
+      },
+      {
+        "date": "2022-10-30T01:23:00.000Z",
+        "voteCount": 1,
+        "content": "Correct. You need to use GPO for it."
+      },
+      {
+        "date": "2022-06-05T19:49:00.000Z",
+        "voteCount": 1,
+        "content": "The settings of RDP session timeouts are located in the following GPO section Computer Configuration -&gt; Policies -&gt; Administrative Templates -&gt; Windows Components -&gt; Remote Desktop Services -&gt; Remote Desktop Session Host -&gt; Session Time Limits. \nalthough you could do it in the past from  the RDS collection settings"
+      },
+      {
+        "date": "2022-04-24T19:23:00.000Z",
+        "voteCount": 1,
+        "content": "Provided answer is correct. \nB"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/78723-exam-az-140-topic-3-question-13-discussion/",
+    "body": "You have a hybrid Azure Active Directory (Azure AD) tenant.<br>You plan to deploy an Azure Virtual Desktop personal host pool. The host pool will contain 15 virtual machines that run Windows 10 Enterprise. The virtual machines will be joined to the on-premises Active Directory domain and used by the members of a domain group named Department1.<br>You need to ensure that each user is added automatically to the local Administrators group on the virtual machine to which the user signs in.<br>What should you configure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta role assignment for the host pool",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta role assignment for each virtual machine",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta policy preference in a Group Policy Object (GPO)\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta device setting in Azure AD"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 15,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-01-10T19:36:00.000Z",
+        "voteCount": 1,
+        "content": "A. a role assignment for the host pool"
+      },
+      {
+        "date": "2023-08-21T12:19:00.000Z",
+        "voteCount": 3,
+        "content": "Best Answer is C\n\nNOT A - The Required Role \"Virtual Machine Administrator Login\" is not available for assignment to Host Pools - It would need to be applied to the Resource Group or Individual VMs\n\nNot B - \"Virtual Machine Administrator Login\" Role Assignment for the individual VMs would accomplish the desired outcome, but would require undue administrative effort\n\nC - Correct answer, Accomplishes the goal with least administrative effort\n\nNot D - No device setting in Azure AD exists for this configuration"
+      },
+      {
+        "date": "2023-06-01T06:37:00.000Z",
+        "voteCount": 1,
+        "content": "The virtual machines will be joined to the on-premises Active Directory domain;\neach user is added automatically to the local Administrators group on the virtual machine.\nI can be done by GPO."
+      },
+      {
+        "date": "2023-03-29T10:00:00.000Z",
+        "voteCount": 1,
+        "content": "It is A due to \"Azure Virtual Desktop personal host pool\" each user need access as a local admin on the computer they will be assigned."
+      },
+      {
+        "date": "2023-03-17T04:16:00.000Z",
+        "voteCount": 2,
+        "content": "Virtual Machine Administrator Login Role\nView Virtual Machines in the portal and login as administrator\n\nhttps://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles"
+      },
+      {
+        "date": "2023-03-05T19:29:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer (A) seems to be describing how to give access to the host pool/personal desktop, rather than Local Admin access (which is done via GPO)"
+      },
+      {
+        "date": "2022-12-18T15:09:00.000Z",
+        "voteCount": 1,
+        "content": "Can only be done via GPO, C is correct"
+      },
+      {
+        "date": "2022-10-30T01:28:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is C. Requested action is not related with AVD roles in any way. So it is standard procedure how you can do it in any Windows domain and it is GPO."
+      },
+      {
+        "date": "2022-10-14T09:17:00.000Z",
+        "voteCount": 1,
+        "content": "its a GPO setting"
+      },
+      {
+        "date": "2022-09-01T10:23:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is C, to automatically add a user to the local administrator a GPO is needed"
+      },
+      {
+        "date": "2022-08-31T08:19:00.000Z",
+        "voteCount": 4,
+        "content": "A is not correct. it is asking you to add the user to the Local Administrators group in the session host. That should be done via GPO."
+      },
+      {
+        "date": "2022-09-10T10:44:00.000Z",
+        "voteCount": 2,
+        "content": "https://microsoftlearning.github.io/AZ-140-Configuring-and-Operating-Microsoft-Azure-Virtual-Desktop/Instructions/Labs/LAB_04L01_Implement_and_manage_AVD_profiles_AADDS.html"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86672-exam-az-140-topic-3-question-14-discussion/",
+    "body": "HOTSPOT -<br>You have two Azure subscriptions that are linked to an Azure Active Directory (Azure AD) tenant named contoso.com and contain an Azure Virtual Desktop deployment. The tenant contains a user named User1.<br>When User1 signs in to Azure Security Center, the user receives the message shown in the following exhibit.<br><img src=\"/assets/media/exam-media/04272/0010600001.jpg\" class=\"in-exam-image\"><br>You need to ensure that User1 can manage security information for the tenant. The solution must use the principle of least privilege.<br>What should you do? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04272/0010600002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04272/0010700001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Security administrator for contoso.com<br>Incorrect:<br>* Not at the subscription level, as there are two subscriptions.<br>* Not Root management group level<br>Each directory is given a single top-level management group called the root management group. The root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and Azure role assignments to be applied at the directory level.<br>Box 2: Privileged Role Administrator<br>You need to ensure that User1 can manage security information for the tenant.<br>Privileged Role Administrator - Can manage role assignments in Azure AD, and all aspects of Privileged Identity Management.<br>Incorrect:<br>* External Identity Provider Administrator<br>This administrator manages federation between Azure AD organizations and external identity providers. With this role, users can add new identity providers and configure all available settings (e.g. authentication path, service ID, assigned key containers). This user can enable the Azure AD organization to trust authentications from external identity providers.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/governance/management-groups/overview https://docs.microsoft.com/en-us/azure/active-directory/roles/permissions-reference",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-08-21T13:18:00.000Z",
+        "voteCount": 7,
+        "content": "Correct Answer: \nSecurity Admin at the Root Management Group Level (Tenant Root Group)\nAnd\nGlobal Administrator\n\nThis is a poorly written question. The author intentionally misleads the reader using incorrect naming, and poorly phrased objectives. Most of these get thrown out, my condolences to anyone who sees this on an exam."
+      },
+      {
+        "date": "2023-08-21T13:20:00.000Z",
+        "voteCount": 1,
+        "content": "Part 1 asks what role User1 needs to be able to \u201cmanage\u201d (read that as Modify/Contribute not just read) security information for the tenant. Tenant here also means the multiple azure subscriptions. \n\nAzure Subscription rights are not handled by default Azure AD role assignments. You can be a Global Admin of the Azure AD tenant and not have visibility to the Azure Subscriptions unless it is grated by another admin, or you self-elevate."
+      },
+      {
+        "date": "2023-08-21T13:21:00.000Z",
+        "voteCount": 2,
+        "content": "Instead, Azure Subscription rights are managed by Management Groups. The Tenant level management group is named by default \u201cTenant Root Group\u201d. While technically this is the \u201cRoot Management Group Level\u201d using this language in the exam question is solely intended to throw the reader off as it would typically be referred to as the \u201cTennant Root Group\u201d. \n\nTo provide User1 access to manage the security information for all the subscriptions in the tenant the user would need to be assigned the \u201cSecurity Admin Role\u201d on the Tenant Root Group\nhttps://learn.microsoft.com/en-us/azure/defender-for-cloud/tenant-wide-permissions-management"
+      },
+      {
+        "date": "2023-08-21T13:21:00.000Z",
+        "voteCount": 2,
+        "content": "Part 2 of the question is tricky as well. \n\nIt states: \u201cRole Required to\u201d assign the role to User1. It is not asking which role to assign to User1 which would be the Security Admin role. It is instead asking which role \u201cyou\u201d need to have in order to assign the appropriate role to User1.\n\nBeing that the Tenant Root Group does not allow anyone to modify its role assignments by default and only a Global Administrator can self-elevate to the \u201cUser Access Administrator role\u201d of the Tenant Root Group, you will require Global Admin rights to achieve the goal. \nhttps://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+      },
+      {
+        "date": "2023-06-01T06:54:00.000Z",
+        "voteCount": 5,
+        "content": "Tested in the lab: Security Admin at the root management group level."
+      },
+      {
+        "date": "2023-06-07T03:12:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/tenant-wide-permissions-management\nIn this document somewhre under point 3 it says \"The organizational-wide view is achieved by granting roles on the root management group level of the tenant.\""
+      },
+      {
+        "date": "2023-05-08T13:06:00.000Z",
+        "voteCount": 4,
+        "content": "Security Administrator at the tenant level doesn't gives you any rights in Azure. Since there are 2 subscriptions you need the Security Admin at the root management group level."
+      },
+      {
+        "date": "2022-10-30T01:49:00.000Z",
+        "voteCount": 1,
+        "content": "Sounds correct to me."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96570-exam-az-140-topic-3-question-15-discussion/",
+    "body": "DRAG DROP<br> -<br><br>Your on-premises network contains an Active Directory domain named fabrikam.com that syncs with Azure Active Directory (Azure AD). The domain contains a global group named AVDusers.<br><br>You have an Azure subscription that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image179.png\"><br><br>All Azure Virtual Desktop users are members of the AVDusers group.<br><br>You plan to create FSLogix profile containers in Profiles1.<br><br>You need to configure Profiles1 and fabrikam.com to ensure that the HostPool1 sessions hosts can access the FSLogix profile containers.<br><br>What should you do? To answer, drag the appropriate configurations to the correct targets. Each configuration may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br><img src=\"https://img.examtopics.com/az-140/image180.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image181.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-01T10:02:00.000Z",
+        "voteCount": 7,
+        "content": "https://www.youtube.com/watch?v=rEjddntRnZk&amp;t=2408s\nthe answers should be:\nProfile1: Assign Azure role-based access control roles to AVDusers group: Storage File Data SMB Share Contributor\nfabirkam.com: Create a computer account for storage 1."
+      },
+      {
+        "date": "2024-10-05T12:16:00.000Z",
+        "voteCount": 1,
+        "content": "In this scenario, you don't use Azure RBAC roles because the authentication for FSLogix profiles is based on Active Directory (AD), and session hosts are joined to the AD domain. Azure RBAC controls access to Azure resources but doesn't apply to NTFS file system permissions required by FSLogix."
+      },
+      {
+        "date": "2023-06-02T04:18:00.000Z",
+        "voteCount": 4,
+        "content": "https://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds\n\"Set NTFS permissions\" is done after assigning the role."
+      },
+      {
+        "date": "2023-06-04T06:38:00.000Z",
+        "voteCount": 4,
+        "content": "\"Set NTFS permissions\" is done on a session host. Not to share on the Azure portal."
+      },
+      {
+        "date": "2024-01-10T06:29:00.000Z",
+        "voteCount": 1,
+        "content": "It's not mentioned that you have to do it from the Azure Portal. https://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds#set-ntfs-permissions"
+      },
+      {
+        "date": "2023-01-23T01:43:00.000Z",
+        "voteCount": 5,
+        "content": "I think the Answers are wrong and should be the Following:\nProfiles: assign NTFS Permissions to AVD users\nFrabrikam.com: Create a computer Objekt for Storage 1"
+      },
+      {
+        "date": "2023-03-05T00:56:00.000Z",
+        "voteCount": 1,
+        "content": "Computer account will already be created as the storage account is joined to the domain"
+      },
+      {
+        "date": "2023-05-08T13:15:00.000Z",
+        "voteCount": 1,
+        "content": "With ADDS it is a manual process unlike with AADDS. Therefore the suggested answers of panterpansn are correct."
+      },
+      {
+        "date": "2023-05-15T12:06:00.000Z",
+        "voteCount": 2,
+        "content": "No, you are not understanding. Storage account is already authenticating with frabrikam domain according to the question, so that step is already complete."
+      },
+      {
+        "date": "2024-08-30T18:18:00.000Z",
+        "voteCount": 1,
+        "content": "Passed the Exam with below Answers:\nNTFS\nCreate Computer Account"
+      },
+      {
+        "date": "2024-01-10T06:26:00.000Z",
+        "voteCount": 1,
+        "content": "Provided answer is correct\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds#assign-rbac-role-to-users\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds#assign-rbac-role-to-users"
+      },
+      {
+        "date": "2023-08-29T06:53:00.000Z",
+        "voteCount": 5,
+        "content": "I think that the provided answer is correct : \nin this scenario we have on prem adds , so as explained here : \n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds\n\n1 Assign RBAC role to users\n2 Set NTFS permissions\n\n(we assume that the storage account exists and it is joined to the ADDS)"
+      },
+      {
+        "date": "2023-04-11T12:26:00.000Z",
+        "voteCount": 2,
+        "content": "The provided link states in step 8 Select + File Share\nJust below that it states to Join storage account to Azure AD with a computer account. Based on that and the provide answers it should be\nCreate Shared Folder\nCreate a computer account\n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds"
+      },
+      {
+        "date": "2023-02-04T17:22:00.000Z",
+        "voteCount": 1,
+        "content": "Respuesta correcta."
+      },
+      {
+        "date": "2023-01-24T02:42:00.000Z",
+        "voteCount": 2,
+        "content": "Answer seems good\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/fslogix-profile-container-configure-azure-files-active-directory?tabs=adds"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96943-exam-az-140-topic-3-question-16-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image182.png\"><br><br>You plan to enable Start VM on connect for Pool1.<br><br>You create a custom Azure role named Role1 that has sufficient permissions to start virtual machines on demand.<br><br>You need to ensure that the session hosts in Pool1 can start on demand.<br><br>To which service principal should you assign Role1?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManaged1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Virtual Desktop\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Automation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHost1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Compute"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-01-11T03:46:00.000Z",
+        "voteCount": 1,
+        "content": "B. Azure Virtual Desktop"
+      },
+      {
+        "date": "2023-06-04T06:45:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct."
+      },
+      {
+        "date": "2023-01-26T15:29:00.000Z",
+        "voteCount": 3,
+        "content": "Correct: https://learn.microsoft.com/en-us/azure/virtual-desktop/start-virtual-machine-connect?tabs=azure-portal#assign-the-desktop-virtualization-power-on-contributor-role-with-the-azure-portal"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/97592-exam-az-140-topic-3-question-17-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image183.png\"><br><br>You need to enable just-in-time (JIT) VM access for all the session hosts.<br><br>What should you do first?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDeploy Azure Bastion to VNET1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign network security groups (NSGs) to the network interfaces of the five session hosts.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure Access control (IAM) for HostPool1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign a network security group (NSG) to Subnet1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 12,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-13T09:52:00.000Z",
+        "voteCount": 1,
+        "content": "By design the NSG is not deployed on subnet so if this is not stated other way B is correct since NSG is assigned to every network adapter of the VM"
+      },
+      {
+        "date": "2024-01-13T17:03:00.000Z",
+        "voteCount": 2,
+        "content": "D. Assign a network security group (NSG) to Subnet1"
+      },
+      {
+        "date": "2023-10-03T22:49:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-overview?tabs=defender-for-container-arch-aks#how-defender-for-cloud-identifies-which-vms-should-have-jit-applied\n\nUnable to test but best pratice would be to have NSG on the network. and think it should fufill this criteria"
+      },
+      {
+        "date": "2023-06-02T04:30:00.000Z",
+        "voteCount": 2,
+        "content": "It's Microsoft's suggestion."
+      },
+      {
+        "date": "2023-06-01T01:55:00.000Z",
+        "voteCount": 2,
+        "content": "This question is absolute peak Microsoft.\n\nAnyway IMO its: D"
+      },
+      {
+        "date": "2023-05-30T08:34:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer, letter D"
+      },
+      {
+        "date": "2023-05-15T12:14:00.000Z",
+        "voteCount": 3,
+        "content": "This question makes no sense, and I have a hard time believe it's on the exam. Why would you need to enable Just In Time Access for an AVD environment? \n\nAlso, even if you were to enable JIT access, you wouldn't need an NSG for each session host. You would assign the same NSG to the subnet, and in turn it will apply to each host."
+      },
+      {
+        "date": "2023-05-15T12:13:00.000Z",
+        "voteCount": 1,
+        "content": "This question makes no sense, and I have a hard time believe it's on the exam. Why would you need to enable Just In Time Access for an AVD environment? \n\nAlso, even if you were to enable JIT access, you wouldn't need an NSG for each session host. You would assign the same NSG to the subnet, and in turn it will apply to each host."
+      },
+      {
+        "date": "2023-05-08T13:22:00.000Z",
+        "voteCount": 2,
+        "content": "Assign NSGs to each session host doesn't makes sense to a management pov."
+      },
+      {
+        "date": "2023-02-04T17:28:00.000Z",
+        "voteCount": 2,
+        "content": "Correct,\nhttps://stefanos.cloud/kb/how-to-configure-just-in-time-jit-access-for-an-azure-vm/"
+      },
+      {
+        "date": "2023-02-01T15:42:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is correct.\nhttps://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/96572-exam-az-140-topic-3-question-18-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Virtual Desktop deployment that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image184.png\"><br><br>You need to perform the following configurations:<br><br>\u2022\tEnable a managed identity for App1.<br>\u2022\tEnable Clipboard redirection for App1.<br><br>On which resources should you perform the configurations? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image185.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image186.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-01-23T02:06:00.000Z",
+        "voteCount": 11,
+        "content": "I think the Clipboard Redirection gets enables in the RDS Settings for the Host Pool so the Answer should be Pool 1 for Clipboard redirection"
+      },
+      {
+        "date": "2023-01-25T00:33:00.000Z",
+        "voteCount": 9,
+        "content": "Agree\nPool1 for the 2nd question.\nJust it is not RDS settings but RDS Properties &gt; device redirction under the Host pool settings"
+      },
+      {
+        "date": "2023-05-30T08:43:00.000Z",
+        "voteCount": 4,
+        "content": "Host 1 and Host 2\nPool 1"
+      },
+      {
+        "date": "2023-05-15T12:17:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is actually:\nHost 1 and Host 2\nPool 1\n\nThis is because to assign the Clipboard Redirection, you must set an RDP Properties from within Host Pool settings."
+      },
+      {
+        "date": "2023-02-05T05:45:00.000Z",
+        "voteCount": 4,
+        "content": "Box1: (Host1 y Host2) \nBox2: (Pool1) https://learn.microsoft.com/en-us/windows-server/remote/remote-desktop-services/clients/rdp-files."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/110894-exam-az-140-topic-3-question-19-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have an Azure Virtual Desktop deployment that contains the resources shown in the following table.<br><br><img src=\"https://img.examtopics.com/az-140/image208.png\"><br><br>You have a Windows 11 device named Device1 that has Azure Command-Line Interface (CLI) installed.<br><br>You need to use Remote Desktop Connection (mstsc.exe) on Device1 to connect to Host1.<br><br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/az-140/image209.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image210.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-08T06:49:00.000Z",
+        "voteCount": 1,
+        "content": "The answers are correct.\n\nNative client support requires the Standard SKU. After the SKU change, you need to check \"Native client support\" box on the Bastion resource page. Optionally, you might need to modify your NSG settings. Finally, you can connect to the Bastion with \"az network bastion rdp...\" command.\n\nhttps://learn.microsoft.com/en-us/azure/bastion/native-client\nhttps://learn.microsoft.com/en-us/azure/bastion/connect-vm-native-client-windows"
+      },
+      {
+        "date": "2023-06-02T16:51:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-06-02T10:27:00.000Z",
+        "voteCount": 3,
+        "content": "The answer is correct and verified.\nhttps://learn.microsoft.com/en-us/azure/bastion/connect-native-client-windows"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/126614-exam-az-140-topic-3-question-20-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Virtual Desktop deployment that uses Cloud Cache to store user profiles.<br><br>You plan to deploy Microsoft Defender Antivirus exclusions to the session hosts by using the following PowerShell script.<br><br><img src=\"https://img.examtopics.com/az-140/image241.png\"><br><br>Use the drop-down menus to select the answer choice that completes each statement based on the information presented in the graphic.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image242.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image243.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-19T03:36:00.000Z",
+        "voteCount": 5,
+        "content": "Correct me if i wrong, but 1st answer should be \"storageacct1 and storageacct2 only\", because CloudCache stored in ProgramData, not in ProgramFiles\nhttps://learn.microsoft.com/en-us/fslogix/overview-prerequisites#configure-antivirus-file-and-folder-exclusions\nSecond seems to be correct"
+      },
+      {
+        "date": "2024-04-12T20:09:00.000Z",
+        "voteCount": 2,
+        "content": "It should be:\nstorage accounts 1 and 2 only\nAll of the them for MS Teams"
+      },
+      {
+        "date": "2024-02-18T16:12:00.000Z",
+        "voteCount": 1,
+        "content": "Isn't it included in the IF statement at the end?"
+      },
+      {
+        "date": "2024-01-10T10:05:00.000Z",
+        "voteCount": 2,
+        "content": "first one should be storageacct1 and storageacct2 only as cloud cache stored in Programdata"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/120286-exam-az-140-topic-3-question-21-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You have an Azure Virtual Desktop deployment.<br><br>You plan to use a Conditional Access policy to enforce multi-factor authentication (MFA) when users connect to the deployment. The solution must meet the following requirements:<br><br>\u2022\tEnforce MFA when a user connects to Azure Virtual Desktop by using a subscription feed.<br>\u2022\tEnforce MFA when a user authenticates to a session host that has single sign-on (SSO) enabled.<br><br>You need to identify which cloud apps to use for the Conditional Access policy.<br><br>Which app should you use for each requirement? To answer, drag the appropriate apps to the correct requirements. Each app may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image244.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image245.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-08T16:00:00.000Z",
+        "voteCount": 5,
+        "content": "correct\nAzure Virtual Desktop\nMicrosoft Remote Desktop\n\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa#create-a-conditional-access-policy"
+      },
+      {
+        "date": "2024-02-12T05:04:00.000Z",
+        "voteCount": 1,
+        "content": "Also supports these answers are correct:\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/set-up-mfa"
+      },
+      {
+        "date": "2024-01-12T19:45:00.000Z",
+        "voteCount": 2,
+        "content": "Given answer is wrong. It should be\n1. Azure Virtual Desktop\n2. Azure Windows VM Sign in"
+      },
+      {
+        "date": "2024-08-11T12:17:00.000Z",
+        "voteCount": 2,
+        "content": "This is wrong..given answares are correct"
+      },
+      {
+        "date": "2024-03-20T20:59:00.000Z",
+        "voteCount": 2,
+        "content": "Your answers are incorrect. Be careful folks!"
+      },
+      {
+        "date": "2024-02-08T13:23:00.000Z",
+        "voteCount": 1,
+        "content": "Agree."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/120290-exam-az-140-topic-3-question-22-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Virtual Desktop deployment that has just-in-time (JIT) VM access enabled.<br><br>You need to request access to a session host by using JIT VM access.<br><br>Which three virtual machine settings can you use to request access? To answer, select the appropriate settings in the answer area.<br><br>NOTE: Each selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image246.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image247.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-09T05:11:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer seems correct"
+      },
+      {
+        "date": "2023-09-08T16:09:00.000Z",
+        "voteCount": 3,
+        "content": "looks accurate -\n\nConnect: https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage#request-access-to-a-jit-enabled-vm-from-the-azure-virtual-machines-connect-page\n\nMicrosoft Defender for Cloud: https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage#work-with-jit-vm-access-using-microsoft-defender-for-cloud\n\nConfiguration: https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage#enable-jit-on-your-vms-from-azure-virtual-machines"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/120271-exam-az-140-topic-3-question-23-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment that contains a host pool named Pool1. Pool1 contains two session hosts named Host1 and Host2.<br><br>You need to enable screen capture protection for the deployment.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure a Group Policy setting on Host1 and Host2.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom RDP Properties for Pool1, disable Clipboard redirection.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tInstall an Azure virtual machine extension on Host1 and Host2.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom RDP Properties for Pool1, disable encoding of redirected video."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 6,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-01-14T22:41:00.000Z",
+        "voteCount": 1,
+        "content": "B. From RDP Properties for Pool1, disable Clipboard redirection."
+      },
+      {
+        "date": "2024-06-03T09:18:00.000Z",
+        "voteCount": 3,
+        "content": "Incorrect. It is Group Policy. Clipboard Redirection has got nothing to do with screen shot protection. Just how Clipboard (copy/paste) will or won't function depending on configuration"
+      },
+      {
+        "date": "2024-01-12T04:07:00.000Z",
+        "voteCount": 1,
+        "content": "A. Configure a Group Policy setting on Host1 and Host2."
+      },
+      {
+        "date": "2023-09-29T02:25:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct. The article says it all."
+      },
+      {
+        "date": "2023-09-08T07:11:00.000Z",
+        "voteCount": 4,
+        "content": "The answer is correct.\n\nConfigure the settings by using Group Policy.\nhttps://learn.microsoft.com/en-us/azure/virtual-desktop/screen-capture-protection"
+      },
+      {
+        "date": "2023-09-08T16:06:00.000Z",
+        "voteCount": 1,
+        "content": "^ from above link\n\n4. Apply the policy settings to your session hosts by running a Group Policy update or Intune device sync."
+      },
+      {
+        "date": "2024-04-01T02:59:00.000Z",
+        "voteCount": 1,
+        "content": "thats fantastic but nowhere in the question does it state the machines are AD Joined to have group policy."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/120272-exam-az-140-topic-3-question-24-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Virtual Desktop host pool that contains 20 Windows 11 session hosts.<br><br>You create a Windows Defender Application Control (WDAC) policy named Policy1.xml.<br><br>You need to deploy Policy1.xml to the session hosts.<br><br>How should you prepare the policy, and to where should you copy the policy? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/az-140/image248.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/az-140/image249.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-09-08T07:17:00.000Z",
+        "voteCount": 10,
+        "content": "The answers are correct.\n\nhttps://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/deployment/wdac-deployment-guide\nhttps://learn.microsoft.com/en-us/windows/security/application-security/application-control/windows-defender-application-control/deployment/deploy-wdac-policies-with-script"
+      },
+      {
+        "date": "2024-04-12T21:55:00.000Z",
+        "voteCount": 2,
+        "content": "The answers are correct."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/149614-exam-az-140-topic-3-question-26-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment.<br><br>You plan to use just-in-time (JIT) VM access to manage session host virtual machines.<br><br>You need to recommend license requirements for JIT VM access. Your solution must minimize costs.<br><br>Which license should you recommend?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnterprise Mobility + Security E5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft 365 E5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender for Servers Plan 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender for Servers Plan 2"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-10-16T06:59:00.000Z",
+        "voteCount": 1,
+        "content": "Correct\n https://learn.microsoft.com/en-us/azure/defender-for-cloud/just-in-time-access-usage"
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  },
+  {
+    "topic": 3,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/149751-exam-az-140-topic-3-question-42-discussion/",
+    "body": "You have an Azure Virtual Desktop deployment.<br><br>You need to secure administrative access to session hosts. The solution must require that administrators use the Azure portal to access the session hosts.<br><br>What should you include in the solution?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Firewall",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure Bastion",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConditional Access policies",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft Defender for Cloud"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-10-18T09:33:00.000Z",
+        "voteCount": 1,
+        "content": "I think the answer should be C. Azure Firewall would not be used to only secure administrators access to a session host."
+      }
+    ],
+    "examNameCode": "az-140",
+    "topicNumber": "3"
+  }
+]

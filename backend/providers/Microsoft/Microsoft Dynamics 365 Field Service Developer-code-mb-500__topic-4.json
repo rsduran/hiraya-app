@@ -1,0 +1,1682 @@
+[
+  {
+    "topic": 4,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/48267-exam-mb-500-topic-4-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are a Dynamics 365 Finance developer. You have the following code: (Line numbers are created for reference only.)<br><img src=\"/assets/media/exam-media/04327/0014100001.png\" class=\"in-exam-image\"><br>Which values does the info() method return? To answer, select the appropriate option in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0014200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0014300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: SID1234 -<br><br>Parameters -<br>All methods have their own scope. A method can take one or more parameters. Within the scope of the method, these parameters are treated as local variables and are initialized with a value from the parameter in the method call. All parameters are passed by value, which means that you can't change the value of the original variable. You can change only the local variable in the method. This local variable is a copy of the original variable.<br><br>Box 2: 5 -<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-classes-methods",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-28T01:14:00.000Z",
+        "voteCount": 30,
+        "content": "SID1234-Updated\n5\n\nThe table buffer is a reference so it keeps the udpated values. The SalesQty is dereferenced by the conversion to string method. I tested this and found two compile errors on line 17 and 22."
+      },
+      {
+        "date": "2021-12-01T07:55:00.000Z",
+        "voteCount": 3,
+        "content": "Correct, see for yourself :\nclass RunnableClass1\n{\n    public static void main(Args _args)\n    {\n        RunnableClass1 rn = new RunnableClass1();\n        rn.run();\n    }\n\n\tpublic void run()\n    {\n        TmpFrmVirtual\ttmpFrmVirtual;\n \n        tmpFrmVirtual.Id = \"test\";\n\n        this.update(tmpFrmVirtual);\n \n        Info(tmpFrmVirtual.Id);\n    }\n\n    public void update(TmpFrmVirtual _tmp) \n    {\n        TmpFrmVirtual tmp = _tmp;\n\n        tmp.Id = \"Updated\";\n\n    }\n\n}"
+      },
+      {
+        "date": "2023-07-18T04:12:00.000Z",
+        "voteCount": 2,
+        "content": "SID1234-Updated\n5\nby ChatGPT"
+      },
+      {
+        "date": "2023-07-16T09:56:00.000Z",
+        "voteCount": 1,
+        "content": "they didnt write tmpFrmVirtual.update(); that's why answer is correct"
+      },
+      {
+        "date": "2024-01-23T18:06:00.000Z",
+        "voteCount": 1,
+        "content": "The updateValues function creates a local variable for the table that is a reference to the parameter (not a copy)...any changes made to the local variable are reflected on the original buffer. The run method does not attempt to re-read from the tmpFrmVirtual buffer after calling updateValues, so calling 'update' on the buffer does not matter for this example."
+      },
+      {
+        "date": "2022-04-21T09:30:00.000Z",
+        "voteCount": 2,
+        "content": "Disregarding the fact that the given code wouldn't even compile...\n\nThe output would be :\n1)  TmpFrmVirtual.Id ==&gt;  SID1234-Updated\n2) salesQty ==&gt; 5\n\nAs stated earlier by others :\n-------------------------------------------\n1)\nTmpFrmVirtual is a table buffer, and is always passed as a reference (i.e. as a pointer to the original table buffer, NOT as a COPY of the original table buffer). So any changes to the buffer made in the updateValues() method are actually made to the original buffer in the run() method.\n\n2)\nThe salesQty variable, on the other hand, is converted to and passed as a String, then converted back to integer. This means that we're are actually modifying the value of a COPY of the original variable, NOT the value of the original variable itself. Also the COPY of the original value only exists while executing the updateValues() method and it's value is never returned to the run() method. Hence the value of the salesQty variable in the run() method remaines unchanged."
+      },
+      {
+        "date": "2022-04-21T09:32:00.000Z",
+        "voteCount": 1,
+        "content": "for the non-believers : copy/paste the code below into a runable class and check the output yourself...\n\nstatic void TestD35ExamQuestion(Args _args)\n{\n    TmpFrmVirtual   tmpFrmVirtual;\n    int             salesQty = 5;\n    \n    \n    void updateValues(TmpFrmVirtual _tmpFrmVirtual, str _salesQty)\n    {\n        TmpFrmVirtual   tmpLocalFrmVirtual = _tmpFrmVirtual;\n        int             localSalesQty = str2int(_salesQty);\n\n        tmpLocalFrmVirtual.Id = 'SID1234-Updated';\n        localSalesQty = 10;\n    }        \n    \n    void run()\n    {\n        tmpFrmVirtual.Id = 'SID1234';\n\n        // Call the updateValues method        \n        updateValues(tmpFrmVirtual, int2str(salesQty));\n\n        info(tmpFrmVirtual.Id);\n        info(strFmt('%1',salesQty));\n    }   \n    \n    // Execute the run method\n    run();    \n}"
+      },
+      {
+        "date": "2022-03-29T02:39:00.000Z",
+        "voteCount": 3,
+        "content": "SID1234-Updated\n5\n\nTable buffer is passed as reference,  int as a value"
+      },
+      {
+        "date": "2022-01-05T07:32:00.000Z",
+        "voteCount": 3,
+        "content": "SID1234\n5"
+      },
+      {
+        "date": "2021-12-01T09:36:00.000Z",
+        "voteCount": 2,
+        "content": "The Update method never touches the original objects...\nOutput is the original input"
+      },
+      {
+        "date": "2021-08-12T23:40:00.000Z",
+        "voteCount": 3,
+        "content": "Invalid codes\ninfo(salesQty); //error due to salesQty is an int\nint salesQty = _str2int(salesQty);  //error, no _str2int and it should be _salesQty\ntmpFrmVirtual.Id = \"SID1234\"-Updated\"; //error, wrong placement of double quotes\n\nIf those errors were fixed the answers should be\nSID1234-Updated\n5"
+      },
+      {
+        "date": "2021-06-25T04:40:00.000Z",
+        "voteCount": 1,
+        "content": "SID1234-Updated\n5\n\nThe table buffer is, as pointed out below, a reference, so any changes made to the buffer referenced by one variable are also visible in any other variables referencing the same buffer.  There is no need for transactions or update()/doUpdate() for this."
+      },
+      {
+        "date": "2021-06-20T06:50:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is correct. In updateValues method transaction is missing:\nttsBegin;\ntmpFrmVirtual.doUpdate.Id = \"SID1234-Updated\";\nsalesQty = 10;\ntmpFrmVirtual.doUpdate();\nttsCommit;"
+      },
+      {
+        "date": "2021-05-22T01:17:00.000Z",
+        "voteCount": 4,
+        "content": "the answer is correct.\nSID1234 \n5\nin my mind , the table buffer is pass by reference, but the result is really different.\nI run it in visual studio, the answer is right.\nif you don't belive me, please just try the code in visual studio."
+      },
+      {
+        "date": "2021-05-15T01:41:00.000Z",
+        "voteCount": 4,
+        "content": "First parameter is pass by reference, Second is pass by Value.\nAnswer: SID-1234-Updates, 5"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/57856-exam-mb-500-topic-4-question-2-discussion/",
+    "body": "You are a Dynamics 365 Finance developer.<br>You have a table named FMVehicle that contains a field named VehicleId. The table has an index named VehicleIdIdx on the VehicleId field. You declare a table buffer named vehicle to refer to the table.<br>You need to select all records from the FMVehicle table in ascending order based on VehicleId field in the vehicle variable.<br>Which embedded-SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle index VehicleId;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleId;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect VehicleId from vehicle order by VehicleId asc;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleId desc;"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-03-29T02:44:00.000Z",
+        "voteCount": 3,
+        "content": "B returns all the values for each record. C returns only VehicleId and noone specified we need VehicledId only."
+      },
+      {
+        "date": "2022-03-17T08:44:00.000Z",
+        "voteCount": 1,
+        "content": "from is not there in b check it once. so is crt"
+      },
+      {
+        "date": "2022-01-05T07:33:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2021-12-19T23:08:00.000Z",
+        "voteCount": 3,
+        "content": "B because the question asked for all records and not just all VehicleIds."
+      },
+      {
+        "date": "2021-12-06T15:49:00.000Z",
+        "voteCount": 1,
+        "content": "My habit is C, But C did not bring back all records. C is the best practice to use SQL"
+      },
+      {
+        "date": "2021-12-08T22:57:00.000Z",
+        "voteCount": 1,
+        "content": "Me too,\nB is right answer with order by VehicleID default asc, but it is not best practice."
+      },
+      {
+        "date": "2021-10-18T02:39:00.000Z",
+        "voteCount": 2,
+        "content": "c is the best object is mentioned"
+      },
+      {
+        "date": "2021-08-23T06:06:00.000Z",
+        "voteCount": 2,
+        "content": "I think it's B because it says it wants all records not just the vehicleID num like C has. But adding the asc would make it more clear which direction you want"
+      },
+      {
+        "date": "2021-09-22T10:28:00.000Z",
+        "voteCount": 1,
+        "content": "The most correct is B cause it forces to order ASC. A is correct too because it forces to use the index that will self order it ASC too... but lets say it is not done in the good way so B."
+      },
+      {
+        "date": "2021-09-22T10:33:00.000Z",
+        "voteCount": 1,
+        "content": "Forget it, index is not named VehicleId, it is B."
+      },
+      {
+        "date": "2021-08-18T15:05:00.000Z",
+        "voteCount": 2,
+        "content": "C would even be best because only selecting the field would ensure SQL has even a higher probability of picking the right index as the matching colums would be equal"
+      },
+      {
+        "date": "2021-07-14T09:20:00.000Z",
+        "voteCount": 1,
+        "content": "B &amp; D are equivalent, isn't it?"
+      },
+      {
+        "date": "2021-07-15T23:36:00.000Z",
+        "voteCount": 1,
+        "content": "No. D uses desc keyword at last which gets the data in descending order."
+      },
+      {
+        "date": "2021-07-18T03:00:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry sach...I meant B &amp; C!!"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/55565-exam-mb-500-topic-4-question-3-discussion/",
+    "body": "You are a Dynamics 365 Finance developer. You create a class.<br>You need to mark the class to ensure that when code is compiled, the process fails if a specific method is called in the source code.<br>Which attribute should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysEntryPointAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tgetAttributes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysObsoleteAttribute\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "One use of the SysObsoleteAttribute class is to notify the compiler that the compile should fail if a particular method is called in the source code. The compiler rejects the compile, and displays the specific message that is stored in this use of the attribute.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-attribute-classes",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-12T23:08:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2022-03-29T02:45:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-06-18T06:36:00.000Z",
+        "voteCount": 4,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/70272-exam-mb-500-topic-4-question-4-discussion/",
+    "body": "You are a Dynamics 365 Finance developer.<br>You have a table named FMVehicle that contains a field named VehicleId. The table has an index named VehicleIdIdx on the VehicleId field. You declare a table buffer named vehicle to refer to the table.<br>You need to select all records from the FMVehicle table in ascending order based on VehicleId field in the vehicle variable.<br>Which embedded-SQL statement should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle index VehicleId;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle index VehicleIdIdx;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect VehicleId from vehicle order by VehicleIdIdx asc;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleId desc;"
+    ],
+    "answer": "B",
+    "answerDescription": "The 'index VehicleIdIdx' statement will cause an Order By Asc of the fields contained in the index.  In this case, that means an Order By Asc of the VehicleID field.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-01-18T23:35:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/39426-exam-mb-500-topic-4-question-5-discussion/",
+    "body": "HOTSPOT -<br>You have a Dynamics 365 Finance environment.<br>You have the following code: (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04327/0014600001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0014700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0014800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Class extension - Method wrapping and Chain of Command.<br>The functionality for class extension, or class augmentation, has been improved. You can now wrap logic around methods that are defined in the base class that you're augmenting. You can extend the logic of public and protected methods without having to use event handlers. When you wrap a method, you can also access public and protected methods, and variables of the base class. In this way, you can start transactions and easily manage state variables that are associated with your class.<br><br>Box 2: Yes -<br>In the following example, the wrapper around doSomething and the required use of the next keyword create a Chain of Command (CoC) for the method. CoC is a design pattern where a request is handled by a series of receivers. The pattern supports loose coupling of the sender and the receivers<br>[ExtensionOf(classStr(BusinessLogic1))]<br>final class BusinessLogic1_Extension<br>{<br>str doSomething(int arg)<br>{<br>// Part 1<br>var s = next doSomething(arg + 4);<br>// Part 2<br>return s;<br>}<br>}<br><br>Box 3: Yes -<br>Instance and static methods can be wrapped by extension classes. If a static method is the target that will be wrapped, the method in the extension must be qualified by using the static keyword.<br><br>Box 4: No -<br>Wrapper methods must always call next.<br>Note: Wrapper methods in an extension class must always call next, so that the next method in the chain and, finally, the original implementation are always called. This restriction helps guarantee that every method in the chain contributes to the result.<br>In the current implementation of this restriction, the call to next must be in the first-level statements in the method body.<br>Here are some important rules:<br>\u2711 Calls to next can't be done conditionally inside an if statement.<br>\u2711 Calls to next can't be done in while, do-while, or for loop statements.<br>\u2711 A next statement can't be preceded by a return statement.<br>\u2711 Because logical expressions are optimized, calls to next can't occur in logical expressions. At runtime, the execution of the complete expression isn't guaranteed.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/method-wrapping-coc",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-11T09:16:00.000Z",
+        "voteCount": 25,
+        "content": "The answer of the question is correct\nYes,Yes,Yes and No"
+      },
+      {
+        "date": "2024-06-02T02:10:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, Yes, No, No\nStatic methods cannot be wrapped or extended using the Chain of Command (CoC) pattern."
+      },
+      {
+        "date": "2024-08-13T04:24:00.000Z",
+        "voteCount": 1,
+        "content": "Instance and static methods can be wrapped by extension classes. If a static method is the target that will be wrapped, the method in the extension must be qualified by using the static keyword."
+      },
+      {
+        "date": "2022-03-29T02:53:00.000Z",
+        "voteCount": 2,
+        "content": "Yes - Yes - Yes - No"
+      },
+      {
+        "date": "2022-02-27T12:05:00.000Z",
+        "voteCount": 2,
+        "content": "New version of question asks about adding conditional logic on line 18. I suppose the answer is yes, although the question is weirdly formulated.. it doesn't say if the next call will be in the conditional logic."
+      },
+      {
+        "date": "2021-01-01T03:02:00.000Z",
+        "voteCount": 1,
+        "content": "Last 4th option is Yes, on following link there are multiple example of class extension instantiation:\n\nhttps://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/class-extensions"
+      },
+      {
+        "date": "2021-07-11T22:56:00.000Z",
+        "voteCount": 8,
+        "content": "Please don't mislead other users. For 4th option answer is 'No'"
+      },
+      {
+        "date": "2021-01-04T23:29:00.000Z",
+        "voteCount": 14,
+        "content": "I do not agree with you.\n\nOn given link I haven't been able to find any mentioned code, that would instantiate a extension class.\n\nIf you extend any class (talking in X++ logic here, which is via decorator [ExtensionOf]), the (original) extended class shall recognize any new methods and members, so why would you instantiate the extension class? You just instantiate the original/extended class and you get access to the new methods and members..\n\nIn your given link there are multiple code snippets, which support my explanation:\n1. Look here at the second code snippet - https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/class-extensions#instance-methods - they instantiate the original/extended MyClass \"MyClass c = new MyClass();\", they DO NOT instantiate the extension class (THIS IS WRONG) \"MyClass_Extension = new MyClass_Extension();\"\n\n2. Same goes for this code snippet - https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/class-extensions#instance-state\n\nSo the 4th option is NO, iyam"
+      },
+      {
+        "date": "2020-12-30T07:46:00.000Z",
+        "voteCount": 1,
+        "content": "In my opinion, answer to all options is Yes. Specially last one."
+      },
+      {
+        "date": "2021-08-12T23:52:00.000Z",
+        "voteCount": 3,
+        "content": "cannot instantiate an extension class like that, it will result in compilation error"
+      },
+      {
+        "date": "2020-12-16T23:04:00.000Z",
+        "voteCount": 1,
+        "content": "I think it is stated very clearly: \"modify the clculatePrice() method in the EXTENSION class\", thus it is indeeed correctly marked as TRUE."
+      },
+      {
+        "date": "2020-12-09T11:59:00.000Z",
+        "voteCount": 1,
+        "content": "Sure that the second one is right? I can add (extend) some logic. But I can't modify the base method."
+      },
+      {
+        "date": "2020-12-10T06:36:00.000Z",
+        "voteCount": 2,
+        "content": "It says modify in Extension class. So I think it's correct. We can modify it in Extension class.\nBut, yes, I agree it's written very trickly"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30410-exam-mb-500-topic-4-question-6-discussion/",
+    "body": "HOTSPOT -<br>You are a Dynamics 365 Finance developer.<br>You have the following code: (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04327/0015000001.png\" class=\"in-exam-image\"><br>You need to evaluate the code.<br>What is the correct output for the method? To answer, select the appropriate option in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0015100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0015200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: One, Two, Four, Fire -<br>The statements in the finally clause are executed when control leaves the try block, either normally or through an exception.<br><br>Box 2: One, Three, Four, Five -<br><br>Box 3: One, Three -<br>Return ends the call.<br>Box 4: One, Three, One, Two, Four, Five<br>Retry restarts the try statement.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-exceptions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-02T08:06:00.000Z",
+        "voteCount": 43,
+        "content": "trymethod(2,0) will give One Three four\ntrymethod(3,0) will give One Two Four Five \n&gt;&gt; \nThe retry statement can be written only in a catch block. The retry statement causes control to jump up to the first line of code in the associated try block. The retry statement is used when the cause of the exception can be fixed by the code in the catch block. The retry statement gives the code in the try block another opportunity to succeed. The retry statement erases all messages that have been written to the Infolog since program control entered the try block."
+      },
+      {
+        "date": "2021-12-13T12:31:00.000Z",
+        "voteCount": 1,
+        "content": "Below ET82 gave correct answer."
+      },
+      {
+        "date": "2020-11-06T08:15:00.000Z",
+        "voteCount": 5,
+        "content": "Yes retry will erase the info, nice catch indeed"
+      },
+      {
+        "date": "2021-01-02T09:41:00.000Z",
+        "voteCount": 3,
+        "content": "I tried practically, your answer is correct"
+      },
+      {
+        "date": "2021-12-06T16:19:00.000Z",
+        "voteCount": 2,
+        "content": "I agree. Try method will erase msg once failed \nTry(2,0) will bring One, three, four\nTry(3,0) will erase middle stage, from One , two, then jump and  directly go to Four Five"
+      },
+      {
+        "date": "2021-04-21T01:08:00.000Z",
+        "voteCount": 12,
+        "content": "Verified using VisualStudio 100% correct answer.\ntryMethod(5, 2) - One, Two, Four, Five\ntryMethod(4, 0) - One, Three, Four, Five\ntryMethod(2, 0) - One, Three, Four \ntryMethod(3, 0) - One, Two, Four, Five"
+      },
+      {
+        "date": "2023-02-19T07:24:00.000Z",
+        "voteCount": 2,
+        "content": "I have verified too : you are right!!!"
+      },
+      {
+        "date": "2023-05-20T22:49:00.000Z",
+        "voteCount": 1,
+        "content": "1,1,1,1"
+      },
+      {
+        "date": "2022-03-29T03:50:00.000Z",
+        "voteCount": 2,
+        "content": "tryMethod(3,0) \u2192 One, Two, Four, Five (The retry statement erases all messages that have been written to the Infolog since program control entered the try block.)\n- this output will be visible in the D365 application\n- but in the Infolog of Visual Studio will be - One Three One Two Four Five"
+      },
+      {
+        "date": "2022-02-26T04:47:00.000Z",
+        "voteCount": 3,
+        "content": "tryMethod(3,0) = ONE, TWO, FOUR FIVE is the correct ans..The retry statement will clear all the previous info messages"
+      },
+      {
+        "date": "2022-01-05T07:35:00.000Z",
+        "voteCount": 1,
+        "content": "tryMethod(5,2) -&gt; One, Two, Four, Five\ntryMethod(4,0) -&gt; One, Three, Four, Five\ntryMethod(2,0) -&gt; One, Three, Four\ntryMethod(3,0) -&gt; One, Three, One, Two, Four, Five"
+      },
+      {
+        "date": "2021-09-06T00:13:00.000Z",
+        "voteCount": 1,
+        "content": "The answers are correct."
+      },
+      {
+        "date": "2021-07-15T03:02:00.000Z",
+        "voteCount": 8,
+        "content": "Tested with VS debug:\ntryMethod(5,2) -&gt; One, Two, Four, Five\ntryMethod(4,0) -&gt; One, Three, Four, Five\ntryMethod(2,0) -&gt; One, Three, Four\ntryMethod(3,0) -&gt; One, Three, One, Two, Four, Five"
+      },
+      {
+        "date": "2021-12-13T12:30:00.000Z",
+        "voteCount": 1,
+        "content": "@ET82 exactly you are right."
+      },
+      {
+        "date": "2021-06-24T08:04:00.000Z",
+        "voteCount": 5,
+        "content": "1, 1, 1, 1"
+      },
+      {
+        "date": "2021-04-14T21:21:00.000Z",
+        "voteCount": 1,
+        "content": "tryMethod(4,0) is One,Two, Four and Five.\nSo, the current answer is not correct!"
+      },
+      {
+        "date": "2021-04-14T21:21:00.000Z",
+        "voteCount": 1,
+        "content": "tryMethod(4,0) is One,Two, Four and Five.\nSo, the current answer is not correct!"
+      },
+      {
+        "date": "2021-04-14T21:19:00.000Z",
+        "voteCount": 1,
+        "content": "tryMethod(4,0) will give One,Two,Four and Five.\nSo, the current answer is not correct."
+      },
+      {
+        "date": "2021-03-07T23:47:00.000Z",
+        "voteCount": 1,
+        "content": "all are the 1st answer"
+      },
+      {
+        "date": "2020-09-14T19:02:00.000Z",
+        "voteCount": 8,
+        "content": "tryMethod(2,0) -&gt; One, Three and Four"
+      },
+      {
+        "date": "2021-01-26T01:21:00.000Z",
+        "voteCount": 2,
+        "content": "Yes you are correct. Finally is executed even on hard return :-)"
+      },
+      {
+        "date": "2021-03-25T01:38:00.000Z",
+        "voteCount": 2,
+        "content": "I tried this in code, it show only \"One, Three\". And also the solution is correct."
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/61976-exam-mb-500-topic-4-question-7-discussion/",
+    "body": "HOTSPOT -<br>You have the following code:<br><img src=\"/assets/media/exam-media/04327/0015300001.jpg\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0015400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0015400002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Add 1 to a date adds one day.<br><br>Box 2: No -<br>Date2num converts a date to an integer that corresponds to the number of days since January 1, 1900 so this would give us a large number.<br>Int2str converts the large number into a string.<br>Str2date converts a string to a date.  However, the large number would not be in the correct format for a date.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/customerengagement/on-premises/customize/types-of-fields https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-conversion-run-time-functions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-09-13T13:52:00.000Z",
+        "voteCount": 13,
+        "content": "Correct, checked in Visual Studio"
+      },
+      {
+        "date": "2022-03-29T02:09:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/67784-exam-mb-500-topic-4-question-8-discussion/",
+    "body": "You are using the SysTest framework to test code in Visual Studio.<br>You need to create a unit test class.<br>Which three attributes can you use to create the class? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTestFilter",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPriority\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOwner\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEntryPoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTest Property\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BCE",
+    "answerDescription": "The SysTest framework now supports the major test attributes in the adaptor to be on par with the MSTest framework adaptor. This includes attributes like<br>Category, Owner, Priority, and Test Property.<br>Note:<br>The Priority attribute SysTestPriority, which requires an integer value, is now available. A priority can only be specified once, but is supported on both the class and method level, with method level taking precedence over class level.<br>The Owner attribute, SysTestOwner, has also been added. This attribute was technically already supported for filtering in the Test Toolbox window, but the attribute itself was missing in X++. Similar to Priority, an owner can only be specified once and is supported on both the class and method level, with the method level taking precedence.<br>SysTestProperty specifies a property and a value (two strings), and can now be used in the Test Toolbox window in Visual Studio. Test Property can be specified multiple times, and can exist on both the class and method level.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/systest-filtering",
+    "votes": [
+      {
+        "answer": "BCE",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-03-29T02:16:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-12-12T21:25:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is  correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/30614-exam-mb-500-topic-4-question-9-discussion/",
+    "body": "HOTSPOT -<br>You have the following class definition:<br><img src=\"/assets/media/exam-media/04327/0015600001.png\" class=\"in-exam-image\"><br>You need to create an extension class and create a new static method in it that converts miles to kilometers and then call the method from another class.<br>How should you complete the code and call the method? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0015700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0015800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: final class UnitConv_MyExtension<br>Box 2: var km = UnitConv::miToKm(62.1371);<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/method-wrapping-coc",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-04T19:19:00.000Z",
+        "voteCount": 55,
+        "content": "Naswer should be :final class CustUnitConv_Extension"
+      },
+      {
+        "date": "2020-11-06T09:09:00.000Z",
+        "voteCount": 4,
+        "content": "I agree with you"
+      },
+      {
+        "date": "2021-01-02T09:54:00.000Z",
+        "voteCount": 20,
+        "content": "Correct answer: 1,1"
+      },
+      {
+        "date": "2023-12-21T06:32:00.000Z",
+        "voteCount": 1,
+        "content": "i agree"
+      },
+      {
+        "date": "2024-04-20T07:40:00.000Z",
+        "voteCount": 1,
+        "content": "final class CustUnitConv_Extension"
+      },
+      {
+        "date": "2023-07-18T23:10:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer: 1,1"
+      },
+      {
+        "date": "2022-03-29T02:18:00.000Z",
+        "voteCount": 4,
+        "content": "1&amp;1 is correct"
+      },
+      {
+        "date": "2022-01-31T20:31:00.000Z",
+        "voteCount": 3,
+        "content": "Correct is 1 and 1"
+      },
+      {
+        "date": "2021-12-06T13:44:00.000Z",
+        "voteCount": 1,
+        "content": "A - _Extension is mandated, class name does not mater \nA - static method, so can be called ::"
+      },
+      {
+        "date": "2021-07-14T08:05:00.000Z",
+        "voteCount": 3,
+        "content": "First option\nFirst option"
+      },
+      {
+        "date": "2021-05-10T07:08:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answers are C and A.\n\n- C: Because naming convention makes a class name end with *_Extension.\n- A: Look at it, this second part of the question is a hint about the first (which is C).\n\nTEST IT in D365 and you will see this is the correct answer."
+      },
+      {
+        "date": "2021-06-10T00:44:00.000Z",
+        "voteCount": 4,
+        "content": "1- You right in that the class name must end with *_Extension but you forget that the 'C' answer is an static class and that it's not correct for a CoC extension class, so the correct answer is 'A'.\n2- And as you said, this is 'A' too."
+      },
+      {
+        "date": "2021-03-28T00:40:00.000Z",
+        "voteCount": 3,
+        "content": "First should be \"final class CustUnitConv_Extension\" because extension classes can only end in _Extension, the first part of the class name doesn't matter."
+      },
+      {
+        "date": "2021-03-07T23:54:00.000Z",
+        "voteCount": 4,
+        "content": "both should be the 1st answer"
+      },
+      {
+        "date": "2020-12-30T08:29:00.000Z",
+        "voteCount": 1,
+        "content": "2nd choice is both answers. Please read question carefully. In first, the extension class should begin with original class name, i.e., UnitConv_MyExtension. CustUnit.. is not original class. Also, second option is correct because it was mentioned that extended class static method should be called."
+      },
+      {
+        "date": "2021-01-02T09:53:00.000Z",
+        "voteCount": 8,
+        "content": "Wrong, when declaring extension of a class, class name must end with \"_extension\" postfix\nHow class name begins doesn't matter."
+      },
+      {
+        "date": "2021-01-04T23:39:00.000Z",
+        "voteCount": 10,
+        "content": "Please, stop misleading other users..  I need to correct you again, because your are wrong here as well.\n\nIf you extend a class via [ExtensionOf], the extension class you are creating MUST end with \"_Extension\" suffix and HAS TO be final, these two are the only requirements that will throw error on compilation, if not satisfied! The naming convention is different topic here. We might argue about \"CustUnitConv\" being correctly named or not, but it is the only correct answer out of given options, that will not thrown an error on compilation. So \"final class CustUnitConv_Extension\" is correct answer.\n\nAs of the second box, the answer is marked correctly \"var km = UnitConv::MiToKm(62.1371);\", since you use the original/extended class \"UnitConv\" to call a static method (UnitConv::MiToKm)."
+      },
+      {
+        "date": "2021-01-25T02:45:00.000Z",
+        "voteCount": 1,
+        "content": "a. does not meet Naming guidelines for extensions https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/class-extensions \nb. does not meet Class extension model in X++  \"Extension classes are final classes that are adorned with the ExtensionOf attribute and that also have a name that has the _Extension suffix. (This restriction on the naming might be removed later.) The name of the extension class is otherwise unimportant. \" https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/class-extensions"
+      },
+      {
+        "date": "2020-09-12T03:55:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/naming-guidelines-extensions"
+      },
+      {
+        "date": "2020-09-08T07:44:00.000Z",
+        "voteCount": 1,
+        "content": "I guess you are right but why?"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/72972-exam-mb-500-topic-4-question-10-discussion/",
+    "body": "You are a Dynamics 365 Finance developer. You create an integer variable named totalSales.<br>You need to display the value from totalSales in an info statement.<br>Which three code segments can you use? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinfo(int2str(totalSales));\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinfo(totalSales);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinfo(any2str(totalSales));\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinfo(strfmt(\"%1\", totalSales));\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinfo(strLine(totalSales, 1));"
+    ],
+    "answer": "ACD",
+    "answerDescription": "A: int2Str converts an integer to the equivalent string.<br>C: any2Str converts an anytype value to a str value. The anytype data type is a placeholder for any data type.<br>D: Example:<br>void MyMethod()<br>{<br>for (int i = 0; i &lt; 10; i++)<br>{<br>info(strfmt(\"i is %1\", i));<br>}<br>}<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-variables-data-types https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-data-primitive#anytype",
+    "votes": [
+      {
+        "answer": "ACD",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-03-29T02:19:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      },
+      {
+        "date": "2022-03-22T04:28:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/98682-exam-mb-500-topic-4-question-11-discussion/",
+    "body": "DRAG DROP -<br>You create a Visual Studio project named CustomerDetailUpdate.<br>You must update data in a table named CustTable. You must be able to run the code from Visual Studio.<br>In which order should you perform the actions? To answer, move all actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04327/0016000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0016000002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://community.dynamics.com/365/financeandoperations/b/daxology/posts/runnable-class",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-10T09:37:00.000Z",
+        "voteCount": 1,
+        "content": "Hmm seems to be some confusion on this question. It believe we need to compile it first so first we should be building the project to make sure it compiles then we would run the class which would then execute whatever commands we have written in the code. Always compile then run."
+      },
+      {
+        "date": "2024-02-16T19:41:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-12-23T21:12:00.000Z",
+        "voteCount": 1,
+        "content": "Set the class as startup before you build."
+      },
+      {
+        "date": "2023-03-27T00:21:00.000Z",
+        "voteCount": 3,
+        "content": "Dont you build after you run the class?"
+      },
+      {
+        "date": "2023-02-10T04:51:00.000Z",
+        "voteCount": 2,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/103392-exam-mb-500-topic-4-question-12-discussion/",
+    "body": "You create a new class.<br>Class compilation must fail if a specific method in the source code is called.<br>You need to mark the class with the appropriate attribute.<br>Which attribute should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysAppSecurityAttribute",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysTestCategory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysObsoleteAttribute\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysAttribute"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/dynamicsax-2012/developer/overview-of-attribute-classes",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-26T23:03:00.000Z",
+        "voteCount": 1,
+        "content": "C is the right answer."
+      },
+      {
+        "date": "2023-06-13T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2023-05-20T23:06:00.000Z",
+        "voteCount": 1,
+        "content": "C Correct"
+      },
+      {
+        "date": "2023-03-20T07:49:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/91432-exam-mb-500-topic-4-question-13-discussion/",
+    "body": "DRAG DROP -<br>A company uses Dynamics 365 Finance.<br>The company wants to create test cases by using the SysTest framework.<br>You need to select the appropriate TestTransactionMode option for each requirement.<br>Which options should you use? To answer, drag the appropriate options to the correct requirements. Each option may be used once, more than once, or not at all.<br>You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04327/0016200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0016200002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: LegacyRollback -<br>LegacyRollback. All insert statements are tracked and deleted during clean-up.<br><br>Box 2: AutoRollback -<br>AutoRollback. Default. This provides the best isolation.<br>All transactions are rolled back using SQL save points, and all database statements are routed to the main connection, including user connections. No data will be persisted.<br>Incorrect:<br>LegacyRollback. All insert statements are tracked and deleted during clean-up. Save points not used.<br>LegacyRollbackWithUpdateTracking. All update, delete, and insert statements are tracked and reverted during cleanup. Save points not used.<br>None. Only use for debugging. This provides no isolation.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/testing-validation",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-08T05:09:00.000Z",
+        "voteCount": 1,
+        "content": "2 and 1 are correct.\n\nhttps://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/testing-validation#test-isolation"
+      },
+      {
+        "date": "2023-06-02T19:03:00.000Z",
+        "voteCount": 1,
+        "content": "3 and 2"
+      },
+      {
+        "date": "2022-12-13T06:45:00.000Z",
+        "voteCount": 4,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/33346-exam-mb-500-topic-4-question-14-discussion/",
+    "body": "HOTSPOT -<br>You are a Dynamics 365 Finance developer.<br>You have the following class definition:<br><img src=\"/assets/media/exam-media/04327/0016300001.png\" class=\"in-exam-image\"><br>You need to create an extension class and wrap the method by using Chain of Command (CoC). If the value of the Qty variable is less than 5, the code must cause an exception.<br>How should you complete the code segment? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0016400001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0016500001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: final class WebShopOrderVal_Extension<br>Box 2: public static void checkQtyValue(int Qty)<br>Incorrect Answers:<br>Public void \u05d2\u20ac\u00a6<br>If a static method is the target that will be wrapped, the method in the extension must be qualified by using the static keyword.<br><br>Int Qty=0 -<br>The method signature in the wrapper method must not include the default value of the parameter.<br><br>Public int -<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/method-wrapping-coc",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-03-29T02:27:00.000Z",
+        "voteCount": 7,
+        "content": "1&amp;1 is correct"
+      },
+      {
+        "date": "2022-01-31T20:33:00.000Z",
+        "voteCount": 2,
+        "content": "Correct is 1 and 1"
+      },
+      {
+        "date": "2022-01-05T07:31:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is A A"
+      },
+      {
+        "date": "2021-12-06T13:52:00.000Z",
+        "voteCount": 3,
+        "content": "Microsoft gave this kind exam in wrong answer information! Shame of them.\nThe first one is also not 100% correct but it is the most closest correct one. Why they tried to confuse our developers?"
+      },
+      {
+        "date": "2022-01-06T03:42:00.000Z",
+        "voteCount": 3,
+        "content": "The first one is correct. viking1 explained it below : \" Yes, the first option is correct on both questions.\nThe fact that the name does not name the class being extended is not an error. It is non-ideal, but it is the [ExtensionOf] attribute that names the class being extended, not the class name.\nA class could be extended by multiple models, so it is actually recommended to prefix your extension class name so as to avoid name conflicts. If the first part of the extension class name was enforced to be the same as the class being extended, then a class could only ever be extended once.  \""
+      },
+      {
+        "date": "2021-01-01T04:47:00.000Z",
+        "voteCount": 2,
+        "content": "First question has no option as correct. But all best practices use a word, \"should\", not \"must\". So first choice is incorrect because, it does not completely name the class it is augmenting, and second choice is wrong because it does not end with _Extension postfix. So any how both are only near option but first one is closest."
+      },
+      {
+        "date": "2021-06-28T20:12:00.000Z",
+        "voteCount": 3,
+        "content": "Yes, the first option is correct on both questions.\nThe fact that the name does not name the class being extended is not an error.  It is non-ideal, but it is the [ExtensionOf] attribute that names the class being extended, not the class name.\nA class could be extended by multiple models, so it is actually recommended to prefix your extension class name so as to avoid name conflicts.  If the first part of the extension class name was enforced to be the same as the class being extended, then a class could only ever be extended once."
+      },
+      {
+        "date": "2021-08-10T04:00:00.000Z",
+        "voteCount": 6,
+        "content": "In case of first question exists only one useable solution. Because: Extension of class have to be FINAL and have to have suffix _Extension.\nSo FirstOne souhld be correct"
+      },
+      {
+        "date": "2020-12-18T12:58:00.000Z",
+        "voteCount": 3,
+        "content": "Microsoft should be ashamed about exam questions like this.  Per the linked documentation it could be A or B but should not be either.  \nIt should not be A because: \n\"Don't name the extension just &lt;Element that is being extended&gt;_Extension. For example, an extension class that augments the InventLocation table must not be named InventLocation_Extension, because the risk of conflicts is too high.\"\n\nIt should not be B because it should always end with _Extension"
+      },
+      {
+        "date": "2021-05-10T07:15:00.000Z",
+        "voteCount": 4,
+        "content": "It's A, A."
+      },
+      {
+        "date": "2020-10-01T11:02:00.000Z",
+        "voteCount": 3,
+        "content": "final class _Extension is wrong as this is MS  naming convention, the first answer should be the second choice with _MyExtension"
+      },
+      {
+        "date": "2020-12-16T23:11:00.000Z",
+        "voteCount": 6,
+        "content": "Greemus is right here. Extension classes must end with the \"_Extension\" suffix, must be marked as \"Final\" and last but least be decorated with \"extensionOf\".\n\nSo the given solution is correct."
+      },
+      {
+        "date": "2020-11-10T13:07:00.000Z",
+        "voteCount": 17,
+        "content": "you are wrong, class extensions must end with _Extension suffix. https://www.examtopics.com/exams/microsoft/mb-500/"
+      },
+      {
+        "date": "2020-11-10T13:09:00.000Z",
+        "voteCount": 5,
+        "content": "wrong reference, here is the correct one: https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/naming-guidelines-extensions"
+      },
+      {
+        "date": "2020-11-12T03:05:00.000Z",
+        "voteCount": 1,
+        "content": "Also agree with you"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41249-exam-mb-500-topic-4-question-15-discussion/",
+    "body": "HOTSPOT -<br>You have the following code:<br><img src=\"/assets/media/exam-media/04327/0016700001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0016800001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0016800002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Here CashDiscountDP is the name of the secure server method that is tagged with the SysEntryPointAttribute attribute.<br><br>Box 2: Yes -<br>To define a report data provider class<br>An RDP class extends the SRSReportDataProviderBase class. You set the SRSReportParameterAttribute attribute to the data contract you created for the RDP class.<br><br>Box 3: No -<br>Instead:<br>public void processReport()<br>Reference:<br>https://docs.microsoft.com/en-us/dynamicsax-2012/developer/security-privilege-properties https://docs.microsoft.com/en-us/dynamicsax-2012/appuser-itpro/how-to-use-a-report-data-provider-class-in-a-report",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-08T00:20:00.000Z",
+        "voteCount": 17,
+        "content": "No\nYes\nNo"
+      },
+      {
+        "date": "2021-01-02T10:10:00.000Z",
+        "voteCount": 11,
+        "content": "1 - No, there isn't exist attribute like SysEntryPointAttributeRole, check it on visual studio"
+      },
+      {
+        "date": "2023-05-02T16:07:00.000Z",
+        "voteCount": 1,
+        "content": "No\nYes\nNo"
+      },
+      {
+        "date": "2022-03-29T02:32:00.000Z",
+        "voteCount": 1,
+        "content": "No-Yes-No, processReport() method has to return void"
+      },
+      {
+        "date": "2022-01-05T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "No Yes No"
+      },
+      {
+        "date": "2021-12-06T15:32:00.000Z",
+        "voteCount": 4,
+        "content": "1-No, SysEntryPointAttributeRole is obsolete in D365. It is Yes in AX 2012 version."
+      },
+      {
+        "date": "2021-04-27T00:56:00.000Z",
+        "voteCount": 2,
+        "content": "please commit the correct answer"
+      },
+      {
+        "date": "2021-02-23T06:24:00.000Z",
+        "voteCount": 2,
+        "content": "In AX 2012, include the SysEntryPointAttribute attribute (this attribute is obsolete in D365FO).\nhttps://devmusings.blog/2018/03/02/sysoperation-framework-cheat-sheet/"
+      },
+      {
+        "date": "2021-01-26T01:26:00.000Z",
+        "voteCount": 5,
+        "content": "Only available privilege entry point types: None/MenuItemDisplay/MenuItemOutput/MenuItemAction/ServiceOperation"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47710-exam-mb-500-topic-4-question-16-discussion/",
+    "body": "DRAG DROP -<br>You create a Visual Studio project named ProductUpdates.<br>You must update data in a table named ProductTable. You must be able to run the code from Visual Studio.<br>You need to create an X++ class.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04327/0017000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0017100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://community.dynamics.com/365/financeandoperations/b/daxology/posts/runnable-class",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-13T06:24:00.000Z",
+        "voteCount": 39,
+        "content": "https://docs.microsoft.com/en-us/learn/modules/create-classes-finance-operations/5-exercise \nFrom this documentation I think it would be \n1) Create a runnable class and add it to the ProductUpdates project\n2) Write database manipulation code in the class\n3) Set the class as the start-up object\n4) Build and run the class"
+      },
+      {
+        "date": "2021-06-01T03:35:00.000Z",
+        "voteCount": 1,
+        "content": "Agree with you:\nhttps://community.dynamics.com/365/financeandoperations/b/ajitdynamics365/posts/how-to-write-a-job-runnable-class-in-dynamics-365"
+      },
+      {
+        "date": "2021-05-10T07:22:00.000Z",
+        "voteCount": 5,
+        "content": "Yes, but this is ambiguous. Steps 2 and 3 could be inverted."
+      },
+      {
+        "date": "2023-12-21T07:22:00.000Z",
+        "voteCount": 1,
+        "content": "i agree"
+      },
+      {
+        "date": "2021-03-19T01:31:00.000Z",
+        "voteCount": 21,
+        "content": "\"Build and run\" should be the last step."
+      },
+      {
+        "date": "2022-03-29T02:35:00.000Z",
+        "voteCount": 4,
+        "content": "1. Create job\n2. add code\n3. set as startup object\n4. build &amp; run"
+      },
+      {
+        "date": "2021-06-01T03:34:00.000Z",
+        "voteCount": 1,
+        "content": "https://community.dynamics.com/365/financeandoperations/b/ajitdynamics365/posts/how-to-write-a-job-runnable-class-in-dynamics-365"
+      },
+      {
+        "date": "2021-03-28T00:58:00.000Z",
+        "voteCount": 2,
+        "content": "Create a runnable class and add it to the ProductUpdates project.\nSet the class as the startup object.\nWrite database manipulation code in the class.\nBuild and run the class.\n\nsteps 2 and 3 can be swapped but it makes more sense to set the startup object right after adding it to the project, to prevent forgetting to do it and it is required to run the project."
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/91442-exam-mb-500-topic-4-question-17-discussion/",
+    "body": "DRAG DROP -<br>A company uses Dynamics 365 Finance. The company is implementing an independent software vendor (ISV) solution.<br>You overlay the ISV code to add functionality to the solution.<br>You need to configure code compare options.<br>Which code compare option should you use? To answer, drag the appropriate code compare options to the correct scenarios. Each code compare option may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04327/0017200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0017200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 3: Compare metadata with baseline<br>The compatibility checker tool can detect metadata breaking changes against a specified baseline release or update. In this way, it helps ensure backward compatibility. Microsoft uses the tool to help ensure metadata compatibility.<br>You can use the tool to detect metadata compatibility issues that a new version has against the version that it's replacing. Microsoft uses the tool to detect any breaking changes that a new monthly update has against the previous monthly update.<br><br>Forms -<br>Any of the following changes will break form extensions that reference the controls or methods:<br>Deleting or renaming form controls, form data sources, and form data source fields.<br>All changes that are breaking for methods are also breaking for form methods.<br>Reference:<br>https://docs.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/extensibility/compatibility-checker-tool",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-13T07:49:00.000Z",
+        "voteCount": 7,
+        "content": "compare code with baseline\ncompare code with baseline\ncompare metadata with baseline"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/89327-exam-mb-500-topic-4-question-18-discussion/",
+    "body": "HOTSPOT -<br>You are a Dynamics 365 Finance developer.<br>You have the following code: (Line numbers are included for reference only.)<br><img src=\"/assets/media/exam-media/04327/0017400001.png\" class=\"in-exam-image\"><br>You need to evaluate the code.<br>What is the correct output for the method? To answer, select the appropriate option in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04327/0017500001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04327/0017600001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 2:  One, Three, Four, Five -<br>By using a finally block, you can clean up any resources that are allocated in a try block, and you can run code even if an exception occurs in the try block.<br>Reference:<br>https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/try-finally",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-29T22:06:00.000Z",
+        "voteCount": 12,
+        "content": "(5,2) - this should be - One, Two, Four, Five\nFinally is always executed."
+      },
+      {
+        "date": "2023-12-21T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "i agree"
+      },
+      {
+        "date": "2023-02-02T02:04:00.000Z",
+        "voteCount": 5,
+        "content": "The first example with (5, 2) is One, Two, Four and Five, and the second example with (4, 0) is One, Three, Four and Five."
+      },
+      {
+        "date": "2023-12-21T07:31:00.000Z",
+        "voteCount": 1,
+        "content": "i agree"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104564-exam-mb-500-topic-4-question-19-discussion/",
+    "body": "DRAG DROP<br> -<br><br>A company uses Dynamics 365 Finance. <br><br>You create a new extension for a standard table. <br><br>You need to add a new method in the extension. <br><br>Which five actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/mb-500/image28.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/mb-500/image29.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-10T02:59:00.000Z",
+        "voteCount": 6,
+        "content": "My guess would be 5-6-2-3-4"
+      },
+      {
+        "date": "2023-12-21T07:34:00.000Z",
+        "voteCount": 1,
+        "content": "i agree"
+      },
+      {
+        "date": "2023-03-30T21:39:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/130560-exam-mb-500-topic-4-question-21-discussion/",
+    "body": "A company is implementing Dynamics 365 Finance.<br><br>You implement a risk rating for vendors. The risk rating is on the Vendor form.<br><br>The rating is determined by a vendor's on-time delivery performance as well as their credit rating.<br><br>The risk rating consists of the following values:<br><br>1 = Good<br>2 = Medium<br>3 = Risky<br><br>The company plans to implement purchase requisitions. The company wants to prevent purchase orders from being confirmed when a vendor's risk rating is set to Risky.<br><br>You need to implement the functionality.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a method for the OnModified event of the vendor account.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new business event.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a method for the OnInitializing event of the form.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a Chain of Command (CoC) class extension."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-08T04:35:00.000Z",
+        "voteCount": 1,
+        "content": "Shouldn\u00b4t this be A) onModified?"
+      },
+      {
+        "date": "2024-01-08T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "No, its for the wrong field..."
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104565-exam-mb-500-topic-4-question-22-discussion/",
+    "body": "You are a Dynamics 365 Finance developer.<br><br>You have a table named FMVehicle that contains a field named VehicleId. The table has an index named VehicleIdIdx on the VehicleId field. You declare a table buffer named vehicle to refer to the table.<br><br>You need to select all records from the FMVehicle table in ascending order based on VehicleId field in the vehicle variable.<br><br>Which embedded-SQL statement should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleIdIdx desc;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleId;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by vehicleIdIdx asc;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicleId from vehicle order by vehicleId asc;"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-24T05:40:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct."
+      },
+      {
+        "date": "2023-11-30T08:30:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2023-08-23T22:22:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct"
+      },
+      {
+        "date": "2023-08-22T01:13:00.000Z",
+        "voteCount": 2,
+        "content": "B is the correct answer. You cannot order by an index and the request is to select all the records so, no D but B."
+      },
+      {
+        "date": "2023-06-14T01:39:00.000Z",
+        "voteCount": 2,
+        "content": "B is the correct answer"
+      },
+      {
+        "date": "2023-03-30T21:41:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is D"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/123571-exam-mb-500-topic-4-question-23-discussion/",
+    "body": "A company uses Dynamics 365 Finance.<br><br>You are performing a code review for several segments of code that use the Boolean data type.<br><br>You need to validate the segments for the correct X++ structure.<br><br>Which two code statements will compile? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboolean exprValue; exprValue = (8*6 == 48);",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboolean exprValue = (8*6 == \u201848\u2019) ? Yes:No;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboolean exprValue; exprValue = (8*6 == 48) ? 1:0;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboolean exprValue = (8*6 == \u201848\u2019) ? false:true;"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-14T02:32:00.000Z",
+        "voteCount": 1,
+        "content": "AD is correct.\nIn X++, boolean data type is true or false, not 1 and 0."
+      },
+      {
+        "date": "2023-12-16T18:41:00.000Z",
+        "voteCount": 3,
+        "content": "No, False = 0, true =1. \nAnd 8*6 = 48, not 8*6 = '48'"
+      },
+      {
+        "date": "2024-02-11T21:50:00.000Z",
+        "voteCount": 1,
+        "content": "You are right, thanks for your comment.\nAccording: https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/dev-ref/xpp-data-primitive#boolean"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104566-exam-mb-500-topic-4-question-27-discussion/",
+    "body": "DRAG DROP<br> -<br><br>A company uses Dynamics 365 Finance.<br><br>You must use QueryBuilder classes to implement a query that loops through all customers for whom the customer group equals EXT. You need to implement the query. You declare and initialize a query object.<br><br>You need to run the query.<br><br>In which order should you perform the actions? To answer, move all actions from the list of actions to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/mb-500/image30.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/mb-500/image31.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-03-30T21:47:00.000Z",
+        "voteCount": 3,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/147268-exam-mb-500-topic-4-question-28-discussion/",
+    "body": "You are a Dynamics 365 Finance developer.<br><br>You have a table named FMVehicle that contains a field named VehicleId. The table has an index named VehicleIdIdx on the VehicleId field. You declare a table buffer named vehicle to refer to the table.<br><br>You need to select all records from the FMVehicle table in ascending order based on VehicleId field in the vehicle variable.<br><br>Which embedded-SQL statement should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleIdIdx desc;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle index VehicleId;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle order by VehicleId desc;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tselect vehicle index VehicleIdIdx;\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-16T02:00:00.000Z",
+        "voteCount": 2,
+        "content": "Correct\nThe statement uses the index name VehicleIdIdx"
+      },
+      {
+        "date": "2024-09-10T07:20:00.000Z",
+        "voteCount": 1,
+        "content": "VehicleIdIdx is redundant"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/105731-exam-mb-500-topic-4-question-30-discussion/",
+    "body": "A company uses Dynamics 365 Supply Chain Management.<br><br>You need to list all classes in the Application Suite model that contain a cross-company query.<br><br>Which query string should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttype:class, method name=run code:\"crosscompany\" model:\"Application Suite\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttype:class, table code:\"crosscompany\" model:\"Application Suite\"",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttype:class code:\"crosscompany\u201d model:\"Application Suite\"\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ttype:class, method name=insert code:\"crosscompany\" model:\"Application Suite\""
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 9,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-10T07:35:00.000Z",
+        "voteCount": 2,
+        "content": "Crosscompani code is the key to the answer"
+      },
+      {
+        "date": "2024-02-13T05:18:00.000Z",
+        "voteCount": 3,
+        "content": "C is right one"
+      },
+      {
+        "date": "2023-05-19T07:23:00.000Z",
+        "voteCount": 3,
+        "content": "C should be correct"
+      },
+      {
+        "date": "2023-04-10T09:05:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104567-exam-mb-500-topic-4-question-33-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have a Dynamics 365 Finance environment.<br><br>You have the following code: (Line numbers are included for reference only.)<br><br><img src=\"https://img.examtopics.com/mb-500/image38.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/mb-500/image39.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/mb-500/image40.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-02-13T05:32:00.000Z",
+        "voteCount": 2,
+        "content": "For me: Y, N, Y, N\nI don't think you can add a condition to line 18 as next cannot be called conditionally"
+      },
+      {
+        "date": "2023-05-25T21:45:00.000Z",
+        "voteCount": 1,
+        "content": "y,y,n,n"
+      },
+      {
+        "date": "2023-08-23T23:59:00.000Z",
+        "voteCount": 3,
+        "content": "Y,Y,Y,N , A static method can be wrapped and extend"
+      },
+      {
+        "date": "2023-03-30T21:57:00.000Z",
+        "voteCount": 4,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/124176-exam-mb-500-topic-4-question-34-discussion/",
+    "body": "DRAG DROP<br> -<br><br>A company uses Dynamics 365 Finance.<br><br>You must implement three classes with the following requirements:<br><br>\u2022\tVariables in ClassA must be accessible from ClassA and its child classes but not from other classes. ClassB is a class that inherits from ClassA.<br>\u2022\tClassC is not a parent or child class of any other class. The variables of ClassC must only be accessible within ClassC.<br><br>You need to complete the implementation.<br><br>Which variable modifiers should you use? To answer, drag the appropriate variable modifiers to the correct class names. Each variable modifier may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/mb-500/image78.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/mb-500/image79.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-23T05:53:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-10-21T03:04:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/133488-exam-mb-500-topic-4-question-35-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You must create a new attribute class in which to mark other classes in the ISV solution and their respective methods with the error levels Warning and Error.<br><br>You have the following class: (Line numbers are included for reference only.)<br><br><img src=\"https://img.examtopics.com/mb-500/image80.png\"><br><br>You need to ensure that the compiler will report an error if code calls the bike method.<br><br>Solution:<br><br>Create the following attribute class:<br><br><img src=\"https://img.examtopics.com/mb-500/image81.png\"><br><br>Insert the following code at line 04:<br><br>[SysObsoleteAttribute(\"Deprecated. Please use the bicycle class instead.\", false)]<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-24T06:02:00.000Z",
+        "voteCount": 1,
+        "content": "The compiler will deliver a warning and not an error as required in the question\n2nd para = false"
+      },
+      {
+        "date": "2024-09-24T06:04:00.000Z",
+        "voteCount": 1,
+        "content": "sorry: 1st para false :) and moreover the sequence of the parameters in using the attribute is wrong."
+      },
+      {
+        "date": "2024-02-10T06:20:00.000Z",
+        "voteCount": 3,
+        "content": "B. Cauz isError property is marked as false to emit a warning not error."
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/132074-exam-mb-500-topic-4-question-36-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You must create a new attribute class in which to mark other classes in the ISV solution and their respective methods with the error levels Warning and Error.<br><br>You have the following class: (Line numbers are included for reference only.)<br><br><img src=\"https://img.examtopics.com/mb-500/image80.png\"><br><br>You need to ensure that the compiler will report an error if code calls the bike method.<br><br>Solution:<br><br>Create the following attribute class:<br><br><img src=\"https://img.examtopics.com/mb-500/image82.png\"><br><br>Insert the following code at line 01:<br><br>[ISVObsoleteAttribute(ErrorWarning::Warning, \"This class will be deprecated in future releases, please use the Transportation class instead.\")]<br><br>Insert the following code at line 04:<br><br>[ISVObsoleteAttribute(ErrorWarning::Error, \"Deprecated. Please use the bicycle class instead.\")]<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-11T02:01:00.000Z",
+        "voteCount": 2,
+        "content": "B. Cauz the ErrorWarning Enum shows that this call will cause a warning but an error is required in this question."
+      },
+      {
+        "date": "2024-09-24T06:07:00.000Z",
+        "voteCount": 1,
+        "content": "I tend to B, since the question requires to throw an error if the bike-method is called. The other methods may be used, as I understand the scenario."
+      },
+      {
+        "date": "2024-01-24T13:20:00.000Z",
+        "voteCount": 1,
+        "content": "Feels like this one could go either way. Technically, the only requirement is that the compiler throw an error if someone attempts to call 'bike'. The first part of the \"solution\" doesn't impact the requirement either way, but the second part is correct. So the solution does technically meet the requirement...it just contains extra code"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/123573-exam-mb-500-topic-4-question-37-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution. Determine whether the solution meets the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>You must create a new attribute class in which to mark other classes in the ISV solution and their respective methods with the error levels Warning and Error.<br><br>You have the following class: (Line numbers are included for reference only.)<br><br><img src=\"https://img.examtopics.com/mb-500/image80.png\"><br><br>You need to ensure that the compiler will report an error if code calls the bike method.<br><br>Solution:<br><br>Create the following attribute class:<br><br><img src=\"https://img.examtopics.com/mb-500/image81.png\"><br><br>Insert the following code at line 04:<br><br>[SysObsoleteAttribute(\"Deprecated. Please use the bicycle method instead\", true)]<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-10-14T04:16:00.000Z",
+        "voteCount": 1,
+        "content": "Correcta, but the attribute class is not used.To use the attribute class, the class should extend SysObselete, not SysAttribute, as far as my concern."
+      },
+      {
+        "date": "2024-09-26T03:12:00.000Z",
+        "voteCount": 1,
+        "content": "SysObsoleteAttribute is declared as final. So you cannot inherit."
+      },
+      {
+        "date": "2024-01-24T13:22:00.000Z",
+        "voteCount": 1,
+        "content": "Agreed - this whole series of questions don't really make sense. Some actually use the custom attribute, some don't...what's even the point of creating a custom attribute that does exactly the same thing as SysObsoleteAttribute?"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/132076-exam-mb-500-topic-4-question-39-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You use Dynamics 365 Finance.<br><br>You must loop through the customers table and display in the UI the customer account numbers that meet the following requirements:<br><br>\u2022\tInclude the first 100 customers.<br>\u2022\tThe account numbers must be greater than 1,000.<br>\u2022\tOrder the results from larger to smaller by the customer account number.<br><br>You need to write the SQL statement by using SQL in X++.<br><br>Which four statements should you include in sequence? To answer, move the appropriate statements from the list of statements to the answer area and arrange them in the correct order.<br><br><img src=\"https://img.examtopics.com/mb-500/image100.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/mb-500/image101.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-24T13:38:00.000Z",
+        "voteCount": 6,
+        "content": "\"where custTable.AccountNum &gt; 1000\" is not correct - it will not compile because AccountNum is a str. The correct option would be \"where custTable.AccountNum &gt; '1000'\"."
+      },
+      {
+        "date": "2024-02-13T06:48:00.000Z",
+        "voteCount": 1,
+        "content": "Fully agree"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/133618-exam-mb-500-topic-4-question-42-discussion/",
+    "body": "You extend the insert method of the CustTable by using Chain of Command.<br><br>You need to print a message after creating a record if the Sales tax group is complete.<br><br>Which code segment should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://img.examtopics.com/mb-500/image102.png\"><br>\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://img.examtopics.com/mb-500/image103.png\"><br>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://img.examtopics.com/mb-500/image104.png\"><br>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t<img src=\"https://img.examtopics.com/mb-500/image105.png\">"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-12T07:47:00.000Z",
+        "voteCount": 2,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/132078-exam-mb-500-topic-4-question-43-discussion/",
+    "body": "A company is implementing Dynamics 365 finance and operations apps.<br><br>The company must functionally test its native Dynamics 365 finance and operations apps with specific data values.<br><br>You need to add specific values on test data within a development environment.<br><br>Which two fluent setter methods can you use to achieve the goal? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsave<commandparametername>\n\t\t\t\t\t\t\t\t\t\t</commandparametername>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tpost<commandparametername>\n\t\t\t\t\t\t\t\t\t\t</commandparametername>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tset<commandparametername>\n\t\t\t\t\t\t\t\t\t\t</commandparametername>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tfor<commandparametername>\n\t\t\t\t\t\t\t\t\t\t</commandparametername>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcreate<commandparametername>\n\t\t\t\t\t\t\t\t\t\t</commandparametername>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-24T13:44:00.000Z",
+        "voteCount": 2,
+        "content": "Answer appears to be correct. Reference: https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/concepts-commands#fluent-setter-methods"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/132079-exam-mb-500-topic-4-question-44-discussion/",
+    "body": "A company is implementing Dynamics 365 finance and operations apps.<br><br>The company must test its native Dynamics 365 finance and operations apps by using multiple values.<br><br>You need to create a test case within a development environment.<br><br>Which attribute should the test case use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysTestRow",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysTestCategory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSysTestRowInactive"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-01-24T13:45:00.000Z",
+        "voteCount": 4,
+        "content": "Answer appears to be correct. Reference: https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/systest-row"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/148118-exam-mb-500-topic-4-question-46-discussion/",
+    "body": "A company is implementing Dynamics 365 finance and operations apps.<br><br>You are using the SysTest framework to test code in Visual Studio.<br><br>You need to create a unit test class.<br><br>Which two attributes can you use? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOwner",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEntryPoint",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTestCategory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTestFilter"
+    ],
+    "answer": "AC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-09-26T04:37:00.000Z",
+        "voteCount": 1,
+        "content": "In my opinion the attribute is not 'Owner' but 'SysTestOwnerAttribute'."
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/141496-exam-mb-500-topic-4-question-49-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company is implementing Dynamics 365 finance and operations apps.<br><br>The company must test the functionality of its native Dynamics 365 finance and operations apps by using the Acceptance test library (ATL).<br><br>You need to implement ATL classes on test data within a development environment.<br><br>Solution: Create command classes to run business practices. Call the classes by using the SysTest framework.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-05-28T22:44:00.000Z",
+        "voteCount": 2,
+        "content": "Agree. Command classes are responsible for running business operations. They let you use fluent application programming interfaces (APIs) to set the parameters of these operations.\nhttps://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/concepts-commands"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/138835-exam-mb-500-topic-4-question-50-discussion/",
+    "body": "A company is implementing Dynamics 365 finance and operations apps.<br><br>You are using the Acceptance test library (ATL) to test code in Visual Studio.<br><br>You need to create an entity test class to expose the entity properties.<br><br>Which method should you use?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tparm",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twith",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tset"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-16T07:30:00.000Z",
+        "voteCount": 2,
+        "content": "Correct, https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/concepts-entities#property-methods"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/138839-exam-mb-500-topic-4-question-51-discussion/",
+    "body": "A company is developing a new solution in Dynamics 365 Supply Chain Management. Customers will be able to use the solution in their own implementations.<br><br>Several of the classes in the solution are designed to be extended by customers in other implementations to accommodate unique requirements.<br><br>Certain methods must show up in the output window during the build process to advise other developers about the intent of the methods.<br><br>You need to implement the statements for the methods.<br><br>What should you implement?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcomments\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tattributes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tglobal variables",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tproperties",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tinfo() function"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-09-30T05:32:00.000Z",
+        "voteCount": 1,
+        "content": "The SysObsolete attribute is used to mark methods as obsolete. During the build process, this attribute will trigger a warning in the output window."
+      },
+      {
+        "date": "2024-04-16T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "ChatGPT: The correct choice to implement statements for methods that should show up in the output window during the build process to advise other developers about the intent of the methods is:\n\nA. comments"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  },
+  {
+    "topic": 4,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/142845-exam-mb-500-topic-4-question-53-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br><br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br><br>A company is implementing Dynamics 365 finance and operations apps.<br><br>The company must test the functionality of its native Dynamics 365 finance and operations apps by using the Acceptance test library (ATL).<br><br>You need to implement ATL classes on test data within a development environment.<br><br>Solution: Create a set of navigation objects and creator classes to access entities and test data.<br><br>Does the solution meet the goal?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-23T08:26:00.000Z",
+        "voteCount": 2,
+        "content": "Could be 'yes'. Please refer to the 'Concepts' section here: https://learn.microsoft.com/en-us/dynamics365/fin-ops-core/dev-itpro/perf-test/acceptance-test-library"
+      }
+    ],
+    "examNameCode": "mb-500",
+    "topicNumber": "4"
+  }
+]

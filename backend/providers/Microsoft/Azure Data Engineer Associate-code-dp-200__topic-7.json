@@ -1,0 +1,101 @@
+[
+  {
+    "topic": 7,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/8912-exam-dp-200-topic-7-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to provision the polling data storage account.<br>How should you configure the storage account? To answer, drag the appropriate Configuration Value to the correct Setting. Each Configuration Value may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE:<br>Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03872/0012500001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03872/0012600001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Account type: StorageV2 -<br>You must create new storage accounts as type StorageV2 (general-purpose V2) to take advantage of Data Lake Storage Gen2 features.<br>Scenario: Polling data is stored in one of the two locations:<br>\u2711 An on-premises Microsoft SQL Server 2019 database named PollingData<br>\u2711 Azure Data Lake Gen 2<br>Data in Data Lake is queried by using PolyBase<br><br>Replication type: RA-GRS -<br>Scenario: All services and processes must be resilient to a regional Azure outage.<br>Geo-redundant storage (GRS) is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year by replicating your data to a secondary region that is hundreds of miles away from the primary region. If your storage account has GRS enabled, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.<br>If you opt for GRS, you have two related options to choose from:<br>\u2711 GRS replicates your data to another data center in a secondary region, but that data is available to be read only if Microsoft initiates a failover from the primary to secondary region.<br>\u2711 Read-access geo-redundant storage (RA-GRS) is based on GRS. RA-GRS replicates your data to another data center in a secondary region, and also provides you with the option to read from the secondary region. With RA-GRS, you can read from the secondary region regardless of whether Microsoft initiates a failover from the primary to secondary region.<br>References:<br>https://docs.microsoft.com/bs-cyrl-ba/azure/storage/blobs/data-lake-storage-quickstart-create-account https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy-grs",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-11-22T14:15:00.000Z",
+        "voteCount": 35,
+        "content": "We do not have to read data from the secondary region : only GRS is needed (with smallest cost than RA-GRS)"
+      },
+      {
+        "date": "2020-06-25T11:14:00.000Z",
+        "voteCount": 15,
+        "content": "It also states that the solution must be resilient. You cannot achieve achieve true resilience with only GRS. Applications will have downtime during the failover period. I believe RA-GRS is the correct answer."
+      },
+      {
+        "date": "2021-07-11T09:37:00.000Z",
+        "voteCount": 1,
+        "content": "The difference between GRS and RA GRS is fairly simple, GRS only allows to be read in the secondary zone in the even of a failover from the primary to secondary while RA GRS allows the option to read in the secondary whenever. Since cost has to be minimized we need only GRS and not RA-GRS , the requirement is to be Resilient at minimized cost ."
+      },
+      {
+        "date": "2020-02-19T03:42:00.000Z",
+        "voteCount": 16,
+        "content": "RA-GRS is the correct answer. In case of failure you can read the data and minimize impact on the application. With GRS that won't be possible. Cost is not important in exams. Go with the best available assuming there is not constraint set in the question itself."
+      },
+      {
+        "date": "2020-03-10T03:21:00.000Z",
+        "voteCount": 7,
+        "content": "Its mentioned in question clearly that \"The solution must minimize costs.\". So, GRS should be the correct answer here."
+      },
+      {
+        "date": "2020-06-19T09:23:00.000Z",
+        "voteCount": 3,
+        "content": "In case of failure ..failover will happen anyway."
+      },
+      {
+        "date": "2020-11-11T20:38:00.000Z",
+        "voteCount": 3,
+        "content": "Replication Type= GRS"
+      },
+      {
+        "date": "2020-11-10T12:59:00.000Z",
+        "voteCount": 1,
+        "content": "Geo-redundant storage (with GRS or GZRS) replicates your data to another physical location in the secondary region to protect against regional outages. However, that data is available to be read only if the customer or Microsoft initiates a failover from the primary to secondary region. When you enable read access to the secondary region, your data is available to be read at all times, including in a situation where the primary region becomes unavailable."
+      },
+      {
+        "date": "2020-11-01T17:14:00.000Z",
+        "voteCount": 2,
+        "content": "RA-GRS is the correct answer. It is mentioned in the question that \"All services and processes must be resilient to a regional Azure outage.\"\nHowever, referred from the Microsoft docs: Geo-redundant storage carries a risk of data loss. Data is copied to the secondary region asynchronously, meaning there is a delay between when data written to the primary region is written to the secondary region. In the event of an outage, write operations to the primary endpoint that have not yet been copied to the secondary endpoint will be lost. \nThis concludes that RA-GRS is the correct answer as per Microsoft docs \"If an outage occurs in the primary endpoint, applications configured for read access to the secondary and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability for your applications.\""
+      },
+      {
+        "date": "2020-12-09T15:34:00.000Z",
+        "voteCount": 3,
+        "content": "hi, i dont think so because that's more expensive in terms of costs, the ideal is GRS.\n\"...The storage must be available in the event of a regional disaster. The solution must minimize costs.....\" &lt;= minimize : RA-GRS cost &gt; GRS cost and GRD already permits failover to a secondary region so for me this is the right answer\n\nregards"
+      },
+      {
+        "date": "2020-09-26T04:58:00.000Z",
+        "voteCount": 2,
+        "content": "\"Microsoft recommends RA-GZRS for maximum availability and durability for your applications.\""
+      },
+      {
+        "date": "2020-07-09T11:03:00.000Z",
+        "voteCount": 3,
+        "content": "acording to the doc here (https://docs.microsoft.com/en-us/azure/storage/common/storage-disaster-recovery-guidance)\nGRS has a manual failover step. so the RA-GRS would be the correct answer\n\nGeo-redundant storage (GRS) or geo-zone-redundant storage (GZRS) copies your data asynchronously in two geographic regions that are at least hundreds of miles apart. If the primary region suffers an outage, then the secondary region serves as a redundant source for your data. You can initiate a failover to transform the secondary endpoint into the primary endpoint.\n\nRead-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS) provides geo-redundant storage with the additional benefit of read access to the secondary endpoint. If an outage occurs in the primary endpoint, applications configured for read access to the secondary and designed for high availability can continue to read from the secondary endpoint. Microsoft recommends RA-GZRS for maximum availability and durability for your applications."
+      },
+      {
+        "date": "2020-07-10T15:30:00.000Z",
+        "voteCount": 1,
+        "content": "It says \" applications configured for read access to the secondary and designed for high availability can continue to read from the secondary endpoint\" ,however you cant write to the secondary endpoint still. To do that a failover has to be initiated( manual ?. Does it say anywhere that RA-GRS has automatic -failover ?"
+      },
+      {
+        "date": "2020-05-14T16:23:00.000Z",
+        "voteCount": 5,
+        "content": "Dear Sambit, I guess that i not correct. GRS supports automatic fail over. Also, there is no requirement mentioned in the question that without failover also, READ access required. So my guess is GRS is the right answer."
+      },
+      {
+        "date": "2020-03-09T07:43:00.000Z",
+        "voteCount": 6,
+        "content": "RA-GRS is correct because it is the only that does migrations automatically"
+      },
+      {
+        "date": "2019-12-13T06:41:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with you STH."
+      },
+      {
+        "date": "2019-12-25T14:26:00.000Z",
+        "voteCount": 6,
+        "content": "you can agree with a comment or upvote"
+      }
+    ],
+    "examNameCode": "dp-200",
+    "topicNumber": "7"
+  }
+]

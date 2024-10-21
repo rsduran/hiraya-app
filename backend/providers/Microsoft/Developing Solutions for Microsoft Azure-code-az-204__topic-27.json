@@ -1,0 +1,325 @@
+[
+  {
+    "topic": 27,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/46573-exam-az-204-topic-27-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure that validation testing is triggered per the requirements.<br>How should you complete the code segment? To answer, select the appropriate values in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04273/0006400001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0006500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: RepositoryUpdated -<br>When a new version of the ContentAnalysisService is available the previous seven days of content must be processed with the new version to verify that the new version does not significantly deviate from the old version.<br><br>Box 2: service -<br><br>Box 3: imageCollection -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/devops/notifications/oob-supported-event-types",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-11T13:32:00.000Z",
+        "voteCount": 113,
+        "content": "Incorrect... \n1. ImagePushed\n2. repository\n3. topic\n\nhttps://docs.microsoft.com/hu-hu/azure/event-grid/event-schema-container-registry?tabs=event-grid-event-schema"
+      },
+      {
+        "date": "2021-04-13T13:04:00.000Z",
+        "voteCount": 2,
+        "content": "In English...\nhttps://docs.microsoft.com/en-us/azure/event-grid/event-schema-container-registry?tabs=event-grid-event-schema"
+      },
+      {
+        "date": "2021-03-18T03:26:00.000Z",
+        "voteCount": 6,
+        "content": "thanks for the tip! The answer indicated by the test seems to be completely \"off topic\" ;-)"
+      },
+      {
+        "date": "2022-12-26T18:25:00.000Z",
+        "voteCount": 2,
+        "content": "On my exam 2022-12-26.\nChose\uff1a\n1. ImagePushed\n2. repository\n3. topic"
+      },
+      {
+        "date": "2021-06-29T09:46:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, imho the answer should be ImagePushed, repository and topic. As the Example Event shows a Event Grid event schema, with explained the scheme. The schema of the Azure Container Registry EventGrid events doesn't contain fields like imagecollection, service, etc. Note that for eventType only ImagePushed, ImageDeleted, ChartPushed and ChartDeleted (last two raised form Helm charts) are valid. So 1 should be ImagePushed, send the json notes a data.target.repository"
+      },
+      {
+        "date": "2022-10-24T05:00:00.000Z",
+        "voteCount": 15,
+        "content": "Ok,  I need to start memorizing all schemes of possible event system topics:\nAzure API Management\nAzure App Configuration\nAzure App Service\nAzure Blob Storage\nAzure Cache for Redis\nAzure Communication Services\nAzure Container Registry\nAzure Event Hubs\nAzure FarmBeats\nAzure Health Data Services\nAzure IoT Hub\nAzure Key Vault\nAzure Kubernetes Service\nAzure Machine Learning\nAzure Maps\nAzure Media Services\nAzure Policy\nAzure resource groups\nAzure Service Bus\nAzure SignalR\nAzure subscriptions...."
+      },
+      {
+        "date": "2023-10-05T02:20:00.000Z",
+        "voteCount": 1,
+        "content": "On my exam 2023-10 before the Update of the Exam"
+      },
+      {
+        "date": "2023-09-19T07:27:00.000Z",
+        "voteCount": 1,
+        "content": "I would go for \n1. ImagePushed\n2. Repository\n3. Topic \n\nBased on the grid event schema example everyone has linked to \n\n[{\n  \"topic\": \"/subscriptions/&lt;subscription-id&gt;/resourceGroups/&lt;resource-group-name&gt;/providers/Microsoft.ContainerRegistry/registries/&lt;name&gt;\",\n  \"eventType\": \"Microsoft.ContainerRegistry.ImagePushed\",\n  \"data\": {\n    \"target\": {\n      \"repository\": \"&lt;name&gt;\",\n    },\n  },\n}]"
+      },
+      {
+        "date": "2023-07-25T20:20:00.000Z",
+        "voteCount": 2,
+        "content": "Had this question today: 2023-07-26"
+      },
+      {
+        "date": "2023-09-03T19:12:00.000Z",
+        "voteCount": 1,
+        "content": "What did you choose then?"
+      },
+      {
+        "date": "2023-02-18T11:15:00.000Z",
+        "voteCount": 8,
+        "content": "The number of questions with incorrect responses is overwhelming. ExamTopics should mark the correct answers properly to make life easier for us. :("
+      },
+      {
+        "date": "2023-02-16T00:34:00.000Z",
+        "voteCount": 4,
+        "content": "Got this in 16/02/2023"
+      },
+      {
+        "date": "2022-12-09T23:56:00.000Z",
+        "voteCount": 2,
+        "content": "ImagePushed\nRepository\nTopic"
+      },
+      {
+        "date": "2022-10-08T07:06:00.000Z",
+        "voteCount": 1,
+        "content": "How does a new image being pushed mean a new deployment. And they expect me to remember the whole schema for all the services that can send events to EventGrid? And I could even imagine a blob storage being there. This requirement itself is at the edge of darkness and using a repository event to fulfill that requirement can only be thought of really junior hello world programmers of Microsoft."
+      },
+      {
+        "date": "2022-10-08T07:14:00.000Z",
+        "voteCount": 1,
+        "content": "EUREKA. Did you guys notice \"All Internal services must only be accessible from internal Virtual Networks (VNets).\" It NEVER said it should be connected to a vnet. It just said it should be ACCESSED from INTERNAL vnet (not Azure vnet). A nice red-herring planted by Microsoft guys (Do not be evil) \n\nTHE ANSWER SHOULD BE CONSUMPTION PLAN"
+      },
+      {
+        "date": "2022-08-10T13:22:00.000Z",
+        "voteCount": 2,
+        "content": "This question is also in Udemy. \n1. ImagePushed\n2. repository\n3. topic"
+      },
+      {
+        "date": "2023-10-17T11:17:00.000Z",
+        "voteCount": 1,
+        "content": "Which course?"
+      },
+      {
+        "date": "2022-06-17T12:00:00.000Z",
+        "voteCount": 1,
+        "content": "1. Imagepushed - acr has only 4 event types imagepushed, imagedeleted, chartpushed n chart deleted \n2. Service ?\n3. Repository - this is correct as per MS documentation"
+      },
+      {
+        "date": "2022-06-17T12:08:00.000Z",
+        "voteCount": 1,
+        "content": "I just checked ACR event schema \n3. Topic - since it has id,eventtype,topic,subject,data,dataversion.... there is no repository"
+      },
+      {
+        "date": "2022-06-17T12:13:00.000Z",
+        "voteCount": 1,
+        "content": "2. REPOSITORY\n\nhttps://docs.microsoft.com/en-us/azure/container-registry/container-registry-event-grid-quickstart\nCheck image it has schema written."
+      },
+      {
+        "date": "2022-03-12T20:51:00.000Z",
+        "voteCount": 3,
+        "content": "100 % correct answer: Cross referenced in Udemy\nImagePushed\nRepository\nTopic"
+      },
+      {
+        "date": "2022-03-09T23:48:00.000Z",
+        "voteCount": 1,
+        "content": "Got this one 03/2022"
+      },
+      {
+        "date": "2022-01-29T01:21:00.000Z",
+        "voteCount": 2,
+        "content": "ImagePushed\nRepository\nTopic\n\nhttps://docs.microsoft.com/en-us/azure/event-grid/event-schema-container-registry?tabs=event-grid-event-schema"
+      },
+      {
+        "date": "2021-08-16T23:25:00.000Z",
+        "voteCount": 3,
+        "content": "\"Image pushed into a repository\" is not the same as \"image deployed, container is running\". One cannot start testing on a pushed image, only after it has been deployed."
+      },
+      {
+        "date": "2021-10-07T02:28:00.000Z",
+        "voteCount": 1,
+        "content": "Hmm, maybe some multi-step task will be used so \"ImagePushed\" event means the image will be run as a container in a moment? Or is there some functionality in that private ACR which will run/deploy the updated image automatically?\n\nhttps://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-multi-step"
+      },
+      {
+        "date": "2021-07-26T19:35:00.000Z",
+        "voteCount": 4,
+        "content": "100 % correct\nImagePushed\nRepository\nTopic"
+      },
+      {
+        "date": "2021-04-21T00:54:00.000Z",
+        "voteCount": 7,
+        "content": "Indeed,\nImagePushed\nRepository and \nTopic"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "27"
+  },
+  {
+    "topic": 27,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/56361-exam-az-204-topic-27-question-2-discussion/",
+    "body": "You need to deploy the CheckUserContent Azure Function. The solution must meet the security and cost requirements.<br>Which hosting model should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tPremium plan",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tApp Service plan\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsumption plan"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 10,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-08-26T10:55:00.000Z",
+        "voteCount": 25,
+        "content": "A is correct!  I guess the guy gives the answer confused with which one is cheaper.  Premium is cheaper than app service place.  It can auto scale, warm starting and with VNET integration.  In addition, it can run custom container as well, just the same as app service plan."
+      },
+      {
+        "date": "2024-06-30T18:38:00.000Z",
+        "voteCount": 2,
+        "content": "Don't understand why so many people have upvoted this. No reason has been given for excluding App Service Plan. B appears to be correct."
+      },
+      {
+        "date": "2022-02-15T03:00:00.000Z",
+        "voteCount": 8,
+        "content": "Premium does NOT support VNET in multiple regions: https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale#networking-features, i beleive it's B"
+      },
+      {
+        "date": "2022-03-09T03:53:00.000Z",
+        "voteCount": 2,
+        "content": "I agree, VNET and multiple regions only available for AppService plan"
+      },
+      {
+        "date": "2022-02-20T13:11:00.000Z",
+        "voteCount": 3,
+        "content": "Are you sure? When I compare the costs (same ACU, memory, etc.) then App Service Plan is always cheaper."
+      },
+      {
+        "date": "2021-08-27T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "Too add some more stuff here, ASE(application service environment) is very different app service plan and way more expensive, in addition, those two docker images are in azure registry so, definitely can be supported by premium plan."
+      },
+      {
+        "date": "2021-08-23T03:22:00.000Z",
+        "voteCount": 8,
+        "content": "I believed the answer is correct.\nhttps://docs.microsoft.com/en-us/azure/azure-functions/dedicated-plan\n\"You pay for function apps in an App Service Plan as you would for other App Service resources. This differs from Azure Functions Consumption plan or Premium plan hosting...\"\nSo.. ASE can be made available on the App service plan that hosting the function"
+      },
+      {
+        "date": "2024-07-29T14:52:00.000Z",
+        "voteCount": 2,
+        "content": "The answer B) is correct: given that All services must run in multiple regions, we must choose  App Service plan(dedicated plan), because the Premium plan only supports regional vNet Integration. Also, normally Premium plan is more costful than the App Service plan, premium payment is based on the compute resource allocated, and App Service plan is based on the resource allocated too with the price tier(basic, standard and premium V2), but premium plan provides more advanced scaling option and no cold start"
+      },
+      {
+        "date": "2023-10-05T02:21:00.000Z",
+        "voteCount": 3,
+        "content": "On my exam 2023-10 before the Update of the Exam"
+      },
+      {
+        "date": "2023-10-21T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "sorry, what do you mean by \"before the update of the Exam\"?"
+      },
+      {
+        "date": "2023-11-13T00:32:00.000Z",
+        "voteCount": 2,
+        "content": "Microsoft have recently updated AZ-204 courses. (Not that much actually, but it may have impact to some of the questions in the exam)"
+      },
+      {
+        "date": "2023-07-25T20:20:00.000Z",
+        "voteCount": 2,
+        "content": "Had this question today: 2023-07-26"
+      },
+      {
+        "date": "2023-01-15T03:45:00.000Z",
+        "voteCount": 1,
+        "content": "On My Exam:2022-12-02"
+      },
+      {
+        "date": "2022-12-26T18:27:00.000Z",
+        "voteCount": 3,
+        "content": "On My Exam:2022-12-26\nMy Choice:\nB:App Service plan"
+      },
+      {
+        "date": "2022-12-10T00:02:00.000Z",
+        "voteCount": 6,
+        "content": "https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale#networking-features\n\nPremium plan Vnet integration is regional hence for this question it is not the correct answer.\n\nCorrect Anser - App Service Plan"
+      },
+      {
+        "date": "2022-10-08T07:12:00.000Z",
+        "voteCount": 3,
+        "content": "Another highly debated question. Very good points on whether Premium is costly or (dedicated) app service plan is costly. No idea. Only thing sure is it cannot be consumption because of the hidden wording for vnet integration. But I guess Microsoft guys forget that they added that vnet integration requirement and expected us to answer Consumption plan. But my intelligence will make me answer app service plan and hope for the best"
+      },
+      {
+        "date": "2022-03-30T02:10:00.000Z",
+        "voteCount": 2,
+        "content": "I tink B is correct\nThe virtual network integration feature is used in Azure App Service dedicated compute pricing tiers. If your app is in an App Service Environment, it's already in a virtual network and doesn't require use of the VNet integration feature to reach resources in the same virtual network: https://docs.microsoft.com/en-us/azure/azure-functions/functions-networking-options#:~:text=The%20virtual%20network%20integration%20feature,in%20the%20same%20virtual%20network."
+      },
+      {
+        "date": "2022-03-08T13:01:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer: A\nhttps://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"
+      },
+      {
+        "date": "2022-01-20T12:23:00.000Z",
+        "voteCount": 1,
+        "content": "The given answer and explanation seem correct."
+      },
+      {
+        "date": "2021-11-24T11:48:00.000Z",
+        "voteCount": 4,
+        "content": "\"If you just want to run your function app in a virtual network, you can do this using the Premium plan.\"\n\nReference: https://docs.microsoft.com/en-us/azure/azure-functions/dedicated-plan"
+      },
+      {
+        "date": "2021-10-30T17:06:00.000Z",
+        "voteCount": 4,
+        "content": "I'm liking the App Service plan (B). It's 10 cents an hour cheaper than Premium at the S1 level (even cheaper at higher levels) and has the VNet integration the case study requires. The only thing that Premium adds is private endpoints which aren't required here.\nhttps://azure.microsoft.com/en-us/pricing/details/app-service/windows/"
+      },
+      {
+        "date": "2021-07-01T06:58:00.000Z",
+        "voteCount": 3,
+        "content": "Option: A. \nReason : As per the security rule : All Internal services must only be accessible from internal Virtual Networks (VNets). Since the AZ function consumption plan does n't support vnet, So choose the next option Premium Plan"
+      },
+      {
+        "date": "2021-07-26T06:40:00.000Z",
+        "voteCount": 1,
+        "content": "ANY LINKS?"
+      },
+      {
+        "date": "2021-07-28T00:16:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"
+      },
+      {
+        "date": "2021-08-01T10:28:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale\nwith this document, ASE provides vNet integration. So, answer should be ASE for sure."
+      },
+      {
+        "date": "2021-06-30T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "Should'be A Imho, both the UploadService and AnalysisService run in container instances on in app service plans"
+      },
+      {
+        "date": "2021-07-26T06:40:00.000Z",
+        "voteCount": 1,
+        "content": "ANY LINKS ???"
+      },
+      {
+        "date": "2021-07-28T00:16:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale"
+      },
+      {
+        "date": "2021-09-13T16:20:00.000Z",
+        "voteCount": 1,
+        "content": "Completely wrong!  Container instance is different from app service plan, two very different ways to host container images, there is no way you can have a container instance running on top of a service plan"
+      },
+      {
+        "date": "2022-01-16T07:34:00.000Z",
+        "voteCount": 1,
+        "content": "after choosing Docker Image you can still select an App Service Plan ...."
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "27"
+  }
+]

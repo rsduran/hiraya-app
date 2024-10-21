@@ -1,0 +1,235 @@
+[
+  {
+    "topic": 8,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/49226-exam-az-204-topic-8-question-1-discussion/",
+    "body": "DRAG DROP -<br>You need to add code at line PC32 in Processing.cs to implement the GetCredentials method in the Processing class.<br>How should you complete the code? To answer, drag the appropriate code segments to the correct locations. Each code segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04273/0019000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0019000002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: AzureServiceTokenProvider()<br>Box 2: tp.GetAccessTokenAsync(\"..\")<br>Acquiring an access token is then quite easy. Example code:<br>private async Task&lt;string&gt; GetAccessTokenAsync()<br>{<br>var tokenProvider = new AzureServiceTokenProvider();<br>return await tokenProvider.GetAccessTokenAsync(\"https://storage.azure.com/\");<br>}<br>Reference:<br>https://joonasw.net/view/azure-ad-authentication-with-azure-storage-and-managed-service-identity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-28T02:32:00.000Z",
+        "voteCount": 36,
+        "content": "To prevent reading the cases multiple times:\nPlease see the spots below where you can find the questions (page/topic/question/subject)\nLitware Inc\n47 8 1 code : GetCredentials method\n47 8 2 code : disaster recovery requirements \n51 14 1 code : set encryption with request to blob storage\n51 14 2 ARM set keyVault access policy\n53 20 1 prevent blob writing concurrency problems\n54 20 2 resolve capacity issue at function processing\n54 20 3 resolve capacity issue at extensive logging"
+      },
+      {
+        "date": "2022-12-09T09:24:00.000Z",
+        "voteCount": 1,
+        "content": "Great Help"
+      },
+      {
+        "date": "2023-04-17T19:30:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, couldn't understand what you mean.\nYou mean this code (47 8 1) should be placed in the URL to access this content?\nCould you please elaborate more on this?"
+      },
+      {
+        "date": "2023-12-11T16:49:00.000Z",
+        "voteCount": 1,
+        "content": "47 8 1 means page 47, topic 8, question 1"
+      },
+      {
+        "date": "2023-04-05T21:42:00.000Z",
+        "voteCount": 21,
+        "content": "Wide World Importers  7/1 7/2 12/1 12/2 23/1 23/2 \nLitware Inc. 8/1 8/2 14/1 14/2 20/1 20/2 20/3 \nCoho Winery produces 9/1 9/2 22/1 22/2 28/1 28/2\nVanArsdel, Ltd. 10/1 10/2 10/3 10/4 15/1 15/2 21/1 29/1 29/2 30/1\nContoso, Ltd. 11/1 11/2 11/3 11/4 11/5 16/1 16/2 27/1 27/2 31/1 31/2 31/3 \nCity Power &amp; Light 13/1 13/2 13/3 13/4 13/5 13/6 17/1 17/2 18/1 24/1 24/2 32/1 \nProseware, Inc. 19/1 19/2 19/3 19/4 25/1 25/2 25/3 26/1"
+      },
+      {
+        "date": "2023-04-22T21:16:00.000Z",
+        "voteCount": 1,
+        "content": "I know that 7/1 means topic 7, question 1, but where we can find use case description?"
+      },
+      {
+        "date": "2021-04-05T09:46:00.000Z",
+        "voteCount": 29,
+        "content": "Answer is correct: https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=python#asal"
+      },
+      {
+        "date": "2021-05-04T05:05:00.000Z",
+        "voteCount": 3,
+        "content": "Absolutely"
+      },
+      {
+        "date": "2024-02-05T06:48:00.000Z",
+        "voteCount": 1,
+        "content": "When your application is running on an Azure VM with MSI enabled, you can use MSITokenProvider to obtain tokens without directly handling credentials."
+      },
+      {
+        "date": "2024-02-05T06:46:00.000Z",
+        "voteCount": 6,
+        "content": "AzureServiceTokenProvider is replaced by Azure.Identity. See: https://learn.microsoft.com/en-us/dotnet/api/overview/azure/app-auth-migration?view=azure-dotnet\n\nvar tokenCredential = new DefaultAzureCredential();\nvar accessToken = await tokenCredential.GetTokenAsync(\n    new TokenRequestContext(scopes: new string[] { ResourceId + \"/.default\" }) { }\n);"
+      },
+      {
+        "date": "2023-08-30T10:05:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is correct.\n\nTokenCredential class receives a string in the constructor:\n- https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.auth.tokencredential?view=azure-dotnet#constructors\n\nSo the answer cannot be MSITokenProvider.GetAuthenticationHeaderAsync which returns an AuthenticationHeaderValue:\n- https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication.msitokenprovider.getauthenticationheaderasync\n\nAzureServiceTokenProvider.GetAccessTokenAsync on the other hand returns a string:\n- https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.services.appauthentication.azureservicetokenprovider.getaccesstokenasync"
+      },
+      {
+        "date": "2023-02-01T01:58:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/dotnet/api/overview/azure/service-to-service-authentication?view=azure-dotnet Answers are correct"
+      },
+      {
+        "date": "2022-12-09T09:40:00.000Z",
+        "voteCount": 2,
+        "content": "AzureServiceTokenProvider\nGetAccessTokenAsync(...)"
+      },
+      {
+        "date": "2022-10-19T11:38:00.000Z",
+        "voteCount": 7,
+        "content": "This is Microsoft.Azure.Services.AppAuthentication and is since 2019 legacy.\nInstead use the Azure Identity client library for .NET Azure.Identity\nusing Azure.Identity;\nusing Azure.Security.KeyVault.Secrets;\n\n// Create a secret client using the DefaultAzureCredential\nvar client = new SecretClient(new Uri(\"https://myvault.azure.vaults.net/\"), new DefaultAzureCredential());\netc."
+      },
+      {
+        "date": "2022-12-18T01:09:00.000Z",
+        "voteCount": 3,
+        "content": "Or use ManagedIdentityCredential() if you want to make sure it's using managed identity exclusively"
+      },
+      {
+        "date": "2022-03-08T17:01:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer:\n- AzureServiceTokenProvider\n- GetAccessTokenAsync(...)"
+      },
+      {
+        "date": "2021-05-22T05:17:00.000Z",
+        "voteCount": 5,
+        "content": "Yep :\n\n- AzureServiceTokenProvider\n- GetAccessTokenAsync"
+      },
+      {
+        "date": "2021-05-04T05:04:00.000Z",
+        "voteCount": 2,
+        "content": "Very correct"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/47656-exam-az-204-topic-8-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to ensure disaster recovery requirements are met.<br>What code should you add at line PC16?<br>To answer, drag the appropriate code fragments to the correct locations. Each code fragment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04273/0019100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04273/0019200001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Scenario: Disaster recovery. Regional outage must not impact application availability. All DR operations must not be dependent on application running and must ensure that data in the DR region is up to date.<br><br>Box 1: DirectoryTransferContext -<br>We transfer all files in the directory.<br>Note: The TransferContext object comes in two forms: SingleTransferContext and DirectoryTransferContext. The former is for transferring a single file and the latter is for transferring a directory of files.<br>Box 2: ShouldTransferCallbackAsync<br>The DirectoryTransferContext.ShouldTransferCallbackAsync delegate callback is invoked to tell whether a transfer should be done.<br><br>Box 3: False -<br>If you want to use the retry policy in Copy, and want the copy can be resume if break in the middle, you can use SyncCopy (isServiceCopy = false).<br>Note that if you choose to use service side copy ('isServiceCopy' set to true), Azure (currently) doesn't provide SLA for that. Setting 'isServiceCopy' to false will download the source blob loca<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/common/storage-use-data-movement-library https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.datamovement.directorytransfercontext.shouldtransfercallbackasync?view=azure- dotnet",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-18T06:22:00.000Z",
+        "voteCount": 60,
+        "content": "Answers in box 1 and 2 arent' correct. They should be SingleTranferConext and ShouldOverwriteCallbackAsync because we are copying a single blob (see CopyAsync method). We are inside a foreach loop that scan each file in the share."
+      },
+      {
+        "date": "2021-08-27T04:01:00.000Z",
+        "voteCount": 2,
+        "content": "yes, foreach construction applied"
+      },
+      {
+        "date": "2021-04-15T05:03:00.000Z",
+        "voteCount": 10,
+        "content": "Correct\n1. https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.datamovement.singletransfercontext?view=azure-dotnet\n2. According to a link above, there is only \"ShouldOverwriteCallbackAsync\" available for \"SingleTranferConext \"\n3. https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.storage.datamovement.transfermanager.copyasync?view=azure-dotnet#Microsoft_Azure_Storage_DataMovement_TransferManager_CopyAsync_Microsoft_Azure_Storage_Blob_CloudBlob_Microsoft_Azure_Storage_Blob_CloudBlob_System_Boolean_Microsoft_Azure_Storage_DataMovement_CopyOptions_Microsoft_Azure_Storage_DataMovement_SingleTransferContext_\nThe question is should it be server side copy or not? I would say \"true\"."
+      },
+      {
+        "date": "2021-04-13T14:33:00.000Z",
+        "voteCount": 28,
+        "content": "SingleTranferConext\nShouldOverwriteCallbackAsync \ntrue"
+      },
+      {
+        "date": "2021-07-26T07:27:00.000Z",
+        "voteCount": 3,
+        "content": "ITS FALSE 10000000000%"
+      },
+      {
+        "date": "2021-07-27T11:27:00.000Z",
+        "voteCount": 7,
+        "content": "Srry im didnt read well"
+      },
+      {
+        "date": "2023-02-21T11:55:00.000Z",
+        "voteCount": 2,
+        "content": "It's all good buddy"
+      },
+      {
+        "date": "2021-04-14T13:38:00.000Z",
+        "voteCount": 2,
+        "content": "The last box is \"true\"? really?"
+      },
+      {
+        "date": "2024-09-11T03:22:00.000Z",
+        "voteCount": 1,
+        "content": "var context = new SingleTransferContext\n{\n    ShouldOverwriteCallbackAsync = (source, destination) =&gt; Task.FromResult(true)\n};\n\nawait TransferManager.CopyAsync(blob, GetDRBlob(blob), isServiceCopy: true, context: context, options: new CopyOptions());"
+      },
+      {
+        "date": "2023-06-23T10:22:00.000Z",
+        "voteCount": 2,
+        "content": "About isServiceCopy:\nA flag indicating whether the copy is service-side asynchronous copy or not. If this flag is set to true, service-side asychronous copy will be used; if this flag is set to false, file is downloaded from source first, then uploaded to destination."
+      },
+      {
+        "date": "2023-03-16T12:19:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/storage/common/storage-use-data-movement-library#track-transfer-progress"
+      },
+      {
+        "date": "2023-03-16T12:21:00.000Z",
+        "voteCount": 1,
+        "content": "\"To achieve this scenario, we need to create a TransferContext object. The TransferContext object comes in two forms: SingleTransferContext and DirectoryTransferContext. The former is for transferring a single file and the latter is for transferring a directory of files.\""
+      },
+      {
+        "date": "2023-03-16T12:30:00.000Z",
+        "voteCount": 3,
+        "content": "the foreach in the lines above PC16 indicates single file transfer"
+      },
+      {
+        "date": "2022-12-09T09:44:00.000Z",
+        "voteCount": 3,
+        "content": "1.SingleTranferConext\n2.ShouldOverwriteCallbackAsync\n3.true (If this flag is set to true, service-side asychronous copy will be used)"
+      },
+      {
+        "date": "2022-10-19T23:33:00.000Z",
+        "voteCount": 2,
+        "content": "Old version 11 code Microsoft.Azure.Storage.DataMovement\nVersion 12 : Azure.Storage.Blobs \nYou would probably use :\nStartCopyFromUriAsync(Uri, BlobCopyFromUriOptions, CancellationToken)"
+      },
+      {
+        "date": "2022-10-07T05:49:00.000Z",
+        "voteCount": 5,
+        "content": "For the non Microsoft stable tied horses, Task.FromResult(true) creates a task that returns true."
+      },
+      {
+        "date": "2022-10-19T23:23:00.000Z",
+        "voteCount": 1,
+        "content": "usage : See https://github.com/Azure/azure-storage-net-data-movement/blob/master/samples/DataMovementSamples/DataMovementSamples/Samples.cs"
+      },
+      {
+        "date": "2022-10-07T05:44:00.000Z",
+        "voteCount": 2,
+        "content": "Also Microsoft, you do not need to know .Net to be able to write AZ-204."
+      },
+      {
+        "date": "2022-03-08T17:20:00.000Z",
+        "voteCount": 5,
+        "content": "Correct Answer:\n1.SingleTranferConext (because it is inside loop)\n2.ShouldOverwriteCallbackAsync (for singleTransferContext this is only option)\n3.true (If this flag is set to true, service-side asychronous copy will be used)"
+      },
+      {
+        "date": "2022-01-29T02:21:00.000Z",
+        "voteCount": 4,
+        "content": "SingleTransferContext because we transfer blob by blob because line PC16 is in the ForEach. \nIsServiceCopy true to allow service side asynchronous processing instead of downloading/uploading blobs. \n\nShouldOverwriteCallbackAsync because ShouldTransferCallbackAsync is not a property of SingleTransferContext."
+      },
+      {
+        "date": "2022-01-07T04:13:00.000Z",
+        "voteCount": 2,
+        "content": "No one is talking about how the line on the first answer box is invalid no matter that answer you put.\n\nI believe it's a copy paste error and the line should be:\nvar context = new [               ];\n\nwith answer SingleTransferContext"
+      },
+      {
+        "date": "2022-01-07T04:14:00.000Z",
+        "voteCount": 2,
+        "content": "i realize that is confusing, i meant that the line in the hot area should be :\nvar context = new ____ ();"
+      },
+      {
+        "date": "2021-05-01T22:53:00.000Z",
+        "voteCount": 2,
+        "content": "isServiceCopy:  True\nBoolean\nA flag indicating whether the copy is service-side asynchronous copy or not. If this flag is set to true, service-side asychronous copy will be used; if this flag is set to false, file is downloaded from source first, then uploaded to destination"
+      }
+    ],
+    "examNameCode": "az-204",
+    "topicNumber": "8"
+  }
+]

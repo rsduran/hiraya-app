@@ -1,0 +1,445 @@
+[
+  {
+    "topic": 11,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/62873-exam-az-104-topic-11-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to create container1 and share1.<br>Which storage accounts should you use for each resource? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04223/0022600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04223/0022700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-12T05:00:00.000Z",
+        "voteCount": 52,
+        "content": "Storage (general-purpose v1) doesn\u2019t support tier.\n\nStandard (general-purpose v2) supports tier for Blob service and for Azure file.\n\nPremium BlockBlobStorage doesn\u2019t support tier. \nhttps://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview\n\nLegacy Standard BlobStorage supports tier. \nhttps://docs.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview#default-account-access-tier-setting\n\nPremium FileStorage doesn\u2019t support tier.\nhttps://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal\n\nContainer1 with tier: Can be created in storage2 (storagev2) and storage3. The question refers to BlobStorage (standard legacy one that supports tier) and not to BlockBlobStorage (Premium one that doesn\u2019t support tier).\n\nShare1 with tier: Can be created in storage2 (storagev2) only."
+      },
+      {
+        "date": "2021-12-04T22:06:00.000Z",
+        "voteCount": 2,
+        "content": "But if you go through Storagev2 account creation process, you will find storagev2 only support blob storage tier, doesn't support Azure files tier(You can find this in 'advaince' option)."
+      },
+      {
+        "date": "2021-12-05T08:22:00.000Z",
+        "voteCount": 9,
+        "content": "I apologize, please disregard my comment.\nAzure StorageV2 does support Fileshare hot/cool tier when the fileshare is created in portal"
+      },
+      {
+        "date": "2022-12-14T06:57:00.000Z",
+        "voteCount": 25,
+        "content": "This question is unbelievable, isf I wouldn';t have ET, or other sources, I would have needed to learn a 50 odd matrix befoure I could answer this, this is no Exam question!"
+      },
+      {
+        "date": "2024-05-26T04:11:00.000Z",
+        "voteCount": 1,
+        "content": "Answers are Storage 2 only. It gets very confusing as this is a 3 year old questions. \nhttps://learn.microsoft.com/en-us/azure/storage/blobs/storage-feature-support-in-storage-accounts"
+      },
+      {
+        "date": "2024-04-15T13:02:00.000Z",
+        "voteCount": 2,
+        "content": "Storage 1(general purpose v1) &amp; 4 (Premium fileshare) does not support tiering.\nAnswer: Box 1: Container 1, Can be created in storage2 (storagev2) and storage3\nBox 2: share1, Can be created in storage2 (storagev2) only"
+      },
+      {
+        "date": "2024-03-14T05:01:00.000Z",
+        "voteCount": 1,
+        "content": "- Storage2 and storage3 only\n- Storage1, Storage2 and Storage only"
+      },
+      {
+        "date": "2024-09-01T07:30:00.000Z",
+        "voteCount": 1,
+        "content": "How the hell you can use storage1 for second if it doesn't fit even for first cause it doesn't support tiering"
+      },
+      {
+        "date": "2024-01-25T02:00:00.000Z",
+        "voteCount": 1,
+        "content": "I beg to differ. File Shares have their native storage on Azure File Storage. On this type of storage account you can store only Azure Files and no other type. File Storage also has 4 access tiers: cool, hot, transaction optimized, and premium.\n\nSo for Share1 answer is Storage 2 and 4 only.\n\nhttps://learn.microsoft.com/en-us/azure/storage/files/storage-files-planning"
+      },
+      {
+        "date": "2024-01-25T02:10:00.000Z",
+        "voteCount": 1,
+        "content": "Correction, standard file shares (HDD) using the cool, hot and transaction optimized storage tiers are deployed in the GPv2 storage account kind so Storage 2 only. Premium File Shares (SSD) use the File Storage account kind"
+      },
+      {
+        "date": "2023-08-21T13:51:00.000Z",
+        "voteCount": 19,
+        "content": "Please note that as of today, Only v2 storage accounts support tiers. Premium Blobs or Premium File Shares do not. So if this question came updated, answer accorindly. \n\nContainer1: Storage2 Only \nshare1: Storage2 Only"
+      },
+      {
+        "date": "2024-03-07T00:31:00.000Z",
+        "voteCount": 1,
+        "content": "When you create a legacy Blob Storage account, you must specify the default access tier setting as hot or cool at create time. (...) Microsoft recommends using general-purpose v2 storage accounts rather than Blob Storage accounts when possible.\n\nQuestion refers to Legacy Blob Storage, not Premium.\n\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/access-tiers-overview#default-account-access-tier-setting"
+      },
+      {
+        "date": "2023-09-29T03:15:00.000Z",
+        "voteCount": 2,
+        "content": "BlockBlobStorage vs BlobStorage are different types of storage. BlobStorage is a Legacy Standard type. They still may exist."
+      },
+      {
+        "date": "2023-09-30T18:22:00.000Z",
+        "voteCount": 1,
+        "content": "How about cold tier it now support?\nhttps://azure.microsoft.com/en-us/blog/efficiently-store-data-with-azure-blob-storage-cold-tier-now-generally-available/#:~:text=With%20blob%20access%20tiers%2C%20you,tier%20option%2C%20further%20reducing%20costs."
+      },
+      {
+        "date": "2023-06-03T15:50:00.000Z",
+        "voteCount": 5,
+        "content": "Got this in today exam. Passed on 930"
+      },
+      {
+        "date": "2023-05-17T01:26:00.000Z",
+        "voteCount": 1,
+        "content": "I passed the exam today 17/05/2023 from SA .Score 930  this testlet was on the exam"
+      },
+      {
+        "date": "2023-04-29T10:41:00.000Z",
+        "voteCount": 3,
+        "content": "on exam 4/29/23"
+      },
+      {
+        "date": "2023-03-12T15:14:00.000Z",
+        "voteCount": 1,
+        "content": "share1: storage2 only\n\nAzure File Share: \n\"Standard file shares may be deployed into one of the standard tiers: transaction optimized (default), hot, or cool. This is a per file share tier that is not affected by the blob access tier of the storage account (this property only relates to Azure Blob storage - it does not relate to Azure Files at all). You can change the tier of the share at any time after it has been deployed. Premium file shares cannot be directly converted to any standard tier.\"\n\n[ref: https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal]"
+      },
+      {
+        "date": "2023-03-03T10:12:00.000Z",
+        "voteCount": 2,
+        "content": "Answer provided seems correct"
+      },
+      {
+        "date": "2023-01-05T15:28:00.000Z",
+        "voteCount": 4,
+        "content": "came on test"
+      },
+      {
+        "date": "2023-03-05T15:49:00.000Z",
+        "voteCount": 18,
+        "content": "tmi dude"
+      },
+      {
+        "date": "2023-01-04T08:12:00.000Z",
+        "voteCount": 7,
+        "content": "This was appearedin exam on 01/04/23"
+      },
+      {
+        "date": "2022-12-11T13:40:00.000Z",
+        "voteCount": 16,
+        "content": "General Purpose v2:           Blob, File, Queue, Table        Standard                   Hot, Cool, Archive\n                                              Disk/Page                             Premium                    Hot\n\nBlob Block Storage :            Blob                                      Premium                    Hot\n\nBlob Storage                         Blob                                      Standard                   Hot, Cool, Archive\n\nGeneral Purpose v1             Blob, File, Queue, Table\t    Standard                    Hot\n                                               Disk/Page                           Premium                    Hot\n\nFile Storage                           File                                      Premium                    Hot\n\nFollow this table and  you'll never mistake.\n\n1.storage2 and storage3    can  support cool tier\n2.storage2 only -General Purpose v2 can create container1 blobs  and share1 at the same time where  we can set cool tier"
+      },
+      {
+        "date": "2023-05-05T13:10:00.000Z",
+        "voteCount": 2,
+        "content": "Cool ..Thanks"
+      },
+      {
+        "date": "2022-09-06T20:42:00.000Z",
+        "voteCount": 6,
+        "content": "Correct today I passed with 900 score and I choose this answer"
+      },
+      {
+        "date": "2022-05-06T00:29:00.000Z",
+        "voteCount": 2,
+        "content": "there is also a lot of information in the question which is not relevant"
+      }
+    ],
+    "examNameCode": "az-104",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/63503-exam-az-104-topic-11-question-2-discussion/",
+    "body": "HOTSPOT -<br>You need to create storage5. The solution must support the planned changes.<br>Which type of storage account should you use, and which account should you configure as the destination storage account? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04223/0022800001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04223/0022900001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/object-replication-configure?tabs=portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-10-03T00:48:00.000Z",
+        "voteCount": 61,
+        "content": "I m very lonely here"
+      },
+      {
+        "date": "2021-10-10T11:06:00.000Z",
+        "voteCount": 37,
+        "content": "Good.  Its impossible to study with a lot of people around."
+      },
+      {
+        "date": "2021-10-15T22:19:00.000Z",
+        "voteCount": 17,
+        "content": "true, exam tomorrow. wish me luck O Old one.."
+      },
+      {
+        "date": "2022-01-12T19:15:00.000Z",
+        "voteCount": 3,
+        "content": "lucky or not ?"
+      },
+      {
+        "date": "2022-11-10T23:37:00.000Z",
+        "voteCount": 35,
+        "content": "I wish ET would provide notifications if someone replies to your comment. DevOpposite has no way of knowing you asked him something. Neither will I know if someone ever replied to my comment. All these comments will be lost to time.....like tears in rain....time to die."
+      },
+      {
+        "date": "2023-06-15T10:18:00.000Z",
+        "voteCount": 5,
+        "content": "Very sad, even more sad you won't see this comments. Hope you're well, MoSea"
+      },
+      {
+        "date": "2021-10-16T20:06:00.000Z",
+        "voteCount": 19,
+        "content": "Exam in 4 hours"
+      },
+      {
+        "date": "2023-06-22T23:49:00.000Z",
+        "voteCount": 7,
+        "content": "in one hour ;-)"
+      },
+      {
+        "date": "2023-08-06T07:13:00.000Z",
+        "voteCount": 5,
+        "content": "With in 17 Minutes"
+      },
+      {
+        "date": "2023-11-22T19:14:00.000Z",
+        "voteCount": 3,
+        "content": "in 1 Min"
+      },
+      {
+        "date": "2023-12-11T10:24:00.000Z",
+        "voteCount": 15,
+        "content": "doing the exam right now"
+      },
+      {
+        "date": "2021-10-04T11:52:00.000Z",
+        "voteCount": 59,
+        "content": "Answer is correct: Storage V2 and Storage 2. We want to use replication for blobs and only that storage type is available. The other one is in Premium, which should  never apply to the exams. \nQuoting from https://docs.microsoft.com/en-us/azure/storage/blobs/object-replication-configure?tabs=portal:\n\"Before you configure object replication, create the source and destination storage accounts if they do not already exist. The source and destination accounts can be either general-purpose v2 storage accounts or premium block blob accounts (preview). \""
+      },
+      {
+        "date": "2023-04-07T23:00:00.000Z",
+        "voteCount": 1,
+        "content": "that'shttps://www.examtopics.com/exams/microsoft/az-104/view/46/# right."
+      },
+      {
+        "date": "2023-04-07T23:00:00.000Z",
+        "voteCount": 1,
+        "content": "thats right !"
+      },
+      {
+        "date": "2022-11-05T00:22:00.000Z",
+        "voteCount": 1,
+        "content": "What is replication for blobs?"
+      },
+      {
+        "date": "2024-04-15T13:08:00.000Z",
+        "voteCount": 2,
+        "content": "Object replication is only supported on storage v2 and Premium blockblob storage. Here only storage v2 is available (storage 2) in the table. Therefore, Account kind will be storage V2 and destination will be storage 2 (storage V2)."
+      },
+      {
+        "date": "2024-03-24T11:32:00.000Z",
+        "voteCount": 1,
+        "content": "How do you know what storage is the destination??"
+      },
+      {
+        "date": "2024-03-14T05:02:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is right"
+      },
+      {
+        "date": "2023-11-14T06:10:00.000Z",
+        "voteCount": 3,
+        "content": "Exam in two hours, hope you guys always have right in the discussions xD \nI'll be back to tell you"
+      },
+      {
+        "date": "2023-12-29T08:20:00.000Z",
+        "voteCount": 1,
+        "content": "So, what did you do? :P"
+      },
+      {
+        "date": "2023-08-23T15:34:00.000Z",
+        "voteCount": 10,
+        "content": "Today I did my exam I passed 809 but couldn't finish the last 10 questions, 99% of the questions were from here and this was my Study Case...BTW it was the first question on the exam"
+      },
+      {
+        "date": "2023-07-03T21:31:00.000Z",
+        "voteCount": 4,
+        "content": "Found this Q in the exam 3/7/2023."
+      },
+      {
+        "date": "2023-03-19T20:39:00.000Z",
+        "voteCount": 5,
+        "content": "Cleared Exam 930 was appeared in exam 18/3/2023   ANS most upvoted"
+      },
+      {
+        "date": "2023-03-12T15:31:00.000Z",
+        "voteCount": 2,
+        "content": "Replication Only supported on General purpose v2 standard storage account"
+      },
+      {
+        "date": "2023-03-03T10:19:00.000Z",
+        "voteCount": 1,
+        "content": "Answer provided seems correct"
+      },
+      {
+        "date": "2023-02-27T01:57:00.000Z",
+        "voteCount": 3,
+        "content": "Cleared Exam today 26 Feb, This question was there in exam."
+      },
+      {
+        "date": "2022-11-25T04:24:00.000Z",
+        "voteCount": 9,
+        "content": "Object replication is supported for general-purpose v2 storage accounts and premium block blob accounts. Both the source and destination accounts must be either general-purpose v2 or premium block blob accounts. Object replication supports block blobs only; append blobs and page blobs aren't supported."
+      },
+      {
+        "date": "2022-04-13T12:07:00.000Z",
+        "voteCount": 3,
+        "content": "On exam 4/12/2022. right answer. same question, but on a different case study."
+      },
+      {
+        "date": "2022-03-16T02:36:00.000Z",
+        "voteCount": 4,
+        "content": "this casestudy but not same question was there on 16/03/2022 with same question and passed with 900 percent"
+      },
+      {
+        "date": "2022-03-16T01:18:00.000Z",
+        "voteCount": 1,
+        "content": "this question was on 16/03/2022 and answered what mentioned in the answer section"
+      },
+      {
+        "date": "2022-03-16T01:08:00.000Z",
+        "voteCount": 1,
+        "content": "this question was on 16/03/2022 and answered what mentioned in the answer section"
+      }
+    ],
+    "examNameCode": "az-104",
+    "topicNumber": "11"
+  },
+  {
+    "topic": 11,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/79839-exam-az-104-topic-11-question-3-discussion/",
+    "body": "You need to identify which storage account to use for the flow logging of IP traffic from VM5. The solution must meet the retention requirements.<br>Which storage account should you identify?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage2\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage3",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstorage4"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 90,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-28T23:19:00.000Z",
+        "voteCount": 69,
+        "content": "For at least two reasons, storage2 is the only candidate:\n- Location: The storage account used must be in the same region as the NSG.\n- Retention is available only if you use General Purpose v2 Storage accounts (GPv2).\n\nReference:\nhttps://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview"
+      },
+      {
+        "date": "2023-06-06T17:36:00.000Z",
+        "voteCount": 7,
+        "content": "I agree that the answer is B. Documentation clearly states only General Purpose V2 Storage supports retention. It also states that the storage must be in the same location as the nsg. That much I get. But can someone explain to me how the NSG being in the same region as the storage applies to this question? I only see mention of 2 NSGs  in the example and neither are applied to VNET 4 where VM 5 is. As far as I can tell, only the storage type is relevant to this question. I\u2019m open to being wrong if someone can explain it. Thanks."
+      },
+      {
+        "date": "2023-07-24T01:25:00.000Z",
+        "voteCount": 3,
+        "content": "location of NSG looks irrelevant as both NSGs are in west UA while storage2 is in east us"
+      },
+      {
+        "date": "2023-02-23T04:54:00.000Z",
+        "voteCount": 9,
+        "content": "Answer valid! This question was on the exam 22/02/2023. Scored 920. Thanks guys!"
+      },
+      {
+        "date": "2024-01-24T06:28:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer is: B (Storage 2)\n\nNetwork Watcher 'Flow Logs' tool is used to log information about Azure IP traffic and stores the data in Azure storage. You can log IP traffic using either of the two following tools:\ni. NSG Flow Logs (log information about IP traffic flowing through a network security group) or \nii. VNET Flow Logs (log information about IP traffic flowing through a virtual network)\n\nIt is to be noted that NSG flow logs have a retention feature that allows deleting the logs automatically up to a year after their creation. Retention is available only if you use general-purpose v2 storage accounts.\nSo, despite the fact that there is no mention of NSG for VM5, in order to make use of retention feature, NSG flow must be implemented which would need GPv2 storage account. Also, VNET Flow logs is currently in Preview and is not recommended for Production workloads.\nRef:\nhttps://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview"
+      },
+      {
+        "date": "2023-07-08T00:41:00.000Z",
+        "voteCount": 12,
+        "content": "This scenario was my first set of questions yesterday 7th July 2023. Thanks to all the knowledgeable contributors and those to did lab tests to help confirm the right answers.\n\nI successfully aced it with 896 score. Going for the 305 now."
+      },
+      {
+        "date": "2024-03-14T05:19:00.000Z",
+        "voteCount": 1,
+        "content": "B is right"
+      },
+      {
+        "date": "2023-09-25T17:53:00.000Z",
+        "voteCount": 4,
+        "content": "Got this question on Sep25 and this was the first question in exam!"
+      },
+      {
+        "date": "2023-08-21T13:58:00.000Z",
+        "voteCount": 2,
+        "content": "B is the correct answer. Keyword is \"retention\""
+      },
+      {
+        "date": "2023-08-18T10:50:00.000Z",
+        "voteCount": 1,
+        "content": "I tried it in my lab. With storage account v2 retentiuon policy - no issues.\nWhen tried with V2 then message comes up - \"Retention is only available with v2 Storage accounts.Learn more about retention policy.\""
+      },
+      {
+        "date": "2023-08-01T13:53:00.000Z",
+        "voteCount": 2,
+        "content": "Answer B is correct \n\n Blob Storage accounts in Azure do not support flow logging for 365 days. Flow logging for Blob Storage accounts has a retention period of 30 days. This means that the flow log data is retained for only 30 days before being automatically deleted.\n\nIf you need to retain flow log data for a longer period and that is what we need 8 months, you may consider using General Purpose v2 (GPv2) storage accounts instead, which support flow logging with a retention period of up to 365 days."
+      },
+      {
+        "date": "2023-07-03T21:32:00.000Z",
+        "voteCount": 1,
+        "content": "Found this Q in the exam 3/7/2023"
+      },
+      {
+        "date": "2023-05-04T07:11:00.000Z",
+        "voteCount": 1,
+        "content": "C is correct answer \nLocation: The storage account used must be in the same region as the network security group.\nPerformance tier: Currently, only standard-tier storage accounts are supported.\nwe dont need GPv2 account because it not supported yet"
+      },
+      {
+        "date": "2023-05-02T10:30:00.000Z",
+        "voteCount": 1,
+        "content": "Azure Blob storage is the right option. You can use immutable backup feature to enable retention in Azure Blob storage."
+      },
+      {
+        "date": "2023-04-29T10:41:00.000Z",
+        "voteCount": 2,
+        "content": "on exam 4/29/23"
+      },
+      {
+        "date": "2023-03-03T10:21:00.000Z",
+        "voteCount": 6,
+        "content": "The correct answer is B. Storage2. Storage2 is a General Purpose v2 storage account, which supports the retention of logs for up to 365 days. Storage1 is a General Purpose v1 storage account, which supports the retention of logs for up to 30 days. Storage3 is a Blob storage account, which does not support flow logging. Storage4 is a File storage account, which does not support flow logging either."
+      },
+      {
+        "date": "2022-12-09T16:52:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is B\nRetention is available only if you use General Purpose v2 Storage accounts (GPv2)"
+      },
+      {
+        "date": "2022-11-29T12:45:00.000Z",
+        "voteCount": 1,
+        "content": "I agree with the answer given by Alirasouli.\nThis question appears in case study: Contoso LTD, Consulting Conpany"
+      },
+      {
+        "date": "2022-09-20T21:35:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is B\nRetention is available only if you use General purpose v2 Storage accounts (GPv2).\n\nhttps://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#how-logging-works:~:text=Retention%20is%20available%20only%20if%20you%20use%20General%20purpose%20v2%20Storage%20accounts%20(GPv2)."
+      },
+      {
+        "date": "2022-09-18T10:55:00.000Z",
+        "voteCount": 4,
+        "content": "Correct Answer is: B \n\"Retention is available only if you use General purpose v2 Storage accounts (GPv2)\"\n\nReference: https://learn.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#how-logging-works"
+      },
+      {
+        "date": "2022-09-07T05:01:00.000Z",
+        "voteCount": 6,
+        "content": "\"Retention is available only if you use General purpose v2 Storage accounts (GPv2)\"\nhttps://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview#how-logging-works"
+      }
+    ],
+    "examNameCode": "az-104",
+    "topicNumber": "11"
+  }
+]

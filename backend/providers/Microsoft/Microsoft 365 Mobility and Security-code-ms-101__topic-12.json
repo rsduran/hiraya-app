@@ -1,0 +1,349 @@
+[
+  {
+    "topic": 12,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65493-exam-ms-101-topic-12-question-1-discussion/",
+    "body": "HOTSPOT -<br>You need to ensure that User2 can review the audit logs. The solution must meet the technical requirements.<br>To which role group should you add User2, and what should you use? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04295/0048600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04295/0048700001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-12T21:28:00.000Z",
+        "voteCount": 14,
+        "content": "You have to be assigned the View-Only Audit Logs or Audit Logs role in Exchange Online to search the audit log. By default, these roles are assigned to the Compliance Management and Organization Management role groups on the Permissions page in the Exchange admin center."
+      },
+      {
+        "date": "2022-08-13T18:57:00.000Z",
+        "voteCount": 10,
+        "content": "It's Global Reader, Microsoft 365 admin center. \nGo to admin.microsoft.com --&gt; Show all --&gt; Roles --&gt; Role assignments\nThen select Global Reader --&gt; Permissions --&gt; Show more\nScroll down to see Read all properties on audit logs, including privileged properties"
+      },
+      {
+        "date": "2023-06-28T05:37:00.000Z",
+        "voteCount": 1,
+        "content": "in exam 28/6/2023"
+      },
+      {
+        "date": "2023-05-21T08:52:00.000Z",
+        "voteCount": 1,
+        "content": "I had my doubts but answer seems correct:\n\n\"You have to be assigned the View-Only Audit Logs or Audit Logs role in Exchange Online to search the audit log. By default, these roles are assigned to the Compliance Management and Organization Management role groups on the Permissions page in the Exchange admin center. Global administrators in Office 365 and Microsoft 365 are automatically added as members of the Organization Management role group in Exchange Online. \"\n\nhttps://learn.microsoft.com/en-us/microsoft-365/compliance/audit-log-search?view=o365-worldwide"
+      },
+      {
+        "date": "2023-05-18T15:31:00.000Z",
+        "voteCount": 3,
+        "content": "The answer here is compliance management and Exchange admin center. I've run this through a lab and you can see the audit feature in both the security center and the compliance center as this is what you would need to use in order to review the audit logs for admin activity. \n\nThose putting Global reader and Office 365 admin center are wrong. The audit tab will not appear in either security or compliance centers when this role is assigned. I've also run this through a lab scenario. Bear in mind that when you change roles it sometimes takes a little while for the permissions to populate."
+      },
+      {
+        "date": "2023-05-10T01:39:00.000Z",
+        "voteCount": 1,
+        "content": "It's Global Reader &amp; Microsoft 365 Admin Center:\n\nhttps://learn.microsoft.com/en-us/microsoft-365/security/office-365-security/scc-permissions?view=o365-worldwide\n\nLook for \"View-Only Audit Logs\" permission"
+      },
+      {
+        "date": "2023-03-22T03:46:00.000Z",
+        "voteCount": 1,
+        "content": "I think correct based on: https://learn.microsoft.com/en-us/microsoft-365/compliance/audit-log-search?view=o365-worldwide"
+      },
+      {
+        "date": "2023-04-27T18:28:00.000Z",
+        "voteCount": 1,
+        "content": "vc passou no exame?"
+      },
+      {
+        "date": "2023-05-09T00:58:00.000Z",
+        "voteCount": 1,
+        "content": "Not tried yet, I'll try it soon"
+      },
+      {
+        "date": "2023-06-17T14:14:00.000Z",
+        "voteCount": 1,
+        "content": "You should do if you have taken MS-100 already.. Exam Expires end of July.."
+      },
+      {
+        "date": "2023-02-07T22:20:00.000Z",
+        "voteCount": 3,
+        "content": "in exam 2.5.2023"
+      },
+      {
+        "date": "2022-12-10T06:34:00.000Z",
+        "voteCount": 3,
+        "content": "How do you turn off audit logs for entire tenant? That's right: set-adminauditlogconfig -unifiedauditlogingestionenabled $false in Exchange Online PowerShell.\n\nThe feature is called unified audit log and it builds upon Exchange Online.\n\nAnswer is correct for the simple reason that Exchange collects and manages basicly ALL the audit logs in Unified Audit Logs.\n\nSource:\nM365 services that support auditing section\nAND\n2nd dot in Before yeu search the audit log\nIN:\nhttps://learn.microsoft.com/en-us/microsoft-365/compliance/audit-log-search?view=o365-worldwide"
+      },
+      {
+        "date": "2022-11-09T05:50:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide\n\nYou have to be assigned the View-Only Audit Logs or Audit Logs role in Exchange Online to search the audit log. By default, these roles are assigned to the Compliance Management and Organization Management role groups on the Permissions page in the Exchange admin center. Global administrators in Office 365 and Microsoft 365 are automatically added as members of the Organization Management role group in Exchange Online. To give a user the ability to search the audit log with the minimum level of privileges, you can create a custom role group in Exchange Online, add the View-Only Audit Logs or Audit Logs role, and then add the user as a member of the new role group. For more information, see Manage role groups in Exchange Online."
+      },
+      {
+        "date": "2022-10-23T20:26:00.000Z",
+        "voteCount": 3,
+        "content": "On exam today 23 Oct 2022. I answered the same. I passed."
+      },
+      {
+        "date": "2022-10-03T23:13:00.000Z",
+        "voteCount": 1,
+        "content": "First of all, Compliance Management is a role group. Secondly, it is only within Exchange. I would assume that this does not fill the requirements that the case gives. User2 also needs permission to review audit logs from SharePoint Online and Azure AD making it a need for a \u201cglobal\u201d role. In addition, Audit Logs are browsed from the MS Compliance portal (Purview). \n\nIn my opinion the user needs Global Reader from the MS365 Admin center."
+      },
+      {
+        "date": "2022-08-02T11:57:00.000Z",
+        "voteCount": 1,
+        "content": "My 2 cents\nLooking at the roles the only one that makes sense is Global Reader.  The selected Compliance Management doesn't show up a role group.\nThe tool is Microsoft Defender."
+      },
+      {
+        "date": "2022-08-03T11:53:00.000Z",
+        "voteCount": 2,
+        "content": "Well after digging even deeper.  Compliance management in the Exchange Online Roles will give this access in Windows Defender.  It requires going directly to https://security.microsoft.com/ and logging in to get to it."
+      },
+      {
+        "date": "2022-08-13T18:47:00.000Z",
+        "voteCount": 1,
+        "content": "I agree. Global Reader originally wasn't supported by SharePoint, but has been available in the SharePoint admin center since Feb 2020."
+      },
+      {
+        "date": "2022-03-28T02:52:00.000Z",
+        "voteCount": 3,
+        "content": "The Global reader role is correct here - upon further research, the Global reader role is described as \"ideal for anyone looking to perform audits\".\n\nRegarding the portal, the link below explains this further:\n\nhttps://docs.microsoft.com/en-us/microsoft-365/compliance/search-the-audit-log-in-security-and-compliance?view=o365-worldwide\n\nTherefore, the answer here is Global reader and Microsoft 365 Security Center."
+      },
+      {
+        "date": "2022-03-15T07:08:00.000Z",
+        "voteCount": 6,
+        "content": "You have to be assigned the View-Only Audit Logs or Audit Logs role in Exchange Online to search the audit log. By default, these roles are assigned to the Compliance Management and Organization Management role groups on the Permissions page in the Exchange admin center. \nGlobal administrators in Office 365 and Microsoft 365 are automatically added as members of the Organization Management role group in Exchange Online. \n\nTo give a user the ability to search the audit log with the minimum level of privileges, you can create a custom role group in Exchange Online, add the View-Only Audit Logs or Audit Logs role, and then add the user as a member of the new role group.\n\nGrant User2 permissions to review the audit logs of the litware.com tenant.\nThe principle of least privilege must be used.\n\nCompliance management is the one with least privilege and valid permission from available choices."
+      },
+      {
+        "date": "2022-02-27T18:19:00.000Z",
+        "voteCount": 6,
+        "content": "If I hadn't seen it with my own eyes, I wouldn't have believed it. But the provided answers are correct.\n\nGo to the EXO portal, look at the admin roles, click on the Compliance Management role, then view the permissions."
+      },
+      {
+        "date": "2022-01-28T20:25:00.000Z",
+        "voteCount": 3,
+        "content": "Role Group: Global Reader (hint...Compliance Management is a Role, not a Role Group)\nTool: Microsoft 365 Security Center (M365 Security today)"
+      }
+    ],
+    "examNameCode": "ms-101",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65923-exam-ms-101-topic-12-question-2-discussion/",
+    "body": "You need to configure Office on the web to meet the technical requirements.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the Global reader role to User1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEnable sensitivity labels for Office files in SharePoint Online and OneDrive.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConfigure an auto-labeling policy to apply the sensitivity labels.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the Office apps admin role to User1."
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://docs.microsoft.com/en-us/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-11-12T21:48:00.000Z",
+        "voteCount": 11,
+        "content": "`Enable built-in labeling for supported Office files in SharePoint and OneDrive so that users can apply your sensitivity labels in Office for the web. When this feature is enabled, users will see the Sensitivity button on the ribbon so they can apply labels, and see any applied label name on the status bar."
+      },
+      {
+        "date": "2022-10-23T20:27:00.000Z",
+        "voteCount": 2,
+        "content": "On exam today 23 Oct 2022. I answered the same, B. I passed."
+      }
+    ],
+    "examNameCode": "ms-101",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/64623-exam-ms-101-topic-12-question-3-discussion/",
+    "body": "You create the planned DLP policies.<br>You need to configure notifications to meet the technical requirements.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Microsoft 365 Defender, configure an alert policy.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Microsoft Endpoint Manager admin center, configure a custom notification.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Microsoft 365 admin center, configure a Briefing email.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Microsoft 365 compliance center, configure the Endpoint DLP settings."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 11,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2021-10-24T11:41:00.000Z",
+        "voteCount": 10,
+        "content": "I think this is A?\nDLP is already created and there is an option to configure policy in the Security center."
+      },
+      {
+        "date": "2021-10-28T04:06:00.000Z",
+        "voteCount": 3,
+        "content": "I think so too"
+      },
+      {
+        "date": "2022-01-08T09:16:00.000Z",
+        "voteCount": 4,
+        "content": "Yes, its a, you can create an alert policy with the activity: dlp policy match."
+      },
+      {
+        "date": "2022-03-16T06:18:00.000Z",
+        "voteCount": 7,
+        "content": "It says: \nYou create the planned DLP policies.\nYou need to configure notifications to meet the technical requirements.\n\nTechnical requirement:\nA notification must appear in the Microsoft 365 compliance center when a DLP policy is triggered.\n\nBy default, when you go to https://compliance.microsoft.com/homepage\nyou get to see 'Active alerts'\n\nTherefore if you configure alert policy to create alert when DLP policy is triggered, that alert will appear in the Microsoft 365 compliance center = technical requirement met."
+      },
+      {
+        "date": "2024-10-15T00:18:00.000Z",
+        "voteCount": 1,
+        "content": "D https://docs.microsoft.com/en-us/microsoft-365/compliance/dlp-configure-view-alerts-policies?view=o365-worldwide"
+      },
+      {
+        "date": "2023-03-27T06:14:00.000Z",
+        "voteCount": 1,
+        "content": "Maybe some comments are out of date.\nThe DPL is already created,  now you need a notification. To configure that,  go to https://compliance.microsoft.com/alertpolicies (Purview, Policies, Alert Policies and setup a New Alert Policy).  So, in my opinion the answer provided is correct."
+      },
+      {
+        "date": "2023-05-08T04:11:00.000Z",
+        "voteCount": 1,
+        "content": "Creating an alert policy in https://compliance.microsoft.com/alertpolicies is something completely else than the provided answer D. From the Microsoft 365 compliance center, configure the Endpoint DLP settings."
+      },
+      {
+        "date": "2023-05-20T04:27:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, I agree, answer A is correct."
+      },
+      {
+        "date": "2023-02-07T11:58:00.000Z",
+        "voteCount": 2,
+        "content": "in exam 5.2.2023"
+      },
+      {
+        "date": "2022-04-18T13:38:00.000Z",
+        "voteCount": 2,
+        "content": "Definitely A."
+      },
+      {
+        "date": "2022-02-19T01:19:00.000Z",
+        "voteCount": 1,
+        "content": "Maybe \"Endpoint\" was added by mistake?\nThen the answer would be true.\n\nD. From the Microsoft 365 compliance center, configure the DLP settings."
+      },
+      {
+        "date": "2022-02-06T00:44:00.000Z",
+        "voteCount": 3,
+        "content": "still valid, it was in my exam last Feb 5, 2022"
+      },
+      {
+        "date": "2021-12-07T04:06:00.000Z",
+        "voteCount": 2,
+        "content": "I can create a DLP alert in the security center but not in the Endpoint DLP settings in the compliance center"
+      },
+      {
+        "date": "2021-12-19T03:47:00.000Z",
+        "voteCount": 1,
+        "content": "the statement is that the DLP policies have been created!\nThe question is for the notifications only."
+      },
+      {
+        "date": "2022-01-16T08:49:00.000Z",
+        "voteCount": 1,
+        "content": "\u201cA notification must appear in the Microsoft 365 compliance center when a DLP policy is triggered.\u201d It seems that is the case."
+      },
+      {
+        "date": "2021-11-12T22:22:00.000Z",
+        "voteCount": 1,
+        "content": "Data loss prevention (DLP) policies can take protective actions to prevent unintentional sharing of sensitive items. When an action is taken on a sensitive item, you can be notified by configuring alerts for DLP."
+      },
+      {
+        "date": "2021-10-28T12:29:00.000Z",
+        "voteCount": 5,
+        "content": "Answer is correct.\nhttps://docs.microsoft.com/en-us/microsoft-365/compliance/endpoint-dlp-getting-started?view=o365-worldwide"
+      },
+      {
+        "date": "2021-11-08T01:55:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2022-02-01T14:47:00.000Z",
+        "voteCount": 4,
+        "content": "It's too bad the two of you are long gone, because I would love to understand the logic behind this.  Endpoint DLP by itself doesn't have alert settings and the question makes no mention of endpoint DLP."
+      }
+    ],
+    "examNameCode": "ms-101",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/65926-exam-ms-101-topic-12-question-4-discussion/",
+    "body": "You need to configure the compliance settings to meet the technical requirements.<br>What should you do in the Microsoft Endpoint Manager admin center?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Compliance policies, modify the Notifications settings.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Locations, create a new location for noncompliant devices.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom Retire Noncompliant Devices, select Clear All Devices Retire State.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tModify the Compliance policy settings.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-04-10T22:04:00.000Z",
+        "voteCount": 52,
+        "content": "Congratulations on making it this far! To glorious victory!"
+      },
+      {
+        "date": "2021-12-15T02:56:00.000Z",
+        "voteCount": 6,
+        "content": "Answer is correct D."
+      },
+      {
+        "date": "2022-12-11T07:33:00.000Z",
+        "voteCount": 2,
+        "content": "D is the correct answer give that the case study indicates \"Devices without an assigned compliance policy show a status of Compliant\". This is a default setting needs should be changed to \"Not compliant\". I'm with Johnnien on this one.."
+      },
+      {
+        "date": "2021-11-13T00:20:00.000Z",
+        "voteCount": 3,
+        "content": "Mark devices with no compliance policy assigned as\n\nThis setting determines how Intune treats devices that haven't been assigned a device compliance policy. This setting has two values:\n\n    Compliant (default): This security feature is off. Devices that aren\u2019t sent a device compliance policy are considered compliant.\n    Not compliant: This security feature is on. Devices that haven\u2019t received a device compliance policy are considered noncompliant."
+      }
+    ],
+    "examNameCode": "ms-101",
+    "topicNumber": "12"
+  },
+  {
+    "topic": 12,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/81996-exam-ms-101-topic-12-question-5-discussion/",
+    "body": "HOTSPOT -<br>You need to configure the Information governance settings to meet the technical requirements.<br>Which type of policy should you configure, and how many policies should you configure? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04295/0049000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04295/0049100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Retention -<br><br>Box 2: 2 -<br>One for Teams, and a single one which can be use both on OneDrive and SharePoint Online.<br>Reference:<br>https://docs.microsoft.com/en-us/microsoft-365/compliance/retention-policies-sharepoint https://docs.microsoft.com/en-us/microsoft-365/compliance/retention-policies-teams",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-09-13T06:14:00.000Z",
+        "voteCount": 10,
+        "content": "CORRECT.\n\nRetention settings must be applied automatically to all the data stored in SharePoint Online sites, OneDrive accounts, and Microsoft Teams channel messages, and the data must be retained for five years.\n\nRetention policy is Applied per Location.\n\nMicrosoft \"Teams channel messages\" and/or Microsoft \"Teams chat\" requires a separate policy (note that it DOES NOT asks for \"Microsoft Teams Private Mesages\" - if it would we would require 3 Policies)."
+      },
+      {
+        "date": "2022-10-31T00:08:00.000Z",
+        "voteCount": 9,
+        "content": "Simultaneously Retention Policy configurable groups\nGroup1 : EXO email/SharePoint site/OneDrive accounts/M365 Groups/Skype for Biz/EXO Public folders\nGroup2 : Teams channel messages/Teams chats\nGroup3 : Teams private channel messages\nGroup4 : Yammer community messages/Yammer user messages\n\n=&gt; Number of required policies is 2 (Group1/Group2)"
+      }
+    ],
+    "examNameCode": "ms-101",
+    "topicNumber": "12"
+  }
+]

@@ -1,0 +1,222 @@
+[
+  {
+    "topic": 10,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42687-exam-az-303-topic-10-question-1-discussion/",
+    "body": "HOTSPOT -<br>You are evaluating the connectivity between the virtual machines after the planned implementation of the Azure networking infrastructure.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>Hot Area:<br><img src=\"/assets/media/exam-media/03862/0058900001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03862/0059000001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Once the VNets are peered, all resources on one VNet can communicate with resources on the other peered VNets. You plan to enable peering between Paris-<br>VNet and AllOffices-VNet. Therefore VMs on Subnet1, which is on Paris-VNet and VMs on Subnet3, which is on AllOffices-VNet will be able to connect to each other.<br>All Azure resources connected to a VNet have outbound connectivity to the Internet by default. Therefore VMs on ClientSubnet, which is on ClientResources-VNet will have access to the Internet; and VMs on Subnet3 and Subnet4, which are on AllOffices-VNet will have access to the Internet.<br>References:<br>https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview https://docs.microsoft.com/en-us/azure/networking/networking-overview#internet-connectivity",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-19T05:18:00.000Z",
+        "voteCount": 24,
+        "content": "Y/Y/Y are correct"
+      },
+      {
+        "date": "2021-02-15T05:46:00.000Z",
+        "voteCount": 9,
+        "content": "Subnet1-Subnet3 are able to communicate via VNet peering\nCommunicate to the internet: All resources in a VNet can communicate outbound to the internet, by default. You can communicate inbound to a resource by assigning a public IP address or a public Load Balancer. You can also use Public IP addresses or public Load Balancer to manage your outbound connections\nSo it is Y-Y-Y"
+      },
+      {
+        "date": "2021-11-22T17:34:00.000Z",
+        "voteCount": 1,
+        "content": "YNY. ClientSubnet is not peered to the other 2."
+      },
+      {
+        "date": "2021-11-19T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Today 19/11/21. No use case of this help platform appeared in my exam. Score 860."
+      },
+      {
+        "date": "2021-12-02T20:13:00.000Z",
+        "voteCount": 6,
+        "content": "with due respect, \"No use case of this help platform appeared in my exam\" - what does this mean? kindly elaborate? Thanks"
+      },
+      {
+        "date": "2021-08-30T19:28:00.000Z",
+        "voteCount": 2,
+        "content": "Each office has a dedicated connection to the Internet\n\nA virtual network named Paris-VNet that will contain two subnets named Subnet1 and Subnet2\nA virtual network named AllOffices-VNet that will contain two subnets named Subnet3 and Subnet4\n\nYou plan to enable peering between Paris-VNet and AllOffices-VNet\n\nAll Yes"
+      },
+      {
+        "date": "2021-07-18T23:48:00.000Z",
+        "voteCount": 1,
+        "content": "No-Yes-Yes. \"You will enable the Use remote gateways setting for the Paris-VNet peerings.\" But they didn't mention if you enabled Use as gateway for the second peering"
+      },
+      {
+        "date": "2021-08-03T22:48:00.000Z",
+        "voteCount": 2,
+        "content": "But \"remote gateway\" setting is irrelevant for communication between hosts on the VNets itself. They are asking if Subnet1 and Subnet3 can communicate, not if Subnet1 can reach hosts BEHIND Subnet3."
+      },
+      {
+        "date": "2021-05-06T15:40:00.000Z",
+        "voteCount": 3,
+        "content": "Correct Answer"
+      },
+      {
+        "date": "2021-03-20T06:46:00.000Z",
+        "voteCount": 3,
+        "content": "Y Y Y is correct\nAll default routes of VNet and Peering are in use"
+      },
+      {
+        "date": "2021-01-18T08:23:00.000Z",
+        "voteCount": 2,
+        "content": "I think this should be Yes, Yes and No"
+      },
+      {
+        "date": "2021-08-03T22:49:00.000Z",
+        "voteCount": 4,
+        "content": "There are only default routes, and by default, all VMs can reach the Internet. So 3rd answer is Yes."
+      },
+      {
+        "date": "2021-01-22T08:04:00.000Z",
+        "voteCount": 2,
+        "content": "please explain 3rd option, why \"No\""
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/41360-exam-az-303-topic-10-question-2-discussion/",
+    "body": "DRAG DROP -<br>You need to prepare the environment to ensure that the web administrators can deploy the web apps as quickly as possible.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/03862/0059100001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/03862/0059100002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1:<br>First you create a storage account using the Azure portal.<br>Step 2:<br>Select Automation options at the bottom of the screen. The portal shows the template on the Template tab.<br>Add the storage account to the library.<br>Step 3:<br>Share the template.<br>Scenario: Web administrators will deploy Azure web apps for the marketing department. Each web app will be added to a separate resource group. The initial configuration of the web apps will be identical. The web administrators have permission to deploy web apps to resource groups.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-03T05:38:00.000Z",
+        "voteCount": 64,
+        "content": "1) Create RG , and then deploy a web app to the RG\n2) From the Automation script blade of the RG , click \"Add to Library\"\n3) From the Templates service, select the template, and then share the template to the web admins"
+      },
+      {
+        "date": "2021-09-21T03:54:00.000Z",
+        "voteCount": 3,
+        "content": "was now moved to Automation -&gt; Export -&gt; Add to Library"
+      },
+      {
+        "date": "2021-01-05T11:16:00.000Z",
+        "voteCount": 1,
+        "content": "Where my thoughts too."
+      },
+      {
+        "date": "2021-01-19T05:24:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2021-01-22T08:20:00.000Z",
+        "voteCount": 2,
+        "content": "\"Add to Library\" is in preview mode, is it Okay?"
+      },
+      {
+        "date": "2021-01-26T12:24:00.000Z",
+        "voteCount": 2,
+        "content": "Agreed."
+      },
+      {
+        "date": "2021-08-30T20:00:00.000Z",
+        "voteCount": 3,
+        "content": "Web administrators will deploy Azure web apps for the marketing department. Each web app will be added to a separate resource group. The initial configuration of the web apps will be identical. The web administrators have permission to deploy web apps to resource groups\n\n1) Create RG , and then deploy a web app to the RG\n2) From the Automation script blade of the RG , click \"Add to Library\"\n3) From the Templates service, select the template, and then share the template to the web admins\n\nTry it for yourself in the portal; it works"
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42535-exam-az-303-topic-10-question-3-discussion/",
+    "body": "You need to resolve the licensing issue before you attempt to assign the license again.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Directory role blade, modify the directory role",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Groups blade, invite the user accounts to a new group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFrom the Profile blade, modify the usage location"
+    ],
+    "answer": "C",
+    "answerDescription": "License cannot be assigned to a user without a usage location specified.<br><br>Scenario: Licensing Issue -<br>You attempt to assign a license in Azure to several users and receive the following error message: \"Licenses not assigned. License agreement failed for one user.\"<br>You verify that the Azure subscription has the available licenses.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-16T02:09:00.000Z",
+        "voteCount": 14,
+        "content": "correct answer.\nhttps://github.com/momoto/momoto.github.io/issues/2"
+      },
+      {
+        "date": "2021-11-19T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Today 19/11/21. No use case of this help platform appeared in my exam. Score 860."
+      },
+      {
+        "date": "2021-08-30T20:05:00.000Z",
+        "voteCount": 4,
+        "content": "https://docs.microsoft.com/en-us/azure/active-directory/enterprise-users/licensing-groups-resolve-problems#usage-location-isnt-allowed\n\nProblem: Some Microsoft services aren't available in all locations because of local laws and regulations. Before you can assign a license to a user, you must specify the Usage location property for the user. You can specify the location under the User &gt; Profile &gt; Edit section in the Azure portal\n\nAnswer is C"
+      },
+      {
+        "date": "2021-05-02T02:11:00.000Z",
+        "voteCount": 2,
+        "content": "correct!"
+      },
+      {
+        "date": "2021-01-19T05:24:00.000Z",
+        "voteCount": 4,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "10"
+  },
+  {
+    "topic": 10,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/42564-exam-az-303-topic-10-question-4-discussion/",
+    "body": "You need to define a custom domain name for Azure AD to support the planned infrastructure.<br>Which domain name should you use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tad.humongousinsurance.com",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thumongousinsurance.local",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thumongousinsurance.com",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thumongousinsurance.onmicrosoft.com"
+    ],
+    "answer": "C",
+    "answerDescription": "Every Azure AD directory comes with an initial domain name in the form of domainname.onmicrosoft.com. The initial domain name cannot be changed or deleted, but you can add your corporate domain name to Azure AD as well. For example, your organization probably has other domain names used to do business and users who sign in using your corporate domain name. Adding custom domain names to Azure AD allows you to assign user names in the directory that are familiar to your users, such as 'alice@contoso.com.' instead of 'alice@domain name.onmicrosoft.com'.<br>Scenario:<br>Network Infrastructure: Each office has a local data center that contains all the servers for that office. Each office has a dedicated connection to the Internet.<br>Humongous Insurance has a single-domain Active Directory forest named humongousinsurance.com<br>Planned Azure AD Infrastructure: The on-premises Active Directory domain will be synchronized to Azure AD.<br>References:<br>https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-16T08:06:00.000Z",
+        "voteCount": 13,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-01-19T05:25:00.000Z",
+        "voteCount": 5,
+        "content": "correct"
+      },
+      {
+        "date": "2021-11-19T08:10:00.000Z",
+        "voteCount": 1,
+        "content": "Today 19/11/21. No use case of this help platform appeared in my exam. Score 860."
+      },
+      {
+        "date": "2021-08-30T20:13:00.000Z",
+        "voteCount": 1,
+        "content": "https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-custom-domain\n\nYou must include .com, .net, or any other top-level extension for this to work properly.\n\nC is the answer"
+      },
+      {
+        "date": "2021-07-19T08:32:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      },
+      {
+        "date": "2021-05-06T15:53:00.000Z",
+        "voteCount": 2,
+        "content": "One of the most easiest question!"
+      }
+    ],
+    "examNameCode": "az-303",
+    "topicNumber": "10"
+  }
+]

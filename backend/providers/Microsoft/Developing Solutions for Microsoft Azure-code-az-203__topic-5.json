@@ -1,0 +1,787 @@
+[
+  {
+    "topic": 5,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/10139-exam-az-203-topic-5-question-1-discussion/",
+    "body": "You develop an Azure web app. You monitor performance of the web app by using Application Insights.<br>You need to ensure the cost for Application Insights does not exceed a preset budget.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement ingestions sampling using the Application Insights SDK.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet a daily cap for the Application Insights instance.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement ingestion sampling using the Azure portal.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement adaptive sampling using the Azure portal.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImplement adaptive sampling using the Application Insights SDK."
+    ],
+    "answer": "E",
+    "answerDescription": "Sampling is an effective way to reduce charges and stay within your monthly quota.<br>You can set sampling manually, either in the portal on the Usage and estimated costs page; or in the ASP.NET SDK in the .config file; or in the Java SDK in the<br>ApplicationInsights.xml file, to also reduce the network traffic.<br>Adaptive sampling is the default for the ASP.NET SDK. Adaptive sampling automatically adjusts to the volume of telemetry that your app sends. It operates automatically in the SDK in your web app so that telemetry traffic on the network is reduced.<br>Incorrect Answers:<br>B: You can use the daily volume cap to limit the data collected.<br>To change the daily cap, in the Configure section of your Application Insights resource, in the Usage and estimated costs pane, select Daily Cap.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-12-10T10:29:00.000Z",
+        "voteCount": 35,
+        "content": "The answer should be B:\nsetting daily cap will prevent exceeding predefined limit.\nE is incorrect, as it only reduces the amount of data, but not limits it to specific max amount."
+      },
+      {
+        "date": "2021-02-15T01:36:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. Website is 'being developed' and need to monitor performance while not exceeding the preset budget."
+      },
+      {
+        "date": "2020-02-24T18:21:00.000Z",
+        "voteCount": 16,
+        "content": "Sorry it wil be E only.\n\nYou can use the daily volume cap to limit the data collected. However, if the cap is met, a loss of all telemetry sent from your application for the remainder of the day occurs. It is not advisable to have your application hit the daily cap. You can't track the health and performance of your application after it reaches the daily cap.\n\nInstead of using the daily volume cap, use sampling to tune the data volume to the level you want. Then, use the daily cap only as a \"last resort\" in case your application unexpectedly begins to send much higher volumes of telemetry."
+      },
+      {
+        "date": "2020-04-30T23:19:00.000Z",
+        "voteCount": 5,
+        "content": "While your answer is best practice it does not meet the requirement. The requirement is to \"ensure the cost for Application Insights does not exceed a preset budget.\" You cannot do this with adaptive sampling alone."
+      },
+      {
+        "date": "2020-05-01T06:01:00.000Z",
+        "voteCount": 2,
+        "content": "B &amp; E seem right to me, together. Otherwise only B. E is good practice but doesn't keep the cost down which is what the question is asking."
+      },
+      {
+        "date": "2020-10-27T11:28:00.000Z",
+        "voteCount": 2,
+        "content": "https://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing"
+      },
+      {
+        "date": "2021-02-15T01:37:00.000Z",
+        "voteCount": 1,
+        "content": "Website is 'being developed' and need to monitor performance while not exceeding the preset budget.\n\nI will go with \"B\""
+      },
+      {
+        "date": "2021-03-26T11:52:00.000Z",
+        "voteCount": 1,
+        "content": "'B' is the correct answer here."
+      },
+      {
+        "date": "2021-02-11T06:29:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be B"
+      },
+      {
+        "date": "2020-12-20T04:54:00.000Z",
+        "voteCount": 2,
+        "content": "Reason for choosing B.\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs.\nThe daily cap is intended to be used as a way to manage an unexpected increase in data volume from your managed resources and stay within your limit, or when you want to limit unplanned charges for your workspace."
+      },
+      {
+        "date": "2020-12-24T17:49:00.000Z",
+        "voteCount": 1,
+        "content": "Once Daily cap is reached, it will stop pumping info. Loss.\nIngestion sampling is for server side.\nAdaptive Sampling seems right. To be done using SDK.\nI'll go with E."
+      },
+      {
+        "date": "2020-10-15T20:47:00.000Z",
+        "voteCount": 1,
+        "content": "Why not D an option here, pls suggest?"
+      },
+      {
+        "date": "2020-11-24T03:27:00.000Z",
+        "voteCount": 1,
+        "content": "I think D. You can implement after observation of volume of metrics, how to set sampling .. as stated in documentation"
+      },
+      {
+        "date": "2020-10-14T00:08:00.000Z",
+        "voteCount": 3,
+        "content": "There is no information about the web app. \nAdaptive sampling is only available for ASP.NET applications. \nIngestion sampling available if no other sampling is in effect.\nHowever I guess it should be B, since it is the only way to ensure it."
+      },
+      {
+        "date": "2020-08-23T00:58:00.000Z",
+        "voteCount": 1,
+        "content": "Why not A? A can control the quota\nIngestion sampling happens at the Application Insights service endpoint. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app. Ingestion sampling works uniformly for all servers and clients, but it does not apply when any other types of sampling are in operation."
+      },
+      {
+        "date": "2020-08-27T19:55:00.000Z",
+        "voteCount": 2,
+        "content": "Sorry, A is wrong coz it happens on server side, only can be configued in portal rather than SDK on client side."
+      },
+      {
+        "date": "2020-08-04T08:52:00.000Z",
+        "voteCount": 1,
+        "content": "With the ASP.NET SDK's adaptive sampling, the data volume is adjusted automatically to keep within a specified maximum rate of traffic for default Application Insights monitoring. If the application produces a low amount of telemetry, such as when debugging or due to low usage, items won't be dropped by the sampling processor as long as volume is below the configured events per second level. For a high volume application, with the default threshold of five events per second, adaptive sampling will limit the number of daily events to 432,000. Using a typical average event size of 1 KB, this corresponds to 13.4 GB of telemetry per 31-day month per node hosting your application (since the sampling is done local to each node.)\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing\n\nso, cost limit can be decided using adaptive sampling also. Also, the questions says we need to monitor the web app which wont be possible if daily cap is met."
+      },
+      {
+        "date": "2020-07-09T16:54:00.000Z",
+        "voteCount": 1,
+        "content": "I would go with E due to the operational impact when setting a cap on the Application Insight.\nDuring the high traffic volume, the cap limit would be easily reached and application insight would stop collecting data."
+      },
+      {
+        "date": "2020-07-07T10:50:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is B:\nYou can set a daily cap to ensure that the cost does not exceed a budget. You can go to \u201cUsage and estimated costs\u201d for your Application Insights resource and then hit on Daily cap."
+      },
+      {
+        "date": "2020-07-07T02:45:00.000Z",
+        "voteCount": 1,
+        "content": "The main advantages of sampling are:\n\n1.Application Insights service drops (\"throttles\") data points when your app sends a very high rate of telemetry in a short time interval. Sampling reduces the likelihood that your 2.application will see throttling occur.\n3.To keep within the quota of data points for your pricing tier.\n4.To reduce network traffic from the collection of telemetry.\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/sampling\n\nAs per 3rd point sampling has to be used to keep data withing limit and preferred sampling is always adaptive. So answer should be E"
+      },
+      {
+        "date": "2020-06-14T00:54:00.000Z",
+        "voteCount": 2,
+        "content": "This one is tricky, i'm pretty sure that given answer is correct, since it's described in best practices as follows:\n\"Sampling is a feature in Azure Application Insights. It is the recommended way to reduce telemetry traffic, data costs, and storage costs, while preserving a statistically correct analysis of application data\""
+      },
+      {
+        "date": "2020-05-26T11:17:00.000Z",
+        "voteCount": 2,
+        "content": "The answer should be B"
+      },
+      {
+        "date": "2020-04-15T12:24:00.000Z",
+        "voteCount": 1,
+        "content": "\"Adaptive sampling is enabled by default in all the latest versions of the Application Insights ASP.NET and ASP.NET Core Software Development Kits (SDKs). It is also used by Azure Functions.\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing\n\nIf its enabled by default, then it's already implemented, which begs the question if the default answer is correct for this question."
+      },
+      {
+        "date": "2020-04-15T12:15:00.000Z",
+        "voteCount": 1,
+        "content": "here are the steps given in the documentation for dealing with the issue:\nA. Review your data volume for the month. This includes all the data that's received and retained (after any sampling) from your server and client apps, and from availability tests.\nB. A separate charge is made for multi-step web tests. (This doesn't include simple availability tests, which are included in the data volume charge.)\nC. View data volume trends for the past month.\nD. Enable data ingestion sampling. \nE. Set the daily data volume cap.\n\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/pricing\n\nFrom this, both ingestion sampling and setting a daily cap volume seem to be correct."
+      },
+      {
+        "date": "2020-08-02T05:14:00.000Z",
+        "voteCount": 1,
+        "content": "From this, they seem to be correct when used together"
+      },
+      {
+        "date": "2020-04-01T13:58:00.000Z",
+        "voteCount": 5,
+        "content": "Types of sampling\nThere are three different sampling methods:\n\nAdaptive sampling automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET/ASP.NET Core app, and from Azure Functions. This is the default sampling when you use the ASP.NET or ASP.NET Core SDK. Adaptive sampling is currently only available for ASP.NET server-side telemetry, and for Azure Functions.\n\nFixed-rate sampling reduces the volume of telemetry sent from both your ASP.NET or ASP.NET Core or Java server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.\n\nIngestion sampling happens at the Application Insights service endpoint. It discards some of the telemetry that arrives from your app, at a sampling rate that you set. It doesn't reduce telemetry traffic sent from your app, but helps you keep within your monthly quota. The main advantage of ingestion sampling is that you can set the sampling rate without redeploying your app. Ingestion sampling works uniformly for all servers and clients, but it does not apply when any other types of sampling are in operation."
+      },
+      {
+        "date": "2020-04-13T17:42:00.000Z",
+        "voteCount": 2,
+        "content": "From this, are you saying ingestion sampling is correct?"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/21408-exam-az-203-topic-5-question-2-discussion/",
+    "body": "You are developing an ASP.NET Core Web API web service. The web service uses Azure Application Insights for all telemetry and dependency tracking. The web service reads and writes data to a database other than Microsoft SQL Server.<br>You need to ensure that dependency tracking works for calls to the third-party database.<br>Which two Dependency Telemetry properties should you store in the database? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTelemetry.Context.Operation.Id",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTelemetry.Name",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTelemetry.Context.Cloud.RoleInstance",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTelemetry.Context.Session.Id",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTelemetry.Id"
+    ],
+    "answer": "AE",
+    "answerDescription": "References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/app/custom-operations-tracking",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-26T11:22:00.000Z",
+        "voteCount": 6,
+        "content": "Correct : Operations.ID and Request.ID/Telemetry.ID"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/28821-exam-az-203-topic-5-question-3-discussion/",
+    "body": "You are creating a hazard notification system that has a single signaling server which triggers audio and visual alarms to start and stop.<br>You implement Azure Service Bus to publish alarms. Each alarm controller uses Azure Service Bus to receive alarm signals as part of a transaction. Alarm events must be recorded for audit purposes. Each transaction record must include information about the alarm type that was activated.<br>You need to implement a reply trail auditing solution. Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the value of the hazard message MessageId property to the DeliveryCount property.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the value of the hazard message SequenceNumber property to the DeliveryCount property.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the value of the hazard message MessageId property to the SequenceNumber property.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the value of the hazard message MessageId property to the CorrelationId property.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the value of the hazard message SessionID property to the SequenceNumber property..",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"F\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tF.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssign the value of the hazard message SessionID property to the ReplyToSessionId property."
+    ],
+    "answer": "DF",
+    "answerDescription": "D: CorrelationId: Enables an application to specify a context for the message for the purposes of correlation; for example, reflecting the MessageId of a message that is being replied to.<br>F: ReplyToSessionId: This value augments the ReplyTo information and specifies which SessionId should be set for the reply when sent to the reply entity.<br>Incorrect Answers:<br><br>A, B: DeliveryCount -<br>Number of deliveries that have been attempted for this message. The count is incremented when a message lock expires, or the message is explicitly abandoned by the receiver. This property is read-only.<br><br>C, E: SequenceNumber -<br>The sequence number is a unique 64-bit integer assigned to a message as it is accepted and stored by the broker and functions as its true identifier. For partitioned entities, the topmost 16 bits reflect the partition identifier. Sequence numbers monotonically increase and are gapless. They roll over to 0 when the 48-<br>64 bit range is exhausted. This property is read-only.<br>References:<br>https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messages-payloads",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-12-25T08:24:00.000Z",
+        "voteCount": 6,
+        "content": "Given answer correct.\nCorrelationId and ReplyToSessionId are meant for this purpose. To correlate and to record  SessionID value in the reply. The rest them (DeliveryCount and SequenceNumber) are reserved for their own purposes like the names suggest and are hence made read-only too."
+      },
+      {
+        "date": "2020-12-07T05:00:00.000Z",
+        "voteCount": 5,
+        "content": "As per the docs, DeliveryCount and SequencyNumber are read-only, so the given answer must be correct"
+      },
+      {
+        "date": "2021-02-05T15:53:00.000Z",
+        "voteCount": 1,
+        "content": "Given answer is correct.\n\nHowever, option F should have been the other way round like below: \nAssign the value of the hazard message \"ReplyToSessionId\" property to the \"SessionID\" property."
+      },
+      {
+        "date": "2021-01-11T22:12:00.000Z",
+        "voteCount": 2,
+        "content": "Answers are correct."
+      },
+      {
+        "date": "2020-10-11T23:44:00.000Z",
+        "voteCount": 1,
+        "content": "why not B &amp; E is correct answer ? Could see B &amp; E in few other question sets.."
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/17584-exam-az-203-topic-5-question-4-discussion/",
+    "body": "You develop a gateway solution for a public facing news API. The news API back end is implemented as a RESTful service and uses an OpenAPI specification.<br>You need to ensure that you can access the news API by using an Azure API Management service instance.<br>Which Azure PowerShell command should you run?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tImport-AzureRmApiManagementApi \"\"Context $ApiMgmtContext \"\"SpecificationFormat \"Swagger\" -SpecificationPath $SwaggerPath \"\"Path $Path",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNew-AzureRmApiManagementBackend -Context $ApiMgmtContext -Url $Url -Protocol http",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNew-AzureRmApiManagement \"\"ResourceGroupName $ResourceGroup \"\"Name $Name \"\"Location $Location \"\"Organization $Org \"\" AdminEmail $AdminEmail",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNew-AzureRmApiManagementBackendProxy \"\"Url $ApiUrl"
+    ],
+    "answer": "D",
+    "answerDescription": "New-AzureRmApiManagementBackendProxy creates a new Backend Proxy Object which can be piped when creating a new Backend entity.<br>Example: Create a Backend Proxy In-Memory Object<br>PS C:\\&gt;$secpassword = ConvertTo-SecureString \"PlainTextPassword\" -AsPlainText -Force<br>PS C:\\&gt;$proxyCreds = New-Object System.Management.Automation.PSCredential (\"foo\", $secpassword)<br>PS C:\\&gt;$credential = New-AzureRmApiManagementBackendProxy -Url \"http://12.168.1.1:8080\" -ProxyCredential $proxyCreds<br>PS C:\\&gt;$apimContext = New-AzureRmApiManagementContext -ResourceGroupName \"Api-Default-WestUS\" -ServiceName \"contoso\"<br>PS C:\\&gt;$backend = New-AzureRmApiManagementBackend -Context  $apimContext -BackendId 123 -Url 'https://contoso.com/awesomeapi' -Protocol http -Title<br>\"first backend\" -SkipCertificateChainValidation $true -Proxy $credential -Description \"backend with proxy server\"<br>Creates a Backend Proxy Object and sets up Backend<br>Incorrect Answers:<br>A: The Import-AzureRmApiManagementApi cmdlet imports an Azure API Management API from a file or a URL in Web Application Description Language (WADL),<br>Web Services Description Language (WSDL), or Swagger format.<br>B: New-AzureRmApiManagementBackend creates a new backend entity in Api Management.<br>C: The New-AzureRmApiManagement cmdlet creates an API Management deployment in Azure API Management.<br>References:<br>https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackendproxy?view=azurermps-6.13.0",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-03-28T04:31:00.000Z",
+        "voteCount": 10,
+        "content": "Shouldn't the correct answer be A? I don't see why it should be D like the comment says."
+      },
+      {
+        "date": "2020-04-11T01:43:00.000Z",
+        "voteCount": 5,
+        "content": "I think alsow, Correct answer is A. An OpenAPI Specification, formerly known as the Swagger Specification."
+      },
+      {
+        "date": "2020-10-14T00:34:00.000Z",
+        "voteCount": 1,
+        "content": "yes should be a\n\nPS C:\\&gt;$ApiMgmtContext = New-AzureRmApiManagementContext -ResourceGroupName \"Api-Default-WestUS\" -ServiceName \"contoso\"\nPS C:\\&gt;Import-AzureRmApiManagementApi -Context $ApiMgmtContext -SpecificationFormat \"Swagger\" -SpecificationPath \"C:\\contoso\\specifications\\echoapi.swagger\" -Path \"apis\""
+      },
+      {
+        "date": "2020-11-29T09:25:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, in my opinion should be A, but it look like is a little confuse."
+      },
+      {
+        "date": "2020-05-26T11:30:00.000Z",
+        "voteCount": 10,
+        "content": "Answer is C \nLink : https://docs.microsoft.com/en-us/azure/api-management/powershell-create-service-instance#create-an-api-management-service"
+      },
+      {
+        "date": "2021-03-19T02:54:00.000Z",
+        "voteCount": 1,
+        "content": "should be D correct ans"
+      },
+      {
+        "date": "2021-02-19T09:09:00.000Z",
+        "voteCount": 2,
+        "content": "According to Whizlabs the Answer is C"
+      },
+      {
+        "date": "2021-01-28T00:01:00.000Z",
+        "voteCount": 1,
+        "content": "New-AzureRmApiManagement is used to create a new instance of the service if I am not wrong about this, then B C D are not relevant to me, A looks like the best option !"
+      },
+      {
+        "date": "2020-12-17T12:13:00.000Z",
+        "voteCount": 6,
+        "content": "You need another Api management service instance for testing. This is done with New-AzApiManagement. So it should be C \nhttps://docs.microsoft.com/en-us/azure/api-management/powershell-create-service-instance"
+      },
+      {
+        "date": "2020-12-13T10:24:00.000Z",
+        "voteCount": 3,
+        "content": "Yes the answer is C."
+      },
+      {
+        "date": "2020-12-04T11:22:00.000Z",
+        "voteCount": 2,
+        "content": "answer c New-AzApiManagement -Name \"myapim\" -ResourceGroupName \"myResourceGroup\" `\n  -Location \"West US\" -Organization \"Contoso\" -AdminEmail \"admin@contoso.com\"\nhttps://docs.microsoft.com/en-us/azure/api-management/powershell-create-service-instance#create-an-api-management-service"
+      },
+      {
+        "date": "2020-11-11T22:18:00.000Z",
+        "voteCount": 2,
+        "content": "The C is the the correct answer. \nHere is the answer: https://docs.microsoft.com/en-us/azure/api-management/powershell-create-service-instance#create-an-api-management-service"
+      },
+      {
+        "date": "2020-08-30T04:34:00.000Z",
+        "voteCount": 2,
+        "content": "Option A is incorrect since this is used to import an Azure API Management API from a file or a URL in Web Application Description Language (WADL), Web Services Description Language (WSDL), or Swagger format.\n\nOption B is incorrect since this is used to create a new backend for the API.\n\nOption D is incorrect since this is used is just used to create a new backend proxy."
+      },
+      {
+        "date": "2021-02-13T21:53:00.000Z",
+        "voteCount": 1,
+        "content": "Agree. We need a new API management instance, so answer is C"
+      },
+      {
+        "date": "2022-05-25T01:25:00.000Z",
+        "voteCount": 1,
+        "content": "No, we need to import API as A did"
+      },
+      {
+        "date": "2020-06-01T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "I think A is the best.\nhttps://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/import-azurermapimanagementapi?view=azurermps-6.13.0"
+      },
+      {
+        "date": "2020-05-17T11:47:00.000Z",
+        "voteCount": 3,
+        "content": "Import-AzApiManagementApi will import the WSDL/swagger of the API to the application, it cannot help you to ensure you have access to that API.\n\nThe question is saying - you are developing a gateway solution that will consume a public news API, i.e. that news API backend already exist, you do not need to run New-AzureRmApiManagementBackend to create it again.\n\nThat's why A &amp; C are both incorrect."
+      },
+      {
+        "date": "2020-05-17T11:48:00.000Z",
+        "voteCount": 2,
+        "content": "typo I mean what's why A &amp; B are both incorrect"
+      },
+      {
+        "date": "2020-05-06T12:11:00.000Z",
+        "voteCount": 2,
+        "content": "It might be A because:\nhttps://docs.microsoft.com/en-us/azure/api-management/scripts/powershell-import-api-and-add-to-product?toc=/powershell/module/toc.json\n# import api from Url\nBut they should clarify what they are asking for..."
+      },
+      {
+        "date": "2020-07-22T06:43:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, I think it's A.\nThe question is to import the existing API to an API Management product. So the cmd is:\n# import api from Url\n$api = Import-AzApiManagementApi -Context $context -SpecificationUrl $swaggerUrl -SpecificationFormat Swagger -Path $apiPath"
+      },
+      {
+        "date": "2020-04-04T03:43:00.000Z",
+        "voteCount": 6,
+        "content": "Wouldn't the correct answer be C? \nhttps://docs.microsoft.com/en-us/azure/api-management/powershell-create-service-instance#create-an-api-management-service"
+      },
+      {
+        "date": "2020-04-02T06:21:00.000Z",
+        "voteCount": 2,
+        "content": "Can someone provide link with explanation why it should be Backend Proxy and not Backend? To me, it looks like answer is Backend Proxy, since PowerShell for Backend has parameter -Protocol http, which is not well for public facing news API"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/11813-exam-az-203-topic-5-question-5-discussion/",
+    "body": "You are developing a project management service by using ASP.NET. The service hosts conservations, files, to-do lists, and a calendar that users can interact with at any time.<br>The application uses Azure Search for allowing users to search for keywords in the project data.<br>You need to implement code that creates the object which is used to create indexes in the Azure Search service.<br>Which two objects should you use? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearchCredentials",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearchIndexClient",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearchServiceClient",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSearchService"
+    ],
+    "answer": "BC",
+    "answerDescription": "The various client libraries define classes like Index, Field, and Document, as well as operations like Indexes.Create and Documents.Search on the<br>SearchServiceClient and SearchIndexClient classes.<br>Example:<br>The sample application we'll be exploring creates a new index named \"hotels\", populates it with a few documents, then executes some search queries. Here is the main program, showing the overall flow:<br>/ This sample shows how to delete, create, upload documents and query an index static void Main(string[] args)<br>{<br>IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile(\"appsettings.json\");<br>IConfigurationRoot configuration = builder.Build();<br>SearchServiceClient serviceClient = CreateSearchServiceClient(configuration);<br>Console.WriteLine(\"{0}\", \"Deleting index...\\n\");<br>DeleteHotelsIndexIfExists(serviceClient);<br>Console.WriteLine(\"{0}\", \"Creating index...\\n\");<br>CreateHotelsIndex(serviceClient);<br>ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(\"hotels\");<br>References:<br>https://docs.microsoft.com/en-us/azure/search/search-howto-dotnet-sdk",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-12T06:22:00.000Z",
+        "voteCount": 36,
+        "content": "Correct Answer: A C ?\nSearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));"
+      },
+      {
+        "date": "2020-03-03T10:24:00.000Z",
+        "voteCount": 4,
+        "content": "this is the correct answer"
+      },
+      {
+        "date": "2020-03-03T10:25:00.000Z",
+        "voteCount": 4,
+        "content": "A and C"
+      },
+      {
+        "date": "2023-03-16T00:54:00.000Z",
+        "voteCount": 1,
+        "content": "SearchServiceClient(String, SearchCredentials) - Initializes a new instance of the SearchServiceClient class."
+      },
+      {
+        "date": "2020-05-01T07:13:00.000Z",
+        "voteCount": 3,
+        "content": "I think the answer BC is correct. The SearchServiceClient has many other constructors apart from the one using SearchCredentials object.\nhttps://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet#constructors\n\nBut we will always need a combination of SearchServiceClient and SearchIndexClient to index."
+      },
+      {
+        "date": "2020-05-23T11:32:00.000Z",
+        "voteCount": 4,
+        "content": "Not really, this is how to create index: \nserviceClient.Indexes.Create(__definition__);\n\nSearchIndexClient is needed only if you want to populate the index, but the question is asking \"the object which is used to create indexes\" so you don't need to populate.\n\nWhen you are creating index, you need the write access, you have to use SearchCredentials in the constructor in this scenario."
+      },
+      {
+        "date": "2020-06-17T07:10:00.000Z",
+        "voteCount": 8,
+        "content": "who actually provide these answers? why are there so many wrong and misleading answers out here"
+      },
+      {
+        "date": "2020-07-22T06:49:00.000Z",
+        "voteCount": 3,
+        "content": "By all those kind people who capture those questions for us and help us a LOT!!!!"
+      },
+      {
+        "date": "2021-04-07T07:58:00.000Z",
+        "voteCount": 1,
+        "content": "I think B and C is correct answer as SearchServiceClient is used to search the index while SearchIndexClient is used to create and delete it.\n\nThe Indexes Properties within SearchServiceClient object is only used to get the indexes please refer - https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet#properties\n\nSearchIndexClient is used to create indexes please refer - https://docs.microsoft.com/en-us/azure/search/search-get-started-dotnet#create-a-search-client\n\nhttps://docs.microsoft.com/en-us/azure/search/search-get-started-dotnet#create-a-search-client"
+      },
+      {
+        "date": "2021-02-07T06:33:00.000Z",
+        "voteCount": 1,
+        "content": "Looks like this question relates to an older version of the Azure Search service. According to this article,  SearchCredentials object is passed to the SearchIndexClient.\nhttps://www.skylinetechnologies.com/Blog/Skyline-Blog/April_2018/how-to-use-azure-search-services"
+      },
+      {
+        "date": "2021-01-03T21:57:00.000Z",
+        "voteCount": 1,
+        "content": "It seems that the API has been updated to Version 11:\nhttps://docs.microsoft.com/en-us/azure/search/search-howto-dotnet-sdk\n\nIn V11, there is neither a SearchServiceClient, nor a SearchCredentials class anymore -- the page mentions \"SearchIndexClient\" only..."
+      },
+      {
+        "date": "2021-01-03T21:59:00.000Z",
+        "voteCount": 2,
+        "content": "Oh sorry, I was wrong. It has this line to query:\nSearchClient searchClient = new SearchClient(new Uri(searchServiceEndPoint), indexName, new AzureKeyCredential(queryApiKey));"
+      },
+      {
+        "date": "2020-12-25T08:41:00.000Z",
+        "voteCount": 1,
+        "content": "\"Create the object\" which is \"used to create indexes\" - I'll go with A &amp; C.\nSearch Credentials and SearchServiceClient"
+      },
+      {
+        "date": "2020-08-22T08:31:00.000Z",
+        "voteCount": 1,
+        "content": "Answer - A &amp; C"
+      },
+      {
+        "date": "2020-08-03T23:31:00.000Z",
+        "voteCount": 3,
+        "content": "A and C are correct. Here is how to do it with just SearchServiceClient and SearchCredentials:\n    \nvar serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));\n    var definition = new Index()\n    {\n        Name = indexName,\n        Fields = FieldBuilder.BuildForType&lt;Hotel&gt;()\n    };\n    \n    serviceClient.Indexes.Create(definition);"
+      },
+      {
+        "date": "2020-07-24T22:41:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is C and D, I checked same question in WizLab"
+      },
+      {
+        "date": "2020-05-26T11:33:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer surely is : A and C\nSearchServiceClient serviceClient = new SearchServiceClient(searchServiceName, new SearchCredentials(adminApiKey));"
+      },
+      {
+        "date": "2020-05-06T03:57:00.000Z",
+        "voteCount": 6,
+        "content": "SearchServiceClient - creates indexes.\nSearchIndexClient - populates indexes.\n\nSearchCredentials are required to construct both. You can create SearchIndexClient by using SearchServiceClient.\n\nAnswer - A &amp; C."
+      },
+      {
+        "date": "2020-03-11T07:38:00.000Z",
+        "voteCount": 3,
+        "content": "A &amp; C are correct"
+      },
+      {
+        "date": "2020-02-26T01:02:00.000Z",
+        "voteCount": 2,
+        "content": "C and A"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/26663-exam-az-203-topic-5-question-6-discussion/",
+    "body": "DRAG DROP -<br>You develop a web app that uses the tier D1 app service plan by using the Web App feature of Microsoft Azure App Service.<br>Spikes in traffic have caused increases in page load times.<br>You need to ensure that the web app automatically scales when CPU load is about 85 percent and minimize costs.<br>Which four actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>NOTE: More than one order of answer choices is correct. You will receive credit for any of the correct orders you select.<br>Select and Place:<br><img src=\"/assets/media/exam-media/02838/0020300001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02838/0020300002.png\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Configure the web app to the Standard App Service Tier<br>The Standard tier supports auto-scaling, and we should minimize the cost.<br>Step 2: Enable autoscaling on the web app<br><br>First enable autoscale -<br><br>Step 3: Add a scale rule -<br><br>Step 4: Add a Scale condidation -<br>References:<br>https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started https://azure.microsoft.com/en-us/pricing/details/app-service/plans/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-07-25T18:31:00.000Z",
+        "voteCount": 23,
+        "content": "Ans should be\n1. Configure the web app to the Standard App Service tier\n2. Enable autoscaling on the web app\n3. Configure a Scale condition\n4. Add a Scale rule\n\nhttps://docs.microsoft.com/en-us/learn/modules/app-service-autoscale-rules/6-autoscale-a-web-app"
+      },
+      {
+        "date": "2020-08-15T09:04:00.000Z",
+        "voteCount": 9,
+        "content": "Scale condition can only be configured after adding a Scale Rule. And given ans is correct in the order."
+      },
+      {
+        "date": "2020-11-11T22:39:00.000Z",
+        "voteCount": 2,
+        "content": "You must ready in order as doc says, Add scale conditions &gt;&gt; Create scale rules"
+      },
+      {
+        "date": "2020-11-30T02:19:00.000Z",
+        "voteCount": 1,
+        "content": "If you refer to the link, \"add scale conditions\" means \"add a scale rule\", and in the picture under the \"add scale conditions\" , there is a button called \"Add a rule\". Besides, 'add scale conditions\" isnt equal to \" configure a scale condition\"."
+      },
+      {
+        "date": "2021-02-05T16:19:00.000Z",
+        "voteCount": 1,
+        "content": "Questions says \"More than one order of answer choices is correct. \"\n\nSo, either order should be correct"
+      },
+      {
+        "date": "2020-08-15T02:19:00.000Z",
+        "voteCount": 6,
+        "content": "Correct answer should be:\n\n1. Configure the web app to the Standard App Service tier\n2. Enable autoscaling on the web app\n3. Configure a Scale condition\n4. Add a Scale rule\n\nhttps://www.examtopics.com/discussions/microsoft/view/5596-exam-az-300-topic-1-question-19-discussion/"
+      },
+      {
+        "date": "2021-01-07T06:19:00.000Z",
+        "voteCount": 3,
+        "content": "That's why it says \"more than one order\" \nWhen you enable autoscaling, an option to click appears \"+Add a rule\" when you click that, shows the scale condition to set. By the end of the page there is \"Add\" button. That's why people are confused..."
+      },
+      {
+        "date": "2020-12-13T10:39:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer should be:\n\n1. Configure the web app to the Standard App Service tier\n2. Enable autoscaling on the web app\n3. Configure a Scale condition\n4. Add a Scale rule"
+      },
+      {
+        "date": "2020-08-23T02:07:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2020-08-28T00:23:00.000Z",
+        "voteCount": 3,
+        "content": "Nope, last two answers should be swapped"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/14686-exam-az-203-topic-5-question-7-discussion/",
+    "body": "DRAG DROP -<br>You are developing an ASP.NET Core Web API web service that uses Azure Application Insights to monitor performance and track events.<br>You need to enable logging and ensure that log messages can be correlated to events tracked by Application Insights.<br>How should you complete the code? To answer, drag the appropriate code segments to the correct locations. Each code segment may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box 1: ApplicationInsightsLoggerOptions<br>If you want to include the EventId and EventName properties, then add the following to the ConfigureServices method: services<br>.AddOptions&lt;ApplicationInsightsLoggerOptions&gt;()<br>.Configure(o =&gt; o.IncludeEventId = true);<br><br>Box 2: IncludeEventID -<br><br>Box 3:  ApplicationServices -<br>In Asp.Net core apps it turns out that trace logs do not show up in Application Insights out of the box. We need to add the following code snippet to our Configure method in Startup.cs: loggerFactory.AddApplicationInsights(app.ApplicationServices, logLevel);<br>References:<br>https://blog.computedcloud.com/enabling-application-insights-trace-logging-in-asp-net-core/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-06-19T08:50:00.000Z",
+        "voteCount": 21,
+        "content": "Correct answer can be found here:\nhttps://blog.computedcloud.com/enabling-application-insights-trace-logging-in-asp-net-core/"
+      },
+      {
+        "date": "2020-08-14T04:46:00.000Z",
+        "voteCount": 3,
+        "content": "you are a star"
+      },
+      {
+        "date": "2020-10-24T22:09:00.000Z",
+        "voteCount": 11,
+        "content": "https://freedumps.certqueen.com/wp-content/uploads/2020/06/image006-12.jpg"
+      },
+      {
+        "date": "2020-08-23T02:13:00.000Z",
+        "voteCount": 8,
+        "content": "Box1: ApplicationInsightsLoggerOptions\nBox2: IncludeEventId \nBox3: ApplicationServices"
+      },
+      {
+        "date": "2020-08-15T11:28:00.000Z",
+        "voteCount": 1,
+        "content": "how the answer will reflect in exam ? wil it be some drop down or drag drop"
+      },
+      {
+        "date": "2020-08-15T02:27:00.000Z",
+        "voteCount": 4,
+        "content": "Options: https://i.postimg.cc/NFbG20Kc/image.png"
+      },
+      {
+        "date": "2020-04-20T07:44:00.000Z",
+        "voteCount": 6,
+        "content": "Options: https://postimg.cc/ctgGV079"
+      },
+      {
+        "date": "2020-04-05T03:40:00.000Z",
+        "voteCount": 2,
+        "content": "Options please."
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/13314-exam-az-203-topic-5-question-8-discussion/",
+    "body": "DRAG DROP -<br>You develop an ASP.NET Core MVC application. You configure the application to track webpages and custom events.<br>You need to identify trends in application usage.<br>Which Azure Application Insights Usage Analysis features should you use? To answer, drag the appropriate features to the correct requirements. Each feature may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br>NOTE: Each correct selection is worth one point.<br>Select and Place:<br>",
+    "options": [],
+    "answer": "Explanation",
+    "answerDescription": "Box1: Users -<br><br>Box 2:  Impact -<br>One way to think of Impact is as the ultimate tool for settling arguments with someone on your team about how slowness in some aspect of your site is affecting whether users stick around. While users may tolerate a certain amount of slowness, Impact gives you insight into how best to balance optimization and performance to maximize user conversion.<br><br>Box 3: Retention -<br>The retention feature in Azure Application Insights helps you analyze how many users return to your app, and how often they perform particular tasks or achieve goals. For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.<br><br>Box 4: User flows -<br>The User Flows tool visualizes how users navigate between the pages and features of your site. It's great for answering questions like:<br>How do users navigate away from a page on your site?<br>What do users click on a page on your site?<br>Where are the places that users churn most from your site?<br>Are there places where users repeat the same action over and over?<br>Incorrect Answers:<br>Funnel: If your application involves multiple stages, you need to know if most customers are progressing through the entire process, or if they are ending the process at some point. The progression through a series of steps in a web application is known as a funnel. You can use Azure Application Insights Funnels to gain insights into your users, and monitor step-by-step conversion rates.<br>References:<br>https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-impact",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-08-08T07:15:00.000Z",
+        "voteCount": 36,
+        "content": "Today I got 900, I had this question, my answer:\npages correlate\tBox 1-Funnels\nLoad time purch\tBox 2-Impact\ncontinue app\tBox 3-Retention\noften actions\tBox 4-User Flows"
+      },
+      {
+        "date": "2020-08-03T23:53:00.000Z",
+        "voteCount": 32,
+        "content": "IGNORE my other comment. Box 3 should be retention:\n\nBox 1 - Funnels\n\"Funnels to gain insights into your users, and monitor step-by-step conversion rates.\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-funnels\n\nBox 2 - Impact\n\"Impact analyzes how load times and other properties influence conversion rates for various parts of your app.\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-impact\n\nBox 3-Retention\n\"analyze how many users return to your app, and how often they perform particular tasks or achieve goals\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-retention\n\nBox 4-User Flows\n\"Are there places where users repeat the same action over and over?\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-flows"
+      },
+      {
+        "date": "2022-07-14T05:09:00.000Z",
+        "voteCount": 1,
+        "content": "Thanks\nthis answer is correct as per the microsoft docs"
+      },
+      {
+        "date": "2022-03-12T21:17:00.000Z",
+        "voteCount": 1,
+        "content": "Got it on 03/2022, I chose as below:\n1. Funnels\n2. Impact\n3. Retention \n4. User flows"
+      },
+      {
+        "date": "2021-11-19T13:35:00.000Z",
+        "voteCount": 1,
+        "content": "Box 1 - Users\nbecause,\n\"Find out when people use your web app, what pages they're most interested in, where your users are located, and what browsers and operating systems they use.\"\n\nReference: https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-segmentation\nRe"
+      },
+      {
+        "date": "2020-08-14T22:38:00.000Z",
+        "voteCount": 1,
+        "content": "Correct answer is:\n\n1. User\n\nUsers tool: How many people used your app and its features. Users are counted by using anonymous IDs stored in browser cookies. A single person using different browsers or machines will be counted as more than one user.\n\n2. Impact\n3. Retention\n4. User Flow"
+      },
+      {
+        "date": "2020-11-20T02:50:00.000Z",
+        "voteCount": 2,
+        "content": "You are Wrong. Option 1 is Funnels.\nExplanation: You can use a Funnel that encapsulates the pages that correspond to the flow of a user carrying out a product purchase. You can then see which pages in the funnel are being accessed the most."
+      },
+      {
+        "date": "2020-08-03T23:50:00.000Z",
+        "voteCount": 3,
+        "content": "Box 1 - Funnels\n\"Funnels to gain insights into your users, and monitor step-by-step conversion rates.\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-funnels\n\nBox 2 - Impact\n\"Impact analyzes how load times and other properties influence conversion rates for various parts of your app.\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-impact\n\nBox 3-Impact\n\"how does user browser choice correlate with different rates of conversion are just a few clicks away.\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-impact\n\nBox 4-User Flows\n\"Are there places where users repeat the same action over and over?\"\nhttps://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-flows"
+      },
+      {
+        "date": "2020-07-22T07:48:00.000Z",
+        "voteCount": 1,
+        "content": "I think it's \n1. Impact\n2. Impact\n3. Impact\n4. User Flows\nFunnels need to choose specific pages to report, like the example in https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-funnels.\nBut box1 need to compare all pages correlated to purchase, so Impact."
+      },
+      {
+        "date": "2020-06-23T23:00:00.000Z",
+        "voteCount": 1,
+        "content": "box 1 - Funnel"
+      },
+      {
+        "date": "2020-05-26T11:41:00.000Z",
+        "voteCount": 8,
+        "content": "Correct Answer is :\nBox 1-Funnels\nBox 2-Impact\nBox 3-Impact\nBox 4-User Flows"
+      },
+      {
+        "date": "2020-07-08T11:57:00.000Z",
+        "voteCount": 8,
+        "content": "It seems correct, but shouldn't Box 3 be retention? Can you please tell why its impact and not retention"
+      },
+      {
+        "date": "2020-07-20T21:51:00.000Z",
+        "voteCount": 1,
+        "content": "I think you are right. All option are correct but box 3 should be retention. This is mentioned in MS docs: https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-retention\n\n\"For example, if you run a game site, you could compare the numbers of users who return to the site after losing a game with the number who return after winning. This knowledge can help you improve both your user experience and your business strategy.\""
+      },
+      {
+        "date": "2020-04-20T03:41:00.000Z",
+        "voteCount": 6,
+        "content": "Box1 should be \"User Flow\""
+      },
+      {
+        "date": "2020-02-24T19:38:00.000Z",
+        "voteCount": 17,
+        "content": "options\nhttps://html2-f.scribdassets.com/8n8ya0pvi87d2upg/images/13-6791daed75.jpg"
+      },
+      {
+        "date": "2020-02-03T03:10:00.000Z",
+        "voteCount": 26,
+        "content": "Box 1 should be \"Funnel\", because we want to track conversion"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  },
+  {
+    "topic": 5,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/12706-exam-az-203-topic-5-question-9-discussion/",
+    "body": "HOTSPOT -<br>A company is developing a gaming platform. Users can join teams to play online and see leaderboards that include player statistics. The solution includes an entity named Team.<br>You plan to implement an Azure Redis Cache instance to improve the efficiency of data operations for entities that rarely change.<br>You need to invalidate the cache when team data is changed.<br>How should you complete the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/02838/0020700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/02838/0020800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: IDatabase cache = connection.GetDatabase();<br>Connection refers to a previously configured ConnectionMultiplexer.<br>Box 2: cache.StringSet(\"teams\",\")<br>To specify the expiration of an item in the cache, use the TimeSpan parameter of StringSet. cache.StringSet(\"key1\", \"value1\", TimeSpan.FromMinutes(90));<br>References:<br>https://azure.microsoft.com/sv-se/blog/lap-around-azure-redis-cache-preview/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-29T07:56:00.000Z",
+        "voteCount": 32,
+        "content": "IDatabase.KeyDelete looks better solution\n\nhttps://csharp.hotexamples.com/examples/-/IDatabase/KeyDelete/php-idatabase-keydelete-method-examples.html"
+      },
+      {
+        "date": "2020-02-11T21:50:00.000Z",
+        "voteCount": 16,
+        "content": "Correct Answer: cache.KeyDelete\nScenario: You need to invalidate the cache when team data is changed."
+      },
+      {
+        "date": "2020-02-11T21:52:00.000Z",
+        "voteCount": 13,
+        "content": "Source: https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard"
+      },
+      {
+        "date": "2020-12-29T20:26:00.000Z",
+        "voteCount": 4,
+        "content": "code snippted. \nvoid ClearCachedTeams()\n{\n    IDatabase cache = Connection.GetDatabase();\n    cache.KeyDelete(\"teamsList\");\n    cache.KeyDelete(\"teamsSortedSet\");\n    ViewBag.msg += \"Team data removed from cache. \";\n}\n\nReference link: https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard"
+      },
+      {
+        "date": "2022-03-12T21:15:00.000Z",
+        "voteCount": 1,
+        "content": "Got it on 03/2022, I chose as below:\n1. IDatabase cache = connection.GetDatabase();\n2. cache.KeyDelete(\"teams\",\")"
+      },
+      {
+        "date": "2021-02-13T19:03:00.000Z",
+        "voteCount": 1,
+        "content": "KeyDelete Seems to be more appropriate here.. \n\nFor invalidating cache you can either use StringSet with expiration time as parameter or simply remove key by removing it using keydelete\n\nAs question dosen't talk about any expiration time i think most appropriate answer is KeyDelete"
+      },
+      {
+        "date": "2020-08-03T23:57:00.000Z",
+        "voteCount": 7,
+        "content": "Exact code sample found on this page:\nhttps://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard\n\nvoid ClearCachedTeams()\n{\n    IDatabase cache = Connection.GetDatabase();\n    cache.KeyDelete(\"teamsList\");\n    cache.KeyDelete(\"teamsSortedSet\");\n    ViewBag.msg += \"Team data removed from cache. \";\n}"
+      },
+      {
+        "date": "2020-11-29T15:16:00.000Z",
+        "voteCount": 2,
+        "content": "Agree. After check it in a quick sample, StringSet(\"Key1\", \"\"), cannot pass a null as a second parameter, so could be a solution but no a good one. Finally I can say,  the best answer is: \u00e5cache.keyDelete"
+      },
+      {
+        "date": "2020-08-03T05:00:00.000Z",
+        "voteCount": 1,
+        "content": "As far as I understand, SetKey is useful to set an expiration time, while here we have to invalidate the cache when data changes, so KeyDelete seems to be the right choice.\n\nAs an example, from microsoft docs:\n\nvoid ClearCachedTeams()\n{\n    IDatabase cache = Connection.GetDatabase();\n    cache.KeyDelete(\"teamsList\");\n    cache.KeyDelete(\"teamsSortedSet\");\n    ViewBag.msg += \"Team data removed from cache. \";\n}"
+      },
+      {
+        "date": "2020-07-12T20:05:00.000Z",
+        "voteCount": 8,
+        "content": "to invaliate redis cache - you need to delete the key from redis cache.\nYou can Visit this link for the entire program\\case study:\nhttps://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard\n\nvoid ClearCachedTeams()\n{\n    IDatabase cache = Connection.GetDatabase();\n    cache.KeyDelete(\"teamsList\");\n    cache.KeyDelete(\"teamsSortedSet\");\n    ViewBag.msg += \"Team data removed from cache. \";\n}\n\nCorrect Answer is :    \nIDatabase cache = Connection.GetDatabase();\ncache.KeyDelete(\"xxxxxxxxx\");"
+      },
+      {
+        "date": "2020-07-07T11:55:00.000Z",
+        "voteCount": 2,
+        "content": "Do not get confuse..given answer is correct only .\nHere you can just reset the value of the Key to invalidate the data..so need not to delete the key.\noption cache.StringSet(\"Teams\") is the correct option"
+      },
+      {
+        "date": "2020-06-17T04:47:00.000Z",
+        "voteCount": 1,
+        "content": "Cache.KeyDelete\nhttps://docs.microsoft.com/en-us/azure/azure-cache-for-redis/cache-web-app-cache-aside-leaderboard"
+      },
+      {
+        "date": "2020-03-11T08:04:00.000Z",
+        "voteCount": 11,
+        "content": "void ClearCachedTeams()\n{\n    IDatabase cache = Connection.GetDatabase();\n    cache.KeyDelete(\"teamsList\");\n    cache.KeyDelete(\"teamsSortedSet\");\n    ViewBag.msg += \"Team data removed from cache. \";\n}"
+      },
+      {
+        "date": "2020-03-03T08:50:00.000Z",
+        "voteCount": 8,
+        "content": "cache.KeyDelete is the answer"
+      },
+      {
+        "date": "2020-01-25T01:01:00.000Z",
+        "voteCount": 9,
+        "content": "To invalid the cache you should delete"
+      },
+      {
+        "date": "2020-01-29T01:31:00.000Z",
+        "voteCount": 2,
+        "content": "there is keydelete but no value delete"
+      },
+      {
+        "date": "2023-03-03T21:45:00.000Z",
+        "voteCount": 1,
+        "content": "Setting an Empty string is not a deletion. It's just another wrong cache"
+      }
+    ],
+    "examNameCode": "az-203",
+    "topicNumber": "5"
+  }
+]

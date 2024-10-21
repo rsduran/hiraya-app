@@ -1,0 +1,1358 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/arista/view/558-exam-ace-a12-topic-1-question-1-discussion/",
+    "body": "On EOS 4.13.1F, which of the following statements are true in regards to Arista\u2019s Tap Aggregation feature? (Select two)<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTap ports are send only.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTap ports are receive only.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTool ports are send only.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTool ports are receive only."
+    ],
+    "answer": "AD",
+    "answerDescription": "Reference:<br>https://eos.arista.com/danz-tap-aggregation-configuration-getting-started/#Ports_and_Groups",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-03-10T03:18:00.000Z",
+        "voteCount": 5,
+        "content": "Why is the correct answer not BC"
+      },
+      {
+        "date": "2019-09-27T08:30:00.000Z",
+        "voteCount": 3,
+        "content": "I too believe it is BC"
+      },
+      {
+        "date": "2019-10-14T02:00:00.000Z",
+        "voteCount": 1,
+        "content": "Now that TAP ports are configured, the tool ports must be configured to receive the appropriate traffic."
+      },
+      {
+        "date": "2021-02-24T20:19:00.000Z",
+        "voteCount": 1,
+        "content": "The functionality of the tap port is to receive traffic from a device usually in the production network and egress it out of the respective number of tool ports attached to the monitoring tool. Hence, tap ports are receive-only(Rx) and tool ports are send-only(Tx).\n\nPacket flow:\nProduction Network -------&gt;Tap(RX)[Arista TapAgg Switch]Tool(Tx)------&gt; Monitoring Tool\n\nB and C is Correct"
+      },
+      {
+        "date": "2020-05-26T07:55:00.000Z",
+        "voteCount": 4,
+        "content": "From AristaWarrior2 \nPorts on the switch can now be placed into one of two modes: tap or\ntool:\ntap\nA tap port is a port connected to either a tap device or a monitor\nport on a switch (or any other device delivering packets destined\nfor a sniffer or analyzer). A tap port receives traffic.\ntool\nA tool port is one to which a sniffer or analyzer is usually\nconnected. This is not always the case, as the destination may be\nanother tap aggregation device, as you\u2019ll see later in this chapter. A\ntool port sends traffic.\n\nBC is correct."
+      },
+      {
+        "date": "2020-02-09T11:27:00.000Z",
+        "voteCount": 3,
+        "content": "Answer B and C\nEthernet and port channel interfaces are configured as tap and tool ports to support tap aggregation.\n\u2022 Tap ports: A tap port is an interface that receives a data stream that two network ports exchange.\nTap ports prohibit egress traffic. MAC learning is disabled. All control plane interaction is prevented. Traps for inbound traffic are disabled. Tap ports are in STP forwarding mode.\n\u2022 Tool ports: A tool port is an interface that replicates data streams received by one or more tap ports. Tool ports connect to devices that process the monitored data streams.\nTool ports prohibit ingress traffic. MAC learning is disabled. All control plane interaction is prevented. Tool ports are in STP forwarding mode."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/arista/view/6700-exam-ace-a12-topic-1-question-5-discussion/",
+    "body": "Which of the following Arista switch series\u2019 supports Zero Touch Provisioning (ZTP)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7050",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7280E",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7300",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7500E"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://eos.arista.com/ztp-set-up-guide/<br>(see introduction)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-29T02:00:00.000Z",
+        "voteCount": 2,
+        "content": "All of the above mentioned Arista devices support ZTP."
+      },
+      {
+        "date": "2020-05-13T08:11:00.000Z",
+        "voteCount": 2,
+        "content": "Based on each datasheet ZTP is supported on all Arista 7xxx series. Why not A/B/C/D?"
+      },
+      {
+        "date": "2019-10-16T21:20:00.000Z",
+        "voteCount": 2,
+        "content": "ZTP is supported with EOS version 4.7.0 or later\nSupported on Arista 7xxx Fixed Configuration switches\nSupported on Arista 7500 platform with version 4.10.1 or later\nFrom version 4.10.1 ZTP is supported in all Arista hardware with minimum version requirement.\n\nwhy not A B?"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/arista/view/560-exam-ace-a12-topic-1-question-8-discussion/",
+    "body": "On an Arista switch, which port is used to connect a laptop to the switch for initial configuration or password recovery?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsole",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tManagement 1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet 1/1"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-03-10T03:26:00.000Z",
+        "voteCount": 6,
+        "content": "A is incorrect, The correct answer is B"
+      },
+      {
+        "date": "2020-12-04T06:27:00.000Z",
+        "voteCount": 3,
+        "content": "Bis the correct answer"
+      },
+      {
+        "date": "2020-08-26T00:23:00.000Z",
+        "voteCount": 3,
+        "content": "Correct is B\nhttps://www.arista.com/en/um-eos/eos-section-2-4-recovery-procedures\n\"The first three procedures require Aboot Shell access through the console port. If the console port is not accessible, use the last procedure in the list to replace the configuration file through the USB Flash Drive.\""
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/arista/view/561-exam-ace-a12-topic-1-question-15-discussion/",
+    "body": "On what interface(s) will ZTP send out requests?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnly the management interface.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tOnly the console.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll interfaces.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll connected interfaces."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T10:22:00.000Z",
+        "voteCount": 1,
+        "content": "I believe the answer to be C. In Arista Warrior 2, Chapter 5 Section: Booting with ZTP.. \"When a Switch boots in ZTP mode it configures all the Ethernet and Management with the no switchport command in order to allow DHCP to run..\""
+      },
+      {
+        "date": "2020-01-13T07:04:00.000Z",
+        "voteCount": 1,
+        "content": "https://www.arista.com/en/solutions/zero-touch-provisioning"
+      },
+      {
+        "date": "2019-03-10T03:32:00.000Z",
+        "voteCount": 4,
+        "content": "A is incorrect, correct answer is D https://ztpserver.readthedocs.io/en/v1.3.2/overview.html"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/arista/view/5771-exam-ace-a12-topic-1-question-18-discussion/",
+    "body": "Arista MLAG uses which of the following protocols for inter-switch communication?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBGP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIEEE 1588",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSTP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNone of the above"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://eos.arista.com/mlag-basic-configuration/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-31T05:55:00.000Z",
+        "voteCount": 2,
+        "content": "It means stp is syncronised each other in MLAG.So there is communicaton for STP calculation, primary is stp active other is in active. So C can be correct"
+      },
+      {
+        "date": "2021-01-29T10:05:00.000Z",
+        "voteCount": 1,
+        "content": "I believe the answer is D if this question evolves around communication between MLAG peers which I believe it does. \"STP is disabled for the peer link VLAN 4094 to prevent any potential STP disruption of inter peer communications.\""
+      },
+      {
+        "date": "2019-09-27T08:42:00.000Z",
+        "voteCount": 1,
+        "content": "Shouldn't it be D?"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/arista/view/2118-exam-ace-a12-topic-1-question-20-discussion/",
+    "body": "ZTP can retrieve either an EOS configuration file or a script at boot. How does the switch determine of the file being retrieved in a script or a configuration file?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIf the first line of the file ends with a shebang (#!), the file is a configuration file.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIf the first line of the file starts with a shebang (#!), the file is a script.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIf the last line of the file ends with a shebang (#!), the file is a script.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIf the last line of the file starts with a shebang (#!), the file is a configuration file."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-07-02T19:27:00.000Z",
+        "voteCount": 12,
+        "content": "B is correct\nThe Option 67 file can be a startup-config file or a boot script. The switch distinguishes between a startup-config file and a boot script by examining the first line in the file:\n\u2022 The first line of a boot file must consist of the #! characters followed by the interpreter path. The switch executes the code in the script, then reboots. The boot script may fetch an EOS software image or perform required customization tasks.\nThe following boot file fetches an EOS software image and stores a startup configuration file to flash.\n#!/usr/bin/Cli -p2\ncopy http://company.com/startup-config flash:startup-config\ncopy http://company.com/EOS-2.swi flash:EOS-2.swi\nconfig\nboot system flash:EOS-2.swi\n\u2022 The switch identifies any other file as a startup-config file. The switch copies the startup-config file into flash as mnt/flash/startup-config, then reboots."
+      },
+      {
+        "date": "2021-01-29T10:08:00.000Z",
+        "voteCount": 1,
+        "content": "as Thangngo says a config file does not have !# at the first or last line. This !# is used in script files like shell or python. An interpreter follows this like /usr/bin/...Answer is B."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/arista/view/6656-exam-ace-a12-topic-1-question-24-discussion/",
+    "body": "When an Arista switch boots with no startup-config and ZTP enabled, before ZTP receives an IP address, in what state are the front-panel interfaces?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll interfaces are shut down.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll interfaces are disabled.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll interfaces are routed ports (no switchport).",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAll interfaces are switch ports (switchport)."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-10-15T20:47:00.000Z",
+        "voteCount": 5,
+        "content": "When an Arista switch boots for the first time, ZTP is enabled. The switch sees that there is no startup-config, so it configures all interfaces with the no switchport command, then sends out DHCP queries on any Ethernet and Management interfaces."
+      },
+      {
+        "date": "2020-01-06T02:46:00.000Z",
+        "voteCount": 5,
+        "content": "The correct answer should be C"
+      },
+      {
+        "date": "2021-01-29T10:17:00.000Z",
+        "voteCount": 2,
+        "content": "Arista Warrior 2 confirms this (gksong is correct). \"When a switch boots in ZTP mode, it configures all the Ethernet and Management interfaces with the no switchport command..\" Chapter 25 Section: Booting with ZTP.. page 305.."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/arista/view/2119-exam-ace-a12-topic-1-question-25-discussion/",
+    "body": "Which of the following Arista switches support LANZ?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7010",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7150",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7500E",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7048T"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://eos.arista.com/latency-analyzer-lanz-architectures-and-configuration/#5_LANZ_lite_7500_and_7048T",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-05-17T01:01:00.000Z",
+        "voteCount": 1,
+        "content": "This question is multiple choice. It's not only one answer on the actual"
+      },
+      {
+        "date": "2020-04-13T04:56:00.000Z",
+        "voteCount": 2,
+        "content": "https://cc.cnetcontent.com/vcs/hp-ent/inline-content/NC/E/5/E5A29342346B498E297F118E0B059AE2A631152F_source.PDF\nUnder Virtualization and provisioning, there is support for Arista 7500E for LANZ"
+      },
+      {
+        "date": "2019-10-26T06:04:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct\nhttp://www.spsysnet.com/brochure/arista/AristaProductQuickReferenceGuide.pdf"
+      },
+      {
+        "date": "2019-07-02T20:02:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct\nhttps://www.arista.com/assets/data/pdf/Datasheets/7150S_Datasheet.pdf"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/arista/view/43627-exam-ace-a12-topic-1-question-26-discussion/",
+    "body": "Many Arista switches support reversible air flow. When the fans installed on such a switch have red handles, which of the following statements would be correct?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCold air will be pulled in from the port side of the switch.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tWarm air will be pulled in from the starboard side of the switch.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHot air will be pulled in from the fan side of the switch.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHot air will be ejected from the fan side of the switch."
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://www.arista.com/assets/data/docs/Manuals/QSG/QS_7000-Gen3_Color.pdf<br>(page 5)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-04T09:54:00.000Z",
+        "voteCount": 1,
+        "content": "@Mahmutaydin - the reason A is not correct is because the Red Handle means that Hot air exists. Blue Handle means cold air enters.\nAirflow Orientation: Determine the airflow direction of the four fan modules and two power supply\nmodules on the rear panel. Figure 2-1 on page 4 indicates the location of the airflow direction label\non the power supply modules. The fan module airflow direction label is located on the left side of\nthe handle. The fan and power supply module handles also indicate the module airflow direction:\n\u2022 Blue Handle: Air Inlet module.\n\u2022 Red Handle: Air Exit module.\nSo D is correct"
+      },
+      {
+        "date": "2021-01-31T06:34:00.000Z",
+        "voteCount": 1,
+        "content": "Why A is not also correct?"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/arista/view/804-exam-ace-a12-topic-1-question-28-discussion/",
+    "body": "Given the following output, what can you determine about Ethernet13?<br><img src=\"/assets/media/exam-media/01448/0001300001.png\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet13 has a QSFP interface",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet13 has a QSFP+interface",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet13 is an Agile Port",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet13 has a hardware error that is causing it to misreport its connection speed."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-04-01T19:27:00.000Z",
+        "voteCount": 7,
+        "content": "Answer is C, it is an agile port"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/arista/view/11532-exam-ace-a12-topic-1-question-29-discussion/",
+    "body": "When using Monitor Sessions with a destination of the CPU, it is impossible to forward an entire 10Gbps worth of traffic due to internal COPP policies. How might you successfully use this feature given these constraints?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou just have to live with it.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse packet truncation.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse ACL filters applied to the mirror session.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBuy a switch with a larger TCAM."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-04T10:02:00.000Z",
+        "voteCount": 1,
+        "content": "I would say packet truncation. For me, the ACL method is when you have a specific source/destination you want to mirror. Though the ACL method would  reduce the impact on the CPU, but the question is geared around the entire 10G of the port that is being mirrored. So I would say Packet truncation as the final answer.. So B."
+      },
+      {
+        "date": "2020-01-06T08:14:00.000Z",
+        "voteCount": 1,
+        "content": "why dont B and C"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/arista/view/2120-exam-ace-a12-topic-1-question-36-discussion/",
+    "body": "Which command will successfully configure Ethernet5 to be 40Gbps on an Arista 7150-52 switch?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAn Arista 7150-52 dos not support 40Gbps",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSince Ethernet 5 is a 10Gbps port, 40Gbps is not possible.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArista(config-if-Et5)#speed forced 40gfull",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArista(config-if-Et5)#speed 40gfull"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://www.arista.com/zh/um-eos-4172f/eos-section-9-5-ethernet-configuration-procedures",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-17T11:01:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry Not 7150-50 BUT 7150-52 as seen clearly on the Switch. \n\nB can't be correct because e 5 is 40G and not 10G on 7150-52.\n\nI stay with C\n\nhttps://www.arista.com/assets/data/pdf/Datasheets/7150S_Datasheet.pdf"
+      },
+      {
+        "date": "2020-09-17T10:53:00.000Z",
+        "voteCount": 1,
+        "content": "B can't be correct because e 5 is 40G and not 10G on 7150-50 https://www.arista.com/assets/data/pdf/Datasheets/7150S_Datasheet.pdf"
+      },
+      {
+        "date": "2020-09-17T10:52:00.000Z",
+        "voteCount": 1,
+        "content": "B can't be correct because e 5 is 40G and not 10G on 7150 https://www.arista.com/assets/data/pdf/Datasheets/7150S_Datasheet.pdf"
+      },
+      {
+        "date": "2020-04-13T22:03:00.000Z",
+        "voteCount": 1,
+        "content": "Thats right, answer is B, by default all ports is 10G and if wanna use 40G, need to make an Agile Port(combination of 4x10G ports0 to form 1x40G port."
+      },
+      {
+        "date": "2019-07-02T20:33:00.000Z",
+        "voteCount": 3,
+        "content": "B is correct, Et5 is non-primary ports"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/arista/view/8416-exam-ace-a12-topic-1-question-37-discussion/",
+    "body": "Where does SysDB store its contents when the switch reboots?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tflash:",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/mnt/flash",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/home/admin",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnone of the above"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-25T20:07:00.000Z",
+        "voteCount": 1,
+        "content": "SysDB is an agent, so it resides in memory. Its contents\nare built after every boot, which means that it does not survive a reboot... \nAns - D"
+      },
+      {
+        "date": "2020-10-26T10:51:00.000Z",
+        "voteCount": 1,
+        "content": "Arista EOS: SYSDB\nSeparating functional control of the system into multiple\nprocesses greatly enhances resiliency and fault isolation, but\nrequires a mechanism for coordinating actions within the\nsystem. This is the role of Sysdb.\nAs figure 2 shows, at the core of EOS is the system database.\nSysdb is an in-memory database (machine generated at run\ntime), which runs in user space and contains the complete state\nof the system. Like traditional databases, Sysdb does not contain\nany application logic and is only responsible for keeping state.\nHowever rather than being optimized for transactions, Sysdb is\ndesigned for synchronizing state among processes, also called\n\u2018agents\u2019, by notifying interested processes or agents when there\nis a change.\nAll agents in the system mount their configuration and status\nfrom Sysdb. This is very much like a file-system mount where\nread-only or read-write permissions are specified for each\nmount point. When an agent mounts from Sysdb, it receives its\nown local copy of all of the state in that mount point. As Sysdb\nis maintained in RAM, once the switch is turned off or restarted,\ninformation is lost."
+      },
+      {
+        "date": "2020-04-13T22:06:00.000Z",
+        "voteCount": 1,
+        "content": ". SysDB is the repository for state information for EOS agents, means its like RAM, when reboots nothing is saved in it"
+      },
+      {
+        "date": "2020-02-09T12:11:00.000Z",
+        "voteCount": 1,
+        "content": "D because it resides in RAM"
+      },
+      {
+        "date": "2020-01-06T08:23:00.000Z",
+        "voteCount": 2,
+        "content": "Do belive with D \n\nSysDB is an agent, so it resides in memory. Its contents\nare built after every boot, which means that it does not survive a reboot\n(that\u2019s what the startup-config is for)."
+      },
+      {
+        "date": "2019-11-17T08:24:00.000Z",
+        "voteCount": 3,
+        "content": "I believe the answer should be D, sysDB is only available in RAM"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/arista/view/18396-exam-ace-a12-topic-1-question-38-discussion/",
+    "body": "Given the following output, on what interface would you expect to see mirrored traffic when using tcpdump?<br><img src=\"/assets/media/exam-media/01448/0001700001.png\" class=\"in-exam-image\"><br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEthernet1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEt1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcpu0",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tmirror0"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://eos.arista.com/introduction-to-managing-eos-devices-troubleshooting/#362_Running_TCPDump_for_data-plane_traffic_natively_in_EOS",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T10:31:00.000Z",
+        "voteCount": 2,
+        "content": "It says source ports are Eth1. Destination is CPU (mirror0). The answer is not A or B or C.. it is D!"
+      },
+      {
+        "date": "2020-04-13T22:10:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is D;\n\n7150S#bash tcpdump -i mirror0\ntcpdump: WARNING: mirror0: no IPv4 address assigned\ntcpdump: verbose output suppressed, use -v or -vv for full protocol decode\nlistening on mirror0, link-type EN10MB (Ethernet), capture size 65535 bytes"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/arista/view/9644-exam-ace-a12-topic-1-question-44-discussion/",
+    "body": "What is the name of the feature that allows the destination of a monitor session to be the CPU?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMirroring",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAdvanced Mirroring",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCPU Mirroring",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSuper-Mirror"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://www.arista.com/docs/Manuals/QuickStart-Managing7150Series.pdf<br>(page 26)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-01T13:47:00.000Z",
+        "voteCount": 2,
+        "content": "Advanced mirroring"
+      },
+      {
+        "date": "2020-10-29T06:12:00.000Z",
+        "voteCount": 1,
+        "content": "In the Arista Configuration Essentials 2.1.3 Advance Mirroring Overview it discusses mirror to CPU. So ideally B is correct as the topic C is the function."
+      },
+      {
+        "date": "2020-09-17T11:53:00.000Z",
+        "voteCount": 1,
+        "content": "I stay with C. CPU Mirroring"
+      },
+      {
+        "date": "2019-12-03T02:16:00.000Z",
+        "voteCount": 4,
+        "content": "Should be 'B' Advanced Mirroring"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/arista/view/44143-exam-ace-a12-topic-1-question-47-discussion/",
+    "body": "On an Arista 7150-24, which of the following commands would successfully help you to determine which ports would be subsumed within Ethernet1 configured at<br>40Gbps?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArista#show platform fm6000 agile-port map",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArista(config-if-Et1)#show platform fm6000 agile-port map",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArista(config-mgmt-agile)#show platform fm6000 agile-port map",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tArista(config-if-Et1)#show platform petra agile-port map"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://www.arista.com/assets/data/pdf/user-manual/um-eos-4172f/Chapters/um-eos-4172f_Ethernet%20Ports.pdf<br>(page 57)",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-06T16:16:00.000Z",
+        "voteCount": 1,
+        "content": "none of the given options are correct - \nHere is correct syntax - (notice the agileport ) \n\nswitch#show platform fm6000 agileport map\n-----------------------------------------------------------------\nAgile Ports | Interfaces subsumed in 40G link\n-----------------------------------------------------------------\nEthernet1 | Ethernet3 Ethernet5 Ethernet7\nEthernet2 | Ethernet4 Ethernet6 Ethernet8\nEthernet13 | Ethernet15 Ethernet17 Ethernet19\nEthernet14 | Ethernet16 Ethernet18 Ethernet20\n\nhttps://www.arista.com/assets/data/docs/Manuals/EOS-4.17.0F-Manual.pdf == Refer Page 455"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/arista/view/32503-exam-ace-a12-topic-1-question-49-discussion/",
+    "body": "What will the following command do?<br>show event-monitor arp | grep 10.100.100.6<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShow all the historical ARP entry changes on the remote Arista switch located at IP address 10.100.100.6",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShow all the event-monitors for a switch that has an ARP address matched to the IP address 10.100.100.6",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tShow all historical ARP entry changes that contain the IP address 10.100.100.6",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThis is not a valid command"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-09-24T03:05:00.000Z",
+        "voteCount": 2,
+        "content": "The answer is badly formulated at best. The command output will show you historical arp table entries for the IP address specified."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/arista/view/33143-exam-ace-a12-topic-1-question-51-discussion/",
+    "body": "Which of the following Tap Aggregation command sessions are correct?<br><img src=\"/assets/media/exam-media/01448/0002200001.png\" class=\"in-exam-image\"><br>A.<br><img src=\"/assets/media/exam-media/01448/0002200002.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/01448/0002200003.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/01448/0002300001.png\" class=\"in-exam-image\"><br>D.<br>",
+    "options": [],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-29T10:42:00.000Z",
+        "voteCount": 1,
+        "content": "To add to this on why B is correct. I wanted to double check one more thing. When configuring a tap or tool port, you have to enable \"switchport mode \"tap/tool\" when doing this after entering one of the other, there is no more avaialble commands you get the &lt;cr&gt; when entering switchport mode tool ?.. So A is definitely not correct."
+      },
+      {
+        "date": "2021-01-25T13:58:00.000Z",
+        "voteCount": 1,
+        "content": "B is correct, if it is assumed these ports have been enabled for tap and tool mode using switchport mode tap/tool command. This is a requirement. To double check this, I verified my span switch configuration and all tap and tool ports have switchport mode tap/tool entered."
+      },
+      {
+        "date": "2020-09-28T12:46:00.000Z",
+        "voteCount": 3,
+        "content": "Correct is B"
+      },
+      {
+        "date": "2020-10-29T06:06:00.000Z",
+        "voteCount": 1,
+        "content": "B,don not have switchport mode tap\uff0cswitchport mode tool"
+      },
+      {
+        "date": "2020-10-29T06:15:00.000Z",
+        "voteCount": 1,
+        "content": "Correct is B"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/arista/view/18458-exam-ace-a12-topic-1-question-54-discussion/",
+    "body": "With VXLAN, a table is created that contains all the known VXLAN Tunnel Endpoints within a VXLAN VNI. What is this table called?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe mac-address-table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe flood-list",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe ARP table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThere is no such table"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-14T23:53:00.000Z",
+        "voteCount": 2,
+        "content": "There is no table mapping the VNI and VTEP, the only way u see the VNI mapping is thru the int vxlan1 and both the mac address-table and vxlan address table gives the remote mac of the devices.\nHence answer is D"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/arista/view/6703-exam-ace-a12-topic-1-question-58-discussion/",
+    "body": "Which Arista switch series supports more than eight line cards?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7050",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7250QX",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7500",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t7300"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://www.arista.com/en/products/switches",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-26T11:40:00.000Z",
+        "voteCount": 1,
+        "content": "C : 7300 Chassis - 8-slot and 4-slot  only.  7500R Series Chassis - 16-Slot, 12-slot, 8-slot and 4-slot."
+      },
+      {
+        "date": "2020-04-28T18:59:00.000Z",
+        "voteCount": 2,
+        "content": "D. Because Arista 7300 Series have DSC-7316. But Arista 7500 Series have DSC-7508 only. If Arista 7500R Series will have DSC-7516R."
+      },
+      {
+        "date": "2020-02-09T11:40:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C \nhttps://www.arista.com/assets/data/pdf/AristaProductQuickReferenceGuide.pdf\n7500R3 max 12 line cards\n7500R max 16 line cards\n7300 and 7800R3 max 8 line cards"
+      },
+      {
+        "date": "2020-01-28T02:01:00.000Z",
+        "voteCount": 1,
+        "content": "This should be 7500, not 7500. THe 7300 can only support a max of 8 cards, not \"more than\"."
+      },
+      {
+        "date": "2019-10-17T00:02:00.000Z",
+        "voteCount": 2,
+        "content": "why not C D?\n7516R 7512R"
+      },
+      {
+        "date": "2019-10-26T19:20:00.000Z",
+        "voteCount": 1,
+        "content": "They are 7500R series not 7500 series"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/arista/view/2376-exam-ace-a12-topic-1-question-59-discussion/",
+    "body": "Which of the following commands will show all of the hardware on an Arista switch?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow inventory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow version",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow version detail",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow hardware"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://eos.arista.com/how-to-store-and-view-previous-contents-of-show-tech-support/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-26T11:45:00.000Z",
+        "voteCount": 1,
+        "content": "show inventory\nThe show inventory command displays the hardware components installed in the switch. Serial numbers and a description is also provided for each component."
+      },
+      {
+        "date": "2019-07-10T20:46:00.000Z",
+        "voteCount": 2,
+        "content": "C is detail for software. A is detail for hardware, A is correct."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/arista/view/6745-exam-ace-a12-topic-1-question-60-discussion/",
+    "body": "When configuring MLAG, Arista recommends that the trunk group command be used on the VLAN used for MLAG peer communication. What is the purpose of the trunk group command?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt groups all the trunks together so that they can traverse the peer-link properly.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt groups the MLAG interfaces together so that they can be reported on both peers.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt prevents the configured VLAN from leaking out onto other trunks.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIt ensures that the configured VLAN will be included on all trunks."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-29T10:52:00.000Z",
+        "voteCount": 1,
+        "content": "C :Note: Assigning VLAN 4094 and port channel X to the mlagpeer trunk group prevents traffic from VLAN 4094 from being carried on any other trunk."
+      },
+      {
+        "date": "2020-02-09T11:58:00.000Z",
+        "voteCount": 1,
+        "content": "Answer C according to Arista Warrior book. See post cronus830 and gksong"
+      },
+      {
+        "date": "2020-01-12T23:21:00.000Z",
+        "voteCount": 1,
+        "content": "The trunk group MLAG-Peer command creates a trunk group, which is a cool way of assigning VLANs to trunks. We now need to assign the same group to the peer-link:\n    Arista-1(config-vlan-4094)#int po 1\n    Arista-1(config-if-Po1)#switchport trunk group MLAG-Peer\nNow, VLAN 4094 will only be included on trunks that are also assigned to the MLAG- Peer trunk group. By doing this, when we create a new trunk, by default VLAN 4094 will not be included. \n\nIn arista worrior"
+      },
+      {
+        "date": "2019-10-18T01:48:00.000Z",
+        "voteCount": 2,
+        "content": "By doing this, when we create a new trunk, by default VLAN 4094 will not be included. This keeps the MLAG peer-link traffic on this link, and only on this link (unless you add the MLAG-Peer trunk group to another trunk, but don\u2019t do that).\n\nMaybe C is correct."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/arista/view/12903-exam-ace-a12-topic-1-question-68-discussion/",
+    "body": "Why is FastCli faster than Cli?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastCli utilizes an always-running agent to process the submitted command and return the output.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastCli is not faster than Cli, though the name might suggest otherwise.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastCli is written in C++ while Cli is written in Perl.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFastCli uses special engrams from the M5."
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-04-29T06:24:00.000Z",
+        "voteCount": 1,
+        "content": "Old question. Like @ChrisVic said, both are the same now. FastCli was a faster version of the Cli tool. In the pre 4.16. X EOS versions, If you ran a show version command using the Cli tool it was up to 20x slower than using the FastCli tool. However, in more recent EOS versions the FastCli and Cli tools are exactly the same"
+      },
+      {
+        "date": "2020-10-29T11:00:00.000Z",
+        "voteCount": 1,
+        "content": "FastCli is considerably faster since it does not spawn an entire Cli session to execute the command"
+      },
+      {
+        "date": "2020-02-09T11:35:00.000Z",
+        "voteCount": 1,
+        "content": "Answer A describes the way Fastcli is working. Accord to Arista Warrior Book cli is a pointer to Fastcli Now\n https://books.google.com/books/about/Arista_Warrior.html?hl=de&amp;id=8QegDwAAQBAJ"
+      },
+      {
+        "date": "2020-01-28T02:14:00.000Z",
+        "voteCount": 2,
+        "content": "This may not be correct. They are now the same speed."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/arista/view/6704-exam-ace-a12-topic-1-question-69-discussion/",
+    "body": "Which of the following commands is being deprecated and will not be supported in the near future?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy running-config startup-config",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy run start",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twrite memory",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tnone of the above"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-04-17T22:07:00.000Z",
+        "voteCount": 4,
+        "content": "Answer is D, none of the listed is deprecated"
+      },
+      {
+        "date": "2019-10-17T00:53:00.000Z",
+        "voteCount": 2,
+        "content": "why not D?"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/arista/view/6742-exam-ace-a12-topic-1-question-74-discussion/",
+    "body": "The VXLAN spec allows for two implementation types. One uses multicast. What is the other one called?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNon-multicast replication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBUM-Replication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFore-end Replication",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tHead-end Replication"
+    ],
+    "answer": "B",
+    "answerDescription": "Reference:<br>https://eos.arista.com/vxlan-without-controller-for-network-virtualization-with-arista-physical-vteps/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-30T23:42:00.000Z",
+        "voteCount": 1,
+        "content": "https://eos.arista.com/tag/head-end-replication/"
+      },
+      {
+        "date": "2020-10-29T09:56:00.000Z",
+        "voteCount": 1,
+        "content": "Unicast: As of EOS-4.13.0F, Arista supports unicast-based VXLAN (no multicast required) to support broadcast, unkown unicast and multicast traffic. This is called Head-End replication (HER)"
+      },
+      {
+        "date": "2020-03-03T12:29:00.000Z",
+        "voteCount": 1,
+        "content": "There is no BUM replication, but BUM traffic. HER is triggered every time there's BUM traffic."
+      },
+      {
+        "date": "2019-10-17T23:38:00.000Z",
+        "voteCount": 4,
+        "content": "there is only head-end replication.\nHead-end replication is a data distribution method that supports broadcast, unknown unicast, and multicast (BUM) traffic over VXLANs by replicating BUM data locally for transmission to the set of remote VTEPs specified by a flood list. This data flooding facilitates remote MAC address learning through the forwarding of data with unknown MAC addresses."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/arista/view/763-exam-ace-a12-topic-1-question-75-discussion/",
+    "body": "What is the command to set the switch to use EOS 4.15.1F.swi the next time it reloads?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboot system flash:/EOS-4.15.1.swi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboot system 4.15.1F.swi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboot system flash:/EOS-4.15.1F.swi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tboot system flash EOS-4.15.1F.swi"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-17T06:13:00.000Z",
+        "voteCount": 1,
+        "content": "in A, file name is missing.Question asks 1F but in A there is no F. so answer is c"
+      },
+      {
+        "date": "2020-09-18T12:15:00.000Z",
+        "voteCount": 1,
+        "content": "The answer is C"
+      },
+      {
+        "date": "2020-07-19T21:24:00.000Z",
+        "voteCount": 1,
+        "content": "Should be C"
+      },
+      {
+        "date": "2020-07-08T06:23:00.000Z",
+        "voteCount": 1,
+        "content": "The answer confirm should be C !  linux normal file path"
+      },
+      {
+        "date": "2019-03-29T19:45:00.000Z",
+        "voteCount": 1,
+        "content": "Why the answer is not C?"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/arista/view/21009-exam-ace-a12-topic-1-question-77-discussion/",
+    "body": "True or False: When ZTP has been placed in cancel mode, you must issue the write memory command to prevent ZTP from triggering again.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTRUE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFALSE"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-02-01T14:18:00.000Z",
+        "voteCount": 1,
+        "content": "I thoutgh this again. I think answer is A corret. Because after booted switch,  there is no startup config. but ztp cancel one time command. if device reboot again, ztp will be activated since there is no startupconfig. to prevent it you have to write memory to create startup config"
+      },
+      {
+        "date": "2020-11-17T06:15:00.000Z",
+        "voteCount": 1,
+        "content": "ztp cancel provides only one-time cancellation.If you reboot again the device, ztp will be enabled. Also, as soon as you  ztp cancel, device will be reboot. Answer b"
+      },
+      {
+        "date": "2020-09-18T12:23:00.000Z",
+        "voteCount": 4,
+        "content": "B is correct\nTo cancel ZTP mode, login as admin and type zerotouch cancel. This will trigger an immediate reload of the switch, after which the switch will be ready to configure manually. At this point, if you ever erase the startup-config and reload, the switch will edn up ZTP mode again."
+      },
+      {
+        "date": "2020-05-20T08:00:00.000Z",
+        "voteCount": 1,
+        "content": "A is true"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/arista/view/35253-exam-ace-a12-topic-1-question-78-discussion/",
+    "body": "To upgrade the EOS running on an Arista switch, which of the following commands copies the new EOS file from USB to flash?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy usb1:/EOS-4.15.0.swi flash:/EOS-4.15.0.swi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy usb:/EOS-4.15.0.swi flash:/EOS-4.15.0.swi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy drive0:/EOS-4.15.0.swi flash:/EOS-4.15.0.swi",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy usb0:/EOS-4.15.0.swi flash:/EOS-4.15.0.swi"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-26T12:10:00.000Z",
+        "voteCount": 1,
+        "content": "USB Memory\nCommand\ncopy usb1:/sourcefile flash:/destfile\nExample\nSch#copy usb1:/EOS-4.14.4.swi flash:/EOS-4.14.4.swi"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/arista/view/35254-exam-ace-a12-topic-1-question-83-discussion/",
+    "body": "How might you filter the output from the show interfaces counters errors command to be more useful by removing lines containing all zeroes?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow interfaces counters errors | grep nozeroes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow interfaces counters errors | grep pipe nozeroes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow interfaces counters errors | email tac@arista.com",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow interfaces counters errors | nz"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>https://eos.arista.com/introduction-to-managing-eos-devices-annex-b-eos-tips-for-power-users/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-26T12:18:00.000Z",
+        "voteCount": 2,
+        "content": "EOS CLI supports the following \u201cshow\u201d command redirections, by \u201c|\u201d (pipe):\n\nLINE      Filter command by common Linux tools such as grep/awk/sed/wc\n append    Append redirected output to URL\n begin     Begin with the line that matches\n exclude   Exclude lines that match\n include   Include lines that match\n no-more   Disable pagination for this command\n nz        Include only non-zero counters \u2190 Hides line with all 0 numbers\n redirect  Redirect output to URL\n section   Include sections that match \u2190 Shows whole hierarchy rather than just the line (as with inc)\n tee       Copy output to URL"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/arista/view/6706-exam-ace-a12-topic-1-question-84-discussion/",
+    "body": "Which of the following commands will show the mac-address to VTEP table on an Arista switch?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow vxlan address-table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow vxlan mac-address-table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow mac-address-table",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow vxlan summary"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-03T01:57:00.000Z",
+        "voteCount": 6,
+        "content": "leaf-01#show vxlan address-table \n          Vxlan Mac Address Table\n----------------------------------------------------------------------\n\nVLAN  Mac Address     Type     Prt  VTEP             Moves   Last Move\n----  -----------     ----     ---  ----             -----   ---------\n4094  5010.002b.766c  EVPN     Vx1  10.0.255.14      1       73 days, 1:06:29 ago\n4094  5010.00b0.af03  EVPN     Vx1  10.0.255.12      1       73 days, 1:45:28 ago\nTotal Remote Mac Addresses for this criterion: 2"
+      },
+      {
+        "date": "2020-10-26T12:21:00.000Z",
+        "voteCount": 1,
+        "content": "This command displays the VXLAN address table.\nswitch&gt;show vxlan address-table\n          Vxlan Mac Address Table\n----------------------------------------------------------------------\n \nVlan  Mac Address     Type     Prt  Vtep             Moves   Last Move\n----  -----------     ----     ---  ----             -----   ---------\n  51  0000.0051.0101  DYNAMIC  Vx1  10.25.2.12       1       4 days, 0:37:14 ago\n  51  0000.0051.0102  DYNAMIC  Vx1  10.25.2.12       1       4 days, 0:37:14 ago\n  51  0000.0051.0103  DYNAMIC  Vx1  10.25.2.12       1       4 days, 0:37:14 ago"
+      },
+      {
+        "date": "2020-09-22T05:48:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is A"
+      },
+      {
+        "date": "2019-10-17T02:00:00.000Z",
+        "voteCount": 1,
+        "content": "there is no show mac-address-table\uff0cbut show mac address-table."
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/arista/view/46661-exam-ace-a12-topic-1-question-87-discussion/",
+    "body": "Which command below is valid to use as a way to verify the status of the MLAG peer-link?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow mlag",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow mlag interface",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow mlag peer-link",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow mlag detail"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://eos.arista.com/mlag-basic-configuration/#Verify_spanning-tree_on_both_MLAG_peers",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-03-12T02:50:00.000Z",
+        "voteCount": 1,
+        "content": "A. \"show mlag\" and D. \"show mlag detail\"  would show \"peer-link status\""
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/arista/view/2123-exam-ace-a12-topic-1-question-88-discussion/",
+    "body": "If the SWI= statement in the boot-config file is invalid, what will happen when the switch reboots?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe switch will not boot EOS, and will instead enter Aboot.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe switch will load the first SWI image it finds on flash:",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe switch will power off.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThe switch will reboot itself and try again."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-10-26T12:28:00.000Z",
+        "voteCount": 1,
+        "content": "If an image file is not specified in boot-config, or if booting the image results in an error condition (for\nexample, an incorrect path or unavailable HTTP server), Aboot halts the boot process and drops into\nthe shell."
+      },
+      {
+        "date": "2020-07-19T21:33:00.000Z",
+        "voteCount": 3,
+        "content": "Yes A is correct."
+      },
+      {
+        "date": "2020-03-03T12:46:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct.\nFrom Arista Warrior 2. \nIn fact, if any of the following should occur, Aboot will halt the\nsystem:\nboot-config is corrupt or not found\nConfigured EOS image is corrupt or not found\nCtrl-C is entered from the console while the Aboot process is\nrunning"
+      },
+      {
+        "date": "2019-07-03T00:34:00.000Z",
+        "voteCount": 2,
+        "content": "A is correct"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/arista/view/21010-exam-ace-a12-topic-1-question-90-discussion/",
+    "body": "What is the EOS command that allows Arista switches with Multi-switch CLI enabled to send interactive commands to multiple switches at once?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\txmpp group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\txmpp send switch-group",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\txmpp session &lt;switch-group name&gt;",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\txmpp session-name &lt;session name&gt;"
+    ],
+    "answer": "C",
+    "answerDescription": "Reference:<br>https://www.arista.com/en/um-eos-4172f/eos-section-2-5-session-management-commands",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2021-01-26T08:01:00.000Z",
+        "voteCount": 1,
+        "content": "xmpp session &lt;switch-group name&gt; I believe &lt;switch-group name&gt; would include the \"@domain\" so I am saying C is correct"
+      },
+      {
+        "date": "2020-10-29T11:20:00.000Z",
+        "voteCount": 1,
+        "content": "Multi-Switch CLI Operation-interact directly with group Use \u201cxmpp session group@domain\u201d to interact with a group of switches Student-16#xmpp session even@conference.class.com"
+      },
+      {
+        "date": "2020-05-20T08:07:00.000Z",
+        "voteCount": 1,
+        "content": "no above\nUse \u201cxmpp session group@domain\u201d to interact with a group of switches"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/arista/view/559-exam-ace-a12-topic-1-question-91-discussion/",
+    "body": "On an Arista switch, what two commands can you use to write your changes from the running-configuration to the startup-configuration?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\twrite",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcopy running-config startup-config",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsave",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tsave memory"
+    ],
+    "answer": "BC",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-03-10T03:20:00.000Z",
+        "voteCount": 8,
+        "content": "This is not true... the correct answer is A,B"
+      },
+      {
+        "date": "2020-07-19T21:36:00.000Z",
+        "voteCount": 2,
+        "content": "It should be write and copy run start, means answers A and B are correct"
+      },
+      {
+        "date": "2020-04-19T22:20:00.000Z",
+        "voteCount": 2,
+        "content": "Yea answer is A&amp;B"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/arista/view/21011-exam-ace-a12-topic-1-question-95-discussion/",
+    "body": "Which of the following statuses will be displayed when VMTracer has connected to vSphere?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConnected",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAttached",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tActive",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNone of the above"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-05-20T08:11:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct\nshow vmtracer interface \nUp/Up - VM Booted/Connected to Switch\nUp/Down - VM Booted/NIC Disconnected\nDown/Down - VM Down"
+      },
+      {
+        "date": "2020-10-29T08:11:00.000Z",
+        "voteCount": 2,
+        "content": "check the command \"show vmtracer session\"!\nA is correct!"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/arista/view/2387-exam-ace-a12-topic-1-question-96-discussion/",
+    "body": "Which of the following commands can you use to see which EOS versions are stored on the switch\u2019s flash drive (assuming a freshly booted switch)?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdir flash",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tbash ls /mnt/flash",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tdir",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tall of the above"
+    ],
+    "answer": "D",
+    "answerDescription": "Reference:<br>http://arisq.ylb.jp/documents/bootimage",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-09T07:33:00.000Z",
+        "voteCount": 4,
+        "content": "A does not work. There is no folder called flash in flash \n\nSWITCH#dir flash\nDirectory of flash:/flash\n\n% Error listing directory flash:/flash (No such file or directory)\n\nB. Yes. You can read the file name of the SWI\nC. Same as above\nD. No since A does not work\n\nThere for B,C"
+      },
+      {
+        "date": "2020-01-03T02:36:00.000Z",
+        "voteCount": 1,
+        "content": "A is correct too if it is \"dir flash:\" (last caracter missing in the text). So \"D\", all of the above, can be a correct answer."
+      },
+      {
+        "date": "2019-11-16T16:56:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer is C, if you try to enter dir it will be return the same result as dir flash:"
+      },
+      {
+        "date": "2019-07-11T01:55:00.000Z",
+        "voteCount": 2,
+        "content": "dir flash command is not show EOS version, the correct is dir flash:"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/arista/view/2124-exam-ace-a12-topic-1-question-97-discussion/",
+    "body": "On what protocol is Multi-Switch CLI based?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTELNET",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSCP",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSSH",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tXMPP"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-07-03T00:40:00.000Z",
+        "voteCount": 5,
+        "content": "D is correct"
+      },
+      {
+        "date": "2020-12-15T18:43:00.000Z",
+        "voteCount": 3,
+        "content": "D is correct"
+      },
+      {
+        "date": "2020-07-19T21:42:00.000Z",
+        "voteCount": 3,
+        "content": "yes D should be the answer"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/arista/view/764-exam-ace-a12-topic-1-question-98-discussion/",
+    "body": "On EOS 4.15 and above, the ability to show JSON output for EOS CLI commands is available. Which of the following will successfully produce JSON output for the show version command?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow version | show json",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow version | json",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow json | show version",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tshow version json"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2019-03-29T20:23:00.000Z",
+        "voteCount": 8,
+        "content": "correct answer is B, show version | json"
+      },
+      {
+        "date": "2021-01-19T09:23:00.000Z",
+        "voteCount": 3,
+        "content": "Correct answer is B\n=====================\n\nLeaf02#sh version | json\n{\n    \"memTotal\": 8152444,\n    \"uptime\": 5442628.69,\n    \"modelName\": \"DCS-7280CR3-32P4-F\",\n    \"internalVersion\": \"4.24.2.3F-19160125.42423F\",\n    \"mfgName\": \"Arista\","
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/arista/view/11314-exam-ace-a12-topic-1-question-99-discussion/",
+    "body": "If you create a schedule job named \"Colleen-Job\", where will the output of the scheduled commands be placed?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/mnt/flash/schedule/colleen-job/",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/mnt/flash/Colleen-Job/",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tflash:Colleen-Job",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t/mnt/flash/schedule/Colleen-Job/"
+    ],
+    "answer": "A",
+    "answerDescription": "Reference:<br>https://books.google.com.pk/books?id=SFMuNdeVXswC&amp;pg=PA279&amp;lpg=PA279&amp;dq=arista+eos+output+of+the+scheduled+commands+be<br>+placed&amp;source=bl&amp;ots=Wzz700M2hx&amp;sig=fPEZrnIjLufCw7LSfKjaEs5M3kI&amp;hl=en&amp;sa=X&amp;redir_esc=y#v=onepage&amp;q=arista%20eos%20output%20of%20the%<br>20scheduled%20commands%20be%20placed&amp;f=false",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-11-17T06:40:00.000Z",
+        "voteCount": 2,
+        "content": "I tested. Answer is A"
+      },
+      {
+        "date": "2020-03-03T12:57:00.000Z",
+        "voteCount": 3,
+        "content": "It's not case-sensitive, A is correct. GAD hates it."
+      },
+      {
+        "date": "2020-01-03T02:43:00.000Z",
+        "voteCount": 1,
+        "content": "Correct is \"D\" because of caps"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/arista/view/11315-exam-ace-a12-topic-1-question-100-discussion/",
+    "body": "True or False: When configured as an MLAG domain, the Arista switches use the same MLAG System ID.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTRUE",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFALSE"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2020-01-03T02:48:00.000Z",
+        "voteCount": 6,
+        "content": "The correc reponse is \"A\"\nleaf-01#show mlag\n...\nMLAG Status:          \nstate                  :              Active\nnegotiation status     :           Connected\npeer-link status       :                  Up\nlocal-int status       :                  Up\nsystem-id              :   52:10:00:5e:08:2b\ndual-primary detection :            Disabled\n\nleaf-02#show mlag \n...\nMLAG Status:          \nstate                  :              Active\nnegotiation status     :           Connected\npeer-link status       :                  Up\nlocal-int status       :                  Up\nsystem-id              :   52:10:00:5e:08:2b\ndual-primary detection :            Disabled"
+      },
+      {
+        "date": "2020-11-17T06:41:00.000Z",
+        "voteCount": 1,
+        "content": "Both of switches ID creates new System ID. Answe is A"
+      }
+    ],
+    "examNameCode": "ace-a12",
+    "topicNumber": "1"
+  }
+]

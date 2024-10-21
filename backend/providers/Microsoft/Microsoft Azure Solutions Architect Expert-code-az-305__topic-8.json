@@ -1,0 +1,425 @@
+[
+  {
+    "topic": 8,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83184-exam-az-305-topic-8-question-1-discussion/",
+    "body": "HOTSPOT -<br>You plan to migrate App1 to Azure.<br>You need to recommend a high-availability solution for App1. The solution must meet the resiliency requirements.<br>What should you include in the recommendation? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04224/0017000001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04224/0017100001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: 3 -<br>Need three host groups to meet the third scenario requirement below.<br>Scenario: App1 must meet the following requirements:<br>Be hosted in an Azure region that supports availability zones.<br>Be hosted on Azure virtual machines that support automatic scaling.<br>Maintain availability if two availability zones in the local Azure region fail.<br><br>Box 2: 3 -<br>The availability setting of your host group should match your scale set.<br>* The host group and the scale set must be using the same availability zone.<br>* The fault domain count for the host group level should match the fault domain count for your scale set.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-04-29T13:02:00.000Z",
+        "voteCount": 32,
+        "content": "I am confident the answer is 3-3.\nI had this question in my exam today, and I passed the exam with 979. In Design Infrastructure Solutions section, I got 100% correct."
+      },
+      {
+        "date": "2022-11-13T23:47:00.000Z",
+        "voteCount": 27,
+        "content": "3-3\nVMSS supports zone-redundant, while Dedicated Host does not. No-zone option of host group in Dedicated Host is not zone-redundant, it represents regional resource.\n- You must create a  host group in each zone.\n- You must create a VMSS in each zone where the host group is deployed.\nhttps://learn.microsoft.com/en-us/azure/reliability/availability-zones-service-support#azure-services-with-availability-zone-support\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts#virtual-machine-scale-set-support\n\nIn addition, when a Host Groups is deployed in each zone, creating a zone-redundant VMSS is also not possible.\n\nAll tested with multiple hosts, FSv2 Type1."
+      },
+      {
+        "date": "2023-03-18T03:59:00.000Z",
+        "voteCount": 1,
+        "content": "The host group and the scale set must be using the same availability zone.\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts#virtual-machine-scale-set-support"
+      },
+      {
+        "date": "2023-04-20T11:54:00.000Z",
+        "voteCount": 3,
+        "content": "Automatic VM placement needs to be enabled.\n    The availability setting of your host group should match your scale set.\n        A regional host group (created without specifying an availability zone) should be used for regional scale sets.\n        The host group and the scale set must be using the same availability zone.\n        The fault domain count for the host group level should match the fault domain count for your scale set. The Azure portal lets you specify max spreading for your scale set, which sets the fault domain count of 1.\n    Dedicated hosts should be created first, with sufficient capacity, and the same settings for scale set zones and fault domains.\n    The supported VM sizes for your dedicated hosts should match the one used for your scale set."
+      },
+      {
+        "date": "2023-02-14T22:55:00.000Z",
+        "voteCount": 3,
+        "content": "Exam Question 02/15/2023"
+      },
+      {
+        "date": "2023-02-12T15:01:00.000Z",
+        "voteCount": 6,
+        "content": "3-3\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts#groups-hosts-and-vms\nA host group is created in a single availability zone. Once created, all hosts will be placed within that zone. To achieve high availability across zones, you need to create multiple host groups (one per zone) and spread your hosts between them accordingly.\n\nIf you assign a host group to an availability zone, all VMs created on that host must be created in the same zone.\n\nWhen creating a Virtual Machine Scale Set, you can specify an existing host group to have all of the VM instances created on dedicated hosts."
+      },
+      {
+        "date": "2023-02-12T15:01:00.000Z",
+        "voteCount": 1,
+        "content": "The host group and the scale set must be using the same availability zone."
+      },
+      {
+        "date": "2023-02-02T08:07:00.000Z",
+        "voteCount": 1,
+        "content": "3 and 3"
+      },
+      {
+        "date": "2023-01-20T00:52:00.000Z",
+        "voteCount": 2,
+        "content": "Based on https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts#virtual-machine-scale-set-support i would say it's 3-3"
+      },
+      {
+        "date": "2023-01-19T11:21:00.000Z",
+        "voteCount": 1,
+        "content": "3-3 Looks correct as per article:\n\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts#groups-hosts-and-vms"
+      },
+      {
+        "date": "2022-12-16T06:39:00.000Z",
+        "voteCount": 1,
+        "content": "Maybe this Testlet can be merged with Topic 5 - Testlet 1?\nCase looks identical (questions are different)"
+      },
+      {
+        "date": "2022-11-25T01:20:00.000Z",
+        "voteCount": 2,
+        "content": "what are the correct answer folks? what have changed on 10th Oct?"
+      },
+      {
+        "date": "2022-10-26T13:50:00.000Z",
+        "voteCount": 4,
+        "content": "3-3\n\"If the VM is in an availability zone, it must be the same availability zone as the host group. The availability zone settings for the VM and the host group must match\"\nhttps://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal"
+      },
+      {
+        "date": "2022-09-22T04:44:00.000Z",
+        "voteCount": 5,
+        "content": "should be \n3\n1"
+      },
+      {
+        "date": "2022-09-28T18:15:00.000Z",
+        "voteCount": 9,
+        "content": "I think based on https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts under \"Virtual Machine Scale Set Support\", it states \"When creating a virtual machine scale set you can specify an existing host group to have all of the VM instances created on dedicated hosts.\"  So based on this, I think this is 3-3"
+      },
+      {
+        "date": "2022-10-23T08:04:00.000Z",
+        "voteCount": 2,
+        "content": "1 scale set can span the 3 hosts in separate AZ's."
+      },
+      {
+        "date": "2022-11-14T19:34:00.000Z",
+        "voteCount": 1,
+        "content": "3 host in the same availability zone only, if you want to span across different zone, you need to create additional host group.https://learn.microsoft.com/en-us/azure/virtual-machines/dedicated-hosts-how-to?tabs=portal#:~:text=Span%20across%20multiple%20availability%20zones.%20In%20this%20case%2C%20you%27re%20required%20to%20have%20a%20host%20group%20in%20each%20of%20the%20zones%20you%20wish%20to%20use"
+      },
+      {
+        "date": "2022-10-27T06:49:00.000Z",
+        "voteCount": 1,
+        "content": "Recent changes on 10th Oct makes it 1 and 1. Will they update the answers?"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84950-exam-az-305-topic-8-question-2-discussion/",
+    "body": "HOTSPOT -<br>You plan to migrate App1 to Azure.<br>You need to recommend a storage solution for App1 that meets the security and compliance requirements.<br>Which type of storage should you recommend, and how should you recommend configuring the storage? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04224/0017200001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04224/0017300001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Standard general-purpose v2<br>Standard general-purpose v2 supports Blob Storage.<br>Azure Storage provides data protection for Blob Storage and Azure Data Lake Storage Gen2.<br>Scenario:<br>Litware identifies the following security and compliance requirements:<br>\u2711 Once App1 is migrated to Azure, you must ensure that new data can be written to the app, and the modification of new and existing data is prevented for a period of three years.<br>\u2711 On-premises users and services must be able to access the Azure Storage account that will host the data in App1.<br>\u2711 Access to the public endpoint of the Azure Storage account that will host the App1 data must be prevented.<br>All Azure SQL databases in the production environment must have Transparent Data Encryption (TDE) enabled.<br><img src=\"/assets/media/exam-media/04224/0017300005.png\" class=\"in-exam-image\"><br>\u2711 App1 must NOT share physical hardware with other workloads.<br><br>Box 2: Hierarchical namespace -<br>Scenario: Plan: Migrate App1 to Azure virtual machines.<br>Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs).<br>Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/storage/blobs/data-protection-overview https://docs.microsoft.com/en-us/azure/storage/blobs/immutable-storage-overview",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-10-09T23:01:00.000Z",
+        "voteCount": 37,
+        "content": "&gt; Storage account type: \" Standard general-purpose v2 \"\n&gt; Configuration: \" Hierarchical namespace \""
+      },
+      {
+        "date": "2023-02-05T00:29:00.000Z",
+        "voteCount": 4,
+        "content": "Using only hierarchical namespaces does not support ACLs.\nTherefore, NFS must be used.\nAzure BLOB storage now supports the new NFS v3.0.\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support-how-to"
+      },
+      {
+        "date": "2023-04-29T13:00:00.000Z",
+        "voteCount": 21,
+        "content": "I think the given answer is correct. I had this question on my exam today, I passed exam with 979. my answer to this question is \nStandard general-purpose v2 \nHierarchical namespace"
+      },
+      {
+        "date": "2023-02-14T22:55:00.000Z",
+        "voteCount": 6,
+        "content": "Exam Question 02/15/2023"
+      },
+      {
+        "date": "2023-01-19T11:35:00.000Z",
+        "voteCount": 3,
+        "content": "Given answer looks good"
+      },
+      {
+        "date": "2022-10-24T22:17:00.000Z",
+        "voteCount": 6,
+        "content": "ACLs are not supported with NFSv3 according to:\n\"The only way to secure the data in your account is by using a VNet and other network security settings. Any other tool used to secure data including account key authorization, Azure Active Directory (AD) security, and access control lists (ACLs) are not yet supported in accounts that have the NFS 3.0 protocol support enabled on them\"\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support\nEnabling hierarchical namespace is the right answer :\n\"Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs).\"\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control"
+      },
+      {
+        "date": "2022-10-22T17:09:00.000Z",
+        "voteCount": 1,
+        "content": "If the request is to migrate the third party storage solution which support ACL to Azure, I think the answer is Premium file shares and NFSv3. Because the App is running on Linux, NFS makes more sense to me. Standard general purpose v2 does not support NFS."
+      },
+      {
+        "date": "2023-01-20T01:05:00.000Z",
+        "voteCount": 2,
+        "content": "\"Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs)\"\n\nData Lake means hierarchical namespace. Besides if you want to use NFSv3 you have to have hierarchical namespaces enabled anyway. So in any scenario hierarchical namespaces are correct.\n\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control"
+      },
+      {
+        "date": "2023-02-14T13:08:00.000Z",
+        "voteCount": 1,
+        "content": "The data is not allowed to be on shared hardware tho, as per the requirements."
+      },
+      {
+        "date": "2022-10-21T05:54:00.000Z",
+        "voteCount": 2,
+        "content": "&gt; Storage account type: \" Standard general-purpose v2 \"\n&gt; Configuration: \" NFSv3 \" \nSource App1 are in a linux server"
+      },
+      {
+        "date": "2023-01-20T01:05:00.000Z",
+        "voteCount": 6,
+        "content": "\"Azure Data Lake Storage Gen2 implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs)\"\n\nData Lake means hierarchical namespace. Besides if you want to use NFSv3 you have to have hierarchical namespaces enabled anyway. So in any scenario hierarchical namespaces are correct.\n\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-access-control"
+      },
+      {
+        "date": "2022-10-22T16:53:00.000Z",
+        "voteCount": 2,
+        "content": "1.  Storage account type: \" Standard general-purpose v2 \"\nStandard general purpose v2 does not support NFS.  So 2 is not NFSV3\nhttps://learn.microsoft.com/en-us/azure/storage/blobs/network-file-system-protocol-support."
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/84951-exam-az-305-topic-8-question-3-discussion/",
+    "body": "You plan to migrate App1 to Azure.<br>You need to recommend a network connectivity solution for the Azure Storage account that will host the App1 data. The solution must meet the security and compliance requirements.<br>What should you include in the recommendation?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMicrosoft peering for an ExpressRoute circuit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAzure public peering for an ExpressRoute circuit",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta service endpoint that has a service endpoint policy",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta private endpoint\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 24,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-10-09T23:02:00.000Z",
+        "voteCount": 16,
+        "content": "D. a private endpoint"
+      },
+      {
+        "date": "2023-02-25T09:59:00.000Z",
+        "voteCount": 5,
+        "content": "D is the answer.\n\nhttps://learn.microsoft.com/en-us/azure/storage/common/storage-private-endpoints\nYou can use private endpoints for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a Private Link. The private endpoint uses a separate IP address from the VNet address space for each storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet."
+      },
+      {
+        "date": "2023-09-28T07:17:00.000Z",
+        "voteCount": 1,
+        "content": "Can this be achieved with the private endpoint.?\nOn-premises users and services must be able to access the Azure Storage account that will host the data in App1."
+      },
+      {
+        "date": "2023-11-08T04:31:00.000Z",
+        "voteCount": 1,
+        "content": "If the on-prem is connected via expressroute or VPN, then it is possible."
+      },
+      {
+        "date": "2023-02-25T09:59:00.000Z",
+        "voteCount": 2,
+        "content": "Same as Topic 12 Question 2.\nhttps://www.examtopics.com/discussions/microsoft/view/69317-exam-az-305-topic-12-question-2-discussion"
+      },
+      {
+        "date": "2023-01-18T23:52:00.000Z",
+        "voteCount": 2,
+        "content": "D - Agreed.\nPrivate endpoint is the way to go in any cloud provider."
+      },
+      {
+        "date": "2023-01-18T00:38:00.000Z",
+        "voteCount": 1,
+        "content": "private endpoint"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/82774-exam-az-305-topic-8-question-4-discussion/",
+    "body": "You need to implement the Azure RBAC role assignments for the Network Contributor role. The solution must meet the authentication and authorization requirements.<br>What is the minimum number of assignments that you must use?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t2\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t5",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t15"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 44,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-11-21T00:47:00.000Z",
+        "voteCount": 28,
+        "content": "Litware has two Azure tenants. One tenant with 10 subscriptions and one tenant with five subscriptions. We can organize the subscriptions of the two tenants in a management group each and assign users to the Network Contributor role or to Role1 at the management group level."
+      },
+      {
+        "date": "2023-01-06T08:47:00.000Z",
+        "voteCount": 7,
+        "content": "two tenants two MG"
+      },
+      {
+        "date": "2023-07-17T07:28:00.000Z",
+        "voteCount": 1,
+        "content": "2 tareas:\n- Permiso de lectura para los blobs\n- Permiso de lectura para archivos en Azure Storage"
+      },
+      {
+        "date": "2023-02-14T22:54:00.000Z",
+        "voteCount": 5,
+        "content": "Exam Question 02/15/2023"
+      },
+      {
+        "date": "2022-10-13T05:37:00.000Z",
+        "voteCount": 2,
+        "content": "i would say B.2 as root management group is created by default in a Tenant and we have 2 Tenants here.\nBut as they are not mentionning management group it could also be 15 assigment (one per subscription)"
+      },
+      {
+        "date": "2022-12-30T08:49:00.000Z",
+        "voteCount": 4,
+        "content": "The authentication and authorization requirements state: \"RBAC roles must be applied to management groups,\" so I think you were correct with B."
+      },
+      {
+        "date": "2024-01-04T05:27:00.000Z",
+        "voteCount": 1,
+        "content": "Yes but the question is asking for the \u201cminimum \u201c"
+      },
+      {
+        "date": "2022-10-09T23:12:00.000Z",
+        "voteCount": 2,
+        "content": "B. 2 \nhttps://www.cert2brain.com/Server/Demo.aspx?exam=AZ-304"
+      },
+      {
+        "date": "2022-10-05T14:28:00.000Z",
+        "voteCount": 4,
+        "content": "E - 15) There are 2 Tenants with 15 total subscriptions. Medium size company with only 1 office. I can't find anything in the use case stating they have enabled management groups, or anything mentioning a \"Tenant Root Group\". The RBAC for network contributor would be assigned at the \"Tenant Root Group\" if management groups were enabled. Otherwise, they would assign it at the next best thing, the 15 subscriptions."
+      },
+      {
+        "date": "2022-12-30T08:50:00.000Z",
+        "voteCount": 1,
+        "content": "It can't be E because the authentication and authorization requirements state: \"RBAC roles must be applied to management groups,\" so it should be B."
+      },
+      {
+        "date": "2022-10-06T17:47:00.000Z",
+        "voteCount": 8,
+        "content": "Per https://learn.microsoft.com/en-us/azure/governance/management-groups/overview#root-management-group-for-each-directory ... \"Each directory is given a single top-level management group called the root management group. The root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This root management group allows for global policies and Azure role assignments to be applied at the directory level\".  So from this, a root MG exists for every Azure tenant/directory, so we would only need 2 RBAC assignments to each root MG"
+      },
+      {
+        "date": "2022-09-28T21:03:00.000Z",
+        "voteCount": 2,
+        "content": "2 tenants, so 2x management groups to assign to"
+      },
+      {
+        "date": "2022-09-28T18:23:00.000Z",
+        "voteCount": 3,
+        "content": "Since this states that \"Litware has a second Azure AD tenant named dev.litware.com\", a tenant is a security boundary, so corp.litware.com AAD tenant has no access to dev.litware.com AAD tenant.  Hence, need 2 RBAC roles (one in each tenant)"
+      },
+      {
+        "date": "2022-09-22T06:24:00.000Z",
+        "voteCount": 3,
+        "content": "The network contains an Active Directory forest named litware.com that is linked to an Azure Active Directory (Azure AD) tenant named litware.com.\nLitware has a second Azure AD tenant named dev.litware.com that is used as a development environment."
+      },
+      {
+        "date": "2022-09-20T17:17:00.000Z",
+        "voteCount": 2,
+        "content": "Where would 2 come from? Two domains? Two Tennant's?\n\nYou can put both the domains into one Tennant with one management group, where you would assign your role."
+      },
+      {
+        "date": "2022-09-28T14:51:00.000Z",
+        "voteCount": 1,
+        "content": "Are you suggesting a multi tenant solution?"
+      },
+      {
+        "date": "2022-09-19T03:12:00.000Z",
+        "voteCount": 2,
+        "content": "This should be A. The access should be applied at the root management group level to ensure that it gets applied at all levels."
+      },
+      {
+        "date": "2022-10-13T05:34:00.000Z",
+        "voteCount": 2,
+        "content": "Yes, buts there are 2 tenants, so one root management group per tenant. So answer B."
+      },
+      {
+        "date": "2022-09-19T03:11:00.000Z",
+        "voteCount": 1,
+        "content": "This should be A. The access should be applied at the root management group level to ensure that it gets applied at all levels."
+      },
+      {
+        "date": "2023-01-20T01:46:00.000Z",
+        "voteCount": 4,
+        "content": "\"Management groups give you enterprise-grade management at scale no matter what type of subscriptions you might have. However, all subscriptions within a single management group must trust the same Azure Active Directory (Azure AD) tenant.\"\n\nTherefore you cannot have a management group that spans AAD tenants and that's why it cannot be A.\n\nhttps://learn.microsoft.com/en-us/azure/governance/management-groups/overview"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "8"
+  },
+  {
+    "topic": 8,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/83206-exam-az-305-topic-8-question-5-discussion/",
+    "body": "DRAG DROP -<br>You need to configure an Azure policy to ensure that the Azure SQL databases have Transparent Data Encryption (TDE) enabled. The solution must meet the security and compliance requirements.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04224/0017600001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04224/0017600002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Create an Azure policy definition that uses the deployIfNotExists<br>The first step is to define the roles that deployIfNotExists and modify needs in the policy definition to successfully deploy the content of your included template.<br>Step 2: Create an Azure policy assignment<br>When creating an assignment using the portal, Azure Policy both generates the managed identity and grants it the roles defined in roleDefinitionIds.<br>Step 3: Invoke a remediation task.<br>Resources that are non-compliant to a deployIfNotExists or modify policy can be put into a compliant state through Remediation. Remediation is accomplished by instructing Azure Policy to run the deployIfNotExists effect or the modify operations of the assigned policy on your existing resources and subscriptions, whether that assignment is to a management group, a subscription, a resource group, or an individual resource.<br>During evaluation, the policy assignment with deployIfNotExists or modify effects determines if there are non-compliant resources or subscriptions. When non- compliant resources or subscriptions are found, the details are provided on the Remediation page.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-06T22:26:00.000Z",
+        "voteCount": 32,
+        "content": "The three actions you should perform in sequence are:\n\nCreate an Azure policy definition that uses the deployIfNotExists effect and specifies TDE as a required setting.\nCreate an Azure policy assignment and assign the policy definition to the desired scope (e.g. subscription or resource group).\nInvoke a remediation task to automatically enforce the policy and enable TDE on existing databases that do not have it enabled."
+      },
+      {
+        "date": "2022-09-28T18:30:00.000Z",
+        "voteCount": 7,
+        "content": "Per https://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal, the steps are a) deployIfNoExists, b) create user or system managed identity, c) create remediation task.  So shouldn't the 2nd step be \"Create user managed identity\"?"
+      },
+      {
+        "date": "2022-10-03T14:01:00.000Z",
+        "voteCount": 6,
+        "content": "managed identity is assigned automatically if you create policy by Portal"
+      },
+      {
+        "date": "2023-02-14T22:54:00.000Z",
+        "voteCount": 6,
+        "content": "Exam Question 02/15/2023"
+      },
+      {
+        "date": "2023-01-19T11:53:00.000Z",
+        "voteCount": 6,
+        "content": "Answer looks good to me as per article:\n\nhttps://learn.microsoft.com/en-us/azure/governance/policy/how-to/remediate-resources?tabs=azure-portal"
+      },
+      {
+        "date": "2023-01-18T02:32:00.000Z",
+        "voteCount": 1,
+        "content": "is given ans correct?"
+      },
+      {
+        "date": "2023-05-26T16:51:00.000Z",
+        "voteCount": 2,
+        "content": "yes, ans is correct"
+      },
+      {
+        "date": "2022-09-22T09:25:00.000Z",
+        "voteCount": 5,
+        "content": "True deployIfNotExists\n\nhttps://learn.microsoft.com/en-us/azure/azure-sql/database/policy-reference?view=azuresql"
+      }
+    ],
+    "examNameCode": "az-305",
+    "topicNumber": "8"
+  }
+]

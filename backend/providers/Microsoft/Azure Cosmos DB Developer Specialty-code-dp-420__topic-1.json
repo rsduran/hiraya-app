@@ -1,0 +1,2139 @@
+[
+  {
+    "topic": 1,
+    "index": 1,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74649-exam-dp-420-topic-1-question-1-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Cosmos DB Core (SQL) API account named account1 that has the disableKeyBasedMetadataWriteAccess property enabled.<br>You are developing an app named App1 that will be used by a user named DevUser1 to create containers in account1. DevUser1 has a non-privileged user account in the Azure Active Directory (Azure AD) tenant.<br>You need to ensure that DevUser1 can use App1 to create containers in account1.<br>What should you do? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0001100001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0001200001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Resource tokens -<br>Resource tokens provide access to the application resources within a database. Resource tokens:<br>Provide access to specific containers, partition keys, documents, attachments, stored procedures, triggers, and UDFs.<br>Box 2: Azure Resource Manager API<br>You can use Azure Resource Manager to help deploy and manage your Azure Cosmos DB accounts, databases, and containers.<br>Incorrect Answers:<br>The Microsoft Graph API is a RESTful web API that enables you to access Microsoft Cloud service resources.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/secure-access-to-data https://docs.microsoft.com/en-us/rest/api/resources/",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-26T23:38:00.000Z",
+        "voteCount": 21,
+        "content": "I think it will be \"Role-based access control\" as Resouce Token doesn't cooperate with AD, regarding second part - ARM is correct"
+      },
+      {
+        "date": "2022-06-24T04:35:00.000Z",
+        "voteCount": 6,
+        "content": "RBAC is the answer."
+      },
+      {
+        "date": "2024-05-03T07:20:00.000Z",
+        "voteCount": 1,
+        "content": "first is RBAC: \nAzure Cosmos DB RBAC is the ideal access control method in situations where:\n- You want to use Microsoft Entra identities to authenticate your requests.\n\n"
+      },
+      {
+        "date": "2024-03-14T00:43:00.000Z",
+        "voteCount": 1,
+        "content": "RBAC/ARM\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/audit-control-plane-logs#disable-key-based-metadata-write-access\n\u30fbAfter you set this property, changes to any resource can happen from a user with the proper Azure role and credentials.\n\u30fbAfter the disableKeyBasedMetadataWriteAccess is turned on, if the SDK based clients run create or update operations, an error \"Operation 'POST' on resource 'ContainerNameorDatabaseName' is not allowed through Azure Cosmos DB endpoint is returned. You have to turn on access to such operations for your account, or perform the create/update operations through Azure Resource Manager, Azure CLI or Azure PowerShell."
+      },
+      {
+        "date": "2023-11-01T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "RBAC\nSQL API"
+      },
+      {
+        "date": "2023-07-07T03:25:00.000Z",
+        "voteCount": 1,
+        "content": "For me is Azure Resource Manager API.\n\nWhen disableKeyBasedMetadataWriteAccess is set to true, the metadata operations issued by the SDK are blocked. Alternatively, you can use Azure portal, Azure CLI, Azure PowerShell, or Azure Resource Manager template deployments to perform these operations."
+      },
+      {
+        "date": "2024-01-01T02:19:00.000Z",
+        "voteCount": 1,
+        "content": "\"When disableKeyBasedMetadataWriteAccess is set to true, the metadata operations issued by the SDK are blocked.\" - unless the user has an AD account (he does) with proper access rights (Cosmos DB Contributor) - this is not specified."
+      },
+      {
+        "date": "2023-06-03T22:25:00.000Z",
+        "voteCount": 5,
+        "content": "Correct Answer Should be.\n\nGrant permission to create containers by using: Role-based access control (RBAC)\nCreate containers by using: SQL (Core) API"
+      },
+      {
+        "date": "2022-09-11T07:19:00.000Z",
+        "voteCount": 3,
+        "content": "More likely to be SQL (Core) API. Permission for Cosmos is required whereas Azure Resource Manager would need portal permissions.\n"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 2,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74431-exam-dp-420-topic-1-question-2-discussion/",
+    "body": "HOTSPOT -<br>You have an Azure Cosmos DB Core (SQL) account that has a single write region in West Europe.<br>You run the following Azure CLI script.<br><img src=\"/assets/media/exam-media/04276/0001300001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0001300002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0001400001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>The Automatic failover option allows Azure Cosmos DB to failover to the region with the highest failover priority with no user action should a region become unavailable.<br><br>Box 2: No -<br>West Europe is used for failover. Only North Europe is writable.<br>To Configure multi-region set UseMultipleWriteLocations to true.<br><br>Box 3: Yes -<br>Provisioned throughput with single write region costs $0.008/hour per 100 RU/s and provisioned throughput with multiple writable regions costs $0.016/per hour per 100 RU/s.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/sql/how-to-multi-master https://docs.microsoft.com/en-us/azure/cosmos-db/optimize-cost-regions",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-04-28T05:36:00.000Z",
+        "voteCount": 23,
+        "content": "Vote YNN"
+      },
+      {
+        "date": "2022-05-15T07:47:00.000Z",
+        "voteCount": 11,
+        "content": "1:No\n2:Yes\n3:No"
+      },
+      {
+        "date": "2023-02-27T14:46:00.000Z",
+        "voteCount": 1,
+        "content": "Should be YNY. for the third one tried it on pricing calculator, the cost does not change."
+      },
+      {
+        "date": "2022-08-14T23:51:00.000Z",
+        "voteCount": 1,
+        "content": "Your first answer is incorrect - in the above, there is a change of the priority zero, effectively changing the write region."
+      },
+      {
+        "date": "2022-08-14T23:52:00.000Z",
+        "voteCount": 1,
+        "content": "Your second answer is also incorrect - again the priority 0 is changing which initiates manual failover - so that should be No."
+      },
+      {
+        "date": "2023-11-01T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is YNN"
+      },
+      {
+        "date": "2023-09-09T01:39:00.000Z",
+        "voteCount": 2,
+        "content": "Which is the right answer totally confused ."
+      },
+      {
+        "date": "2023-08-16T03:14:00.000Z",
+        "voteCount": 2,
+        "content": "1-Y\n2-N\n3-Y\n\n\nfailover_priority - (Required) The failover priority of the region. A failover priority of 0 indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority 0."
+      },
+      {
+        "date": "2023-07-31T19:35:00.000Z",
+        "voteCount": 1,
+        "content": "The anwser are correct.\n A failover priority of 0 indicates a write region.\n The price of West Euro and North Euro for Costome DB is just exactly the same. You may check it with Azure Pricing Calculator: https://azure.microsoft.com/en-us/pricing/calculator/"
+      },
+      {
+        "date": "2023-06-03T22:39:00.000Z",
+        "voteCount": 1,
+        "content": "Answer should be\n\nNo - After running the script, there will not be an instance of Azure Cosmos DB in North Europe that is writable. The script sets the failover priority of North Europe to 0, indicating that it is a secondary region and not writable.\n\nYes - After running the script, the Azure Cosmos DB instance in West Europe will still be writable. The script does not change the failover priority or zone redundancy of the West Europe region, so it remains the primary region and writable.\n\nYes - The cost of the Azure Cosmos DB account is unaffected by running the script. The script only modifies the configuration and failover policies of the account, but it does not change the pricing or billing aspects of the account."
+      },
+      {
+        "date": "2023-06-19T03:14:00.000Z",
+        "voteCount": 1,
+        "content": "Yes, Answer is YNN"
+      },
+      {
+        "date": "2022-12-16T03:00:00.000Z",
+        "voteCount": 1,
+        "content": "A failover priority of 0 indicates a write region (https://learn.microsoft.com/en-us/rest/api/cosmos-db-resource-provider/2021-04-01-preview/database-accounts/failover-priority-change?tabs=HTTP) \n\nKnowing this, North Europe is now 0 so write region, first answer is thus Yes. West Europe is now 1 and we did not enable multiple write regions so we can no longer write to west europe and costs haven't increased as it is still a single write region. YNN"
+      },
+      {
+        "date": "2023-01-25T01:46:00.000Z",
+        "voteCount": 2,
+        "content": "Costs have increased since North Europe is added. Now we have two regions instead of one. Each region is billed: https://learn.microsoft.com/en-us/training/modules/configure-replication-manage-failovers-azure-cosmos-db/4-evaluate-cost-distributing-data-globally\n\nBut since the statment is 'The cost ... is unaffected ...', the answer is no.\nTherefore: YNN"
+      },
+      {
+        "date": "2022-11-18T08:46:00.000Z",
+        "voteCount": 2,
+        "content": "bah , not clear at all"
+      },
+      {
+        "date": "2022-08-14T23:59:00.000Z",
+        "voteCount": 7,
+        "content": "Yes - triggering a manual failover by changing priority zero causes write and read regions to be swapped\nNo - triggering a manual failover by changing priority zero causes write and read regions to be swapped\nYes - unaffected only because we are switching between west and north europe, if it was say switzerland it would be more expensive"
+      },
+      {
+        "date": "2022-08-04T19:22:00.000Z",
+        "voteCount": 1,
+        "content": "Why option C is yes??"
+      },
+      {
+        "date": "2022-11-27T11:47:00.000Z",
+        "voteCount": 1,
+        "content": "I think because they are un the same regi\u00f3n. This cause that cost doesn't increase."
+      },
+      {
+        "date": "2023-01-25T01:56:00.000Z",
+        "voteCount": 1,
+        "content": "C is No because each region is billed additionally. Equivalent emxample from the docs: https://learn.microsoft.com/en-us/training/modules/configure-replication-manage-failovers-azure-cosmos-db/4-evaluate-cost-distributing-data-globally"
+      },
+      {
+        "date": "2022-06-17T17:07:00.000Z",
+        "voteCount": 4,
+        "content": "The third statement here is tricky. Normally, Azure resource price is different for regions, this applicable to Cosmos DB as well. However, the price of West Euro and North Euro for Costome DB is just exactly the same. You may check it with Azure Pricing Calculator: https://azure.microsoft.com/en-us/pricing/calculator/"
+      },
+      {
+        "date": "2022-04-25T03:46:00.000Z",
+        "voteCount": 3,
+        "content": "IMO C should be No"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 3,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/92640-exam-dp-420-topic-1-question-3-discussion/",
+    "body": "You are developing an application that will use an Azure Cosmos DB Core (SQL) API account as a data source.<br>You need to create a report that displays the top five most ordered fruits as shown in the following table.<br><img src=\"/assets/media/exam-media/04276/0001500001.png\" class=\"in-exam-image\"><br>A collection that contains aggregated data already exists. The following is a sample document:<br><img src=\"/assets/media/exam-media/04276/0001500002.png\" class=\"in-exam-image\"><br>Which two queries can you use to retrieve data for the report? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>A.<br><img src=\"/assets/media/exam-media/04276/0001500003.png\" class=\"in-exam-image\"><br>B.<br><img src=\"/assets/media/exam-media/04276/0001600001.png\" class=\"in-exam-image\"><br>C.<br><img src=\"/assets/media/exam-media/04276/0001600002.png\" class=\"in-exam-image\"><br>D.<br><img src=\"/assets/media/exam-media/04276/0001600003.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "BD",
+    "answerDescription": "ARRAY_CONTAINS returns a Boolean indicating whether the array contains the specified value. You can check for a partial or full match of an object by using a boolean expression within the command.<br>Incorrect Answers:<br>A: Default sorting ordering is Ascending. Must use Descending order.<br>C: Order on Orders not on Type.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-array-contains",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-12-24T06:34:00.000Z",
+        "voteCount": 6,
+        "content": "correct"
+      },
+      {
+        "date": "2024-03-03T04:36:00.000Z",
+        "voteCount": 1,
+        "content": "BD, these are the queries that have the correct ORDER BY"
+      },
+      {
+        "date": "2023-09-25T23:00:00.000Z",
+        "voteCount": 1,
+        "content": "I think that on top in the grid with data there should be Types and not just Type since in all queries use .types"
+      },
+      {
+        "date": "2023-02-28T11:22:00.000Z",
+        "voteCount": 3,
+        "content": "answer is correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 4,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74437-exam-dp-420-topic-1-question-4-discussion/",
+    "body": "HOTSPOT -<br>You have a database in an Azure Cosmos DB Core (SQL) API account.<br>You plan to create a container that will store employee data for 5,000 small businesses. Each business will have up to 25 employees. Each employee item will have an emailAddress value.<br>You need to ensure that the emailAddress value for each employee within the same company is unique.<br>To what should you set the partition key and the unique key? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0001700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0001800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: CompanyID -<br>After you create a container with a unique key policy, the creation of a new or an update of an existing item resulting in a duplicate within a logical partition is prevented, as specified by the unique key constraint. The partition key combined with the unique key guarantees the uniqueness of an item within the scope of the container.<br>For example, consider an Azure Cosmos container with Email address as the unique key constraint and CompanyID as the partition key. When you configure the user's email address with a unique key, each item has a unique email address within a given CompanyID. Two items can't be created with duplicate email addresses and with the same partition key value.<br><br>Box 2: emailAddress -<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/unique-keys",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-15T00:09:00.000Z",
+        "voteCount": 10,
+        "content": "Solution is correct - companyId for partition key, and emailAddress for unique key\n\nAdditional justification why you would definitely set the partition key to companyId, is by also keeping potential queries in mind, typically in this scenario you will always end up with an equality filter on the companyId, hence it makes sense to partition by companyId, which will result in better query performance\n\nUniqueKey will need to be set to emailAddress, since the job of a unique key is to ensure uniqueness of a value within a logical partition https://docs.microsoft.com/en-us/azure/cosmos-db/unique-keys"
+      },
+      {
+        "date": "2023-06-03T22:51:00.000Z",
+        "voteCount": 1,
+        "content": "The given answer is correct\n\nPartition Key: CompanyId\nUnique Key: emailAddress"
+      },
+      {
+        "date": "2022-04-25T04:33:00.000Z",
+        "voteCount": 2,
+        "content": "Correct - Logical partitions are formed based on the value of a partition key that is associated with each item in a container. All the items in a logical partition have the same partition key value.\nSo segregating by companyid makes sense\nE-mail will be unique"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 5,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74439-exam-dp-420-topic-1-question-5-discussion/",
+    "body": "HOTSPOT -<br>You have a container named container1 in an Azure Cosmos DB Core (SQL) API account. The container1 container has 120 GB of data.<br>The following is a sample of a document in container1.<br><img src=\"/assets/media/exam-media/04276/0001900001.png\" class=\"in-exam-image\"><br>The orderId property is used as the partition key.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0002000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0002100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Records with different OrderIDs will match.<br><br>Box 2: Yes -<br>Records with different OrderIDs will match.<br><br>Box 3: No -<br>Only records with one specific OrderId will match",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-06-13T22:13:00.000Z",
+        "voteCount": 18,
+        "content": "The given answers are correct, OrderId is the partition key and any query not involving the OrderId will be considered as Cross Partition (Or Fan-out) Query."
+      },
+      {
+        "date": "2024-03-03T05:26:00.000Z",
+        "voteCount": 1,
+        "content": "the given answer is correct Y-Y-N"
+      },
+      {
+        "date": "2023-06-03T23:02:00.000Z",
+        "voteCount": 1,
+        "content": "1. SELECT * FROM c WHERE c.orderDate = \"2019-05-03\"\nYes, this query will run as a cross-partition query. Since the query does not include the partition key (orderId), it needs to scan all partitions in the container to find matching documents.\n\n2. SELECT * FROM c WHERE c.customerId = \"5425\"\nNo, this query will not run as a cross-partition query. The query includes the partition key (orderId) in the WHERE clause, allowing it to be routed to the specific partition containing documents for the given customerId.\n\n3.SELECT * FROM c WHERE c.orderDate = \"2019-05-03\" and c.orderId = \"5515d96e-5860-4fa0-a70c-c965e3ffeb49\"\nNo, this query will not run as a cross-partition query. The query includes the partition key (orderId) in the WHERE clause, allowing it to be routed to the specific partition containing the document with the matching orderId and orderDate.\n\nSo, to summarize:\nYes, it will run as a cross-partition query.\nNo, it will not run as a cross-partition query.\nNo, it will not run as a cross-partition query."
+      },
+      {
+        "date": "2023-06-06T09:34:00.000Z",
+        "voteCount": 1,
+        "content": "My Mistake\n\nAnswer is \n\nYes, it will run as a cross-partition query.\nYes, it will not run as a cross-partition query.\nNo, it will not run as a cross-partition query."
+      },
+      {
+        "date": "2023-07-30T23:28:00.000Z",
+        "voteCount": 1,
+        "content": "for number 2, why answer is Yes? if it will not run as a cross-partition query. t thins if \"it will not run as a cross-partition query\" answer is NO,"
+      },
+      {
+        "date": "2022-09-25T05:19:00.000Z",
+        "voteCount": 2,
+        "content": "NNY\nCross-pratition query means that your query hits only neccessary data from logical partition based on partition key  (query has filter eg. c.orderId). If not scan whole data. IF \"orderId\" is partition key then first two queries are not cross-partition queries. \n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/sql/how-to-query-container"
+      },
+      {
+        "date": "2022-11-18T10:11:00.000Z",
+        "voteCount": 4,
+        "content": "noooope at all.\ncross partition means it will scan more than 1 partition, easy as that"
+      },
+      {
+        "date": "2022-04-25T04:36:00.000Z",
+        "voteCount": 4,
+        "content": "As orderid is partition key, And if we will assume that this orderid will appear in different dates and in different customers - then those answers are correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 6,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75365-exam-dp-420-topic-1-question-6-discussion/",
+    "body": "You are designing an Azure Cosmos DB Core (SQL) API solution to store data from IoT devices. Writes from the devices will be occur every second.<br>The following is a sample of the data.<br><img src=\"/assets/media/exam-media/04276/0002200001.png\" class=\"in-exam-image\"><br>You need to select a partition key that meets the following requirements for writes:<br>\u2711 Minimizes the partition skew<br>\u2711 Avoids capacity limits<br>\u2711 Avoids hot partitions<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse timestamp as the partition key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new synthetic key that contains deviceId and sensor1Value.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new synthetic key that contains deviceId and deviceManufacturer.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new synthetic key that contains deviceId and a random number.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 12,
+        "isMostVoted": true
+      },
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-06-13T22:14:00.000Z",
+        "voteCount": 10,
+        "content": "D is the correct answer, I have taken the Microsoft Official Test And the answer is D."
+      },
+      {
+        "date": "2024-03-03T05:27:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is correct"
+      },
+      {
+        "date": "2022-08-27T09:54:00.000Z",
+        "voteCount": 1,
+        "content": "Because of frequency (1s) we may not want to put too much data into the same container.  The maxim quota for logical partition is 20GB, which can exhaust pretty fast."
+      },
+      {
+        "date": "2022-08-15T00:29:00.000Z",
+        "voteCount": 2,
+        "content": "Correct answer is D as per this link https://docs.microsoft.com/en-us/azure/cosmos-db/sql/synthetic-partition-keys - in order to avoid a hot partition we have no option but to use a strategy like that suggested in the section \"Use a partition key with a random suffix\""
+      },
+      {
+        "date": "2022-07-13T08:33:00.000Z",
+        "voteCount": 2,
+        "content": "D, it's the right answer because deviceid  a with pre-calculated suffixes number (Second when data is inserted) It will create 60 partitions by every deviceid"
+      },
+      {
+        "date": "2022-06-03T11:30:00.000Z",
+        "voteCount": 1,
+        "content": "I get the reason it is D BUT, there is context missing that would be necessary. For example, does this mean that the devicid for like devices is the same and somehow hardware bound? Also, the suggestion of a random number is not inclusive of how random the number is, obviously if its generated with each send you will create excessive partitions"
+      },
+      {
+        "date": "2022-05-10T03:38:00.000Z",
+        "voteCount": 2,
+        "content": "Fully agree, I would either select C, or have an answer - deviceid"
+      },
+      {
+        "date": "2022-05-10T03:40:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry - I'm changing my mind ;) I guess B makes more sense in that case, we got two options (True/False) - and creating synthetic key when probably devideid will have always same manufactor - doesn't make sense"
+      },
+      {
+        "date": "2022-08-15T00:30:00.000Z",
+        "voteCount": 1,
+        "content": "C and B are both wrong, the both can end up creating a hot partition because of the low cardinality"
+      },
+      {
+        "date": "2022-05-09T09:43:00.000Z",
+        "voteCount": 2,
+        "content": "D, can't be the right answer because deviceid and a random number will create a new partition on every document you will write to the database."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 7,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/76538-exam-dp-420-topic-1-question-7-discussion/",
+    "body": "You maintain a relational database for a book publisher. The database contains the following tables.<br><img src=\"/assets/media/exam-media/04276/0002400001.png\" class=\"in-exam-image\"><br>The most common query lists the books for a given authorId.<br>You need to develop a non-relational data model for Azure Cosmos DB Core (SQL) API that will replace the relational database. The solution must minimize latency and read operation costs.<br>What should you include in the solution?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a container for Author and a container for Book. In each Author document, embed bookId for each book by the author. In each Book document embed authorId of each author.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate Author, Book, and Bookauthorlnk documents in the same container.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a container that contains a document for each Author and a document for each Book. In each Book document, embed authorId.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a container for Author and a container for Book. In each Author document and Book document embed the data from Bookauthorlnk."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 14,
+        "isMostVoted": true
+      },
+      {
+        "answer": "A",
+        "count": 7,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-06-03T11:32:00.000Z",
+        "voteCount": 17,
+        "content": "This is nonsense. Microsoft;s own documentation clearly states that for groups of data with like PKs (and it would be author here) use the same container. C is the answer"
+      },
+      {
+        "date": "2022-07-15T05:49:00.000Z",
+        "voteCount": 6,
+        "content": "A is the closest of what I'd model, with a little addon of both books and authors containing collections of not only the authorIds and bookIds (respectively), but also a subset of data from the documents they're referencing (for instance, authorId + authorName, and bookId + bookTitle).\n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/sql/modeling-data#hybrid-data-models"
+      },
+      {
+        "date": "2022-09-13T09:54:00.000Z",
+        "voteCount": 4,
+        "content": "Perfect. A link to the exact example in the documentation for this exact question. Not clear from the question but logically it [u]is[/u] a N:N relationship."
+      },
+      {
+        "date": "2023-12-29T02:49:00.000Z",
+        "voteCount": 2,
+        "content": "C, is correct. You should not have two separate containers and you want to embed author information in books"
+      },
+      {
+        "date": "2023-12-20T03:42:00.000Z",
+        "voteCount": 1,
+        "content": "C - one container for Author and Book and a prop in Book to link the author. An even better solution would be to add dirrectly to the author the list of books, because the most used query is the list of books by author."
+      },
+      {
+        "date": "2024-05-04T06:10:00.000Z",
+        "voteCount": 1,
+        "content": "\"add directly to the author the list of books\"  - you are assuming stuff here, which is not good. Theoretically, if the author have 1 mil of books, you can create partition distribution skew, hot partition, hit limits and so on"
+      },
+      {
+        "date": "2023-11-01T06:18:00.000Z",
+        "voteCount": 1,
+        "content": "Correct Answer is A"
+      },
+      {
+        "date": "2023-06-24T12:43:00.000Z",
+        "voteCount": 2,
+        "content": "Selected Answer: C"
+      },
+      {
+        "date": "2023-03-31T02:03:00.000Z",
+        "voteCount": 3,
+        "content": "C is correct answer"
+      },
+      {
+        "date": "2023-02-27T16:28:00.000Z",
+        "voteCount": 3,
+        "content": "A\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/modeling-data#hybrid-data-models"
+      },
+      {
+        "date": "2023-09-12T11:11:00.000Z",
+        "voteCount": 1,
+        "content": "A suggests for having 2 separate containers. C is in fact the Hybrid data model."
+      },
+      {
+        "date": "2022-10-20T09:15:00.000Z",
+        "voteCount": 1,
+        "content": "Although it would minimise read operation costs, there is no limit on the number of books authors can write (unfortunately in some cases). Because of that, the size of the actual document can grow enormously. That on its own will cause a huge factor of latency.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/modeling-data#when-not-to-embed"
+      },
+      {
+        "date": "2022-10-25T02:02:00.000Z",
+        "voteCount": 2,
+        "content": "\"there is no limit on the number of books authors can write (unfortunately in some cases)\".\nI think that this is not the case in real life. The ration is 1:few"
+      },
+      {
+        "date": "2022-11-21T03:40:00.000Z",
+        "voteCount": 1,
+        "content": "Then what? \nIf the number of books becomes very high, retrieving all the books per Author would require a high effort in both scenario ( A or C) . Having the Author document embedded  in the same container would not cause substantial overhead, (only extra operation to do in C would be to filter out the Author document based on property \"type\" AFTER retrieving all books (N)/ and author (1) documents having same partition key."
+      },
+      {
+        "date": "2022-08-16T04:45:00.000Z",
+        "voteCount": 2,
+        "content": "C is the most read cost effective"
+      },
+      {
+        "date": "2022-08-16T04:46:00.000Z",
+        "voteCount": 1,
+        "content": "i read it back , A is the Right answer!"
+      },
+      {
+        "date": "2022-08-15T00:45:00.000Z",
+        "voteCount": 5,
+        "content": "We are explicitly required to minimise cost and latency, A although it would get the job done it would be highly inefficient - the relationship between an author and books is a one to few (1-many but bounded), hence data should be embedded - refer to the below links\n\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/sql/modeling-data\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/sql/how-to-model-partition-example"
+      },
+      {
+        "date": "2022-06-03T11:32:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry I mean't B with a type field"
+      },
+      {
+        "date": "2022-06-07T07:42:00.000Z",
+        "voteCount": 2,
+        "content": "In C you put them in the same container, and embedding to lower the latency"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 8,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/89162-exam-dp-420-topic-1-question-8-discussion/",
+    "body": "You have an Azure Cosmos DB Core (SQL) API account.<br>You run the following query against a container in the account.<br><img src=\"/assets/media/exam-media/04276/0002500001.png\" class=\"in-exam-image\"><br>What is the output of the query?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t[{\"A\": false, \"B\": true, \"C\": false}]\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t[{\"A\": true, \"B\": false, \"C\": true}]",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t[{\"A\": true, \"B\": true, \"C\": false}]",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t[{\"A\": true, \"B\": true, \"C\": true}]"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-29T02:59:00.000Z",
+        "voteCount": 1,
+        "content": "A, I tested it"
+      },
+      {
+        "date": "2023-06-24T12:43:00.000Z",
+        "voteCount": 4,
+        "content": "Selected Answer: A"
+      },
+      {
+        "date": "2023-06-10T11:20:00.000Z",
+        "voteCount": 1,
+        "content": "Selected Answer: A"
+      },
+      {
+        "date": "2022-11-28T13:37:00.000Z",
+        "voteCount": 3,
+        "content": "correct\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/query/is-number"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 9,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75367-exam-dp-420-topic-1-question-9-discussion/",
+    "body": "You need to implement a trigger in Azure Cosmos DB Core (SQL) API that will run before an item is inserted into a container.<br>Which two actions should you perform to ensure that the trigger runs? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAppend pre to the name of the JavaScript function trigger.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFor each create request, set the access condition in RequestOptions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRegister the trigger as a pre-trigger.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFor each create request, set the consistency level to session in RequestOptions.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tFor each create request, set the trigger name in RequestOptions."
+    ],
+    "answer": "C",
+    "answerDescription": "C: When triggers are registered, you can specify the operations that it can run with.<br>F: When executing, pre-triggers are passed in the RequestOptions object by specifying PreTriggerInclude and then passing the name of the trigger in a List object.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/sql/how-to-use-stored-procedures-triggers-udfs",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 1,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-05-09T10:13:00.000Z",
+        "voteCount": 21,
+        "content": "C and E are correct answers."
+      },
+      {
+        "date": "2022-07-28T20:13:00.000Z",
+        "voteCount": 7,
+        "content": "C and E, in exam"
+      },
+      {
+        "date": "2023-12-29T03:00:00.000Z",
+        "voteCount": 1,
+        "content": "C and E are correct answers."
+      },
+      {
+        "date": "2022-08-03T23:12:00.000Z",
+        "voteCount": 3,
+        "content": "Is there an option F here"
+      },
+      {
+        "date": "2022-09-01T02:37:00.000Z",
+        "voteCount": 1,
+        "content": "Supposed to say E"
+      },
+      {
+        "date": "2022-10-22T09:34:00.000Z",
+        "voteCount": 1,
+        "content": "I think that they refer to E when they are mentioning F option."
+      },
+      {
+        "date": "2022-06-03T11:35:00.000Z",
+        "voteCount": 4,
+        "content": "There is no F option"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 10,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75317-exam-dp-420-topic-1-question-10-discussion/",
+    "body": "HOTSPOT -<br>You have a container in an Azure Cosmos DB Core (SQL) API account.<br>You need to use the Azure Cosmos DB SDK to replace a document by using optimistic concurrency.<br>What should you include in the code? To answer, select the appropriate options in the answer area.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0002700001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0002800001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: ConsistencyLevel -<br>The ItemRequestOptions Class ConsistencyLevel property gets or sets the consistency level required for the request in the Azure Cosmos DB service.<br>Azure Cosmos DB offers 5 different consistency levels. Strong, Bounded Staleness, Session, Consistent Prefix and Eventual - in order of strongest to weakest consistency.<br><br>Box 2: _etag -<br>The ItemRequestOptions class helped us implement optimistic concurrency by specifying that we wanted the SDK to use the If-Match header to allow the server to decide whether a resource should be updated. The If-Match value is the ETag value to be checked against. If the ETag value matches the server ETag value, the resource is updated.<br>Reference:<br>https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.itemrequestoptions https://cosmosdb.github.io/labs/dotnet/labs/10-concurrency-control.html",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-05-08T19:02:00.000Z",
+        "voteCount": 22,
+        "content": "When we then want to send our request to replace a document, we can specify an AccessCondition with the ETag we received when we fetched out our document."
+      },
+      {
+        "date": "2022-07-15T06:12:00.000Z",
+        "voteCount": 3,
+        "content": "This, it's supposed to be either AccessCondition or IfMatchETag directly, consistency levels have nothing to do with optimistic concurrency.\n\nhttps://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.requestoptions.accesscondition?view=azure-dotnet#examples"
+      },
+      {
+        "date": "2023-09-28T09:38:00.000Z",
+        "voteCount": 2,
+        "content": "The namespace Microsoft.Azure.Documents.Client is deprecated. So the below link refers to old version of programming API. In other words, using AccessCondition is deprecated.\nhttps://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.client.requestoptions.accesscondition?view=azure-dotnet#examples\n\nThe latest namespace is Microsoft.Azure.Cosmos and refer to the following links.\nhttps://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.container.replaceitemasync\nhttps://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.cosmos.itemrequestoptions\n\nSo the answer will be ConsistencyLevel and _etag."
+      },
+      {
+        "date": "2023-09-30T03:25:00.000Z",
+        "voteCount": 1,
+        "content": "Apologies, so the answer should be ConsistencyLevel and _id.\nConsistency level can be mentioned in ItemRequestOptions and _id should be passed to Container.ReplaceItemAsync&lt;T&gt; Method."
+      },
+      {
+        "date": "2023-09-26T18:31:00.000Z",
+        "voteCount": 2,
+        "content": "Please correct the answer. it should AccessCondition, and etag."
+      },
+      {
+        "date": "2022-08-16T04:52:00.000Z",
+        "voteCount": 3,
+        "content": "Accesscondition ETAG"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 11,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/76622-exam-dp-420-topic-1-question-11-discussion/",
+    "body": "HOTSPOT -<br>You are creating a database in an Azure Cosmos DB Core (SQL) API account. The database will be used by an application that will provide users with the ability to share online posts. Users will also be able to submit comments on other users' posts.<br>You need to store the data shown in the following table.<br><img src=\"/assets/media/exam-media/04276/0002900001.png\" class=\"in-exam-image\"><br>The application has the following characteristics:<br>\u2711 Users can submit an unlimited number of posts.<br>\u2711 The average number of posts submitted by a user will be more than 1,000.<br>\u2711 Posts can have an unlimited number of comments from different users.<br>\u2711 The average number of comments per post will be 100, but many posts will exceed 1,000 comments.<br>\u2711 Users will be limited to having a maximum of 20 interests.<br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0003000001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0003100001.png\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: Yes -<br>Non-relational data increases write costs, but can decrease read costs.<br><br>Box 2: Yes -<br>Non-relational data increases write costs, but can decrease read costs.<br><br>Box 3: No -<br>Non-relational data increases write costs, but can decrease read costs.",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-07-06T18:28:00.000Z",
+        "voteCount": 11,
+        "content": "correct"
+      },
+      {
+        "date": "2022-11-21T04:49:00.000Z",
+        "voteCount": 2,
+        "content": "i don't see why the write cost should increase, the read cost does"
+      },
+      {
+        "date": "2022-11-22T14:11:00.000Z",
+        "voteCount": 3,
+        "content": "i think could be because the operation need to do and upsert instead of an insert."
+      },
+      {
+        "date": "2022-06-13T22:20:00.000Z",
+        "voteCount": 2,
+        "content": "Correct Answer Yes, Yes, No"
+      },
+      {
+        "date": "2022-06-07T13:41:00.000Z",
+        "voteCount": 1,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 12,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/78053-exam-dp-420-topic-1-question-12-discussion/",
+    "body": "DRAG DROP -<br>You have an app that stores data in an Azure Cosmos DB Core (SQL) API account The app performs queries that return large result sets.<br>You need to return a complete result set to the app by using pagination. Each page of results must return 80 items.<br>Which three actions should you perform in sequence? To answer, move the appropriate actions from the list of actions to the answer area and arrange them in the correct order.<br>Select and Place:<br><img src=\"/assets/media/exam-media/04276/0003200001.jpg\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0003200002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Step 1: Configure the MaxItemCount in QueryRequestOptions<br>You can specify the maximum number of items returned by a query by setting the MaxItemCount. The MaxItemCount is specified per request and tells the query engine to return that number of items or fewer.<br>Box 2: Run the query and provide a continuation token<br>In the .NET SDK and Java SDK you can optionally use continuation tokens as a bookmark for your query's progress. Azure Cosmos DB query executions are stateless at the server side and can be resumed at any time using the continuation token.<br>If the query returns a continuation token, then there are additional query results.<br>Step 3: Append the results to a variable<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-pagination",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-08-16T04:56:00.000Z",
+        "voteCount": 9,
+        "content": "Correct"
+      },
+      {
+        "date": "2023-04-27T01:07:00.000Z",
+        "voteCount": 3,
+        "content": "Correct. Yes, you should configure the MaxItemCount property to limit the number of items returned per page to 80. Additionally, you should use the continuation token returned in the response to retrieve the next page of results."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 13,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/78035-exam-dp-420-topic-1-question-13-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Cosmos DB Core (SQL) API account named account 1 that uses autoscale throughput.<br>You need to run an Azure function when the normalized request units per second for a container in account1 exceeds a specific value.<br>Solution: You configure an Azure Monitor alert to trigger the function.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 8,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-27T01:09:00.000Z",
+        "voteCount": 4,
+        "content": "An Azure Monitor alert can be configured to trigger a function when certain conditions are met, such as the normalized request units per seconds."
+      },
+      {
+        "date": "2023-01-02T03:28:00.000Z",
+        "voteCount": 1,
+        "content": "Selected Answer: A"
+      },
+      {
+        "date": "2022-08-15T04:04:00.000Z",
+        "voteCount": 4,
+        "content": "Agreed"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 14,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/90557-exam-dp-420-topic-1-question-14-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Cosmos DB Core (SQL) API account named account 1 that uses autoscale throughput.<br>You need to run an Azure function when the normalized request units per second for a container in account1 exceeds a specific value.<br>Solution: You configure the function to have an Azure CosmosDB trigger.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-31T03:08:00.000Z",
+        "voteCount": 3,
+        "content": "No Azure Monitor is correct option. B is the correct answer."
+      },
+      {
+        "date": "2022-12-08T02:21:00.000Z",
+        "voteCount": 1,
+        "content": "B!!!!!!!!!!!!!!!"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 15,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104620-exam-dp-420-topic-1-question-15-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Cosmos DB Core (SQL) API account named account 1 that uses autoscale throughput.<br>You need to run an Azure function when the normalized request units per second for a container in account1 exceeds a specific value.<br>Solution: You configure an application to use the change feed processor to read the change feed and you configure the application to trigger the function.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-31T03:11:00.000Z",
+        "voteCount": 3,
+        "content": "B is correct answer"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 16,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106851-exam-dp-420-topic-1-question-16-discussion/",
+    "body": "You have a database named db1 in an Azure Cosmos DB Core (SQL) API account.<br>You are designing an application that will use db1.<br>In db1, you are creating a new container named coll1 that will store online orders.<br>The following is a sample of a document that will be stored in coll1.<br><img src=\"/assets/media/exam-media/04276/0003500001.png\" class=\"in-exam-image\"><br>The application will have the following characteristics:<br>\u2711 New orders will be created frequently by different customers.<br>\u2711 Customers will often view their past order history.<br>You need to select the partition key value for coll1 to support the application. The solution must minimize costs.<br>To what should you set the partition key?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\torderId",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tcustomerId\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\torderDate",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tid"
+    ],
+    "answer": "B",
+    "answerDescription": "If most of your workload's requests are queries and most of your queries have an equality filter on the same property, this property can be a good partition key choice. For example, if you frequently run a query that filters on UserID, then selecting UserID as the partition key would reduce the number of cross-partition queries.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-25T09:53:00.000Z",
+        "voteCount": 2,
+        "content": "Answer is B"
+      },
+      {
+        "date": "2023-04-20T10:45:00.000Z",
+        "voteCount": 3,
+        "content": "all orders from one customer will be stored on the same partition which will be beneficial for reads"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 17,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/101018-exam-dp-420-topic-1-question-17-discussion/",
+    "body": "You have a container in an Azure Cosmos DB Core (SQL) API account that stores data about orders.<br>The following is a sample of an order document.<br><img src=\"/assets/media/exam-media/04276/0003600003.png\" class=\"in-exam-image\"><br>Documents are up to 2 KB.<br>You plan to receive one million orders daily.<br>Customers will frequently view their past order history.<br>You are the evaluating whether to use orderDate as the partition key.<br>What are two effects of using orderDate as the partition key? Each correct answer presents a complete solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou will exceed the maximum number of partition key values",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYou will exceed the maximum storage per partition",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tThere will always be a hot partition\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tQueries will run cross-partition\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "CD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "CD",
+        "count": 3,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-02-27T17:45:00.000Z",
+        "voteCount": 5,
+        "content": "correct. \nNot A: There is no limit to the total number of physical partitions in your container. As your provisioned throughput or data size grows, Azure Cosmos DB will automatically create new physical partitions by splitting existing ones\nNot B: as max is 20 GB.\nSo C and D correct answer"
+      },
+      {
+        "date": "2023-12-20T04:11:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is good explanation is bad. \nD - queries will run cross-partition because custimerId (not orderId) will be used by customers to list their order history, meaning that all order for a given customerId will be selected."
+      },
+      {
+        "date": "2023-04-27T01:12:00.000Z",
+        "voteCount": 3,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 18,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104715-exam-dp-420-topic-1-question-18-discussion/",
+    "body": "You have a container in an Azure Cosmos DB Core (SQL) API account. The container stores data about families. Data about parents, children, and pets are stored as separate documents.<br>Each document contains the address of each family. Members of the same family share the same partition key named familyId.<br>You need to update the address for each member of the same family that share the same address. The solution must meet the following requirements:<br>\u2711 Be atomic, consistent, isolated, and durable (ACID).<br>\u2711 Provide the lowest latency.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the document of each family member separately by using a patch operation",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the document of each family member separately and set the consistency level to strong",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUpdate the document of each family member by using a transactional batch operation\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 7,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-04-01T05:06:00.000Z",
+        "voteCount": 5,
+        "content": "Keyword is transactional"
+      },
+      {
+        "date": "2023-07-04T11:05:00.000Z",
+        "voteCount": 2,
+        "content": "C. Update the document of each family member by using a transactional batch operation"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 19,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104629-exam-dp-420-topic-1-question-19-discussion/",
+    "body": "You are designing an Azure Cosmos DB Core (SQL) API solution to store data from IoT devices. Writes from the devices will be occur every second.<br>The following is a sample of the data.<br><img src=\"/assets/media/exam-media/04276/0003900001.png\" class=\"in-exam-image\"><br>You need to select a partition key that meets the following requirements for writes:<br>\u2711 Minimizes the partition skew<br>\u2711 Avoids capacity limits<br>\u2711 Avoids hot partitions<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new synthetic key that contains deviceId and timestamp\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse timestamp as the partition key",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse deviceManufacturer as the partition key",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse sensor1Value as the partition key"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "A",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-31T03:56:00.000Z",
+        "voteCount": 4,
+        "content": "Correct answer"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 20,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104481-exam-dp-420-topic-1-question-20-discussion/",
+    "body": "You need to create a data store for a directory of small and medium-sized businesses (SMBs). The data store must meet the following requirements:<br>\u2711 Store companies and the users employed by them. Each company will have less than 1,000 users.<br>\u2711 Some users have data that is greater than 2 KB.<br>\u2711 Associate each user to only one company.<br>\u2711 Provide the ability to browse by company.<br>\u2711 Provide the ability to browse the users by company.<br>\u2711 Whenever a company or user profile is selected, show a details page for the company and all the related users.<br>\u2711 Be optimized for reading data.<br>Which design should you implement to optimize the data store for reading data?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn a directory container, create a document for each company and a document for each user. Use the company ID as the partition key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user container that uses the user ID as the partition key and a company container that uses the company ID as the partition key. Add the company ID to each user document.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn a user container, create a document for each user. Embed the company into each user document. Use the user ID as the partition key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIn a company container, create a document for each company. Embed the users into company documents. Use the company ID as the partition key.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 14,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 10,
+        "isMostVoted": false
+      },
+      {
+        "answer": "A",
+        "count": 5,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-03-30T07:19:00.000Z",
+        "voteCount": 9,
+        "content": "B. Create a user container that uses the user ID as the partition key and a company container that uses the company ID as the partition key. Add the company ID to each user document.\n\nThis design separates the users and companies into two different containers, with each container optimized for querying their respective entities. The user container uses the user ID as the partition key, which allows for efficient retrieval of individual users. The company container uses the company ID as the partition key, which enables efficient retrieval of all users associated with a particular company.\n\nAdding the company ID to each user document in the user container allows for easy and fast querying of users by company. Whenever a company or user profile is selected, the details page for the company and all related users can be retrieved by joining the data from the two containers using the company ID.\n\nThis design meets all the requirements specified in the prompt, including efficient reading of data, browsing by company, and browsing users by company."
+      },
+      {
+        "date": "2023-12-20T04:22:00.000Z",
+        "voteCount": 5,
+        "content": "The filter for both queries is company ID. B would result in cross partition queries with are not optimized for reading. A is the correct answer - one container, company ID as partition key and you can distinguish users from companies using a type prop, so if I only care to browse for a company I will not retrieve all its users because that would be extra data irrelevant for my search."
+      },
+      {
+        "date": "2023-07-25T02:50:00.000Z",
+        "voteCount": 8,
+        "content": "1000 users with more than 2kb data can still exceed the 2MB allowed document size (dont forgot the company itself has data), so D is obviously incorrect."
+      },
+      {
+        "date": "2024-03-03T05:54:00.000Z",
+        "voteCount": 1,
+        "content": "option B is the most suitable design to optimize the data store for reading data\n Partitioning data based on the company ID for companies and the user ID for users allows for efficient retrieval of data. When querying for a specific company or user, the partition key helps direct the query to the appropriate partition, minimizing the amount of data that needs to be scanned."
+      },
+      {
+        "date": "2023-09-22T03:31:00.000Z",
+        "voteCount": 5,
+        "content": "A is correct, since the company and users will be in the same partition ang can be retrived in an optimized way. You can use type property to query for the companies only, or users only.\nB is incorrect since users are partioned by userid and when retrieving users for a company it will be a cross-partition query (not optimal way)\nD will create large company documents and it is not an optimal way again.\nC again is not an optimal way since the query to get user by company will run cross partition."
+      },
+      {
+        "date": "2023-08-11T23:11:00.000Z",
+        "voteCount": 2,
+        "content": "D is correct"
+      },
+      {
+        "date": "2023-07-29T06:18:00.000Z",
+        "voteCount": 2,
+        "content": "B seems to be more optimized for reading data"
+      },
+      {
+        "date": "2023-07-24T21:42:00.000Z",
+        "voteCount": 1,
+        "content": "none of the options address \"Associate each user to only one company\". Ideally there should be a hierarchical key of userid / companyid to meet this requirement"
+      },
+      {
+        "date": "2023-07-13T10:05:00.000Z",
+        "voteCount": 7,
+        "content": "Option D provides a well-optimized data store design that enables efficient browsing and retrieval of data by company, as well as an easy way to view company details and associated users on a single page."
+      },
+      {
+        "date": "2023-04-20T10:58:00.000Z",
+        "voteCount": 7,
+        "content": "A is correct \u2026 We want users and companies on the same partition. This is done by using company id as partition key for both. As a compayid is a widely used filter thes data that are related can be covered from the same partition. we add a type pro to distinguish the two types"
+      },
+      {
+        "date": "2023-03-31T04:07:00.000Z",
+        "voteCount": 5,
+        "content": "D is correct answer. Googled other sites and they are showing D as answer."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 21,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104426-exam-dp-420-topic-1-question-21-discussion/",
+    "body": "You are building an application that will store data in an Azure Cosmos DB Core (SQL) API account. The account uses the session default consistency level. The account is used by five other applications. The account has a single read-write region and 10 additional read region.<br>Approximately 20 percent of the items stored in the account are updated hourly.<br>Several users will access the new application from multiple devices.<br>You need to ensure that the users see the same item values consistently when they browse from the different devices. The solution must NOT affect the other applications.<br>Which two actions should you perform? Each correct answer presents part of the solution.<br>NOTE: Each correct selection is worth one point.<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSet the default consistency level to eventual",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssociate a session token to the device",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse implicit session management when performing read requests",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tProvide a stored session token when performing read requests\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tAssociate a session token to the user account\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "DE",
+        "count": 13,
+        "isMostVoted": true
+      },
+      {
+        "answer": "BC",
+        "count": 7,
+        "isMostVoted": false
+      },
+      {
+        "answer": "BD",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-08-26T04:20:00.000Z",
+        "voteCount": 8,
+        "content": "In such case user would see the same data from the different device, because session would be the same"
+      },
+      {
+        "date": "2023-05-30T07:02:00.000Z",
+        "voteCount": 5,
+        "content": "D and E are correct answers"
+      },
+      {
+        "date": "2023-09-26T22:19:00.000Z",
+        "voteCount": 1,
+        "content": "BC is the right answer. Please update. \nTo ensure that users see the same item values consistently when browsing from different devices while not affecting the other applications, you should perform the following two actions:\n\nB. Associate a session token to the device:\n\nYou should associate a session token with each user's device. This means that each device used by a user will have its own session token. This ensures that the same user, when browsing from different devices, maintains a consistent session with the Azure Cosmos DB. It allows users to see consistent item values across their devices.\nC. Use implicit session management when performing read requests:\n\nWhen performing read requests from the new application, use implicit session management. Implicit session management means that the SDK you are using to interact with Azure Cosmos DB automatically manages the session token for you. It keeps track of the session token associated with the device, ensuring that each read operation uses the correct session token. This ensures consistency for the user's session across devices.\nHere's an additional explanation of the options you should not select:"
+      },
+      {
+        "date": "2023-09-23T22:13:00.000Z",
+        "voteCount": 2,
+        "content": "D and E are correct. We login to device with a user-id so session token should be associated with user not device."
+      },
+      {
+        "date": "2023-08-23T23:57:00.000Z",
+        "voteCount": 2,
+        "content": "B. By associating a session token with each device, you ensure that reads from the same device maintain consistent and up-to-date results. \nC. Implicit session management involves utilizing Cosmos DB's built-in session handling capabilities."
+      },
+      {
+        "date": "2023-06-25T04:59:00.000Z",
+        "voteCount": 2,
+        "content": "Selected Answer: BC"
+      },
+      {
+        "date": "2023-06-11T02:44:00.000Z",
+        "voteCount": 2,
+        "content": "B. Associate a session token to the device.\nC. Use implicit session management when performing read requests."
+      },
+      {
+        "date": "2023-06-08T02:25:00.000Z",
+        "voteCount": 1,
+        "content": "B. Associate a session token to the device.\nE. Associate a session token to the user account.\n\nBy associating a session token to each device and user account, you can maintain consistency across multiple devices used by the same user. The session token represents a logical session and helps track the user's interaction with the data. This ensures that when the user switches between devices, they continue to see the same consistent data."
+      },
+      {
+        "date": "2023-04-27T01:44:00.000Z",
+        "voteCount": 1,
+        "content": "By associating a session token to the device and providing a stored session token when performing read requests, the application ensures that the user sees the same item values consistently when browsing from different devices."
+      },
+      {
+        "date": "2023-03-29T13:42:00.000Z",
+        "voteCount": 3,
+        "content": "B. Associate a session token to the device: When a user logs in to the application from a device, a session token should be generated and associated with the device. This will ensure that subsequent requests from the same device are routed to the same backend server that served the first request, and the user will see consistent item values.\n\nC. Use implicit session management when performing read requests: When performing read requests, the application should use implicit session management. This means that the SDK will automatically manage the session token, and the user will continue to see consistent item values regardless of which backend server serves the request."
+      },
+      {
+        "date": "2023-04-01T07:12:00.000Z",
+        "voteCount": 4,
+        "content": "It talk about different devices so I think I will go with D &amp; E."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 22,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/86875-exam-dp-420-topic-1-question-22-discussion/",
+    "body": "HOTSPOT -<br>You have a container that stores data about families.<br>The following is a sample document.<br><img src=\"/assets/media/exam-media/04276/0004300001.png\" class=\"in-exam-image\"><br>You run the following query against the container.<br><img src=\"/assets/media/exam-media/04276/0004400001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0004400002.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0004500001.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>The result is empty, since the cross product of each item from source and an empty set is empty:<br>Note: Joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses.<br><br>Box 2: No -<br>The cross join is not on the pets.<br><br>Box 3: Yes -<br>The cross join is not on the pets.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-join",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-11-02T18:47:00.000Z",
+        "voteCount": 27,
+        "content": "After I tested with JSON, the answer is Yes, No, Yes"
+      },
+      {
+        "date": "2024-04-09T05:42:00.000Z",
+        "voteCount": 1,
+        "content": "it depends what is meant by `having a parent defined`. my understanding is that parent = document. so, it probably means that there is no document which corresponds to the format specified above and as a result those children have nowhere to exist.\n\nso, the answer is No, No, Yes.\n\neven if u put only { \"children\": [...] } as an item, it will mean that the parent is defined. while the parent's name, pets and other properties except children r not defined."
+      },
+      {
+        "date": "2022-11-29T17:33:00.000Z",
+        "voteCount": 5,
+        "content": "You are right! In the first question the query return a value because \"c\" is represent the entire document and not only the parent's array."
+      },
+      {
+        "date": "2023-03-16T13:13:00.000Z",
+        "voteCount": 1,
+        "content": "You are right!"
+      },
+      {
+        "date": "2023-02-28T06:19:00.000Z",
+        "voteCount": 5,
+        "content": "Also tested this.\n\nThere's missing comma and should be ch.firstname instead of firstName:\nSELECT   \n    ch.name ?? ch.firstname AS childName, f.lastName, f.parents, ARRAY_LENGTH(ch.pets) ?? 0 AS numberOfPets,  \n    ch.pets  \nFROM mktest1 AS f  \nJOIN ch IN f.children  \n\nAnswer is YES, NO, YES"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 23,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/101031-exam-dp-420-topic-1-question-23-discussion/",
+    "body": "Note: This question is part of a series of questions that present the same scenario. Each question in the series contains a unique solution that might meet the stated goals. Some question sets might have more than one correct solution, while others might not have a correct solution.<br>After you answer a question in this section, you will NOT be able to return to it. As a result, these questions will not appear in the review screen.<br>You have an Azure Cosmos DB Core (SQL) API account named account1 that uses autoscale throughput.<br>You need to run an Azure function when the normalized request units per second for a container in account1 exceeds a specific value.<br>Solution: You configure Azure Event Grid to send events to the function by using an Event Grid trigger in the function.<br>Does this meet the goal?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tYes",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tNo"
+    ],
+    "answer": "B",
+    "answerDescription": "Instead configure an Azure Monitor alert to trigger the function.<br>You can set up alerts from the Azure Cosmos DB pane or the Azure Monitor service in the Azure portal.<br>Reference:<br>https://docs.microsoft.com/en-us/azure/cosmos-db/create-alerts",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-02-27T19:01:00.000Z",
+        "voteCount": 8,
+        "content": "No, Use Azure monitor alert to trigger function using action group"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 24,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/74424-exam-dp-420-topic-1-question-24-discussion/",
+    "body": "You have an application named App1 that reads the data in an Azure Cosmos DB Core (SQL) API account. App1 runs the same read queries every minute. The default consistency level for the account is set to eventual.<br>You discover that every query consumes request units (RUs) instead of using the cache.<br>You verify the IntegratedCacheiteItemHitRate metric and the IntegratedCacheQueryHitRate metric. Both metrics have values of 0.<br>You verify that the dedicated gateway cluster is provisioned and used in the connection string.<br>You need to ensure that App1 uses the Azure Cosmos DB integrated cache.<br>What should you configure?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe indexing policy of the Azure Cosmos DB container",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe consistency level of the requests from App1",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe connectivity mode of the App1 CosmosClient\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe default consistency level of the Azure Cosmos DB account"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 14,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2022-04-25T03:13:00.000Z",
+        "voteCount": 13,
+        "content": "C is correct\nhttps://docs.microsoft.com/en-us/azure/cosmos-db/how-to-configure-integrated-cache\nIf you're using the .NET or Java SDK, set the connection mode to gateway mode. This step isn't necessary for the Python and Node.js SDKs since they don't have additional options of connecting besides gateway mo"
+      },
+      {
+        "date": "2024-03-03T23:13:00.000Z",
+        "voteCount": 1,
+        "content": "I can\u2019t tell if my application is using the dedicated gateway:\nCheck the DedicatedGatewayRequests. This metric includes all requests that use the dedicated gateway, regardless of whether they hit the integrated cache. If your application uses the standard gateway or direct mode with your original connection string, you will not see an error message, but the DedicatedGatewayRequests will be zero. If your application uses direct mode with your dedicated gateway connection string, you may still see a few DedicatedGatewayRequests.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/integrated-cache#i-cant-tell-if-my-application-is-using-the-dedicated-gateway"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 25,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/75713-exam-dp-420-topic-1-question-25-discussion/",
+    "body": "HOTSPOT -<br>You provision Azure resources by using the following Azure Resource Manager (ARM) template.<br><img src=\"/assets/media/exam-media/04276/0004800001.png\" class=\"in-exam-image\"><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br>NOTE: Each correct selection is worth one point.<br>Hot Area:<br><img src=\"/assets/media/exam-media/04276/0004900001.png\" class=\"in-exam-image\"><br>",
+    "options": [],
+    "answer": "<img src=\"/assets/media/exam-media/04276/0004900002.jpg\" class=\"in-exam-image\">",
+    "answerDescription": "Box 1: No -<br>An alert is triggered when the DB key is regenerated, not when it is used.<br>Note: The az cosmosdb keys regenerate command regenerates an access key for a Azure Cosmos DB database account.<br><br>Box 2: No -<br>Only an SMS action will be taken.<br>Emailreceivers is empty so no email action is taken.<br><br>Box 3: Yes -<br>Yes, an alert is triggered when the DB key is regenerated.<br>Reference:<br>https://docs.microsoft.com/en-us/cli/azure/cosmosdb/keys",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2022-05-17T04:54:00.000Z",
+        "voteCount": 25,
+        "content": "Answer should be No,No,No. Answer description is correct"
+      },
+      {
+        "date": "2022-08-14T23:23:00.000Z",
+        "voteCount": 8,
+        "content": "The last one should also be no - the trigger is fired when the database account has a new key regenerated not when an item with a new partition key value is created"
+      },
+      {
+        "date": "2023-05-30T07:52:00.000Z",
+        "voteCount": 4,
+        "content": "NO NO and NO"
+      },
+      {
+        "date": "2023-03-16T14:04:00.000Z",
+        "voteCount": 4,
+        "content": "No, No, No. The third one is when a new access key is generated not when an item with a new partition key value is created."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 26,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/104482-exam-dp-420-topic-1-question-26-discussion/",
+    "body": "You plan to store order data in an Azure Cosmos DB Core (SQL) API account. The data contains information about orders and their associated items.<br>You need to develop a model that supports order read operations. The solution must minimize the number of requests.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a database for orders and a database for order items.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a single database that contains a container for orders and a container for order items.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a single database that contains one container. Store orders and order items in separate documents in the container.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a single database that contains one container. Create a separate document for each order and embed the order items into the order documents.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 10,
+        "isMostVoted": true
+      },
+      {
+        "answer": "B",
+        "count": 1,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-25T05:09:00.000Z",
+        "voteCount": 6,
+        "content": "Selected Answer: D"
+      },
+      {
+        "date": "2024-05-05T08:25:00.000Z",
+        "voteCount": 1,
+        "content": "See, in this kind of questions i think we must assume that the number of items per order can go to infinity. Thus, it would be C. \nAs answer description says: \nNote: In general, use embedded data models when:\nThere's embedded data that will not grow without bound.\n\nWe do not see any bound information in this example and we do not know how much data goes with each item - is it 10 key-value pairs? is it 100? 1000? So this can cause our app to hit limits and requires complete re-design and migration."
+      },
+      {
+        "date": "2023-06-22T06:17:00.000Z",
+        "voteCount": 2,
+        "content": "The solution must minimize the number of requests"
+      },
+      {
+        "date": "2023-06-11T11:24:00.000Z",
+        "voteCount": 2,
+        "content": "Selected Answer: B"
+      },
+      {
+        "date": "2023-06-01T05:26:00.000Z",
+        "voteCount": 2,
+        "content": "D is answer"
+      },
+      {
+        "date": "2023-03-30T07:24:00.000Z",
+        "voteCount": 1,
+        "content": "B. Create a single database that contains a container for orders and a container for order items.\nCreating a single database with two containers, one for orders and another for order items, is the best approach to support order read operations while minimizing the number of requests. This approach provides a clear separation of concerns between orders and order items, making it easier to manage the data and perform read operations.\nWith this approach, queries that require only order data can be directed to the orders container, while queries that require order item data can be directed to the order items container. This reduces the number of requests required to retrieve the data needed for each query."
+      },
+      {
+        "date": "2023-12-20T04:44:00.000Z",
+        "voteCount": 1,
+        "content": "You have order reads, not order item reads, so no need for 2 containers. To reduce number of requests you denormalize data by providing a document for each order and its items."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 27,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/106949-exam-dp-420-topic-1-question-27-discussion/",
+    "body": "You have a container in an Azure Cosmos DB Core (SQL) API account. The container stores telemetry data from IoT devices. The container uses telemetryId as the partition key and has a throughput of 1,000 request units per second (RU/s). Approximately 5,000 IoT devices submit data every five minutes by using the same telemetryId value.<br>You have an application that performs analytics on the data and frequently reads telemetry data for a single IoT device to perform trend analysis.<br>The following is a sample of a document in the container.<br><img src=\"/assets/media/exam-media/04276/0005100001.png\" class=\"in-exam-image\"><br>You need to reduce the amount of request units (RUs) consumed by the analytics application.<br>What should you do?<br>",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDecrease the offerThroughput value for the container.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tIncrease the offerThroughput value for the container.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the data to a new container that uses a partition key of deviceId.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tMove the data to a new container that uses a partition key of temp."
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-25T05:11:00.000Z",
+        "voteCount": 5,
+        "content": "Selected Answer: C"
+      },
+      {
+        "date": "2023-04-21T14:54:00.000Z",
+        "voteCount": 4,
+        "content": "Correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 28,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113568-exam-dp-420-topic-1-question-28-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to use a multi-region Azure Cosmos DB Core (SQL) API account to store data for a new application suite. The suite contains the applications shown in the following table.<br><br><img src=\"https://img.examtopics.com/dp-420/image114.png\"><br><br>Each application should use the weakest consistency level possible.<br><br>Which consistency level should you configure for each application? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image115.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image116.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-29T14:16:00.000Z",
+        "voteCount": 37,
+        "content": "Reporting: Bounded staleness (within 5 mins)\nPurchasing: Strong (latest committed) \nFulfillment: Consistent prefix (never out-of-order)\n\nhttps://willvelida.medium.com/understanding-consistency-levels-in-azure-cosmos-db-77b90dbf3daa"
+      },
+      {
+        "date": "2024-02-15T10:32:00.000Z",
+        "voteCount": 2,
+        "content": "Reporting: Bounded staleness (within 5 mins)\nPurchasing: Strong (latest committed)\nFulfillment: Consistent prefix (never out-of-order)\n\nhttps://learn.microsoft.com/en-us/training/modules/use-consistency-models-azure-cosmos-db-sql-api/2-understand"
+      },
+      {
+        "date": "2023-08-27T01:26:00.000Z",
+        "voteCount": 2,
+        "content": "Reporting: Eventual\nPurchasing: Strong\nFulfilment: Consistent prefix"
+      },
+      {
+        "date": "2023-06-28T12:28:00.000Z",
+        "voteCount": 1,
+        "content": "Reporting: Eventual\nPurchasing: Bounded Staleness\nFulfilment: Strong"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 29,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113569-exam-dp-420-topic-1-question-29-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You are designing a data model for an Azure Cosmos DB Core (SQL) API account.<br><br>What are the partition limits for request units per second (RU/s) and storage? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image117.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image118.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-28T12:32:00.000Z",
+        "voteCount": 28,
+        "content": "Maximum RU/s per physical partition: 10,000 RU/s\nMaximum storage per logical partition: 20 GB"
+      },
+      {
+        "date": "2023-07-10T00:21:00.000Z",
+        "voteCount": 3,
+        "content": "Correct\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/concepts-limits"
+      },
+      {
+        "date": "2023-07-29T08:33:00.000Z",
+        "voteCount": 2,
+        "content": "It is 20 GB. 50 GB is the maximum size of a physical partition."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 30,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113570-exam-dp-420-topic-1-question-30-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Cosmos DB container named container1.<br><br>You need to insert an item into container1. The solution must ensure that the item is deleted automatically after two hours.<br><br>How should you complete the item definition? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image119.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image120.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-28T12:33:00.000Z",
+        "voteCount": 12,
+        "content": "ttl and 7200"
+      },
+      {
+        "date": "2023-12-20T04:52:00.000Z",
+        "voteCount": 1,
+        "content": "Answer is ttl and 7200. \nThe default time to live is something you set on the container when using the SDK"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 31,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113572-exam-dp-420-topic-1-question-31-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have a container in an Azure Cosmos DB Core (SQL) API account. The database that has a manual throughput of 30,000 request units per second (RU/s).<br><br>The current consumption details are shown in the following chart.<br><br><img src=\"https://img.examtopics.com/dp-420/image121.png\"><br><br>Use the drop-down menus to select the answer choice that answers each question based on the information presented in the graphic.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image122.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image123.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-06-30T16:05:00.000Z",
+        "voteCount": 16,
+        "content": "Answer 1: 5000 RU/s. You get this by dividing 30000 RU/s by 6 physical partitions. \nAnswer 2: 60000 RU/s. The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to Current number of physical partitions * 10,000 RU/s. \nhttps://learn.microsoft.com/en-us/azure/cosmos-db/scaling-provisioned-throughput-best-practices#step-2-calculate-the-default-maximum-throughput"
+      },
+      {
+        "date": "2023-06-28T12:39:00.000Z",
+        "voteCount": 10,
+        "content": "In an Azure Cosmos DB Core (SQL) API account, each partition supports throughput of up to 10,000 request units per second (RU/s).\n\nThe container can scale to a maximum throughput of 30,000 RU/s without requiring a partition split. This is because the maximum RU/s per physical partition in Azure Cosmos DB is 10,000, and since the container is set to a manual throughput of 30,000 RU/s, it can be accommodated within three physical partitions, each handling 10,000 RU/s.\n\nTherefore, each partition supports up to 10,000 RU/s, and the container can scale up to 30,000 RU/s without a partition split."
+      },
+      {
+        "date": "2023-09-27T11:41:00.000Z",
+        "voteCount": 1,
+        "content": "The correct answer should be 5000 RU/s and 60000 RU/s"
+      },
+      {
+        "date": "2023-09-27T11:42:00.000Z",
+        "voteCount": 4,
+        "content": "Correction. it is 10000 RU/s and 60000 RU/s"
+      },
+      {
+        "date": "2023-09-26T20:31:00.000Z",
+        "voteCount": 1,
+        "content": "How can you know there are 6 physical partitions?"
+      },
+      {
+        "date": "2024-01-23T19:13:00.000Z",
+        "voteCount": 1,
+        "content": "- Each partition (logical/physical) support upto 10000RU/s\n- Graph shows based on partition key id.  There are 6 partition key legend.  So, The highest RU/s you can scale to without triggering Azure Cosmos DB to split partitions is equal to Current number of physical partitions * 10,000 RU/s. So, 6*10000RU/s = 60000RU/s\nref: https://learn.microsoft.com/en-us/azure/cosmos-db/scaling-provisioned-throughput-best-practices"
+      },
+      {
+        "date": "2023-06-30T13:07:00.000Z",
+        "voteCount": 1,
+        "content": "5000 RU/s\n10000 RU/s"
+      },
+      {
+        "date": "2023-09-07T20:41:00.000Z",
+        "voteCount": 1,
+        "content": "The RU for the database is fixed at 30,000, so it cannot exceed 30,000.\nThe correct answers should be 5,000 RU and 30,000 RU."
+      },
+      {
+        "date": "2023-06-30T13:08:00.000Z",
+        "voteCount": 1,
+        "content": "Excuse me, I meant 5000 RU/s and 30000 RU/s"
+      },
+      {
+        "date": "2023-07-14T07:15:00.000Z",
+        "voteCount": 1,
+        "content": "5000 RU/s and 30000 RU/s  or 5000 RU/s. and 60000 RU/s.\nYou give several answers."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 32,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113573-exam-dp-420-topic-1-question-32-discussion/",
+    "body": "You have an Azure Cosmos DB database.<br><br>You plan to create a new container named container1 that will store product data and product category data and will primarily support read requests.<br><br>You need to configure a partition key for container1. The solution must meet the following requirements:<br><br>\u2022\tMinimize the size of the partition.<br>\u2022\tMinimize maintenance effort.<br><br>Which two characteristics should you prioritize? Each correct answer presents part of the solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tunique",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\thigh cardinality\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tlow cardinality",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tstatic\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "BD",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "BD",
+        "count": 11,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-06-28T12:40:00.000Z",
+        "voteCount": 10,
+        "content": "To configure a partition key for container1 in Azure Cosmos DB, prioritizing characteristics that minimize the size of the partition and maintenance effort, you should prioritize the following two characteristics:\n\nB. High cardinality: Choosing a partition key with high cardinality means having a large number of unique values distributed across the dataset. This helps in distributing the data evenly across multiple partitions, preventing hotspots and ensuring efficient scalability.\n\nD. Static: Selecting a static partition key means choosing a key that does not frequently change. This minimizes the need for updates to the partition key value and reduces maintenance effort. It also helps in maintaining a consistent distribution of data across partitions over time.\n\nSo, the correct answers are:\n\nB. High cardinality\nD. Static"
+      },
+      {
+        "date": "2023-12-20T05:02:00.000Z",
+        "voteCount": 1,
+        "content": "B,D - considering products have category data, we can expect the category to be a filter, which makes it a good candidate to be a partition key. Categories are static known terms for a given business (values like \"Electronics\", \"Clothing\", \"Wellness\" etc)"
+      },
+      {
+        "date": "2023-08-29T09:40:00.000Z",
+        "voteCount": 2,
+        "content": "A unique\nB high cardinality\nhttps://medium.com/codex/azure-cosmos-db-partitioning-bc851a404476"
+      },
+      {
+        "date": "2023-08-12T00:35:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2023-08-08T09:57:00.000Z",
+        "voteCount": 3,
+        "content": "A, B\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#use-item-id-as-the-partition-key"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 33,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/113574-exam-dp-420-topic-1-question-33-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Cosmos DB account named account1 that has a default consistency level of session.<br><br>You have an app named App1.<br><br>You need to ensure that the read operations of App1 can request either bounded staleness or consistent prefix consistency.<br><br>What should you modify for each consistency level? To answer, select the appropriate options in the answer area.<br><br><img src=\"https://img.examtopics.com/dp-420/image124.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image125.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-07-07T03:51:00.000Z",
+        "voteCount": 15,
+        "content": "account level &amp; request level options\n\n\"Consistency can only be relaxed at the SDK instance or request level. To move from weaker to stronger consistency, update the default consistency for the Azure Cosmos DB account.\"\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-consistency?tabs=portal%2Cdotnetv2%2Capi-async"
+      },
+      {
+        "date": "2023-08-26T12:28:00.000Z",
+        "voteCount": 3,
+        "content": "Bounded staleness &gt; account level\nConsistent prefix &gt; request level\n\"The default consistency level configured on your account applies to all Azure Cosmos DB databases and containers under that account.\"\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels#configure-the-default-consistency-level\n**No option to set consistency level at database level. requirements for multiple default consistency levels = multiple accounts"
+      },
+      {
+        "date": "2023-07-24T02:49:00.000Z",
+        "voteCount": 1,
+        "content": "\"account level &amp; request level options\" or \"The database level options &amp; The request level options\"?"
+      },
+      {
+        "date": "2024-03-04T05:02:00.000Z",
+        "voteCount": 1,
+        "content": "Consistency can only be relaxed at the SDK instance or request level. To move from weaker to stronger consistency, update the default consistency for the Azure Cosmos DB account.\nFor Bounded staleness --&gt; Account\nFor Consistent prefix --&gt; Request Level\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/how-to-manage-consistency?tabs=portal%2Cdotnetv2%2Capi-async#override-the-default-consistency-level"
+      },
+      {
+        "date": "2023-06-28T12:46:00.000Z",
+        "voteCount": 3,
+        "content": "For Bounded staleness:\nThe database level options\n\nFor Consistent prefix:\nThe request level options"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 34,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/127907-exam-dp-420-topic-1-question-34-discussion/",
+    "body": "DRAG DROP<br> -<br><br>You are designing three apps named App1, App2, and App3. Each app will use a separate Azure Cosmos DB for NoSQL account. The apps have the following consistency requirements:<br>\u2022\tApp1: Reads must always return the most recent committed version of an item, where the commit occurred during the same session.<br>\u2022\tApp2: Reads must always return the most recent committed version of an item, even if the commit occurred during another session.<br>\u2022\tApp3: Write latency must be minimized and data staleness can be tolerated.<br><br>You need to recommend a default consistency level for each Azure Cosmos DB for NoSQL account. The solution must minimize concurrency.<br><br>What should you recommend for the account of each app? To answer, drag the appropriate consistency levels to the correct apps. Each consistency level may be used once, more than once, or not at all. You may need to drag the split bar between panes or scroll to view content.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image132.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image133.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-12-06T02:59:00.000Z",
+        "voteCount": 4,
+        "content": "correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 35,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125776-exam-dp-420-topic-1-question-35-discussion/",
+    "body": "You have an Azure Cosmos DB for NoSQL account configured for global distribution across four regions.<br><br>At connection time, the SQL SDK needs to identify the optimal endpoint for reading and writing.<br><br>Which two factors can influence the SDK? Each correct answer presents a complete solution.<br><br>NOTE: Each correct selection is worth one point.",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe consistency level in RequestOptions",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tregional latency",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe default consistency level",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tthe PreferredLocations configuration\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\ta region being available\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "DE",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "DE",
+        "count": 7,
+        "isMostVoted": true
+      },
+      {
+        "answer": "BD",
+        "count": 3,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-04T05:05:00.000Z",
+        "voteCount": 3,
+        "content": "In order to take advantage of global distribution, client applications can specify the ordered preference list of regions to be used to perform document operations. Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/tutorial-global-distribution?tabs=dotnetv2%2Capi-async#preferred-locations"
+      },
+      {
+        "date": "2023-11-12T10:08:00.000Z",
+        "voteCount": 4,
+        "content": "Based on the Azure Cosmos DB account configuration, current regional availability and the preference list specified, the most optimal endpoint will be chosen by the SQL SDK to perform write and read operations."
+      },
+      {
+        "date": "2023-11-11T07:01:00.000Z",
+        "voteCount": 3,
+        "content": "answer"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 36,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125866-exam-dp-420-topic-1-question-36-discussion/",
+    "body": "You have an Azure Cosmos DB for NoSQL account named account1.<br><br>You need to create a container named Container1 in account1 by using the Azure Cosmos DB .NET SDK. The solution must ensure that the items in Container1 never expire.<br><br>What should you set?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTimeToLivePropertyPath to null",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tTimeToLivePropertyPath to 0",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDefaultTimeToLive to null\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tDefaultTimeToLive to \u20131"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 12,
+        "isMostVoted": true
+      },
+      {
+        "answer": "D",
+        "count": 6,
+        "isMostVoted": false
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-11-17T13:03:00.000Z",
+        "voteCount": 5,
+        "content": "Set to null will never expire.\nIf set to -1 might override by the item's ttl"
+      },
+      {
+        "date": "2023-12-20T05:12:00.000Z",
+        "voteCount": 2,
+        "content": "When creating a container de DefaultTimeToLive has to be set to -1 for items to never expire. Overrides are not specified in this question and even if they were, this prop cannot be null, because the SDK is expecting a non-nullable integer."
+      },
+      {
+        "date": "2023-12-20T05:14:00.000Z",
+        "voteCount": 1,
+        "content": "Correction - it can be null, but in that case TTL is turned off. To have items that never expire you must set it to -1."
+      },
+      {
+        "date": "2023-12-20T05:14:00.000Z",
+        "voteCount": 1,
+        "content": "More details here: https://learn.microsoft.com/en-us/dotnet/api/microsoft.azure.documents.documentcollection.defaulttimetolive?view=azure-dotnet"
+      },
+      {
+        "date": "2023-12-29T00:46:00.000Z",
+        "voteCount": 5,
+        "content": "Set to null will never expire."
+      },
+      {
+        "date": "2024-06-22T20:24:00.000Z",
+        "voteCount": 2,
+        "content": "To create a container named Container1 in account1 using the Azure Cosmos DB .NET SDK and ensure that the items in Container1 never expire, you should configure the DefaultTimeToLive property. Setting the DefaultTimeToLive to -1 ensures that items never expire."
+      },
+      {
+        "date": "2024-04-04T01:06:00.000Z",
+        "voteCount": 1,
+        "content": "ttl = -1\tTTL is disabled. The item will never expire."
+      },
+      {
+        "date": "2024-02-27T00:55:00.000Z",
+        "voteCount": 1,
+        "content": "Apologies, the correct choice is option C, setting DefaultTimeToLive to null. This ensures that items in Container1 will never expire.\n\nIf you set DefaultTimeToLive to null (option C), the container items will never expire, regardless of any TTL set for individual items.\n\nOption D, setting DefaultTimeToLive to -1, is incorrect because it would prevent the container TTL from expiring, but if you set a TTL for individual items, those items would still expire based on their TTL value.\n\nFor more details, please refer to Example 1 and Example 2 in the following link: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/time-to-live"
+      },
+      {
+        "date": "2024-02-27T00:54:00.000Z",
+        "voteCount": 2,
+        "content": "Apologies, the correct choice is option C, setting DefaultTimeToLive to null. This ensures that items in Container1 will never expire.\n\nIf you set DefaultTimeToLive to null (option C), the container items will never expire, regardless of any TTL set for individual items.\n\nOption B, setting DefaultTimeToLive to -1, is incorrect because it would prevent the container TTL from expiring, but if you set a TTL for individual items, those items would still expire based on their TTL value.\n\nFor more details, please refer to Example 1 and Example 2 in the following link: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/time-to-live"
+      },
+      {
+        "date": "2024-02-26T06:23:00.000Z",
+        "voteCount": 1,
+        "content": "TimeToLivePropertyPath specifies a path within the JSON document that indicates the expiration time. Setting it to null disables time-to-live (TTL) for individual items, while setting it to 0 would immediately expire the items. Both options are not suitable for ensuring items never expire.\nDefaultTimeToLive sets the default expiration time for all items in the container. Setting it to -1 signifies that the items will never expire. This is the desired behavior for this scenario."
+      },
+      {
+        "date": "2024-02-27T00:54:00.000Z",
+        "voteCount": 1,
+        "content": "Apologies, the correct choice is option C, setting DefaultTimeToLive to null. This ensures that items in Container1 will never expire.\n\nIf you set DefaultTimeToLive to null (option C), the container items will never expire, regardless of any TTL set for individual items.\n\nOption B, setting DefaultTimeToLive to -1, is incorrect because it would prevent the container TTL from expiring, but if you set a TTL for individual items, those items would still expire based on their TTL value.\n\nFor more details, please refer to Example 1 and Example 2 in the following link: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/time-to-live"
+      },
+      {
+        "date": "2024-02-27T00:55:00.000Z",
+        "voteCount": 1,
+        "content": "Apologies, the correct choice is option C, setting DefaultTimeToLive to null. This ensures that items in Container1 will never expire.\n\nIf you set DefaultTimeToLive to null (option C), the container items will never expire, regardless of any TTL set for individual items.\n\nOption D, setting DefaultTimeToLive to -1, is incorrect because it would prevent the container TTL from expiring, but if you set a TTL for individual items, those items would still expire based on their TTL value.\n\nFor more details, please refer to Example 1 and Example 2 in the following link: https://learn.microsoft.com/en-us/azure/cosmos-db/nosql/time-to-live"
+      },
+      {
+        "date": "2023-11-12T10:10:00.000Z",
+        "voteCount": 2,
+        "content": "// Never expire by default\n    DefaultTimeToLive = -1"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 37,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125727-exam-dp-420-topic-1-question-37-discussion/",
+    "body": "You are designing an Azure Cosmos DB for NoSQL solution to store data from IoT devices. Writes from the devices will occur every second. Data will be retained indefinitely.<br><br>The following is a sample of the data.<br><br><img src=\"https://img.examtopics.com/dp-420/image134.png\"><br><br>You need to select a partition key that meets the following requirements for writes:<br><br>\u2022\tMinimizes the partition skew<br>\u2022\tAvoids capacity limits<br>\u2022\tAvoids hot partitions<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse deviceManufacturer as the partition key.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new synthetic key that contains deviceId and timestamp.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a new synthetic key that contains deviceId and deviceManufacturer.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tUse deviceId as the partition key."
+    ],
+    "answer": "B",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "B",
+        "count": 4,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2023-12-29T00:48:00.000Z",
+        "voteCount": 2,
+        "content": "B is correct"
+      },
+      {
+        "date": "2023-11-10T11:56:00.000Z",
+        "voteCount": 2,
+        "content": "B selected"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 38,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125728-exam-dp-420-topic-1-question-38-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Cosmos DB for NoSQL container named Contacts that is configured as shown in the following exhibit.<br><br><img src=\"https://img.examtopics.com/dp-420/image135.png\"><br><br>Contacts contains the items shown in the following table.<br><br><img src=\"https://img.examtopics.com/dp-420/image136.png\"><br><br>To Contacts, you plan to Insert the items shown in the following table.<br><br><img src=\"https://img.examtopics.com/dp-420/image137.png\"><br><br>For each of the following statements, select Yes if the statement is true. Otherwise, select No.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image138.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image139.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-12T10:35:00.000Z",
+        "voteCount": 5,
+        "content": "YNY\nUnique Key is per partition and is case sensitive"
+      },
+      {
+        "date": "2024-03-06T03:17:00.000Z",
+        "voteCount": 1,
+        "content": "YNY is the correct answer"
+      },
+      {
+        "date": "2023-11-15T20:50:00.000Z",
+        "voteCount": 1,
+        "content": "N N Y\nThere are two unique key rules"
+      },
+      {
+        "date": "2023-11-17T13:04:00.000Z",
+        "voteCount": 1,
+        "content": "Sorry, should be YNY.\nAfter check the azure portal UI, I notice that is a composite contract with 2 fileds"
+      },
+      {
+        "date": "2023-11-10T11:56:00.000Z",
+        "voteCount": 1,
+        "content": "NyN Selected"
+      },
+      {
+        "date": "2023-11-10T11:56:00.000Z",
+        "voteCount": 2,
+        "content": "YNY selected"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 39,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125867-exam-dp-420-topic-1-question-39-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to create an Azure Cosmos DB container named account that will contain items in the following format.<br><br><img src=\"https://img.examtopics.com/dp-420/image140.png\"><br><br>You need to define a query that will return the ids of all accounts that have ever recorded a negative value for balance.<br><br>How should you complete the query? To answer select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image141.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image142.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-03-04T05:17:00.000Z",
+        "voteCount": 2,
+        "content": "Provided answer is correct"
+      },
+      {
+        "date": "2023-11-12T10:38:00.000Z",
+        "voteCount": 2,
+        "content": "Answers - BalanceStatus and Balance"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 40,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125729-exam-dp-420-topic-1-question-40-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have the Azure Cosmos DB for NoSQL containers shown in the following table.<br><br><img src=\"https://img.examtopics.com/dp-420/image143.png\"><br><br>You have the items shown in the following table.<br><br><img src=\"https://img.examtopics.com/dp-420/image144.png\"><br><br>When will each item expire? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image145.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image146.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2023-11-12T10:45:00.000Z",
+        "voteCount": 7,
+        "content": "60\nNever\nNever\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/nosql/time-to-live\n\nIf Null on container, TTL is disabled no matter what we set at item level, so it wont expire"
+      },
+      {
+        "date": "2023-12-29T00:57:00.000Z",
+        "voteCount": 1,
+        "content": "correct"
+      },
+      {
+        "date": "2023-11-10T12:00:00.000Z",
+        "voteCount": 2,
+        "content": "60 \n10 \nnever"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 41,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/125885-exam-dp-420-topic-1-question-41-discussion/",
+    "body": "Your company develops an application named App1 that uses the Azure Cosmos DB SDK and the Eventual consistency level.<br><br>App1 queries an Azure Cosmos DB for NoSQL account named account1.<br><br>You need to identify which consistency level to assign to App1 to meet the following requirements:<br><br>\u2022\tMaximize the throughput of the queries generated by App1 without increasing the number of request units currently used by the queries.<br>\u2022\tProvide the highest consistency guarantees.<br><br>Which consistency level should you identify?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStrong",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBounded Staleness\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tSession",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsistent Prefix"
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": false
+      },
+      {
+        "answer": "B",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-03-04T06:49:00.000Z",
+        "voteCount": 2,
+        "content": "For strong and bounded staleness, reads are done against two replicas in a four replica set (minority quorum) to provide consistency guarantees. Session, consistent prefix and eventual do single replica reads. The result is that, for the same number of request units, read throughput for strong and bounded staleness is half of the other consistency levels.\n\nhttps://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels#consistency-levels-and-throughput"
+      },
+      {
+        "date": "2024-04-24T01:00:00.000Z",
+        "voteCount": 2,
+        "content": "This is true, however, Session also does single replica reads and is stronger compared to consistent prefix, so why is it not chosen as an answer?"
+      },
+      {
+        "date": "2024-01-03T05:44:00.000Z",
+        "voteCount": 3,
+        "content": "Answer is D - Consistent preffix. \nWhy ? We need to provide the highest consistency guarantees without decreasing throughput. Strong and bounded staleness provide half the throughput of Session, Consistent Prefix and Eventual, so by choosing them you decrease the throughput."
+      },
+      {
+        "date": "2024-01-03T05:45:00.000Z",
+        "voteCount": 2,
+        "content": "More details here: https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels"
+      },
+      {
+        "date": "2024-01-03T05:46:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels#consistency-levels-and-throughput"
+      },
+      {
+        "date": "2023-12-25T08:50:00.000Z",
+        "voteCount": 2,
+        "content": "https://learn.microsoft.com/en-us/azure/cosmos-db/consistency-levels"
+      },
+      {
+        "date": "2023-12-06T04:46:00.000Z",
+        "voteCount": 2,
+        "content": "highest consistency guarantees -&gt; strong"
+      },
+      {
+        "date": "2023-11-12T12:41:00.000Z",
+        "voteCount": 3,
+        "content": "\"Strong\" is the answer as it needs guaranteed consistency"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 42,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/135283-exam-dp-420-topic-1-question-42-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You plan to create an Azure Cosmos DB for NoSQL container that will contain items in the following format.<br><br><img src=\"https://img.examtopics.com/dp-420/image161.png\"><br><br>You need to define a query that will return the userid values of all the users who purchased an item that has a sku value of 11111.<br><br>How should you compete the query? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image162.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image163.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-03-05T21:53:00.000Z",
+        "voteCount": 3,
+        "content": "Provided answer is correct"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 43,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/135296-exam-dp-420-topic-1-question-43-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure subscription that contains an Azure Cosmos DB for NoSQL account named account1 and a Log Analytics workspace named Workspace1. Workspace1 stores the logs of account1.<br><br>You need to identify which operations used the most request units per second (RU/s) during the last 24 hours.<br><br>How should you complete the query? To answer, select the appropriate options in the answer area.<br><br>NOTE: Each correct selection is worth one point.<br><br><img src=\"https://img.examtopics.com/dp-420/image164.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image165.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-04-22T23:37:00.000Z",
+        "voteCount": 2,
+        "content": "Provided answer is correct."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 44,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/134014-exam-dp-420-topic-1-question-44-discussion/",
+    "body": "You provision an Azure Cosmos DB for NoSQL container. You set the throughput to Autoscale, and the maximum request units per second (RU/s) to 20,000.<br><br>For how many RU/s will you be charged when the actual RU/s usage is zero?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t0",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t200",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t2,000\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t4,000",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"E\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tE.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\t10,000"
+    ],
+    "answer": "C",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "C",
+        "count": 5,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-02-16T06:05:00.000Z",
+        "voteCount": 5,
+        "content": "The answer should be C - 2 000, this is because when we are using autoscale the container will not scale to 0, it will be at least 10% of your maximum throughput\n\nhttps://azure.microsoft.com/en-us/pricing/details/cosmos-db/autoscale-provisioned/"
+      },
+      {
+        "date": "2024-02-16T11:11:00.000Z",
+        "voteCount": 5,
+        "content": "Correct Answer should be C. 2000, when autoscale is configured, MIN RU/s will be 10% of MAX RU/s"
+      },
+      {
+        "date": "2024-06-25T11:06:00.000Z",
+        "voteCount": 1,
+        "content": "https://learn.microsoft.com/en-us/azure/cosmos-db/autoscale-faq\nIt should be charged 0.1*max RU/s"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 45,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/140116-exam-dp-420-topic-1-question-45-discussion/",
+    "body": "You have an Azure Cosmos DB for NoSQL account that contains a database named DB1 and a container named Container1.<br><br>You need to manage the account by using the Azure Cosmos DB SDK.<br><br>What should you do?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a container in DB1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tList the physical partitions of Container1.",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tRead a stored procedure in Container1.\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tCreate a user defined function (UDF) in Container1."
+    ],
+    "answer": "D",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": false
+      },
+      {
+        "answer": "C",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-20T01:53:00.000Z",
+        "voteCount": 2,
+        "content": "Answer: D\nD. Create a user defined function (UDF) in Container1.\n\nHere's why this is the most appropriate option:\n\nCreating a UDF involves interacting with the Azure Cosmos DB SDK to manage the database.\nUDFs are common tasks in database management, and they typically require SDK usage for implementation and deployment"
+      },
+      {
+        "date": "2024-05-07T00:38:00.000Z",
+        "voteCount": 2,
+        "content": "To manage an Azure Cosmos DB account using the Azure Cosmos DB SDK, you would typically perform operations such as reading or writing data, or executing stored procedures. Therefore, the most appropriate action from the given options would be:\n\nC. Read a stored procedure in Container1."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 46,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/140117-exam-dp-420-topic-1-question-46-discussion/",
+    "body": "HOTSPOT<br> -<br><br>You have an Azure Cosmos DB for NoSQL container that contains the following item.<br><br><img src=\"https://img.examtopics.com/dp-420/image172.png\"><br><br>You need to update the OrderQty value to 5 by using a patch operation.<br><br>How should you complete the JSON Patch document? To answer, select the appropriate options in the answer area.<br><br><img src=\"https://img.examtopics.com/dp-420/image173.png\">",
+    "options": [],
+    "answer": "<img src=\"https://img.examtopics.com/dp-420/image174.png\">",
+    "answerDescription": "",
+    "votes": [],
+    "comments": [
+      {
+        "date": "2024-06-05T11:36:00.000Z",
+        "voteCount": 1,
+        "content": "The answer should be:\n[{\"op\": \"increment\", \"path\": \"/items/0/OrderQty\", \"value\": -5}]\n\nSee: https://learn.microsoft.com/en-us/azure/cosmos-db/partial-document-update\n\nIncrement\nThis operator increments a field by the specified value. It can accept both positive and negative values. If the field doesn't exist, it creates the field and sets it to the specified value.\n\nAdd\nIf the target path specifies an element that already exists, its value is replaced.\n\nThe value in the question is -5 so using Add would set the node to -5 not 5."
+      },
+      {
+        "date": "2024-05-07T00:43:00.000Z",
+        "voteCount": 2,
+        "content": "Path option is wrong. Here is the correct JSON\n[\n  {\n    \"op\": \"add\",\n    \"path\": \"/items/0/OrderQty\",\n    \"value\": 5\n  }\n]"
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  },
+  {
+    "topic": 1,
+    "index": 47,
+    "url": "https://www.examtopics.com/discussions/microsoft/view/139973-exam-dp-420-topic-1-question-47-discussion/",
+    "body": "You plan to create an Azure Cosmos DB for NoSQL account that will have a single write region and three read regions.<br><br>You need to set the consistency level for the account. The solution must meet the following requirements:<br><br>\u2022\tIn the write region, writes must replicate synchronously across at least three replicas.<br>\u2022\tIn the read regions, reads must see writes in order for transactional batches.<br>\u2022\tThroughput for reads and writes must be maximized.<br><br>Which consistency level should you select?",
+    "options": [
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"A\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tA.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tConsistent Prefix",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"B\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tB.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tBounded Staleness",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"C\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tC.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tEventual",
+      "<span class=\"multi-choice-letter\" data-choice-letter=\"D\">\n\t\t\t\t\t\t\t\t\t\t\t\t\tD.\n\t\t\t\t\t\t\t\t\t\t\t\t</span>\n\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t\tStrong\n\t\t\t\t\t\t\t\t\t\t<span class=\"badge badge-success most-voted-answer-badge\" title=\"\" style=\"display: none;\" data-original-title=\"This answer is currently the most voted for in the discussion\">\n                Most Voted\n            </span>"
+    ],
+    "answer": "A",
+    "answerDescription": "",
+    "votes": [
+      {
+        "answer": "D",
+        "count": 2,
+        "isMostVoted": true
+      }
+    ],
+    "comments": [
+      {
+        "date": "2024-06-20T01:58:00.000Z",
+        "voteCount": 1,
+        "content": "Strong:\n\nEnsures that reads always return the most recent write.\nProvides a linearizability guarantee, meaning writes are synchronously replicated to all replicas before acknowledgment.\nEnsures that reads are guaranteed to see the most recent writes, which aligns with the requirement for transactional batches."
+      },
+      {
+        "date": "2024-05-03T12:46:00.000Z",
+        "voteCount": 1,
+        "content": "In the write region, writes must replicate synchronously across at least three replicas.\n\nOnly the Strong consistency provides the synch writing, all others are async. Therefore Strong is the answer."
+      }
+    ],
+    "examNameCode": "dp-420",
+    "topicNumber": "1"
+  }
+]
