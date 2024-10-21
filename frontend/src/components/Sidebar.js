@@ -6,7 +6,7 @@ import { RiStackLine } from 'react-icons/ri';
 import { LuRocket, LuLogOut, LuChevronLeft, LuChevronRight } from 'react-icons/lu';
 import '@fontsource-variable/karla/wght.css';
 import '@fontsource/space-grotesk/700.css';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const SidebarItem = chakra(Flex, {
   baseStyle: {
@@ -96,9 +96,8 @@ const PremiumBox = ({ isCollapsed }) => (
   </Box>
 );
 
-const Sidebar = ({ isCollapsed, onToggleCollapse }) => {
+const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, onActualExamClick }) => {
   const navigate = useNavigate();
-  const location = useLocation();
 
   const menuItems = [
     { name: 'Dashboard', icon: RxDashboard, path: '/' },
@@ -108,8 +107,12 @@ const Sidebar = ({ isCollapsed, onToggleCollapse }) => {
     { name: 'Actual Exam', icon: LuRocket, path: '/actual-exam' },
   ];
 
-  const handleItemClick = (path) => {
-    navigate(path);
+  const handleItemClick = (path, name) => {
+    if (name === 'Actual Exam') {
+      onActualExamClick();
+    } else {
+      navigate(path);
+    }
   };
 
   return (
@@ -148,7 +151,7 @@ const Sidebar = ({ isCollapsed, onToggleCollapse }) => {
         {menuItems.map((item) => (
           <SidebarItem
             key={item.name}
-            onClick={() => handleItemClick(item.path)}
+            onClick={() => handleItemClick(item.path, item.name)}
             position="relative"
             zIndex={1}
           >
@@ -158,17 +161,17 @@ const Sidebar = ({ isCollapsed, onToggleCollapse }) => {
               left={0}
               right={0}
               bottom="-3px"
-              backgroundColor={location.pathname === item.path ? '#b3ebf2' : 'transparent'}
+              backgroundColor={activeItem === item.name ? '#b3ebf2' : 'transparent'}
               borderRadius="0 20px 20px 0"
-              borderTop={location.pathname === item.path ? '1px solid black' : 'none'}
-              borderRight={location.pathname === item.path ? '1px solid black' : 'none'}
-              borderBottom={location.pathname === item.path ? '1px solid black' : 'none'}
-              boxShadow={location.pathname === item.path ? '0 4px 0 0 black' : 'none'}
+              borderTop={activeItem === item.name ? '1px solid black' : 'none'}
+              borderRight={activeItem === item.name ? '1px solid black' : 'none'}
+              borderBottom={activeItem === item.name ? '1px solid black' : 'none'}
+              boxShadow={activeItem === item.name ? '0 4px 0 0 black' : 'none'}
               zIndex={-1}
             />
             <SidebarIcon as={item.icon} />
             <SidebarText
-              fontWeight={location.pathname === item.path ? 700 : 500}
+              fontWeight={activeItem === item.name ? 700 : 500}
               opacity={isCollapsed ? 0 : 1}
               pointerEvents={isCollapsed ? 'none' : 'auto'}
             >

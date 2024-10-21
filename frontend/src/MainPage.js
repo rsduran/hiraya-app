@@ -97,6 +97,7 @@ const MainPage = () => {
   const [examData, setExamData] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [view, setView] = useState("grid");
+  const [lastVisitedExam, setLastVisitedExam] = useState(null);
   const { examId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -111,9 +112,8 @@ const MainPage = () => {
   };
 
   useEffect(() => {
-    if (location.pathname === "/actual-exam" && !examId) {
-      // Do nothing here, we'll handle this in renderContent
-    } else if (examId) {
+    if (location.pathname.startsWith("/actual-exam") && examId) {
+      setLastVisitedExam(examId);
       setCurrentExam(examId);
     }
   }, [location, examId]);
@@ -152,6 +152,7 @@ const MainPage = () => {
   };
 
   const handleExamSelect = (examId) => {
+    setLastVisitedExam(examId);
     navigate(`/actual-exam/${examId}`);
   };
 
@@ -223,8 +224,8 @@ const MainPage = () => {
         </Box>
       );
     } else if (path.startsWith("/actual-exam")) {
-      if (!examId) {
-        return <SelectExamBox />;
+      if (!examId && !lastVisitedExam) {
+        return <SelectExamBox onExamSelect={handleExamSelect} />;
       }
       if (!examData) {
         return <LoadingSpinner />;
@@ -286,7 +287,7 @@ const MainPage = () => {
         </Flex>
       );
     } else {
-      return <SelectExamBox />;
+      return <SelectExamBox onExamSelect={handleExamSelect} />;
     }
   };
 
@@ -296,6 +297,14 @@ const MainPage = () => {
         <Sidebar
           isCollapsed={isSidebarCollapsed}
           onToggleCollapse={toggleSidebar}
+          activeItem={getActiveItem(location.pathname)}
+          onActualExamClick={() => {
+            if (lastVisitedExam) {
+              navigate(`/actual-exam/${lastVisitedExam}`);
+            } else {
+              navigate("/actual-exam");
+            }
+          }}
         />
         <Flex direction="column" flex={1} overflow="hidden">
           <Navbar activeItem={getActiveItem(location.pathname)}>

@@ -63,7 +63,7 @@ const VoteBar = ({ votes }) => {
   );
 };
 
-const AnswerContent = ({ content }) => {
+const AnswerContent = ({ content, isAnswer }) => {
   const parsedContent = content.split(/<br>|<br\/>/).map((part, index) => {
     if (part.startsWith('<img')) {
       const srcMatch = part.match(/src="([^"]+)"/);
@@ -72,9 +72,17 @@ const AnswerContent = ({ content }) => {
         return <Image key={index} src={src} alt="Answer content" />;
       }
     }
+    const textContent = part.replace(/<[^>]*>/g, '');
+    if (index === 0 && isAnswer) {
+      return (
+        <Text key={index} fontSize="24px" fontWeight="700" color="black">
+          {textContent}
+        </Text>
+      );
+    }
     return (
       <Text key={index} fontSize="16px" color="black">
-        {part.replace(/<[^>]*>/g, '')}
+        {textContent}
       </Text>
     );
   });
@@ -122,9 +130,9 @@ const AnswerBox = ({ answer, answerDescription, votes }) => {
             style={{ overflow: "hidden" }}
           >
             <VStack spacing={4} align="stretch" paddingX={6} paddingBottom={6}>
-              <AnswerContent content={answer} />
+              <AnswerContent content={answer} isAnswer={true} />
               {answerDescription && (
-                <AnswerContent content={answerDescription} />
+                <AnswerContent content={answerDescription} isAnswer={false} />
               )}
               <Text fontSize="24px" fontWeight="700" color="black">Votes:</Text>
               <VoteBar votes={votes} />

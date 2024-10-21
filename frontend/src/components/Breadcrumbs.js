@@ -33,6 +33,9 @@ const Breadcrumbs = ({ items }) => {
               j++;
             }
           }
+        } else {
+          // If there's enough space, reset all widths to their original values
+          newItemWidths.fill(null);
         }
         
         setItemWidths(newItemWidths);
@@ -55,7 +58,7 @@ const Breadcrumbs = ({ items }) => {
         whiteSpace="nowrap"
         overflow="hidden"
         textOverflow="ellipsis"
-        maxWidth={`${itemWidths[index]}px`}
+        maxWidth={isTruncated ? "50px" : "none"}
         ref={el => itemRefs.current[index] = el}
         as={item.isCurrentPage ? "span" : Link}
         href={item.isCurrentPage ? undefined : item.href}
