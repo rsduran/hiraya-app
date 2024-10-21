@@ -6,14 +6,16 @@ import {
   ModalHeader,
   ModalFooter,
   ModalBody,
-  ModalCloseButton,
   Button,
   Text,
   VStack,
   HStack,
   Progress,
   Box,
+  Flex,
 } from '@chakra-ui/react';
+import { FaTimes } from 'react-icons/fa';
+import { IconBox } from './IconBox';
 
 const StatusBadge = ({ status }) => {
   let bgGradient;
@@ -46,6 +48,44 @@ const StatusBadge = ({ status }) => {
     </Box>
   );
 };
+
+const CloseButton = ({ onClick }) => (
+  <IconBox
+    icon={FaTimes}
+    size="24px"
+    iconScale={0.7}
+    withBorder={false}
+    bgColor="transparent"
+    onClick={onClick}
+  />
+);
+
+const CustomButton = ({ children, onClick }) => (
+  <Button
+    onClick={onClick}
+    height="48px"
+    fontSize="16px"
+    px="24px"
+    bg="#00bfff"
+    color="black"
+    borderRadius="full"
+    border="1px solid black"
+    fontWeight={700}
+    textTransform="uppercase"
+    transition="0.3s"
+    boxShadow="0 4px 0 0 black"
+    _hover={{
+      transform: 'translateY(2px)',
+      boxShadow: '0 2px 0 0 black',
+    }}
+    _active={{
+      transform: 'translateY(4px)',
+      boxShadow: 'none',
+    }}
+  >
+    {children}
+  </Button>
+);
 
 const formatIncorrectQuestions = (incorrectQuestions) => {
   if (incorrectQuestions.length === 0) return '';
@@ -101,9 +141,23 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
   return (
     <Modal isOpen={isOpen} onClose={onClose} size="lg">
       <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>Exam Results</ModalHeader>
-        <ModalCloseButton />
+      <ModalContent
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 8px 0 0 black"
+        p={6}
+      >
+        <Flex justifyContent="flex-end">
+          <CloseButton onClick={onClose} />
+        </Flex>
+        <ModalHeader
+          fontFamily="'Space Grotesk', sans-serif"
+          fontWeight="bold"
+          fontSize="24px"
+          pb={4}
+        >
+          Exam Results
+        </ModalHeader>
         <ModalBody>
           {results ? (
             <VStack spacing={4} align="stretch">
@@ -134,9 +188,11 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
           )}
         </ModalBody>
         <ModalFooter>
-          <Button colorScheme="blue" mr={3} onClick={onClose}>
-            Close
-          </Button>
+          <Flex justifyContent="flex-end" width="100%">
+            <CustomButton onClick={onClose}>
+              Close
+            </CustomButton>
+          </Flex>
         </ModalFooter>
       </ModalContent>
     </Modal>
