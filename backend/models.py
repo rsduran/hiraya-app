@@ -1,4 +1,5 @@
 from app import db
+from datetime import datetime
 
 class Provider(db.Model):
     __tablename__ = 'provider'
@@ -52,4 +53,19 @@ class UserAnswer(db.Model):
 
     __table_args__ = (
         db.UniqueConstraint('user_id', 'exam_id', 'topic_number', 'question_index', name='unique_user_answer'),
+    )
+
+class ExamAttempt(db.Model):
+    __tablename__ = 'exam_attempt'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    exam_id = db.Column(db.String(255), db.ForeignKey('exam.id'), nullable=False)
+    score = db.Column(db.Float, nullable=False)
+    total_questions = db.Column(db.Integer, nullable=False)
+    correct_answers = db.Column(db.Integer, nullable=False)
+    incorrect_questions = db.Column(db.JSON, nullable=False)
+    attempt_date = db.Column(db.DateTime, default=datetime.utcnow)
+
+    __table_args__ = (
+        db.UniqueConstraint('user_id', 'exam_id', 'attempt_date', name='unique_exam_attempt'),
     )

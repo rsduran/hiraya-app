@@ -2,8 +2,9 @@
 
 from flask import jsonify, abort, request
 from app import app, db
-from models import Provider, Exam, Topic, UserPreference, FavoriteQuestion, UserAnswer
+from models import Provider, Exam, Topic, UserPreference, FavoriteQuestion, UserAnswer, ExamAttempt
 from utils import get_exam_order
+from datetime import datetime
 
 @app.route('/api/providers', methods=['GET'])
 def get_providers():
@@ -225,13 +226,30 @@ def submit_answers():
             correct_answer = set(question['answer'])
             user_answer = set(user_answers.get(question_id, []))
 
-            if correct_answer == user_answer:
+            correct_indices = set(ord(letter.upper()) - ord('A') for letter in correct_answer)
+            user_indices = set(int(index) for index in user_answer)
+
+            if correct_indices == user_indices:
                 correct_answers += 1
             else:
                 incorrect_questions.append(question_id)
 
     score = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
-    passed = score >= 75  # Assuming 75% is the passing score
+    passed = score >= 75
+
+    # Store the exam attempt
+    user_id = 1  # Replace with actual user authentication
+    exam_attempt = ExamAttempt(
+        user_id=user_id,
+        exam_id=exam_id,
+        score=score,
+        total_questions=total_questions,
+        correct_answers=correct_answers,
+        incorrect_questions=incorrect_questions,
+        attempt_date=datetime.utcnow()
+    )
+    db.session.add(exam_attempt)
+    db.session.commit()
 
     result = {
         'total_questions': total_questions,
@@ -242,3 +260,13 @@ def submit_answers():
     }
 
     return jsonify(result)
+
+@app.route('/api/incorrect-questions/<exam_id>', methods=['GET'])
+def get_incorrect_questions(exam_id):
+    user_id = 1  # Replace with actual user authentication
+    latest_attempt = ExamAttempt.query.filter_by(user_id=user_id, exam_id=exam_id).order_by(ExamAttempt.attempt_date.desc()).first()
+    
+    if not latest_attempt:
+        return jsonify({'incorrect_questions': []})
+    
+    return jsonify({'incorrect_questions': latest_attempt.incorrect_questions})

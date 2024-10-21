@@ -105,7 +105,12 @@ const MainPage = () => {
   const [unansweredQuestions, setUnansweredQuestions] = useState([]);
   const [examResults, setExamResults] = useState(null);
   const [confirmDialogMessage, setConfirmDialogMessage] = useState("");
-  const { isOpen: isConfirmOpen, onOpen: onConfirmOpen, onClose: onConfirmClose } = useDisclosure();
+  const [incorrectQuestions, setIncorrectQuestions] = useState([]);
+  const {
+    isOpen: isConfirmOpen,
+    onOpen: onConfirmOpen,
+    onClose: onConfirmClose,
+  } = useDisclosure();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { examId } = useParams();
   const navigate = useNavigate();
@@ -168,6 +173,7 @@ const MainPage = () => {
 
       fetchExamData();
       fetchUserAnswers();
+      fetchIncorrectQuestions();
     }
   }, [currentExam, currentTopic]);
 
@@ -275,6 +281,9 @@ const MainPage = () => {
 
   const handleTabChange = (tab) => {
     console.log(`Tab changed to: ${tab}`);
+    if (tab === "INCORRECT") {
+      fetchIncorrectQuestions();
+    }
   };
 
   const handleSearch = (searchTerm) => {
@@ -291,16 +300,20 @@ const MainPage = () => {
 
   const handleSubmit = () => {
     if (!currentExam) return;
-  
+
     const unansweredCount = unansweredQuestions.length;
     if (unansweredCount > 0) {
-      setConfirmDialogMessage(`You have ${unansweredCount} unanswered question${unansweredCount > 1 ? 's' : ''}. Are you sure you want to submit?`);
+      setConfirmDialogMessage(
+        `You have ${unansweredCount} unanswered question${
+          unansweredCount > 1 ? "s" : ""
+        }. Are you sure you want to submit?`
+      );
       onConfirmOpen();
     } else {
       submitExam();
     }
   };
-  
+
   const submitExam = async () => {
     try {
       const response = await fetch("http://localhost:5000/api/submit-answers", {
@@ -313,20 +326,19 @@ const MainPage = () => {
           user_answers: userAnswers,
         }),
       });
-  
+
       if (response.ok) {
         const results = await response.json();
         setExamResults(results);
+        setIncorrectQuestions(results.incorrect_questions);
         onOpen(); // Open the results modal
       } else {
         const errorData = await response.json();
         console.error("Error submitting answers:", errorData.error);
-        // Show an error message to the user
         alert(`Error submitting answers: ${errorData.error}`);
       }
     } catch (error) {
       console.error("Error submitting answers:", error);
-      // Show an error message to the user
       alert("An error occurred while submitting answers. Please try again.");
     }
   };
@@ -371,6 +383,18 @@ const MainPage = () => {
     }
   };
 
+  const fetchIncorrectQuestions = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/incorrect-questions/${currentExam}`
+      );
+      const data = await response.json();
+      setIncorrectQuestions(data.incorrect_questions);
+    } catch (error) {
+      console.error("Error fetching incorrect questions:", error);
+    }
+  };
+
   const handleOptionSelect = async (newSelectedOptions) => {
     setSelectedOptions(newSelectedOptions);
     const currentQuestionId = `T${currentTopic} Q${currentQuestionIndex + 1}`;
@@ -389,13 +413,11 @@ const MainPage = () => {
         }),
       });
 
-      // Update local state
       setUserAnswers((prev) => ({
         ...prev,
         [currentQuestionId]: newSelectedOptions,
       }));
 
-      // Update unansweredQuestions
       if (newSelectedOptions.length > 0) {
         setUnansweredQuestions((prev) =>
           prev.filter((q) => q !== currentQuestionId)
@@ -493,6 +515,7 @@ const MainPage = () => {
               userAnswers={userAnswers}
               unansweredQuestions={unansweredQuestions}
               setUnansweredQuestions={setUnansweredQuestions}
+              incorrectQuestions={incorrectQuestions}
             />
           </Box>
           <Box width="300px" minWidth="300px" marginLeft={8}>

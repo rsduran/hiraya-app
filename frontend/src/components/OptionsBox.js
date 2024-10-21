@@ -34,7 +34,7 @@ const OptionBox = ({ option, isSelected, onClick, hasInteracted, isDisabled }) =
   </motion.div>
 );
 
-const OptionsBox = ({ options, selectedOptions, onOptionSelect, maxSelections }) => {
+const OptionsBox = ({ options, selectedOptions, onOptionSelect, maxSelections, isUnansweredTab }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
 
@@ -74,7 +74,7 @@ const OptionsBox = ({ options, selectedOptions, onOptionSelect, maxSelections })
         cursor="pointer"
       >
         <Text fontSize="24px" fontWeight="700" color="black">
-          Options
+          Options (Select {maxSelections})
         </Text>
         {isOpen ? <ChevronUpIcon boxSize={6} /> : <ChevronDownIcon boxSize={6} />}
       </Flex>
@@ -99,6 +99,11 @@ const OptionsBox = ({ options, selectedOptions, onOptionSelect, maxSelections })
                 />
               ))}
             </VStack>
+            {isUnansweredTab && selectedOptions.length < maxSelections && (
+              <Text color="red.500" paddingX={6} paddingBottom={4}>
+                {maxSelections - selectedOptions.length} more selection{maxSelections - selectedOptions.length !== 1 ? 's' : ''} required
+              </Text>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
