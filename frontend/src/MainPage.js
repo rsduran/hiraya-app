@@ -8,8 +8,6 @@ import {
   VStack,
   Spinner,
   Center,
-  Text,
-  Button,
 } from "@chakra-ui/react";
 import "@fontsource-variable/karla/wght.css";
 import "@fontsource/space-grotesk/700.css";
@@ -98,6 +96,9 @@ const MainPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [view, setView] = useState("grid");
   const [lastVisitedExam, setLastVisitedExam] = useState(null);
+  const [favoriteQuestions, setFavoriteQuestions] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [userAnswers, setUserAnswers] = useState({});
   const { examId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -112,9 +113,26 @@ const MainPage = () => {
   };
 
   useEffect(() => {
+    const fetchLastVisitedExam = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/user-preference');
+        const data = await response.json();
+        if (data.last_visited_exam) {
+          setLastVisitedExam(data.last_visited_exam);
+        }
+      } catch (error) {
+        console.error('Error fetching last visited exam:', error);
+      }
+    };
+
+    fetchLastVisitedExam();
+  }, []);
+
+  useEffect(() => {
     if (location.pathname.startsWith("/actual-exam") && examId) {
       setLastVisitedExam(examId);
       setCurrentExam(examId);
+      updateLastVisitedExam(examId);
     }
   }, [location, examId]);
 
@@ -139,12 +157,72 @@ const MainPage = () => {
       };
 
       fetchExamData();
+      fetchUserAnswers();
     }
   }, [currentExam, currentTopic]);
 
-  const toggleStar = (event) => {
+  useEffect(() => {
+    if (currentExam) {
+      const fetchFavorites = async () => {
+        try {
+          const response = await fetch(`http://localhost:5000/api/favorites/${currentExam}`);
+          const data = await response.json();
+          setFavoriteQuestions(data.favorites);
+        } catch (error) {
+          console.error("Error fetching favorite questions:", error);
+        }
+      };
+
+      fetchFavorites();
+    }
+  }, [currentExam]);
+
+  const updateLastVisitedExam = async (examId) => {
+    try {
+      await fetch('http://localhost:5000/api/user-preference', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ last_visited_exam: examId }),
+      });
+    } catch (error) {
+      console.error('Error updating last visited exam:', error);
+    }
+  };
+
+  const toggleStar = async (event) => {
     event.stopPropagation();
-    setIsStarFilled(!isStarFilled);
+    if (!currentExam || !examData) return;
+
+    try {
+      const response = await fetch('http://localhost:5000/api/favorite', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          exam_id: currentExam,
+          topic_number: currentTopic,
+          question_index: currentQuestionIndex,
+        }),
+      });
+
+      if (response.ok) {
+        const updatedFavorites = favoriteQuestions.some(
+          favorite => favorite.topic_number === currentTopic && favorite.question_index === currentQuestionIndex
+        )
+          ? favoriteQuestions.filter(
+              favorite => !(favorite.topic_number === currentTopic && favorite.question_index === currentQuestionIndex)
+            )
+          : [...favoriteQuestions, { topic_number: currentTopic, question_index: currentQuestionIndex }];
+
+        setFavoriteQuestions(updatedFavorites);
+        setIsStarFilled(!isStarFilled);
+      }
+    } catch (error) {
+      console.error("Error toggling favorite:", error);
+    }
   };
 
   const toggleSidebar = () => {
@@ -153,6 +231,7 @@ const MainPage = () => {
 
   const handleExamSelect = (examId) => {
     setLastVisitedExam(examId);
+    updateLastVisitedExam(examId);
     navigate(`/actual-exam/${examId}`);
   };
 
@@ -179,17 +258,59 @@ const MainPage = () => {
   const handleTopicChange = (topic) => {
     setCurrentTopic(topic);
     setCurrentQuestionIndex(0);
+    setSelectedOptions(userAnswers[`T${topic} Q1`] || []);
   };
 
   const handleQuestionChange = (newIndex) => {
     const currentTopicQuestions = examData.topics[currentTopic] || [];
     if (newIndex >= 0 && newIndex < currentTopicQuestions.length) {
       setCurrentQuestionIndex(newIndex);
+      setSelectedOptions(userAnswers[`T${currentTopic} Q${newIndex + 1}`] || []);
     }
   };
 
   const handleViewChange = (newView) => {
     setView(newView);
+  };
+
+  const fetchUserAnswers = async () => {
+    try {
+      const response = await fetch(`http://localhost:5000/api/get-answers/${currentExam}`);
+      const data = await response.json();
+      const answersMap = {};
+      data.answers.forEach(answer => {
+        answersMap[`T${answer.topic_number} Q${answer.question_index + 1}`] = answer.selected_options;
+      });
+      setUserAnswers(answersMap);
+      setSelectedOptions(answersMap[`T${currentTopic} Q${currentQuestionIndex + 1}`] || []);
+    } catch (error) {
+      console.error("Error fetching user answers:", error);
+    }
+  };
+
+  const handleOptionSelect = async (newSelectedOptions) => {
+    setSelectedOptions(newSelectedOptions);
+    try {
+      await fetch('http://localhost:5000/api/save-answer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          exam_id: currentExam,
+          topic_number: currentTopic,
+          question_index: currentQuestionIndex,
+          selected_options: newSelectedOptions,
+        }),
+      });
+      // Update local state
+      setUserAnswers(prev => ({
+        ...prev,
+        [`T${currentTopic} Q${currentQuestionIndex + 1}`]: newSelectedOptions,
+      }));
+    } catch (error) {
+      console.error("Error saving user answer:", error);
+    }
   };
 
   const renderContent = () => {
@@ -252,7 +373,9 @@ const MainPage = () => {
               questionNumber={currentQuestionIndex + 1}
               totalQuestions={currentTopicQuestions.length}
               questionData={currentQuestion}
-              isStarFilled={isStarFilled}
+              isStarFilled={favoriteQuestions.some(
+                favorite => favorite.topic_number === currentTopic && favorite.question_index === currentQuestionIndex
+              )}
               toggleStar={toggleStar}
               onNavigateLeft={() =>
                 handleQuestionChange(currentQuestionIndex - 1)
@@ -267,6 +390,10 @@ const MainPage = () => {
                 const newIndex = parseInt(questionPart.slice(1)) - 1;
                 handleQuestionChange(newIndex);
               }}
+              favoriteQuestions={favoriteQuestions}
+              onOptionSelect={handleOptionSelect}
+              selectedOptions={selectedOptions}
+              userAnswers={userAnswers}
             />
           </Box>
           <Box width="300px" minWidth="300px" marginLeft={8}>
@@ -298,13 +425,7 @@ const MainPage = () => {
           isCollapsed={isSidebarCollapsed}
           onToggleCollapse={toggleSidebar}
           activeItem={getActiveItem(location.pathname)}
-          onActualExamClick={() => {
-            if (lastVisitedExam) {
-              navigate(`/actual-exam/${lastVisitedExam}`);
-            } else {
-              navigate("/actual-exam");
-            }
-          }}
+          lastVisitedExam={lastVisitedExam}
         />
         <Flex direction="column" flex={1} overflow="hidden">
           <Navbar activeItem={getActiveItem(location.pathname)}>

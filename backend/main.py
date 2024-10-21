@@ -1,8 +1,14 @@
-from app import app, db
-from utils import load_data_into_db
+# backend/main.py
+
+from app import app
+from init_db import init_db
 
 if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-        load_data_into_db()
+    try:
+        init_db()  # Initialize the database
+        print("Database initialized successfully.")
+    except Exception as e:
+        print(f"An error occurred while initializing the database: {e}")
+        print("Continuing with application startup...")
+    
     app.run(debug=True)

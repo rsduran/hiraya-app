@@ -96,7 +96,7 @@ const PremiumBox = ({ isCollapsed }) => (
   </Box>
 );
 
-const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, onActualExamClick }) => {
+const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam }) => {
   const navigate = useNavigate();
 
   const menuItems = [
@@ -109,7 +109,11 @@ const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, onActualExamClick 
 
   const handleItemClick = (path, name) => {
     if (name === 'Actual Exam') {
-      onActualExamClick();
+      if (lastVisitedExam) {
+        navigate(`/actual-exam/${lastVisitedExam}`);
+      } else {
+        navigate('/actual-exam');
+      }
     } else {
       navigate(path);
     }

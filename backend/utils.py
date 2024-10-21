@@ -1,3 +1,5 @@
+# backend/utils.py
+
 import os
 import json
 import re
@@ -36,9 +38,10 @@ def load_data_into_db():
                     
                     exam_question_counts[exam_title] = exam_question_counts.get(exam_title, 0) + question_count
                     
-                    exam = Exam.query.filter_by(title=exam_title, provider_id=provider.id).first()
+                    exam_id = f"{provider.name}-{exam_title}"
+                    exam = Exam.query.get(exam_id)
                     if not exam:
-                        exam = Exam(title=exam_title, total_questions=0, provider_id=provider.id)
+                        exam = Exam(id=exam_id, title=exam_title, total_questions=0, provider_id=provider.id)
                         db.session.add(exam)
                         db.session.commit()
                     
@@ -51,7 +54,8 @@ def load_data_into_db():
                         db.session.add(topic)
             
             for exam_title, total_questions in exam_question_counts.items():
-                exam = Exam.query.filter_by(title=exam_title, provider_id=provider.id).first()
+                exam_id = f"{provider.name}-{exam_title}"
+                exam = Exam.query.get(exam_id)
                 if exam:
                     exam.total_questions = total_questions
             

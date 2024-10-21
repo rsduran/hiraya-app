@@ -1,31 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Text, Flex, VStack } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 
 const sanitizeOptionText = (text) => {
-  // Remove all HTML tags, trim the text, and remove "Most Voted" label
   return text.replace(/<[^>]*>/g, '')
              .replace(/Most Voted/g, '')
              .trim();
 };
 
-const OptionBox = ({ option, isSelected, onClick, hasInteracted }) => (
+const OptionBox = ({ option, isSelected, onClick, hasInteracted, isDisabled }) => (
   <motion.div
-    onClick={onClick}
+    onClick={isDisabled ? undefined : onClick}
     style={{
       background: isSelected ? "#b3ebf2" : "white",
       borderRadius: "10px",
       border: "1px solid black",
       padding: "16px",
-      cursor: "pointer",
+      cursor: isDisabled ? "not-allowed" : "pointer",
       transition: "all 0.2s",
+      opacity: isDisabled ? 0.5 : 1,
     }}
-    whileHover={{
+    whileHover={!isDisabled ? {
       background: isSelected ? "#b3ebf2" : "#e6f7f9",
-    }}
+    } : {}}
     initial={hasInteracted ? { opacity: 0, y: -10 } : false}
-    animate={{ opacity: 1, y: 0 }}
+    animate={{ opacity: isDisabled ? 0.5 : 1, y: 0 }}
     exit={{ opacity: 0, y: -10 }}
   >
     <Text fontWeight={700} fontSize="16px" lineHeight="19px" color="black">
@@ -34,18 +34,25 @@ const OptionBox = ({ option, isSelected, onClick, hasInteracted }) => (
   </motion.div>
 );
 
-const OptionsBox = ({ options }) => {
+const OptionsBox = ({ options, selectedOptions, onOptionSelect, maxSelections }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [hasInteracted, setHasInteracted] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(null);
+
+  useEffect(() => {
+    setHasInteracted(true);
+  }, [selectedOptions]);
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
     setHasInteracted(true);
   };
 
-  const handleSelect = (option) => {
-    setSelectedOption(option === selectedOption ? null : option);
+  const handleSelect = (index) => {
+    if (selectedOptions.includes(index)) {
+      onOptionSelect(selectedOptions.filter(i => i !== index));
+    } else if (selectedOptions.length < maxSelections) {
+      onOptionSelect([...selectedOptions, index]);
+    }
   };
 
   return (
@@ -85,9 +92,10 @@ const OptionsBox = ({ options }) => {
                 <OptionBox
                   key={index}
                   option={option}
-                  isSelected={option === selectedOption}
-                  onClick={() => handleSelect(option)}
+                  isSelected={selectedOptions.includes(index)}
+                  onClick={() => handleSelect(index)}
                   hasInteracted={hasInteracted}
+                  isDisabled={!selectedOptions.includes(index) && selectedOptions.length >= maxSelections}
                 />
               ))}
             </VStack>
