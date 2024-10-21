@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Box, VStack, Text, Flex } from '@chakra-ui/react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { Box, VStack, Text } from '@chakra-ui/react';
 import SearchBar from './SearchBar';
 import TabList from './TabList';
 import QuestionBox from './QuestionBox';
@@ -27,7 +27,9 @@ const QuestionPanel = ({
   favoriteQuestions,
   onOptionSelect,
   selectedOptions,
-  userAnswers
+  userAnswers,
+  unansweredQuestions,
+  setUnansweredQuestions
 }) => {
   const [currentTab, setCurrentTab] = useState('ALL QUESTIONS');
   const [tabIndices, setTabIndices] = useState({
@@ -37,9 +39,16 @@ const QuestionPanel = ({
     'UNANSWERED': 0,
     'INCORRECT': 0
   });
-
   const [answeredQuestions, setAnsweredQuestions] = useState([]);
-  const [unansweredQuestions, setUnansweredQuestions] = useState([]);
+  const [removingQuestion, setRemovingQuestion] = useState(null);
+  const [isNavigationDisabled, setIsNavigationDisabled] = useState(false);
+  const [displayedQuestionInfo, setDisplayedQuestionInfo] = useState({ current: questionNumber, total: totalQuestions });
+  const [pendingUpdate, setPendingUpdate] = useState(null);
+
+  const getRequiredSelections = useCallback((answer) => {
+    if (!answer || !Array.isArray(answer)) return 1;
+    return answer.length;
+  }, []);
 
   useEffect(() => {
     setTabIndices(prevIndices => ({
@@ -49,26 +58,66 @@ const QuestionPanel = ({
   }, [questionNumber]);
 
   useEffect(() => {
-    // Update answered and unanswered questions
     const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
     const requiredSelections = getRequiredSelections(questionData.answer);
     const isAnswered = selectedOptions.length === requiredSelections;
 
     if (isAnswered) {
       setAnsweredQuestions(prev => [...prev.filter(q => q !== currentQuestionId), currentQuestionId]);
-      setUnansweredQuestions(prev => prev.filter(q => q !== currentQuestionId));
     } else {
-      setUnansweredQuestions(prev => [...prev.filter(q => q !== currentQuestionId), currentQuestionId]);
       setAnsweredQuestions(prev => prev.filter(q => q !== currentQuestionId));
     }
-  }, [currentTopic, questionNumber, questionData, selectedOptions]);
+  }, [currentTopic, questionNumber, questionData, selectedOptions, getRequiredSelections]);
 
-  const getRequiredSelections = (answer) => {
-    if (!answer) return 0;
-    return answer.length;
-  };
+  useEffect(() => {
+    if (currentTab === 'UNANSWERED' && selectedOptions.length > 0) {
+      const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
+      const requiredSelections = getRequiredSelections(questionData.answer);
+      
+      if (selectedOptions.length === requiredSelections) {
+        setRemovingQuestion(currentQuestionId);
+        setIsNavigationDisabled(true);
+        setPendingUpdate({ questionId: currentQuestionId, delay: 2000 });
+      }
+    }
+  }, [currentTab, selectedOptions, currentTopic, questionNumber, questionData, getRequiredSelections]);
 
-  const handleTabChange = (tab) => {
+  useEffect(() => {
+    if (pendingUpdate) {
+      const timer = setTimeout(() => {
+        handleQuestionRemoval(pendingUpdate.questionId);
+        setPendingUpdate(null);
+      }, pendingUpdate.delay);
+      return () => clearTimeout(timer);
+    }
+  }, [pendingUpdate]);
+
+  const handleQuestionRemoval = useCallback((questionId) => {
+    setUnansweredQuestions(prev => prev.filter(q => q !== questionId));
+    setRemovingQuestion(null);
+    setIsNavigationDisabled(false);
+    
+    if (currentTab === 'UNANSWERED') {
+      const currentIndex = unansweredQuestions.findIndex(q => q === questionId);
+      let nextQuestion;
+      if (currentIndex === unansweredQuestions.length - 1) {
+        nextQuestion = unansweredQuestions[currentIndex - 1];
+      } else {
+        nextQuestion = unansweredQuestions[currentIndex + 1];
+      }
+      if (nextQuestion) {
+        const [topic, question] = nextQuestion.split(' ');
+        onQuestionSelect(`${topic} ${question}`);
+      }
+    }
+    
+    setDisplayedQuestionInfo(prevInfo => ({
+      current: Math.min(prevInfo.current, prevInfo.total - 1),
+      total: prevInfo.total - 1
+    }));
+  }, [currentTab, unansweredQuestions, onQuestionSelect, setUnansweredQuestions]);
+
+  const handleTabChange = useCallback((tab) => {
     setCurrentTab(tab);
     if (tab === 'ALL QUESTIONS') {
       onQuestionSelect(`T${currentTopic} Q${tabIndices['ALL QUESTIONS'] + 1}`);
@@ -81,9 +130,9 @@ const QuestionPanel = ({
       onQuestionSelect(unansweredQuestions[tabIndices['UNANSWERED']]);
     }
     onTabChange(tab);
-  };
+  }, [currentTopic, tabIndices, favoriteQuestions, answeredQuestions, unansweredQuestions, onQuestionSelect, onTabChange]);
 
-  const handleQuestionSelect = (selectedQuestion) => {
+  const handleQuestionSelect = useCallback((selectedQuestion) => {
     const [topicPart, questionPart] = selectedQuestion.split(" ");
     const selectedTopic = parseInt(topicPart.slice(1));
     const selectedIndex = parseInt(questionPart.slice(1)) - 1;
@@ -104,9 +153,11 @@ const QuestionPanel = ({
       setTabIndices(prevIndices => ({ ...prevIndices, [currentTab]: selectedIndex }));
     }
     onQuestionSelect(selectedQuestion);
-  };
+  }, [currentTab, favoriteQuestions, answeredQuestions, unansweredQuestions, onQuestionSelect]);
 
-  const handleNavigate = (direction) => {
+  const handleNavigate = useCallback((direction) => {
+    if (isNavigationDisabled) return;
+
     if (currentTab === 'FAVORITES') {
       const currentIndex = tabIndices['FAVORITES'];
       const newIndex = currentIndex + direction;
@@ -136,40 +187,54 @@ const QuestionPanel = ({
         onNavigateLeft();
       }
     }
-  };
+  }, [isNavigationDisabled, currentTab, tabIndices, favoriteQuestions, answeredQuestions, unansweredQuestions, onQuestionSelect, onNavigateRight, onNavigateLeft]);
 
-  const getCurrentQuestionInfo = () => {
-    if (currentTab === 'FAVORITES') {
-      return {
-        current: tabIndices['FAVORITES'] + 1,
-        total: favoriteQuestions.length
-      };
-    } else if (currentTab === 'ANSWERED') {
-      return {
-        current: tabIndices['ANSWERED'] + 1,
-        total: answeredQuestions.length
-      };
-    } else if (currentTab === 'UNANSWERED') {
-      return {
-        current: tabIndices['UNANSWERED'] + 1,
-        total: unansweredQuestions.length
-      };
-    } else {
-      return {
-        current: questionNumber,
-        total: totalQuestions
-      };
+  useEffect(() => {
+    const newQuestionInfo = (() => {
+      if (currentTab === 'FAVORITES') {
+        return {
+          current: tabIndices['FAVORITES'] + 1,
+          total: favoriteQuestions.length
+        };
+      } else if (currentTab === 'ANSWERED') {
+        return {
+          current: tabIndices['ANSWERED'] + 1,
+          total: answeredQuestions.length
+        };
+      } else if (currentTab === 'UNANSWERED') {
+        const index = unansweredQuestions.findIndex(q => q === `T${currentTopic} Q${questionNumber}`);
+        return {
+          current: index !== -1 ? index + 1 : 1,
+          total: unansweredQuestions.length
+        };
+      } else {
+        return {
+          current: questionNumber,
+          total: totalQuestions
+        };
+      }
+    })();
+
+    if (!pendingUpdate) {
+      setDisplayedQuestionInfo(newQuestionInfo);
     }
-  };
-
-  const questionInfo = getCurrentQuestionInfo();
+  }, [questionNumber, totalQuestions, currentTab, tabIndices, favoriteQuestions, answeredQuestions, unansweredQuestions, currentTopic, pendingUpdate]);
 
   const renderQuestions = () => {
     if (currentTab === 'ANSWERED' && answeredQuestions.length === 0) {
       return <Text>There are no answered questions yet.</Text>;
     }
-    if (currentTab === 'UNANSWERED' && unansweredQuestions.length === 0) {
-      return <Text>There are no unanswered questions.</Text>;
+    if (currentTab === 'UNANSWERED') {
+      if (unansweredQuestions.length === 0) {
+        return <Text>There are no unanswered questions.</Text>;
+      }
+      const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
+      if (!unansweredQuestions.includes(currentQuestionId) && !removingQuestion) {
+        const nextQuestion = unansweredQuestions[0];
+        const [topic, question] = nextQuestion.split(' ');
+        onQuestionSelect(`${topic} ${question}`);
+        return null;
+      }
     }
     if (currentTab === 'FAVORITES' && favoriteQuestions.length === 0) {
       return <Text>There are no favorited questions.</Text>;
@@ -178,8 +243,8 @@ const QuestionPanel = ({
     return (
       <VStack spacing={4} align="stretch">
         <QuestionBox
-          questionNumber={questionInfo.current}
-          totalQuestionsInTopic={questionInfo.total}
+          questionNumber={displayedQuestionInfo.current}
+          totalQuestionsInTopic={displayedQuestionInfo.total}
           questionData={questionData}
           isStarFilled={isStarFilled}
           toggleStar={toggleStar}
@@ -198,7 +263,7 @@ const QuestionPanel = ({
         />
         {currentTab === 'UNANSWERED' && (
           <Text color="red.500">
-            {getRequiredSelections(questionData.answer) - selectedOptions.length} more selection(s) required
+            {Math.max(0, getRequiredSelections(questionData.answer) - selectedOptions.length)} more selection(s) required
           </Text>
         )}
       </VStack>
@@ -212,18 +277,19 @@ const QuestionPanel = ({
         onShuffle={onShuffle}
         onReset={onReset}
         onSubmit={onSubmit}
-        currentQuestion={`Q${questionInfo.current} of ${questionInfo.total}`}
+        currentQuestion={`Q${displayedQuestionInfo.current} of ${displayedQuestionInfo.total}`}
         currentTopic={currentTopic}
-        totalQuestions={questionInfo.total}
+        totalQuestions={displayedQuestionInfo.total}
         onQuestionSelect={handleQuestionSelect}
       />
       <TabList 
         tabs={tabs} 
         onTabChange={handleTabChange}
-        currentQuestionIndex={questionInfo.current - 1}
-        totalQuestions={questionInfo.total}
+        currentQuestionIndex={displayedQuestionInfo.current - 1}
+        totalQuestions={displayedQuestionInfo.total}
         onNavigateLeft={() => handleNavigate(-1)}
         onNavigateRight={() => handleNavigate(1)}
+        isNavigationDisabled={isNavigationDisabled}
       />
       {renderQuestions()}
     </Box>

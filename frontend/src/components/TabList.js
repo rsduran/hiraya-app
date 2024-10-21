@@ -21,9 +21,24 @@ const NavIconBox = ({ icon: Icon, onClick, isDisabled }) => {
   const iconSize = `${parseInt(size) * iconScale}px`;
   const borderThickness = '0.5px';
 
-  const handleMouseDown = () => setIsPressed(true);
-  const handleMouseUp = () => setIsPressed(false);
-  const handleMouseEnter = () => setIsHovered(true);
+  const handleMouseDown = () => {
+    if (!isDisabled) {
+      setIsPressed(true);
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!isDisabled) {
+      setIsPressed(false);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isDisabled) {
+      setIsHovered(true);
+    }
+  };
+
   const handleMouseLeave = () => {
     setIsHovered(false);
     setIsPressed(false);
@@ -81,13 +96,26 @@ const TabList = ({
   currentQuestionIndex, 
   totalQuestions, 
   onNavigateLeft, 
-  onNavigateRight 
+  onNavigateRight,
+  isNavigationDisabled
 }) => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const handleTabChange = (tab) => {
     setSelectedTab(tab);
     onTabChange(tab);
+  };
+
+  const handleNavigateLeft = () => {
+    if (!isNavigationDisabled && currentQuestionIndex > 0) {
+      onNavigateLeft();
+    }
+  };
+
+  const handleNavigateRight = () => {
+    if (!isNavigationDisabled && currentQuestionIndex < totalQuestions - 1) {
+      onNavigateRight();
+    }
   };
 
   return (
@@ -108,16 +136,16 @@ const TabList = ({
       <Flex width="100%" justifyContent="space-between" alignItems="center" paddingY={4}>
         <NavIconBox 
           icon={PiArrowLeftBold} 
-          onClick={onNavigateLeft} 
-          isDisabled={currentQuestionIndex === 0}
+          onClick={handleNavigateLeft} 
+          isDisabled={currentQuestionIndex === 0 || isNavigationDisabled}
         />
         <Text fontSize="lg" color="gray.600">
           Question {currentQuestionIndex + 1} of {totalQuestions}
         </Text>
         <NavIconBox 
           icon={PiArrowRightBold} 
-          onClick={onNavigateRight} 
-          isDisabled={currentQuestionIndex === totalQuestions - 1}
+          onClick={handleNavigateRight} 
+          isDisabled={currentQuestionIndex === totalQuestions - 1 || isNavigationDisabled}
         />
       </Flex>
     </Box>

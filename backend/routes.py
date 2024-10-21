@@ -202,3 +202,43 @@ def get_answers(exam_id):
             } for answer in user_answers
         ]
     })
+
+@app.route('/api/submit-answers', methods=['POST'])
+def submit_answers():
+    data = request.json
+    exam_id = data['exam_id']
+    user_answers = data['user_answers']
+    
+    exam = Exam.query.get(exam_id)
+    if not exam:
+        return jsonify({'error': 'Exam not found'}), 404
+
+    total_questions = 0
+    correct_answers = 0
+    incorrect_questions = []
+
+    for topic in exam.topics:
+        topic_data = topic.data
+        for question_index, question in enumerate(topic_data):
+            total_questions += 1
+            question_id = f"T{topic.number} Q{question_index + 1}"
+            correct_answer = set(question['answer'])
+            user_answer = set(user_answers.get(question_id, []))
+
+            if correct_answer == user_answer:
+                correct_answers += 1
+            else:
+                incorrect_questions.append(question_id)
+
+    score = (correct_answers / total_questions) * 100 if total_questions > 0 else 0
+    passed = score >= 75  # Assuming 75% is the passing score
+
+    result = {
+        'total_questions': total_questions,
+        'correct_answers': correct_answers,
+        'score': round(score, 2),
+        'passed': passed,
+        'incorrect_questions': incorrect_questions
+    }
+
+    return jsonify(result)

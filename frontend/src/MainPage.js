@@ -8,6 +8,7 @@ import {
   VStack,
   Spinner,
   Center,
+  useDisclosure,
 } from "@chakra-ui/react";
 import "@fontsource-variable/karla/wght.css";
 import "@fontsource/space-grotesk/700.css";
@@ -16,6 +17,8 @@ import Navbar from "./components/Navbar";
 import Breadcrumbs from "./components/Breadcrumbs";
 import ComingSoonComponent from "./components/ComingSoonComponent";
 import SelectExamBox from "./components/SelectExamBox";
+import ResultsModal from "./components/ResultsModal";
+import CustomConfirmationDialog from "./components/CustomConfirmationDialog";
 
 const ProviderExamsCard = lazy(() => import("./components/ProviderExamsCard"));
 const ProvidersPage = lazy(() => import("./components/ProvidersPage"));
@@ -99,6 +102,11 @@ const MainPage = () => {
   const [favoriteQuestions, setFavoriteQuestions] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState([]);
   const [userAnswers, setUserAnswers] = useState({});
+  const [unansweredQuestions, setUnansweredQuestions] = useState([]);
+  const [examResults, setExamResults] = useState(null);
+  const [confirmDialogMessage, setConfirmDialogMessage] = useState("");
+  const { isOpen: isConfirmOpen, onOpen: onConfirmOpen, onClose: onConfirmClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { examId } = useParams();
   const navigate = useNavigate();
   const location = useLocation();
@@ -115,13 +123,15 @@ const MainPage = () => {
   useEffect(() => {
     const fetchLastVisitedExam = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/user-preference');
+        const response = await fetch(
+          "http://localhost:5000/api/user-preference"
+        );
         const data = await response.json();
         if (data.last_visited_exam) {
           setLastVisitedExam(data.last_visited_exam);
         }
       } catch (error) {
-        console.error('Error fetching last visited exam:', error);
+        console.error("Error fetching last visited exam:", error);
       }
     };
 
@@ -165,7 +175,9 @@ const MainPage = () => {
     if (currentExam) {
       const fetchFavorites = async () => {
         try {
-          const response = await fetch(`http://localhost:5000/api/favorites/${currentExam}`);
+          const response = await fetch(
+            `http://localhost:5000/api/favorites/${currentExam}`
+          );
           const data = await response.json();
           setFavoriteQuestions(data.favorites);
         } catch (error) {
@@ -177,17 +189,31 @@ const MainPage = () => {
     }
   }, [currentExam]);
 
+  useEffect(() => {
+    if (examData) {
+      const allQuestions = Object.entries(examData.topics).flatMap(
+        ([topicNumber, questions]) =>
+          questions.map((_, index) => `T${topicNumber} Q${index + 1}`)
+      );
+      setUnansweredQuestions(
+        allQuestions.filter(
+          (q) => !userAnswers[q] || userAnswers[q].length === 0
+        )
+      );
+    }
+  }, [examData, userAnswers]);
+
   const updateLastVisitedExam = async (examId) => {
     try {
-      await fetch('http://localhost:5000/api/user-preference', {
-        method: 'POST',
+      await fetch("http://localhost:5000/api/user-preference", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ last_visited_exam: examId }),
       });
     } catch (error) {
-      console.error('Error updating last visited exam:', error);
+      console.error("Error updating last visited exam:", error);
     }
   };
 
@@ -196,10 +222,10 @@ const MainPage = () => {
     if (!currentExam || !examData) return;
 
     try {
-      const response = await fetch('http://localhost:5000/api/favorite', {
-        method: 'POST',
+      const response = await fetch("http://localhost:5000/api/favorite", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           exam_id: currentExam,
@@ -210,12 +236,24 @@ const MainPage = () => {
 
       if (response.ok) {
         const updatedFavorites = favoriteQuestions.some(
-          favorite => favorite.topic_number === currentTopic && favorite.question_index === currentQuestionIndex
+          (favorite) =>
+            favorite.topic_number === currentTopic &&
+            favorite.question_index === currentQuestionIndex
         )
           ? favoriteQuestions.filter(
-              favorite => !(favorite.topic_number === currentTopic && favorite.question_index === currentQuestionIndex)
+              (favorite) =>
+                !(
+                  favorite.topic_number === currentTopic &&
+                  favorite.question_index === currentQuestionIndex
+                )
             )
-          : [...favoriteQuestions, { topic_number: currentTopic, question_index: currentQuestionIndex }];
+          : [
+              ...favoriteQuestions,
+              {
+                topic_number: currentTopic,
+                question_index: currentQuestionIndex,
+              },
+            ];
 
         setFavoriteQuestions(updatedFavorites);
         setIsStarFilled(!isStarFilled);
@@ -252,7 +290,45 @@ const MainPage = () => {
   };
 
   const handleSubmit = () => {
-    console.log("Submitting answer");
+    if (!currentExam) return;
+  
+    const unansweredCount = unansweredQuestions.length;
+    if (unansweredCount > 0) {
+      setConfirmDialogMessage(`You have ${unansweredCount} unanswered question${unansweredCount > 1 ? 's' : ''}. Are you sure you want to submit?`);
+      onConfirmOpen();
+    } else {
+      submitExam();
+    }
+  };
+  
+  const submitExam = async () => {
+    try {
+      const response = await fetch("http://localhost:5000/api/submit-answers", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          exam_id: currentExam,
+          user_answers: userAnswers,
+        }),
+      });
+  
+      if (response.ok) {
+        const results = await response.json();
+        setExamResults(results);
+        onOpen(); // Open the results modal
+      } else {
+        const errorData = await response.json();
+        console.error("Error submitting answers:", errorData.error);
+        // Show an error message to the user
+        alert(`Error submitting answers: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error("Error submitting answers:", error);
+      // Show an error message to the user
+      alert("An error occurred while submitting answers. Please try again.");
+    }
   };
 
   const handleTopicChange = (topic) => {
@@ -265,7 +341,9 @@ const MainPage = () => {
     const currentTopicQuestions = examData.topics[currentTopic] || [];
     if (newIndex >= 0 && newIndex < currentTopicQuestions.length) {
       setCurrentQuestionIndex(newIndex);
-      setSelectedOptions(userAnswers[`T${currentTopic} Q${newIndex + 1}`] || []);
+      setSelectedOptions(
+        userAnswers[`T${currentTopic} Q${newIndex + 1}`] || []
+      );
     }
   };
 
@@ -275,14 +353,19 @@ const MainPage = () => {
 
   const fetchUserAnswers = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/api/get-answers/${currentExam}`);
+      const response = await fetch(
+        `http://localhost:5000/api/get-answers/${currentExam}`
+      );
       const data = await response.json();
       const answersMap = {};
-      data.answers.forEach(answer => {
-        answersMap[`T${answer.topic_number} Q${answer.question_index + 1}`] = answer.selected_options;
+      data.answers.forEach((answer) => {
+        answersMap[`T${answer.topic_number} Q${answer.question_index + 1}`] =
+          answer.selected_options;
       });
       setUserAnswers(answersMap);
-      setSelectedOptions(answersMap[`T${currentTopic} Q${currentQuestionIndex + 1}`] || []);
+      setSelectedOptions(
+        answersMap[`T${currentTopic} Q${currentQuestionIndex + 1}`] || []
+      );
     } catch (error) {
       console.error("Error fetching user answers:", error);
     }
@@ -290,11 +373,13 @@ const MainPage = () => {
 
   const handleOptionSelect = async (newSelectedOptions) => {
     setSelectedOptions(newSelectedOptions);
+    const currentQuestionId = `T${currentTopic} Q${currentQuestionIndex + 1}`;
+
     try {
-      await fetch('http://localhost:5000/api/save-answer', {
-        method: 'POST',
+      await fetch("http://localhost:5000/api/save-answer", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           exam_id: currentExam,
@@ -303,11 +388,21 @@ const MainPage = () => {
           selected_options: newSelectedOptions,
         }),
       });
+
       // Update local state
-      setUserAnswers(prev => ({
+      setUserAnswers((prev) => ({
         ...prev,
-        [`T${currentTopic} Q${currentQuestionIndex + 1}`]: newSelectedOptions,
+        [currentQuestionId]: newSelectedOptions,
       }));
+
+      // Update unansweredQuestions
+      if (newSelectedOptions.length > 0) {
+        setUnansweredQuestions((prev) =>
+          prev.filter((q) => q !== currentQuestionId)
+        );
+      } else {
+        setUnansweredQuestions((prev) => [...prev, currentQuestionId]);
+      }
     } catch (error) {
       console.error("Error saving user answer:", error);
     }
@@ -374,7 +469,9 @@ const MainPage = () => {
               totalQuestions={currentTopicQuestions.length}
               questionData={currentQuestion}
               isStarFilled={favoriteQuestions.some(
-                favorite => favorite.topic_number === currentTopic && favorite.question_index === currentQuestionIndex
+                (favorite) =>
+                  favorite.topic_number === currentTopic &&
+                  favorite.question_index === currentQuestionIndex
               )}
               toggleStar={toggleStar}
               onNavigateLeft={() =>
@@ -394,6 +491,8 @@ const MainPage = () => {
               onOptionSelect={handleOptionSelect}
               selectedOptions={selectedOptions}
               userAnswers={userAnswers}
+              unansweredQuestions={unansweredQuestions}
+              setUnansweredQuestions={setUnansweredQuestions}
             />
           </Box>
           <Box width="300px" minWidth="300px" marginLeft={8}>
@@ -448,6 +547,16 @@ const MainPage = () => {
           </Box>
         </Flex>
       </Flex>
+      <CustomConfirmationDialog
+        isOpen={isConfirmOpen}
+        onClose={onConfirmClose}
+        onConfirm={() => {
+          onConfirmClose();
+          submitExam();
+        }}
+        message={confirmDialogMessage}
+      />
+      <ResultsModal isOpen={isOpen} onClose={onClose} results={examResults} />
     </ChakraProvider>
   );
 };
