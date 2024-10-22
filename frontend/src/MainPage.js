@@ -93,7 +93,8 @@ const LoadingSpinner = () => (
 const MainPage = () => {
   const [isStarFilled, setIsStarFilled] = useState(false);
   const [currentTopic, setCurrentTopic] = useState(1);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(null);
+  const [isSidebarLoaded, setIsSidebarLoaded] = useState(false);
   const [currentExam, setCurrentExam] = useState(null);
   const [examData, setExamData] = useState(null);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -269,27 +270,57 @@ const MainPage = () => {
     }
   };
 
-  const toggleSidebar = () => {
-    setIsSidebarCollapsed(!isSidebarCollapsed);
+  useEffect(() => {
+    const fetchSidebarState = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/sidebar-state");
+        const data = await response.json();
+        setIsSidebarCollapsed(data.is_collapsed);
+      } catch (error) {
+        console.error("Error fetching sidebar state:", error);
+        setIsSidebarCollapsed(false); // Default to expanded if error
+      } finally {
+        setIsSidebarLoaded(true);
+      }
+    };
+
+    fetchSidebarState();
+  }, []);
+
+  const toggleSidebar = async () => {
+    const newState = !isSidebarCollapsed;
+    setIsSidebarCollapsed(newState);
+
+    try {
+      await fetch("http://localhost:5000/api/sidebar-state", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ is_collapsed: newState }),
+      });
+    } catch (error) {
+      console.error("Error updating sidebar state:", error);
+    }
   };
 
   const handleExamSelect = async (examId) => {
     try {
       // Track the exam visit
-      await fetch('http://localhost:5000/api/track-exam-visit', {
-        method: 'POST',
+      await fetch("http://localhost:5000/api/track-exam-visit", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({ exam_id: examId }),
       });
-  
+
       // Continue with existing functionality
       setLastVisitedExam(examId);
       updateLastVisitedExam(examId);
       navigate(`/actual-exam/${examId}`);
     } catch (error) {
-      console.error('Error tracking exam visit:', error);
+      console.error("Error tracking exam visit:", error);
       // Continue navigation even if tracking fails
       navigate(`/actual-exam/${examId}`);
     }
@@ -559,43 +590,92 @@ const MainPage = () => {
   return (
     <ChakraProvider theme={theme}>
       <Flex height="100vh">
-        <Sidebar
-          isCollapsed={isSidebarCollapsed}
-          onToggleCollapse={toggleSidebar}
-          activeItem={getActiveItem(location.pathname)}
-          lastVisitedExam={lastVisitedExam}
+        {!isSidebarLoaded ? (
+          // Loading state placeholder
+          <>
+            <Box
+              width="80px"
+              height="100vh"
+              backgroundColor="#f2f2f3"
+              transition="width 0.3s ease"
+            />
+            <Flex direction="column" flex={1} overflow="hidden">
+              <Navbar activeItem={getActiveItem(location.pathname)}>
+                {location.pathname.startsWith("/actual-exam") && examData && (
+                  <Breadcrumbs
+                    items={[
+                      { label: "All Providers", href: "/providers" },
+                      { label: examData.provider, href: "/exams" },
+                      {
+                        label: examData.examTitle,
+                        href: "#",
+                        isCurrentPage: true,
+                      },
+                    ]}
+                  />
+                )}
+              </Navbar>
+              <Box
+                flex={1}
+                overflow="auto"
+                padding={8}
+                backgroundColor="gray.50"
+              >
+                <Suspense fallback={<LoadingSpinner />}>
+                  {renderContent()}
+                </Suspense>
+              </Box>
+            </Flex>
+          </>
+        ) : (
+          // Fully loaded state
+          <>
+            <Sidebar
+              isCollapsed={isSidebarCollapsed}
+              onToggleCollapse={toggleSidebar}
+              activeItem={getActiveItem(location.pathname)}
+              lastVisitedExam={lastVisitedExam}
+            />
+            <Flex direction="column" flex={1} overflow="hidden">
+              <Navbar activeItem={getActiveItem(location.pathname)}>
+                {location.pathname.startsWith("/actual-exam") && examData && (
+                  <Breadcrumbs
+                    items={[
+                      { label: "All Providers", href: "/providers" },
+                      { label: examData.provider, href: "/exams" },
+                      {
+                        label: examData.examTitle,
+                        href: "#",
+                        isCurrentPage: true,
+                      },
+                    ]}
+                  />
+                )}
+              </Navbar>
+              <Box
+                flex={1}
+                overflow="auto"
+                padding={8}
+                backgroundColor="gray.50"
+              >
+                <Suspense fallback={<LoadingSpinner />}>
+                  {renderContent()}
+                </Suspense>
+              </Box>
+            </Flex>
+          </>
+        )}
+        <CustomConfirmationDialog
+          isOpen={isConfirmOpen}
+          onClose={onConfirmClose}
+          onConfirm={() => {
+            onConfirmClose();
+            submitExam();
+          }}
+          message={confirmDialogMessage}
         />
-        <Flex direction="column" flex={1} overflow="hidden">
-          <Navbar activeItem={getActiveItem(location.pathname)}>
-            {location.pathname.startsWith("/actual-exam") && examData && (
-              <Breadcrumbs
-                items={[
-                  { label: "All Providers", href: "/providers" },
-                  { label: examData.provider, href: "/exams" },
-                  {
-                    label: examData.examTitle,
-                    href: "#",
-                    isCurrentPage: true,
-                  },
-                ]}
-              />
-            )}
-          </Navbar>
-          <Box flex={1} overflow="auto" padding={8} backgroundColor="gray.50">
-            <Suspense fallback={<LoadingSpinner />}>{renderContent()}</Suspense>
-          </Box>
-        </Flex>
+        <ResultsModal isOpen={isOpen} onClose={onClose} results={examResults} />
       </Flex>
-      <CustomConfirmationDialog
-        isOpen={isConfirmOpen}
-        onClose={onConfirmClose}
-        onConfirm={() => {
-          onConfirmClose();
-          submitExam();
-        }}
-        message={confirmDialogMessage}
-      />
-      <ResultsModal isOpen={isOpen} onClose={onClose} results={examResults} />
     </ChakraProvider>
   );
 };

@@ -610,3 +610,31 @@ def delete_all_progress():
     except Exception as e:
         db.session.rollback()
         return jsonify({'error': str(e)}), 500
+
+@app.route('/api/sidebar-state', methods=['GET'])
+def get_sidebar_state():
+    user_id = 1  # Replace with actual user authentication
+    preference = UserPreference.query.filter_by(user_id=user_id).first()
+    
+    if preference:
+        return jsonify({'is_collapsed': preference.is_sidebar_collapsed})
+    return jsonify({'is_collapsed': False})
+
+@app.route('/api/sidebar-state', methods=['POST'])
+def update_sidebar_state():
+    user_id = 1  # Replace with actual user authentication
+    data = request.json
+    is_collapsed = data.get('is_collapsed', False)
+    
+    preference = UserPreference.query.filter_by(user_id=user_id).first()
+    if preference:
+        preference.is_sidebar_collapsed = is_collapsed
+    else:
+        preference = UserPreference(
+            user_id=user_id,
+            is_sidebar_collapsed=is_collapsed
+        )
+        db.session.add(preference)
+    
+    db.session.commit()
+    return jsonify({'message': 'Sidebar state updated successfully'})

@@ -29,6 +29,7 @@ class UserPreference(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, nullable=False)
     last_visited_exam = db.Column(db.String(255))
+    is_sidebar_collapsed = db.Column(db.Boolean, default=False)
 
 class FavoriteQuestion(db.Model):
     __tablename__ = 'favorite_question'

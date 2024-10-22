@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, VStack, Text, Flex, chakra, Button, Icon } from '@chakra-ui/react';
 import { GiDreamCatcher, GiCubeforce, GiSpellBook } from 'react-icons/gi';
 import { RxDashboard } from 'react-icons/rx';
@@ -8,6 +8,7 @@ import '@fontsource-variable/karla/wght.css';
 import '@fontsource/space-grotesk/700.css';
 import { useNavigate } from 'react-router-dom';
 
+// Keep your existing chakra components
 const SidebarItem = chakra(Flex, {
   baseStyle: {
     alignItems: 'center',
@@ -47,6 +48,7 @@ const SidebarText = chakra(Text, {
   },
 });
 
+// Keep your existing PremiumBox component
 const PremiumBox = ({ isCollapsed }) => (
   <Box
     bgGradient="linear(135deg, #FFD700, #FFA500)"
@@ -98,6 +100,16 @@ const PremiumBox = ({ isCollapsed }) => (
 
 const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam }) => {
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Add a small delay before showing the sidebar to ensure smooth transition
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   const menuItems = [
     { name: 'Dashboard', icon: RxDashboard, path: '/' },
@@ -118,6 +130,17 @@ const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam })
       navigate(path);
     }
   };
+
+  if (!isVisible) {
+    return (
+      <Box 
+        width={isCollapsed ? "80px" : "300px"}
+        height="100vh"
+        backgroundColor="#f2f2f3"
+        transition="width 0.3s ease"
+      />
+    );
+  }
 
   return (
     <Box
