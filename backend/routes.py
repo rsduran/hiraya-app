@@ -391,17 +391,24 @@ def get_exam_progress():
             time_diff = datetime.utcnow() - attempts[0].attempt_date
             if time_diff.days == 0:
                 if time_diff.seconds < 3600:
-                    last_update = "Just now" if time_diff.seconds < 300 else f"{time_diff.seconds // 60} minutes ago"
+                    if time_diff.seconds < 300:
+                        last_update = "Just now"
+                    else:
+                        minutes = time_diff.seconds // 60
+                        last_update = f"{minutes} {'minute' if minutes == 1 else 'minutes'} ago"
                 else:
-                    last_update = f"{time_diff.seconds // 3600} hours ago"
+                    hours = time_diff.seconds // 3600
+                    last_update = f"{hours} {'hour' if hours == 1 else 'hours'} ago"
             elif time_diff.days == 1:
                 last_update = "Yesterday"
             elif time_diff.days < 7:
-                last_update = f"{time_diff.days} days ago"
+                last_update = f"{time_diff.days} {'day' if time_diff.days == 1 else 'days'} ago"
             elif time_diff.days < 30:
-                last_update = f"{time_diff.days // 7} weeks ago"
+                weeks = time_diff.days // 7
+                last_update = f"{weeks} {'week' if weeks == 1 else 'weeks'} ago"
             else:
-                last_update = f"{time_diff.days // 30} months ago"
+                months = time_diff.days // 30
+                last_update = f"{months} {'month' if months == 1 else 'months'} ago"
         else:
             # Check if the user has answered any questions
             last_answer = UserAnswer.query.filter_by(
@@ -422,17 +429,24 @@ def get_exam_progress():
                     time_diff = datetime.utcnow() - visit.last_visit_date
                     if time_diff.days == 0:
                         if time_diff.seconds < 3600:
-                            last_update = "Just now" if time_diff.seconds < 300 else f"{time_diff.seconds // 60} minutes ago"
+                            if time_diff.seconds < 300:
+                                last_update = "Just now"
+                            else:
+                                minutes = time_diff.seconds // 60
+                                last_update = f"{minutes} {'minute' if minutes == 1 else 'minutes'} ago"
                         else:
-                            last_update = f"{time_diff.seconds // 3600} hours ago"
+                            hours = time_diff.seconds // 3600
+                            last_update = f"{hours} {'hour' if hours == 1 else 'hours'} ago"
                     elif time_diff.days == 1:
                         last_update = "Yesterday"
                     elif time_diff.days < 7:
-                        last_update = f"{time_diff.days} days ago"
+                        last_update = f"{time_diff.days} {'day' if time_diff.days == 1 else 'days'} ago"
                     elif time_diff.days < 30:
-                        last_update = f"{time_diff.days // 7} weeks ago"
+                        weeks = time_diff.days // 7
+                        last_update = f"{weeks} {'week' if weeks == 1 else 'weeks'} ago"
                     else:
-                        last_update = f"{time_diff.days // 30} months ago"
+                        months = time_diff.days // 30
+                        last_update = f"{months} {'month' if months == 1 else 'months'} ago"
                 else:
                     last_update = "Not Started"
 
