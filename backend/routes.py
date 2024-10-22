@@ -4,6 +4,7 @@ from flask import jsonify, abort, request
 from app import app, db
 from models import Provider, Exam, Topic, UserPreference, FavoriteQuestion, UserAnswer, ExamAttempt, ExamVisit
 from utils import get_exam_order, format_display_title
+from provider_categories import get_provider_categories, get_total_providers, get_total_categories
 from sqlalchemy import func
 from datetime import datetime
 
@@ -12,12 +13,41 @@ def get_providers():
     page = request.args.get('page', type=int)
     per_page = request.args.get('per_page', type=int)
     
+    # Get provider statistics
+    provider_stats = db.session.query(
+        Provider.id,
+        func.count(Exam.id).label('total_exams'),
+        func.sum(Exam.total_questions).label('total_questions')
+    ).join(
+        Exam, Provider.id == Exam.provider_id, isouter=True
+    ).group_by(Provider.id).all()
+    
+    # Create a lookup dictionary for stats
+    stats_lookup = {
+        id: {
+            'total_exams': total_exams or 0,
+            'total_questions': total_questions or 0
+        }
+        for id, total_exams, total_questions in provider_stats
+    }
+    
+    provider_descriptions = {
+        'Amazon': 'AWS cloud platform certifications.',
+        'Google': 'Google Cloud expertise certifications.',
+        'Microsoft': 'Azure and cloud infrastructure certifications.',
+        # Add other provider descriptions as needed
+    }
+    
     if page is None or per_page is None:
         providers = Provider.query.all()
         return jsonify({
             'providers': [
                 {
                     'name': provider.name,
+                    'description': provider_descriptions.get(provider.name, f"Official certification exams from {provider.name}"),
+                    'image': f"/api/placeholder/100/100",  # Placeholder for provider logo
+                    'totalExams': stats_lookup.get(provider.id, {}).get('total_exams', 0),
+                    'totalQuestions': stats_lookup.get(provider.id, {}).get('total_questions', 0),
                     'exams': sorted([
                         {
                             'id': f"{provider.name}-{exam.title}",
@@ -40,6 +70,10 @@ def get_providers():
             'providers': [
                 {
                     'name': provider.name,
+                    'description': provider_descriptions.get(provider.name, f"Official certification exams from {provider.name}"),
+                    'image': f"/api/placeholder/100/100",  # Placeholder for provider logo
+                    'totalExams': stats_lookup.get(provider.id, {}).get('total_exams', 0),
+                    'totalQuestions': stats_lookup.get(provider.id, {}).get('total_questions', 0),
                     'exams': sorted([
                         {
                             'id': f"{provider.name}-{exam.title}",
@@ -638,3 +672,56 @@ def update_sidebar_state():
     
     db.session.commit()
     return jsonify({'message': 'Sidebar state updated successfully'})
+
+@app.route('/api/provider-statistics', methods=['GET'])
+def get_provider_statistics():
+    """
+    Get provider statistics while maintaining existing UI structure.
+    Returns complete provider data with real exam statistics.
+    """
+    # Get real statistics from database
+    provider_stats = db.session.query(
+        Provider.name,
+        Provider.is_popular,
+        func.count(Exam.id).label('total_exams'),
+        func.sum(Exam.total_questions).label('total_questions')
+    ).join(
+        Exam, Provider.id == Exam.provider_id, isouter=True
+    ).group_by(
+        Provider.name,
+        Provider.is_popular
+    ).all()
+    
+    # Create a lookup dictionary for real stats
+    stats_lookup = {
+        name: {
+            'is_popular': is_popular,
+            'total_exams': total_exams or 0,
+            'total_questions': total_questions or 0
+        }
+        for name, is_popular, total_exams, total_questions in provider_stats
+    }
+    
+    # Get categories from the imported module
+    categories = get_provider_categories()
+    
+    # Update provider data with real statistics
+    for category in categories:
+        for provider in category["providers"]:
+            stats = stats_lookup.get(provider["name"], {
+                'total_exams': 0,
+                'total_questions': 0,
+                'is_popular': provider.get("isPopular", False)
+            })
+            
+            provider.update({
+                "totalExams": stats['total_exams'],
+                "totalQuestions": stats['total_questions'],
+                "isPopular": stats['is_popular']
+            })
+    
+    return jsonify({
+        "categories": categories,
+        "totalProviders": get_total_providers(),
+        "totalCategories": get_total_categories()
+    })

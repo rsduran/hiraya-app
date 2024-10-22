@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
-import { Box, Text, Flex, Avatar, HStack } from '@chakra-ui/react';
+import React from 'react';
+import { Box, Text, Flex, Avatar, HStack, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { RiMoonFill, RiSunFill } from 'react-icons/ri';
 
 const Navbar = ({ activeItem, children }) => {
-  const [isLightTheme, setIsLightTheme] = useState(true);
+  const { colorMode, toggleColorMode } = useColorMode();
+  
+  // Dynamic color values from our theme
+  const bgColor = useColorModeValue('brand.background.light', 'brand.surface.dark');
+  const borderColor = useColorModeValue('brand.border.light', 'brand.border.dark');
+  const textColor = useColorModeValue('brand.text.light', 'brand.text.dark');
+  const highlightBg = useColorModeValue('brand.secondary.light', 'brand.secondary.dark');
+  const toggleBg = useColorModeValue('brand.surface.light', 'brand.surface.dark');
+  const toggleIconBg = colorMode === 'light' 
+    ? 'brand.primary.light' 
+    : 'brand.primary.dark';
 
   return (
     <Flex 
@@ -10,28 +21,30 @@ const Navbar = ({ activeItem, children }) => {
       align="center" 
       p={4} 
       pl={10}
-      bg="white" 
+      bg={bgColor}
       borderBottom="1px solid" 
-      borderColor="gray.200"
+      borderColor={borderColor}
+      transition="all 0.2s"
     >
       <Flex align="center" overflow="hidden" flex={1} minWidth={0}>
         <Box flexShrink={0} mr={4}>
           <Text
-            fontFamily='"Karla Variable", sans-serif'
+            fontFamily="heading"
             fontWeight={700}
             fontSize="24px"
             lineHeight="29px"
-            color="rgb(0, 0, 0)"
+            color={textColor}
+            transition="color 0.2s"
           >
-            <Box
-              as="span"
-              bg="#b3ebf2"
-              px="1"
-              py="0"
-              borderRadius="8px"
-            >
-              {activeItem}
-            </Box>
+          <Box
+            as="span"
+            bg={useColorModeValue('brand.secondary.light', 'brand.secondary.dark')}
+            px="1"
+            py="0"
+            borderRadius="8px"
+          >
+            {activeItem}
+          </Box>
           </Text>
         </Box>
         <Box overflow="hidden" flex={1} minWidth={0}>
@@ -43,54 +56,73 @@ const Navbar = ({ activeItem, children }) => {
           <Box
             width="52px"
             height="24px"
-            bg="gray.200"
+            bg={toggleBg}
             borderRadius="full"
             display="flex"
             alignItems="center"
             padding="2px"
             cursor="pointer"
-            onClick={() => setIsLightTheme(!isLightTheme)}
-            border="1px solid black"
+            onClick={toggleColorMode}
+            border="1px solid"
+            borderColor={borderColor}
+            position="relative"
+            _hover={{
+              opacity: 0.8
+            }}
+            transition="all 0.2s"
           >
             <Box
               width="16px"
               height="16px"
-              bg="#00bfff"
+              bg={toggleIconBg}
               borderRadius="full"
-              transform={isLightTheme ? "translateX(3px)" : "translateX(27px)"}
-              transition="transform 0.2s"
-              border="1px solid black"
-            />
+              transform={colorMode === 'light' ? "translateX(3px)" : "translateX(27px)"}
+              transition="all 0.2s"
+              border="1px solid"
+              borderColor={borderColor}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+              color={textColor}
+            >
+              {colorMode === 'light' ? 
+                <RiSunFill size="10px" /> : 
+                <RiMoonFill size="10px" />
+              }
+            </Box>
           </Box>
           <Text
-            fontFamily='"Karla Variable", sans-serif'
+            fontFamily="body"
             fontWeight={500}
             fontSize="16px"
             lineHeight="24px"
-            color="rgb(26, 32, 44)"
+            color={textColor}
             ml={2}
+            transition="color 0.2s"
           >
-            {isLightTheme ? "Light theme" : "Dark theme"}
+            {colorMode === 'light' ? "Light theme" : "Dark theme"}
           </Text>
         </Flex>
         <Flex align="center">
           <Text
-            fontFamily='"Karla Variable", sans-serif'
+            fontFamily="body"
             fontWeight={700}
             fontSize="20px"
             lineHeight="30px"
-            color="rgb(84, 84, 84)"
+            color={useColorModeValue('gray.600', 'gray.400')}
             mr={1}
+            transition="color 0.2s"
           >
             Hello,
           </Text>
           <Text
-            fontFamily='"Karla Variable", sans-serif'
+            fontFamily="body"
             fontWeight={700}
             fontSize="20px"
             lineHeight="30px"
-            color="rgb(26, 32, 44)"
+            color={textColor}
             mr={2}
+            transition="color 0.2s"
           >
             rsduran!
           </Text>

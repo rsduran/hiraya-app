@@ -1,0 +1,5529 @@
+The following text is a Git repository with code. The structure of the text are sections that begin with ----, followed by a single line containing the file path and file name, followed by a variable amount of lines containing the file contents. The text representing the Git repository ends when the symbols --END-- are encounted. Any further text beyond --END-- are meant to be interpreted as instructions using the aforementioned Git repository as context.
+----
+AnswerBox.js
+import React, { useState } from 'react';
+import { Box, Text, Flex, VStack, Tooltip, Image } from '@chakra-ui/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+
+const colors = ["yellow.400", "red.300", "blue.300", "green.300"];
+
+const transformImageUrl = (url) => {
+  if (!url) return url;
+  if (url.startsWith('http://') || url.startsWith('https://')) return url;
+  return `https://www.examtopics.com${url}`;
+};
+
+const VoteBar = ({ votes }) => {
+  const totalVotes = votes.reduce((sum, vote) => sum + vote.count, 0);
+  
+  return (
+    <Box width="100%" height="30px" borderRadius="md" overflow="hidden" position="relative">
+      <Flex height="100%">
+        {votes.map((vote, index) => {
+          const percentage = (vote.count / totalVotes) * 100;
+          const isSmall = percentage < 10;
+
+          return (
+            <Tooltip
+              key={index}
+              label={`${vote.answer}: ${percentage.toFixed(2)}%`}
+              placement="top"
+              hasArrow
+              backgroundColor="gray.700"
+              color="white"
+              isDisabled={!isSmall}
+            >
+              <Box
+                backgroundColor={colors[index]}
+                width={`${percentage}%`}
+                height="100%"
+                position="relative"
+                minWidth="1px"
+              >
+                {!isSmall && (
+                  <Text
+                    position="absolute"
+                    left={2}
+                    top="50%"
+                    transform="translateY(-50%)"
+                    fontSize="14px"
+                    fontWeight="bold"
+                    color="black"
+                    whiteSpace="nowrap"
+                    overflow="hidden"
+                    textOverflow="ellipsis"
+                  >
+                    {vote.answer} {percentage.toFixed(2)}%
+                  </Text>
+                )}
+              </Box>
+            </Tooltip>
+          );
+        })}
+      </Flex>
+    </Box>
+  );
+};
+
+const AnswerContent = ({ content, isAnswer }) => {
+  const parsedContent = content.split(/<br>|<br\/>/).map((part, index) => {
+    if (part.startsWith('<img')) {
+      const srcMatch = part.match(/src="([^"]+)"/);
+      if (srcMatch) {
+        const src = transformImageUrl(srcMatch[1]);
+        return <Image key={index} src={src} alt="Answer content" />;
+      }
+    }
+    const textContent = part.replace(/<[^>]*>/g, '');
+    if (index === 0 && isAnswer) {
+      return (
+        <Text key={index} fontSize="24px" fontWeight="700" color="black">
+          {textContent}
+        </Text>
+      );
+    }
+    return (
+      <Text key={index} fontSize="16px" color="black">
+        {textContent}
+      </Text>
+    );
+  });
+
+  return <>{parsedContent}</>;
+};
+
+const AnswerBox = ({ answer, answerDescription, votes }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <Box
+      width="100%"
+      backgroundColor="#f2f2f3"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      position="relative"
+      overflow="hidden"
+      marginTop={4}
+    >
+      <Flex 
+        justifyContent="space-between" 
+        alignItems="center" 
+        padding={6}
+        onClick={toggleDropdown} 
+        cursor="pointer"
+      >
+        <Text fontSize="24px" fontWeight="700" color="black">
+          Answer
+        </Text>
+        {isOpen ? <ChevronUpIcon boxSize={6} /> : <ChevronDownIcon boxSize={6} />}
+      </Flex>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ overflow: "hidden" }}
+          >
+            <VStack spacing={4} align="stretch" paddingX={6} paddingBottom={6}>
+              <AnswerContent content={answer} isAnswer={true} />
+              {answerDescription && (
+                <AnswerContent content={answerDescription} isAnswer={false} />
+              )}
+              <Text fontSize="24px" fontWeight="700" color="black">Votes:</Text>
+              <VoteBar votes={votes} />
+            </VStack>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Box>
+  );
+};
+
+export default AnswerBox;
+----
+BadgeUrls.js
+export const badgeUrls = {
+  "AWS Certified Cloud Practitioner": 
+    "https://images.credly.com/images/00634f82-b07f-4bbd-a6bb-53de397fc3a6/image.png",
+  "AWS Certified Machine Learning Specialty": 
+    "https://images.credly.com/images/778bde6c-ad1c-4312-ac33-2fa40d50a147/image.png",
+  "AWS Certified Solutions Architect Associate": 
+    "https://images.credly.com/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+  "AWS Certified Developer Associate": 
+    "https://images.credly.com/images/b9feab85-1a43-4f6c-99a5-631b88d5461b/twitter_thumb_201604_image.png",
+  "AWS Certified Database Specialty": 
+    "https://images.credly.com/images/885d38e4-55c0-4c35-b4ed-694e2b26be6c/image.png",
+  "AWS Certified Solutions Architect Professional": 
+    "https://images.credly.com/images/2d84e428-9078-49b6-a804-13c15383d0de/twitter_thumb_201604_image.png",
+  "AWS Certified Data Analytics Specialty": 
+    "https://images.credly.com/images/6430efe4-0ac0-4df6-8f1b-9559d8fcdf27/image.png",
+  "AWS Certified Data Engineer Associate": 
+    "https://images.credly.com/images/e5c85d7f-4e50-431e-b5af-fa9d9b0596e7/image.png",
+  "AWS Certified Advanced Networking Specialty": 
+    "https://images.credly.com/images/4d08274f-64c1-495e-986b-3143f51b1371/image.png",
+  "AWS Certified SysOps Administrator Associate": 
+    "https://images.credly.com/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/image.png",
+  "AWS Certified SAP on AWS Specialty": 
+    "https://images.credly.com/images/57bb7f6a-441f-4356-a2f1-7693227a475e/image.png",
+  "AWS Certified Security Specialty": 
+    "https://images.credly.com/images/53acdae5-d69f-4dda-b650-d02ed7a50dd7/image.png",
+  "AWS Certified DevOps Engineer Professional": 
+    "https://images.credly.com/images/bd31ef42-d460-493e-8503-39592aaf0458/image.png",
+  "AWS Certified Big Data Specialty": 
+    "https://images.credly.com/images/1e4003a1-ffd4-4eb9-a9da-e14f486255d9/image.png",
+  "AWS Certified Alexa Skill Builder Specialty": 
+    "https://images.credly.com/images/dd75723c-9629-4511-8c19-154244c5423a/image.png",
+  "AWS Certified SysOps Administrator Associate (Twitter)": 
+    "https://images.credly.com/images/f0d3fbb9-bfa7-4017-9989-7bde8eaf42b1/twitter_thumb_201604_image.png",
+  "Google Professional Google Workspace Administrator": 
+    "https://images.credly.com/images/16d3e89c-4af5-47d8-a502-2a93b02c26d4/twitter_thumb_201604_image.png",
+  "Google Professional Data Engineer": 
+    "https://images.credly.com/images/2d613ff8-8879-430b-b2d8-925fa29785e8/twitter_thumb_201604_image.png",
+  "Google Ads Individual Qualification": 
+    "https://dangil.tech/wp-content/uploads/2023/07/95f440c5-001c-4976-9a43-d6631b41d11a-removebg-preview-1.png",
+  "Google Cloud Digital Leader": 
+    "https://images.credly.com/images/44994cda-b5b0-44cb-9a6d-d29b57163073/twitter_thumb_201604_image.png",
+  "Google Professional Cloud Network Engineer": 
+    "https://images.credly.com/images/08a802bf-f2fa-44fb-8110-92acf6195738/twitter_thumb_201604_image.png",
+  "Google Video Advertising": 
+    "https://cdn.prod.website-files.com/64fb3aaa0b5ad657cf3e7091/6553beb0175c7efd85c3dd3c_Google%20Ads%20Video%20Certification.png",
+  "Google Professional ChromeOS Administrator": 
+    "https://pbs.twimg.com/media/FfTg_POXEAYvXFy.png",
+  "Google Search Advertising": 
+    "https://www.pageoneppc.com/assets/img/badges/search-certified.png",
+  "Google Professional Cloud Database Engineer": 
+    "https://images.credly.com/images/275e69a5-33a8-4d9c-bad4-2bdc0dfb7d40/twitter_thumb_201604_image.png",
+  "Google Analytics Individual Qualification": 
+    "https://framerusercontent.com/images/8lRjLVdJ5qy69IGCISC9dUSUvQ.png",
+  "Google Professional Cloud Developer": 
+    "https://images.credly.com/images/614465c6-1d80-4ae6-a323-753de224422a/twitter_thumb_201604_image.png",
+  "Google G Suite Certification": 
+    "https://dw2q8mfb3dci9.cloudfront.net/pub/media/wysiwyg/gcp-gsuite.png",
+  "Google Professional Collaboration Engineer": 
+    "https://certwizard.com/sites/default/files/2020-04/Google-Collaboration-Engineer-certwizard.png",
+  "Google AdWords Fundamentals": 
+    "https://simonpointer.com/wp-content/uploads/2020/08/Google_Ads2-600x338.png",
+  "Google Professional Machine Learning Engineer": 
+    "https://images.credly.com/images/05e71e7e-92a1-4821-8530-4176b2e3c4b4/twitter_thumb_201604_image.png",
+  "Google Professional Cloud Security Engineer": 
+    "https://images.credly.com/images/4ea0ec5c-6258-4c26-9282-6ed233c0c7ac/image.png",
+  "Google Professional Cloud DevOps Engineer": 
+    "https://images.credly.com/images/33f08b7e-fa6a-41cd-810a-21cc1c336f6d/twitter_thumb_201604_image.png",
+  "Google Associate Cloud Engineer": 
+    "https://images.credly.com/size/680x680/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png",
+  "Google Professional Cloud Architect": 
+    "https://images.credly.com/images/71c579e0-51fd-4247-b493-d2fa8167157a/twitter_thumb_201604_image.png"
+};
+
+export const getBadgeUrl = (examTitle) => {
+  // Remove exam code if present
+  const titleWithoutCode = examTitle.replace(/^[A-Z0-9-]+:\s*/, '');
+  
+  // Try to find an exact match
+  if (badgeUrls[titleWithoutCode]) {
+    return badgeUrls[titleWithoutCode];
+  }
+
+  // If no exact match, try to find a partial match
+  const partialMatch = Object.keys(badgeUrls).find(key => 
+    titleWithoutCode.toLowerCase().includes(key.toLowerCase())
+  );
+
+  return partialMatch ? badgeUrls[partialMatch] : `/api/placeholder/150/150`;
+};
+----
+Breadcrumbs.js
+import React, { useRef, useEffect, useState } from 'react';
+import { Flex, Text, Link, Tooltip } from '@chakra-ui/react';
+import { ChevronRightIcon } from '@chakra-ui/icons';
+
+const Breadcrumbs = ({ items }) => {
+  const containerRef = useRef(null);
+  const itemRefs = useRef([]);
+  const [itemWidths, setItemWidths] = useState([]);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (containerRef.current) {
+        const container = containerRef.current;
+        const availableWidth = container.offsetWidth;
+        const newItemWidths = itemRefs.current.map(ref => ref ? ref.offsetWidth : 0);
+        
+        let totalWidth = newItemWidths.reduce((sum, width, index) => sum + width + (index > 0 ? 16 : 0), 0);
+        
+        if (totalWidth > availableWidth) {
+          const middleIndex = Math.floor(items.length / 2);
+          let i = middleIndex;
+          let j = middleIndex;
+          
+          while (totalWidth > availableWidth && (i > 0 || j < items.length - 1)) {
+            if (i > 0) {
+              totalWidth -= newItemWidths[i] - 50; // 50px for truncated item
+              newItemWidths[i] = 50;
+              i--;
+            }
+            if (j < items.length - 1 && totalWidth > availableWidth) {
+              totalWidth -= newItemWidths[j] - 50;
+              newItemWidths[j] = 50;
+              j++;
+            }
+          }
+        } else {
+          // If there's enough space, reset all widths to their original values
+          newItemWidths.fill(null);
+        }
+        
+        setItemWidths(newItemWidths);
+      }
+    };
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, [items]);
+
+  const renderItem = (item, index) => {
+    const isTruncated = itemWidths[index] === 50;
+    
+    const content = (
+      <Text
+        color={item.isCurrentPage ? "gray.500" : "blue.500"}
+        fontWeight="500"
+        fontSize="16px"
+        whiteSpace="nowrap"
+        overflow="hidden"
+        textOverflow="ellipsis"
+        maxWidth={isTruncated ? "50px" : "none"}
+        ref={el => itemRefs.current[index] = el}
+        as={item.isCurrentPage ? "span" : Link}
+        href={item.isCurrentPage ? undefined : item.href}
+        _hover={item.isCurrentPage ? undefined : { textDecoration: 'underline' }}
+      >
+        {isTruncated ? item.label.slice(0, 3) + '...' : item.label}
+      </Text>
+    );
+
+    return isTruncated ? (
+      <Tooltip key={index} label={item.label} aria-label="Full breadcrumb text">
+        {content}
+      </Tooltip>
+    ) : content;
+  };
+
+  return (
+    <Flex align="center" ref={containerRef} overflow="hidden" width="100%">
+      {items.map((item, index) => (
+        <React.Fragment key={index}>
+          {index > 0 && <ChevronRightIcon mx={1} color="gray.500" flexShrink={0} boxSize={3} />}
+          {renderItem(item, index)}
+        </React.Fragment>
+      ))}
+    </Flex>
+  );
+};
+
+export default Breadcrumbs;
+----
+CategoriesDropdown.js
+import React, { useState, useRef, useEffect, useMemo } from 'react';
+import { Box, Text, Button, Tooltip } from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+
+const CategoryItem = React.memo(({ category, isSelected, onClick }) => {
+  const itemRef = useRef(null);
+  const [isItemTruncated, setIsItemTruncated] = useState(false);
+
+  useEffect(() => {
+    if (itemRef.current) {
+      setIsItemTruncated(itemRef.current.scrollWidth > itemRef.current.clientWidth);
+    }
+  }, []);
+
+  return (
+    <Tooltip label={category} isDisabled={!isItemTruncated}>
+      <Box
+        padding={3}
+        cursor="pointer"
+        backgroundColor={isSelected ? "#00bfff" : "white"}
+        _hover={{
+          backgroundColor: isSelected ? "#00bfff" : "#b3ebf2",
+        }}
+        onClick={onClick}
+      >
+        <Text
+          ref={itemRef}
+          fontWeight={700}
+          fontSize="16px"
+          lineHeight="19px"
+          color="black"
+          isTruncated
+        >
+          {category}
+        </Text>
+      </Box>
+    </Tooltip>
+  );
+});
+
+const CategoriesDropdown = ({ categories, selectedCategory, onSelect }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isTruncated, setIsTruncated] = useState(false);
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    if (textRef.current) {
+      setIsTruncated(textRef.current.scrollWidth > textRef.current.clientWidth);
+    }
+  }, [selectedCategory]);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelect = (category) => {
+    onSelect(category);
+    setIsOpen(false);
+  };
+
+  const sortedCategories = useMemo(() => {
+    // Separate "All Categories", "Other Certifications" and regular categories
+    const allCategories = categories.find(cat => cat === "All Categories");
+    const otherCertifications = categories.find(cat => cat === "Other Certifications");
+    const regularCategories = categories.filter(cat => 
+      cat !== "Other Certifications" && cat !== "All Categories"
+    );
+    
+    // Sort regular categories alphabetically
+    const sortedRegular = regularCategories.sort((a, b) => a.localeCompare(b));
+    
+    // Combine them in the desired order, ensuring "All Categories" is first
+    return [
+      allCategories || "All Categories", // Always include "All Categories"
+      ...sortedRegular,
+      otherCertifications
+    ].filter(Boolean);
+  }, [categories]);
+
+  return (
+    <Box position="relative" width="100%">
+      <Tooltip label={selectedCategory} isDisabled={!isTruncated}>
+        <Button
+          onClick={toggleDropdown}
+          width="100%"
+          backgroundColor="white"
+          color="black"
+          fontWeight={700}
+          fontSize="16px"
+          lineHeight="19px"
+          borderRadius="10px"
+          border="1px solid black"
+          boxShadow="none"
+          _hover={{
+            backgroundColor: "#00bfff",
+            boxShadow: "0 3px 0 0 black",
+          }}
+          _active={{
+            backgroundColor: "#00bfff",
+            boxShadow: "none",
+          }}
+          transition="all 0.2s"
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          paddingLeft={4}
+          paddingRight={4}
+          paddingTop={3}
+          paddingBottom={3}
+        >
+          <Text ref={textRef} isTruncated>{selectedCategory}</Text>
+          {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+        </Button>
+      </Tooltip>
+      {isOpen && (
+        <Box
+          position="absolute"
+          top="100%"
+          left={0}
+          width="100%"
+          maxHeight="300px"
+          backgroundColor="white"
+          borderRadius="10px"
+          border="1px solid black"
+          marginTop={2}
+          zIndex={1}
+          overflowY="auto"
+        >
+          {sortedCategories.map((category, index) => (
+            <CategoryItem
+              key={index}
+              category={category}
+              isSelected={category === selectedCategory}
+              onClick={() => handleSelect(category)}
+            />
+          ))}
+        </Box>
+      )}
+    </Box>
+  );
+};
+
+export default CategoriesDropdown;
+----
+CategoryCard.js
+import React, { useState } from "react";
+import { Box, Text, Flex, Input, Icon } from "@chakra-ui/react";
+import { BsBookmarkFill } from 'react-icons/bs';
+import ProviderInfoCard from "./ProviderInfoCard";
+
+const CategoryCard = ({ categoryName, providers, view }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const filteredProviders = providers.filter(provider => 
+    provider.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const toggleBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+  };
+
+  return (
+    <Box
+      backgroundColor="#f2f2f3"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      padding={6}
+      marginBottom={8}
+      width="100%"
+    >
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        marginBottom={6}
+        flexWrap="wrap"
+        gap={4}
+      >
+        <Text
+          fontSize={{ base: "24px", md: "26px", lg: "28px" }}
+          fontWeight="bold"
+        >
+          {categoryName}
+        </Text>
+        <Flex alignItems="center" gap={4}>
+          <Box
+            as="button"
+            onClick={toggleBookmark}
+            transition="all 0.2s"
+            _hover={{ transform: 'scale(1.1)' }}
+            _active={{ transform: 'scale(0.9)' }}
+          >
+            <Icon
+              as={BsBookmarkFill}
+              color={isBookmarked ? "#FFD700" : "white"}
+              boxSize={6}
+              strokeWidth={1}
+              stroke="black"
+              transition="all 0.2s"
+            />
+          </Box>
+          <Input
+            placeholder="Search providers..."
+            size="md"
+            width={{ base: "100%", sm: "200px", md: "250px", lg: "300px" }}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            backgroundColor="white"
+          />
+        </Flex>
+      </Flex>
+      {view === "grid" ? (
+        <Box overflowX="auto" paddingBottom={4}>
+          <Flex gap={6} wrap="nowrap" width={`calc(300px * ${Math.ceil(filteredProviders.length / 5)} + 24px * ${Math.ceil(filteredProviders.length / 5) - 1})`}>
+            {filteredProviders.map((provider, index) => (
+              <Box
+                key={index}
+                flex="0 0 auto"
+                width="300px"
+              >
+                <ProviderInfoCard
+                  provider={provider}
+                  view={view}
+                />
+              </Box>
+            ))}
+          </Flex>
+        </Box>
+      ) : (
+        <Box>
+          {filteredProviders.map((provider, index) => (
+            <ProviderInfoCard
+              key={index}
+              provider={provider}
+              view={view}
+            />
+          ))}
+        </Box>
+      )}
+    </Box>
+  );
+};
+
+export default CategoryCard;
+----
+ComingSoonComponent.js
+import React, { useState } from 'react';
+import { Box, Text, VStack, Input, Button, Flex, useToast } from '@chakra-ui/react';
+import { RiMailSendLine } from 'react-icons/ri';
+
+const ComingSoonComponent = () => {
+  const [email, setEmail] = useState('');
+  const toast = useToast();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Email submitted:', email);
+    toast({
+      title: "You're on the list!",
+      description: "We'll notify you when the Custom Exam feature is ready.",
+      status: "success",
+      duration: 5000,
+      isClosable: true,
+    });
+    setEmail('');
+  };
+
+  return (
+    <Flex
+      width="100%"
+      height="100%"
+      alignItems="center"
+      justifyContent="center"
+    >
+      <Box
+        w="100%"
+        maxW="800px"
+        bgGradient="linear(to-br, #4158D0, #C850C0, #FFCC70)"
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 8px 0 0 black"
+        position="relative"
+        overflow="hidden"
+        p={8}
+      >
+        <VStack spacing={6} align="stretch">
+          <Text
+            fontSize="48px"
+            fontWeight="800"
+            color="white"
+            textAlign="center"
+            fontFamily="'Space Grotesk', sans-serif"
+            textShadow="2px 2px 4px rgba(0,0,0,0.3)"
+          >
+            Custom Exam
+          </Text>
+          <Text
+            fontSize="28px"
+            fontWeight="700"
+            color="#FFCC70"
+            textAlign="center"
+            textShadow="1px 1px 2px rgba(0,0,0,0.2)"
+          >
+            Coming Soon!
+          </Text>
+          <Text fontSize="18px" color="white" textAlign="center" lineHeight="1.6">
+            We're working hard to bring you the ability to create custom exams.
+            <br />
+            Enter your email below to be notified when this feature is ready!
+          </Text>
+          <form onSubmit={handleSubmit}>
+            <Flex flexDirection="column" alignItems="center">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                bg="white"
+                borderRadius="full"
+                border="1px solid black"
+                height="48px"
+                width="100%"
+                maxWidth="400px"
+                mb={4}
+                _focus={{
+                  boxShadow: 'none',
+                  borderColor: 'black',
+                }}
+              />
+              <Button
+                type="submit"
+                height="48px"
+                fontSize="16px"
+                px="24px"
+                bg="#FFCC70"
+                color="black"
+                borderRadius="full"
+                border="1px solid black"
+                fontWeight={700}
+                textTransform="uppercase"
+                transition="0.3s"
+                boxShadow="0 4px 0 0 black"
+                _hover={{
+                  transform: 'translateY(2px)',
+                  boxShadow: '0 2px 0 0 black',
+                }}
+                _active={{
+                  transform: 'translateY(4px)',
+                  boxShadow: 'none',
+                }}
+                leftIcon={<RiMailSendLine />}
+              >
+                Notify Me
+              </Button>
+            </Flex>
+          </form>
+        </VStack>
+        <Box
+          position="absolute"
+          bottom="-50px"
+          right="-50px"
+          width="200px"
+          height="200px"
+          borderRadius="full"
+          bg="rgba(255, 255, 255, 0.1)"
+          zIndex={0}
+        />
+      </Box>
+    </Flex>
+  );
+};
+
+export default ComingSoonComponent;
+----
+CustomConfirmationDialog.js
+import React from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Button,
+  Text,
+  Flex,
+} from '@chakra-ui/react';
+import { FaTimes } from 'react-icons/fa';
+import { IconBox } from './IconBox';
+
+const CloseButton = ({ onClick }) => (
+  <IconBox
+    icon={FaTimes}
+    size="24px"
+    iconScale={0.7}
+    withBorder={false}
+    bgColor="transparent"
+    onClick={onClick}
+  />
+);
+
+const CustomButton = ({ children, onClick, isPrimary = false }) => (
+  <Button
+    onClick={onClick}
+    height="48px"
+    fontSize="16px"
+    px="24px"
+    bg={isPrimary ? "#00bfff" : "white"}
+    color="black"
+    borderRadius="full"
+    border="1px solid black"
+    fontWeight={700}
+    textTransform="uppercase"
+    transition="0.3s"
+    boxShadow="0 4px 0 0 black"
+    _hover={{
+      transform: 'translateY(2px)',
+      boxShadow: '0 2px 0 0 black',
+    }}
+    _active={{
+      transform: 'translateY(4px)',
+      boxShadow: 'none',
+    }}
+  >
+    {children}
+  </Button>
+);
+
+const CustomConfirmationDialog = ({ isOpen, onClose, onConfirm, message }) => {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <ModalOverlay />
+      <ModalContent
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 8px 0 0 black"
+        p={6}
+      >
+        <Flex justifyContent="flex-end">
+          <CloseButton onClick={onClose} />
+        </Flex>
+        <ModalHeader
+          fontFamily="'Space Grotesk', sans-serif"
+          fontWeight="bold"
+          fontSize="24px"
+          pb={4}
+        >
+          Confirm Submission
+        </ModalHeader>
+        <ModalBody>
+          <Text fontFamily='"Karla Variable", sans-serif' fontSize="18px">
+            {message}
+          </Text>
+        </ModalBody>
+        <ModalFooter>
+          <Flex justifyContent="flex-end" width="100%" gap={4}>
+            <CustomButton onClick={onClose}>
+              Cancel
+            </CustomButton>
+            <CustomButton onClick={onConfirm} isPrimary>
+              Submit
+            </CustomButton>
+          </Flex>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export default CustomConfirmationDialog;
+----
+CustomDashboardTable.js
+import React, { useState, useMemo } from "react";
+import { Box, Flex, Text, Button, VStack, Input } from "@chakra-ui/react";
+import { PiSortAscending, PiSortDescending } from "react-icons/pi";
+import { IoChevronDown, IoChevronUp } from "react-icons/io5";
+import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import Pagination from "./Pagination";
+
+const CustomCheckbox = ({ isChecked, isIndeterminate, onChange }) => (
+  <Box
+    as="button"
+    width="20px"
+    height="20px"
+    borderRadius="4px"
+    border="2px solid black"
+    backgroundColor={isChecked ? "#00bfff" : "white"}
+    display="flex"
+    alignItems="center"
+    justifyContent="center"
+    onClick={onChange}
+    _hover={{ backgroundColor: isChecked ? "#00a6d6" : "#e6f7f9" }}
+    transition="all 0.2s"
+    position="relative"
+  >
+    {isIndeterminate ? (
+      <Box
+        width="10px"
+        height="2px"
+        backgroundColor={isChecked ? "white" : "black"}
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+      />
+    ) : (
+      isChecked && (
+        <Box
+          width="10px"
+          height="10px"
+          borderRadius="2px"
+          backgroundColor="white"
+        />
+      )
+    )}
+  </Box>
+);
+
+const CustomButton = ({
+  children,
+  onClick,
+  backgroundColor,
+  hoverBackgroundColor,
+  isDisabled,
+  borderColor,
+  ...props
+}) => (
+  <Button
+    onClick={onClick}
+    height="40px"
+    paddingLeft="16px"
+    paddingRight="16px"
+    backgroundColor={backgroundColor}
+    color="black"
+    fontWeight={700}
+    fontSize="14px"
+    borderRadius="full"
+    border="1px solid"
+    borderColor={borderColor || "black"}
+    boxShadow={isDisabled ? "none" : "0 4px 0 0 black"}
+    _hover={{
+      backgroundColor: isDisabled ? backgroundColor : hoverBackgroundColor,
+      transform: isDisabled ? "none" : "translateY(2px)",
+      boxShadow: isDisabled ? "none" : "0 2px 0 0 black",
+    }}
+    _active={{
+      transform: isDisabled ? "none" : "translateY(4px)",
+      boxShadow: "none",
+    }}
+    transition="all 0.2s"
+    opacity={isDisabled ? 0.5 : 1}
+    cursor={isDisabled ? "not-allowed" : "pointer"}
+    isDisabled={isDisabled}
+    {...props}
+  >
+    {children}
+  </Button>
+);
+
+const TableHeader = ({ children, onClick, isSortable, sortDirection }) => (
+  <Flex
+    alignItems="center"
+    justifyContent="center"
+    cursor={isSortable ? "pointer" : "default"}
+    onClick={onClick}
+  >
+    <Text
+      fontFamily="Karla Variable"
+      fontWeight={700}
+      fontSize="12px"
+      lineHeight="16px"
+      color="black"
+      textTransform="uppercase"
+      textAlign="center"
+    >
+      {children}
+    </Text>
+    {isSortable && (
+      <Box marginLeft={1}>
+        {sortDirection === "asc" ? (
+          <PiSortAscending size={16} />
+        ) : (
+          <PiSortDescending size={16} />
+        )}
+      </Box>
+    )}
+  </Flex>
+);
+
+const TableCell = ({ children, isLink, examId, ...props }) => {
+  const navigate = useNavigate();
+
+  if (isLink) {
+    return (
+      <Text
+        fontFamily="Karla Variable"
+        fontWeight={700}
+        fontSize="12px"
+        lineHeight="16px"
+        color="#00bfff"
+        textAlign="center"
+        cursor="pointer"
+        _hover={{
+          textDecoration: "underline",
+          color: "#0095cc",
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
+          navigate(`/actual-exam/${examId}`);
+        }}
+        {...props}
+      >
+        {children}
+      </Text>
+    );
+  }
+
+  return (
+    <Text
+      fontFamily="Karla Variable"
+      fontWeight={700}
+      fontSize="12px"
+      lineHeight="16px"
+      color="black"
+      textAlign="center"
+      {...props}
+    >
+      {children}
+    </Text>
+  );
+};
+
+const StatusBadge = ({ status }) => {
+  let bgGradient;
+  let textColor = "black";
+
+  switch (status) {
+    case "Passed":
+      bgGradient = "linear(to-r, #4CAF50, #8BC34A)";
+      break;
+    case "Failed":
+      bgGradient = "linear(to-r, #FF5252, #FF8A80)";
+      break;
+    case "Not Attempted":
+      bgGradient = "linear(to-r, #9E9E9E, #BDBDBD)";
+      break;
+    default:
+      bgGradient = "linear(to-r, #FFD54F, #FFF176)";
+  }
+
+  return (
+    <Box
+      paddingLeft={2}
+      paddingRight={2}
+      paddingTop={0}
+      paddingBottom={0}
+      borderRadius="full"
+      display="inline-block"
+      alignSelf="center"
+      border="1px solid black"
+      bgGradient={bgGradient}
+    >
+      <Text fontSize="14px" fontWeight="500" color={textColor}>
+        {status}
+      </Text>
+    </Box>
+  );
+};
+
+const CustomProgressIndicator = ({ value }) => {
+  const getColor = (value) => {
+    if (value < 50) return "linear(to-r, #FF5252, #FF8A80)";
+    if (value < 75) return "linear(to-r, #FFD54F, #FFF176)";
+    return "linear(to-r, #4CAF50, #8BC34A)";
+  };
+
+  return (
+    <Box position="relative" width="50px" height="50px">
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        width="100%"
+        height="100%"
+        borderRadius="50%"
+        border="4px solid"
+        borderColor="#E0E0E0"
+      />
+      <Box
+        as="svg"
+        viewBox="0 0 36 36"
+        width="100%"
+        height="100%"
+        position="absolute"
+      >
+        <defs>
+          <linearGradient
+            id={`gradient-${value}`}
+            gradientTransform="rotate(90)"
+          >
+            <stop offset="0%" stopColor={getColor(value).split(", ")[1]} />
+            <stop
+              offset="100%"
+              stopColor={getColor(value).split(", ")[2].slice(0, -1)}
+            />
+          </linearGradient>
+        </defs>
+        <path
+          d={`M18 2.0845
+            a 15.9155 15.9155 0 0 1 0 31.831
+            a 15.9155 15.9155 0 0 1 0 -31.831`}
+          fill="none"
+          stroke={`url(#gradient-${value})`}
+          strokeWidth="4"
+          strokeDasharray={`${value}, 100`}
+        />
+      </Box>
+      <Flex
+        position="absolute"
+        top="0"
+        left="0"
+        width="100%"
+        height="100%"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Text fontSize="12px" fontWeight="bold">
+          {value}%
+        </Text>
+      </Flex>
+    </Box>
+  );
+};
+
+const ProviderGroup = ({
+  provider,
+  exams,
+  selectedRows,
+  handleSelectRow,
+  handleSort,
+}) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  const allProviderExamsSelected = useMemo(() => {
+    const providerExamIds = exams.map((exam) => exam.id);
+    return providerExamIds.every((id) => selectedRows.includes(id));
+  }, [exams, selectedRows]);
+
+  const someProviderExamsSelected = useMemo(() => {
+    const providerExamIds = exams.map((exam) => exam.id);
+    return (
+      providerExamIds.some((id) => selectedRows.includes(id)) &&
+      !allProviderExamsSelected
+    );
+  }, [exams, selectedRows, allProviderExamsSelected]);
+
+  const toggleGroup = (e) => {
+    e.stopPropagation();
+    setIsOpen(!isOpen);
+  };
+
+  const handleProviderSelect = (e) => {
+    e.stopPropagation();
+    const providerExamIds = exams.map((exam) => exam.id);
+
+    if (allProviderExamsSelected) {
+      handleSelectRow(providerExamIds, false);
+    } else {
+      handleSelectRow(providerExamIds, true);
+    }
+  };
+
+  const formatNumber = (number, decimals = 2) => {
+    if (number === null || number === undefined) return "0.00";
+    return Number(number).toFixed(decimals);
+  };
+
+  return (
+    <Box
+      width="100%"
+      backgroundColor="#f2f2f3"
+      borderRadius="10px"
+      border="1px solid black"
+      position="relative"
+      overflow="hidden"
+    >
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        padding={4}
+        backgroundColor="#e6f7f9"
+        _hover={{ backgroundColor: "#d1f1f5" }}
+        cursor="pointer"
+        onClick={toggleGroup}
+      >
+        <Flex alignItems="center" flex={1}>
+          <Box
+            width="40px"
+            textAlign="center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <CustomCheckbox
+              isChecked={allProviderExamsSelected}
+              isIndeterminate={someProviderExamsSelected}
+              onChange={handleProviderSelect}
+            />
+          </Box>
+          <Text fontSize="18px" fontWeight="700" color="black" flex={1}>
+            {provider}
+          </Text>
+        </Flex>
+        <Box>
+          {isOpen ? <IoChevronUp size={20} /> : <IoChevronDown size={20} />}
+        </Box>
+      </Flex>
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0 }}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ overflow: "hidden" }}
+          >
+            <VStack spacing={0} align="stretch">
+              {exams.map((item, index) => (
+                <Flex
+                  key={item.id}
+                  borderTop={index === 0 ? "1px solid #E2E8F0" : "none"}
+                  borderBottom="1px solid #E2E8F0"
+                  padding={4}
+                  backgroundColor="white"
+                  _hover={{ backgroundColor: "#f8f8f8" }}
+                  transition="background-color 0.2s"
+                  alignItems="center"
+                >
+                  <Box width="40px" textAlign="center">
+                    <CustomCheckbox
+                      isChecked={selectedRows.includes(item.id)}
+                      onChange={() =>
+                        handleSelectRow(
+                          [item.id],
+                          !selectedRows.includes(item.id)
+                        )
+                      }
+                    />
+                  </Box>
+                  <Box flex={1}>
+                    <TableCell isLink examId={item.id}>
+                      {item.exam || "Untitled Exam"}
+                    </TableCell>
+                  </Box>
+                  <Box flex={1}>
+                    <TableCell>{item.examType || "Actual"}</TableCell>
+                  </Box>
+                  <Box flex={1}>
+                    <TableCell>
+                      Attempt {item.attempts || 0}
+                      <br />
+                      Avg: {formatNumber(item.averageScore)}%
+                    </TableCell>
+                  </Box>
+                  <Box flex={1} display="flex" justifyContent="center">
+                    <CustomProgressIndicator value={item.progress || 0} />
+                  </Box>
+                  <Box flex={1}>
+                    <Flex direction="column" alignItems="center">
+                      <TableCell>
+                        {`${item.latestGrade?.score || 0}/${
+                          item.latestGrade?.total || 100
+                        }`}
+                      </TableCell>
+                      <Box marginTop={1}>
+                        <StatusBadge status={item.status || "Not Attempted"} />
+                      </Box>
+                    </Flex>
+                  </Box>
+                  <Box flex={1}>
+                    <TableCell>{item.updated || "Not started"}</TableCell>
+                  </Box>
+                </Flex>
+              ))}
+            </VStack>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Box>
+  );
+};
+
+const CustomDashboardTableComponent = ({
+  data,
+  onDeleteSelected,
+  onDeleteAll,
+}) => {
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
+  const [sortConfig, setSortConfig] = useState({
+    key: "updated",
+    direction: "desc",
+  });
+  const [currentPage, setCurrentPage] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const itemsPerPage = 2;
+
+  const handleSelectAll = () => {
+    const allIds = data.flatMap((provider) =>
+      provider.exams.map((exam) => exam.id)
+    );
+
+    if (selectAll) {
+      setSelectedRows([]);
+    } else {
+      setSelectedRows(allIds);
+    }
+    setSelectAll(!selectAll);
+  };
+
+  const handleSort = (key) => {
+    let direction = "asc";
+    if (sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const handleSelectRow = (ids, isSelected) => {
+    setSelectedRows((prev) => {
+      if (Array.isArray(ids)) {
+        if (isSelected) {
+          const newSelection = [...new Set([...prev, ...ids])];
+          const allPossibleIds = data.flatMap((provider) =>
+            provider.exams.map((exam) => exam.id)
+          );
+          setSelectAll(newSelection.length === allPossibleIds.length);
+          return newSelection;
+        } else {
+          const newSelection = prev.filter((id) => !ids.includes(id));
+          setSelectAll(false);
+          return newSelection;
+        }
+      } else {
+        const newSelection = prev.includes(ids)
+          ? prev.filter((id) => id !== ids)
+          : [...prev, ids];
+
+        const allPossibleIds = data.flatMap((provider) =>
+          provider.exams.map((exam) => exam.id)
+        );
+        setSelectAll(newSelection.length === allPossibleIds.length);
+        return newSelection;
+      }
+    });
+  };
+
+  const processedData = useMemo(() => {
+    // Flatten the provider structure
+    const flattenedData = data.flatMap((provider) =>
+      provider.exams.map((exam) => ({
+        ...exam,
+        provider: provider.name,
+      }))
+    );
+
+    // Sort the data
+    let sortedData = [...flattenedData];
+    if (sortConfig.key) {
+      sortedData.sort((a, b) => {
+        if (sortConfig.key === "updated") {
+          // Sort by timestamp for 'updated' column
+          const aTime = new Date(a.timestamp || 0).getTime();
+          const bTime = new Date(b.timestamp || 0).getTime();
+          return sortConfig.direction === "asc" ? aTime - bTime : bTime - aTime;
+        }
+
+        if (a[sortConfig.key] < b[sortConfig.key]) {
+          return sortConfig.direction === "asc" ? -1 : 1;
+        }
+        if (a[sortConfig.key] > b[sortConfig.key]) {
+          return sortConfig.direction === "asc" ? 1 : -1;
+        }
+        return 0;
+      });
+    }
+
+    // Filter based on search term
+    const filteredData = sortedData.filter(
+      (item) =>
+        item.exam.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.provider.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    // Group by provider
+    return filteredData.reduce((acc, item) => {
+      if (!acc[item.provider]) {
+        acc[item.provider] = [];
+      }
+      acc[item.provider].push(item);
+      return acc;
+    }, {});
+  }, [data, sortConfig, searchTerm]);
+
+  const providerList = Object.keys(processedData);
+  const totalPages = Math.ceil(providerList.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedProviderList = providerList.slice(startIndex, endIndex);
+
+  return (
+    <Box
+      borderRadius="12px"
+      border="1px solid black"
+      padding={6}
+      overflowY="scroll"
+      maxHeight="600px"
+    >
+      <Flex justifyContent="space-between" alignItems="center" marginBottom={4}>
+        <Text
+          fontFamily="Karla Variable"
+          fontWeight={700}
+          fontSize="16px"
+          lineHeight="24px"
+          color="black"
+        >
+          Your Exam Progress
+        </Text>
+        <Flex>
+          <Input
+            placeholder="Search exams..."
+            size="md"
+            width="250px"
+            marginRight={4}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            backgroundColor="white"
+          />
+          <CustomButton
+            onClick={() => onDeleteSelected(selectedRows)}
+            backgroundColor="transparent"
+            hoverBackgroundColor="#FFE5E5"
+            borderColor="#FF3333"
+            marginRight={4}
+            isDisabled={selectedRows.length === 0}
+          >
+            Delete Selected
+          </CustomButton>
+          <CustomButton
+            onClick={onDeleteAll}
+            backgroundColor="#FF3333"
+            hoverBackgroundColor="#FF0000"
+          >
+            Delete All
+          </CustomButton>
+        </Flex>
+      </Flex>
+      <Box
+        borderRadius="12px"
+        border="1px solid black"
+        boxShadow="0 4px 0 0 black"
+        overflow="hidden"
+      >
+        <Box overflowX="auto">
+          <Box minWidth="1200px">
+            {/* Table Header */}
+            <Flex
+              backgroundColor="#f2f2f3"
+              borderBottom="1px solid black"
+              padding={4}
+              alignItems="center"
+            >
+              <Box width="40px" textAlign="center">
+                <CustomCheckbox
+                  isChecked={selectAll}
+                  onChange={handleSelectAll}
+                />
+              </Box>
+              <Box flex={1}>
+                <TableHeader>Exam</TableHeader>
+              </Box>
+              <Box flex={1}>
+                <TableHeader>Type</TableHeader>
+              </Box>
+              <Box flex={1}>
+                <TableHeader>Attempts</TableHeader>
+              </Box>
+              <Box flex={1}>
+                <TableHeader>Progress</TableHeader>
+              </Box>
+              <Box flex={1}>
+                <TableHeader>Latest Grade</TableHeader>
+              </Box>
+              <Box flex={1}>
+                <TableHeader
+                  isSortable
+                  onClick={() => handleSort("updated")}
+                  sortDirection={
+                    sortConfig.key === "updated"
+                      ? sortConfig.direction
+                      : undefined
+                  }
+                >
+                  Updated
+                </TableHeader>
+              </Box>
+            </Flex>
+
+            {/* Table Body */}
+            {paginatedProviderList.map((provider) => (
+              <ProviderGroup
+                key={provider}
+                provider={provider}
+                exams={processedData[provider]}
+                selectedRows={selectedRows}
+                handleSelectRow={handleSelectRow}
+                handleSort={handleSort}
+              />
+            ))}
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Pagination */}
+      <Pagination
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onPageChange={setCurrentPage}
+      />
+    </Box>
+  );
+};
+
+const CustomDashboardTable = React.memo(CustomDashboardTableComponent);
+export default CustomDashboardTable;
+
+----
+CustomToast.js
+import React from 'react';
+import { Box, Text, Flex, CloseButton } from '@chakra-ui/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaCheck, FaExclamationTriangle } from 'react-icons/fa';
+
+const CustomToast = ({ 
+  title, 
+  description, 
+  status = 'success', 
+  onClose,
+  id 
+}) => {
+  const getStatusStyles = () => {
+    switch (status) {
+      case 'success':
+        return {
+          bg: 'linear-gradient(to right, #4CAF50, #8BC34A)',
+          icon: FaCheck,
+          iconColor: '#fff'
+        };
+      case 'error':
+        return {
+          bg: 'linear-gradient(to right, #FF5252, #FF8A80)',
+          icon: FaExclamationTriangle,
+          iconColor: '#fff'
+        };
+      default:
+        return {
+          bg: 'linear-gradient(to right, #FFD54F, #FFF176)',
+          icon: FaCheck,
+          iconColor: '#000'
+        };
+    }
+  };
+
+  const { bg, icon: Icon, iconColor } = getStatusStyles();
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0, y: 50, scale: 0.3 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, scale: 0.5, transition: { duration: 0.2 } }}
+        style={{ width: '100%', position: 'relative' }}
+      >
+        <Box
+          width="100%"
+          bgGradient={bg}
+          borderRadius="12px"
+          border="1px solid black"
+          boxShadow="0 4px 0 0 black"
+          padding={4}
+          position="relative"
+        >
+          <Flex alignItems="center">
+            <Box
+              borderRadius="full"
+              bg="rgba(255, 255, 255, 0.2)"
+              p={2}
+              mr={3}
+            >
+              <Icon size={24} color={iconColor} />
+            </Box>
+            <Box flex="1">
+              <Text
+                fontSize="16px"
+                fontWeight="700"
+                color="black"
+                mb={description ? 1 : 0}
+              >
+                {title}
+              </Text>
+              {description && (
+                <Text fontSize="14px" color="black" opacity={0.8}>
+                  {description}
+                </Text>
+              )}
+            </Box>
+            <CloseButton
+              size="sm"
+              onClick={() => onClose(id)}
+              color="black"
+              _hover={{ bg: 'rgba(0, 0, 0, 0.1)' }}
+            />
+          </Flex>
+        </Box>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+// Custom toast function to be used with Chakra's useToast
+export const createCustomToast = (toast) => {
+  return ({
+    title,
+    description,
+    status = 'success',
+    duration = 5000,
+    isClosable = true,
+  }) => {
+    toast({
+      position: 'bottom-right',
+      render: ({ onClose, id }) => (
+        <CustomToast
+          title={title}
+          description={description}
+          status={status}
+          onClose={onClose}
+          id={id}
+        />
+      ),
+      duration,
+      isClosable,
+    });
+  };
+};
+
+export default CustomToast;
+----
+Dashboard.js
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Box, Flex, Text, Button, VStack, useToast, Spinner, useDisclosure } from '@chakra-ui/react';
+import { FaApple, FaAndroid, FaHeart, FaTimes } from 'react-icons/fa';
+import { IconBox } from './IconBox';
+import CustomDashboardTable from './CustomDashboardTable';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
+import { createCustomToast } from './CustomToast';
+
+const WelcomeComponent = ({ users, countries }) => (
+  <Box
+    width="100%"
+    bgGradient="linear(to-r, #00bfff, #0080ff)"
+    borderRadius={{ base: "10px", md: "20px" }}
+    border="1px solid black"
+    boxShadow="0 4px 0 0 black"
+    padding={{ base: 4, md: 6 }}
+    marginBottom={{ base: 4, md: 8 }}
+    position="relative"
+    overflow="hidden"
+  >
+    <Box
+      position="absolute"
+      top={{ base: "-10px", md: "-20px" }}
+      right={{ base: "-10px", md: "-20px" }}
+      width={{ base: "100px", md: "150px" }}
+      height={{ base: "100px", md: "150px" }}
+      borderRadius="full"
+      backgroundColor="rgba(255, 255, 255, 0.1)"
+    />
+    <Flex 
+      justifyContent="space-between" 
+      alignItems="center"
+      flexDirection={{ base: "column", md: "row" }}
+    >
+      <VStack align={{ base: "center", md: "flex-start" }} spacing={2} marginBottom={{ base: 4, md: 0 }}>
+        <Text fontSize={{ base: "24px", md: "32px" }} fontWeight="800" color="white" textAlign={{ base: "center", md: "left" }}>
+          Welcome to Hiraya
+        </Text>
+        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+          Empowering your learning journey
+        </Text>
+      </VStack>
+      <Flex>
+        <Box marginRight={{ base: 4, md: 8 }} textAlign="center">
+          <Text fontSize={{ base: "32px", md: "40px" }} fontWeight="800" color="white">
+            {users}M+
+          </Text>
+          <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="600" color="white">
+            Users
+          </Text>
+        </Box>
+        <Box textAlign="center">
+          <Text fontSize={{ base: "32px", md: "40px" }} fontWeight="800" color="white">
+            {countries}+
+          </Text>
+          <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="600" color="white">
+            Countries
+          </Text>
+        </Box>
+      </Flex>
+    </Flex>
+  </Box>
+);
+
+const CustomButton = ({ children, leftIcon, ...props }) => (
+  <Button
+    height="48px"
+    fontSize={{ base: "14px", md: "16px" }}
+    paddingLeft={{ base: "16px", md: "24px" }}
+    paddingRight={{ base: "16px", md: "24px" }}
+    backgroundColor="white"
+    color="black"
+    borderRadius="full"
+    border="1px solid black"
+    fontWeight={700}
+    textTransform="uppercase"
+    transition="0.3s"
+    boxShadow="0 4px 0 0 black"
+    _hover={{
+      transform: 'translateY(2px)',
+      boxShadow: '0 2px 0 0 black',
+    }}
+    _active={{
+      transform: 'translateY(4px)',
+      boxShadow: 'none',
+    }}
+    leftIcon={leftIcon}
+    {...props}
+  >
+    {children}
+  </Button>
+);
+
+const CloseButton = ({ onClick }) => (
+  <IconBox
+    icon={FaTimes}
+    size="24px"
+    iconScale={0.7}
+    withBorder={false}
+    bgColor="transparent"
+    onClick={onClick}
+  />
+);
+
+const MobileAppsComing = ({ onClose }) => (
+  <Box
+    width="100%"
+    bgGradient="linear(to-br, #FFB347, #ffcc33)"
+    borderRadius={{ base: "10px", md: "20px" }}
+    border="1px solid black"
+    boxShadow="0 4px 0 0 black"
+    padding={{ base: 4, md: 6 }}
+    marginBottom={{ base: 4, md: 8 }}
+    position="relative"
+    overflow="hidden"
+  >
+    <Box position="absolute" top={2} right={2} zIndex={1}>
+      <CloseButton onClick={onClose} />
+    </Box>
+    <Box
+      position="absolute"
+      bottom={{ base: "-15px", md: "-30px" }}
+      left={{ base: "-15px", md: "-30px" }}
+      width={{ base: "100px", md: "150px" }}
+      height={{ base: "100px", md: "150px" }}
+      borderRadius="full"
+      backgroundColor="rgba(255, 255, 255, 0.1)"
+    />
+    <Flex 
+      justifyContent="space-between" 
+      alignItems="center"
+      flexDirection={{ base: "column", md: "row" }}
+    >
+      <VStack align={{ base: "center", md: "flex-start" }} spacing={2} marginBottom={{ base: 4, md: 0 }}>
+        <Text fontSize={{ base: "24px", md: "28px" }} fontWeight="800" color="black" textAlign={{ base: "center", md: "left" }}>
+          Mobile Apps Coming Soon
+        </Text>
+        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="black" textAlign={{ base: "center", md: "left" }}>
+          Your learning journey, now in your pocket!
+        </Text>
+      </VStack>
+      <Flex flexDirection={{ base: "column", sm: "row" }} marginTop={{ base: 4, md: 0 }}>
+        <CustomButton leftIcon={<FaApple />} marginBottom={{ base: 2, sm: 0 }} marginRight={{ base: 0, sm: 4 }}>
+          iOS
+        </CustomButton>
+        <CustomButton leftIcon={<FaAndroid />}>
+          Android
+        </CustomButton>
+      </Flex>
+    </Flex>
+  </Box>
+);
+
+const SupportDevelopers = ({ onClose }) => (
+  <Box
+    width="100%"
+    bgGradient="linear(to-r, #8BC34A, #4CAF50)"
+    borderRadius={{ base: "10px", md: "20px" }}
+    border="1px solid black"
+    boxShadow="0 4px 0 0 black"
+    padding={{ base: 4, md: 6 }}
+    marginBottom={{ base: 4, md: 8 }}
+    position="relative"
+    overflow="hidden"
+  >
+    <Box position="absolute" top={2} right={2} zIndex={1}>
+      <CloseButton onClick={onClose} />
+    </Box>
+    <Box
+      position="absolute"
+      top={{ base: "-15px", md: "-30px" }}
+      right={{ base: "-15px", md: "-30px" }}
+      width={{ base: "100px", md: "150px" }}
+      height={{ base: "100px", md: "150px" }}
+      borderRadius="full"
+      backgroundColor="rgba(255, 255, 255, 0.1)"
+    />
+    <Flex 
+      justifyContent="space-between" 
+      alignItems="center"
+      flexDirection={{ base: "column", md: "row" }}
+    >
+      <VStack align={{ base: "center", md: "flex-start" }} spacing={2} flex="1">
+        <Text fontSize={{ base: "24px", md: "28px" }} fontWeight="800" color="white" textAlign={{ base: "center", md: "left" }}>
+          Support the Developers
+        </Text>
+        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+          Help us keep Hiraya ad-free and running 24/7, 365 days a year
+        </Text>
+        <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+          Your support helps cover recurring costs and keeps this website ad-free. Thank you for your generosity!
+        </Text>
+      </VStack>
+      <Box marginLeft={{ base: 0, md: 4 }} marginTop={{ base: 4, md: 0 }}>
+        <CustomButton 
+          leftIcon={<FaHeart />} 
+          backgroundColor="#FF4081"
+          color="white"
+          _hover={{
+            backgroundColor: "#E91E63",
+            transform: 'translateY(2px)',
+            boxShadow: '0 2px 0 0 black',
+          }}
+          _active={{
+            transform: 'translateY(4px)',
+            boxShadow: 'none',
+          }}
+        >
+          DONATE
+        </CustomButton>
+      </Box>
+    </Flex>
+  </Box>
+);
+
+const EmptyProgressState = () => (
+  <Box
+    borderRadius="12px"
+    border="1px solid black"
+    padding={6}
+    backgroundColor="white"
+    marginBottom={8}
+  >
+    <VStack spacing={4}>
+      <Text fontSize="xl" fontWeight="bold" textAlign="center">
+        No Exam Progress Yet
+      </Text>
+      <Text color="gray.600" textAlign="center">
+        Start your learning journey by selecting an exam and clicking "Continue" to begin tracking your progress here.
+      </Text>
+    </VStack>
+  </Box>
+);
+
+const Dashboard = () => {
+  // State declarations
+  const [showMobileApps, setShowMobileApps] = useState(true);
+  const [showSupport, setShowSupport] = useState(true);
+  const [examProgress, setExamProgress] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedForDeletion, setSelectedForDeletion] = useState([]);
+  const [deleteType, setDeleteType] = useState('');
+  
+  // Refs for cleanup and preventing memory leaks
+  const abortControllerRef = useRef(null);
+  const isMounted = useRef(true);
+  
+  // Hooks
+  const toast = useToast();
+  const toastRef = useRef(createCustomToast(toast));
+  const { 
+    isOpen: isDeleteModalOpen, 
+    onOpen: openDeleteModal, 
+    onClose: closeDeleteModal 
+  } = useDisclosure();
+
+  // Fetch exam progress with cleanup and error handling
+  const fetchExamProgress = useCallback(async () => {
+    // Cancel any ongoing requests
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    // Create new abort controller
+    abortControllerRef.current = new AbortController();
+
+    try {
+      if (!isMounted.current) return;
+      setIsLoading(true);
+
+      const response = await fetch('http://localhost:5000/api/exam-progress', {
+        signal: abortControllerRef.current.signal
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch exam progress');
+      }
+
+      const data = await response.json();
+      if (isMounted.current) {
+        setExamProgress(data.providers);
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        return; // Ignore abort errors
+      }
+      
+      console.error('Error fetching exam progress:', error);
+      if (isMounted.current) {
+        toastRef.current({
+          title: 'Error fetching exam progress',
+          description: error.message,
+          status: 'error',
+        });
+        setExamProgress([]);
+      }
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  }, []); // No dependencies needed since we use refs
+
+  // Setup effect
+  useEffect(() => {
+    isMounted.current = true;
+    fetchExamProgress();
+
+    // Cleanup function
+    return () => {
+      isMounted.current = false;
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, [fetchExamProgress]);
+
+  // Handler for deleting selected items
+  const handleDeleteSelected = useCallback(async (selectedIds) => {
+    setSelectedForDeletion(selectedIds);
+    setDeleteType('selected');
+    openDeleteModal();
+  }, [openDeleteModal]);
+
+  // Handler for deleting all items
+  const handleDeleteAll = useCallback(() => {
+    setDeleteType('all');
+    openDeleteModal();
+  }, [openDeleteModal]);
+
+  // Confirm delete handler
+  const handleConfirmDelete = async () => {
+    try {
+      if (deleteType === 'all') {
+        await fetch('http://localhost:5000/api/delete-all-progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        
+        if (isMounted.current) {
+          setExamProgress([]);
+          toastRef.current({
+            title: 'All progress cleared',
+            description: 'Your exam progress history has been cleared.',
+            status: 'success'
+          });
+        }
+      } else {
+        const providerGroups = examProgress.reduce((acc, provider) => {
+          const selectedProviderExams = provider.exams
+            .filter(exam => selectedForDeletion.includes(exam.id))
+            .map(exam => exam.id);
+          
+          if (selectedProviderExams.length === provider.exams.length) {
+            acc.providers.push(provider.name);
+          } else if (selectedProviderExams.length > 0) {
+            acc.exams.push(...selectedProviderExams);
+          }
+          return acc;
+        }, { providers: [], exams: [] });
+
+        // Delete providers if needed
+        if (providerGroups.providers.length > 0) {
+          await fetch('http://localhost:5000/api/delete-provider-exams', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ provider_names: providerGroups.providers })
+          });
+        }
+
+        // Delete individual exams if needed
+        if (providerGroups.exams.length > 0) {
+          await fetch('http://localhost:5000/api/delete-exams', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ exam_ids: providerGroups.exams })
+          });
+        }
+
+        // Refresh data
+        await fetchExamProgress();
+
+        if (isMounted.current) {
+          toastRef.current({
+            title: 'Selected items deleted',
+            description: 'The selected exams have been removed from your progress tracking.',
+            status: 'success'
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error during deletion:', error);
+      if (isMounted.current) {
+        toastRef.current({
+          title: 'Error',
+          description: `Failed to delete ${deleteType === 'all' ? 'all progress' : 'selected items'}`,
+          status: 'error'
+        });
+      }
+    } finally {
+      if (isMounted.current) {
+        closeDeleteModal();
+        setSelectedForDeletion([]);
+      }
+    }
+  };
+
+  // Render JSX
+  return (
+    <Box 
+      width="100%" 
+      paddingLeft={{ base: 2, sm: 4, md: 6, lg: 8 }} 
+      paddingRight={{ base: 2, sm: 4, md: 6, lg: 8 }}
+    >
+      <WelcomeComponent users={2.0} countries={190} />
+      
+      {showMobileApps && (
+        <MobileAppsComing onClose={() => setShowMobileApps(false)} />
+      )}
+      
+      {showSupport && (
+        <SupportDevelopers onClose={() => setShowSupport(false)} />
+      )}
+      
+      {isLoading ? (
+        <Flex justify="center" align="center" height="400px">
+          <Spinner size="xl" color="#00bfff" thickness="4px" />
+        </Flex>
+      ) : examProgress.length === 0 ? (
+        <EmptyProgressState />
+      ) : (
+        <CustomDashboardTable
+          data={examProgress}
+          onDeleteSelected={handleDeleteSelected}
+          onDeleteAll={handleDeleteAll}
+        />
+      )}
+
+      <DeleteConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={closeDeleteModal}
+        onConfirm={handleConfirmDelete}
+        deleteType={deleteType}
+        itemCount={selectedForDeletion.length}
+        title={deleteType === 'all' ? 'Delete All Progress' : 'Delete Selected Progress'}
+        message={
+          deleteType === 'all'
+            ? undefined
+            : `Selected items include ${selectedForDeletion.length} exam${
+                selectedForDeletion.length === 1 ? '' : 's'
+              }`
+        }
+      />
+    </Box>
+  );
+};
+
+export default Dashboard;
+----
+DeleteConfirmationModal.js
+import React from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Button,
+  Text,
+  Flex,
+  VStack,
+} from '@chakra-ui/react';
+import { FaTimes, FaTrash } from 'react-icons/fa';
+import { IconBox } from './IconBox';
+
+const CloseButton = ({ onClick }) => (
+  <IconBox
+    icon={FaTimes}
+    size="24px"
+    iconScale={0.7}
+    withBorder={false}
+    bgColor="transparent"
+    onClick={onClick}
+  />
+);
+
+const CustomButton = ({ children, onClick, isDanger = false, ...props }) => (
+  <Button
+    onClick={onClick}
+    height="48px"
+    fontSize="16px"
+    px="24px"
+    bg={isDanger ? "#FF3333" : "white"}
+    color={isDanger ? "white" : "black"}
+    borderRadius="full"
+    border="1px solid black"
+    fontWeight={700}
+    textTransform="uppercase"
+    transition="0.3s"
+    boxShadow="0 4px 0 0 black"
+    _hover={{
+      bg: isDanger ? "#FF0000" : "#f5f5f5",
+      transform: 'translateY(2px)',
+      boxShadow: '0 2px 0 0 black',
+    }}
+    _active={{
+      transform: 'translateY(4px)',
+      boxShadow: 'none',
+    }}
+    {...props}
+  >
+    {children}
+  </Button>
+);
+
+const DeleteConfirmationModal = ({ 
+  isOpen, 
+  onClose, 
+  onConfirm, 
+  title = "Confirm Deletion",
+  message,
+  itemCount,
+  deleteType // "selected" or "all"
+}) => {
+  const getDescription = () => {
+    if (deleteType === "all") {
+      return "This will permanently delete all your exam progress. This action cannot be undone.";
+    }
+    return `This will permanently delete ${itemCount} ${itemCount === 1 ? 'exam' : 'exams'} and their progress. This action cannot be undone.`;
+  };
+
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+      <ModalOverlay />
+      <ModalContent
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 8px 0 0 black"
+        p={6}
+      >
+        <Flex justifyContent="flex-end">
+          <CloseButton onClick={onClose} />
+        </Flex>
+        <ModalHeader
+          fontFamily="'Space Grotesk', sans-serif"
+          fontWeight="bold"
+          fontSize="24px"
+          pb={4}
+        >
+          {title}
+        </ModalHeader>
+        <ModalBody>
+          <VStack spacing={4} align="stretch">
+            <Text fontFamily='"Karla Variable", sans-serif' fontSize="18px">
+              {getDescription()}
+            </Text>
+            {message && (
+              <Text fontFamily='"Karla Variable", sans-serif' fontSize="16px" color="gray.600">
+                {message}
+              </Text>
+            )}
+          </VStack>
+        </ModalBody>
+        <ModalFooter>
+          <Flex justifyContent="flex-end" width="100%" gap={4}>
+            <CustomButton onClick={onClose}>
+              Cancel
+            </CustomButton>
+            <CustomButton 
+              onClick={onConfirm} 
+              isDanger
+              leftIcon={<FaTrash />}
+            >
+              Delete {deleteType === "all" ? "All" : "Selected"}
+            </CustomButton>
+          </Flex>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export default DeleteConfirmationModal;
+----
+DownloadBox.js
+import React from 'react';
+import { Box, Text, VStack } from '@chakra-ui/react';
+import { FaFileDownload, FaChevronRight } from "react-icons/fa";
+
+const DownloadBox = () => {
+
+  return (
+    <Box position="relative" width="100%" maxWidth="2xl" mx="auto">
+      <Box
+        width="100%"
+        height="auto"
+        py={12}
+        bg="gray.100"
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 4px 0 0 black"
+        position="relative"
+        overflow="hidden"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        cursor="not-allowed"  // This brings back the disabled cursor
+      >
+        <VStack spacing={2} color="gray.500" textAlign="center">
+          <FaFileDownload size="32px" />
+          <Text fontSize="2xl" fontWeight="semibold">Download exam questions</Text>
+          <Text fontSize="lg" fontWeight="bold">PDF</Text>  {/* Bolded PDF text */}
+        </VStack>
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          bg="gray.100"
+          opacity="0.7"
+          zIndex="1"
+        />
+      </Box>
+      
+      <Box
+        as="button"
+        position="absolute"
+        top="-20px"
+        right="-20px"
+        transform="rotate(12deg)"
+        bgGradient="linear(to-r, #ffaa40, #9c40ff, #ffaa40)"
+        color="white"
+        fontWeight="bold"
+        fontSize="lg"
+        borderRadius="full"
+        px={6}
+        py={3}
+        border="1px solid black"
+        boxShadow="0 2px 0 0 black"
+        _hover={{
+          bgGradient: "linear(to-r, #ff9020, #7c20ff, #ff9020)",
+        }}
+        _active={{
+          boxShadow: "none",
+          transform: "rotate(12deg) translateY(2px)",
+        }} 
+        zIndex="2"
+        cursor="pointer"  // Ensure the button has a pointer cursor
+      >
+        🎉 Go Premium! <Box as={FaChevronRight} display="inline-block" ml={1} />
+      </Box>
+    </Box>
+  );
+};
+
+export default DownloadBox;
+
+----
+ExamCard.js
+import React, { useState, useRef, useEffect } from "react";
+import { Box, Text, Progress, Flex, Tooltip, Image } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { getBadgeUrl } from "./BadgeUrls";
+
+const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) => {
+  const navigate = useNavigate();
+  const progressPercentage = (progress / totalQuestions) * 100;
+
+  const BadgeImage = ({ size }) => (
+    <Image
+      src={getBadgeUrl(title)}
+      alt="badge"
+      width={`${size}px`}
+      height={`${size}px`}
+      objectFit="contain"
+    />
+  );
+
+  const [isTruncatedGrid, setIsTruncatedGrid] = useState(false);
+  const textRefGrid = useRef(null);
+
+  const [isTruncatedList, setIsTruncatedList] = useState(false);
+  const textRefList = useRef(null);
+
+  useEffect(() => {
+    if (view === "grid") {
+      const textElement = textRefGrid.current;
+      if (textElement) {
+        const isOverflowing = textElement.scrollHeight > textElement.clientHeight;
+        setIsTruncatedGrid(isOverflowing);
+      }
+    } else {
+      const textElement = textRefList.current;
+      if (textElement) {
+        const isOverflowing = textElement.scrollWidth > textElement.clientWidth;
+        setIsTruncatedList(isOverflowing);
+      }
+    }
+  }, [title, view]);
+
+  const handleContinue = () => {
+    if (examId) {
+      navigate(`/actual-exam/${examId}`);
+    } else {
+      console.error("Exam ID is undefined");
+    }
+  };
+
+  const formatTitle = (title) => {
+    const parts = title.split('-code-');
+    if (parts.length === 2) {
+      let [examName, examCode] = parts;
+      if (examName.toLowerCase().includes("google")) {
+        return examName;
+      } else if (examName.toLowerCase().includes("microsoft")) {
+        examCode = examCode.split('-').map((part, index) => {
+          if (index === 0) {
+            return part.toUpperCase();
+          }
+          if (index === 1 && ['DP', 'MD', 'AI'].includes(examCode.split('-')[0].toUpperCase())) {
+            return part.toUpperCase();
+          }
+          return part;
+        }).join('-');
+        
+        return `${examCode}: ${examName}`;
+      } else {
+        return `${examCode.toUpperCase()}: ${examName}`;
+      }
+    }
+    return title;
+  };
+
+  const formattedTitle = formatTitle(title);
+
+  if (view === "grid") {
+    return (
+      <Box
+        backgroundColor="white"
+        borderRadius="12px"
+        border="1px solid black"
+        boxShadow="0 4px 0 0 black"
+        padding={3}
+        width={{ base: "100%", sm: "250px", md: "280px", lg: "300px" }}
+        height="300px"
+        flexShrink={0}
+        display="flex"
+        flexDirection="column"
+      >
+        <Tooltip label={formattedTitle} isDisabled={!isTruncatedGrid}>
+          <Text
+            ref={textRefGrid}
+            fontSize={{ base: "14px", md: "16px", lg: "18px" }}
+            fontWeight="bold"
+            marginBottom={2}
+            lineHeight="1.2"
+            height="2.4em"
+            overflow="hidden"
+            textOverflow="ellipsis"
+            display="-webkit-box"
+            sx={{
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: "vertical",
+            }}
+          >
+            {formattedTitle}
+          </Text>
+        </Tooltip>
+        <Box
+          flexGrow={1}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+          marginBottom={2}
+        >
+          <BadgeImage size={150} />
+        </Box>
+        <Progress
+          value={progressPercentage}
+          colorScheme="blue"
+          marginBottom={2}
+          height="8px"
+          width="100%"
+          borderRadius="4px"
+          backgroundColor="gray.200"
+        />
+        <Flex justifyContent="space-between" alignItems="center">
+          <Text
+            fontSize={{ base: "12px", md: "13px", lg: "14px" }}
+            color="gray.600"
+          >
+            {progress} / {totalQuestions} questions
+          </Text>
+          <Box
+            as="button"
+            paddingX={4}
+            paddingY={1}
+            borderRadius="full"
+            backgroundColor="#00bfff"
+            color="black"
+            fontWeight="bold"
+            fontSize={{ base: "12px", md: "13px", lg: "14px" }}
+            border="1px solid black"
+            boxShadow="0 2px 0 0 black"
+            _hover={{ backgroundColor: "#00a6d6" }}
+            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            onClick={handleContinue}
+          >
+            Continue
+          </Box>
+        </Flex>
+      </Box>
+    );
+  } else {
+    return (
+      <Flex
+        alignItems="center"
+        paddingY={2}
+        paddingLeft={4}
+        borderBottom="1px solid #E2E8F0"
+      >
+        <Box width="80px" height="80px" marginRight={4} flexShrink={0}>
+          <BadgeImage size={80} />
+        </Box>
+        <Box flex="1" minWidth="200px">
+          <Tooltip label={formattedTitle} isDisabled={!isTruncatedList}>
+            <Text
+              ref={textRefList}
+              fontSize={{ base: "14px", md: "16px", lg: "18px" }}
+              fontWeight="bold"
+              isTruncated
+            >
+              {formattedTitle}
+            </Text>
+          </Tooltip>
+        </Box>
+        <Box width="25%" paddingX={2}>
+          <Progress
+            value={progressPercentage}
+            colorScheme="blue"
+            height="8px"
+            width="100%"
+            borderRadius="4px"
+            backgroundColor="gray.200"
+          />
+        </Box>
+        <Text
+          fontSize={{ base: "12px", md: "13px", lg: "14px" }}
+          color="gray.600"
+          width="15%"
+          textAlign="right"
+        >
+          {progress} / {totalQuestions}
+        </Text>
+        <Box
+          as="button"
+          paddingX={4}
+          paddingY={1}
+          marginLeft={2}
+          borderRadius="full"
+          backgroundColor="#00bfff"
+          color="black"
+          fontWeight="bold"
+          fontSize={{ base: "12px", md: "13px", lg: "14px" }}
+          border="1px solid black"
+          boxShadow="0 2px 0 0 black"
+          _hover={{ backgroundColor: "#00a6d6" }}
+          _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+          onClick={handleContinue}
+        >
+          Continue
+        </Box>
+      </Flex>
+    );
+  }
+});
+
+export default ExamCard;
+----
+IconBox.js
+import React, { useState } from 'react';
+import { Box, Flex } from '@chakra-ui/react';
+import { PiSealFill, PiSeal, PiStar, PiStarFill } from 'react-icons/pi';
+import { BsQuestionLg } from 'react-icons/bs';
+
+// Generic IconBox component
+const IconBox = ({ 
+  icon: Icon,
+  size = '48px', 
+  iconScale = 0.5, 
+  onClick, 
+  withBorder = true, 
+  borderThickness = 3,
+  bgColor = 'white',
+  isActive = false
+}) => {
+  const [isPressed, setIsPressed] = useState(false);
+  const iconSize = `${parseInt(size) * iconScale}px`;
+
+  return (
+    <Box 
+      position="relative" 
+      width={size} 
+      height={size} 
+      onClick={onClick}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
+      cursor="pointer"
+      transition="all 0.1s ease"
+      transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
+      userSelect="none"
+    >
+      <PiSealFill size={size} color={isActive ? "#b3ebf2" : bgColor} />
+      {withBorder && (
+        <Box
+          as={PiSeal}
+          size={size}
+          color="black"
+          position="absolute"
+          top="0"
+          left="0"
+          style={{
+            width: size,
+            height: size,
+          }}
+          sx={{
+            svg: {
+              strokeWidth: borderThickness,
+              stroke: 'black',
+              fill: 'none',
+            },
+            path: {
+              strokeWidth: borderThickness,
+              stroke: 'black',
+              fill: 'none',
+            },
+          }}
+        />
+      )}
+      <Flex
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        alignItems="center"
+        justifyContent="center"
+      >
+        {Icon ? (
+          <Icon size={iconSize} color="black" />
+        ) : (
+          <BsQuestionLg size={iconSize} color="black" />
+        )}
+      </Flex>
+    </Box>
+  );
+};
+
+// Specialized StarIconBox component
+const StarIconBox = ({ size = '48px', iconScale = 0.5, onClick, isStarFilled }) => {
+  const [isPressed, setIsPressed] = useState(false);
+  const iconSize = `${parseInt(size) * iconScale}px`;
+
+  return (
+    <Box 
+      position="relative" 
+      width={size} 
+      height={size} 
+      onClick={onClick}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
+      cursor="pointer"
+      transition="all 0.1s ease"
+      transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
+      userSelect="none"
+    >
+      <PiSealFill size={size} color="white" />
+      <Flex
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Box position="relative" width={iconSize} height={iconSize}>
+          {isStarFilled && (
+            <PiStarFill 
+              size={iconSize} 
+              color="#FFD700" 
+              style={{ position: 'absolute', top: 0, left: 0 }} 
+            />
+          )}
+          <PiStar 
+            size={iconSize} 
+            color="black" 
+            style={{ position: 'absolute', top: 0, left: 0 }} 
+          />
+        </Box>
+      </Flex>
+    </Box>
+  );
+};
+
+export { IconBox, StarIconBox };
+----
+Navbar.js
+import React, { useState } from 'react';
+import { Box, Text, Flex, Avatar, HStack } from '@chakra-ui/react';
+
+const Navbar = ({ activeItem, children }) => {
+  const [isLightTheme, setIsLightTheme] = useState(true);
+
+  return (
+    <Flex 
+      justify="space-between" 
+      align="center" 
+      p={4} 
+      pl={10}
+      bg="white" 
+      borderBottom="1px solid" 
+      borderColor="gray.200"
+    >
+      <Flex align="center" overflow="hidden" flex={1} minWidth={0}>
+        <Box flexShrink={0} mr={4}>
+          <Text
+            fontFamily='"Karla Variable", sans-serif'
+            fontWeight={700}
+            fontSize="24px"
+            lineHeight="29px"
+            color="rgb(0, 0, 0)"
+          >
+            <Box
+              as="span"
+              bg="#b3ebf2"
+              px="1"
+              py="0"
+              borderRadius="8px"
+            >
+              {activeItem}
+            </Box>
+          </Text>
+        </Box>
+        <Box overflow="hidden" flex={1} minWidth={0}>
+          {children}
+        </Box>
+      </Flex>
+      <HStack spacing={4} flexShrink={0} ml={4}>
+        <Flex align="center">
+          <Box
+            width="52px"
+            height="24px"
+            bg="gray.200"
+            borderRadius="full"
+            display="flex"
+            alignItems="center"
+            padding="2px"
+            cursor="pointer"
+            onClick={() => setIsLightTheme(!isLightTheme)}
+            border="1px solid black"
+          >
+            <Box
+              width="16px"
+              height="16px"
+              bg="#00bfff"
+              borderRadius="full"
+              transform={isLightTheme ? "translateX(3px)" : "translateX(27px)"}
+              transition="transform 0.2s"
+              border="1px solid black"
+            />
+          </Box>
+          <Text
+            fontFamily='"Karla Variable", sans-serif'
+            fontWeight={500}
+            fontSize="16px"
+            lineHeight="24px"
+            color="rgb(26, 32, 44)"
+            ml={2}
+          >
+            {isLightTheme ? "Light theme" : "Dark theme"}
+          </Text>
+        </Flex>
+        <Flex align="center">
+          <Text
+            fontFamily='"Karla Variable", sans-serif'
+            fontWeight={700}
+            fontSize="20px"
+            lineHeight="30px"
+            color="rgb(84, 84, 84)"
+            mr={1}
+          >
+            Hello,
+          </Text>
+          <Text
+            fontFamily='"Karla Variable", sans-serif'
+            fontWeight={700}
+            fontSize="20px"
+            lineHeight="30px"
+            color="rgb(26, 32, 44)"
+            mr={2}
+          >
+            rsduran!
+          </Text>
+          <Avatar src="https://bit.ly/dan-abramov" size="md" />
+        </Flex>
+      </HStack>
+    </Flex>
+  );
+};
+
+export default Navbar;
+----
+OptionsBox.js
+import React, { useState, useEffect } from 'react';
+import { Box, Text, Flex, VStack } from '@chakra-ui/react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+
+const sanitizeOptionText = (text) => {
+  return text.replace(/<[^>]*>/g, '')
+             .replace(/Most Voted/g, '')
+             .trim();
+};
+
+const OptionBox = ({ option, isSelected, onClick, hasInteracted, isDisabled }) => (
+  <motion.div
+    onClick={isDisabled ? undefined : onClick}
+    style={{
+      background: isSelected ? "#b3ebf2" : "white",
+      borderRadius: "10px",
+      border: "1px solid black",
+      padding: "16px",
+      cursor: isDisabled ? "not-allowed" : "pointer",
+      transition: "all 0.2s",
+      opacity: isDisabled ? 0.5 : 1,
+    }}
+    whileHover={!isDisabled ? {
+      background: isSelected ? "#b3ebf2" : "#e6f7f9",
+    } : {}}
+    initial={hasInteracted ? { opacity: 0, y: -10 } : false}
+    animate={{ opacity: isDisabled ? 0.5 : 1, y: 0 }}
+    exit={{ opacity: 0, y: -10 }}
+  >
+    <Text fontWeight={700} fontSize="16px" lineHeight="19px" color="black">
+      {sanitizeOptionText(option)}
+    </Text>
+  </motion.div>
+);
+
+const OptionsBox = ({ options, selectedOptions, onOptionSelect, maxSelections, isUnansweredTab }) => {
+  const [isOpen, setIsOpen] = useState(true);
+  const [hasInteracted, setHasInteracted] = useState(false);
+
+  useEffect(() => {
+    setHasInteracted(true);
+  }, [selectedOptions]);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+    setHasInteracted(true);
+  };
+
+  const handleSelect = (index) => {
+    if (selectedOptions.includes(index)) {
+      onOptionSelect(selectedOptions.filter(i => i !== index));
+    } else if (selectedOptions.length < maxSelections) {
+      onOptionSelect([...selectedOptions, index]);
+    }
+  };
+
+  return (
+    <Box
+      width="100%"
+      backgroundColor="#f2f2f3"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      position="relative"
+      overflow="hidden"
+      marginTop={4}
+    >
+      <Flex 
+        justifyContent="space-between" 
+        alignItems="center" 
+        padding={6}
+        onClick={toggleDropdown} 
+        cursor="pointer"
+      >
+        <Text fontSize="24px" fontWeight="700" color="black">
+          Options (Select {maxSelections})
+        </Text>
+        {isOpen ? <ChevronUpIcon boxSize={6} /> : <ChevronDownIcon boxSize={6} />}
+      </Flex>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={hasInteracted ? { height: 0 } : false}
+            animate={{ height: "auto" }}
+            exit={{ height: 0 }}
+            transition={{ duration: 0.3 }}
+            style={{ overflow: "hidden" }}
+          >
+            <VStack spacing={2} align="stretch" paddingX={6} paddingBottom={6}>
+              {options.map((option, index) => (
+                <OptionBox
+                  key={index}
+                  option={option}
+                  isSelected={selectedOptions.includes(index)}
+                  onClick={() => handleSelect(index)}
+                  hasInteracted={hasInteracted}
+                  isDisabled={!selectedOptions.includes(index) && selectedOptions.length >= maxSelections}
+                />
+              ))}
+            </VStack>
+            {isUnansweredTab && selectedOptions.length < maxSelections && (
+              <Text color="red.500" paddingX={6} paddingBottom={4}>
+                {maxSelections - selectedOptions.length} more selection{maxSelections - selectedOptions.length !== 1 ? 's' : ''} required
+              </Text>
+            )}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </Box>
+  );
+};
+
+export default OptionsBox;
+----
+Pagination.js
+import React from 'react';
+import { Flex, Text, Box } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+
+const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  const getPageNumbers = () => {
+    const pageNumbers = [];
+    if (totalPages <= 7) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+      }
+    } else {
+      if (currentPage <= 4) {
+        for (let i = 1; i <= 5; i++) {
+          pageNumbers.push(i);
+        }
+        pageNumbers.push('...');
+        pageNumbers.push(totalPages);
+      } else if (currentPage >= totalPages - 3) {
+        pageNumbers.push(1);
+        pageNumbers.push('...');
+        for (let i = totalPages - 4; i <= totalPages; i++) {
+          pageNumbers.push(i);
+        }
+      } else {
+        pageNumbers.push(1);
+        pageNumbers.push('...');
+        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+          pageNumbers.push(i);
+        }
+        pageNumbers.push('...');
+        pageNumbers.push(totalPages);
+      }
+    }
+    return pageNumbers;
+  };
+
+  const pageNumbers = getPageNumbers();
+
+  return (
+    <Flex justifyContent="center" alignItems="center" marginTop={8} marginBottom={4}>
+      <Flex
+        as="button"
+        onClick={() => onPageChange(currentPage - 1)}
+        isDisabled={currentPage === 1}
+        alignItems="center"
+        marginRight={2}
+        color={currentPage === 1 ? "gray.400" : "black"}
+        fontWeight="bold"
+        _hover={{ color: currentPage === 1 ? "gray.400" : "#00bfff" }}
+        _active={{ color: currentPage === 1 ? "gray.400" : "#0095cc" }}
+        cursor={currentPage === 1 ? "not-allowed" : "pointer"}
+      >
+        <ChevronLeftIcon marginRight={1} />
+        Previous
+      </Flex>
+      {pageNumbers.map((number, index) => (
+        number === '...' ? (
+          <Text key={index} marginX={1}>...</Text>
+        ) : (
+          <Box
+            key={index}
+            as="button"
+            marginX={1}
+            width="40px"
+            height="40px"
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            borderRadius="lg"
+            backgroundColor={currentPage === number ? "#00bfff" : "white"}
+            color="black"
+            fontWeight="bold"
+            border="1px solid black"
+            boxShadow="0 2px 0 0 black"
+            onClick={() => onPageChange(number)}
+            _hover={{ backgroundColor: currentPage === number ? "#00bfff" : "#b3ebf2" }}
+            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+          >
+            {number}
+          </Box>
+        )
+      ))}
+      <Flex
+        as="button"
+        onClick={() => onPageChange(currentPage + 1)}
+        isDisabled={currentPage === totalPages}
+        alignItems="center"
+        marginLeft={2}
+        color={currentPage === totalPages ? "gray.400" : "black"}
+        fontWeight="bold"
+        _hover={{ color: currentPage === totalPages ? "gray.400" : "#00bfff" }}
+        _active={{ color: currentPage === totalPages ? "gray.400" : "#0095cc" }}
+        cursor={currentPage === totalPages ? "not-allowed" : "pointer"}
+      >
+        Next
+        <ChevronRightIcon marginLeft={1} />
+      </Flex>
+    </Flex>
+  );
+};
+
+export default Pagination;
+----
+ProviderCard.js
+import React, { useState } from "react";
+import { Box, Text, Flex, Input, Icon } from "@chakra-ui/react";
+import { BsBookmarkFill } from "react-icons/bs";
+import ExamCard from "./ExamCard";
+
+const ProviderCard = ({ providerName, exams, view, isPopular }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const filteredExams = exams.filter((exam) =>
+    exam.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const toggleBookmark = () => {
+    setIsBookmarked(!isBookmarked);
+  };
+
+  const renderExams = () => {
+    if (filteredExams.length === 0) {
+      return (
+        <Box paddingY={4} textAlign="center">
+          <Text fontSize="lg" color="gray.600">
+            No exams or questions available for this provider.
+          </Text>
+        </Box>
+      );
+    }
+
+    if (view === "grid") {
+      return (
+        <Box overflowX="auto" paddingBottom={4}>
+          <Flex gap={6}>
+            {filteredExams.map((exam, index) => (
+              <ExamCard
+                key={index}
+                title={exam.title}
+                progress={exam.progress}
+                totalQuestions={exam.totalQuestions}
+                view={view}
+                examId={exam.id}
+              />
+            ))}
+          </Flex>
+        </Box>
+      );
+    } else {
+      return (
+        <Box>
+          {filteredExams.map((exam, index) => (
+            <ExamCard
+              key={index}
+              title={exam.title}
+              progress={exam.progress}
+              totalQuestions={exam.totalQuestions}
+              view={view}
+              examId={exam.id}
+            />
+          ))}
+        </Box>
+      );
+    }
+  };
+
+  return (
+    <Box
+      backgroundColor="#f2f2f3"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      padding={6}
+      marginBottom={8}
+      width="100%"
+    >
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        marginBottom={6}
+        flexWrap="wrap"
+        gap={4}
+      >
+        <Flex alignItems="center" gap={4}>
+          <Text
+            fontSize={{ base: "24px", md: "26px", lg: "28px" }}
+            fontWeight="bold"
+          >
+            {providerName}
+          </Text>
+          {isPopular && (
+            <Box
+              paddingX={2}
+              paddingY={0}
+              borderRadius="full"
+              display="inline-block"
+              alignSelf="center"
+              border="1px solid black"
+              bgGradient="linear(to-r, #FFD700, #FFA500)"
+            >
+              <Text fontSize="14px" fontWeight="500" color="black">
+                Popular
+              </Text>
+            </Box>
+          )}
+        </Flex>
+        <Flex alignItems="center" gap={4}>
+          <Box
+            as="button"
+            onClick={toggleBookmark}
+            transition="all 0.2s"
+            _hover={{ transform: "scale(1.1)" }}
+            _active={{ transform: "scale(0.9)" }}
+          >
+            <Icon
+              as={BsBookmarkFill}
+              color={isBookmarked ? "#FFD700" : "white"}
+              boxSize={6}
+              strokeWidth={1}
+              stroke="black"
+              transition="all 0.2s"
+            />
+          </Box>
+          <Input
+            placeholder="Search exams..."
+            size="md"
+            width={{ base: "100%", sm: "200px", md: "250px", lg: "300px" }}
+            value={searchTerm}
+            onChange={(event) => setSearchTerm(event.target.value)}
+            backgroundColor="white"
+          />
+        </Flex>
+      </Flex>
+      {renderExams()}
+    </Box>
+  );
+};
+
+export default ProviderCard;
+----
+ProviderDropdown.js
+import React, { useState, useMemo, useRef } from 'react';
+import { Box, Text, Button } from '@chakra-ui/react';
+import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
+import { FixedSizeList as List } from 'react-window';
+
+const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const textRef = useRef(null);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const handleSelect = (provider) => {
+    onSelect(provider);
+    setIsOpen(false);
+  };
+
+  const sortedProviders = useMemo(() => {
+    return ["All Providers", "Popular", "Top Picks", ...providers.sort((a, b) => a.localeCompare(b))];
+  }, [providers]);
+
+  return (
+    <Box position="relative" width="100%">
+      <Button
+        onClick={toggleDropdown}
+        width="100%"
+        backgroundColor="white"
+        color="black"
+        fontWeight={700}
+        fontSize="16px"
+        lineHeight="19px"
+        borderRadius="10px"
+        border="1px solid black"
+        boxShadow="none"
+        _hover={{
+          backgroundColor: "#00bfff",
+          boxShadow: "0 3px 0 0 black",
+        }}
+        _active={{
+          backgroundColor: "#00bfff",
+          boxShadow: "none",
+        }}
+        transition="all 0.2s"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
+        paddingLeft={4}
+        paddingRight={4}
+        paddingTop={3}
+        paddingBottom={3}
+      >
+        <Text ref={textRef} isTruncated>{selectedProvider}</Text>
+        {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
+      </Button>
+      {isOpen && (
+        <Box
+          position="absolute"
+          top="100%"
+          left={0}
+          width="100%"
+          height="300px"
+          backgroundColor="white"
+          borderRadius="10px"
+          border="1px solid black"
+          marginTop={2}
+          zIndex={1}
+          overflow="hidden"
+        >
+          <List
+            height={300}
+            itemCount={sortedProviders.length}
+            itemSize={40}
+            width="100%"
+          >
+            {({ index, style }) => (
+              <Box
+                style={style}
+                paddingTop={2}
+                paddingBottom={2}
+                paddingLeft={4}
+                paddingRight={4}
+                cursor="pointer"
+                backgroundColor={sortedProviders[index] === selectedProvider ? "#00bfff" : "white"}
+                _hover={{ 
+                  backgroundColor: sortedProviders[index] === selectedProvider ? "#00bfff" : "#b3ebf2" 
+                }}
+                onClick={() => handleSelect(sortedProviders[index])}
+                borderBottom={index < sortedProviders.length - 1 ? "1px solid #E2E8F0" : "none"}
+              >
+                <Text 
+                  fontWeight={700} 
+                  fontSize="16px" 
+                  lineHeight="19px" 
+                  color="black"
+                  isTruncated
+                >
+                  {sortedProviders[index]}
+                </Text>
+              </Box>
+            )}
+          </List>
+        </Box>
+      )}
+    </Box>
+  );
+};
+
+export default ProviderDropdown;
+----
+ProviderExamsCard.js
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import {
+  VStack,
+  Flex,
+  Input,
+  Box,
+  Container,
+  Text,
+  Center,
+  Spinner,
+} from "@chakra-ui/react";
+import { LuGrid, LuList } from "react-icons/lu";
+import { IconBox } from "./IconBox";
+import ProviderDropdown from "./ProviderDropdown";
+import Pagination from "./Pagination";
+import { debounce } from "lodash";
+import ProviderCard from "./ProviderCard";
+
+const LoadingSpinner = () => (
+  <Center height="200px">
+    <Spinner size="xl" color="#00bfff" thickness="4px" />
+  </Center>
+);
+
+const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
+  const location = useLocation();
+  const [providers, setProviders] = useState([]);
+  const [selectedProvider, setSelectedProvider] = useState("All Providers");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const providersPerPage = 3;
+
+  useEffect(() => {
+    // Check for provider selection from navigation
+    if (location.state?.selectedProvider && location.state?.fromProviders) {
+      setSelectedProvider(location.state.selectedProvider);
+    }
+  }, [location]);
+
+  const fetchProviders = async () => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`http://localhost:5000/api/providers`);
+      const data = await response.json();
+      setProviders(data.providers);
+    } catch (error) {
+      console.error('Error fetching providers:', error);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchProviders();
+  }, []);
+
+  const allProviders = React.useMemo(() => {
+    return ["All Providers", ...providers.map(provider => provider.name)];
+  }, [providers]);
+
+  const filteredProviders = React.useMemo(() => {
+    let filtered = providers;
+    if (selectedProvider !== "All Providers") {
+      filtered = filtered.filter(
+        (provider) => provider.name === selectedProvider
+      );
+    }
+    if (searchTerm) {
+      filtered = filtered
+        .map((provider) => ({
+          ...provider,
+          exams: provider.exams.filter((exam) =>
+            exam.title.toLowerCase().includes(searchTerm.toLowerCase())
+          ),
+        }))
+        .filter((provider) => provider.exams.length > 0);
+    }
+    // Sort providers to prioritize popular ones
+    return filtered.sort((a, b) => {
+      if (a.isPopular && !b.isPopular) return -1;
+      if (!a.isPopular && b.isPopular) return 1;
+      return a.name.localeCompare(b.name);
+    });
+  }, [providers, selectedProvider, searchTerm]);
+
+  const paginatedProviders = React.useMemo(() => {
+    const startIndex = (currentPage - 1) * providersPerPage;
+    const endIndex = startIndex + providersPerPage;
+    return filteredProviders.slice(startIndex, endIndex);
+  }, [filteredProviders, currentPage]);
+
+  const totalPages = Math.ceil(filteredProviders.length / providersPerPage);
+
+  const debouncedSearch = React.useMemo(
+    () => debounce((value) => setSearchTerm(value), 300),
+    []
+  );
+
+  const handleSearch = (event) => {
+    debouncedSearch(event.target.value);
+    setCurrentPage(1); // Reset to first page on search
+  };
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const handleProviderSelect = (provider) => {
+    setSelectedProvider(provider);
+    setCurrentPage(1); // Reset to first page on provider change
+  };
+
+  const renderContent = () => {
+    if (isLoading) {
+      return <LoadingSpinner />;
+    }
+    if (paginatedProviders.length === 0) {
+      return (
+        <Text fontSize="xl" textAlign="center" marginY={8}>
+          No exams found. Try adjusting your search or selected provider.
+        </Text>
+      );
+    } else {
+      return (
+        <VStack spacing={6} width="100%">
+          {paginatedProviders.map((provider, index) => (
+            <ProviderCard
+              key={index}
+              providerName={provider.name}
+              exams={provider.exams}
+              view={view}
+              isPopular={provider.isPopular}
+              onExamSelect={onExamSelect}
+            />
+          ))}
+        </VStack>
+      );
+    }
+  };
+
+  return (
+    <Container maxWidth="100%" paddingLeft={4} paddingRight={4}>
+      <VStack spacing={8} align="stretch" width="100%">
+        <Flex alignItems="center" justifyContent="space-between" gap={4} flexWrap="wrap">
+          <Input
+            placeholder="Search exams..."
+            size="lg"
+            width={{ base: "100%", md: "400px" }}
+            onChange={handleSearch}
+          />
+          <Flex alignItems="center" gap={4}>
+            <Box width="250px">
+              <ProviderDropdown
+                providers={allProviders}
+                selectedProvider={selectedProvider}
+                onSelect={handleProviderSelect}
+              />
+            </Box>
+            <Flex gap={2}>
+              <IconBox
+                icon={LuGrid}
+                size="48px"
+                iconScale={0.4}
+                borderThickness={3}
+                backgroundColor={view === "grid" ? "#b3ebf2" : "white"}
+                onClick={() => onViewChange("grid")}
+                isActive={view === "grid"}
+              />
+              <IconBox
+                icon={LuList}
+                size="48px"
+                iconScale={0.4}
+                borderThickness={3}
+                backgroundColor={view === "list" ? "#b3ebf2" : "white"}
+                onClick={() => onViewChange("list")}
+                isActive={view === "list"}
+              />
+            </Flex>
+          </Flex>
+        </Flex>
+        {renderContent()}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={handlePageChange}
+        />
+      </VStack>
+    </Container>
+  );
+};
+
+export default ProviderExamsCard;
+----
+ProviderInfoCard.js
+import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  Box,
+  Text,
+  Flex,
+  Image,
+  Tooltip,
+} from "@chakra-ui/react";
+
+const ProviderInfoCard = ({ provider, view }) => {
+  const navigate = useNavigate();
+  const {
+    name,
+    description,
+    image,
+    totalExams,
+    totalQuestions,
+    isPopular,
+  } = provider;
+
+  // Hooks for text truncation
+  const [isTruncatedGrid, setIsTruncatedGrid] = useState(false);
+  const textRefGrid = useRef(null);
+
+  const [isTruncatedList, setIsTruncatedList] = useState(false);
+  const textRefList = useRef(null);
+
+  useEffect(() => {
+    if (view === "grid") {
+      const textElement = textRefGrid.current;
+      if (textElement) {
+        const isOverflowing =
+          textElement.scrollHeight > textElement.clientHeight;
+        setIsTruncatedGrid(isOverflowing);
+      }
+    } else {
+      const textElement = textRefList.current;
+      if (textElement) {
+        const isOverflowing =
+          textElement.scrollWidth > textElement.clientWidth;
+        setIsTruncatedList(isOverflowing);
+      }
+    }
+  }, [name, view]);
+
+  const handleViewExams = () => {
+    navigate('/exams', { 
+      state: { 
+        selectedProvider: name,
+        fromProviders: true
+      }
+    });
+  };
+
+  if (view === "grid") {
+    return (
+      <Box
+        backgroundColor="white"
+        borderRadius="12px"
+        border="1px solid black"
+        boxShadow="0 4px 0 0 black"
+        padding={4}
+        width="300px"
+        height="400px"
+        flexShrink={0}
+        display="flex"
+        flexDirection="column"
+        position="relative"
+      >
+        {isPopular && (
+          <Box
+            px={2}
+            py={0}
+            borderRadius="full"
+            display="inline-block"
+            alignSelf="center"
+            border="1px solid black"
+            bgGradient="linear(to-r, #FFD700, #FFA500)"
+            position="absolute"
+            top={2}
+            right={2}
+          >
+            <Text fontSize="14px" fontWeight="500" color="black">
+              Popular
+            </Text>
+          </Box>
+        )}
+        <Flex
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="space-between"
+          height="100%"
+        >
+          <Box width="100px" height="100px" display="flex" alignItems="center" justifyContent="center" marginBottom={4}>
+            <Image
+              src={image}
+              alt={`${name} logo`}
+              maxWidth="100%"
+              maxHeight="100%"
+              objectFit="contain"
+            />
+          </Box>
+          <Tooltip label={name} isDisabled={!isTruncatedGrid}>
+            <Text
+              ref={textRefGrid}
+              fontSize="18px"
+              fontWeight="bold"
+              textAlign="center"
+              marginBottom={2}
+              lineHeight="1.2"
+              height="2.4em"
+              overflow="hidden"
+              textOverflow="ellipsis"
+              display="-webkit-box"
+              sx={{
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+              }}
+            >
+              {name}
+            </Text>
+          </Tooltip>
+          <Text
+            fontSize="16px"
+            textAlign="center"
+            marginBottom={4}
+          >
+            {description}
+          </Text>
+          <Flex flexDirection="column" width="100%" alignItems="flex-start" marginBottom={4}>
+            <Text fontSize="14px" color="gray.600">
+              Total Exams: {totalExams}
+            </Text>
+            <Text fontSize="14px" color="gray.600">
+              Total Questions: {totalQuestions}
+            </Text>
+          </Flex>
+          <Box
+            as="button"
+            paddingX={4}
+            paddingY={2}
+            borderRadius="full"
+            backgroundColor="#00bfff"
+            color="black"
+            fontWeight="bold"
+            fontSize="14px"
+            border="1px solid black"
+            boxShadow="0 2px 0 0 black"
+            _hover={{ backgroundColor: "#00a6d6" }}
+            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            width="100%"
+            onClick={handleViewExams}
+          >
+            View Exams
+          </Box>
+        </Flex>
+      </Box>
+    );
+  } else {
+    return (
+      <Flex
+        alignItems="center"
+        paddingY={4}
+        paddingX={4}
+        borderBottom="1px solid #E2E8F0"
+      >
+        <Box width="80px" height="80px" display="flex" alignItems="center" justifyContent="center" marginRight={4}>
+          <Image
+            src={image}
+            alt={`${name} logo`}
+            maxWidth="100%"
+            maxHeight="100%"
+            objectFit="contain"
+          />
+        </Box>
+        <Box flex="1">
+          <Tooltip label={name} isDisabled={!isTruncatedList}>
+            <Text
+              ref={textRefList}
+              fontSize="18px"
+              fontWeight="bold"
+              isTruncated
+            >
+              {name}
+            </Text>
+          </Tooltip>
+          <Text fontSize="16px" color="gray.600">
+            {description}
+          </Text>
+          <Text fontSize="14px" color="gray.600">
+            Total Exams: {totalExams}
+          </Text>
+          <Text fontSize="14px" color="gray.600">
+            Total Questions: {totalQuestions}
+          </Text>
+        </Box>
+        <Flex alignItems="center">
+          {isPopular && (
+            <Box
+              px={2}
+              py={0}
+              borderRadius="full"
+              display="inline-block"
+              border="1px solid black"
+              bgGradient="linear(to-r, #FFD700, #FFA500)"
+              marginRight={2}
+            >
+              <Text fontSize="14px" fontWeight="500" color="black">
+                Popular
+              </Text>
+            </Box>
+          )}
+          <Box
+            as="button"
+            paddingX={4}
+            paddingY={2}
+            borderRadius="full"
+            backgroundColor="#00bfff"
+            color="black"
+            fontWeight="bold"
+            fontSize="14px"
+            border="1px solid black"
+            boxShadow="0 2px 0 0 black"
+            _hover={{ backgroundColor: "#00a6d6" }}
+            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            onClick={handleViewExams}
+          >
+            View Exams
+          </Box>
+        </Flex>
+      </Flex>
+    );
+  }
+};
+
+export default ProviderInfoCard;
+----
+ProvidersPage.js
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import {
+  VStack, 
+  Flex,
+  Input,
+  Box,
+  Container,
+  Center,
+  Spinner,
+} from "@chakra-ui/react";
+import { LuGrid, LuList } from "react-icons/lu";
+import { IconBox } from "./IconBox";
+import CategoriesDropdown from "./CategoriesDropdown";
+import Pagination from "./Pagination";
+import { debounce } from "lodash";
+
+const CategoryCard = lazy(() => import("./CategoryCard"));
+
+const LoadingSpinner = () => (
+  <Center height="200px">
+    <Spinner size="xl" color="#00bfff" thickness="4px" />
+  </Center>
+);
+
+const ProvidersPage = () => {
+  const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState("All Categories");
+  const [view, setView] = useState("grid");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [error, setError] = useState(null);
+  const categoriesPerPage = 2;
+
+  useEffect(() => {
+    const fetchProviders = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/provider-statistics');
+        if (!response.ok) {
+          throw new Error('Failed to fetch provider statistics');
+        }
+        const data = await response.json();
+        setCategories(data.categories);
+      } catch (err) {
+        console.error('Error fetching providers:', err);
+        setError(err.message);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchProviders();
+  }, []);
+
+  const categoryNames = useMemo(() => 
+    ["All Categories", ...categories.map(category => category.name)],
+    [categories]
+  );
+
+  const filteredCategories = useMemo(() => {
+    let filtered = categories;
+    if (selectedCategory !== "All Categories") {
+      filtered = filtered.filter(category => category.name === selectedCategory);
+    }
+    if (searchTerm) {
+      filtered = filtered.map(category => ({
+        ...category,
+        providers: category.providers.filter(provider =>
+          provider.name.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+      })).filter(category => category.providers.length > 0);
+    }
+    return filtered;
+  }, [categories, selectedCategory, searchTerm]);
+
+  const paginatedCategories = useMemo(() => {
+    const startIndex = (currentPage - 1) * categoriesPerPage;
+    const endIndex = startIndex + categoriesPerPage;
+    return filteredCategories.slice(startIndex, endIndex);
+  }, [filteredCategories, currentPage]);
+
+  const totalPages = Math.ceil(filteredCategories.length / categoriesPerPage);
+
+  const debouncedSearch = useMemo(
+    () => debounce((value) => setSearchTerm(value), 300),
+    []
+  );
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <Center>
+        <Box fontSize="xl" color="red.500">Error: {error}</Box>
+      </Center>
+    );
+  }
+
+  return (
+    <Container maxWidth="100%" paddingLeft={4} paddingRight={4}>
+      <VStack spacing={8} align="stretch" width="100%">
+        {/* Search and Controls */}
+        <Flex
+          alignItems="center"
+          justifyContent="space-between"
+          gap={4}
+          flexWrap="wrap"
+        >
+          <Input
+            placeholder="Search providers..."
+            size="lg"
+            width={{ base: "100%", md: "400px" }}
+            onChange={(e) => debouncedSearch(e.target.value)}
+          />
+          <Flex alignItems="center" gap={4}>
+            <Box width="250px">
+              <CategoriesDropdown
+                categories={categoryNames}
+                selectedCategory={selectedCategory}
+                onSelect={setSelectedCategory}
+              />
+            </Box>
+            <Flex gap={2}>
+              <IconBox
+                icon={LuGrid}
+                size="48px"
+                iconScale={0.4}
+                borderThickness={3}
+                bgColor={view === "grid" ? "#b3ebf2" : "white"}
+                onClick={() => setView("grid")}
+              />
+              <IconBox
+                icon={LuList}
+                size="48px"
+                iconScale={0.4}
+                borderThickness={3}
+                bgColor={view === "list" ? "#b3ebf2" : "white"}
+                onClick={() => setView("list")}
+              />
+            </Flex>
+          </Flex>
+        </Flex>
+        
+        {/* Categories */}
+        {paginatedCategories.length === 0 ? (
+          <Center>
+            <Box fontSize="xl" textAlign="center" marginY={8}>
+              No providers found. Try adjusting your search or selected category.
+            </Box>
+          </Center>
+        ) : (
+          <VStack spacing={6} width="100%">
+            {paginatedCategories.map((category, index) => (
+              <Suspense key={index} fallback={<LoadingSpinner />}>
+                <CategoryCard
+                  categoryName={category.name}
+                  providers={category.providers}
+                  view={view}
+                />
+              </Suspense>
+            ))}
+          </VStack>
+        )}
+
+        {/* Pagination */}
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </VStack>
+    </Container>
+  );
+};
+
+export default ProvidersPage;
+----
+QuestionBox.js
+import React from 'react';
+import { Box, Text, Flex } from '@chakra-ui/react';
+import { StarIconBox } from './IconBox';
+import { transformImageUrl } from '../utils';
+
+const QuestionBox = ({ questionNumber, totalQuestionsInTopic, questionData, isStarFilled, toggleStar, currentTopic }) => {
+  if (!questionData) {
+    return (
+      <Box
+        width="100%"
+        backgroundColor="#f2f2f3"
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 4px 0 0 black"
+        position="relative"
+        overflow="hidden"
+        padding={6}
+      >
+        <Text fontSize="20px" fontWeight="500" color="black">
+          No question data available.
+        </Text>
+      </Box>
+    );
+  }
+
+  const transformedBody = questionData.body.replace(
+    /<img\s+src="([^"]+)"/g,
+    (match, p1) => `<img src="${transformImageUrl(p1)}"`
+  );
+
+  return (
+    <Box
+      width="100%"
+      backgroundColor="#f2f2f3"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      position="relative"
+      overflow="hidden"
+      padding={6}
+    >
+      <Flex justifyContent="space-between" alignItems="center" marginBottom={4}>
+        <Box
+          backgroundColor="#b3ebf2"
+          paddingX={1}
+          paddingY={0}
+          borderRadius="8px"
+        >
+          <Text fontSize="24px" fontWeight="700" color="black">
+            T{currentTopic} Q{questionNumber} of {totalQuestionsInTopic}
+          </Text>
+        </Box>
+        <StarIconBox
+          size="48px"
+          iconScale={0.5}
+          onClick={toggleStar}
+          isStarFilled={isStarFilled}
+        />
+      </Flex>
+      <Box>
+        <Text fontSize="20px" fontWeight="500" color="black" dangerouslySetInnerHTML={{ __html: transformedBody || "No question text available." }} />
+      </Box>
+    </Box>
+  );
+};
+
+export default QuestionBox;
+----
+QuestionListDropdown.js
+import React from 'react';
+import { Box, Text } from '@chakra-ui/react';
+import { FixedSizeList as List } from 'react-window';
+
+const QuestionListDropdown = React.memo(({ questions, currentQuestion, onSelect }) => {
+  console.log("QuestionListDropdown rendered", { questions, currentQuestion });
+
+  const itemSize = 32; // Height of each item in pixels
+  const listHeight = Math.min(questions.length * itemSize, 300); // Max height of 300px
+
+  const Row = ({ index, style }) => {
+    const question = questions[index];
+    const isSelected = question === currentQuestion;
+
+    return (
+      <Box
+        style={style}
+        paddingTop={2}
+        paddingBottom={2}
+        paddingLeft={4}
+        paddingRight={4}
+        cursor="pointer"
+        _hover={{ backgroundColor: "#b3ebf2" }}
+        onClick={() => onSelect(question)}
+        backgroundColor={isSelected ? "#00bfff" : "white"}
+      >
+        <Text fontWeight={700} fontSize="14px" lineHeight="16px" color="black">
+          {question}
+        </Text>
+      </Box>
+    );
+  };
+
+  return (
+    <Box
+      position="absolute"
+      top="calc(100% + 8px)"
+      left="50%"
+      transform="translateX(-50%)"
+      width="120px"
+      height={listHeight}
+      backgroundColor="white"
+      borderRadius="10px"
+      border="1px solid black"
+      zIndex={1000}
+      overflow="hidden"
+      boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+    >
+      <List
+        height={listHeight}
+        itemCount={questions.length}
+        itemSize={itemSize}
+        width="100%"
+      >
+        {Row}
+      </List>
+    </Box>
+  );
+});
+
+export default QuestionListDropdown;
+----
+QuestionPanel.js
+import React, { useState, useEffect, useCallback } from "react";
+import { Box, VStack, Text } from "@chakra-ui/react";
+import SearchBar from "./SearchBar";
+import TabList from "./TabList";
+import QuestionBox from "./QuestionBox";
+import OptionsBox from "./OptionsBox";
+import AnswerBox from "./AnswerBox";
+
+const QuestionPanel = ({
+  width = "100%",
+  onSearch,
+  onShuffle,
+  onReset,
+  onSubmit,
+  tabs,
+  onTabChange,
+  questionNumber,
+  totalQuestions,
+  questionData,
+  isStarFilled,
+  toggleStar,
+  onNavigateLeft,
+  onNavigateRight,
+  currentTopic,
+  currentQuestion,
+  onQuestionSelect,
+  favoriteQuestions,
+  onOptionSelect,
+  selectedOptions,
+  userAnswers,
+  unansweredQuestions,
+  setUnansweredQuestions,
+  incorrectQuestions,
+}) => {
+  const [currentTab, setCurrentTab] = useState("ALL QUESTIONS");
+  const [tabIndices, setTabIndices] = useState({
+    "ALL QUESTIONS": questionNumber - 1,
+    FAVORITES: 0,
+    ANSWERED: 0,
+    UNANSWERED: 0,
+    INCORRECT: 0,
+  });
+  const [answeredQuestions, setAnsweredQuestions] = useState([]);
+  const [removingQuestion, setRemovingQuestion] = useState(null);
+  const [isNavigationDisabled, setIsNavigationDisabled] = useState(false);
+  const [displayedQuestionInfo, setDisplayedQuestionInfo] = useState({
+    current: questionNumber,
+    total: totalQuestions,
+  });
+  const [pendingUpdate, setPendingUpdate] = useState(null);
+
+  const getRequiredSelections = useCallback((answer) => {
+    if (!answer) return 1;
+    if (typeof answer === "string") return answer.length;
+    if (Array.isArray(answer)) return answer.length;
+    return 1;
+  }, []);
+
+  useEffect(() => {
+    setTabIndices((prevIndices) => ({
+      ...prevIndices,
+      "ALL QUESTIONS": questionNumber - 1,
+    }));
+  }, [questionNumber]);
+
+  useEffect(() => {
+    const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
+    const requiredSelections = getRequiredSelections(questionData.answer);
+    const isAnswered = selectedOptions.length === requiredSelections;
+
+    if (isAnswered) {
+      setAnsweredQuestions((prev) => [
+        ...prev.filter((q) => q !== currentQuestionId),
+        currentQuestionId,
+      ]);
+      if (currentTab === "UNANSWERED") {
+        setRemovingQuestion(currentQuestionId);
+        setIsNavigationDisabled(true);
+        setPendingUpdate({ questionId: currentQuestionId, delay: 2000 });
+      }
+    } else {
+      setAnsweredQuestions((prev) =>
+        prev.filter((q) => q !== currentQuestionId)
+      );
+    }
+  }, [
+    currentTopic,
+    questionNumber,
+    questionData,
+    selectedOptions,
+    getRequiredSelections,
+    currentTab,
+  ]);
+
+  useEffect(() => {
+    if (pendingUpdate) {
+      const timer = setTimeout(() => {
+        handleQuestionRemoval(pendingUpdate.questionId);
+        setPendingUpdate(null);
+      }, pendingUpdate.delay);
+      return () => clearTimeout(timer);
+    }
+  }, [pendingUpdate]);
+
+  useEffect(() => {
+    if (currentTab === "INCORRECT" && incorrectQuestions.length > 0) {
+      const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
+      if (!incorrectQuestions.includes(currentQuestionId)) {
+        const nextIncorrectQuestion = incorrectQuestions[0];
+        if (nextIncorrectQuestion) {
+          onQuestionSelect(nextIncorrectQuestion);
+        } else {
+          setDisplayedQuestionInfo({ current: 0, total: 0 });
+        }
+      }
+    }
+  }, [
+    currentTab,
+    incorrectQuestions,
+    currentTopic,
+    questionNumber,
+    onQuestionSelect,
+  ]);
+
+  const handleQuestionRemoval = useCallback(
+    (questionId) => {
+      setUnansweredQuestions((prev) => prev.filter((q) => q !== questionId));
+      setRemovingQuestion(null);
+      setIsNavigationDisabled(false);
+
+      if (currentTab === "UNANSWERED") {
+        const currentIndex = unansweredQuestions.findIndex(
+          (q) => q === questionId
+        );
+        let nextQuestion;
+        if (currentIndex === unansweredQuestions.length - 1) {
+          nextQuestion = unansweredQuestions[currentIndex - 1];
+        } else {
+          nextQuestion = unansweredQuestions[currentIndex + 1];
+        }
+        if (nextQuestion) {
+          const [topic, question] = nextQuestion.split(" ");
+          onQuestionSelect(`${topic} ${question}`);
+        }
+      }
+
+      setDisplayedQuestionInfo((prevInfo) => ({
+        current: Math.min(prevInfo.current, prevInfo.total - 1),
+        total: prevInfo.total - 1,
+      }));
+    },
+    [currentTab, unansweredQuestions, onQuestionSelect, setUnansweredQuestions]
+  );
+
+  const handleTabChange = useCallback(
+    (tab) => {
+      setCurrentTab(tab);
+      if (tab === "ALL QUESTIONS") {
+        onQuestionSelect(
+          `T${currentTopic} Q${tabIndices["ALL QUESTIONS"] + 1}`
+        );
+      } else if (tab === "FAVORITES" && favoriteQuestions.length > 0) {
+        const favorite = favoriteQuestions[tabIndices["FAVORITES"]];
+        onQuestionSelect(
+          `T${favorite.topic_number} Q${favorite.question_index + 1}`
+        );
+      } else if (tab === "ANSWERED" && answeredQuestions.length > 0) {
+        onQuestionSelect(answeredQuestions[tabIndices["ANSWERED"]]);
+      } else if (tab === "UNANSWERED" && unansweredQuestions.length > 0) {
+        onQuestionSelect(unansweredQuestions[tabIndices["UNANSWERED"]]);
+      } else if (tab === "INCORRECT" && incorrectQuestions.length > 0) {
+        onQuestionSelect(incorrectQuestions[tabIndices["INCORRECT"]]);
+      }
+      onTabChange(tab);
+    },
+    [
+      currentTopic,
+      tabIndices,
+      favoriteQuestions,
+      answeredQuestions,
+      unansweredQuestions,
+      incorrectQuestions,
+      onQuestionSelect,
+      onTabChange,
+    ]
+  );
+
+  const handleQuestionSelect = useCallback(
+    (selectedQuestion) => {
+      const [topicPart, questionPart] = selectedQuestion.split(" ");
+      const selectedTopic = parseInt(topicPart.slice(1));
+      const selectedIndex = parseInt(questionPart.slice(1)) - 1;
+
+      if (currentTab === "FAVORITES") {
+        if (selectedIndex >= 0 && selectedIndex < favoriteQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            FAVORITES: selectedIndex,
+          }));
+        }
+      } else if (currentTab === "ANSWERED") {
+        if (selectedIndex >= 0 && selectedIndex < answeredQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            ANSWERED: selectedIndex,
+          }));
+        }
+      } else if (currentTab === "UNANSWERED") {
+        if (selectedIndex >= 0 && selectedIndex < unansweredQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            UNANSWERED: selectedIndex,
+          }));
+        }
+      } else if (currentTab === "INCORRECT") {
+        if (selectedIndex >= 0 && selectedIndex < incorrectQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            INCORRECT: selectedIndex,
+          }));
+        }
+      } else {
+        setTabIndices((prevIndices) => ({
+          ...prevIndices,
+          [currentTab]: selectedIndex,
+        }));
+      }
+      onQuestionSelect(selectedQuestion);
+    },
+    [
+      currentTab,
+      favoriteQuestions,
+      answeredQuestions,
+      unansweredQuestions,
+      incorrectQuestions,
+      onQuestionSelect,
+    ]
+  );
+
+  const handleNavigate = useCallback(
+    (direction) => {
+      if (isNavigationDisabled) return;
+
+      if (currentTab === "FAVORITES") {
+        const currentIndex = tabIndices["FAVORITES"];
+        const newIndex = currentIndex + direction;
+        if (newIndex >= 0 && newIndex < favoriteQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            FAVORITES: newIndex,
+          }));
+          const favorite = favoriteQuestions[newIndex];
+          onQuestionSelect(
+            `T${favorite.topic_number} Q${favorite.question_index + 1}`
+          );
+        }
+      } else if (currentTab === "ANSWERED") {
+        const currentIndex = tabIndices["ANSWERED"];
+        const newIndex = currentIndex + direction;
+        if (newIndex >= 0 && newIndex < answeredQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            ANSWERED: newIndex,
+          }));
+          onQuestionSelect(answeredQuestions[newIndex]);
+        }
+      } else if (currentTab === "UNANSWERED") {
+        const currentIndex = tabIndices["UNANSWERED"];
+        const newIndex = currentIndex + direction;
+        if (newIndex >= 0 && newIndex < unansweredQuestions.length) {
+          setTabIndices((prevIndices) => ({
+            ...prevIndices,
+            UNANSWERED: newIndex,
+          }));
+          onQuestionSelect(unansweredQuestions[newIndex]);
+        }
+      } else if (currentTab === "INCORRECT") {
+        const currentIndex = incorrectQuestions.indexOf(
+          `T${currentTopic} Q${questionNumber}`
+        );
+        const newIndex = currentIndex + direction;
+        if (newIndex >= 0 && newIndex < incorrectQuestions.length) {
+          onQuestionSelect(incorrectQuestions[newIndex]);
+        }
+      } else {
+        if (direction === 1) {
+          onNavigateRight();
+        } else {
+          onNavigateLeft();
+        }
+      }
+    },
+    [
+      isNavigationDisabled,
+      currentTab,
+      tabIndices,
+      favoriteQuestions,
+      answeredQuestions,
+      unansweredQuestions,
+      incorrectQuestions,
+      onQuestionSelect,
+      onNavigateRight,
+      onNavigateLeft,
+      currentTopic,
+      questionNumber,
+    ]
+  );
+
+  useEffect(() => {
+    const newQuestionInfo = (() => {
+      if (currentTab === "FAVORITES") {
+        return {
+          current: tabIndices["FAVORITES"] + 1,
+          total: favoriteQuestions.length,
+        };
+      } else if (currentTab === "ANSWERED") {
+        return {
+          current: tabIndices["ANSWERED"] + 1,
+          total: answeredQuestions.length,
+        };
+      } else if (currentTab === "UNANSWERED") {
+        const index = unansweredQuestions.findIndex(
+          (q) => q === `T${currentTopic} Q${questionNumber}`
+        );
+        return {
+          current: index !== -1 ? index + 1 : 1,
+          total: unansweredQuestions.length,
+        };
+      } else if (currentTab === "INCORRECT") {
+        const index = incorrectQuestions.indexOf(
+          `T${currentTopic} Q${questionNumber}`
+        );
+        return {
+          current: index !== -1 ? index + 1 : 1,
+          total: incorrectQuestions.length,
+        };
+      } else {
+        return {
+          current: questionNumber,
+          total: totalQuestions,
+        };
+      }
+    })();
+
+    if (!pendingUpdate) {
+      setDisplayedQuestionInfo(newQuestionInfo);
+    }
+  }, [
+    questionNumber,
+    totalQuestions,
+    currentTab,
+    tabIndices,
+    favoriteQuestions,
+    answeredQuestions,
+    unansweredQuestions,
+    incorrectQuestions,
+    currentTopic,
+    pendingUpdate,
+  ]);
+
+  const renderQuestions = () => {
+    if (currentTab === "ANSWERED" && answeredQuestions.length === 0) {
+      return <Text>There are no answered questions yet.</Text>;
+    }
+    if (currentTab === "UNANSWERED") {
+      if (unansweredQuestions.length === 0) {
+        return <Text>There are no unanswered questions.</Text>;
+      }
+      const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
+      if (
+        !unansweredQuestions.includes(currentQuestionId) &&
+        !removingQuestion
+      ) {
+        const nextQuestion = unansweredQuestions[0];
+        const [topic, question] = nextQuestion.split(" ");
+        onQuestionSelect(`${topic} ${question}`);
+        return null;
+      }
+    }
+    if (currentTab === "FAVORITES" && favoriteQuestions.length === 0) {
+      return <Text>There are no favorited questions.</Text>;
+    }
+    if (currentTab === "INCORRECT") {
+      if (incorrectQuestions.length === 0) {
+        return <Text>There are no incorrect questions. Great job!</Text>;
+      }
+      const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
+      if (!incorrectQuestions.includes(currentQuestionId)) {
+        return <Text>Loading next incorrect question...</Text>;
+      }
+    }
+
+    return (
+      <VStack spacing={4} align="stretch">
+        <QuestionBox
+          questionNumber={displayedQuestionInfo.current}
+          totalQuestionsInTopic={displayedQuestionInfo.total}
+          questionData={questionData}
+          isStarFilled={isStarFilled}
+          toggleStar={toggleStar}
+          currentTopic={currentTopic}
+        />
+        <OptionsBox
+          options={questionData.options || []}
+          selectedOptions={selectedOptions}
+          onOptionSelect={onOptionSelect}
+          maxSelections={getRequiredSelections(questionData.answer)}
+          isUnansweredTab={currentTab === "UNANSWERED"}
+        />
+        <AnswerBox
+          answer={questionData.answer || ""}
+          answerDescription={questionData.answerDescription || ""}
+          votes={questionData.votes || []}
+        />
+      </VStack>
+    );
+  };
+
+  return (
+    <Box width={width}>
+      <SearchBar
+        onSearch={onSearch}
+        onShuffle={onShuffle}
+        onReset={onReset}
+        onSubmit={onSubmit}
+        currentQuestion={`Q${displayedQuestionInfo.current} of ${displayedQuestionInfo.total}`}
+        currentTopic={currentTopic}
+        totalQuestions={displayedQuestionInfo.total}
+        onQuestionSelect={handleQuestionSelect}
+      />
+      <TabList
+        tabs={tabs}
+        onTabChange={handleTabChange}
+        currentQuestionIndex={displayedQuestionInfo.current - 1}
+        totalQuestions={displayedQuestionInfo.total}
+        onNavigateLeft={() => handleNavigate(-1)}
+        onNavigateRight={() => handleNavigate(1)}
+        isNavigationDisabled={isNavigationDisabled}
+      />
+      {renderQuestions()}
+    </Box>
+  );
+};
+
+export default QuestionPanel;
+
+----
+ResultsModal.js
+import React from 'react';
+import {
+  Modal,
+  ModalOverlay,
+  ModalContent,
+  ModalHeader,
+  ModalFooter,
+  ModalBody,
+  Button,
+  Text,
+  VStack,
+  HStack,
+  Progress,
+  Box,
+  Flex,
+} from '@chakra-ui/react';
+import { FaTimes } from 'react-icons/fa';
+import { IconBox } from './IconBox';
+
+const StatusBadge = ({ status }) => {
+  let bgGradient;
+  let textColor = "black";
+  switch (status) {
+    case "PASSED":
+      bgGradient = "linear(to-r, #4CAF50, #8BC34A)";
+      break;
+    case "FAILED":
+      bgGradient = "linear(to-r, #FF5252, #FF8A80)";
+      break;
+    default:
+      bgGradient = "linear(to-r, #FFD54F, #FFF176)";
+  }
+  return (
+    <Box
+      paddingLeft={2}
+      paddingRight={2}
+      paddingTop={0}
+      paddingBottom={0}
+      borderRadius="full"
+      display="inline-block"
+      alignSelf="center"
+      border="1px solid black"
+      bgGradient={bgGradient}
+    >
+      <Text fontSize="14px" fontWeight="500" color={textColor}>
+        {status}
+      </Text>
+    </Box>
+  );
+};
+
+const CloseButton = ({ onClick }) => (
+  <IconBox
+    icon={FaTimes}
+    size="24px"
+    iconScale={0.7}
+    withBorder={false}
+    bgColor="transparent"
+    onClick={onClick}
+  />
+);
+
+const CustomButton = ({ children, onClick }) => (
+  <Button
+    onClick={onClick}
+    height="48px"
+    fontSize="16px"
+    px="24px"
+    bg="#00bfff"
+    color="black"
+    borderRadius="full"
+    border="1px solid black"
+    fontWeight={700}
+    textTransform="uppercase"
+    transition="0.3s"
+    boxShadow="0 4px 0 0 black"
+    _hover={{
+      transform: 'translateY(2px)',
+      boxShadow: '0 2px 0 0 black',
+    }}
+    _active={{
+      transform: 'translateY(4px)',
+      boxShadow: 'none',
+    }}
+  >
+    {children}
+  </Button>
+);
+
+const formatIncorrectQuestions = (incorrectQuestions) => {
+  if (incorrectQuestions.length === 0) return '';
+
+  const sortedQuestions = incorrectQuestions.sort((a, b) => {
+    const [aTopic, aQ] = a.split(' ');
+    const [bTopic, bQ] = b.split(' ');
+    return aTopic.localeCompare(bTopic) || parseInt(aQ.slice(1)) - parseInt(bQ.slice(1));
+  });
+
+  let result = [];
+  let currentTopic = '';
+  let currentRange = [];
+
+  sortedQuestions.forEach((q, index) => {
+    const [topic, questionNum] = q.split(' ');
+    if (topic !== currentTopic) {
+      if (currentRange.length > 0) {
+        result.push(formatRange(currentTopic, currentRange));
+      }
+      currentTopic = topic;
+      currentRange = [parseInt(questionNum.slice(1))];
+    } else {
+      const prevNum = currentRange[currentRange.length - 1];
+      const currentNum = parseInt(questionNum.slice(1));
+      if (currentNum !== prevNum + 1 && currentRange.length > 0) {
+        result.push(formatRange(currentTopic, currentRange));
+        currentRange = [currentNum];
+      } else {
+        currentRange.push(currentNum);
+      }
+    }
+
+    if (index === sortedQuestions.length - 1) {
+      result.push(formatRange(currentTopic, currentRange));
+    }
+  });
+
+  return result.join(', ');
+};
+
+const formatRange = (topic, range) => {
+  if (range.length === 1) {
+    return `${topic} Q${range[0]}`;
+  } else if (range.length === 2) {
+    return `${topic} Q${range[0]}, ${topic} Q${range[1]}`;
+  } else {
+    return `${topic} Q${range[0]}-${topic} Q${range[range.length - 1]}`;
+  }
+};
+
+const ResultsModal = ({ isOpen, onClose, results }) => {
+  return (
+    <Modal isOpen={isOpen} onClose={onClose} size="lg">
+      <ModalOverlay />
+      <ModalContent
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 8px 0 0 black"
+        p={6}
+      >
+        <Flex justifyContent="flex-end">
+          <CloseButton onClick={onClose} />
+        </Flex>
+        <ModalHeader
+          fontFamily="'Space Grotesk', sans-serif"
+          fontWeight="bold"
+          fontSize="24px"
+          pb={4}
+        >
+          Exam Results
+        </ModalHeader>
+        <ModalBody>
+          {results ? (
+            <VStack spacing={4} align="stretch">
+              <HStack justifyContent="space-between">
+                <Text fontWeight="bold">Score:</Text>
+                <Text>{results.score}%</Text>
+              </HStack>
+              <Progress value={results.score} colorScheme={results.passed ? "green" : "red"} />
+              <HStack justifyContent="space-between">
+                <Text fontWeight="bold">Result:</Text>
+                <StatusBadge status={results.passed ? "PASSED" : "FAILED"} />
+              </HStack>
+              <HStack justifyContent="space-between">
+                <Text fontWeight="bold">Correct Answers:</Text>
+                <Text>{results.correct_answers} / {results.total_questions}</Text>
+              </HStack>
+              {results.incorrect_questions.length > 0 && (
+                <VStack align="stretch">
+                  <Text fontWeight="bold">Incorrect Questions:</Text>
+                  <Text>{formatIncorrectQuestions(results.incorrect_questions)}</Text>
+                </VStack>
+              )}
+            </VStack>
+          ) : (
+            <VStack spacing={4} align="center">
+              <Text>Loading results...</Text>
+            </VStack>
+          )}
+        </ModalBody>
+        <ModalFooter>
+          <Flex justifyContent="flex-end" width="100%">
+            <CustomButton onClick={onClose}>
+              Close
+            </CustomButton>
+          </Flex>
+        </ModalFooter>
+      </ModalContent>
+    </Modal>
+  );
+};
+
+export default ResultsModal;
+----
+SearchBar.js
+import React, { useState, useRef, useEffect } from 'react';
+import { Box, Input, InputGroup, InputLeftElement, InputRightElement, Flex } from '@chakra-ui/react';
+import { SearchIcon, CloseIcon } from '@chakra-ui/icons';
+import { PiShuffle } from "react-icons/pi";
+import { RxReset } from "react-icons/rx";
+import { PiSealFill, PiSeal } from "react-icons/pi";
+import { MdFormatListNumbered } from "react-icons/md";
+import QuestionListDropdown from './QuestionListDropdown';
+import SubmitButton from './SubmitButton';
+
+const SealedButton = React.memo(({ icon: Icon, onClick }) => {
+  const [isPressed, setIsPressed] = useState(false);
+  const size = '48px';
+  const iconScale = 0.4;
+  const iconSize = `${parseInt(size) * iconScale}px`;
+  const borderThickness = 3;
+
+  return (
+    <Box
+      position="relative"
+      width={size}
+      height={size}
+      onClick={onClick}
+      onMouseDown={() => setIsPressed(true)}
+      onMouseUp={() => setIsPressed(false)}
+      onMouseLeave={() => setIsPressed(false)}
+      cursor="pointer"
+      transition="all 0.1s ease"
+      transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
+      userSelect="none"
+    >
+      <PiSealFill size={size} color="#b3ebf2" />
+      <Box
+        as={PiSeal}
+        size={size}
+        color="black"
+        position="absolute"
+        top="0"
+        left="0"
+        style={{
+          width: size,
+          height: size,
+        }}
+        sx={{
+          svg: {
+            strokeWidth: borderThickness,
+            stroke: 'black',
+            fill: 'none',
+          },
+          path: {
+            strokeWidth: borderThickness,
+            stroke: 'black',
+            fill: 'none',
+          },
+        }}
+      />
+      <Flex
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Icon size={iconSize} color="black" />
+      </Flex>
+    </Box>
+  );
+});
+
+const SearchBar = ({ 
+  placeholder = "Search questions...", 
+  onSearch, 
+  onShuffle, 
+  onReset, 
+  currentQuestion,
+  currentTopic,
+  totalQuestions,
+  onQuestionSelect,
+  onSubmit
+}) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const handleSearch = (event) => {
+    const value = event.target.value;
+    setSearchTerm(value);
+    if (onSearch) {
+      onSearch(value);
+    }
+  };
+
+  const clearSearch = () => {
+    setSearchTerm('');
+    if (onSearch) {
+      onSearch('');
+    }
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen((prevState) => !prevState);
+  };
+
+  const handleQuestionSelect = (question) => {
+    if (onQuestionSelect) {
+      onQuestionSelect(question);
+    }
+    setIsDropdownOpen(false);
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const questions = Array.from({ length: totalQuestions }, (_, index) => `T${currentTopic} Q${index + 1}`);
+
+  return (
+    <Flex width="100%" marginBottom={4} alignItems="center" justifyContent="space-between">
+      <InputGroup size="lg" flex={1} marginRight={4}>
+        <InputLeftElement pointerEvents="none">
+          <SearchIcon color="gray.300" />
+        </InputLeftElement>
+        <Input
+          value={searchTerm}
+          onChange={handleSearch}
+          placeholder={placeholder}
+          backgroundColor="white"
+          border="1px solid black"
+          borderRadius="12px"
+          _focus={{
+            boxShadow: '0 0 0 1px black',
+            borderColor: 'black',
+          }}
+          _hover={{
+            borderColor: 'black',
+          }}
+          fontFamily='"Karla Variable", sans-serif'
+          fontWeight={500}
+          fontSize="16px"
+        />
+        {searchTerm && (
+          <InputRightElement>
+            <CloseIcon color="gray.500" cursor="pointer" onClick={clearSearch} />
+          </InputRightElement>
+        )}
+      </InputGroup>
+      <Flex ref={dropdownRef}>
+        <Box position="relative">
+          <SealedButton icon={MdFormatListNumbered} onClick={toggleDropdown} />
+          {isDropdownOpen && (
+            <QuestionListDropdown
+              questions={questions}
+              currentQuestion={currentQuestion}
+              onSelect={handleQuestionSelect}
+            />
+          )}
+        </Box>
+        <Box width="8px" />
+        <SealedButton icon={PiShuffle} onClick={onShuffle} />
+        <Box width="8px" />
+        <SealedButton icon={RxReset} onClick={onReset} />
+        <Box width="8px" />
+        <SubmitButton onClick={onSubmit} />
+      </Flex>
+    </Flex>
+  );
+};
+
+export default SearchBar;
+----
+SelectExamBox.js
+import React from 'react';
+import { Box, Text, VStack, Button, Flex } from '@chakra-ui/react';
+import { useNavigate } from 'react-router-dom';
+import { FaPaperPlane } from 'react-icons/fa';
+
+const SelectExamBox = () => {
+  const navigate = useNavigate();
+
+  return (
+    <Flex width="100%" height="100%" alignItems="flex-start" justifyContent="center" paddingTop="50px">
+      <Box
+        width="100%"
+        maxWidth="800px"
+        bgGradient="linear(to-br, #8E2DE2, #4A00E0)"
+        borderRadius="20px"
+        border="1px solid black"
+        boxShadow="0 8px 0 0 black"
+        position="relative"
+        overflow="hidden"
+        padding={8}
+      >
+        <VStack spacing={6} align="stretch">
+          <Text
+            fontSize="48px"
+            fontWeight="800"
+            color="white"
+            textAlign="center"
+            fontFamily="'Space Grotesk', sans-serif"
+            textShadow="2px 2px 4px rgba(0,0,0,0.2)"
+          >
+            Select an Exam
+          </Text>
+          <Text fontSize="20px" color="#E0E0E0" textAlign="center" lineHeight="1.6">
+            Please select an exam to begin your practice session.
+          </Text>
+          <Flex justifyContent="center">
+            <Button
+              onClick={() => navigate("/exams")}
+              height="48px"
+              fontSize="16px"
+              paddingLeft="24px"
+              paddingRight="24px"
+              backgroundColor="#4FD1C5"
+              color="black"
+              borderRadius="full"
+              border="1px solid black"
+              fontWeight={700}
+              textTransform="uppercase"
+              transition="0.3s"
+              boxShadow="0 4px 0 0 black"
+              _hover={{
+                transform: 'translateY(2px)',
+                boxShadow: '0 2px 0 0 black',
+                backgroundColor: "#45B7AB",
+              }}
+              _active={{
+                transform: 'translateY(4px)',
+                boxShadow: 'none',
+              }}
+              leftIcon={<FaPaperPlane />}
+            >
+              Go to Exams Page
+            </Button>
+          </Flex>
+        </VStack>
+        <Box
+          position="absolute"
+          bottom="-50px"
+          right="-50px"
+          width="200px"
+          height="200px"
+          borderRadius="full"
+          backgroundColor="rgba(255, 255, 255, 0.1)"
+          zIndex={0}
+        />
+      </Box>
+    </Flex>
+  );
+};
+
+export default SelectExamBox;
+----
+Sidebar.js
+import React, { useState, useEffect } from 'react';
+import { Box, VStack, Text, Flex, chakra, Button, Icon } from '@chakra-ui/react';
+import { GiDreamCatcher, GiCubeforce, GiSpellBook } from 'react-icons/gi';
+import { RxDashboard } from 'react-icons/rx';
+import { RiStackLine } from 'react-icons/ri';
+import { LuRocket, LuLogOut, LuChevronLeft, LuChevronRight } from 'react-icons/lu';
+import '@fontsource-variable/karla/wght.css';
+import '@fontsource/space-grotesk/700.css';
+import { useNavigate } from 'react-router-dom';
+
+// Keep your existing chakra components
+const SidebarItem = chakra(Flex, {
+  baseStyle: {
+    alignItems: 'center',
+    height: '52px',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s',
+    borderRadius: '0 20px 20px 0',
+    marginRight: '16px',
+    position: 'relative',
+    marginTop: '3px',
+    marginBottom: '3px',
+    _hover: {
+      backgroundColor: 'rgba(255, 255, 255, 0.3)',
+    },
+  },
+});
+
+const SidebarIcon = chakra(Box, {
+  baseStyle: {
+    fontSize: '24px',
+    color: 'black',
+    position: 'absolute',
+    left: '20px',
+    transition: 'all 0.3s ease',
+  },
+});
+
+const SidebarText = chakra(Text, {
+  baseStyle: {
+    fontFamily: '"Karla Variable", sans-serif',
+    fontWeight: 500,
+    fontSize: '18px',
+    lineHeight: '27px',
+    color: 'black',
+    marginLeft: '60px',
+    transition: 'opacity 0.3s ease',
+  },
+});
+
+// Keep your existing PremiumBox component
+const PremiumBox = ({ isCollapsed }) => (
+  <Box
+    bgGradient="linear(135deg, #FFD700, #FFA500)"
+    borderRadius="20px"
+    border="1px solid black"
+    boxShadow="0 4px 0 0 black"
+    padding={4}
+    margin={4}
+    position="relative"
+    overflow="hidden"
+    opacity={isCollapsed ? 0 : 1}
+    transition="opacity 0.3s ease"
+    pointerEvents={isCollapsed ? 'none' : 'auto'}
+  >
+    <Box
+      position="absolute"
+      top="-10px"
+      right="-10px"
+      width="80px"
+      height="80px"
+      borderRadius="full"
+      backgroundColor="rgba(255, 255, 255, 0.2)"
+    />
+    <Flex direction="column" alignItems="center" justifyContent="center">
+      <Text fontWeight="bold" fontSize="18px" color="black" marginBottom={3}>
+        Your access is limited
+      </Text>
+      <Button
+        backgroundColor="white"
+        color="black"
+        borderRadius="full"
+        fontWeight="bold"
+        border="1px solid black"
+        boxShadow="0 2px 0 0 black"
+        _hover={{
+          transform: 'translateY(-2px)',
+          boxShadow: '0 4px 0 0 black',
+        }}
+        _active={{
+          transform: 'translateY(0)',
+          boxShadow: '0 1px 0 0 black',
+        }}
+      >
+        Go Premium! ✨
+      </Button>
+    </Flex>
+  </Box>
+);
+
+const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam }) => {
+  const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Add a small delay before showing the sidebar to ensure smooth transition
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 50);
+    
+    return () => clearTimeout(timer);
+  }, []);
+
+  const menuItems = [
+    { name: 'Dashboard', icon: RxDashboard, path: '/' },
+    { name: 'Providers', icon: GiCubeforce, path: '/providers' },
+    { name: 'Exams', icon: RiStackLine, path: '/exams' },
+    { name: 'Custom Exam', icon: GiSpellBook, path: '/custom-exam' },
+    { name: 'Actual Exam', icon: LuRocket, path: '/actual-exam' },
+  ];
+
+  const handleItemClick = (path, name) => {
+    if (name === 'Actual Exam') {
+      if (lastVisitedExam) {
+        navigate(`/actual-exam/${lastVisitedExam}`);
+      } else {
+        navigate('/actual-exam');
+      }
+    } else {
+      navigate(path);
+    }
+  };
+
+  if (!isVisible) {
+    return (
+      <Box 
+        width={isCollapsed ? "80px" : "300px"}
+        height="100vh"
+        backgroundColor="#f2f2f3"
+        transition="width 0.3s ease"
+      />
+    );
+  }
+
+  return (
+    <Box
+      backgroundColor="#f2f2f3"
+      width={isCollapsed ? "80px" : "300px"}
+      height="100vh"
+      padding="20px 0"
+      position="relative"
+      transition="width 0.3s ease"
+    >
+      <Flex
+        alignItems="center"
+        justifyContent="center"
+        marginBottom="60px"
+        opacity={isCollapsed ? 0 : 1}
+        transition="opacity 0.3s ease"
+        pointerEvents={isCollapsed ? 'none' : 'auto'}
+      >
+        <Box display="flex" alignItems="center">
+          <GiDreamCatcher size={32} color="black" />
+          <Text
+            marginLeft="8px"
+            fontFamily="'Space Grotesk', sans-serif"
+            fontSize="32px"
+            fontWeight="bold"
+            color="black"
+            position="relative"
+          >
+            hiraya
+            <sup style={{ fontSize: '8px', position: 'absolute', top: '15px', right: '-12px' }}>TM</sup>
+          </Text>
+        </Box>
+      </Flex>
+      <VStack spacing={2} align="stretch">
+        {menuItems.map((item) => (
+          <SidebarItem
+            key={item.name}
+            onClick={() => handleItemClick(item.path, item.name)}
+            position="relative"
+            zIndex={1}
+          >
+            <Box
+              position="absolute"
+              top="-3px"
+              left={0}
+              right={0}
+              bottom="-3px"
+              backgroundColor={activeItem === item.name ? '#b3ebf2' : 'transparent'}
+              borderRadius="0 20px 20px 0"
+              borderTop={activeItem === item.name ? '1px solid black' : 'none'}
+              borderRight={activeItem === item.name ? '1px solid black' : 'none'}
+              borderBottom={activeItem === item.name ? '1px solid black' : 'none'}
+              boxShadow={activeItem === item.name ? '0 4px 0 0 black' : 'none'}
+              zIndex={-1}
+            />
+            <SidebarIcon as={item.icon} />
+            <SidebarText
+              fontWeight={activeItem === item.name ? 700 : 500}
+              opacity={isCollapsed ? 0 : 1}
+              pointerEvents={isCollapsed ? 'none' : 'auto'}
+            >
+              {item.name}
+            </SidebarText>
+          </SidebarItem>
+        ))}
+      </VStack>
+      <Box position="absolute" bottom="80px" left="0" right="0">
+        <PremiumBox isCollapsed={isCollapsed} />
+      </Box>
+      <SidebarItem
+        position="absolute"
+        bottom="20px"
+        left="0"
+        right="0"
+        zIndex={1}
+        _hover={{
+          '& > *': {
+            color: 'rgb(226, 18, 18)',
+          },
+          transform: 'translateY(-2px)',
+        }}
+      >
+        <SidebarIcon
+          as={LuLogOut}
+          color="gray.500"
+          transition="color 0.3s ease"
+        />
+        <SidebarText
+          color="gray.500"
+          transition="color 0.3s ease, opacity 0.3s ease"
+          opacity={isCollapsed ? 0 : 1}
+          pointerEvents={isCollapsed ? 'none' : 'auto'}
+        >
+          Logout
+        </SidebarText>
+      </SidebarItem>
+      <Button
+        position="absolute"
+        top="24px"
+        right="-30px"
+        size="sm"
+        width="14px"
+        height="32px"
+        borderRadius="0 16px 16px 0"
+        onClick={onToggleCollapse}
+        zIndex={2}
+        backgroundColor="#f2f2f3"
+        border="1px solid"
+        borderColor="gray.300"
+        borderLeft="none"
+        _hover={{
+          backgroundColor: "gray.200",
+        }}
+        _active={{
+          backgroundColor: "gray.300",
+        }}
+        transition="background-color 0.2s"
+        padding={0}
+      >
+        <Icon as={isCollapsed ? LuChevronRight : LuChevronLeft} fontSize="12px" />
+      </Button>
+    </Box>
+  );
+};
+
+export default Sidebar;
+----
+SubmitButton.js
+import React from 'react';
+import { Button } from '@chakra-ui/react';
+
+const SubmitButton = (props) => (
+  <Button
+    height="48px"
+    fontSize="16px"
+    px="24px"
+    bg="#00bfff"
+    color="black"
+    borderRadius="full"
+    border="1px solid black"
+    fontWeight={700}
+    textTransform="uppercase"
+    transition="0.3s"
+    boxShadow="0 4px 0 0 black"
+    _hover={{
+      transform: 'translateY(2px)',
+      boxShadow: '0 2px 0 0 black',
+    }}
+    _active={{
+      transform: 'translateY(4px)',
+      boxShadow: 'none',
+    }}
+    {...props}
+  >
+    SUBMIT
+  </Button>
+);
+
+export default SubmitButton;
+----
+TabList.js
+import React, { useState } from 'react';
+import { Box, Button, ButtonGroup, Flex, Text } from '@chakra-ui/react';
+import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
+
+const TabButton = ({ children, isSelected, ...props }) => (
+  <Button
+    variant="referral"
+    backgroundColor={isSelected ? '#00bfff' : '#f2f2f3'}
+    color={isSelected ? 'black' : 'gray.600'}
+    {...props}
+  >
+    {children}
+  </Button>
+);
+
+const NavIconBox = ({ icon: Icon, onClick, isDisabled }) => {
+  const [isPressed, setIsPressed] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const size = '40px';
+  const iconScale = 0.5;
+  const iconSize = `${parseInt(size) * iconScale}px`;
+  const borderThickness = '0.5px';
+
+  const handleMouseDown = () => {
+    if (!isDisabled) {
+      setIsPressed(true);
+    }
+  };
+
+  const handleMouseUp = () => {
+    if (!isDisabled) {
+      setIsPressed(false);
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (!isDisabled) {
+      setIsHovered(true);
+    }
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+    setIsPressed(false);
+  };
+
+  return (
+    <Box
+      position="relative"
+      width={size}
+      height={size}
+      onClick={isDisabled ? undefined : onClick}
+      onMouseDown={handleMouseDown}
+      onMouseUp={handleMouseUp}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      cursor={isDisabled ? "not-allowed" : "pointer"}
+      transition="all 0.1s ease"
+      transform={isPressed && !isDisabled ? 'scale(0.95)' : 'scale(1)'}
+      userSelect="none"
+      opacity={isDisabled ? 0.5 : 1}
+    >
+      <Box
+        position="absolute"
+        top="0"
+        left="0"
+        width="100%"
+        height="100%"
+        borderRadius="50%"
+        border={borderThickness + " solid black"}
+        backgroundColor="transparent"
+      />
+      <Flex
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
+        alignItems="center"
+        justifyContent="center"
+        width="100%"
+        height="100%"
+      >
+        <Icon 
+          size={iconSize} 
+          color={isHovered && !isDisabled ? "#00bfff" : "black"} 
+          transition="color 0.2s ease"
+        />
+      </Flex>
+    </Box>
+  );
+};
+
+const TabList = ({ 
+  tabs, 
+  onTabChange, 
+  currentQuestionIndex, 
+  totalQuestions, 
+  onNavigateLeft, 
+  onNavigateRight,
+  isNavigationDisabled
+}) => {
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
+  const handleTabChange = (tab) => {
+    setSelectedTab(tab);
+    onTabChange(tab);
+  };
+
+  const handleNavigateLeft = () => {
+    if (!isNavigationDisabled && currentQuestionIndex > 0) {
+      onNavigateLeft();
+    }
+  };
+
+  const handleNavigateRight = () => {
+    if (!isNavigationDisabled && currentQuestionIndex < totalQuestions - 1) {
+      onNavigateRight();
+    }
+  };
+
+  return (
+    <Box backgroundColor="gray.50" display="flex" flexDirection="column" alignItems="center" width="100%" marginBottom={4}>
+      <ButtonGroup isAttached variant="referral" width="100%" marginBottom={4}>
+        {tabs.map((tab) => (
+          <TabButton
+            key={tab}
+            isSelected={selectedTab === tab}
+            onClick={() => handleTabChange(tab)}
+            flex={1}
+          >
+            {tab}
+          </TabButton>
+        ))}
+      </ButtonGroup>
+
+      <Flex width="100%" justifyContent="space-between" alignItems="center" paddingY={4}>
+        <NavIconBox 
+          icon={PiArrowLeftBold} 
+          onClick={handleNavigateLeft} 
+          isDisabled={currentQuestionIndex === 0 || isNavigationDisabled}
+        />
+        <Text fontSize="lg" color="gray.600">
+          Question {currentQuestionIndex + 1} of {totalQuestions}
+        </Text>
+        <NavIconBox 
+          icon={PiArrowRightBold} 
+          onClick={handleNavigateRight} 
+          isDisabled={currentQuestionIndex === totalQuestions - 1 || isNavigationDisabled}
+        />
+      </Flex>
+    </Box>
+  );
+};
+
+export default TabList;
+----
+TopicBox.js
+import React from 'react';
+import { Box, Text, VStack, Flex } from '@chakra-ui/react';
+
+const TopicBox = ({ topicNumber, examCode, examTitle }) => {
+  // Capitalize the exam code
+  const capitalizedExamCode = examCode.toUpperCase();
+
+  return (
+    <Flex
+      direction="column"
+      width="100%"
+      bgGradient="linear(to top left, #F7941E, #72C6EF, #00A651)"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      position="relative"
+      overflow="hidden"
+      padding={6}
+    >
+      <VStack spacing={4} align="stretch">
+        <Box
+          paddingX={2}
+          paddingY={0}
+          borderRadius="full"
+          display="inline-block"
+          alignSelf="flex-start"
+          border="1px solid black"
+          backgroundColor="rgba(255, 255, 255, 0.7)"
+        >
+          <Text fontSize="14px" fontWeight="500" color="black">
+            Topic {topicNumber}
+          </Text>
+        </Box>
+        <Text fontSize="24px" fontWeight="700" color="black" lineHeight="1.2">
+          {capitalizedExamCode}
+        </Text>
+        <Text fontSize="20px" fontWeight="700" color="black" lineHeight="1.2">
+          {examTitle}
+        </Text>
+      </VStack>
+    </Flex>
+  );
+};
+
+export default TopicBox;
+----
+TopicSelector.js
+import React, { useState, useRef, useEffect } from 'react';
+import { Box, Text, Flex, Button, VStack } from '@chakra-ui/react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
+
+const CONTAINER_HEIGHT = "300px";
+const TOPICS_PER_PAGE = 10;
+
+const TopicButton = ({ topic, isSelected, onClick }) => (
+  <Button
+    onClick={() => onClick(topic)}
+    width="100%"
+    height="40px"
+    backgroundColor={isSelected ? "#00bfff" : "white"}
+    color="black"
+    fontWeight={700}
+    fontSize="14px"
+    borderRadius="10px"
+    border="1px solid black"
+    boxShadow={isSelected ? "none" : "0 2px 0 0 black"}
+    _hover={{
+      backgroundColor: isSelected ? "#00a6d6" : "#e6f7f9",
+      transform: "translateY(1px)",
+      boxShadow: isSelected ? "none" : "0 1px 0 0 black",
+    }}
+    _active={{
+      transform: "translateY(2px)",
+      boxShadow: "none",
+    }}
+    transition="all 0.2s"
+  >
+    Topic {topic}
+  </Button>
+);
+
+const TopicSelector = ({ availableTopics, currentTopic, onTopicChange }) => {
+  const [currentPage, setCurrentPage] = useState(0);
+  const scrollContainerRef = useRef(null);
+  const totalPages = Math.ceil(availableTopics.length / TOPICS_PER_PAGE);
+
+  const handlePageChange = (direction) => {
+    setCurrentPage(prevPage => {
+      const newPage = direction === 'left'
+        ? Math.max(0, prevPage - 1)
+        : Math.min(totalPages - 1, prevPage + 1);
+      return newPage;
+    });
+  };
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [currentPage]);
+
+  if (availableTopics.length === 1) {
+    return null; // Don't render the TopicSelector if there's only one topic
+  }
+
+  return (
+    <Box
+      width="100%"
+      backgroundColor="#f2f2f3"
+      borderRadius="20px"
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      padding={4}
+    >
+      <Text fontSize="24px" fontWeight="700" color="black" marginBottom={4}>
+        Topics
+      </Text>
+      {availableTopics.length > 0 ? (
+        <>
+          <Box
+            ref={scrollContainerRef}
+            overflowY="auto"
+            height={CONTAINER_HEIGHT}
+            marginBottom={4}
+            css={{
+              '&::-webkit-scrollbar': {
+                width: '8px',
+              },
+              '&::-webkit-scrollbar-track': {
+                background: '#f1f1f1',
+                borderRadius: '4px',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                background: '#888',
+                borderRadius: '4px',
+              },
+              '&::-webkit-scrollbar-thumb:hover': {
+                background: '#555',
+              },
+            }}
+          >
+            <VStack spacing={3} align="stretch" padding={2}>
+              {availableTopics.slice(currentPage * TOPICS_PER_PAGE, (currentPage + 1) * TOPICS_PER_PAGE).map((topic) => (
+                <TopicButton
+                  key={topic}
+                  topic={topic}
+                  isSelected={currentTopic === topic}
+                  onClick={onTopicChange}
+                />
+              ))}
+            </VStack>
+          </Box>
+          <Flex justifyContent="space-between" alignItems="center">
+            <Button
+              onClick={() => handlePageChange('left')}
+              isDisabled={currentPage === 0}
+              leftIcon={<ChevronLeftIcon />}
+              size="sm"
+              backgroundColor="white"
+              color="black"
+              fontWeight={700}
+              fontSize="14px"
+              borderRadius="full"
+              border="1px solid black"
+              boxShadow="0 2px 0 0 black"
+              _hover={{
+                backgroundColor: "#e6f7f9",
+                transform: "translateY(1px)",
+                boxShadow: "0 1px 0 0 black",
+              }}
+              _active={{
+                transform: "translateY(2px)",
+                boxShadow: "none",
+              }}
+              _disabled={{
+                opacity: 0.5,
+                cursor: "not-allowed",
+                boxShadow: "none",
+              }}
+            >
+              Previous
+            </Button>
+            <Button
+              onClick={() => handlePageChange('right')}
+              isDisabled={currentPage === totalPages - 1}
+              rightIcon={<ChevronRightIcon />}
+              size="sm"
+              backgroundColor="white"
+              color="black"
+              fontWeight={700}
+              fontSize="14px"
+              borderRadius="full"
+              border="1px solid black"
+              boxShadow="0 2px 0 0 black"
+              _hover={{
+                backgroundColor: "#e6f7f9",
+                transform: "translateY(1px)",
+                boxShadow: "0 1px 0 0 black",
+              }}
+              _active={{
+                transform: "translateY(2px)",
+                boxShadow: "none",
+              }}
+              _disabled={{
+                opacity: 0.5,
+                cursor: "not-allowed",
+                boxShadow: "none",
+              }}
+            >
+              Next
+            </Button>
+          </Flex>
+        </>
+      ) : (
+        <Text fontSize="16px" color="gray.600">
+          No topics available for this exam.
+        </Text>
+      )}
+    </Box>
+  );
+};
+
+export default TopicSelector;
+--END--

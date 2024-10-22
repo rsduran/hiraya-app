@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   VStack,
   Flex,
@@ -23,12 +24,20 @@ const LoadingSpinner = () => (
 );
 
 const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
+  const location = useLocation();
   const [providers, setProviders] = useState([]);
   const [selectedProvider, setSelectedProvider] = useState("All Providers");
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const providersPerPage = 3;
+
+  useEffect(() => {
+    // Check for provider selection from navigation
+    if (location.state?.selectedProvider && location.state?.fromProviders) {
+      setSelectedProvider(location.state.selectedProvider);
+    }
+  }, [location]);
 
   const fetchProviders = async () => {
     setIsLoading(true);
@@ -98,6 +107,11 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
     setCurrentPage(newPage);
   };
 
+  const handleProviderSelect = (provider) => {
+    setSelectedProvider(provider);
+    setCurrentPage(1); // Reset to first page on provider change
+  };
+
   const renderContent = () => {
     if (isLoading) {
       return <LoadingSpinner />;
@@ -141,10 +155,7 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
               <ProviderDropdown
                 providers={allProviders}
                 selectedProvider={selectedProvider}
-                onSelect={(provider) => {
-                  setSelectedProvider(provider);
-                  setCurrentPage(1); // Reset to first page on provider change
-                }}
+                onSelect={handleProviderSelect}
               />
             </Box>
             <Flex gap={2}>

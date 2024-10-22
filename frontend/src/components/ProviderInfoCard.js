@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Text,
@@ -8,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 
 const ProviderInfoCard = ({ provider, view }) => {
+  const navigate = useNavigate();
   const {
     name,
     description,
@@ -41,6 +43,15 @@ const ProviderInfoCard = ({ provider, view }) => {
       }
     }
   }, [name, view]);
+
+  const handleViewExams = () => {
+    navigate('/exams', { 
+      state: { 
+        selectedProvider: name,
+        fromProviders: true
+      }
+    });
+  };
 
   if (view === "grid") {
     return (
@@ -139,6 +150,7 @@ const ProviderInfoCard = ({ provider, view }) => {
             _hover={{ backgroundColor: "#00a6d6" }}
             _active={{ boxShadow: "none", transform: "translateY(2px)" }}
             width="100%"
+            onClick={handleViewExams}
           >
             View Exams
           </Box>
@@ -212,6 +224,7 @@ const ProviderInfoCard = ({ provider, view }) => {
             boxShadow="0 2px 0 0 black"
             _hover={{ backgroundColor: "#00a6d6" }}
             _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            onClick={handleViewExams}
           >
             View Exams
           </Box>

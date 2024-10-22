@@ -1,11 +1,82 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Flex, Text, Link, Tooltip } from '@chakra-ui/react';
+import { Flex, Text, Link, Tooltip, useColorModeValue } from '@chakra-ui/react';
 import { ChevronRightIcon } from '@chakra-ui/icons';
+
+// Create a separate BreadcrumbItem component
+const BreadcrumbItem = React.memo(({ 
+  item, 
+  isTruncated, 
+  innerRef,
+  currentPageColor,
+  linkColor,
+  hoverColor,
+  tooltipBg,
+  tooltipColor,
+  tooltipBorderColor,
+  tooltipBoxShadow
+}) => {
+  const content = (
+    <Text
+      color={item.isCurrentPage ? currentPageColor : linkColor}
+      fontFamily="body"
+      fontWeight="500"
+      fontSize="16px"
+      whiteSpace="nowrap"
+      overflow="hidden"
+      textOverflow="ellipsis"
+      maxWidth={isTruncated ? "50px" : "none"}
+      ref={innerRef}
+      as={item.isCurrentPage ? "span" : Link}
+      href={item.isCurrentPage ? undefined : item.href}
+      _hover={item.isCurrentPage ? undefined : {
+        textDecoration: 'underline',
+        color: hoverColor
+      }}
+      transition="color 0.2s"
+    >
+      {isTruncated ? item.label.slice(0, 3) + '...' : item.label}
+    </Text>
+  );
+
+  if (isTruncated) {
+    return (
+      <Tooltip 
+        label={item.label} 
+        aria-label="Full breadcrumb text"
+        bg={tooltipBg}
+        color={tooltipColor}
+        borderRadius="md"
+        border="1px solid"
+        borderColor={tooltipBorderColor}
+        boxShadow={tooltipBoxShadow}
+        padding="2"
+        fontSize="sm"
+      >
+        {content}
+      </Tooltip>
+    );
+  }
+
+  return content;
+});
 
 const Breadcrumbs = ({ items }) => {
   const containerRef = useRef(null);
   const itemRefs = useRef([]);
   const [itemWidths, setItemWidths] = useState([]);
+
+  // Theme-aware colors - moved to top level
+  const currentPageColor = useColorModeValue('gray.500', 'gray.400');
+  const linkColor = useColorModeValue('brand.primary.light', 'brand.primary.dark');
+  const hoverColor = useColorModeValue('brand.primary.dark', 'brand.primary.light');
+  const separatorColor = useColorModeValue('brand.border.light', 'brand.border.dark');
+  const tooltipBg = useColorModeValue('brand.surface.light', 'brand.surface.dark');
+  const tooltipColor = useColorModeValue('brand.text.light', 'brand.text.dark');
+  const tooltipBorderColor = useColorModeValue('brand.border.light', 'brand.border.dark');
+  const tooltipBoxShadow = useColorModeValue(
+    '0 4px 0 0 black',
+    '0 4px 0 0 rgba(255, 255, 255, 0.2)'
+  );
 
   useEffect(() => {
     const checkOverflow = () => {
@@ -23,7 +94,7 @@ const Breadcrumbs = ({ items }) => {
           
           while (totalWidth > availableWidth && (i > 0 || j < items.length - 1)) {
             if (i > 0) {
-              totalWidth -= newItemWidths[i] - 50; // 50px for truncated item
+              totalWidth -= newItemWidths[i] - 50;
               newItemWidths[i] = 50;
               i--;
             }
@@ -34,7 +105,6 @@ const Breadcrumbs = ({ items }) => {
             }
           }
         } else {
-          // If there's enough space, reset all widths to their original values
           newItemWidths.fill(null);
         }
         
@@ -47,40 +117,37 @@ const Breadcrumbs = ({ items }) => {
     return () => window.removeEventListener('resize', checkOverflow);
   }, [items]);
 
-  const renderItem = (item, index) => {
-    const isTruncated = itemWidths[index] === 50;
-    
-    const content = (
-      <Text
-        color={item.isCurrentPage ? "gray.500" : "blue.500"}
-        fontWeight="500"
-        fontSize="16px"
-        whiteSpace="nowrap"
-        overflow="hidden"
-        textOverflow="ellipsis"
-        maxWidth={isTruncated ? "50px" : "none"}
-        ref={el => itemRefs.current[index] = el}
-        as={item.isCurrentPage ? "span" : Link}
-        href={item.isCurrentPage ? undefined : item.href}
-        _hover={item.isCurrentPage ? undefined : { textDecoration: 'underline' }}
-      >
-        {isTruncated ? item.label.slice(0, 3) + '...' : item.label}
-      </Text>
-    );
-
-    return isTruncated ? (
-      <Tooltip key={index} label={item.label} aria-label="Full breadcrumb text">
-        {content}
-      </Tooltip>
-    ) : content;
-  };
-
   return (
-    <Flex align="center" ref={containerRef} overflow="hidden" width="100%">
+    <Flex 
+      align="center" 
+      ref={containerRef} 
+      overflow="hidden" 
+      width="100%"
+      transition="all 0.2s"
+    >
       {items.map((item, index) => (
         <React.Fragment key={index}>
-          {index > 0 && <ChevronRightIcon mx={1} color="gray.500" flexShrink={0} boxSize={3} />}
-          {renderItem(item, index)}
+          {index > 0 && (
+            <ChevronRightIcon 
+              mx={1} 
+              color={separatorColor} 
+              flexShrink={0} 
+              boxSize={3}
+              transition="color 0.2s"
+            />
+          )}
+          <BreadcrumbItem
+            item={item}
+            isTruncated={itemWidths[index] === 50}
+            innerRef={el => itemRefs.current[index] = el}
+            currentPageColor={currentPageColor}
+            linkColor={linkColor}
+            hoverColor={hoverColor}
+            tooltipBg={tooltipBg}
+            tooltipColor={tooltipColor}
+            tooltipBorderColor={tooltipBorderColor}
+            tooltipBoxShadow={tooltipBoxShadow}
+          />
         </React.Fragment>
       ))}
     </Flex>
