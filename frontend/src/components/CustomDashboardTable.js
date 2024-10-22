@@ -1,81 +1,12 @@
 import React, { useState, useMemo } from "react";
-import {
-  Box,
-  Flex,
-  Text,
-  Button,
-  VStack,
-  Input,
-} from "@chakra-ui/react";
+import { Box, Flex, Text, Button, VStack, Input } from "@chakra-ui/react";
 import { PiSortAscending, PiSortDescending } from "react-icons/pi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import Pagination from "./Pagination";
 
-const mockData = [
-  {
-    id: 1,
-    provider: "AWS",
-    exam: "Cloud Practitioner",
-    examType: "Actual",
-    attempts: 2,
-    averageScore: 78.5,
-    progress: 75,
-    latestGrade: { score: 85, total: 100 },
-    status: "Passed",
-    updated: "Just now",
-  },
-  {
-    id: 2,
-    provider: "AWS",
-    exam: "Solutions Architect",
-    examType: "Custom",
-    attempts: 1,
-    averageScore: 65.0,
-    progress: 50,
-    latestGrade: { score: 65, total: 100 },
-    status: "Failed",
-    updated: "2 hours ago",
-  },
-  {
-    id: 3,
-    provider: "Google",
-    exam: "Associate Cloud Engineer",
-    examType: "Actual",
-    attempts: 3,
-    averageScore: 88.33,
-    progress: 90,
-    latestGrade: { score: 92, total: 100 },
-    status: "Passed",
-    updated: "1 day ago",
-  },
-  {
-    id: 4,
-    provider: "Microsoft",
-    exam: "Azure Fundamentals",
-    examType: "Custom",
-    attempts: 0,
-    averageScore: 0,
-    progress: 30,
-    latestGrade: { score: 0, total: 100 },
-    status: "Not Attempted",
-    updated: "1 week ago",
-  },
-  {
-    id: 5,
-    provider: "Cisco",
-    exam: "CCNA",
-    examType: "Actual",
-    attempts: 2,
-    averageScore: 77.5,
-    progress: 80,
-    latestGrade: { score: 80, total: 100 },
-    status: "Passed",
-    updated: "2 weeks ago",
-  },
-];
-
-const CustomCheckbox = ({ isChecked, onChange }) => (
+const CustomCheckbox = ({ isChecked, isIndeterminate, onChange }) => (
   <Box
     as="button"
     width="20px"
@@ -89,14 +20,27 @@ const CustomCheckbox = ({ isChecked, onChange }) => (
     onClick={onChange}
     _hover={{ backgroundColor: isChecked ? "#00a6d6" : "#e6f7f9" }}
     transition="all 0.2s"
+    position="relative"
   >
-    {isChecked && (
+    {isIndeterminate ? (
       <Box
         width="10px"
-        height="10px"
-        borderRadius="2px"
-        backgroundColor="white"
+        height="2px"
+        backgroundColor={isChecked ? "white" : "black"}
+        position="absolute"
+        top="50%"
+        left="50%"
+        transform="translate(-50%, -50%)"
       />
+    ) : (
+      isChecked && (
+        <Box
+          width="10px"
+          height="10px"
+          borderRadius="2px"
+          backgroundColor="white"
+        />
+      )
     )}
   </Box>
 );
@@ -172,19 +116,48 @@ const TableHeader = ({ children, onClick, isSortable, sortDirection }) => (
   </Flex>
 );
 
-const TableCell = ({ children, ...props }) => (
-  <Text
-    fontFamily="Karla Variable"
-    fontWeight={700}
-    fontSize="12px"
-    lineHeight="16px"
-    color="black"
-    textAlign="center"
-    {...props}
-  >
-    {children}
-  </Text>
-);
+const TableCell = ({ children, isLink, examId, ...props }) => {
+  const navigate = useNavigate();
+
+  if (isLink) {
+    return (
+      <Text
+        fontFamily="Karla Variable"
+        fontWeight={700}
+        fontSize="12px"
+        lineHeight="16px"
+        color="#00bfff"
+        textAlign="center"
+        cursor="pointer"
+        _hover={{
+          textDecoration: "underline",
+          color: "#0095cc",
+        }}
+        onClick={(e) => {
+          e.stopPropagation();
+          navigate(`/actual-exam/${examId}`);
+        }}
+        {...props}
+      >
+        {children}
+      </Text>
+    );
+  }
+
+  return (
+    <Text
+      fontFamily="Karla Variable"
+      fontWeight={700}
+      fontSize="12px"
+      lineHeight="16px"
+      color="black"
+      textAlign="center"
+      {...props}
+    >
+      {children}
+    </Text>
+  );
+};
 
 const StatusBadge = ({ status }) => {
   let bgGradient;
@@ -250,9 +223,15 @@ const CustomProgressIndicator = ({ value }) => {
         position="absolute"
       >
         <defs>
-          <linearGradient id={`gradient-${value}`} gradientTransform="rotate(90)">
+          <linearGradient
+            id={`gradient-${value}`}
+            gradientTransform="rotate(90)"
+          >
             <stop offset="0%" stopColor={getColor(value).split(", ")[1]} />
-            <stop offset="100%" stopColor={getColor(value).split(", ")[2].slice(0, -1)} />
+            <stop
+              offset="100%"
+              stopColor={getColor(value).split(", ")[2].slice(0, -1)}
+            />
           </linearGradient>
         </defs>
         <path
@@ -291,8 +270,38 @@ const ProviderGroup = ({
 }) => {
   const [isOpen, setIsOpen] = useState(true);
 
-  const toggleGroup = () => {
+  const allProviderExamsSelected = useMemo(() => {
+    const providerExamIds = exams.map((exam) => exam.id);
+    return providerExamIds.every((id) => selectedRows.includes(id));
+  }, [exams, selectedRows]);
+
+  const someProviderExamsSelected = useMemo(() => {
+    const providerExamIds = exams.map((exam) => exam.id);
+    return (
+      providerExamIds.some((id) => selectedRows.includes(id)) &&
+      !allProviderExamsSelected
+    );
+  }, [exams, selectedRows, allProviderExamsSelected]);
+
+  const toggleGroup = (e) => {
+    e.stopPropagation();
     setIsOpen(!isOpen);
+  };
+
+  const handleProviderSelect = (e) => {
+    e.stopPropagation();
+    const providerExamIds = exams.map((exam) => exam.id);
+
+    if (allProviderExamsSelected) {
+      handleSelectRow(providerExamIds, false);
+    } else {
+      handleSelectRow(providerExamIds, true);
+    }
+  };
+
+  const formatNumber = (number, decimals = 2) => {
+    if (number === null || number === undefined) return "0.00";
+    return Number(number).toFixed(decimals);
   };
 
   return (
@@ -308,19 +317,30 @@ const ProviderGroup = ({
         justifyContent="space-between"
         alignItems="center"
         padding={4}
-        onClick={toggleGroup}
-        cursor="pointer"
         backgroundColor="#e6f7f9"
         _hover={{ backgroundColor: "#d1f1f5" }}
+        cursor="pointer"
+        onClick={toggleGroup}
       >
-        <Text fontSize="18px" fontWeight="700" color="black">
-          {provider}
-        </Text>
-        {isOpen ? (
-          <IoChevronUp size={20} />
-        ) : (
-          <IoChevronDown size={20} />
-        )}
+        <Flex alignItems="center" flex={1}>
+          <Box
+            width="40px"
+            textAlign="center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <CustomCheckbox
+              isChecked={allProviderExamsSelected}
+              isIndeterminate={someProviderExamsSelected}
+              onChange={handleProviderSelect}
+            />
+          </Box>
+          <Text fontSize="18px" fontWeight="700" color="black" flex={1}>
+            {provider}
+          </Text>
+        </Flex>
+        <Box>
+          {isOpen ? <IoChevronUp size={20} /> : <IoChevronDown size={20} />}
+        </Box>
       </Flex>
       <AnimatePresence initial={false}>
         {isOpen && (
@@ -346,35 +366,46 @@ const ProviderGroup = ({
                   <Box width="40px" textAlign="center">
                     <CustomCheckbox
                       isChecked={selectedRows.includes(item.id)}
-                      onChange={() => handleSelectRow(item.id)}
+                      onChange={() =>
+                        handleSelectRow(
+                          [item.id],
+                          !selectedRows.includes(item.id)
+                        )
+                      }
                     />
                   </Box>
                   <Box flex={1}>
-                    <TableCell>{item.exam}</TableCell>
+                    <TableCell isLink examId={item.id}>
+                      {item.exam || "Untitled Exam"}
+                    </TableCell>
                   </Box>
                   <Box flex={1}>
-                    <TableCell>{item.examType}</TableCell>
+                    <TableCell>{item.examType || "Actual"}</TableCell>
                   </Box>
                   <Box flex={1}>
                     <TableCell>
-                      Attempt {item.attempts}
+                      Attempt {item.attempts || 0}
                       <br />
-                      Avg: {item.averageScore.toFixed(2)}%
+                      Avg: {formatNumber(item.averageScore)}%
                     </TableCell>
                   </Box>
                   <Box flex={1} display="flex" justifyContent="center">
-                    <CustomProgressIndicator value={item.progress} />
+                    <CustomProgressIndicator value={item.progress || 0} />
                   </Box>
                   <Box flex={1}>
                     <Flex direction="column" alignItems="center">
-                      <TableCell>{`${item.latestGrade.score}/${item.latestGrade.total}`}</TableCell>
+                      <TableCell>
+                        {`${item.latestGrade?.score || 0}/${
+                          item.latestGrade?.total || 100
+                        }`}
+                      </TableCell>
                       <Box marginTop={1}>
-                        <StatusBadge status={item.status} />
+                        <StatusBadge status={item.status || "Not Attempted"} />
                       </Box>
                     </Flex>
                   </Box>
                   <Box flex={1}>
-                    <TableCell>{item.updated}</TableCell>
+                    <TableCell>{item.updated || "Not started"}</TableCell>
                   </Box>
                 </Flex>
               ))}
@@ -386,7 +417,11 @@ const ProviderGroup = ({
   );
 };
 
-const CustomDashboardTableComponent = () => {
+const CustomDashboardTableComponent = ({
+  data,
+  onDeleteSelected,
+  onDeleteAll,
+}) => {
   const [selectedRows, setSelectedRows] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
   const [sortConfig, setSortConfig] = useState({
@@ -395,33 +430,19 @@ const CustomDashboardTableComponent = () => {
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const itemsPerPage = 2; // Adjust as needed
+  const itemsPerPage = 2;
 
   const handleSelectAll = () => {
+    const allIds = data.flatMap((provider) =>
+      provider.exams.map((exam) => exam.id)
+    );
+
     if (selectAll) {
       setSelectedRows([]);
     } else {
-      setSelectedRows(mockData.map((item) => item.id));
+      setSelectedRows(allIds);
     }
     setSelectAll(!selectAll);
-  };
-
-  const handleSelectRow = (id) => {
-    if (selectedRows.includes(id)) {
-      setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
-    } else {
-      setSelectedRows([...selectedRows, id]);
-    }
-  };
-
-  const handleDeleteSelected = () => {
-    console.log("Delete selected rows:", selectedRows);
-    // Implement delete logic here
-  };
-
-  const handleDeleteAll = () => {
-    console.log("Delete all rows");
-    // Implement delete all logic here
   };
 
   const handleSort = (key) => {
@@ -432,10 +453,55 @@ const CustomDashboardTableComponent = () => {
     setSortConfig({ key, direction });
   };
 
-  const sortedData = useMemo(() => {
-    let sortableItems = [...mockData];
+  const handleSelectRow = (ids, isSelected) => {
+    setSelectedRows((prev) => {
+      if (Array.isArray(ids)) {
+        if (isSelected) {
+          const newSelection = [...new Set([...prev, ...ids])];
+          const allPossibleIds = data.flatMap((provider) =>
+            provider.exams.map((exam) => exam.id)
+          );
+          setSelectAll(newSelection.length === allPossibleIds.length);
+          return newSelection;
+        } else {
+          const newSelection = prev.filter((id) => !ids.includes(id));
+          setSelectAll(false);
+          return newSelection;
+        }
+      } else {
+        const newSelection = prev.includes(ids)
+          ? prev.filter((id) => id !== ids)
+          : [...prev, ids];
+
+        const allPossibleIds = data.flatMap((provider) =>
+          provider.exams.map((exam) => exam.id)
+        );
+        setSelectAll(newSelection.length === allPossibleIds.length);
+        return newSelection;
+      }
+    });
+  };
+
+  const processedData = useMemo(() => {
+    // Flatten the provider structure
+    const flattenedData = data.flatMap((provider) =>
+      provider.exams.map((exam) => ({
+        ...exam,
+        provider: provider.name,
+      }))
+    );
+
+    // Sort the data
+    let sortedData = [...flattenedData];
     if (sortConfig.key) {
-      sortableItems.sort((a, b) => {
+      sortedData.sort((a, b) => {
+        if (sortConfig.key === "updated") {
+          // Sort by timestamp for 'updated' column
+          const aTime = new Date(a.timestamp || 0).getTime();
+          const bTime = new Date(b.timestamp || 0).getTime();
+          return sortConfig.direction === "asc" ? aTime - bTime : bTime - aTime;
+        }
+
         if (a[sortConfig.key] < b[sortConfig.key]) {
           return sortConfig.direction === "asc" ? -1 : 1;
         }
@@ -445,26 +511,25 @@ const CustomDashboardTableComponent = () => {
         return 0;
       });
     }
-    return sortableItems;
-  }, [sortConfig]);
 
-  const filteredAndGroupedData = useMemo(() => {
-    return sortedData
-      .filter(
-        (item) =>
-          item.exam.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          item.provider.toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .reduce((acc, item) => {
-        if (!acc[item.provider]) {
-          acc[item.provider] = [];
-        }
-        acc[item.provider].push(item);
-        return acc;
-      }, {});
-  }, [sortedData, searchTerm]);
+    // Filter based on search term
+    const filteredData = sortedData.filter(
+      (item) =>
+        item.exam.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.provider.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
-  const providerList = Object.keys(filteredAndGroupedData);
+    // Group by provider
+    return filteredData.reduce((acc, item) => {
+      if (!acc[item.provider]) {
+        acc[item.provider] = [];
+      }
+      acc[item.provider].push(item);
+      return acc;
+    }, {});
+  }, [data, sortConfig, searchTerm]);
+
+  const providerList = Object.keys(processedData);
   const totalPages = Math.ceil(providerList.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -476,7 +541,7 @@ const CustomDashboardTableComponent = () => {
       border="1px solid black"
       padding={6}
       overflowY="scroll"
-      maxHeight="600px" // Adjust as needed
+      maxHeight="600px"
     >
       <Flex justifyContent="space-between" alignItems="center" marginBottom={4}>
         <Text
@@ -499,7 +564,7 @@ const CustomDashboardTableComponent = () => {
             backgroundColor="white"
           />
           <CustomButton
-            onClick={handleDeleteSelected}
+            onClick={() => onDeleteSelected(selectedRows)}
             backgroundColor="transparent"
             hoverBackgroundColor="#FFE5E5"
             borderColor="#FF3333"
@@ -509,7 +574,7 @@ const CustomDashboardTableComponent = () => {
             Delete Selected
           </CustomButton>
           <CustomButton
-            onClick={handleDeleteAll}
+            onClick={onDeleteAll}
             backgroundColor="#FF3333"
             hoverBackgroundColor="#FF0000"
           >
@@ -567,12 +632,13 @@ const CustomDashboardTableComponent = () => {
                 </TableHeader>
               </Box>
             </Flex>
+
             {/* Table Body */}
             {paginatedProviderList.map((provider) => (
               <ProviderGroup
                 key={provider}
                 provider={provider}
-                exams={filteredAndGroupedData[provider]}
+                exams={processedData[provider]}
                 selectedRows={selectedRows}
                 handleSelectRow={handleSelectRow}
                 handleSort={handleSort}
@@ -581,7 +647,8 @@ const CustomDashboardTableComponent = () => {
           </Box>
         </Box>
       </Box>
-      {/* Pagination Component */}
+
+      {/* Pagination */}
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
@@ -592,4 +659,4 @@ const CustomDashboardTableComponent = () => {
 };
 
 const CustomDashboardTable = React.memo(CustomDashboardTableComponent);
-export { CustomDashboardTable as default };
+export default CustomDashboardTable;

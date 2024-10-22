@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
-import { Box, Flex, Text, Button, VStack } from '@chakra-ui/react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { Box, Flex, Text, Button, VStack, useToast, Spinner, useDisclosure } from '@chakra-ui/react';
 import { FaApple, FaAndroid, FaHeart, FaTimes } from 'react-icons/fa';
-import { IconBox, StarIconBox } from './IconBox';
+import { IconBox } from './IconBox';
 import CustomDashboardTable from './CustomDashboardTable';
+import DeleteConfirmationModal from './DeleteConfirmationModal';
+import { createCustomToast } from './CustomToast';
 
 const WelcomeComponent = ({ users, countries }) => (
   <Box
@@ -211,20 +213,244 @@ const SupportDevelopers = ({ onClose }) => (
   </Box>
 );
 
+const EmptyProgressState = () => (
+  <Box
+    borderRadius="12px"
+    border="1px solid black"
+    padding={6}
+    backgroundColor="white"
+    marginBottom={8}
+  >
+    <VStack spacing={4}>
+      <Text fontSize="xl" fontWeight="bold" textAlign="center">
+        No Exam Progress Yet
+      </Text>
+      <Text color="gray.600" textAlign="center">
+        Start your learning journey by selecting an exam and clicking "Continue" to begin tracking your progress here.
+      </Text>
+    </VStack>
+  </Box>
+);
+
 const Dashboard = () => {
+  // State declarations
   const [showMobileApps, setShowMobileApps] = useState(true);
   const [showSupport, setShowSupport] = useState(true);
+  const [examProgress, setExamProgress] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [selectedForDeletion, setSelectedForDeletion] = useState([]);
+  const [deleteType, setDeleteType] = useState('');
+  
+  // Refs for cleanup and preventing memory leaks
+  const abortControllerRef = useRef(null);
+  const isMounted = useRef(true);
+  
+  // Hooks
+  const toast = useToast();
+  const toastRef = useRef(createCustomToast(toast));
+  const { 
+    isOpen: isDeleteModalOpen, 
+    onOpen: openDeleteModal, 
+    onClose: closeDeleteModal 
+  } = useDisclosure();
 
+  // Fetch exam progress with cleanup and error handling
+  const fetchExamProgress = useCallback(async () => {
+    // Cancel any ongoing requests
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort();
+    }
+
+    // Create new abort controller
+    abortControllerRef.current = new AbortController();
+
+    try {
+      if (!isMounted.current) return;
+      setIsLoading(true);
+
+      const response = await fetch('http://localhost:5000/api/exam-progress', {
+        signal: abortControllerRef.current.signal
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to fetch exam progress');
+      }
+
+      const data = await response.json();
+      if (isMounted.current) {
+        setExamProgress(data.providers);
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') {
+        return; // Ignore abort errors
+      }
+      
+      console.error('Error fetching exam progress:', error);
+      if (isMounted.current) {
+        toastRef.current({
+          title: 'Error fetching exam progress',
+          description: error.message,
+          status: 'error',
+        });
+        setExamProgress([]);
+      }
+    } finally {
+      if (isMounted.current) {
+        setIsLoading(false);
+      }
+    }
+  }, []); // No dependencies needed since we use refs
+
+  // Setup effect
+  useEffect(() => {
+    isMounted.current = true;
+    fetchExamProgress();
+
+    // Cleanup function
+    return () => {
+      isMounted.current = false;
+      if (abortControllerRef.current) {
+        abortControllerRef.current.abort();
+      }
+    };
+  }, [fetchExamProgress]);
+
+  // Handler for deleting selected items
+  const handleDeleteSelected = useCallback(async (selectedIds) => {
+    setSelectedForDeletion(selectedIds);
+    setDeleteType('selected');
+    openDeleteModal();
+  }, [openDeleteModal]);
+
+  // Handler for deleting all items
+  const handleDeleteAll = useCallback(() => {
+    setDeleteType('all');
+    openDeleteModal();
+  }, [openDeleteModal]);
+
+  // Confirm delete handler
+  const handleConfirmDelete = async () => {
+    try {
+      if (deleteType === 'all') {
+        await fetch('http://localhost:5000/api/delete-all-progress', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' }
+        });
+        
+        if (isMounted.current) {
+          setExamProgress([]);
+          toastRef.current({
+            title: 'All progress cleared',
+            description: 'Your exam progress history has been cleared.',
+            status: 'success'
+          });
+        }
+      } else {
+        const providerGroups = examProgress.reduce((acc, provider) => {
+          const selectedProviderExams = provider.exams
+            .filter(exam => selectedForDeletion.includes(exam.id))
+            .map(exam => exam.id);
+          
+          if (selectedProviderExams.length === provider.exams.length) {
+            acc.providers.push(provider.name);
+          } else if (selectedProviderExams.length > 0) {
+            acc.exams.push(...selectedProviderExams);
+          }
+          return acc;
+        }, { providers: [], exams: [] });
+
+        // Delete providers if needed
+        if (providerGroups.providers.length > 0) {
+          await fetch('http://localhost:5000/api/delete-provider-exams', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ provider_names: providerGroups.providers })
+          });
+        }
+
+        // Delete individual exams if needed
+        if (providerGroups.exams.length > 0) {
+          await fetch('http://localhost:5000/api/delete-exams', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ exam_ids: providerGroups.exams })
+          });
+        }
+
+        // Refresh data
+        await fetchExamProgress();
+
+        if (isMounted.current) {
+          toastRef.current({
+            title: 'Selected items deleted',
+            description: 'The selected exams have been removed from your progress tracking.',
+            status: 'success'
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error during deletion:', error);
+      if (isMounted.current) {
+        toastRef.current({
+          title: 'Error',
+          description: `Failed to delete ${deleteType === 'all' ? 'all progress' : 'selected items'}`,
+          status: 'error'
+        });
+      }
+    } finally {
+      if (isMounted.current) {
+        closeDeleteModal();
+        setSelectedForDeletion([]);
+      }
+    }
+  };
+
+  // Render JSX
   return (
-    <Box width="100%" paddingLeft={{ base: 2, sm: 4, md: 6, lg: 8 }} paddingRight={{ base: 2, sm: 4, md: 6, lg: 8 }}>
+    <Box 
+      width="100%" 
+      paddingLeft={{ base: 2, sm: 4, md: 6, lg: 8 }} 
+      paddingRight={{ base: 2, sm: 4, md: 6, lg: 8 }}
+    >
       <WelcomeComponent users={2.0} countries={190} />
+      
       {showMobileApps && (
         <MobileAppsComing onClose={() => setShowMobileApps(false)} />
       )}
+      
       {showSupport && (
         <SupportDevelopers onClose={() => setShowSupport(false)} />
       )}
-      <CustomDashboardTable />
+      
+      {isLoading ? (
+        <Flex justify="center" align="center" height="400px">
+          <Spinner size="xl" color="#00bfff" thickness="4px" />
+        </Flex>
+      ) : examProgress.length === 0 ? (
+        <EmptyProgressState />
+      ) : (
+        <CustomDashboardTable
+          data={examProgress}
+          onDeleteSelected={handleDeleteSelected}
+          onDeleteAll={handleDeleteAll}
+        />
+      )}
+
+      <DeleteConfirmationModal
+        isOpen={isDeleteModalOpen}
+        onClose={closeDeleteModal}
+        onConfirm={handleConfirmDelete}
+        deleteType={deleteType}
+        itemCount={selectedForDeletion.length}
+        title={deleteType === 'all' ? 'Delete All Progress' : 'Delete Selected Progress'}
+        message={
+          deleteType === 'all'
+            ? undefined
+            : `Selected items include ${selectedForDeletion.length} exam${
+                selectedForDeletion.length === 1 ? '' : 's'
+              }`
+        }
+      />
     </Box>
   );
 };

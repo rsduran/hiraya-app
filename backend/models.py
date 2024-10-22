@@ -69,3 +69,15 @@ class ExamAttempt(db.Model):
     __table_args__ = (
         db.UniqueConstraint('user_id', 'exam_id', 'attempt_date', name='unique_exam_attempt'),
     )
+
+class ExamVisit(db.Model):
+    __tablename__ = 'exam_visit'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    exam_id = db.Column(db.String(255), db.ForeignKey('exam.id'), nullable=False)
+    first_visit_date = db.Column(db.DateTime, default=datetime.utcnow)
+    last_visit_date = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    __table_args__ = (
+        db.UniqueConstraint('user_id', 'exam_id', name='unique_exam_visit'),
+    )

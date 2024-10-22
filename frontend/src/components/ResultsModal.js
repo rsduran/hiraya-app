@@ -21,10 +21,10 @@ const StatusBadge = ({ status }) => {
   let bgGradient;
   let textColor = "black";
   switch (status) {
-    case "PASS":
+    case "PASSED":
       bgGradient = "linear(to-r, #4CAF50, #8BC34A)";
       break;
-    case "FAIL":
+    case "FAILED":
       bgGradient = "linear(to-r, #FF5252, #FF8A80)";
       break;
     default:
@@ -168,7 +168,7 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
               <Progress value={results.score} colorScheme={results.passed ? "green" : "red"} />
               <HStack justifyContent="space-between">
                 <Text fontWeight="bold">Result:</Text>
-                <StatusBadge status={results.passed ? "PASS" : "FAIL"} />
+                <StatusBadge status={results.passed ? "PASSED" : "FAILED"} />
               </HStack>
               <HStack justifyContent="space-between">
                 <Text fontWeight="bold">Correct Answers:</Text>

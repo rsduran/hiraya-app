@@ -2,8 +2,9 @@
 
 from flask import jsonify, abort, request
 from app import app, db
-from models import Provider, Exam, Topic, UserPreference, FavoriteQuestion, UserAnswer, ExamAttempt
-from utils import get_exam_order
+from models import Provider, Exam, Topic, UserPreference, FavoriteQuestion, UserAnswer, ExamAttempt, ExamVisit
+from utils import get_exam_order, format_display_title
+from sqlalchemy import func
 from datetime import datetime
 
 @app.route('/api/providers', methods=['GET'])
@@ -82,14 +83,32 @@ def get_exam(exam_id):
     if len(exam_title_parts) == 2:
         exam_data['examTitle'], exam_data['examCode'] = exam_title_parts
     
-    # Update last_visited_exam
+    # Track the exam visit
     user_id = 1  # You'd get this from authentication in a real app
+    
+    # Update or create ExamVisit record
+    visit = ExamVisit.query.filter_by(
+        user_id=user_id,
+        exam_id=exam_id
+    ).first()
+    
+    if not visit:
+        visit = ExamVisit(
+            user_id=user_id,
+            exam_id=exam_id
+        )
+        db.session.add(visit)
+    else:
+        visit.last_visit_date = datetime.utcnow()
+    
+    # Update last_visited_exam in preferences
     preference = UserPreference.query.filter_by(user_id=user_id).first()
     if preference:
         preference.last_visited_exam = exam_id
     else:
         preference = UserPreference(user_id=user_id, last_visited_exam=exam_id)
         db.session.add(preference)
+    
     db.session.commit()
     
     return jsonify(exam_data)
@@ -270,3 +289,324 @@ def get_incorrect_questions(exam_id):
         return jsonify({'incorrect_questions': []})
     
     return jsonify({'incorrect_questions': latest_attempt.incorrect_questions})
+
+@app.route('/api/exam-progress', methods=['GET'])
+def get_exam_progress():
+    user_id = 1  # Replace with actual user authentication
+    
+    # Get ALL exams that the user has interacted with
+    base_query = db.session.query(Exam).distinct().join(
+        Provider,  # Join with Provider to get provider information
+        Exam.provider_id == Provider.id
+    )
+
+    # Get exams from various sources
+    exam_queries = [
+        base_query.join(UserAnswer, UserAnswer.exam_id == Exam.id).filter(UserAnswer.user_id == user_id),
+        base_query.join(ExamAttempt, ExamAttempt.exam_id == Exam.id).filter(ExamAttempt.user_id == user_id),
+        base_query.join(ExamVisit, ExamVisit.exam_id == Exam.id).filter(ExamVisit.user_id == user_id),
+        base_query.join(UserPreference, UserPreference.last_visited_exam == Exam.id).filter(UserPreference.user_id == user_id)
+    ]
+
+    # Combine all queries using union
+    final_query = exam_queries[0]
+    for query in exam_queries[1:]:
+        final_query = final_query.union(query)
+
+    user_exams = final_query.all()
+
+    # Group exams by provider
+    provider_data = {}
+    for exam in user_exams:
+        # Get total questions count
+        total_questions = exam.total_questions
+        
+        # Get user's answered questions count
+        answered_questions = UserAnswer.query.filter_by(
+            user_id=user_id,
+            exam_id=exam.id
+        ).count()
+        
+        # Calculate progress percentage
+        progress = round((answered_questions / total_questions * 100) if total_questions > 0 else 0, 1)
+        
+        # Get exam attempts
+        attempts = ExamAttempt.query.filter_by(
+            user_id=user_id,
+            exam_id=exam.id
+        ).order_by(ExamAttempt.attempt_date.desc()).all()
+        
+        attempt_count = len(attempts)
+        latest_grade = None
+        average_score = 0
+        status = "Not Attempted"
+        
+        if attempt_count > 0:
+            latest_attempt = attempts[0]
+            correct_answers = round((latest_attempt.score / 100) * latest_attempt.total_questions)
+            latest_grade = {
+                'score': correct_answers,  # Number of correct answers
+                'total': latest_attempt.total_questions  # Total questions in the attempt
+            }
+            status = "Passed" if latest_attempt.score >= 75 else "Failed"
+            average_score = round(sum(attempt.score for attempt in attempts) / attempt_count, 2)
+        
+        # Calculate time since last update
+        last_update = None
+        if attempts:
+            time_diff = datetime.utcnow() - attempts[0].attempt_date
+            if time_diff.days == 0:
+                if time_diff.seconds < 3600:
+                    last_update = "Just now" if time_diff.seconds < 300 else f"{time_diff.seconds // 60} minutes ago"
+                else:
+                    last_update = f"{time_diff.seconds // 3600} hours ago"
+            elif time_diff.days == 1:
+                last_update = "Yesterday"
+            elif time_diff.days < 7:
+                last_update = f"{time_diff.days} days ago"
+            elif time_diff.days < 30:
+                last_update = f"{time_diff.days // 7} weeks ago"
+            else:
+                last_update = f"{time_diff.days // 30} months ago"
+        else:
+            # Check if the user has answered any questions
+            last_answer = UserAnswer.query.filter_by(
+                user_id=user_id,
+                exam_id=exam.id
+            ).order_by(UserAnswer.id.desc()).first()
+            
+            if last_answer:
+                last_update = "In Progress"
+            else:
+                # Check visit time
+                visit = ExamVisit.query.filter_by(
+                    user_id=user_id,
+                    exam_id=exam.id
+                ).first()
+                
+                if visit:
+                    time_diff = datetime.utcnow() - visit.last_visit_date
+                    if time_diff.days == 0:
+                        if time_diff.seconds < 3600:
+                            last_update = "Just now" if time_diff.seconds < 300 else f"{time_diff.seconds // 60} minutes ago"
+                        else:
+                            last_update = f"{time_diff.seconds // 3600} hours ago"
+                    elif time_diff.days == 1:
+                        last_update = "Yesterday"
+                    elif time_diff.days < 7:
+                        last_update = f"{time_diff.days} days ago"
+                    elif time_diff.days < 30:
+                        last_update = f"{time_diff.days // 7} weeks ago"
+                    else:
+                        last_update = f"{time_diff.days // 30} months ago"
+                else:
+                    last_update = "Not Started"
+
+        # Get timestamp for sorting
+        timestamp = None
+        if attempts:
+            timestamp = attempts[0].attempt_date.timestamp() * 1000
+        elif 'visit' in locals() and visit:
+            timestamp = visit.last_visit_date.timestamp() * 1000
+        elif last_answer:
+            timestamp = datetime.utcnow().timestamp() * 1000
+
+        exam_data = {
+            'id': exam.id,
+            'exam': format_display_title(exam.title),
+            'examType': 'Actual',
+            'attempts': attempt_count,
+            'averageScore': average_score,
+            'progress': progress,
+            'latestGrade': latest_grade or {
+                'score': 0,
+                'total': total_questions  # Use actual total questions when no attempt
+            },
+            'status': status,
+            'timestamp': timestamp,
+            'updated': last_update
+        }
+        
+        # Group by provider
+        provider_name = exam.provider.name
+        if provider_name not in provider_data:
+            provider_data[provider_name] = {
+                'name': provider_name,
+                'exams': [],
+                'isPopular': exam.provider.is_popular
+            }
+        provider_data[provider_name]['exams'].append(exam_data)
+
+        # Sort exams within each provider by timestamp (most recent first)
+        provider_data[provider_name]['exams'].sort(
+            key=lambda x: x['timestamp'] if x['timestamp'] else 0,
+            reverse=True
+        )
+
+    # Convert to list and return
+    return jsonify({'providers': list(provider_data.values())})
+
+@app.route('/api/track-exam-visit', methods=['POST'])
+def track_exam_visit():
+    data = request.json
+    user_id = 1  # Replace with actual user authentication
+    exam_id = data.get('exam_id')
+    
+    if not exam_id:
+        return jsonify({'error': 'Exam ID is required'}), 400
+        
+    visit = ExamVisit.query.filter_by(
+        user_id=user_id,
+        exam_id=exam_id
+    ).first()
+    
+    if not visit:
+        visit = ExamVisit(
+            user_id=user_id,
+            exam_id=exam_id
+        )
+        db.session.add(visit)
+    else:
+        visit.last_visit_date = datetime.utcnow()
+    
+    db.session.commit()
+    return jsonify({'message': 'Visit tracked successfully'}), 200
+
+# backend/routes.py
+
+# Add these new routes to your existing routes.py file
+
+@app.route('/api/delete-exams', methods=['POST'])
+def delete_exams():
+    """Delete selected exams and their associated data"""
+    data = request.json
+    user_id = 1  # Replace with actual user authentication
+    exam_ids = data.get('exam_ids', [])
+    
+    if not exam_ids:
+        return jsonify({'error': 'No exam IDs provided'}), 400
+    
+    try:
+        # Delete associated data first (due to foreign key constraints)
+        UserPreference.query.filter(
+            UserPreference.user_id == user_id,
+            UserPreference.last_visited_exam.in_(exam_ids)
+        ).update({UserPreference.last_visited_exam: None}, synchronize_session=False)
+        
+        FavoriteQuestion.query.filter(
+            FavoriteQuestion.user_id == user_id,
+            FavoriteQuestion.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        UserAnswer.query.filter(
+            UserAnswer.user_id == user_id,
+            UserAnswer.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        ExamAttempt.query.filter(
+            ExamAttempt.user_id == user_id,
+            ExamAttempt.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        ExamVisit.query.filter(
+            ExamVisit.user_id == user_id,
+            ExamVisit.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        # Update progress to 0 for the exams
+        Exam.query.filter(Exam.id.in_(exam_ids)).update(
+            {Exam.progress: 0}, 
+            synchronize_session=False
+        )
+        
+        db.session.commit()
+        return jsonify({'message': 'Exams deleted successfully'}), 200
+        
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/delete-provider-exams', methods=['POST'])
+def delete_provider_exams():
+    """Delete all exams for specified providers"""
+    data = request.json
+    user_id = 1  # Replace with actual user authentication
+    provider_names = data.get('provider_names', [])
+    
+    if not provider_names:
+        return jsonify({'error': 'No provider names provided'}), 400
+    
+    try:
+        # Get all exam IDs for the specified providers
+        exam_ids = db.session.query(Exam.id).join(Provider).filter(
+            Provider.name.in_(provider_names)
+        ).all()
+        exam_ids = [eid[0] for eid in exam_ids]
+        
+        if not exam_ids:
+            return jsonify({'message': 'No exams found for the specified providers'}), 200
+        
+        # Delete associated data
+        UserPreference.query.filter(
+            UserPreference.user_id == user_id,
+            UserPreference.last_visited_exam.in_(exam_ids)
+        ).update({UserPreference.last_visited_exam: None}, synchronize_session=False)
+        
+        FavoriteQuestion.query.filter(
+            FavoriteQuestion.user_id == user_id,
+            FavoriteQuestion.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        UserAnswer.query.filter(
+            UserAnswer.user_id == user_id,
+            UserAnswer.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        ExamAttempt.query.filter(
+            ExamAttempt.user_id == user_id,
+            ExamAttempt.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        ExamVisit.query.filter(
+            ExamVisit.user_id == user_id,
+            ExamVisit.exam_id.in_(exam_ids)
+        ).delete(synchronize_session=False)
+        
+        # Update progress to 0 for all exams
+        Exam.query.filter(Exam.id.in_(exam_ids)).update(
+            {Exam.progress: 0}, 
+            synchronize_session=False
+        )
+        
+        db.session.commit()
+        return jsonify({'message': 'Provider exams deleted successfully'}), 200
+        
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+@app.route('/api/delete-all-progress', methods=['POST'])
+def delete_all_progress():
+    """Delete all exam progress for the user"""
+    user_id = 1  # Replace with actual user authentication
+    
+    try:
+        # Delete all user data
+        UserPreference.query.filter_by(user_id=user_id).update(
+            {UserPreference.last_visited_exam: None}, 
+            synchronize_session=False
+        )
+        FavoriteQuestion.query.filter_by(user_id=user_id).delete(synchronize_session=False)
+        UserAnswer.query.filter_by(user_id=user_id).delete(synchronize_session=False)
+        ExamAttempt.query.filter_by(user_id=user_id).delete(synchronize_session=False)
+        ExamVisit.query.filter_by(user_id=user_id).delete(synchronize_session=False)
+        
+        # Reset progress for all exams
+        Exam.query.update({Exam.progress: 0}, synchronize_session=False)
+        
+        db.session.commit()
+        return jsonify({'message': 'All progress deleted successfully'}), 200
+        
+    except Exception as e:
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500

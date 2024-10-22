@@ -273,10 +273,26 @@ const MainPage = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed);
   };
 
-  const handleExamSelect = (examId) => {
-    setLastVisitedExam(examId);
-    updateLastVisitedExam(examId);
-    navigate(`/actual-exam/${examId}`);
+  const handleExamSelect = async (examId) => {
+    try {
+      // Track the exam visit
+      await fetch('http://localhost:5000/api/track-exam-visit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ exam_id: examId }),
+      });
+  
+      // Continue with existing functionality
+      setLastVisitedExam(examId);
+      updateLastVisitedExam(examId);
+      navigate(`/actual-exam/${examId}`);
+    } catch (error) {
+      console.error('Error tracking exam visit:', error);
+      // Continue navigation even if tracking fails
+      navigate(`/actual-exam/${examId}`);
+    }
   };
 
   const handleTabChange = (tab) => {
