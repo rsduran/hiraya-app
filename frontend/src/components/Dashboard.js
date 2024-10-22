@@ -11,7 +11,6 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { FaApple, FaAndroid, FaHeart, FaTimes } from "react-icons/fa";
-import { IconBox } from "./IconBox";
 import CustomDashboardTable from "./CustomDashboardTable";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
 import { createCustomToast } from "./CustomToast";

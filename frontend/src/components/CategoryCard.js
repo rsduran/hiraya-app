@@ -45,26 +45,24 @@ const CategoryCard = ({ categoryName, providers, view }) => {
         </Text>
         <Flex alignItems="center" gap={4}>
           <Box
-            as="button"
-            onClick={toggleBookmark}
-            transition="all 0.2s"
-            _hover={{ transform: 'scale(1.1)' }}
-            _active={{ transform: 'scale(0.9)' }}
-            backgroundColor="transparent"
-          >
-            <Icon
-              as={BsBookmarkFill}
-              color={isBookmarked 
-                ? "brand.primary.light"
-                : colorMode === 'light' 
-                  ? "brand.background.light" 
-                  : "brand.background.dark"}
-              boxSize={6}
-              strokeWidth={1}
-              stroke={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+              as="button"
+              onClick={toggleBookmark}
               transition="all 0.2s"
-            />
-          </Box>
+              _hover={{ transform: "scale(1.1)" }}
+              _active={{ transform: "scale(0.9)" }}
+            >
+              <Icon
+                as={BsBookmarkFill}
+                color={isBookmarked 
+                  ? "#FFD700"  // Keep original gold color for bookmark
+                  : colorMode === 'light' ? "white" : "gray.600"
+                }
+                boxSize={6}
+                strokeWidth={1}
+                stroke={colorMode === 'light' ? "black" : "white"}
+                transition="all 0.2s"
+              />
+            </Box>
           <Input
             placeholder="Search providers..."
             size="md"

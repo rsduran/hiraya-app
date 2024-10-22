@@ -7,6 +7,7 @@ import {
   Image,
   Tooltip,
   useColorMode,
+  Button,
 } from "@chakra-ui/react";
 
 const ProviderInfoCard = ({ provider, view }) => {
@@ -60,7 +61,7 @@ const ProviderInfoCard = ({ provider, view }) => {
       <Box
         backgroundColor={colorMode === 'light' 
           ? "brand.background.light" 
-          : "rgba(255, 255, 255, 0.05)"} // Slightly lighter than the dark background
+          : "brand.surface.dark"}
         borderRadius="12px"
         border="1px solid"
         borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
@@ -108,7 +109,7 @@ const ProviderInfoCard = ({ provider, view }) => {
             marginBottom={4}
             backgroundColor={colorMode === 'light' 
               ? "transparent"
-              : "rgba(255, 255, 255, 0.1)"} // Slightly lighter background for logo area
+              : "rgba(255, 255, 255, 1)"}
             borderRadius="md"
             padding={2}
           >
@@ -163,34 +164,38 @@ const ProviderInfoCard = ({ provider, view }) => {
               Total Questions: {totalQuestions}
             </Text>
           </Flex>
-          <Box
-            as="button"
-            paddingX={4}
-            paddingY={2}
-            borderRadius="full"
+          <Button
+            onClick={handleViewExams}
+            height="40px"
+            paddingLeft="16px"
+            paddingRight="16px"
             backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
             color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
-            fontWeight="bold"
+            fontWeight={700}
             fontSize="14px"
+            borderRadius="full"
             border="1px solid"
             borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
             boxShadow={colorMode === 'light' 
-              ? "0 2px 0 0 black"
-              : "0 2px 0 0 rgba(255, 255, 255, 0.2)"}
-            _hover={{ 
-              backgroundColor: colorMode === 'light' 
-                ? "brand.primary.dark" 
-                : "brand.primary.light"
+              ? "0 4px 0 0 black"
+              : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+            }
+            _hover={{
+              backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light",
+              transform: "translateY(2px)",
+              boxShadow: colorMode === 'light'
+                ? "0 2px 0 0 black"
+                : "0 2px 0 0 rgba(255, 255, 255, 0.2)",
             }}
-            _active={{ 
-              boxShadow: "none", 
-              transform: "translateY(2px)" 
+            _active={{
+              transform: "translateY(4px)",
+              boxShadow: "none",
             }}
+            transition="all 0.2s"
             width="100%"
-            onClick={handleViewExams}
           >
             View Exams
-          </Box>
+          </Button>
         </Flex>
       </Box>
     );
@@ -203,8 +208,8 @@ const ProviderInfoCard = ({ provider, view }) => {
         borderBottom="1px solid"
         borderColor={colorMode === 'light' ? "gray.200" : "gray.600"}
         backgroundColor={colorMode === 'light' 
-          ? "transparent" 
-          : "rgba(255, 255, 255, 0.05)"} // Slightly lighter for list view as well
+          ? "brand.background.light" 
+          : "brand.surface.dark"}
       >
         <Box 
           width="80px" 
@@ -215,7 +220,7 @@ const ProviderInfoCard = ({ provider, view }) => {
           marginRight={4}
           backgroundColor={colorMode === 'light' 
             ? "transparent"
-            : "rgba(255, 255, 255, 0.1)"} // Slightly lighter background for logo area
+            : "rgba(255, 255, 255, 1)"}
           borderRadius="md"
           padding={2}
         >
@@ -288,14 +293,22 @@ const ProviderInfoCard = ({ provider, view }) => {
             boxShadow={colorMode === 'light' 
               ? "0 2px 0 0 black"
               : "0 2px 0 0 rgba(255, 255, 255, 0.2)"}
+            transition="all 0.2s ease-in-out"
             _hover={{ 
               backgroundColor: colorMode === 'light' 
                 ? "brand.primary.dark" 
-                : "brand.primary.light"
+                : "brand.primary.light",
+              transform: "translateY(-2px)",
+              boxShadow: colorMode === 'light' 
+                ? "0 4px 0 0 black"
+                : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
             }}
             _active={{ 
               boxShadow: "none", 
-              transform: "translateY(2px)" 
+              transform: "translateY(2px)",
+              backgroundColor: colorMode === 'light' 
+                ? "brand.primary.dark" 
+                : "brand.primary.light"
             }}
             onClick={handleViewExams}
           >

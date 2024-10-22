@@ -1,7 +1,7 @@
 import React from 'react';
-import { Box, Text, Flex, CloseButton, useColorMode } from '@chakra-ui/react';
+import { Box, Text, Flex, useColorMode } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FaCheck, FaExclamationTriangle } from 'react-icons/fa';
+import { FaCheck, FaExclamationTriangle, FaTimes } from 'react-icons/fa';
 
 const CustomToast = ({ 
   title, 
@@ -117,16 +117,19 @@ const CustomToast = ({
                 </Text>
               )}
             </Box>
-            <CloseButton
-              size="sm"
+            <Box
+              as="button"
               onClick={() => onClose(id)}
               color={textColor}
-              _hover={{ 
-                bg: colorMode === 'light'
-                  ? "rgba(0, 0, 0, 0.1)"
-                  : "rgba(255, 255, 255, 0.1)" 
-              }}
-            />
+              p={2}
+              borderRadius="md"
+              _hover={{ bg: 'transparent' }}
+              display="flex"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <FaTimes size={16} />
+            </Box>
           </Flex>
         </Box>
       </motion.div>

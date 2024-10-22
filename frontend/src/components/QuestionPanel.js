@@ -57,6 +57,36 @@ const QuestionPanel = ({
     return 1;
   }, []);
 
+  const handleQuestionRemoval = useCallback(
+    (questionId) => {
+      setUnansweredQuestions((prev) => prev.filter((q) => q !== questionId));
+      setRemovingQuestion(null);
+      setIsNavigationDisabled(false);
+
+      if (currentTab === "UNANSWERED") {
+        const currentIndex = unansweredQuestions.findIndex(
+          (q) => q === questionId
+        );
+        let nextQuestion;
+        if (currentIndex === unansweredQuestions.length - 1) {
+          nextQuestion = unansweredQuestions[currentIndex - 1];
+        } else {
+          nextQuestion = unansweredQuestions[currentIndex + 1];
+        }
+        if (nextQuestion) {
+          const [topic, question] = nextQuestion.split(" ");
+          onQuestionSelect(`${topic} ${question}`);
+        }
+      }
+
+      setDisplayedQuestionInfo((prevInfo) => ({
+        current: Math.min(prevInfo.current, prevInfo.total - 1),
+        total: prevInfo.total - 1,
+      }));
+    },
+    [currentTab, unansweredQuestions, onQuestionSelect, setUnansweredQuestions]
+  );
+
   useEffect(() => {
     setTabIndices((prevIndices) => ({
       ...prevIndices,
@@ -101,7 +131,7 @@ const QuestionPanel = ({
       }, pendingUpdate.delay);
       return () => clearTimeout(timer);
     }
-  }, [pendingUpdate]);
+  }, [pendingUpdate, handleQuestionRemoval]);
 
   useEffect(() => {
     if (currentTab === "INCORRECT" && incorrectQuestions.length > 0) {
@@ -122,36 +152,6 @@ const QuestionPanel = ({
     questionNumber,
     onQuestionSelect,
   ]);
-
-  const handleQuestionRemoval = useCallback(
-    (questionId) => {
-      setUnansweredQuestions((prev) => prev.filter((q) => q !== questionId));
-      setRemovingQuestion(null);
-      setIsNavigationDisabled(false);
-
-      if (currentTab === "UNANSWERED") {
-        const currentIndex = unansweredQuestions.findIndex(
-          (q) => q === questionId
-        );
-        let nextQuestion;
-        if (currentIndex === unansweredQuestions.length - 1) {
-          nextQuestion = unansweredQuestions[currentIndex - 1];
-        } else {
-          nextQuestion = unansweredQuestions[currentIndex + 1];
-        }
-        if (nextQuestion) {
-          const [topic, question] = nextQuestion.split(" ");
-          onQuestionSelect(`${topic} ${question}`);
-        }
-      }
-
-      setDisplayedQuestionInfo((prevInfo) => ({
-        current: Math.min(prevInfo.current, prevInfo.total - 1),
-        total: prevInfo.total - 1,
-      }));
-    },
-    [currentTab, unansweredQuestions, onQuestionSelect, setUnansweredQuestions]
-  );
 
   const handleTabChange = useCallback(
     (tab) => {
@@ -188,42 +188,41 @@ const QuestionPanel = ({
 
   const handleQuestionSelect = useCallback(
     (selectedQuestion) => {
-      const [topicPart, questionPart] = selectedQuestion.split(" ");
-      const selectedTopic = parseInt(topicPart.slice(1));
-      const selectedIndex = parseInt(questionPart.slice(1)) - 1;
+      const [, questionPart] = selectedQuestion.split(" ");
+      const questionIndex = parseInt(questionPart.slice(1)) - 1;
 
       if (currentTab === "FAVORITES") {
-        if (selectedIndex >= 0 && selectedIndex < favoriteQuestions.length) {
+        if (questionIndex >= 0 && questionIndex < favoriteQuestions.length) {
           setTabIndices((prevIndices) => ({
             ...prevIndices,
-            FAVORITES: selectedIndex,
+            FAVORITES: questionIndex,
           }));
         }
       } else if (currentTab === "ANSWERED") {
-        if (selectedIndex >= 0 && selectedIndex < answeredQuestions.length) {
+        if (questionIndex >= 0 && questionIndex < answeredQuestions.length) {
           setTabIndices((prevIndices) => ({
             ...prevIndices,
-            ANSWERED: selectedIndex,
+            ANSWERED: questionIndex,
           }));
         }
       } else if (currentTab === "UNANSWERED") {
-        if (selectedIndex >= 0 && selectedIndex < unansweredQuestions.length) {
+        if (questionIndex >= 0 && questionIndex < unansweredQuestions.length) {
           setTabIndices((prevIndices) => ({
             ...prevIndices,
-            UNANSWERED: selectedIndex,
+            UNANSWERED: questionIndex,
           }));
         }
       } else if (currentTab === "INCORRECT") {
-        if (selectedIndex >= 0 && selectedIndex < incorrectQuestions.length) {
+        if (questionIndex >= 0 && questionIndex < incorrectQuestions.length) {
           setTabIndices((prevIndices) => ({
             ...prevIndices,
-            INCORRECT: selectedIndex,
+            INCORRECT: questionIndex,
           }));
         }
       } else {
         setTabIndices((prevIndices) => ({
           ...prevIndices,
-          [currentTab]: selectedIndex,
+          [currentTab]: questionIndex,
         }));
       }
       onQuestionSelect(selectedQuestion);
@@ -362,8 +361,8 @@ const QuestionPanel = ({
   const renderQuestions = () => {
     if (currentTab === "ANSWERED" && answeredQuestions.length === 0) {
       return (
-        <Text 
-          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        <Text
+          color={colorMode === "light" ? "brand.text.light" : "brand.text.dark"}
         >
           There are no answered questions yet.
         </Text>
@@ -372,15 +371,20 @@ const QuestionPanel = ({
     if (currentTab === "UNANSWERED") {
       if (unansweredQuestions.length === 0) {
         return (
-          <Text 
-            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          <Text
+            color={
+              colorMode === "light" ? "brand.text.light" : "brand.text.dark"
+            }
           >
             There are no unanswered questions.
           </Text>
         );
       }
       const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
-      if (!unansweredQuestions.includes(currentQuestionId) && !removingQuestion) {
+      if (
+        !unansweredQuestions.includes(currentQuestionId) &&
+        !removingQuestion
+      ) {
         const nextQuestion = unansweredQuestions[0];
         const [topic, question] = nextQuestion.split(" ");
         onQuestionSelect(`${topic} ${question}`);
@@ -389,8 +393,8 @@ const QuestionPanel = ({
     }
     if (currentTab === "FAVORITES" && favoriteQuestions.length === 0) {
       return (
-        <Text 
-          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        <Text
+          color={colorMode === "light" ? "brand.text.light" : "brand.text.dark"}
         >
           There are no favorited questions.
         </Text>
@@ -399,8 +403,10 @@ const QuestionPanel = ({
     if (currentTab === "INCORRECT") {
       if (incorrectQuestions.length === 0) {
         return (
-          <Text 
-            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          <Text
+            color={
+              colorMode === "light" ? "brand.text.light" : "brand.text.dark"
+            }
           >
             There are no incorrect questions. Great job!
           </Text>
@@ -409,8 +415,10 @@ const QuestionPanel = ({
       const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
       if (!incorrectQuestions.includes(currentQuestionId)) {
         return (
-          <Text 
-            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          <Text
+            color={
+              colorMode === "light" ? "brand.text.light" : "brand.text.dark"
+            }
           >
             Loading next incorrect question...
           </Text>
@@ -445,9 +453,13 @@ const QuestionPanel = ({
   };
 
   return (
-    <Box 
+    <Box
       width={width}
-      bg={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
+      bg={
+        colorMode === "light"
+          ? "brand.background.light"
+          : "brand.background.dark"
+      }
     >
       <SearchBar
         onSearch={onSearch}

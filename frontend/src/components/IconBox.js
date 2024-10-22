@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Box, Flex, useColorMode } from '@chakra-ui/react';
 import { PiSealFill, PiSeal, PiStar, PiStarFill } from 'react-icons/pi';
-import { BsQuestionLg } from 'react-icons/bs';
 
 // Generic IconBox component
 const IconBox = ({
@@ -86,8 +85,6 @@ const StarIconBox = ({
   const [isPressed, setIsPressed] = useState(false);
   const { colorMode } = useColorMode();
   const iconSize = `${parseInt(size) * iconScale}px`;
-
-  // Since this is a gradient/special color, we'll keep it hardcoded
   const starFillColor = "#FFD700"; // Gold color for star
 
   return (
@@ -104,11 +101,38 @@ const StarIconBox = ({
       transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
-      {/* Use PiSealFill for the background */}
-      <PiSealFill
+      {/* Background seal */}
+      <Box
+        as={PiSealFill}
         size={size}
         color={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
       />
+      
+      {/* Border */}
+      <Box
+        as={PiSeal}
+        position="absolute"
+        top="0"
+        left="0"
+        style={{
+          width: size,
+          height: size,
+        }}
+        sx={{
+          svg: {
+            strokeWidth: 3,
+            stroke: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
+            fill: 'none',
+          },
+          path: {
+            strokeWidth: 3,
+            stroke: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
+            fill: 'none',
+          },
+        }}
+      />
+      
+      {/* Star icon */}
       <Flex
         position="absolute"
         top="50%"
@@ -119,16 +143,24 @@ const StarIconBox = ({
       >
         <Box position="relative" width={iconSize} height={iconSize}>
           {isStarFilled && (
-            <PiStarFill
+            <Box
+              as={PiStarFill}
               size={iconSize}
               color={starFillColor}
-              style={{ position: 'absolute', top: 0, left: 0 }}
+              position="absolute"
+              top="0"
+              left="0"
+              zIndex={1}
             />
           )}
-          <PiStar
+          <Box
+            as={PiStar}
             size={iconSize}
             color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
-            style={{ position: 'absolute', top: 0, left: 0 }}
+            position="absolute"
+            top="0"
+            left="0"
+            zIndex={2}
           />
         </Box>
       </Flex>

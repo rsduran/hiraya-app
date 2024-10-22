@@ -16,7 +16,6 @@ import {
   useColorMode,
 } from '@chakra-ui/react';
 import { FaTimes } from 'react-icons/fa';
-import { IconBox } from './IconBox';
 
 const StatusBadge = ({ status }) => {
   const { colorMode } = useColorMode();
@@ -60,15 +59,26 @@ const StatusBadge = ({ status }) => {
   );
 };
 
-const CloseButton = ({ onClick }) => (
-  <IconBox
-    icon={FaTimes}
-    size="24px"
-    iconScale={0.7}
-    withBorder={false}
-    onClick={onClick}
-  />
-);
+const CloseButton = ({ onClick, colorMode }) => {
+  return (
+    <Box
+      as="button"
+      onClick={onClick}
+      display="inline-flex"
+      alignItems="center"
+      justifyContent="center"
+      w="24px"
+      h="24px"
+      bg="transparent"
+      _focus={{ boxShadow: "none" }}
+      color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+      borderRadius="50%"
+      _hover={{ bg: 'transparent' }} // Ensures no background change on hover
+    >
+      <FaTimes size="16px" />
+    </Box>
+  );
+};
 
 const CustomButton = ({ children, onClick }) => {
   const { colorMode } = useColorMode();

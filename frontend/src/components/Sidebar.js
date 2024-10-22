@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {
   Box,
   VStack,
@@ -131,7 +131,6 @@ const PremiumBox = React.memo(({ isCollapsed }) => {
 
 const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam }) => {
   const navigate = useNavigate();
-  const [isVisible, setIsVisible] = useState(false);
   const { colorMode } = useColorMode();
 
   // Theme-aware color values
@@ -145,14 +144,9 @@ const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam })
     "0 4px 0 0 rgba(255, 255, 255, 0.2)"
   );
   const logoutColor = useColorModeValue("gray.500", "gray.400");
-  const hoverBg = useColorModeValue("brand.secondary.light", "brand.secondary.dark");
+  const hoverBg = useColorModeValue("brand.hover.light", "brand.hover.dark");
   const activeBg = useColorModeValue("brand.primary.light", "brand.primary.dark");
   const iconColor = useColorModeValue("brand.text.light", "brand.text.dark");
-
-  useEffect(() => {
-    const timer = setTimeout(() => setIsVisible(true), 50);
-    return () => clearTimeout(timer);
-  }, []);
 
   const menuItems = [
     { name: "Dashboard", icon: RxDashboard, path: "/" },
@@ -170,7 +164,7 @@ const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam })
     }
   };
 
-  const sidebarContent = (
+  return (
     <Box
       backgroundColor={bgColor}
       width={isCollapsed ? "80px" : "300px"}
@@ -291,7 +285,7 @@ const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam })
       <Button
         position="absolute"
         top="24px"
-        right="-31px"
+        right="-32px"
         size="sm"
         width="14px"
         height="32px"
@@ -315,19 +309,6 @@ const Sidebar = ({ isCollapsed, onToggleCollapse, activeItem, lastVisitedExam })
       </Button>
     </Box>
   );
-
-  if (!isVisible) {
-    return (
-      <Box
-        width={isCollapsed ? "80px" : "300px"}
-        height="100vh"
-        backgroundColor={bgColor}
-        transition="all 0.3s ease"
-      />
-    );
-  }
-
-  return sidebarContent;
 };
 
 export default Sidebar;

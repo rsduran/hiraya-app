@@ -24,6 +24,10 @@ const theme = extendTheme({
         light: "#f2f2f3",
         dark: "#2d2d2d"
       },
+      hover: {
+        light: "rgba(255, 255, 255, 0.3)", // Subtle lighter than surface.light
+        dark: "rgba(255, 255, 255, 0.01)"   // Subtle lighter than surface.dark
+      },
       text: {
         light: "#000000",
         dark: "#ffffff"

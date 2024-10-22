@@ -51,7 +51,7 @@ const DownloadBox = () => {
           left="0"
           right="0"
           bottom="0"
-          bg={colorMode === 'light' ? 'gray.100' : 'gray.800'}
+          bg={colorMode === 'light' ? 'gray.100' : 'gray.700'}
           opacity="0.7"
           zIndex="1"
         />

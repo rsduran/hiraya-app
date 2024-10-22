@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Text, Progress, Flex, Tooltip, Image, useColorMode } from "@chakra-ui/react";
+import { Box, Text, Progress, Flex, Tooltip, Image, useColorMode, Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { getBadgeUrl } from "./BadgeUrls";
 
@@ -138,32 +138,37 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
           >
             {progress} / {totalQuestions} questions
           </Text>
-          <Box
-            as="button"
-            paddingX={4}
-            paddingY={1}
-            borderRadius="full"
+          <Button
+            onClick={handleContinue}
+            height="40px"
+            paddingLeft="16px"
+            paddingRight="16px"
             backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
             color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
-            fontWeight="bold"
+            fontWeight={700}
             fontSize={{ base: "12px", md: "13px", lg: "14px" }}
+            borderRadius="full"
             border="1px solid"
             borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
             boxShadow={colorMode === 'light' 
-              ? "0 2px 0 0 black"
-              : "0 2px 0 0 rgba(255, 255, 255, 0.2)"
+              ? "0 4px 0 0 black"
+              : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
             }
-            _hover={{ 
-              backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+            _hover={{
+              backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light",
+              transform: "translateY(2px)",
+              boxShadow: colorMode === 'light'
+                ? "0 2px 0 0 black"
+                : "0 2px 0 0 rgba(255, 255, 255, 0.2)",
             }}
-            _active={{ 
-              boxShadow: "none", 
-              transform: "translateY(2px)" 
+            _active={{
+              transform: "translateY(4px)",
+              boxShadow: "none",
             }}
-            onClick={handleContinue}
+            transition="all 0.2s"
           >
             Continue
-          </Box>
+          </Button>
         </Flex>
       </Box>
     );
@@ -210,33 +215,38 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
         >
           {progress} / {totalQuestions}
         </Text>
-        <Box
-          as="button"
-          paddingX={4}
-          paddingY={1}
+        <Button
+          onClick={handleContinue}
+          height="40px"
+          paddingLeft="16px"
+          paddingRight="16px"
           marginLeft={2}
-          borderRadius="full"
           backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
           color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
-          fontWeight="bold"
+          fontWeight={700}
           fontSize={{ base: "12px", md: "13px", lg: "14px" }}
+          borderRadius="full"
           border="1px solid"
           borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
           boxShadow={colorMode === 'light' 
-            ? "0 2px 0 0 black"
-            : "0 2px 0 0 rgba(255, 255, 255, 0.2)"
+            ? "0 4px 0 0 black"
+            : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
           }
-          _hover={{ 
-            backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+          _hover={{
+            backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light",
+            transform: "translateY(2px)",
+            boxShadow: colorMode === 'light'
+              ? "0 2px 0 0 black"
+              : "0 2px 0 0 rgba(255, 255, 255, 0.2)",
           }}
-          _active={{ 
-            boxShadow: "none", 
-            transform: "translateY(2px)" 
+          _active={{
+            transform: "translateY(4px)",
+            boxShadow: "none",
           }}
-          onClick={handleContinue}
+          transition="all 0.2s"
         >
           Continue
-        </Box>
+        </Button>
       </Flex>
     );
   }

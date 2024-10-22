@@ -193,30 +193,29 @@ const StatusBadge = ({ status }) => {
   const { colorMode } = useColorMode();
   let bgGradient;
   let textColor = colorMode === 'light' ? "brand.text.light" : "brand.text.dark";
-  let borderColor = colorMode === 'light' ? "brand.border.light" : "brand.border.dark";
-
+  
   switch (status) {
     case "Passed":
-      bgGradient = colorMode === 'light' 
-        ? "gradient.success.light"
-        : "gradient.success.dark";
+      bgGradient = colorMode === 'light'
+        ? "linear(to-r, #4CAF50, #8BC34A)"  // Light mode: Bright green gradient
+        : "linear(to-r, #2E673F, #4A6F2E)"; // Dark mode: Darker green gradient
       break;
     case "Failed":
       bgGradient = colorMode === 'light'
-        ? "gradient.error.light"
-        : "gradient.error.dark";
+        ? "linear(to-r, #FF5252, #FF8A80)"  // Light mode: Bright red gradient
+        : "linear(to-r, #992F2F, #994D4D)"; // Dark mode: Darker red gradient
       break;
     case "Not Attempted":
       bgGradient = colorMode === 'light'
-        ? "linear(to-r, #9E9E9E, #BDBDBD)"
-        : "linear(to-r, #4A4A4A, #666666)";
+        ? "linear(to-r, #9E9E9E, #BDBDBD)"  // Light mode: Grey gradient
+        : "linear(to-r, #4A4A4A, #666666)"; // Dark mode: Darker grey gradient
       break;
     default:
       bgGradient = colorMode === 'light'
-        ? "gradient.warning.light"
-        : "gradient.warning.dark";
+        ? "linear(to-r, #FFD54F, #FFF176)"  // Light mode: Bright yellow gradient
+        : "linear(to-r, #997F30, #998E47)"; // Dark mode: Darker yellow gradient
   }
-
+  
   return (
     <Box
       paddingLeft={2}
@@ -227,7 +226,7 @@ const StatusBadge = ({ status }) => {
       display="inline-block"
       alignSelf="center"
       border="1px solid"
-      borderColor={borderColor}
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
       bgGradient={bgGradient}
     >
       <Text fontSize="14px" fontWeight="500" color={textColor}>

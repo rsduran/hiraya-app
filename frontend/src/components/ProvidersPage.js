@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   VStack, 
   Flex,
@@ -13,9 +13,8 @@ import { LuGrid, LuList } from "react-icons/lu";
 import { IconBox } from "./IconBox";
 import CategoriesDropdown from "./CategoriesDropdown";
 import Pagination from "./Pagination";
+import CategoryCard from "./CategoryCard";
 import { debounce } from "lodash";
-
-const CategoryCard = lazy(() => import("./CategoryCard"));
 
 const LoadingSpinner = () => {
   const { colorMode } = useColorMode();
@@ -42,6 +41,11 @@ const ProvidersPage = () => {
   const [error, setError] = useState(null);
   const categoriesPerPage = 2;
 
+  const categoryNames = useMemo(() => 
+    ["All Categories", ...categories.map(category => category.name)],
+    [categories]
+  );
+
   useEffect(() => {
     const fetchProviders = async () => {
       try {
@@ -61,11 +65,6 @@ const ProvidersPage = () => {
 
     fetchProviders();
   }, []);
-
-  const categoryNames = useMemo(() => 
-    ["All Categories", ...categories.map(category => category.name)],
-    [categories]
-  );
 
   const filteredCategories = useMemo(() => {
     let filtered = categories;
@@ -96,27 +95,56 @@ const ProvidersPage = () => {
     []
   );
 
-  if (isLoading) {
-    return <LoadingSpinner />;
-  }
+  const renderContent = () => {
+    if (isLoading) {
+      return <LoadingSpinner />;
+    }
 
-  if (error) {
+    if (error) {
+      return (
+        <Center>
+          <Box 
+            fontSize="xl" 
+            color={colorMode === 'light' ? "red.500" : "red.300"}
+          >
+            Error: {error}
+          </Box>
+        </Center>
+      );
+    }
+
+    if (paginatedCategories.length === 0) {
+      return (
+        <Center>
+          <Box 
+            fontSize="xl" 
+            textAlign="center" 
+            marginY={8}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+          >
+            No providers found. Try adjusting your search or selected category.
+          </Box>
+        </Center>
+      );
+    }
+
     return (
-      <Center>
-        <Box 
-          fontSize="xl" 
-          color={colorMode === 'light' ? "red.500" : "red.300"}
-        >
-          Error: {error}
-        </Box>
-      </Center>
+      <VStack spacing={6} width="100%">
+        {paginatedCategories.map((category, index) => (
+          <CategoryCard
+            key={index}
+            categoryName={category.name}
+            providers={category.providers}
+            view={view}
+          />
+        ))}
+      </VStack>
     );
-  }
+  };
 
   return (
     <Container maxWidth="100%" paddingLeft={4} paddingRight={4}>
       <VStack spacing={8} align="stretch" width="100%">
-        {/* Search and Controls */}
         <Flex
           alignItems="center"
           justifyContent="space-between"
@@ -149,54 +177,31 @@ const ProvidersPage = () => {
                 size="48px"
                 iconScale={0.4}
                 borderThickness={3}
-                bgColor={view === "grid" 
-                  ? colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+                backgroundColor={view === "grid" 
+                  ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
                   : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
                 }
                 onClick={() => setView("grid")}
+                isActive={view === "grid"}
               />
               <IconBox
                 icon={LuList}
                 size="48px"
                 iconScale={0.4}
                 borderThickness={3}
-                bgColor={view === "list" 
-                  ? colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+                backgroundColor={view === "list" 
+                  ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
                   : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
                 }
                 onClick={() => setView("list")}
+                isActive={view === "list"}
               />
             </Flex>
           </Flex>
         </Flex>
         
-        {/* Categories */}
-        {paginatedCategories.length === 0 ? (
-          <Center>
-            <Box 
-              fontSize="xl" 
-              textAlign="center" 
-              marginY={8}
-              color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
-            >
-              No providers found. Try adjusting your search or selected category.
-            </Box>
-          </Center>
-        ) : (
-          <VStack spacing={6} width="100%">
-            {paginatedCategories.map((category, index) => (
-              <Suspense key={index} fallback={<LoadingSpinner />}>
-                <CategoryCard
-                  categoryName={category.name}
-                  providers={category.providers}
-                  view={view}
-                />
-              </Suspense>
-            ))}
-          </VStack>
-        )}
+        {renderContent()}
 
-        {/* Pagination */}
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
