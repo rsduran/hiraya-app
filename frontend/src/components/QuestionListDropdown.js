@@ -1,10 +1,9 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, useColorMode } from '@chakra-ui/react';
 import { FixedSizeList as List } from 'react-window';
 
 const QuestionListDropdown = React.memo(({ questions, currentQuestion, onSelect }) => {
-  console.log("QuestionListDropdown rendered", { questions, currentQuestion });
-
+  const { colorMode } = useColorMode();
   const itemSize = 32; // Height of each item in pixels
   const listHeight = Math.min(questions.length * itemSize, 300); // Max height of 300px
 
@@ -20,11 +19,24 @@ const QuestionListDropdown = React.memo(({ questions, currentQuestion, onSelect 
         paddingLeft={4}
         paddingRight={4}
         cursor="pointer"
-        _hover={{ backgroundColor: "#b3ebf2" }}
+        backgroundColor={isSelected 
+          ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+          : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+        }
+        _hover={{
+          backgroundColor: isSelected 
+            ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+            : colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+        }}
         onClick={() => onSelect(question)}
-        backgroundColor={isSelected ? "#00bfff" : "white"}
+        transition="background-color 0.2s"
       >
-        <Text fontWeight={700} fontSize="14px" lineHeight="16px" color="black">
+        <Text 
+          fontWeight={700} 
+          fontSize="14px" 
+          lineHeight="16px" 
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+        >
           {question}
         </Text>
       </Box>
@@ -39,18 +51,31 @@ const QuestionListDropdown = React.memo(({ questions, currentQuestion, onSelect 
       transform="translateX(-50%)"
       width="120px"
       height={listHeight}
-      backgroundColor="white"
+      backgroundColor={colorMode === 'light' 
+        ? "brand.background.light" 
+        : "brand.surface.dark"
+      }
       borderRadius="10px"
-      border="1px solid black"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
       zIndex={1000}
       overflow="hidden"
-      boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+      boxShadow={colorMode === 'light'
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+      }
     >
       <List
         height={listHeight}
         itemCount={questions.length}
         itemSize={itemSize}
         width="100%"
+        style={{
+          scrollbarWidth: 'thin',
+          scrollbarColor: colorMode === 'light' 
+            ? '#888 #f5f5f5'
+            : '#666 #2d2d2d'
+        }}
       >
         {Row}
       </List>

@@ -1,9 +1,10 @@
 import React, { useState, useMemo, useRef } from 'react';
-import { Box, Text, Button } from '@chakra-ui/react';
+import { Box, Text, Button, useColorMode } from '@chakra-ui/react';
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 import { FixedSizeList as List } from 'react-window';
 
 const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
+  const { colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(false);
   const textRef = useRef(null);
 
@@ -25,21 +26,22 @@ const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
       <Button
         onClick={toggleDropdown}
         width="100%"
-        backgroundColor="white"
-        color="black"
+        backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+        color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
         fontWeight={700}
         fontSize="16px"
         lineHeight="19px"
         borderRadius="10px"
-        border="1px solid black"
+        border="1px solid"
+        borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
         boxShadow="none"
         _hover={{
-          backgroundColor: "#00bfff",
-          boxShadow: "0 3px 0 0 black",
+          backgroundColor: colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark",
+          boxShadow: colorMode === 'light' ? "0 3px 0 0 black" : "0 3px 0 0 rgba(255, 255, 255, 0.2)"
         }}
         _active={{
-          backgroundColor: "#00bfff",
-          boxShadow: "none",
+          backgroundColor: colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark",
+          boxShadow: "none"
         }}
         transition="all 0.2s"
         display="flex"
@@ -50,7 +52,9 @@ const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
         paddingTop={3}
         paddingBottom={3}
       >
-        <Text ref={textRef} isTruncated>{selectedProvider}</Text>
+        <Text ref={textRef} isTruncated>
+          {selectedProvider}
+        </Text>
         {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
       </Button>
       {isOpen && (
@@ -60,9 +64,10 @@ const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
           left={0}
           width="100%"
           height="300px"
-          backgroundColor="white"
+          backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
           borderRadius="10px"
-          border="1px solid black"
+          border="1px solid"
+          borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
           marginTop={2}
           zIndex={1}
           overflow="hidden"
@@ -81,18 +86,28 @@ const ProviderDropdown = ({ providers, selectedProvider, onSelect }) => {
                 paddingLeft={4}
                 paddingRight={4}
                 cursor="pointer"
-                backgroundColor={sortedProviders[index] === selectedProvider ? "#00bfff" : "white"}
+                backgroundColor={
+                  sortedProviders[index] === selectedProvider
+                    ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+                    : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+                }
                 _hover={{ 
-                  backgroundColor: sortedProviders[index] === selectedProvider ? "#00bfff" : "#b3ebf2" 
+                  backgroundColor: sortedProviders[index] === selectedProvider 
+                    ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+                    : colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
                 }}
                 onClick={() => handleSelect(sortedProviders[index])}
-                borderBottom={index < sortedProviders.length - 1 ? "1px solid #E2E8F0" : "none"}
+                borderBottom={
+                  index < sortedProviders.length - 1 
+                    ? `1px solid ${colorMode === 'light' ? "#E2E8F0" : "#4A5568"}`
+                    : "none"
+                }
               >
                 <Text 
                   fontWeight={700} 
                   fontSize="16px" 
                   lineHeight="19px" 
-                  color="black"
+                  color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
                   isTruncated
                 >
                   {sortedProviders[index]}

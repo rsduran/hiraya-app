@@ -1,22 +1,38 @@
 import React from 'react';
-import { Box, Text, Flex } from '@chakra-ui/react';
+import { Box, Text, Flex, useColorMode } from '@chakra-ui/react';
 import { StarIconBox } from './IconBox';
 import { transformImageUrl } from '../utils';
 
-const QuestionBox = ({ questionNumber, totalQuestionsInTopic, questionData, isStarFilled, toggleStar, currentTopic }) => {
+const QuestionBox = ({ 
+  questionNumber, 
+  totalQuestionsInTopic, 
+  questionData, 
+  isStarFilled, 
+  toggleStar, 
+  currentTopic 
+}) => {
+  const { colorMode } = useColorMode();
+
   if (!questionData) {
     return (
       <Box
         width="100%"
-        backgroundColor="#f2f2f3"
+        bg={colorMode === 'light' ? 'brand.surface.light' : 'brand.surface.dark'}
         borderRadius="20px"
-        border="1px solid black"
-        boxShadow="0 4px 0 0 black"
+        border="1px solid"
+        borderColor={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
+        boxShadow={colorMode === 'light' 
+          ? "0 4px 0 0 black"
+          : "0 4px 0 0 rgba(255, 255, 255, 0.2)"}
         position="relative"
         overflow="hidden"
         padding={6}
       >
-        <Text fontSize="20px" fontWeight="500" color="black">
+        <Text 
+          fontSize="20px" 
+          fontWeight="500"
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        >
           No question data available.
         </Text>
       </Box>
@@ -31,22 +47,29 @@ const QuestionBox = ({ questionNumber, totalQuestionsInTopic, questionData, isSt
   return (
     <Box
       width="100%"
-      backgroundColor="#f2f2f3"
+      bg={colorMode === 'light' ? 'brand.surface.light' : 'brand.surface.dark'}
       borderRadius="20px"
-      border="1px solid black"
-      boxShadow="0 4px 0 0 black"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
+      boxShadow={colorMode === 'light' 
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"}
       position="relative"
       overflow="hidden"
       padding={6}
     >
       <Flex justifyContent="space-between" alignItems="center" marginBottom={4}>
         <Box
-          backgroundColor="#b3ebf2"
+          bg={colorMode === 'light' ? 'brand.secondary.light' : 'brand.secondary.dark'}
           paddingX={1}
           paddingY={0}
           borderRadius="8px"
         >
-          <Text fontSize="24px" fontWeight="700" color="black">
+          <Text 
+            fontSize="24px" 
+            fontWeight="700"
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          >
             T{currentTopic} Q{questionNumber} of {totalQuestionsInTopic}
           </Text>
         </Box>
@@ -58,7 +81,12 @@ const QuestionBox = ({ questionNumber, totalQuestionsInTopic, questionData, isSt
         />
       </Flex>
       <Box>
-        <Text fontSize="20px" fontWeight="500" color="black" dangerouslySetInnerHTML={{ __html: transformedBody || "No question text available." }} />
+        <Text 
+          fontSize="20px" 
+          fontWeight="500"
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          dangerouslySetInnerHTML={{ __html: transformedBody || "No question text available." }} 
+        />
       </Box>
     </Box>
   );

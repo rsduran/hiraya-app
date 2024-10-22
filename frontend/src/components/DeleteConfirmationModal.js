@@ -10,6 +10,7 @@ import {
   Text,
   Flex,
   VStack,
+  useColorMode,
 } from '@chakra-ui/react';
 import { FaTimes, FaTrash } from 'react-icons/fa';
 import { IconBox } from './IconBox';
@@ -20,39 +21,70 @@ const CloseButton = ({ onClick }) => (
     size="24px"
     iconScale={0.7}
     withBorder={false}
-    bgColor="transparent"
     onClick={onClick}
   />
 );
 
-const CustomButton = ({ children, onClick, isDanger = false, ...props }) => (
-  <Button
-    onClick={onClick}
-    height="48px"
-    fontSize="16px"
-    px="24px"
-    bg={isDanger ? "#FF3333" : "white"}
-    color={isDanger ? "white" : "black"}
-    borderRadius="full"
-    border="1px solid black"
-    fontWeight={700}
-    textTransform="uppercase"
-    transition="0.3s"
-    boxShadow="0 4px 0 0 black"
-    _hover={{
-      bg: isDanger ? "#FF0000" : "#f5f5f5",
-      transform: 'translateY(2px)',
-      boxShadow: '0 2px 0 0 black',
-    }}
-    _active={{
-      transform: 'translateY(4px)',
-      boxShadow: 'none',
-    }}
-    {...props}
-  >
-    {children}
-  </Button>
-);
+const CustomButton = ({ children, onClick, isDanger = false, ...props }) => {
+  const { colorMode } = useColorMode();
+
+  // For danger buttons, we'll use specific colors rather than theme colors
+  const dangerColors = {
+    light: {
+      bg: "#FF3333",
+      hoverBg: "#FF0000",
+      text: "white",
+    },
+    dark: {
+      bg: "#CC0000",
+      hoverBg: "#990000",
+      text: "white",
+    },
+  };
+
+  return (
+    <Button
+      onClick={onClick}
+      height="48px"
+      fontSize="16px"
+      px="24px"
+      bg={isDanger 
+        ? dangerColors[colorMode].bg
+        : (colorMode === 'light' ? "brand.background.light" : "brand.surface.dark")
+      }
+      color={isDanger
+        ? dangerColors[colorMode].text
+        : (colorMode === 'light' ? "brand.text.light" : "brand.text.dark")
+      }
+      borderRadius="full"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+      fontWeight={700}
+      textTransform="uppercase"
+      transition="0.3s"
+      boxShadow={colorMode === 'light'
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+      }
+      _hover={{
+        bg: isDanger
+          ? dangerColors[colorMode].hoverBg
+          : (colorMode === 'light' ? "brand.surface.light" : "brand.background.dark"),
+        transform: 'translateY(2px)',
+        boxShadow: colorMode === 'light'
+          ? "0 2px 0 0 black"
+          : "0 2px 0 0 rgba(255, 255, 255, 0.2)",
+      }}
+      _active={{
+        transform: 'translateY(4px)',
+        boxShadow: 'none',
+      }}
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+};
 
 const DeleteConfirmationModal = ({ 
   isOpen, 
@@ -63,6 +95,8 @@ const DeleteConfirmationModal = ({
   itemCount,
   deleteType // "selected" or "all"
 }) => {
+  const { colorMode } = useColorMode();
+
   const getDescription = () => {
     if (deleteType === "all") {
       return "This will permanently delete all your exam progress. This action cannot be undone.";
@@ -75,28 +109,42 @@ const DeleteConfirmationModal = ({
       <ModalOverlay />
       <ModalContent
         borderRadius="20px"
-        border="1px solid black"
-        boxShadow="0 8px 0 0 black"
+        border="1px solid"
+        borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+        boxShadow={colorMode === 'light'
+          ? "0 8px 0 0 black"
+          : "0 8px 0 0 rgba(255, 255, 255, 0.2)"
+        }
+        bg={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
         p={6}
       >
         <Flex justifyContent="flex-end">
           <CloseButton onClick={onClose} />
         </Flex>
         <ModalHeader
-          fontFamily="'Space Grotesk', sans-serif"
+          fontFamily="heading"
           fontWeight="bold"
           fontSize="24px"
           pb={4}
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
         >
           {title}
         </ModalHeader>
         <ModalBody>
           <VStack spacing={4} align="stretch">
-            <Text fontFamily='"Karla Variable", sans-serif' fontSize="18px">
+            <Text 
+              fontFamily="body"
+              fontSize="18px"
+              color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            >
               {getDescription()}
             </Text>
             {message && (
-              <Text fontFamily='"Karla Variable", sans-serif' fontSize="16px" color="gray.600">
+              <Text 
+                fontFamily="body"
+                fontSize="16px"
+                color={colorMode === 'light' ? "gray.600" : "gray.400"}
+              >
                 {message}
               </Text>
             )}

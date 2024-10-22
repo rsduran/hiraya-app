@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { Box, Text, Flex, VStack, Tooltip, Image } from '@chakra-ui/react';
+import { Box, Text, Flex, VStack, Tooltip, Image, useColorMode } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 
-const colors = ["yellow.400", "red.300", "blue.300", "green.300"];
+const voteColors = {
+  light: ["yellow.400", "red.300", "blue.300", "green.300"],
+  dark: ["yellow.500", "red.400", "blue.400", "green.400"]
+};
 
 const transformImageUrl = (url) => {
   if (!url) return url;
@@ -12,10 +15,18 @@ const transformImageUrl = (url) => {
 };
 
 const VoteBar = ({ votes }) => {
+  const { colorMode } = useColorMode();
   const totalVotes = votes.reduce((sum, vote) => sum + vote.count, 0);
+  const colors = voteColors[colorMode];
   
   return (
-    <Box width="100%" height="30px" borderRadius="md" overflow="hidden" position="relative">
+    <Box 
+      width="100%" 
+      height="30px" 
+      borderRadius="md" 
+      overflow="hidden" 
+      position="relative"
+    >
       <Flex height="100%">
         {votes.map((vote, index) => {
           const percentage = (vote.count / totalVotes) * 100;
@@ -27,8 +38,8 @@ const VoteBar = ({ votes }) => {
               label={`${vote.answer}: ${percentage.toFixed(2)}%`}
               placement="top"
               hasArrow
-              backgroundColor="gray.700"
-              color="white"
+              bg={colorMode === 'light' ? 'gray.700' : 'gray.200'}
+              color={colorMode === 'light' ? 'white' : 'black'}
               isDisabled={!isSmall}
             >
               <Box
@@ -46,7 +57,7 @@ const VoteBar = ({ votes }) => {
                     transform="translateY(-50%)"
                     fontSize="14px"
                     fontWeight="bold"
-                    color="black"
+                    color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
                     whiteSpace="nowrap"
                     overflow="hidden"
                     textOverflow="ellipsis"
@@ -64,6 +75,8 @@ const VoteBar = ({ votes }) => {
 };
 
 const AnswerContent = ({ content, isAnswer }) => {
+  const { colorMode } = useColorMode();
+  
   const parsedContent = content.split(/<br>|<br\/>/).map((part, index) => {
     if (part.startsWith('<img')) {
       const srcMatch = part.match(/src="([^"]+)"/);
@@ -75,13 +88,22 @@ const AnswerContent = ({ content, isAnswer }) => {
     const textContent = part.replace(/<[^>]*>/g, '');
     if (index === 0 && isAnswer) {
       return (
-        <Text key={index} fontSize="24px" fontWeight="700" color="black">
+        <Text 
+          key={index} 
+          fontSize="24px" 
+          fontWeight="700" 
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        >
           {textContent}
         </Text>
       );
     }
     return (
-      <Text key={index} fontSize="16px" color="black">
+      <Text 
+        key={index} 
+        fontSize="16px" 
+        color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+      >
         {textContent}
       </Text>
     );
@@ -91,6 +113,7 @@ const AnswerContent = ({ content, isAnswer }) => {
 };
 
 const AnswerBox = ({ answer, answerDescription, votes }) => {
+  const { colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -100,10 +123,13 @@ const AnswerBox = ({ answer, answerDescription, votes }) => {
   return (
     <Box
       width="100%"
-      backgroundColor="#f2f2f3"
+      bg={colorMode === 'light' ? 'brand.surface.light' : 'brand.surface.dark'}
       borderRadius="20px"
-      border="1px solid black"
-      boxShadow="0 4px 0 0 black"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
+      boxShadow={colorMode === 'light' 
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"}
       position="relative"
       overflow="hidden"
       marginTop={4}
@@ -115,10 +141,23 @@ const AnswerBox = ({ answer, answerDescription, votes }) => {
         onClick={toggleDropdown} 
         cursor="pointer"
       >
-        <Text fontSize="24px" fontWeight="700" color="black">
+        <Text 
+          fontSize="24px" 
+          fontWeight="700" 
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        >
           Answer
         </Text>
-        {isOpen ? <ChevronUpIcon boxSize={6} /> : <ChevronDownIcon boxSize={6} />}
+        {isOpen ? 
+          <ChevronUpIcon 
+            boxSize={6} 
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'} 
+          /> : 
+          <ChevronDownIcon 
+            boxSize={6} 
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'} 
+          />
+        }
       </Flex>
       <AnimatePresence>
         {isOpen && (
@@ -134,7 +173,13 @@ const AnswerBox = ({ answer, answerDescription, votes }) => {
               {answerDescription && (
                 <AnswerContent content={answerDescription} isAnswer={false} />
               )}
-              <Text fontSize="24px" fontWeight="700" color="black">Votes:</Text>
+              <Text 
+                fontSize="24px" 
+                fontWeight="700" 
+                color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+              >
+                Votes:
+              </Text>
               <VoteBar votes={votes} />
             </VStack>
           </motion.div>

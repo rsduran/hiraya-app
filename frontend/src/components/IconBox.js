@@ -1,42 +1,43 @@
 import React, { useState } from 'react';
-import { Box, Flex } from '@chakra-ui/react';
+import { Box, Flex, useColorMode } from '@chakra-ui/react';
 import { PiSealFill, PiSeal, PiStar, PiStarFill } from 'react-icons/pi';
 import { BsQuestionLg } from 'react-icons/bs';
 
 // Generic IconBox component
-const IconBox = ({ 
+const IconBox = ({
   icon: Icon,
-  size = '48px', 
-  iconScale = 0.5, 
-  onClick, 
-  withBorder = true, 
+  size = '48px',
+  iconScale = 0.5,
+  onClick,
+  withBorder = true,
   borderThickness = 3,
-  bgColor = 'white',
   isActive = false
 }) => {
-  const [isPressed, setIsPressed] = useState(false);
+  const { colorMode } = useColorMode();
   const iconSize = `${parseInt(size) * iconScale}px`;
 
   return (
-    <Box 
-      position="relative" 
-      width={size} 
-      height={size} 
+    <Box
+      position="relative"
+      width={size}
+      height={size}
       onClick={onClick}
-      onMouseDown={() => setIsPressed(true)}
-      onMouseUp={() => setIsPressed(false)}
-      onMouseLeave={() => setIsPressed(false)}
       cursor="pointer"
       transition="all 0.1s ease"
-      transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
+      transform="scale(1)"
       userSelect="none"
     >
-      <PiSealFill size={size} color={isActive ? "#b3ebf2" : bgColor} />
+      <Box
+        as={PiSealFill}
+        size={size}
+        color={isActive
+          ? (colorMode === 'light' ? 'brand.secondary.light' : 'brand.secondary.dark')
+          : (colorMode === 'light' ? 'brand.background.light' : 'brand.surface.dark')
+        }
+      />
       {withBorder && (
         <Box
           as={PiSeal}
-          size={size}
-          color="black"
           position="absolute"
           top="0"
           left="0"
@@ -47,12 +48,12 @@ const IconBox = ({
           sx={{
             svg: {
               strokeWidth: borderThickness,
-              stroke: 'black',
+              stroke: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
               fill: 'none',
             },
             path: {
               strokeWidth: borderThickness,
-              stroke: 'black',
+              stroke: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
               fill: 'none',
             },
           }}
@@ -66,26 +67,34 @@ const IconBox = ({
         alignItems="center"
         justifyContent="center"
       >
-        {Icon ? (
-          <Icon size={iconSize} color="black" />
-        ) : (
-          <BsQuestionLg size={iconSize} color="black" />
-        )}
+        <Icon
+          size={iconSize}
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        />
       </Flex>
     </Box>
   );
 };
 
 // Specialized StarIconBox component
-const StarIconBox = ({ size = '48px', iconScale = 0.5, onClick, isStarFilled }) => {
+const StarIconBox = ({
+  size = '48px',
+  iconScale = 0.5,
+  onClick,
+  isStarFilled = false
+}) => {
   const [isPressed, setIsPressed] = useState(false);
+  const { colorMode } = useColorMode();
   const iconSize = `${parseInt(size) * iconScale}px`;
 
+  // Since this is a gradient/special color, we'll keep it hardcoded
+  const starFillColor = "#FFD700"; // Gold color for star
+
   return (
-    <Box 
-      position="relative" 
-      width={size} 
-      height={size} 
+    <Box
+      position="relative"
+      width={size}
+      height={size}
       onClick={onClick}
       onMouseDown={() => setIsPressed(true)}
       onMouseUp={() => setIsPressed(false)}
@@ -95,7 +104,11 @@ const StarIconBox = ({ size = '48px', iconScale = 0.5, onClick, isStarFilled }) 
       transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
-      <PiSealFill size={size} color="white" />
+      {/* Use PiSealFill for the background */}
+      <PiSealFill
+        size={size}
+        color={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+      />
       <Flex
         position="absolute"
         top="50%"
@@ -106,16 +119,16 @@ const StarIconBox = ({ size = '48px', iconScale = 0.5, onClick, isStarFilled }) 
       >
         <Box position="relative" width={iconSize} height={iconSize}>
           {isStarFilled && (
-            <PiStarFill 
-              size={iconSize} 
-              color="#FFD700" 
-              style={{ position: 'absolute', top: 0, left: 0 }} 
+            <PiStarFill
+              size={iconSize}
+              color={starFillColor}
+              style={{ position: 'absolute', top: 0, left: 0 }}
             />
           )}
-          <PiStar 
-            size={iconSize} 
-            color="black" 
-            style={{ position: 'absolute', top: 0, left: 0 }} 
+          <PiStar
+            size={iconSize}
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+            style={{ position: 'absolute', top: 0, left: 0 }}
           />
         </Box>
       </Flex>

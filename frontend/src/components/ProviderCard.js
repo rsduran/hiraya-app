@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Box, Text, Flex, Input, Icon } from "@chakra-ui/react";
+import { Box, Text, Flex, Input, Icon, useColorMode } from "@chakra-ui/react";
 import { BsBookmarkFill } from "react-icons/bs";
 import ExamCard from "./ExamCard";
 
 const ProviderCard = ({ providerName, exams, view, isPopular }) => {
+  const { colorMode } = useColorMode();
   const [searchTerm, setSearchTerm] = useState("");
   const [isBookmarked, setIsBookmarked] = useState(false);
 
@@ -19,7 +20,10 @@ const ProviderCard = ({ providerName, exams, view, isPopular }) => {
     if (filteredExams.length === 0) {
       return (
         <Box paddingY={4} textAlign="center">
-          <Text fontSize="lg" color="gray.600">
+          <Text 
+            fontSize="lg" 
+            color={colorMode === 'light' ? "gray.600" : "gray.400"}
+          >
             No exams or questions available for this provider.
           </Text>
         </Box>
@@ -63,10 +67,14 @@ const ProviderCard = ({ providerName, exams, view, isPopular }) => {
 
   return (
     <Box
-      backgroundColor="#f2f2f3"
+      backgroundColor={colorMode === 'light' ? "brand.surface.light" : "brand.surface.dark"}
       borderRadius="20px"
-      border="1px solid black"
-      boxShadow="0 4px 0 0 black"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+      boxShadow={colorMode === 'light' 
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+      }
       padding={6}
       marginBottom={8}
       width="100%"
@@ -82,6 +90,7 @@ const ProviderCard = ({ providerName, exams, view, isPopular }) => {
           <Text
             fontSize={{ base: "24px", md: "26px", lg: "28px" }}
             fontWeight="bold"
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
           >
             {providerName}
           </Text>
@@ -92,10 +101,18 @@ const ProviderCard = ({ providerName, exams, view, isPopular }) => {
               borderRadius="full"
               display="inline-block"
               alignSelf="center"
-              border="1px solid black"
-              bgGradient="linear(to-r, #FFD700, #FFA500)"
+              border="1px solid"
+              borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+              bgGradient={colorMode === 'light' 
+                ? "linear(to-r, #FFD700, #FFA500)"
+                : "linear(to-r, #B8860B, #CD853F)"  // Darker gold gradient for dark mode
+              }
             >
-              <Text fontSize="14px" fontWeight="500" color="black">
+              <Text 
+                fontSize="14px" 
+                fontWeight="500" 
+                color={colorMode === 'light' ? "black" : "white"}
+              >
                 Popular
               </Text>
             </Box>
@@ -111,10 +128,13 @@ const ProviderCard = ({ providerName, exams, view, isPopular }) => {
           >
             <Icon
               as={BsBookmarkFill}
-              color={isBookmarked ? "#FFD700" : "white"}
+              color={isBookmarked 
+                ? "#FFD700"  // Keep original gold color for bookmark
+                : colorMode === 'light' ? "white" : "gray.600"
+              }
               boxSize={6}
               strokeWidth={1}
-              stroke="black"
+              stroke={colorMode === 'light' ? "black" : "white"}
               transition="all 0.2s"
             />
           </Box>
@@ -124,7 +144,12 @@ const ProviderCard = ({ providerName, exams, view, isPopular }) => {
             width={{ base: "100%", sm: "200px", md: "250px", lg: "300px" }}
             value={searchTerm}
             onChange={(event) => setSearchTerm(event.target.value)}
-            backgroundColor="white"
+            backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            _placeholder={{
+              color: colorMode === 'light' ? "gray.500" : "gray.400"
+            }}
           />
         </Flex>
       </Flex>

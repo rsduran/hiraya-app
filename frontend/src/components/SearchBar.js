@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Box, Input, InputGroup, InputLeftElement, InputRightElement, Flex } from '@chakra-ui/react';
+import { Box, Input, InputGroup, InputLeftElement, InputRightElement, Flex, useColorMode } from '@chakra-ui/react';
 import { SearchIcon, CloseIcon } from '@chakra-ui/icons';
 import { PiShuffle } from "react-icons/pi";
 import { RxReset } from "react-icons/rx";
@@ -9,6 +9,7 @@ import QuestionListDropdown from './QuestionListDropdown';
 import SubmitButton from './SubmitButton';
 
 const SealedButton = React.memo(({ icon: Icon, onClick }) => {
+  const { colorMode } = useColorMode();
   const [isPressed, setIsPressed] = useState(false);
   const size = '48px';
   const iconScale = 0.4;
@@ -29,11 +30,15 @@ const SealedButton = React.memo(({ icon: Icon, onClick }) => {
       transform={isPressed ? 'scale(0.95)' : 'scale(1)'}
       userSelect="none"
     >
-      <PiSealFill size={size} color="#b3ebf2" />
+      <Box 
+        as={PiSealFill} 
+        size={size} 
+        color={colorMode === 'light' ? 'brand.secondary.light' : 'brand.secondary.dark'} 
+      />
       <Box
         as={PiSeal}
         size={size}
-        color="black"
+        color={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
         position="absolute"
         top="0"
         left="0"
@@ -44,12 +49,12 @@ const SealedButton = React.memo(({ icon: Icon, onClick }) => {
         sx={{
           svg: {
             strokeWidth: borderThickness,
-            stroke: 'black',
+            stroke: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
             fill: 'none',
           },
           path: {
             strokeWidth: borderThickness,
-            stroke: 'black',
+            stroke: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
             fill: 'none',
           },
         }}
@@ -62,7 +67,10 @@ const SealedButton = React.memo(({ icon: Icon, onClick }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Icon size={iconSize} color="black" />
+        <Icon 
+          size={iconSize} 
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'} 
+        />
       </Flex>
     </Box>
   );
@@ -79,6 +87,7 @@ const SearchBar = ({
   onQuestionSelect,
   onSubmit
 }) => {
+  const { colorMode } = useColorMode();
   const [searchTerm, setSearchTerm] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
@@ -129,21 +138,23 @@ const SearchBar = ({
     <Flex width="100%" marginBottom={4} alignItems="center" justifyContent="space-between">
       <InputGroup size="lg" flex={1} marginRight={4}>
         <InputLeftElement pointerEvents="none">
-          <SearchIcon color="gray.300" />
+          <SearchIcon color={colorMode === 'light' ? 'gray.300' : 'gray.500'} />
         </InputLeftElement>
         <Input
           value={searchTerm}
           onChange={handleSearch}
           placeholder={placeholder}
-          backgroundColor="white"
-          border="1px solid black"
+          bg={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+          border="1px solid"
+          borderColor={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
           borderRadius="12px"
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
           _focus={{
-            boxShadow: '0 0 0 1px black',
-            borderColor: 'black',
+            boxShadow: `0 0 0 1px ${colorMode === 'light' ? 'black' : 'white'}`,
+            borderColor: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
           }}
           _hover={{
-            borderColor: 'black',
+            borderColor: colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark',
           }}
           fontFamily='"Karla Variable", sans-serif'
           fontWeight={500}
@@ -151,7 +162,11 @@ const SearchBar = ({
         />
         {searchTerm && (
           <InputRightElement>
-            <CloseIcon color="gray.500" cursor="pointer" onClick={clearSearch} />
+            <CloseIcon 
+              color={colorMode === 'light' ? 'gray.500' : 'gray.400'} 
+              cursor="pointer" 
+              onClick={clearSearch} 
+            />
           </InputRightElement>
         )}
       </InputGroup>

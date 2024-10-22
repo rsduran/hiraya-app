@@ -1,14 +1,13 @@
 import React, { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import {
-  ChakraProvider,
-  extendTheme,
   Flex,
   Box,
   VStack,
   Spinner,
   Center,
   useDisclosure,
+  useColorMode,
 } from "@chakra-ui/react";
 import "@fontsource-variable/karla/wght.css";
 import "@fontsource/space-grotesk/700.css";
@@ -28,69 +27,39 @@ const TopicSelector = lazy(() => import("./components/TopicSelector"));
 const Dashboard = lazy(() => import("./components/Dashboard"));
 const TopicBox = lazy(() => import("./components/TopicBox"));
 
-const theme = extendTheme({
-  fonts: {
-    body: '"Karla Variable", sans-serif',
-    heading: "'Space Grotesk', sans-serif",
-  },
-  components: {
-    Button: {
-      baseStyle: {
-        fontWeight: "bold",
-        borderRadius: "full",
-        border: "1px solid black",
-        boxShadow: "0 4px 0 0 black",
-        transition: "0.3s",
-        _hover: {
-          transform: "translateY(2px)",
-          boxShadow: "0 2px 0 0 black",
-        },
-        _active: {
-          transform: "translateY(4px)",
-          boxShadow: "none",
-        },
-      },
-      variants: {
-        solid: {
-          backgroundColor: "#00bfff",
-          color: "black",
-        },
-        outline: {
-          backgroundColor: "transparent",
-          color: "#00bfff",
-          border: "2px solid #00bfff",
-        },
-      },
-    },
-    Text: {
-      baseStyle: {
-        fontFamily: '"Karla Variable", sans-serif',
-      },
-    },
-    Heading: {
-      baseStyle: {
-        fontFamily: "'Space Grotesk', sans-serif",
-        fontWeight: "bold",
-      },
-    },
-  },
-});
-
-const LoadingSpinner = () => (
-  <Center
-    position="fixed"
-    top="0"
-    left="0"
-    right="0"
-    bottom="0"
-    backgroundColor="rgba(255, 255, 255, 0.8)"
-    zIndex="9999"
-  >
-    <Spinner size="xl" color="#00bfff" thickness="4px" />
-  </Center>
-);
+const LoadingSpinner = () => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Center
+      position="fixed"
+      top="0"
+      left="0"
+      right="0"
+      bottom="0"
+      bg={colorMode === 'light' 
+        ? 'rgba(255, 255, 255, 0.8)' 
+        : 'rgba(26, 26, 26, 0.8)'}
+      zIndex="9999"
+    >
+      <Spinner 
+        size="xl" 
+        color={colorMode === 'light' ? 'brand.primary.light' : 'brand.primary.dark'} 
+        thickness="4px" 
+      />
+    </Center>
+  );
+};
 
 const MainPage = () => {
+  const { colorMode } = useColorMode();
+
+  // Theme-aware colors - updated to use theme colors
+  const sidebarBgColor = colorMode === 'light' 
+    ? 'brand.surface.light' 
+    : 'brand.surface.dark';
+
+  // States
   const [isStarFilled, setIsStarFilled] = useState(false);
   const [currentTopic, setCurrentTopic] = useState(1);
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(null);
@@ -107,6 +76,7 @@ const MainPage = () => {
   const [examResults, setExamResults] = useState(null);
   const [confirmDialogMessage, setConfirmDialogMessage] = useState("");
   const [incorrectQuestions, setIncorrectQuestions] = useState([]);
+
   const {
     isOpen: isConfirmOpen,
     onOpen: onConfirmOpen,
@@ -210,6 +180,23 @@ const MainPage = () => {
     }
   }, [examData, userAnswers]);
 
+  useEffect(() => {
+    const fetchSidebarState = async () => {
+      try {
+        const response = await fetch("http://localhost:5000/api/sidebar-state");
+        const data = await response.json();
+        setIsSidebarCollapsed(data.is_collapsed);
+      } catch (error) {
+        console.error("Error fetching sidebar state:", error);
+        setIsSidebarCollapsed(false);
+      } finally {
+        setIsSidebarLoaded(true);
+      }
+    };
+
+    fetchSidebarState();
+  }, []);
+
   const updateLastVisitedExam = async (examId) => {
     try {
       await fetch("http://localhost:5000/api/user-preference", {
@@ -270,23 +257,6 @@ const MainPage = () => {
     }
   };
 
-  useEffect(() => {
-    const fetchSidebarState = async () => {
-      try {
-        const response = await fetch("http://localhost:5000/api/sidebar-state");
-        const data = await response.json();
-        setIsSidebarCollapsed(data.is_collapsed);
-      } catch (error) {
-        console.error("Error fetching sidebar state:", error);
-        setIsSidebarCollapsed(false); // Default to expanded if error
-      } finally {
-        setIsSidebarLoaded(true);
-      }
-    };
-
-    fetchSidebarState();
-  }, []);
-
   const toggleSidebar = async () => {
     const newState = !isSidebarCollapsed;
     setIsSidebarCollapsed(newState);
@@ -306,7 +276,6 @@ const MainPage = () => {
 
   const handleExamSelect = async (examId) => {
     try {
-      // Track the exam visit
       await fetch("http://localhost:5000/api/track-exam-visit", {
         method: "POST",
         headers: {
@@ -315,13 +284,11 @@ const MainPage = () => {
         body: JSON.stringify({ exam_id: examId }),
       });
 
-      // Continue with existing functionality
       setLastVisitedExam(examId);
       updateLastVisitedExam(examId);
       navigate(`/actual-exam/${examId}`);
     } catch (error) {
       console.error("Error tracking exam visit:", error);
-      // Continue navigation even if tracking fails
       navigate(`/actual-exam/${examId}`);
     }
   };
@@ -378,7 +345,7 @@ const MainPage = () => {
         const results = await response.json();
         setExamResults(results);
         setIncorrectQuestions(results.incorrect_questions);
-        onOpen(); // Open the results modal
+        onOpen();
       } else {
         const errorData = await response.json();
         console.error("Error submitting answers:", errorData.error);
@@ -543,12 +510,8 @@ const MainPage = () => {
                   favorite.question_index === currentQuestionIndex
               )}
               toggleStar={toggleStar}
-              onNavigateLeft={() =>
-                handleQuestionChange(currentQuestionIndex - 1)
-              }
-              onNavigateRight={() =>
-                handleQuestionChange(currentQuestionIndex + 1)
-              }
+              onNavigateLeft={() => handleQuestionChange(currentQuestionIndex - 1)}
+              onNavigateRight={() => handleQuestionChange(currentQuestionIndex + 1)}
               currentTopic={currentTopic}
               currentQuestion={`T${currentTopic} Q${currentQuestionIndex + 1}`}
               onQuestionSelect={(selectedQuestion) => {
@@ -588,95 +551,91 @@ const MainPage = () => {
   };
 
   return (
-    <ChakraProvider theme={theme}>
-      <Flex height="100vh">
-        {!isSidebarLoaded ? (
-          // Loading state placeholder
-          <>
+    <Flex height="100vh">
+      {!isSidebarLoaded ? (
+        <>
+          <Box
+            width="80px"
+            height="100vh"
+            bg={sidebarBgColor}
+            transition="width 0.3s ease"
+          />
+          <Flex direction="column" flex={1} overflow="hidden">
+            <Navbar activeItem={getActiveItem(location.pathname)}>
+              {location.pathname.startsWith("/actual-exam") && examData && (
+                <Breadcrumbs
+                  items={[
+                    { label: "All Providers", href: "/providers" },
+                    { label: examData.provider, href: "/exams" },
+                    {
+                      label: examData.examTitle,
+                      href: "#",
+                      isCurrentPage: true,
+                    },
+                  ]}
+                />
+              )}
+            </Navbar>
             <Box
-              width="80px"
-              height="100vh"
-              backgroundColor="#f2f2f3"
-              transition="width 0.3s ease"
-            />
-            <Flex direction="column" flex={1} overflow="hidden">
-              <Navbar activeItem={getActiveItem(location.pathname)}>
-                {location.pathname.startsWith("/actual-exam") && examData && (
-                  <Breadcrumbs
-                    items={[
-                      { label: "All Providers", href: "/providers" },
-                      { label: examData.provider, href: "/exams" },
-                      {
-                        label: examData.examTitle,
-                        href: "#",
-                        isCurrentPage: true,
-                      },
-                    ]}
-                  />
-                )}
-              </Navbar>
-              <Box
-                flex={1}
-                overflow="auto"
-                padding={8}
-                backgroundColor="gray.50"
-              >
-                <Suspense fallback={<LoadingSpinner />}>
-                  {renderContent()}
-                </Suspense>
-              </Box>
-            </Flex>
-          </>
-        ) : (
-          // Fully loaded state
-          <>
-            <Sidebar
-              isCollapsed={isSidebarCollapsed}
-              onToggleCollapse={toggleSidebar}
-              activeItem={getActiveItem(location.pathname)}
-              lastVisitedExam={lastVisitedExam}
-            />
-            <Flex direction="column" flex={1} overflow="hidden">
-              <Navbar activeItem={getActiveItem(location.pathname)}>
-                {location.pathname.startsWith("/actual-exam") && examData && (
-                  <Breadcrumbs
-                    items={[
-                      { label: "All Providers", href: "/providers" },
-                      { label: examData.provider, href: "/exams" },
-                      {
-                        label: examData.examTitle,
-                        href: "#",
-                        isCurrentPage: true,
-                      },
-                    ]}
-                  />
-                )}
-              </Navbar>
-              <Box
-                flex={1}
-                overflow="auto"
-                padding={8}
-                backgroundColor="gray.50"
-              >
-                <Suspense fallback={<LoadingSpinner />}>
-                  {renderContent()}
-                </Suspense>
-              </Box>
-            </Flex>
-          </>
-        )}
-        <CustomConfirmationDialog
-          isOpen={isConfirmOpen}
-          onClose={onConfirmClose}
-          onConfirm={() => {
-            onConfirmClose();
-            submitExam();
-          }}
-          message={confirmDialogMessage}
-        />
-        <ResultsModal isOpen={isOpen} onClose={onClose} results={examResults} />
-      </Flex>
-    </ChakraProvider>
+              flex={1}
+              overflow="auto"
+              padding={8}
+              bg={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
+            >
+              <Suspense fallback={<LoadingSpinner />}>
+                {renderContent()}
+              </Suspense>
+            </Box>
+          </Flex>
+        </>
+      ) : (
+        <>
+          <Sidebar
+            isCollapsed={isSidebarCollapsed}
+            onToggleCollapse={toggleSidebar}
+            activeItem={getActiveItem(location.pathname)}
+            lastVisitedExam={lastVisitedExam}
+          />
+          <Flex direction="column" flex={1} overflow="hidden">
+            <Navbar activeItem={getActiveItem(location.pathname)}>
+              {location.pathname.startsWith("/actual-exam") && examData && (
+                <Breadcrumbs
+                  items={[
+                    { label: "All Providers", href: "/providers" },
+                    { label: examData.provider, href: "/exams" },
+                    {
+                      label: examData.examTitle,
+                      href: "#",
+                      isCurrentPage: true,
+                    },
+                  ]}
+                />
+              )}
+            </Navbar>
+            <Box
+              flex={1}
+              overflow="auto"
+              padding={8}
+              bg={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
+            >
+              <Suspense fallback={<LoadingSpinner />}>
+                {renderContent()}
+              </Suspense>
+            </Box>
+          </Flex>
+        </>
+      )}
+      <CustomConfirmationDialog
+        isOpen={isConfirmOpen}
+        onClose={onConfirmClose}
+        onConfirm={() => {
+          onConfirmClose();
+          submitExam();
+        }}
+        message={confirmDialogMessage}
+      />
+      <ResultsModal isOpen={isOpen} onClose={onClose} results={examResults} />
+    </Flex>
   );
 };
 

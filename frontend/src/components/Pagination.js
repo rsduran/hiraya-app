@@ -1,8 +1,10 @@
 import React from 'react';
-import { Flex, Text, Box } from '@chakra-ui/react';
+import { Flex, Text, Box, useColorMode } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+  const { colorMode } = useColorMode();
+
   const getPageNumbers = () => {
     const pageNumbers = [];
     if (totalPages <= 7) {
@@ -45,10 +47,21 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         isDisabled={currentPage === 1}
         alignItems="center"
         marginRight={2}
-        color={currentPage === 1 ? "gray.400" : "black"}
+        color={currentPage === 1 
+          ? colorMode === 'light' ? "gray.400" : "gray.600"
+          : colorMode === 'light' ? "brand.text.light" : "brand.text.dark"
+        }
         fontWeight="bold"
-        _hover={{ color: currentPage === 1 ? "gray.400" : "#00bfff" }}
-        _active={{ color: currentPage === 1 ? "gray.400" : "#0095cc" }}
+        _hover={{ 
+          color: currentPage === 1 
+            ? colorMode === 'light' ? "gray.400" : "gray.600"
+            : colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+        }}
+        _active={{ 
+          color: currentPage === 1 
+            ? colorMode === 'light' ? "gray.400" : "gray.600"
+            : colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+        }}
         cursor={currentPage === 1 ? "not-allowed" : "pointer"}
       >
         <ChevronLeftIcon marginRight={1} />
@@ -56,7 +69,13 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
       </Flex>
       {pageNumbers.map((number, index) => (
         number === '...' ? (
-          <Text key={index} marginX={1}>...</Text>
+          <Text 
+            key={index} 
+            marginX={1}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+          >
+            ...
+          </Text>
         ) : (
           <Box
             key={index}
@@ -68,14 +87,28 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
             alignItems="center"
             justifyContent="center"
             borderRadius="lg"
-            backgroundColor={currentPage === number ? "#00bfff" : "white"}
-            color="black"
+            backgroundColor={currentPage === number 
+              ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+              : colorMode === 'light' ? "brand.background.light" : "rgba(255, 255, 255, 0.2)"
+            }
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             fontWeight="bold"
-            border="1px solid black"
-            boxShadow="0 2px 0 0 black"
+            border="1px solid"
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            boxShadow={colorMode === 'light'
+              ? "0 2px 0 0 black"
+              : "0 2px 0 0 rgba(255, 255, 255, 0.2)"
+            }
             onClick={() => onPageChange(number)}
-            _hover={{ backgroundColor: currentPage === number ? "#00bfff" : "#b3ebf2" }}
-            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            _hover={{ 
+              backgroundColor: currentPage === number 
+                ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+                : colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+            }}
+            _active={{ 
+              boxShadow: "none", 
+              transform: "translateY(2px)" 
+            }}
           >
             {number}
           </Box>
@@ -87,10 +120,21 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         isDisabled={currentPage === totalPages}
         alignItems="center"
         marginLeft={2}
-        color={currentPage === totalPages ? "gray.400" : "black"}
+        color={currentPage === totalPages 
+          ? colorMode === 'light' ? "gray.400" : "gray.600"
+          : colorMode === 'light' ? "brand.text.light" : "brand.text.dark"
+        }
         fontWeight="bold"
-        _hover={{ color: currentPage === totalPages ? "gray.400" : "#00bfff" }}
-        _active={{ color: currentPage === totalPages ? "gray.400" : "#0095cc" }}
+        _hover={{ 
+          color: currentPage === totalPages 
+            ? colorMode === 'light' ? "gray.400" : "gray.600"
+            : colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+        }}
+        _active={{ 
+          color: currentPage === totalPages 
+            ? colorMode === 'light' ? "gray.400" : "gray.600"
+            : colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+        }}
         cursor={currentPage === totalPages ? "not-allowed" : "pointer"}
       >
         Next

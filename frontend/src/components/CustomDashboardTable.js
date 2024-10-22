@@ -1,49 +1,61 @@
 import React, { useState, useMemo } from "react";
-import { Box, Flex, Text, Button, VStack, Input } from "@chakra-ui/react";
+import { Box, Flex, Text, Button, VStack, Input, useColorMode } from "@chakra-ui/react";
 import { PiSortAscending, PiSortDescending } from "react-icons/pi";
 import { IoChevronDown, IoChevronUp } from "react-icons/io5";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import Pagination from "./Pagination";
 
-const CustomCheckbox = ({ isChecked, isIndeterminate, onChange }) => (
-  <Box
-    as="button"
-    width="20px"
-    height="20px"
-    borderRadius="4px"
-    border="2px solid black"
-    backgroundColor={isChecked ? "#00bfff" : "white"}
-    display="flex"
-    alignItems="center"
-    justifyContent="center"
-    onClick={onChange}
-    _hover={{ backgroundColor: isChecked ? "#00a6d6" : "#e6f7f9" }}
-    transition="all 0.2s"
-    position="relative"
-  >
-    {isIndeterminate ? (
-      <Box
-        width="10px"
-        height="2px"
-        backgroundColor={isChecked ? "white" : "black"}
-        position="absolute"
-        top="50%"
-        left="50%"
-        transform="translate(-50%, -50%)"
-      />
-    ) : (
-      isChecked && (
+const CustomCheckbox = ({ isChecked, isIndeterminate, onChange }) => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Box
+      as="button"
+      width="20px"
+      height="20px"
+      borderRadius="4px"
+      border="2px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+      backgroundColor={isChecked 
+        ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+        : colorMode === 'light' ? "brand.background.light" : "brand.background.dark"
+      }
+      display="flex"
+      alignItems="center"
+      justifyContent="center"
+      onClick={onChange}
+      _hover={{ 
+        backgroundColor: isChecked
+          ? colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+          : colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+      }}
+      transition="all 0.2s"
+      position="relative"
+    >
+      {isIndeterminate ? (
         <Box
           width="10px"
-          height="10px"
-          borderRadius="2px"
-          backgroundColor="white"
+          height="2px"
+          backgroundColor={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+          position="absolute"
+          top="50%"
+          left="50%"
+          transform="translate(-50%, -50%)"
         />
-      )
-    )}
-  </Box>
-);
+      ) : (
+        isChecked && (
+          <Box
+            width="10px"
+            height="10px"
+            borderRadius="2px"
+            backgroundColor={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+          />
+        )
+      )}
+    </Box>
+  );
+};
 
 const CustomButton = ({
   children,
@@ -53,71 +65,88 @@ const CustomButton = ({
   isDisabled,
   borderColor,
   ...props
-}) => (
-  <Button
-    onClick={onClick}
-    height="40px"
-    paddingLeft="16px"
-    paddingRight="16px"
-    backgroundColor={backgroundColor}
-    color="black"
-    fontWeight={700}
-    fontSize="14px"
-    borderRadius="full"
-    border="1px solid"
-    borderColor={borderColor || "black"}
-    boxShadow={isDisabled ? "none" : "0 4px 0 0 black"}
-    _hover={{
-      backgroundColor: isDisabled ? backgroundColor : hoverBackgroundColor,
-      transform: isDisabled ? "none" : "translateY(2px)",
-      boxShadow: isDisabled ? "none" : "0 2px 0 0 black",
-    }}
-    _active={{
-      transform: isDisabled ? "none" : "translateY(4px)",
-      boxShadow: "none",
-    }}
-    transition="all 0.2s"
-    opacity={isDisabled ? 0.5 : 1}
-    cursor={isDisabled ? "not-allowed" : "pointer"}
-    isDisabled={isDisabled}
-    {...props}
-  >
-    {children}
-  </Button>
-);
-
-const TableHeader = ({ children, onClick, isSortable, sortDirection }) => (
-  <Flex
-    alignItems="center"
-    justifyContent="center"
-    cursor={isSortable ? "pointer" : "default"}
-    onClick={onClick}
-  >
-    <Text
-      fontFamily="Karla Variable"
+}) => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Button
+      onClick={onClick}
+      height="40px"
+      paddingLeft="16px"
+      paddingRight="16px"
+      backgroundColor={backgroundColor || (colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark")}
+      color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
       fontWeight={700}
-      fontSize="12px"
-      lineHeight="16px"
-      color="black"
-      textTransform="uppercase"
-      textAlign="center"
+      fontSize="14px"
+      borderRadius="full"
+      border="1px solid"
+      borderColor={borderColor || (colorMode === 'light' ? "brand.border.light" : "brand.border.dark")}
+      boxShadow={isDisabled ? "none" : colorMode === 'light' 
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+      }
+      _hover={{
+        backgroundColor: isDisabled 
+          ? backgroundColor 
+          : (hoverBackgroundColor || (colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light")),
+        transform: isDisabled ? "none" : "translateY(2px)",
+        boxShadow: isDisabled ? "none" : colorMode === 'light'
+          ? "0 2px 0 0 black"
+          : "0 2px 0 0 rgba(255, 255, 255, 0.2)",
+      }}
+      _active={{
+        transform: isDisabled ? "none" : "translateY(4px)",
+        boxShadow: "none",
+      }}
+      transition="all 0.2s"
+      opacity={isDisabled ? 0.5 : 1}
+      cursor={isDisabled ? "not-allowed" : "pointer"}
+      isDisabled={isDisabled}
+      {...props}
     >
       {children}
-    </Text>
-    {isSortable && (
-      <Box marginLeft={1}>
-        {sortDirection === "asc" ? (
-          <PiSortAscending size={16} />
-        ) : (
-          <PiSortDescending size={16} />
-        )}
-      </Box>
-    )}
-  </Flex>
-);
+    </Button>
+  );
+};
 
+const TableHeader = ({ children, onClick, isSortable, sortDirection }) => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Flex
+      alignItems="center"
+      justifyContent="center"
+      cursor={isSortable ? "pointer" : "default"}
+      onClick={onClick}
+    >
+      <Text
+        fontFamily="Karla Variable"
+        fontWeight={700}
+        fontSize="12px"
+        lineHeight="16px"
+        color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+        textTransform="uppercase"
+        textAlign="center"
+      >
+        {children}
+      </Text>
+      {isSortable && (
+        <Box marginLeft={1} color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}>
+          {sortDirection === "asc" ? (
+            <PiSortAscending size={16} />
+          ) : (
+            <PiSortDescending size={16} />
+          )}
+        </Box>
+      )}
+    </Flex>
+  );
+};
+
+// First let's modify TableCell component
 const TableCell = ({ children, isLink, examId, ...props }) => {
   const navigate = useNavigate();
+  const { colorMode } = useColorMode();
 
   if (isLink) {
     return (
@@ -126,12 +155,12 @@ const TableCell = ({ children, isLink, examId, ...props }) => {
         fontWeight={700}
         fontSize="12px"
         lineHeight="16px"
-        color="#00bfff"
+        color={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
         textAlign="center"
         cursor="pointer"
         _hover={{
           textDecoration: "underline",
-          color: "#0095cc",
+          color: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light",
         }}
         onClick={(e) => {
           e.stopPropagation();
@@ -150,7 +179,7 @@ const TableCell = ({ children, isLink, examId, ...props }) => {
       fontWeight={700}
       fontSize="12px"
       lineHeight="16px"
-      color="black"
+      color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
       textAlign="center"
       {...props}
     >
@@ -159,22 +188,33 @@ const TableCell = ({ children, isLink, examId, ...props }) => {
   );
 };
 
+// Modified StatusBadge to support dark mode gradients
 const StatusBadge = ({ status }) => {
+  const { colorMode } = useColorMode();
   let bgGradient;
-  let textColor = "black";
+  let textColor = colorMode === 'light' ? "brand.text.light" : "brand.text.dark";
+  let borderColor = colorMode === 'light' ? "brand.border.light" : "brand.border.dark";
 
   switch (status) {
     case "Passed":
-      bgGradient = "linear(to-r, #4CAF50, #8BC34A)";
+      bgGradient = colorMode === 'light' 
+        ? "gradient.success.light"
+        : "gradient.success.dark";
       break;
     case "Failed":
-      bgGradient = "linear(to-r, #FF5252, #FF8A80)";
+      bgGradient = colorMode === 'light'
+        ? "gradient.error.light"
+        : "gradient.error.dark";
       break;
     case "Not Attempted":
-      bgGradient = "linear(to-r, #9E9E9E, #BDBDBD)";
+      bgGradient = colorMode === 'light'
+        ? "linear(to-r, #9E9E9E, #BDBDBD)"
+        : "linear(to-r, #4A4A4A, #666666)";
       break;
     default:
-      bgGradient = "linear(to-r, #FFD54F, #FFF176)";
+      bgGradient = colorMode === 'light'
+        ? "gradient.warning.light"
+        : "gradient.warning.dark";
   }
 
   return (
@@ -186,7 +226,8 @@ const StatusBadge = ({ status }) => {
       borderRadius="full"
       display="inline-block"
       alignSelf="center"
-      border="1px solid black"
+      border="1px solid"
+      borderColor={borderColor}
       bgGradient={bgGradient}
     >
       <Text fontSize="14px" fontWeight="500" color={textColor}>
@@ -196,12 +237,37 @@ const StatusBadge = ({ status }) => {
   );
 };
 
+// Modified CustomProgressIndicator with theme colors
 const CustomProgressIndicator = ({ value }) => {
+  const { colorMode } = useColorMode();
+  
   const getColor = (value) => {
-    if (value < 50) return "linear(to-r, #FF5252, #FF8A80)";
-    if (value < 75) return "linear(to-r, #FFD54F, #FFF176)";
-    return "linear(to-r, #4CAF50, #8BC34A)";
+    if (value < 50) return colorMode === 'light' 
+      ? "gradient.error.light"
+      : "gradient.error.dark";
+    if (value < 75) return colorMode === 'light'
+      ? "gradient.warning.light"
+      : "gradient.warning.dark";
+    return colorMode === 'light'
+      ? "gradient.success.light"
+      : "gradient.success.dark";
   };
+
+  // The gradient colors based on the theme
+  const getGradientColors = (gradientKey) => {
+    const gradients = {
+      'gradient.error.light': ['#FF5252', '#FF8A80'],
+      'gradient.error.dark': ['#992F2F', '#994D4D'],
+      'gradient.warning.light': ['#FFD54F', '#FFF176'],
+      'gradient.warning.dark': ['#997F30', '#998E47'],
+      'gradient.success.light': ['#4CAF50', '#8BC34A'],
+      'gradient.success.dark': ['#2E673F', '#4A6F2E']
+    };
+    
+    return gradients[gradientKey] || gradients['gradient.success.light'];
+  };
+
+  const gradientColors = getGradientColors(getColor(value));
 
   return (
     <Box position="relative" width="50px" height="50px">
@@ -213,7 +279,7 @@ const CustomProgressIndicator = ({ value }) => {
         height="100%"
         borderRadius="50%"
         border="4px solid"
-        borderColor="#E0E0E0"
+        borderColor={colorMode === 'light' ? "#E0E0E0" : "#404040"}
       />
       <Box
         as="svg"
@@ -227,11 +293,8 @@ const CustomProgressIndicator = ({ value }) => {
             id={`gradient-${value}`}
             gradientTransform="rotate(90)"
           >
-            <stop offset="0%" stopColor={getColor(value).split(", ")[1]} />
-            <stop
-              offset="100%"
-              stopColor={getColor(value).split(", ")[2].slice(0, -1)}
-            />
+            <stop offset="0%" stopColor={gradientColors[0]} />
+            <stop offset="100%" stopColor={gradientColors[1]} />
           </linearGradient>
         </defs>
         <path
@@ -253,7 +316,11 @@ const CustomProgressIndicator = ({ value }) => {
         alignItems="center"
         justifyContent="center"
       >
-        <Text fontSize="12px" fontWeight="bold">
+        <Text 
+          fontSize="12px" 
+          fontWeight="bold"
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+        >
           {value}%
         </Text>
       </Flex>
@@ -269,6 +336,7 @@ const ProviderGroup = ({
   handleSort,
 }) => {
   const [isOpen, setIsOpen] = useState(true);
+  const { colorMode } = useColorMode();
 
   const allProviderExamsSelected = useMemo(() => {
     const providerExamIds = exams.map((exam) => exam.id);
@@ -307,9 +375,10 @@ const ProviderGroup = ({
   return (
     <Box
       width="100%"
-      backgroundColor="#f2f2f3"
+      backgroundColor={colorMode === 'light' ? "brand.surface.light" : "brand.surface.dark"}
       borderRadius="10px"
-      border="1px solid black"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
       position="relative"
       overflow="hidden"
     >
@@ -317,8 +386,12 @@ const ProviderGroup = ({
         justifyContent="space-between"
         alignItems="center"
         padding={4}
-        backgroundColor="#e6f7f9"
-        _hover={{ backgroundColor: "#d1f1f5" }}
+        backgroundColor={colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"}
+        _hover={{ 
+          backgroundColor: colorMode === 'light' 
+            ? "rgba(179, 235, 242, 0.8)" 
+            : "rgba(38, 94, 109, 0.8)" 
+        }}
         cursor="pointer"
         onClick={toggleGroup}
       >
@@ -334,11 +407,16 @@ const ProviderGroup = ({
               onChange={handleProviderSelect}
             />
           </Box>
-          <Text fontSize="18px" fontWeight="700" color="black" flex={1}>
+          <Text 
+            fontSize="18px" 
+            fontWeight="700" 
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            flex={1}
+          >
             {provider}
           </Text>
         </Flex>
-        <Box>
+        <Box color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}>
           {isOpen ? <IoChevronUp size={20} /> : <IoChevronDown size={20} />}
         </Box>
       </Flex>
@@ -355,11 +433,23 @@ const ProviderGroup = ({
               {exams.map((item, index) => (
                 <Flex
                   key={item.id}
-                  borderTop={index === 0 ? "1px solid #E2E8F0" : "none"}
-                  borderBottom="1px solid #E2E8F0"
+                  borderTop={index === 0 
+                    ? `1px solid ${colorMode === 'light' 
+                      ? "rgba(226, 232, 240, 0.8)" 
+                      : "rgba(64, 64, 64, 0.8)"}`
+                    : "none"
+                  }
+                  borderBottom={`1px solid ${colorMode === 'light'
+                    ? "rgba(226, 232, 240, 0.8)"
+                    : "rgba(64, 64, 64, 0.8)"}`
+                  }
                   padding={4}
-                  backgroundColor="white"
-                  _hover={{ backgroundColor: "#f8f8f8" }}
+                  backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.background.dark"}
+                  _hover={{ 
+                    backgroundColor: colorMode === 'light' 
+                      ? "brand.surface.light" 
+                      : "brand.surface.dark" 
+                  }}
                   transition="background-color 0.2s"
                   alignItems="center"
                 >
@@ -430,6 +520,7 @@ const CustomDashboardTableComponent = ({
   });
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
+  const { colorMode } = useColorMode();
   const itemsPerPage = 2;
 
   const handleSelectAll = () => {
@@ -538,10 +629,12 @@ const CustomDashboardTableComponent = ({
   return (
     <Box
       borderRadius="12px"
-      border="1px solid black"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
       padding={6}
       overflowY="scroll"
       maxHeight="600px"
+      backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.background.dark"}
     >
       <Flex justifyContent="space-between" alignItems="center" marginBottom={4}>
         <Text
@@ -549,7 +642,7 @@ const CustomDashboardTableComponent = ({
           fontWeight={700}
           fontSize="16px"
           lineHeight="24px"
-          color="black"
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
         >
           Your Exam Progress
         </Text>
@@ -561,13 +654,20 @@ const CustomDashboardTableComponent = ({
             marginRight={4}
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            backgroundColor="white"
+            backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.background.dark"}
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            _placeholder={{
+              color: colorMode === 'light' 
+                ? "rgba(0, 0, 0, 0.5)" 
+                : "rgba(255, 255, 255, 0.5)"
+            }}
           />
           <CustomButton
             onClick={() => onDeleteSelected(selectedRows)}
             backgroundColor="transparent"
-            hoverBackgroundColor="#FFE5E5"
-            borderColor="#FF3333"
+            hoverBackgroundColor={colorMode === 'light' ? "#FFE5E5" : "#4D0000"}
+            borderColor={colorMode === 'light' ? "#FF3333" : "#FF6666"}
             marginRight={4}
             isDisabled={selectedRows.length === 0}
           >
@@ -575,8 +675,8 @@ const CustomDashboardTableComponent = ({
           </CustomButton>
           <CustomButton
             onClick={onDeleteAll}
-            backgroundColor="#FF3333"
-            hoverBackgroundColor="#FF0000"
+            backgroundColor={colorMode === 'light' ? "#FF3333" : "#FF6666"}
+            hoverBackgroundColor={colorMode === 'light' ? "#FF0000" : "#CC0000"}
           >
             Delete All
           </CustomButton>
@@ -584,16 +684,21 @@ const CustomDashboardTableComponent = ({
       </Flex>
       <Box
         borderRadius="12px"
-        border="1px solid black"
-        boxShadow="0 4px 0 0 black"
+        border="1px solid"
+        borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+        boxShadow={colorMode === 'light' 
+          ? "0 4px 0 0 black" 
+          : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+        }
         overflow="hidden"
       >
         <Box overflowX="auto">
           <Box minWidth="1200px">
             {/* Table Header */}
             <Flex
-              backgroundColor="#f2f2f3"
-              borderBottom="1px solid black"
+              backgroundColor={colorMode === 'light' ? "brand.surface.light" : "brand.surface.dark"}
+              borderBottom="1px solid"
+              borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
               padding={4}
               alignItems="center"
             >
@@ -649,11 +754,16 @@ const CustomDashboardTableComponent = ({
       </Box>
 
       {/* Pagination */}
-      <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={setCurrentPage}
-      />
+      <Box 
+        marginTop={4}
+        backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.background.dark"}
+      >
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+        />
+      </Box>
     </Box>
   );
 };

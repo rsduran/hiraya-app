@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Flex, CloseButton } from '@chakra-ui/react';
+import { Box, Text, Flex, CloseButton, useColorMode } from '@chakra-ui/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FaCheck, FaExclamationTriangle } from 'react-icons/fa';
 
@@ -10,30 +10,60 @@ const CustomToast = ({
   onClose,
   id 
 }) => {
+  const { colorMode } = useColorMode();
+
   const getStatusStyles = () => {
-    switch (status) {
-      case 'success':
-        return {
+    const styles = {
+      success: {
+        light: {
           bg: 'linear-gradient(to right, #4CAF50, #8BC34A)',
-          icon: FaCheck,
-          iconColor: '#fff'
-        };
-      case 'error':
-        return {
+          iconColor: 'white',
+          textColor: 'black'
+        },
+        dark: {
+          bg: 'linear-gradient(to right, #2E673F, #4A6F2E)',
+          iconColor: 'white',
+          textColor: 'white'
+        }
+      },
+      error: {
+        light: {
           bg: 'linear-gradient(to right, #FF5252, #FF8A80)',
-          icon: FaExclamationTriangle,
-          iconColor: '#fff'
-        };
-      default:
-        return {
+          iconColor: 'white',
+          textColor: 'black'
+        },
+        dark: {
+          bg: 'linear-gradient(to right, #992F2F, #994D4D)',
+          iconColor: 'white',
+          textColor: 'white'
+        }
+      },
+      warning: {
+        light: {
           bg: 'linear-gradient(to right, #FFD54F, #FFF176)',
-          icon: FaCheck,
-          iconColor: '#000'
-        };
-    }
+          iconColor: 'black',
+          textColor: 'black'
+        },
+        dark: {
+          bg: 'linear-gradient(to right, #997F30, #998E47)',
+          iconColor: 'white',
+          textColor: 'white'
+        }
+      }
+    };
+
+    const currentMode = colorMode === 'light' ? 'light' : 'dark';
+    const statusStyle = styles[status] || styles.success;
+
+    return {
+      bg: statusStyle[currentMode].bg,
+      icon: status === 'error' ? FaExclamationTriangle : FaCheck,
+      iconColor: statusStyle[currentMode].iconColor,
+      textColor: statusStyle[currentMode].textColor
+    };
   };
 
-  const { bg, icon: Icon, iconColor } = getStatusStyles();
+  const { bg, icon: Icon, iconColor, textColor } = getStatusStyles();
 
   return (
     <AnimatePresence>
@@ -47,15 +77,22 @@ const CustomToast = ({
           width="100%"
           bgGradient={bg}
           borderRadius="12px"
-          border="1px solid black"
-          boxShadow="0 4px 0 0 black"
+          border="1px solid"
+          borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+          boxShadow={colorMode === 'light'
+            ? "0 4px 0 0 black"
+            : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+          }
           padding={4}
           position="relative"
         >
           <Flex alignItems="center">
             <Box
               borderRadius="full"
-              bg="rgba(255, 255, 255, 0.2)"
+              bg={colorMode === 'light' 
+                ? "rgba(255, 255, 255, 0.2)"
+                : "rgba(255, 255, 255, 0.1)"
+              }
               p={2}
               mr={3}
             >
@@ -65,13 +102,17 @@ const CustomToast = ({
               <Text
                 fontSize="16px"
                 fontWeight="700"
-                color="black"
+                color={textColor}
                 mb={description ? 1 : 0}
               >
                 {title}
               </Text>
               {description && (
-                <Text fontSize="14px" color="black" opacity={0.8}>
+                <Text 
+                  fontSize="14px" 
+                  color={textColor}
+                  opacity={0.8}
+                >
                   {description}
                 </Text>
               )}
@@ -79,8 +120,12 @@ const CustomToast = ({
             <CloseButton
               size="sm"
               onClick={() => onClose(id)}
-              color="black"
-              _hover={{ bg: 'rgba(0, 0, 0, 0.1)' }}
+              color={textColor}
+              _hover={{ 
+                bg: colorMode === 'light'
+                  ? "rgba(0, 0, 0, 0.1)"
+                  : "rgba(255, 255, 255, 0.1)" 
+              }}
             />
           </Flex>
         </Box>

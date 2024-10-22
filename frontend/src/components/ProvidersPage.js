@@ -7,6 +7,7 @@ import {
   Container,
   Center,
   Spinner,
+  useColorMode,
 } from "@chakra-ui/react";
 import { LuGrid, LuList } from "react-icons/lu";
 import { IconBox } from "./IconBox";
@@ -16,13 +17,22 @@ import { debounce } from "lodash";
 
 const CategoryCard = lazy(() => import("./CategoryCard"));
 
-const LoadingSpinner = () => (
-  <Center height="200px">
-    <Spinner size="xl" color="#00bfff" thickness="4px" />
-  </Center>
-);
+const LoadingSpinner = () => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Center height="200px">
+      <Spinner 
+        size="xl" 
+        color={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"} 
+        thickness="4px" 
+      />
+    </Center>
+  );
+};
 
 const ProvidersPage = () => {
+  const { colorMode } = useColorMode();
   const [categories, setCategories] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState("All Categories");
@@ -93,7 +103,12 @@ const ProvidersPage = () => {
   if (error) {
     return (
       <Center>
-        <Box fontSize="xl" color="red.500">Error: {error}</Box>
+        <Box 
+          fontSize="xl" 
+          color={colorMode === 'light' ? "red.500" : "red.300"}
+        >
+          Error: {error}
+        </Box>
       </Center>
     );
   }
@@ -113,6 +128,12 @@ const ProvidersPage = () => {
             size="lg"
             width={{ base: "100%", md: "400px" }}
             onChange={(e) => debouncedSearch(e.target.value)}
+            backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            _placeholder={{
+              color: colorMode === 'light' ? "gray.500" : "gray.400"
+            }}
           />
           <Flex alignItems="center" gap={4}>
             <Box width="250px">
@@ -128,7 +149,10 @@ const ProvidersPage = () => {
                 size="48px"
                 iconScale={0.4}
                 borderThickness={3}
-                bgColor={view === "grid" ? "#b3ebf2" : "white"}
+                bgColor={view === "grid" 
+                  ? colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+                  : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+                }
                 onClick={() => setView("grid")}
               />
               <IconBox
@@ -136,7 +160,10 @@ const ProvidersPage = () => {
                 size="48px"
                 iconScale={0.4}
                 borderThickness={3}
-                bgColor={view === "list" ? "#b3ebf2" : "white"}
+                bgColor={view === "list" 
+                  ? colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+                  : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+                }
                 onClick={() => setView("list")}
               />
             </Flex>
@@ -146,7 +173,12 @@ const ProvidersPage = () => {
         {/* Categories */}
         {paginatedCategories.length === 0 ? (
           <Center>
-            <Box fontSize="xl" textAlign="center" marginY={8}>
+            <Box 
+              fontSize="xl" 
+              textAlign="center" 
+              marginY={8}
+              color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            >
               No providers found. Try adjusting your search or selected category.
             </Box>
           </Center>

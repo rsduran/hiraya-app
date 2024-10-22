@@ -1,10 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { Box, Text, Progress, Flex, Tooltip, Image } from "@chakra-ui/react";
+import { Box, Text, Progress, Flex, Tooltip, Image, useColorMode } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { getBadgeUrl } from "./BadgeUrls";
 
 const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) => {
   const navigate = useNavigate();
+  const { colorMode } = useColorMode();
   const progressPercentage = (progress / totalQuestions) * 100;
 
   const BadgeImage = ({ size }) => (
@@ -77,10 +78,14 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
   if (view === "grid") {
     return (
       <Box
-        backgroundColor="white"
+        backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
         borderRadius="12px"
-        border="1px solid black"
-        boxShadow="0 4px 0 0 black"
+        border="1px solid"
+        borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+        boxShadow={colorMode === 'light' 
+          ? "0 4px 0 0 black"
+          : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+        }
         padding={3}
         width={{ base: "100%", sm: "250px", md: "280px", lg: "300px" }}
         height="300px"
@@ -99,6 +104,7 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
             overflow="hidden"
             textOverflow="ellipsis"
             display="-webkit-box"
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             sx={{
               WebkitLineClamp: 2,
               WebkitBoxOrient: "vertical",
@@ -123,12 +129,12 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
           height="8px"
           width="100%"
           borderRadius="4px"
-          backgroundColor="gray.200"
+          backgroundColor={colorMode === 'light' ? "gray.200" : "gray.600"}
         />
         <Flex justifyContent="space-between" alignItems="center">
           <Text
             fontSize={{ base: "12px", md: "13px", lg: "14px" }}
-            color="gray.600"
+            color={colorMode === 'light' ? "gray.600" : "gray.400"}
           >
             {progress} / {totalQuestions} questions
           </Text>
@@ -137,14 +143,23 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
             paddingX={4}
             paddingY={1}
             borderRadius="full"
-            backgroundColor="#00bfff"
-            color="black"
+            backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             fontWeight="bold"
             fontSize={{ base: "12px", md: "13px", lg: "14px" }}
-            border="1px solid black"
-            boxShadow="0 2px 0 0 black"
-            _hover={{ backgroundColor: "#00a6d6" }}
-            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            border="1px solid"
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            boxShadow={colorMode === 'light' 
+              ? "0 2px 0 0 black"
+              : "0 2px 0 0 rgba(255, 255, 255, 0.2)"
+            }
+            _hover={{ 
+              backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+            }}
+            _active={{ 
+              boxShadow: "none", 
+              transform: "translateY(2px)" 
+            }}
             onClick={handleContinue}
           >
             Continue
@@ -158,7 +173,8 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
         alignItems="center"
         paddingY={2}
         paddingLeft={4}
-        borderBottom="1px solid #E2E8F0"
+        borderBottom="1px solid"
+        borderColor={colorMode === 'light' ? "gray.200" : "gray.600"}
       >
         <Box width="80px" height="80px" marginRight={4} flexShrink={0}>
           <BadgeImage size={80} />
@@ -170,6 +186,7 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
               fontSize={{ base: "14px", md: "16px", lg: "18px" }}
               fontWeight="bold"
               isTruncated
+              color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             >
               {formattedTitle}
             </Text>
@@ -182,12 +199,12 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
             height="8px"
             width="100%"
             borderRadius="4px"
-            backgroundColor="gray.200"
+            backgroundColor={colorMode === 'light' ? "gray.200" : "gray.600"}
           />
         </Box>
         <Text
           fontSize={{ base: "12px", md: "13px", lg: "14px" }}
-          color="gray.600"
+          color={colorMode === 'light' ? "gray.600" : "gray.400"}
           width="15%"
           textAlign="right"
         >
@@ -199,14 +216,23 @@ const ExamCard = React.memo(({ title, progress, totalQuestions, view, examId }) 
           paddingY={1}
           marginLeft={2}
           borderRadius="full"
-          backgroundColor="#00bfff"
-          color="black"
+          backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
           fontWeight="bold"
           fontSize={{ base: "12px", md: "13px", lg: "14px" }}
-          border="1px solid black"
-          boxShadow="0 2px 0 0 black"
-          _hover={{ backgroundColor: "#00a6d6" }}
-          _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+          border="1px solid"
+          borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+          boxShadow={colorMode === 'light' 
+            ? "0 2px 0 0 black"
+            : "0 2px 0 0 rgba(255, 255, 255, 0.2)"
+          }
+          _hover={{ 
+            backgroundColor: colorMode === 'light' ? "brand.primary.dark" : "brand.primary.light"
+          }}
+          _active={{ 
+            boxShadow: "none", 
+            transform: "translateY(2px)" 
+          }}
           onClick={handleContinue}
         >
           Continue

@@ -9,6 +9,7 @@ import {
   Text,
   Center,
   Spinner,
+  useColorMode,
 } from "@chakra-ui/react";
 import { LuGrid, LuList } from "react-icons/lu";
 import { IconBox } from "./IconBox";
@@ -17,14 +18,23 @@ import Pagination from "./Pagination";
 import { debounce } from "lodash";
 import ProviderCard from "./ProviderCard";
 
-const LoadingSpinner = () => (
-  <Center height="200px">
-    <Spinner size="xl" color="#00bfff" thickness="4px" />
-  </Center>
-);
+const LoadingSpinner = () => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Center height="200px">
+      <Spinner 
+        size="xl" 
+        color={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"} 
+        thickness="4px" 
+      />
+    </Center>
+  );
+};
 
 const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
   const location = useLocation();
+  const { colorMode } = useColorMode();
   const [providers, setProviders] = useState([]);
   const [selectedProvider, setSelectedProvider] = useState("All Providers");
   const [searchTerm, setSearchTerm] = useState("");
@@ -33,7 +43,6 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
   const providersPerPage = 3;
 
   useEffect(() => {
-    // Check for provider selection from navigation
     if (location.state?.selectedProvider && location.state?.fromProviders) {
       setSelectedProvider(location.state.selectedProvider);
     }
@@ -77,7 +86,6 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
         }))
         .filter((provider) => provider.exams.length > 0);
     }
-    // Sort providers to prioritize popular ones
     return filtered.sort((a, b) => {
       if (a.isPopular && !b.isPopular) return -1;
       if (!a.isPopular && b.isPopular) return 1;
@@ -100,7 +108,7 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
 
   const handleSearch = (event) => {
     debouncedSearch(event.target.value);
-    setCurrentPage(1); // Reset to first page on search
+    setCurrentPage(1);
   };
 
   const handlePageChange = (newPage) => {
@@ -109,7 +117,7 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
 
   const handleProviderSelect = (provider) => {
     setSelectedProvider(provider);
-    setCurrentPage(1); // Reset to first page on provider change
+    setCurrentPage(1);
   };
 
   const renderContent = () => {
@@ -118,7 +126,12 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
     }
     if (paginatedProviders.length === 0) {
       return (
-        <Text fontSize="xl" textAlign="center" marginY={8}>
+        <Text 
+          fontSize="xl" 
+          textAlign="center" 
+          marginY={8}
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+        >
           No exams found. Try adjusting your search or selected provider.
         </Text>
       );
@@ -149,6 +162,12 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
             size="lg"
             width={{ base: "100%", md: "400px" }}
             onChange={handleSearch}
+            bg={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            _placeholder={{
+              color: colorMode === 'light' ? "gray.500" : "gray.400"
+            }}
           />
           <Flex alignItems="center" gap={4}>
             <Box width="250px">
@@ -164,7 +183,10 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
                 size="48px"
                 iconScale={0.4}
                 borderThickness={3}
-                backgroundColor={view === "grid" ? "#b3ebf2" : "white"}
+                backgroundColor={view === "grid" 
+                  ? colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+                  : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+                }
                 onClick={() => onViewChange("grid")}
                 isActive={view === "grid"}
               />
@@ -173,7 +195,10 @@ const ProviderExamsCard = ({ onExamSelect, view, onViewChange }) => {
                 size="48px"
                 iconScale={0.4}
                 borderThickness={3}
-                backgroundColor={view === "list" ? "#b3ebf2" : "white"}
+                backgroundColor={view === "list"
+                  ? colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
+                  : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+                }
                 onClick={() => onViewChange("list")}
                 isActive={view === "list"}
               />

@@ -6,14 +6,13 @@ const Navbar = ({ activeItem, children }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   
   // Dynamic color values from our theme
-  const bgColor = useColorModeValue('brand.background.light', 'brand.surface.dark');
+  const bgColor = useColorModeValue('brand.background.light', 'brand.background.dark');
   const borderColor = useColorModeValue('brand.border.light', 'brand.border.dark');
   const textColor = useColorModeValue('brand.text.light', 'brand.text.dark');
   const highlightBg = useColorModeValue('brand.secondary.light', 'brand.secondary.dark');
   const toggleBg = useColorModeValue('brand.surface.light', 'brand.surface.dark');
-  const toggleIconBg = colorMode === 'light' 
-    ? 'brand.primary.light' 
-    : 'brand.primary.dark';
+  const toggleIconBg = useColorModeValue('brand.primary.light', 'brand.primary.dark');
+  const helloTextColor = useColorModeValue('gray.600', 'gray.400');
 
   return (
     <Flex 
@@ -36,21 +35,22 @@ const Navbar = ({ activeItem, children }) => {
             color={textColor}
             transition="color 0.2s"
           >
-          <Box
-            as="span"
-            bg={useColorModeValue('brand.secondary.light', 'brand.secondary.dark')}
-            px="1"
-            py="0"
-            borderRadius="8px"
-          >
-            {activeItem}
-          </Box>
+            <Box
+              as="span"
+              bg={highlightBg}
+              px="1"
+              py="0"
+              borderRadius="8px"
+            >
+              {activeItem}
+            </Box>
           </Text>
         </Box>
         <Box overflow="hidden" flex={1} minWidth={0}>
           {children}
         </Box>
       </Flex>
+
       <HStack spacing={4} flexShrink={0} ml={4}>
         <Flex align="center">
           <Box
@@ -109,7 +109,7 @@ const Navbar = ({ activeItem, children }) => {
             fontWeight={700}
             fontSize="20px"
             lineHeight="30px"
-            color={useColorModeValue('gray.600', 'gray.400')}
+            color={helloTextColor}
             mr={1}
             transition="color 0.2s"
           >

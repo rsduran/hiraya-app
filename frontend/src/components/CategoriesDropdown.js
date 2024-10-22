@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { Box, Text, Button, Tooltip } from '@chakra-ui/react';
+import { Box, Text, Button, Tooltip, useColorMode } from '@chakra-ui/react';
 import { ChevronDownIcon, ChevronUpIcon } from '@chakra-ui/icons';
 
 const CategoryItem = React.memo(({ category, isSelected, onClick }) => {
+  const { colorMode } = useColorMode();
   const itemRef = useRef(null);
   const [isItemTruncated, setIsItemTruncated] = useState(false);
 
@@ -17,9 +18,14 @@ const CategoryItem = React.memo(({ category, isSelected, onClick }) => {
       <Box
         padding={3}
         cursor="pointer"
-        backgroundColor={isSelected ? "#00bfff" : "white"}
+        backgroundColor={isSelected 
+          ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+          : colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"
+        }
         _hover={{
-          backgroundColor: isSelected ? "#00bfff" : "#b3ebf2",
+          backgroundColor: isSelected 
+            ? colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"
+            : colorMode === 'light' ? "brand.secondary.light" : "brand.secondary.dark"
         }}
         onClick={onClick}
       >
@@ -28,7 +34,7 @@ const CategoryItem = React.memo(({ category, isSelected, onClick }) => {
           fontWeight={700}
           fontSize="16px"
           lineHeight="19px"
-          color="black"
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
           isTruncated
         >
           {category}
@@ -39,6 +45,7 @@ const CategoryItem = React.memo(({ category, isSelected, onClick }) => {
 });
 
 const CategoriesDropdown = ({ categories, selectedCategory, onSelect }) => {
+  const { colorMode } = useColorMode();
   const [isOpen, setIsOpen] = useState(false);
   const [isTruncated, setIsTruncated] = useState(false);
   const textRef = useRef(null);
@@ -83,20 +90,29 @@ const CategoriesDropdown = ({ categories, selectedCategory, onSelect }) => {
         <Button
           onClick={toggleDropdown}
           width="100%"
-          backgroundColor="white"
-          color="black"
+          backgroundColor={colorMode === 'light' 
+            ? "brand.background.light" 
+            : "brand.surface.dark"}
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
           fontWeight={700}
           fontSize="16px"
           lineHeight="19px"
           borderRadius="10px"
-          border="1px solid black"
+          border="1px solid"
+          borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
           boxShadow="none"
           _hover={{
-            backgroundColor: "#00bfff",
-            boxShadow: "0 3px 0 0 black",
+            backgroundColor: colorMode === 'light' 
+              ? "brand.primary.light" 
+              : "brand.primary.dark",
+            boxShadow: colorMode === 'light'
+              ? "0 3px 0 0 black"
+              : "0 3px 0 0 rgba(255, 255, 255, 0.2)",
           }}
           _active={{
-            backgroundColor: "#00bfff",
+            backgroundColor: colorMode === 'light' 
+              ? "brand.primary.light" 
+              : "brand.primary.dark",
             boxShadow: "none",
           }}
           transition="all 0.2s"
@@ -108,7 +124,13 @@ const CategoriesDropdown = ({ categories, selectedCategory, onSelect }) => {
           paddingTop={3}
           paddingBottom={3}
         >
-          <Text ref={textRef} isTruncated>{selectedCategory}</Text>
+          <Text 
+            ref={textRef} 
+            isTruncated
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+          >
+            {selectedCategory}
+          </Text>
           {isOpen ? <ChevronUpIcon /> : <ChevronDownIcon />}
         </Button>
       </Tooltip>
@@ -119,9 +141,12 @@ const CategoriesDropdown = ({ categories, selectedCategory, onSelect }) => {
           left={0}
           width="100%"
           maxHeight="300px"
-          backgroundColor="white"
+          backgroundColor={colorMode === 'light' 
+            ? "brand.background.light" 
+            : "rgba(255, 255, 255, 0.2)"}
           borderRadius="10px"
-          border="1px solid black"
+          border="1px solid"
+          borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
           marginTop={2}
           zIndex={1}
           overflowY="auto"

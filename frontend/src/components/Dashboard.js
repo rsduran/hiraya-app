@@ -1,10 +1,20 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Box, Flex, Text, Button, VStack, useToast, Spinner, useDisclosure } from '@chakra-ui/react';
-import { FaApple, FaAndroid, FaHeart, FaTimes } from 'react-icons/fa';
-import { IconBox } from './IconBox';
-import CustomDashboardTable from './CustomDashboardTable';
-import DeleteConfirmationModal from './DeleteConfirmationModal';
-import { createCustomToast } from './CustomToast';
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import {
+  Box,
+  Flex,
+  Text,
+  Button,
+  VStack,
+  useToast,
+  Spinner,
+  useDisclosure,
+  useColorMode,
+} from "@chakra-ui/react";
+import { FaApple, FaAndroid, FaHeart, FaTimes } from "react-icons/fa";
+import { IconBox } from "./IconBox";
+import CustomDashboardTable from "./CustomDashboardTable";
+import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import { createCustomToast } from "./CustomToast";
 
 const WelcomeComponent = ({ users, countries }) => (
   <Box
@@ -27,33 +37,63 @@ const WelcomeComponent = ({ users, countries }) => (
       borderRadius="full"
       backgroundColor="rgba(255, 255, 255, 0.1)"
     />
-    <Flex 
-      justifyContent="space-between" 
+    <Flex
+      justifyContent="space-between"
       alignItems="center"
       flexDirection={{ base: "column", md: "row" }}
     >
-      <VStack align={{ base: "center", md: "flex-start" }} spacing={2} marginBottom={{ base: 4, md: 0 }}>
-        <Text fontSize={{ base: "24px", md: "32px" }} fontWeight="800" color="white" textAlign={{ base: "center", md: "left" }}>
+      <VStack
+        align={{ base: "center", md: "flex-start" }}
+        spacing={2}
+        marginBottom={{ base: 4, md: 0 }}
+      >
+        <Text
+          fontSize={{ base: "24px", md: "32px" }}
+          fontWeight="800"
+          color="white"
+          textAlign={{ base: "center", md: "left" }}
+        >
           Welcome to Hiraya
         </Text>
-        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+        <Text
+          fontSize={{ base: "16px", md: "18px" }}
+          fontWeight="500"
+          color="white"
+          textAlign={{ base: "center", md: "left" }}
+        >
           Empowering your learning journey
         </Text>
       </VStack>
       <Flex>
         <Box marginRight={{ base: 4, md: 8 }} textAlign="center">
-          <Text fontSize={{ base: "32px", md: "40px" }} fontWeight="800" color="white">
+          <Text
+            fontSize={{ base: "32px", md: "40px" }}
+            fontWeight="800"
+            color="white"
+          >
             {users}M+
           </Text>
-          <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="600" color="white">
+          <Text
+            fontSize={{ base: "14px", md: "16px" }}
+            fontWeight="600"
+            color="white"
+          >
             Users
           </Text>
         </Box>
         <Box textAlign="center">
-          <Text fontSize={{ base: "32px", md: "40px" }} fontWeight="800" color="white">
+          <Text
+            fontSize={{ base: "32px", md: "40px" }}
+            fontWeight="800"
+            color="white"
+          >
             {countries}+
           </Text>
-          <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="600" color="white">
+          <Text
+            fontSize={{ base: "14px", md: "16px" }}
+            fontWeight="600"
+            color="white"
+          >
             Countries
           </Text>
         </Box>
@@ -62,14 +102,21 @@ const WelcomeComponent = ({ users, countries }) => (
   </Box>
 );
 
-const CustomButton = ({ children, leftIcon, ...props }) => (
+const CustomButton = ({
+  children,
+  leftIcon,
+  backgroundColor,
+  color,
+  _hover,
+  ...props
+}) => (
   <Button
     height="48px"
     fontSize={{ base: "14px", md: "16px" }}
     paddingLeft={{ base: "16px", md: "24px" }}
     paddingRight={{ base: "16px", md: "24px" }}
-    backgroundColor="white"
-    color="black"
+    backgroundColor={backgroundColor || "white"}
+    color={color || "black"}
     borderRadius="full"
     border="1px solid black"
     fontWeight={700}
@@ -77,12 +124,13 @@ const CustomButton = ({ children, leftIcon, ...props }) => (
     transition="0.3s"
     boxShadow="0 4px 0 0 black"
     _hover={{
-      transform: 'translateY(2px)',
-      boxShadow: '0 2px 0 0 black',
+      transform: "translateY(2px)",
+      boxShadow: "0 2px 0 0 black",
+      ..._hover,
     }}
     _active={{
-      transform: 'translateY(4px)',
-      boxShadow: 'none',
+      transform: "translateY(4px)",
+      boxShadow: "none",
     }}
     leftIcon={leftIcon}
     {...props}
@@ -91,65 +139,103 @@ const CustomButton = ({ children, leftIcon, ...props }) => (
   </Button>
 );
 
-const CloseButton = ({ onClick }) => (
-  <IconBox
-    icon={FaTimes}
-    size="24px"
-    iconScale={0.7}
-    withBorder={false}
-    bgColor="transparent"
-    onClick={onClick}
-  />
-);
+const CloseButton = ({ onClick }) => {
+  const { colorMode } = useColorMode();
 
-const MobileAppsComing = ({ onClose }) => (
-  <Box
-    width="100%"
-    bgGradient="linear(to-br, #FFB347, #ffcc33)"
-    borderRadius={{ base: "10px", md: "20px" }}
-    border="1px solid black"
-    boxShadow="0 4px 0 0 black"
-    padding={{ base: 4, md: 6 }}
-    marginBottom={{ base: 4, md: 8 }}
-    position="relative"
-    overflow="hidden"
-  >
-    <Box position="absolute" top={2} right={2} zIndex={1}>
-      <CloseButton onClick={onClose} />
-    </Box>
+  return (
     <Box
-      position="absolute"
-      bottom={{ base: "-15px", md: "-30px" }}
-      left={{ base: "-15px", md: "-30px" }}
-      width={{ base: "100px", md: "150px" }}
-      height={{ base: "100px", md: "150px" }}
-      borderRadius="full"
-      backgroundColor="rgba(255, 255, 255, 0.1)"
-    />
-    <Flex 
-      justifyContent="space-between" 
+      as="button"
+      onClick={onClick}
+      display="inline-flex"
       alignItems="center"
-      flexDirection={{ base: "column", md: "row" }}
+      justifyContent="center"
+      w="24px"
+      h="24px"
+      bg="transparent"
+      _focus={{ boxShadow: "none" }}
+      color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+      borderRadius="50%"
     >
-      <VStack align={{ base: "center", md: "flex-start" }} spacing={2} marginBottom={{ base: 4, md: 0 }}>
-        <Text fontSize={{ base: "24px", md: "28px" }} fontWeight="800" color="black" textAlign={{ base: "center", md: "left" }}>
-          Mobile Apps Coming Soon
-        </Text>
-        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="black" textAlign={{ base: "center", md: "left" }}>
-          Your learning journey, now in your pocket!
-        </Text>
-      </VStack>
-      <Flex flexDirection={{ base: "column", sm: "row" }} marginTop={{ base: 4, md: 0 }}>
-        <CustomButton leftIcon={<FaApple />} marginBottom={{ base: 2, sm: 0 }} marginRight={{ base: 0, sm: 4 }}>
-          iOS
-        </CustomButton>
-        <CustomButton leftIcon={<FaAndroid />}>
-          Android
-        </CustomButton>
+      <FaTimes size="16px" />
+    </Box>
+  );
+};
+
+const MobileAppsComing = ({ onClose }) => {
+  const { colorMode } = useColorMode();
+
+  return (
+    <Box
+      width="100%"
+      bgGradient={
+        colorMode === "light"
+          ? "linear(to-br, #FFB347, #ffcc33)" // Original orange gradient
+          : "linear(to-br, #B37F32, #B38F24)" // Darker orange gradient for dark mode
+      }
+      borderRadius={{ base: "10px", md: "20px" }}
+      border="1px solid black"
+      boxShadow="0 4px 0 0 black"
+      padding={{ base: 4, md: 6 }}
+      marginBottom={{ base: 4, md: 8 }}
+      position="relative"
+      overflow="hidden"
+    >
+      <Box position="absolute" top={2} right={2} zIndex={1}>
+        <CloseButton onClick={onClose} />
+      </Box>
+      <Box
+        position="absolute"
+        bottom={{ base: "-15px", md: "-30px" }}
+        left={{ base: "-15px", md: "-30px" }}
+        width={{ base: "100px", md: "150px" }}
+        height={{ base: "100px", md: "150px" }}
+        borderRadius="full"
+        backgroundColor="rgba(255, 255, 255, 0.1)"
+      />
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        flexDirection={{ base: "column", md: "row" }}
+      >
+        <VStack
+          align={{ base: "center", md: "flex-start" }}
+          spacing={2}
+          marginBottom={{ base: 4, md: 0 }}
+        >
+          <Text
+            fontSize={{ base: "24px", md: "28px" }}
+            fontWeight="800"
+            color="black"
+            textAlign={{ base: "center", md: "left" }}
+          >
+            Mobile Apps Coming Soon
+          </Text>
+          <Text
+            fontSize={{ base: "16px", md: "18px" }}
+            fontWeight="500"
+            color="black"
+            textAlign={{ base: "center", md: "left" }}
+          >
+            Your learning journey, now in your pocket!
+          </Text>
+        </VStack>
+        <Flex
+          flexDirection={{ base: "column", sm: "row" }}
+          marginTop={{ base: 4, md: 0 }}
+        >
+          <CustomButton
+            leftIcon={<FaApple />}
+            marginBottom={{ base: 2, sm: 0 }}
+            marginRight={{ base: 0, sm: 4 }}
+          >
+            iOS
+          </CustomButton>
+          <CustomButton leftIcon={<FaAndroid />}>Android</CustomButton>
+        </Flex>
       </Flex>
-    </Flex>
-  </Box>
-);
+    </Box>
+  );
+};
 
 const SupportDevelopers = ({ onClose }) => (
   <Box
@@ -175,35 +261,51 @@ const SupportDevelopers = ({ onClose }) => (
       borderRadius="full"
       backgroundColor="rgba(255, 255, 255, 0.1)"
     />
-    <Flex 
-      justifyContent="space-between" 
+    <Flex
+      justifyContent="space-between"
       alignItems="center"
       flexDirection={{ base: "column", md: "row" }}
     >
       <VStack align={{ base: "center", md: "flex-start" }} spacing={2} flex="1">
-        <Text fontSize={{ base: "24px", md: "28px" }} fontWeight="800" color="white" textAlign={{ base: "center", md: "left" }}>
+        <Text
+          fontSize={{ base: "24px", md: "28px" }}
+          fontWeight="800"
+          color="white"
+          textAlign={{ base: "center", md: "left" }}
+        >
           Support the Developers
         </Text>
-        <Text fontSize={{ base: "16px", md: "18px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
+        <Text
+          fontSize={{ base: "16px", md: "18px" }}
+          fontWeight="500"
+          color="white"
+          textAlign={{ base: "center", md: "left" }}
+        >
           Help us keep Hiraya ad-free and running 24/7, 365 days a year
         </Text>
-        <Text fontSize={{ base: "14px", md: "16px" }} fontWeight="500" color="white" textAlign={{ base: "center", md: "left" }}>
-          Your support helps cover recurring costs and keeps this website ad-free. Thank you for your generosity!
+        <Text
+          fontSize={{ base: "14px", md: "16px" }}
+          fontWeight="500"
+          color="white"
+          textAlign={{ base: "center", md: "left" }}
+        >
+          Your support helps cover recurring costs and keeps this website
+          ad-free. Thank you for your generosity!
         </Text>
       </VStack>
       <Box marginLeft={{ base: 0, md: 4 }} marginTop={{ base: 4, md: 0 }}>
-        <CustomButton 
-          leftIcon={<FaHeart />} 
+        <CustomButton
+          leftIcon={<FaHeart />}
           backgroundColor="#FF4081"
           color="white"
           _hover={{
             backgroundColor: "#E91E63",
-            transform: 'translateY(2px)',
-            boxShadow: '0 2px 0 0 black',
+            transform: "translateY(2px)",
+            boxShadow: "0 2px 0 0 black",
           }}
           _active={{
-            transform: 'translateY(4px)',
-            boxShadow: 'none',
+            transform: "translateY(4px)",
+            boxShadow: "none",
           }}
         >
           DONATE
@@ -213,24 +315,43 @@ const SupportDevelopers = ({ onClose }) => (
   </Box>
 );
 
-const EmptyProgressState = () => (
-  <Box
-    borderRadius="12px"
-    border="1px solid black"
-    padding={6}
-    backgroundColor="white"
-    marginBottom={8}
-  >
-    <VStack spacing={4}>
-      <Text fontSize="xl" fontWeight="bold" textAlign="center">
-        No Exam Progress Yet
-      </Text>
-      <Text color="gray.600" textAlign="center">
-        Start your learning journey by selecting an exam and clicking "Continue" to begin tracking your progress here.
-      </Text>
-    </VStack>
-  </Box>
-);
+const EmptyProgressState = () => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Box
+      borderRadius="12px"
+      border="1px solid"
+      borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+      padding={6}
+      backgroundColor={colorMode === 'light' ? "brand.background.light" : "brand.surface.dark"}
+      marginBottom={8}
+      boxShadow={colorMode === 'light' 
+        ? "0 4px 0 0 black"
+        : "0 4px 0 0 rgba(255, 255, 255, 0.2)"
+      }
+    >
+      <VStack spacing={4}>
+        <Text 
+          fontSize="xl" 
+          fontWeight="bold" 
+          textAlign="center"
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+        >
+          No Exam Progress Yet
+        </Text>
+        <Text 
+          color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
+          opacity={0.6}
+          textAlign="center"
+        >
+          Start your learning journey by selecting an exam and clicking "Continue"
+          to begin tracking your progress here.
+        </Text>
+      </VStack>
+    </Box>
+  );
+};
 
 const Dashboard = () => {
   // State declarations
@@ -239,19 +360,19 @@ const Dashboard = () => {
   const [examProgress, setExamProgress] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [selectedForDeletion, setSelectedForDeletion] = useState([]);
-  const [deleteType, setDeleteType] = useState('');
-  
+  const [deleteType, setDeleteType] = useState("");
+
   // Refs for cleanup and preventing memory leaks
   const abortControllerRef = useRef(null);
   const isMounted = useRef(true);
-  
+
   // Hooks
   const toast = useToast();
   const toastRef = useRef(createCustomToast(toast));
-  const { 
-    isOpen: isDeleteModalOpen, 
-    onOpen: openDeleteModal, 
-    onClose: closeDeleteModal 
+  const {
+    isOpen: isDeleteModalOpen,
+    onOpen: openDeleteModal,
+    onClose: closeDeleteModal,
   } = useDisclosure();
 
   // Fetch exam progress with cleanup and error handling
@@ -268,12 +389,12 @@ const Dashboard = () => {
       if (!isMounted.current) return;
       setIsLoading(true);
 
-      const response = await fetch('http://localhost:5000/api/exam-progress', {
-        signal: abortControllerRef.current.signal
+      const response = await fetch("http://localhost:5000/api/exam-progress", {
+        signal: abortControllerRef.current.signal,
       });
 
       if (!response.ok) {
-        throw new Error('Failed to fetch exam progress');
+        throw new Error("Failed to fetch exam progress");
       }
 
       const data = await response.json();
@@ -281,16 +402,16 @@ const Dashboard = () => {
         setExamProgress(data.providers);
       }
     } catch (error) {
-      if (error.name === 'AbortError') {
+      if (error.name === "AbortError") {
         return; // Ignore abort errors
       }
-      
-      console.error('Error fetching exam progress:', error);
+
+      console.error("Error fetching exam progress:", error);
       if (isMounted.current) {
         toastRef.current({
-          title: 'Error fetching exam progress',
+          title: "Error fetching exam progress",
           description: error.message,
-          status: 'error',
+          status: "error",
         });
         setExamProgress([]);
       }
@@ -316,64 +437,70 @@ const Dashboard = () => {
   }, [fetchExamProgress]);
 
   // Handler for deleting selected items
-  const handleDeleteSelected = useCallback(async (selectedIds) => {
-    setSelectedForDeletion(selectedIds);
-    setDeleteType('selected');
-    openDeleteModal();
-  }, [openDeleteModal]);
+  const handleDeleteSelected = useCallback(
+    async (selectedIds) => {
+      setSelectedForDeletion(selectedIds);
+      setDeleteType("selected");
+      openDeleteModal();
+    },
+    [openDeleteModal]
+  );
 
   // Handler for deleting all items
   const handleDeleteAll = useCallback(() => {
-    setDeleteType('all');
+    setDeleteType("all");
     openDeleteModal();
   }, [openDeleteModal]);
 
   // Confirm delete handler
   const handleConfirmDelete = async () => {
     try {
-      if (deleteType === 'all') {
-        await fetch('http://localhost:5000/api/delete-all-progress', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' }
+      if (deleteType === "all") {
+        await fetch("http://localhost:5000/api/delete-all-progress", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
         });
-        
+
         if (isMounted.current) {
           setExamProgress([]);
           toastRef.current({
-            title: 'All progress cleared',
-            description: 'Your exam progress history has been cleared.',
-            status: 'success'
+            title: "All progress cleared",
+            description: "Your exam progress history has been cleared.",
+            status: "success",
           });
         }
       } else {
-        const providerGroups = examProgress.reduce((acc, provider) => {
-          const selectedProviderExams = provider.exams
-            .filter(exam => selectedForDeletion.includes(exam.id))
-            .map(exam => exam.id);
-          
-          if (selectedProviderExams.length === provider.exams.length) {
-            acc.providers.push(provider.name);
-          } else if (selectedProviderExams.length > 0) {
-            acc.exams.push(...selectedProviderExams);
-          }
-          return acc;
-        }, { providers: [], exams: [] });
+        const providerGroups = examProgress.reduce(
+          (acc, provider) => {
+            const selectedProviderExams = provider.exams
+              .filter((exam) => selectedForDeletion.includes(exam.id))
+              .map((exam) => exam.id);
+
+            if (selectedProviderExams.length === provider.exams.length) {
+              acc.providers.push(provider.name);
+            } else if (selectedProviderExams.length > 0) {
+              acc.exams.push(...selectedProviderExams);
+            }
+            return acc;
+          },
+          { providers: [], exams: [] }
+        );
 
         // Delete providers if needed
         if (providerGroups.providers.length > 0) {
-          await fetch('http://localhost:5000/api/delete-provider-exams', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ provider_names: providerGroups.providers })
+          await fetch("http://localhost:5000/api/delete-provider-exams", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ provider_names: providerGroups.providers }),
           });
         }
 
         // Delete individual exams if needed
         if (providerGroups.exams.length > 0) {
-          await fetch('http://localhost:5000/api/delete-exams', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ exam_ids: providerGroups.exams })
+          await fetch("http://localhost:5000/api/delete-exams", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ exam_ids: providerGroups.exams }),
           });
         }
 
@@ -382,19 +509,22 @@ const Dashboard = () => {
 
         if (isMounted.current) {
           toastRef.current({
-            title: 'Selected items deleted',
-            description: 'The selected exams have been removed from your progress tracking.',
-            status: 'success'
+            title: "Selected items deleted",
+            description:
+              "The selected exams have been removed from your progress tracking.",
+            status: "success",
           });
         }
       }
     } catch (error) {
-      console.error('Error during deletion:', error);
+      console.error("Error during deletion:", error);
       if (isMounted.current) {
         toastRef.current({
-          title: 'Error',
-          description: `Failed to delete ${deleteType === 'all' ? 'all progress' : 'selected items'}`,
-          status: 'error'
+          title: "Error",
+          description: `Failed to delete ${
+            deleteType === "all" ? "all progress" : "selected items"
+          }`,
+          status: "error",
         });
       }
     } finally {
@@ -407,21 +537,21 @@ const Dashboard = () => {
 
   // Render JSX
   return (
-    <Box 
-      width="100%" 
-      paddingLeft={{ base: 2, sm: 4, md: 6, lg: 8 }} 
+    <Box
+      width="100%"
+      paddingLeft={{ base: 2, sm: 4, md: 6, lg: 8 }}
       paddingRight={{ base: 2, sm: 4, md: 6, lg: 8 }}
     >
       <WelcomeComponent users={2.0} countries={190} />
-      
+
       {showMobileApps && (
         <MobileAppsComing onClose={() => setShowMobileApps(false)} />
       )}
-      
+
       {showSupport && (
         <SupportDevelopers onClose={() => setShowSupport(false)} />
       )}
-      
+
       {isLoading ? (
         <Flex justify="center" align="center" height="400px">
           <Spinner size="xl" color="#00bfff" thickness="4px" />
@@ -442,12 +572,16 @@ const Dashboard = () => {
         onConfirm={handleConfirmDelete}
         deleteType={deleteType}
         itemCount={selectedForDeletion.length}
-        title={deleteType === 'all' ? 'Delete All Progress' : 'Delete Selected Progress'}
+        title={
+          deleteType === "all"
+            ? "Delete All Progress"
+            : "Delete Selected Progress"
+        }
         message={
-          deleteType === 'all'
+          deleteType === "all"
             ? undefined
             : `Selected items include ${selectedForDeletion.length} exam${
-                selectedForDeletion.length === 1 ? '' : 's'
+                selectedForDeletion.length === 1 ? "" : "s"
               }`
         }
       />

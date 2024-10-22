@@ -6,10 +6,12 @@ import {
   Flex,
   Image,
   Tooltip,
+  useColorMode,
 } from "@chakra-ui/react";
 
 const ProviderInfoCard = ({ provider, view }) => {
   const navigate = useNavigate();
+  const { colorMode } = useColorMode();
   const {
     name,
     description,
@@ -56,10 +58,15 @@ const ProviderInfoCard = ({ provider, view }) => {
   if (view === "grid") {
     return (
       <Box
-        backgroundColor="white"
+        backgroundColor={colorMode === 'light' 
+          ? "brand.background.light" 
+          : "rgba(255, 255, 255, 0.05)"} // Slightly lighter than the dark background
         borderRadius="12px"
-        border="1px solid black"
-        boxShadow="0 4px 0 0 black"
+        border="1px solid"
+        borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+        boxShadow={colorMode === 'light' 
+          ? "0 4px 0 0 black"
+          : "0 4px 0 0 rgba(255, 255, 255, 0.2)"}
         padding={4}
         width="300px"
         height="400px"
@@ -92,7 +99,19 @@ const ProviderInfoCard = ({ provider, view }) => {
           justifyContent="space-between"
           height="100%"
         >
-          <Box width="100px" height="100px" display="flex" alignItems="center" justifyContent="center" marginBottom={4}>
+          <Box 
+            width="100px" 
+            height="100px" 
+            display="flex" 
+            alignItems="center" 
+            justifyContent="center" 
+            marginBottom={4}
+            backgroundColor={colorMode === 'light' 
+              ? "transparent"
+              : "rgba(255, 255, 255, 0.1)"} // Slightly lighter background for logo area
+            borderRadius="md"
+            padding={2}
+          >
             <Image
               src={image}
               alt={`${name} logo`}
@@ -113,6 +132,7 @@ const ProviderInfoCard = ({ provider, view }) => {
               overflow="hidden"
               textOverflow="ellipsis"
               display="-webkit-box"
+              color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
               sx={{
                 WebkitLineClamp: 2,
                 WebkitBoxOrient: "vertical",
@@ -125,14 +145,21 @@ const ProviderInfoCard = ({ provider, view }) => {
             fontSize="16px"
             textAlign="center"
             marginBottom={4}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
           >
             {description}
           </Text>
           <Flex flexDirection="column" width="100%" alignItems="flex-start" marginBottom={4}>
-            <Text fontSize="14px" color="gray.600">
+            <Text 
+              fontSize="14px" 
+              color={colorMode === 'light' ? "gray.600" : "gray.400"}
+            >
               Total Exams: {totalExams}
             </Text>
-            <Text fontSize="14px" color="gray.600">
+            <Text 
+              fontSize="14px" 
+              color={colorMode === 'light' ? "gray.600" : "gray.400"}
+            >
               Total Questions: {totalQuestions}
             </Text>
           </Flex>
@@ -141,14 +168,24 @@ const ProviderInfoCard = ({ provider, view }) => {
             paddingX={4}
             paddingY={2}
             borderRadius="full"
-            backgroundColor="#00bfff"
-            color="black"
+            backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             fontWeight="bold"
             fontSize="14px"
-            border="1px solid black"
-            boxShadow="0 2px 0 0 black"
-            _hover={{ backgroundColor: "#00a6d6" }}
-            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            border="1px solid"
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            boxShadow={colorMode === 'light' 
+              ? "0 2px 0 0 black"
+              : "0 2px 0 0 rgba(255, 255, 255, 0.2)"}
+            _hover={{ 
+              backgroundColor: colorMode === 'light' 
+                ? "brand.primary.dark" 
+                : "brand.primary.light"
+            }}
+            _active={{ 
+              boxShadow: "none", 
+              transform: "translateY(2px)" 
+            }}
             width="100%"
             onClick={handleViewExams}
           >
@@ -163,9 +200,25 @@ const ProviderInfoCard = ({ provider, view }) => {
         alignItems="center"
         paddingY={4}
         paddingX={4}
-        borderBottom="1px solid #E2E8F0"
+        borderBottom="1px solid"
+        borderColor={colorMode === 'light' ? "gray.200" : "gray.600"}
+        backgroundColor={colorMode === 'light' 
+          ? "transparent" 
+          : "rgba(255, 255, 255, 0.05)"} // Slightly lighter for list view as well
       >
-        <Box width="80px" height="80px" display="flex" alignItems="center" justifyContent="center" marginRight={4}>
+        <Box 
+          width="80px" 
+          height="80px" 
+          display="flex" 
+          alignItems="center" 
+          justifyContent="center" 
+          marginRight={4}
+          backgroundColor={colorMode === 'light' 
+            ? "transparent"
+            : "rgba(255, 255, 255, 0.1)"} // Slightly lighter background for logo area
+          borderRadius="md"
+          padding={2}
+        >
           <Image
             src={image}
             alt={`${name} logo`}
@@ -181,17 +234,27 @@ const ProviderInfoCard = ({ provider, view }) => {
               fontSize="18px"
               fontWeight="bold"
               isTruncated
+              color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             >
               {name}
             </Text>
           </Tooltip>
-          <Text fontSize="16px" color="gray.600">
+          <Text 
+            fontSize="16px" 
+            color={colorMode === 'light' ? "gray.600" : "gray.400"}
+          >
             {description}
           </Text>
-          <Text fontSize="14px" color="gray.600">
+          <Text 
+            fontSize="14px" 
+            color={colorMode === 'light' ? "gray.600" : "gray.400"}
+          >
             Total Exams: {totalExams}
           </Text>
-          <Text fontSize="14px" color="gray.600">
+          <Text 
+            fontSize="14px" 
+            color={colorMode === 'light' ? "gray.600" : "gray.400"}
+          >
             Total Questions: {totalQuestions}
           </Text>
         </Box>
@@ -216,14 +279,24 @@ const ProviderInfoCard = ({ provider, view }) => {
             paddingX={4}
             paddingY={2}
             borderRadius="full"
-            backgroundColor="#00bfff"
-            color="black"
+            backgroundColor={colorMode === 'light' ? "brand.primary.light" : "brand.primary.dark"}
+            color={colorMode === 'light' ? "brand.text.light" : "brand.text.dark"}
             fontWeight="bold"
             fontSize="14px"
-            border="1px solid black"
-            boxShadow="0 2px 0 0 black"
-            _hover={{ backgroundColor: "#00a6d6" }}
-            _active={{ boxShadow: "none", transform: "translateY(2px)" }}
+            border="1px solid"
+            borderColor={colorMode === 'light' ? "brand.border.light" : "brand.border.dark"}
+            boxShadow={colorMode === 'light' 
+              ? "0 2px 0 0 black"
+              : "0 2px 0 0 rgba(255, 255, 255, 0.2)"}
+            _hover={{ 
+              backgroundColor: colorMode === 'light' 
+                ? "brand.primary.dark" 
+                : "brand.primary.light"
+            }}
+            _active={{ 
+              boxShadow: "none", 
+              transform: "translateY(2px)" 
+            }}
             onClick={handleViewExams}
           >
             View Exams

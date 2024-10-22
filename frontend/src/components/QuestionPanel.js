@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Box, VStack, Text } from "@chakra-ui/react";
+import { Box, VStack, Text, useColorMode } from "@chakra-ui/react";
 import SearchBar from "./SearchBar";
 import TabList from "./TabList";
 import QuestionBox from "./QuestionBox";
@@ -32,6 +32,7 @@ const QuestionPanel = ({
   setUnansweredQuestions,
   incorrectQuestions,
 }) => {
+  const { colorMode } = useColorMode();
   const [currentTab, setCurrentTab] = useState("ALL QUESTIONS");
   const [tabIndices, setTabIndices] = useState({
     "ALL QUESTIONS": questionNumber - 1,
@@ -360,17 +361,26 @@ const QuestionPanel = ({
 
   const renderQuestions = () => {
     if (currentTab === "ANSWERED" && answeredQuestions.length === 0) {
-      return <Text>There are no answered questions yet.</Text>;
+      return (
+        <Text 
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        >
+          There are no answered questions yet.
+        </Text>
+      );
     }
     if (currentTab === "UNANSWERED") {
       if (unansweredQuestions.length === 0) {
-        return <Text>There are no unanswered questions.</Text>;
+        return (
+          <Text 
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          >
+            There are no unanswered questions.
+          </Text>
+        );
       }
       const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
-      if (
-        !unansweredQuestions.includes(currentQuestionId) &&
-        !removingQuestion
-      ) {
+      if (!unansweredQuestions.includes(currentQuestionId) && !removingQuestion) {
         const nextQuestion = unansweredQuestions[0];
         const [topic, question] = nextQuestion.split(" ");
         onQuestionSelect(`${topic} ${question}`);
@@ -378,15 +388,33 @@ const QuestionPanel = ({
       }
     }
     if (currentTab === "FAVORITES" && favoriteQuestions.length === 0) {
-      return <Text>There are no favorited questions.</Text>;
+      return (
+        <Text 
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        >
+          There are no favorited questions.
+        </Text>
+      );
     }
     if (currentTab === "INCORRECT") {
       if (incorrectQuestions.length === 0) {
-        return <Text>There are no incorrect questions. Great job!</Text>;
+        return (
+          <Text 
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          >
+            There are no incorrect questions. Great job!
+          </Text>
+        );
       }
       const currentQuestionId = `T${currentTopic} Q${questionNumber}`;
       if (!incorrectQuestions.includes(currentQuestionId)) {
-        return <Text>Loading next incorrect question...</Text>;
+        return (
+          <Text 
+            color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          >
+            Loading next incorrect question...
+          </Text>
+        );
       }
     }
 
@@ -417,7 +445,10 @@ const QuestionPanel = ({
   };
 
   return (
-    <Box width={width}>
+    <Box 
+      width={width}
+      bg={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
+    >
       <SearchBar
         onSearch={onSearch}
         onShuffle={onShuffle}

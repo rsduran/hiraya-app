@@ -1,19 +1,37 @@
 import React, { useState } from 'react';
-import { Box, Button, ButtonGroup, Flex, Text } from '@chakra-ui/react';
+import { Box, Button, ButtonGroup, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
 
-const TabButton = ({ children, isSelected, ...props }) => (
-  <Button
-    variant="referral"
-    backgroundColor={isSelected ? '#00bfff' : '#f2f2f3'}
-    color={isSelected ? 'black' : 'gray.600'}
-    {...props}
-  >
-    {children}
-  </Button>
-);
+const TabButton = ({ children, isSelected, ...props }) => {
+  const { colorMode } = useColorMode();
+  
+  return (
+    <Button
+      variant="referral"
+      bg={isSelected 
+        ? colorMode === 'light' ? 'brand.primary.light' : 'brand.primary.dark'
+        : colorMode === 'light' ? 'brand.surface.light' : 'brand.surface.dark'
+      }
+      color={isSelected 
+        ? colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'
+        : colorMode === 'light' ? 'gray.600' : 'gray.400'
+      }
+      _hover={{
+        bg: isSelected
+          ? colorMode === 'light' ? 'brand.primary.dark' : 'brand.primary.light'
+          : colorMode === 'light' ? 'brand.secondary.light' : 'brand.secondary.dark'
+      }}
+      border="1px solid"
+      borderColor={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
+      {...props}
+    >
+      {children}
+    </Button>
+  );
+};
 
 const NavIconBox = ({ icon: Icon, onClick, isDisabled }) => {
+  const { colorMode } = useColorMode();
   const [isPressed, setIsPressed] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   const size = '40px';
@@ -67,7 +85,8 @@ const NavIconBox = ({ icon: Icon, onClick, isDisabled }) => {
         width="100%"
         height="100%"
         borderRadius="50%"
-        border={borderThickness + " solid black"}
+        border={borderThickness + " solid"}
+        borderColor={colorMode === 'light' ? 'brand.border.light' : 'brand.border.dark'}
         backgroundColor="transparent"
       />
       <Flex
@@ -82,7 +101,10 @@ const NavIconBox = ({ icon: Icon, onClick, isDisabled }) => {
       >
         <Icon 
           size={iconSize} 
-          color={isHovered && !isDisabled ? "#00bfff" : "black"} 
+          color={isHovered && !isDisabled 
+            ? colorMode === 'light' ? 'brand.primary.light' : 'brand.primary.dark'
+            : colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'
+          } 
           transition="color 0.2s ease"
         />
       </Flex>
@@ -99,6 +121,7 @@ const TabList = ({
   onNavigateRight,
   isNavigationDisabled
 }) => {
+  const { colorMode } = useColorMode();
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const handleTabChange = (tab) => {
@@ -119,7 +142,14 @@ const TabList = ({
   };
 
   return (
-    <Box backgroundColor="gray.50" display="flex" flexDirection="column" alignItems="center" width="100%" marginBottom={4}>
+    <Box 
+      bg={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
+      display="flex" 
+      flexDirection="column" 
+      alignItems="center" 
+      width="100%" 
+      marginBottom={4}
+    >
       <ButtonGroup isAttached variant="referral" width="100%" marginBottom={4}>
         {tabs.map((tab) => (
           <TabButton
@@ -139,7 +169,10 @@ const TabList = ({
           onClick={handleNavigateLeft} 
           isDisabled={currentQuestionIndex === 0 || isNavigationDisabled}
         />
-        <Text fontSize="lg" color="gray.600">
+        <Text 
+          fontSize="lg" 
+          color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+        >
           Question {currentQuestionIndex + 1} of {totalQuestions}
         </Text>
         <NavIconBox 
