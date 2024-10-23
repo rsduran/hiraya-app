@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense, useEffect, useCallback } from "react";
+import React, { useState, lazy, Suspense, useEffect } from "react";
 import { useParams, useNavigate, useLocation } from "react-router-dom";
 import {
   Flex,
@@ -87,72 +87,6 @@ const MainPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Define fetch callbacks first
-  const fetchIncorrectQuestions = useCallback(async () => {
-    if (!currentExam) return;
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/incorrect-questions/${currentExam}`
-      );
-      const data = await response.json();
-      setIncorrectQuestions(data.incorrect_questions);
-    } catch (error) {
-      console.error("Error fetching incorrect questions:", error);
-    }
-  }, [currentExam]);
-
-  const fetchUserAnswers = useCallback(async () => {
-    if (!currentExam) return;
-    try {
-      const response = await fetch(
-        `http://localhost:5000/api/get-answers/${currentExam}`
-      );
-      const data = await response.json();
-      const answersMap = {};
-      data.answers.forEach((answer) => {
-        answersMap[`T${answer.topic_number} Q${answer.question_index + 1}`] =
-          answer.selected_options;
-      });
-      setUserAnswers(answersMap);
-      setSelectedOptions(
-        answersMap[`T${currentTopic} Q${currentQuestionIndex + 1}`] || []
-      );
-    } catch (error) {
-      console.error("Error fetching user answers:", error);
-    }
-  }, [currentExam, currentTopic, currentQuestionIndex]);
-
-  // Main exam data fetch effect
-  useEffect(() => {
-    if (currentExam) {
-      const fetchExamData = async () => {
-        try {
-          setExamData(null);
-          const response = await fetch(
-            `http://localhost:5000/api/exams/${currentExam}`
-          );
-          const data = await response.json();
-          setExamData(data);
-          const topics = Object.keys(data.topics).map(Number);
-          setCurrentTopic(
-            topics.length === 1 ? topics[0] : currentTopic || topics[0]
-          );
-          setCurrentQuestionIndex(0);
-          
-          // Execute these in parallel
-          await Promise.all([
-            fetchUserAnswers(),
-            fetchIncorrectQuestions()
-          ]);
-        } catch (error) {
-          console.error("Error fetching exam data:", error);
-        }
-      };
-
-      fetchExamData();
-    }
-  }, [currentExam, currentTopic, fetchUserAnswers, fetchIncorrectQuestions]);
-
   const getActiveItem = (path) => {
     if (path === "/") return "Dashboard";
     if (path.startsWith("/providers")) return "Providers";
@@ -187,6 +121,32 @@ const MainPage = () => {
       updateLastVisitedExam(examId);
     }
   }, [location, examId]);
+
+  useEffect(() => {
+    if (currentExam) {
+      const fetchExamData = async () => {
+        try {
+          setExamData(null);
+          const response = await fetch(
+            `http://localhost:5000/api/exams/${currentExam}`
+          );
+          const data = await response.json();
+          setExamData(data);
+          const topics = Object.keys(data.topics).map(Number);
+          setCurrentTopic(
+            topics.length === 1 ? topics[0] : currentTopic || topics[0]
+          );
+          setCurrentQuestionIndex(0);
+        } catch (error) {
+          console.error("Error fetching exam data:", error);
+        }
+      };
+
+      fetchExamData();
+      fetchUserAnswers();
+      fetchIncorrectQuestions();
+    }
+  }, [currentExam, currentTopic]);
 
   useEffect(() => {
     if (currentExam) {
@@ -415,6 +375,38 @@ const MainPage = () => {
 
   const handleViewChange = (newView) => {
     setView(newView);
+  };
+
+  const fetchUserAnswers = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/get-answers/${currentExam}`
+      );
+      const data = await response.json();
+      const answersMap = {};
+      data.answers.forEach((answer) => {
+        answersMap[`T${answer.topic_number} Q${answer.question_index + 1}`] =
+          answer.selected_options;
+      });
+      setUserAnswers(answersMap);
+      setSelectedOptions(
+        answersMap[`T${currentTopic} Q${currentQuestionIndex + 1}`] || []
+      );
+    } catch (error) {
+      console.error("Error fetching user answers:", error);
+    }
+  };
+
+  const fetchIncorrectQuestions = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:5000/api/incorrect-questions/${currentExam}`
+      );
+      const data = await response.json();
+      setIncorrectQuestions(data.incorrect_questions);
+    } catch (error) {
+      console.error("Error fetching incorrect questions:", error);
+    }
   };
 
   const handleOptionSelect = async (newSelectedOptions) => {

@@ -124,68 +124,89 @@ const TabList = ({
 }) => {
   const { colorMode } = useColorMode();
 
-  const handleTabChange = (tab) => {
-    onTabChange(tab);
+  const handleTabChange = (selectedTab) => {
+    if (selectedTab !== currentTab) {
+      onTabChange(selectedTab);
+    }
   };
 
   const handleNavigateLeft = () => {
-    if (!isNavigationDisabled && currentQuestionIndex > 0) {
-      onNavigateLeft(); // Remove passing currentTab - let parent component handle tab context
+    const isFirstQuestion = currentQuestionIndex === 0;
+    if (!isNavigationDisabled && !isFirstQuestion) {
+      onNavigateLeft(currentTab);
     }
   };
 
   const handleNavigateRight = () => {
-    if (!isNavigationDisabled && currentQuestionIndex < totalQuestions - 1) {
-      onNavigateRight(); // Remove passing currentTab - let parent component handle tab context
+    const isLastQuestion = currentQuestionIndex === totalQuestions - 1;
+    if (!isNavigationDisabled && !isLastQuestion) {
+      onNavigateRight(currentTab);
     }
   };
 
-  const shouldDisableNavigation = (direction) => {
+  const shouldDisableLeftNavigation = () => {
     if (isNavigationDisabled) return true;
-    if (direction === 'left') {
-      return currentQuestionIndex === 0;
-    }
+    return currentQuestionIndex === 0;
+  };
+
+  const shouldDisableRightNavigation = () => {
+    if (isNavigationDisabled) return true;
     return currentQuestionIndex === totalQuestions - 1;
   };
 
   return (
     <Box 
-      bg={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
+      backgroundColor={colorMode === 'light' ? 'brand.background.light' : 'brand.background.dark'}
       display="flex" 
       flexDirection="column" 
       alignItems="center" 
       width="100%" 
       marginBottom={4}
     >
-      <ButtonGroup isAttached variant="referral" width="100%" marginBottom={4}>
+      <ButtonGroup 
+        isAttached={true} 
+        variant="referral" 
+        width="100%" 
+        marginBottom={4}
+      >
         {tabs.map((tab) => (
           <TabButton
             key={tab}
             isSelected={currentTab === tab}
             onClick={() => handleTabChange(tab)}
             flex={1}
+            data-testid={`tab-${tab}`}
           >
             {tab}
           </TabButton>
         ))}
       </ButtonGroup>
 
-      <Flex width="100%" justifyContent="space-between" alignItems="center" paddingY={4}>
+      <Flex 
+        width="100%" 
+        justifyContent="space-between" 
+        alignItems="center" 
+        paddingTop={4}
+        paddingBottom={4}
+      >
         <NavIconBox 
           icon={PiArrowLeftBold} 
-          onClick={handleNavigateLeft} 
-          isDisabled={shouldDisableNavigation('left')}
+          onClick={handleNavigateLeft}
+          isDisabled={shouldDisableLeftNavigation()}
+          data-testid="navigate-left"
         />
         <Text 
           fontSize="lg" 
           color={colorMode === 'light' ? 'brand.text.light' : 'brand.text.dark'}
+          data-testid="question-counter"
         >
           Question {currentQuestionIndex + 1} of {totalQuestions}
         </Text>
         <NavIconBox 
           icon={PiArrowRightBold} 
-          onClick={handleNavigateRight} 
-          isDisabled={shouldDisableNavigation('right')}
+          onClick={handleNavigateRight}
+          isDisabled={shouldDisableRightNavigation()}
+          data-testid="navigate-right"
         />
       </Flex>
     </Box>
