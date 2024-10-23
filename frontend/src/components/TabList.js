@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Button, ButtonGroup, Flex, Text, useColorMode } from '@chakra-ui/react';
 import { PiArrowLeftBold, PiArrowRightBold } from "react-icons/pi";
 
@@ -32,8 +32,8 @@ const TabButton = ({ children, isSelected, ...props }) => {
 
 const NavIconBox = ({ icon: Icon, onClick, isDisabled }) => {
   const { colorMode } = useColorMode();
-  const [isPressed, setIsPressed] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  const [isPressed, setIsPressed] = React.useState(false);
+  const [isHovered, setIsHovered] = React.useState(false);
   const size = '40px';
   const iconScale = 0.5;
   const iconSize = `${parseInt(size) * iconScale}px`;
@@ -119,26 +119,33 @@ const TabList = ({
   totalQuestions, 
   onNavigateLeft, 
   onNavigateRight,
-  isNavigationDisabled
+  isNavigationDisabled,
+  currentTab 
 }) => {
   const { colorMode } = useColorMode();
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   const handleTabChange = (tab) => {
-    setSelectedTab(tab);
     onTabChange(tab);
   };
 
   const handleNavigateLeft = () => {
     if (!isNavigationDisabled && currentQuestionIndex > 0) {
-      onNavigateLeft();
+      onNavigateLeft(); // Remove passing currentTab - let parent component handle tab context
     }
   };
 
   const handleNavigateRight = () => {
     if (!isNavigationDisabled && currentQuestionIndex < totalQuestions - 1) {
-      onNavigateRight();
+      onNavigateRight(); // Remove passing currentTab - let parent component handle tab context
     }
+  };
+
+  const shouldDisableNavigation = (direction) => {
+    if (isNavigationDisabled) return true;
+    if (direction === 'left') {
+      return currentQuestionIndex === 0;
+    }
+    return currentQuestionIndex === totalQuestions - 1;
   };
 
   return (
@@ -154,7 +161,7 @@ const TabList = ({
         {tabs.map((tab) => (
           <TabButton
             key={tab}
-            isSelected={selectedTab === tab}
+            isSelected={currentTab === tab}
             onClick={() => handleTabChange(tab)}
             flex={1}
           >
@@ -167,7 +174,7 @@ const TabList = ({
         <NavIconBox 
           icon={PiArrowLeftBold} 
           onClick={handleNavigateLeft} 
-          isDisabled={currentQuestionIndex === 0 || isNavigationDisabled}
+          isDisabled={shouldDisableNavigation('left')}
         />
         <Text 
           fontSize="lg" 
@@ -178,7 +185,7 @@ const TabList = ({
         <NavIconBox 
           icon={PiArrowRightBold} 
           onClick={handleNavigateRight} 
-          isDisabled={currentQuestionIndex === totalQuestions - 1 || isNavigationDisabled}
+          isDisabled={shouldDisableNavigation('right')}
         />
       </Flex>
     </Box>

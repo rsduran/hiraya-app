@@ -240,54 +240,85 @@ const QuestionPanel = ({
   const handleNavigate = useCallback(
     (direction) => {
       if (isNavigationDisabled) return;
-
-      if (currentTab === "FAVORITES") {
-        const currentIndex = tabIndices["FAVORITES"];
-        const newIndex = currentIndex + direction;
-        if (newIndex >= 0 && newIndex < favoriteQuestions.length) {
-          setTabIndices((prevIndices) => ({
-            ...prevIndices,
-            FAVORITES: newIndex,
-          }));
-          const favorite = favoriteQuestions[newIndex];
-          onQuestionSelect(
-            `T${favorite.topic_number} Q${favorite.question_index + 1}`
-          );
-        }
-      } else if (currentTab === "ANSWERED") {
-        const currentIndex = tabIndices["ANSWERED"];
-        const newIndex = currentIndex + direction;
-        if (newIndex >= 0 && newIndex < answeredQuestions.length) {
-          setTabIndices((prevIndices) => ({
-            ...prevIndices,
-            ANSWERED: newIndex,
-          }));
-          onQuestionSelect(answeredQuestions[newIndex]);
-        }
-      } else if (currentTab === "UNANSWERED") {
-        const currentIndex = tabIndices["UNANSWERED"];
-        const newIndex = currentIndex + direction;
-        if (newIndex >= 0 && newIndex < unansweredQuestions.length) {
-          setTabIndices((prevIndices) => ({
-            ...prevIndices,
-            UNANSWERED: newIndex,
-          }));
-          onQuestionSelect(unansweredQuestions[newIndex]);
-        }
-      } else if (currentTab === "INCORRECT") {
-        const currentIndex = incorrectQuestions.indexOf(
-          `T${currentTopic} Q${questionNumber}`
+  
+      // Helper function to find current index in an array of questions
+      const findCurrentIndex = (questionsArray) => {
+        return questionsArray.findIndex(
+          (q) => q === `T${currentTopic} Q${questionNumber}`
         );
-        const newIndex = currentIndex + direction;
-        if (newIndex >= 0 && newIndex < incorrectQuestions.length) {
-          onQuestionSelect(incorrectQuestions[newIndex]);
-        }
-      } else {
-        if (direction === 1) {
-          onNavigateRight();
-        } else {
-          onNavigateLeft();
-        }
+      };
+  
+      let targetQuestion;
+      let newIndex;
+  
+      switch (currentTab) {
+        case "FAVORITES":
+          // For favorites, use the stored index and update it
+          newIndex = tabIndices["FAVORITES"] + direction;
+          if (newIndex >= 0 && newIndex < favoriteQuestions.length) {
+            setTabIndices((prev) => ({
+              ...prev,
+              FAVORITES: newIndex,
+            }));
+            const favorite = favoriteQuestions[newIndex];
+            targetQuestion = `T${favorite.topic_number} Q${favorite.question_index + 1}`;
+          }
+          break;
+  
+        case "ANSWERED":
+          // Find current position in answered questions
+          const currentAnsweredIndex = findCurrentIndex(answeredQuestions);
+          newIndex = (currentAnsweredIndex !== -1 ? currentAnsweredIndex : tabIndices["ANSWERED"]) + direction;
+          if (newIndex >= 0 && newIndex < answeredQuestions.length) {
+            setTabIndices((prev) => ({
+              ...prev,
+              ANSWERED: newIndex,
+            }));
+            targetQuestion = answeredQuestions[newIndex];
+          }
+          break;
+  
+        case "UNANSWERED":
+          // Find current position in unanswered questions
+          const currentUnansweredIndex = findCurrentIndex(unansweredQuestions);
+          newIndex = (currentUnansweredIndex !== -1 ? currentUnansweredIndex : tabIndices["UNANSWERED"]) + direction;
+          if (newIndex >= 0 && newIndex < unansweredQuestions.length) {
+            setTabIndices((prev) => ({
+              ...prev,
+              UNANSWERED: newIndex,
+            }));
+            targetQuestion = unansweredQuestions[newIndex];
+          }
+          break;
+  
+        case "INCORRECT":
+          // Find current position in incorrect questions
+          const currentIncorrectIndex = findCurrentIndex(incorrectQuestions);
+          newIndex = (currentIncorrectIndex !== -1 ? currentIncorrectIndex : 0) + direction;
+          if (newIndex >= 0 && newIndex < incorrectQuestions.length) {
+            setTabIndices((prev) => ({
+              ...prev,
+              INCORRECT: newIndex,
+            }));
+            targetQuestion = incorrectQuestions[newIndex];
+          }
+          break;
+  
+        default: // "ALL QUESTIONS"
+          // Use direct navigation for all questions
+          if (direction === 1 && questionNumber < totalQuestions) {
+            onNavigateRight();
+            return;
+          } else if (direction === -1 && questionNumber > 1) {
+            onNavigateLeft();
+            return;
+          }
+          break;
+      }
+  
+      // Only navigate if we found a valid target question
+      if (targetQuestion) {
+        onQuestionSelect(targetQuestion);
       }
     },
     [
@@ -303,6 +334,7 @@ const QuestionPanel = ({
       onNavigateLeft,
       currentTopic,
       questionNumber,
+      totalQuestions, // Added totalQuestions to dependencies
     ]
   );
 
@@ -479,6 +511,7 @@ const QuestionPanel = ({
         onNavigateLeft={() => handleNavigate(-1)}
         onNavigateRight={() => handleNavigate(1)}
         isNavigationDisabled={isNavigationDisabled}
+        currentTab={currentTab}
       />
       {renderQuestions()}
     </Box>
