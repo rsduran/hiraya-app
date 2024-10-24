@@ -123,25 +123,31 @@ const MainPage = () => {
   }, [location, examId]);
 
   useEffect(() => {
-    if (currentExam) {
-      const fetchExamData = async () => {
-        try {
-          setExamData(null);
-          const response = await fetch(
-            `http://localhost:5000/api/exams/${currentExam}`
-          );
-          const data = await response.json();
-          setExamData(data);
-          const topics = Object.keys(data.topics).map(Number);
-          setCurrentTopic(
-            topics.length === 1 ? topics[0] : currentTopic || topics[0]
-          );
-          setCurrentQuestionIndex(0);
-        } catch (error) {
-          console.error("Error fetching exam data:", error);
+    const fetchExamData = async () => {
+      try {
+        setExamData(null);
+        // Define encodedExamId here too
+        const encodedExamId = encodeURIComponent(currentExam);
+        const response = await fetch(
+          `http://localhost:5000/api/exams/${encodedExamId}`
+        );
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      };
-
+        const data = await response.json();
+        setExamData(data);
+        const topics = Object.keys(data.topics).map(Number);
+        setCurrentTopic(
+          topics.length === 1 ? topics[0] : currentTopic || topics[0]
+        );
+        setCurrentQuestionIndex(0);
+      } catch (error) {
+        console.error("Error fetching exam data:", error);
+      }
+    };
+  
+    if (currentExam) {
       fetchExamData();
       fetchUserAnswers();
       fetchIncorrectQuestions();
@@ -276,6 +282,9 @@ const MainPage = () => {
 
   const handleExamSelect = async (examId) => {
     try {
+      // Define encodedExamId first
+      const encodedExamId = encodeURIComponent(examId);
+      
       await fetch("http://localhost:5000/api/track-exam-visit", {
         method: "POST",
         headers: {
@@ -283,13 +292,15 @@ const MainPage = () => {
         },
         body: JSON.stringify({ exam_id: examId }),
       });
-
+  
       setLastVisitedExam(examId);
       updateLastVisitedExam(examId);
-      navigate(`/actual-exam/${examId}`);
+      navigate(`/actual-exam/${encodedExamId}`);
     } catch (error) {
       console.error("Error tracking exam visit:", error);
-      navigate(`/actual-exam/${examId}`);
+      // Use encodedExamId in error case as well
+      const encodedExamId = encodeURIComponent(examId);
+      navigate(`/actual-exam/${encodedExamId}`);
     }
   };
 
@@ -379,8 +390,9 @@ const MainPage = () => {
 
   const fetchUserAnswers = async () => {
     try {
+      const encodedExamId = encodeURIComponent(currentExam);
       const response = await fetch(
-        `http://localhost:5000/api/get-answers/${currentExam}`
+        `http://localhost:5000/api/get-answers/${encodedExamId}`
       );
       const data = await response.json();
       const answersMap = {};
@@ -399,8 +411,9 @@ const MainPage = () => {
 
   const fetchIncorrectQuestions = async () => {
     try {
+      const encodedExamId = encodeURIComponent(currentExam);
       const response = await fetch(
-        `http://localhost:5000/api/incorrect-questions/${currentExam}`
+        `http://localhost:5000/api/incorrect-questions/${encodedExamId}`
       );
       const data = await response.json();
       setIncorrectQuestions(data.incorrect_questions);

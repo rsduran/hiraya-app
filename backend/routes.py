@@ -5,8 +5,18 @@ from app import app, db
 from models import Provider, Exam, Topic, UserPreference, FavoriteQuestion, UserAnswer, ExamAttempt, ExamVisit
 from utils import get_exam_order, format_display_title
 from provider_categories import get_provider_categories, get_total_providers, get_total_categories
+from urllib.parse import unquote
 from sqlalchemy import func
 from datetime import datetime
+
+def get_provider_description(provider_name):
+    """Get provider description from provider_categories data"""
+    categories = get_provider_categories()
+    for category in categories:
+        for provider in category['providers']:
+            if provider['name'] == provider_name:
+                return provider['description']
+    return f"Official certification exams from {provider_name}"
 
 @app.route('/api/providers', methods=['GET'])
 def get_providers():
@@ -31,20 +41,13 @@ def get_providers():
         for id, total_exams, total_questions in provider_stats
     }
     
-    provider_descriptions = {
-        'Amazon': 'AWS cloud platform certifications.',
-        'Google': 'Google Cloud expertise certifications.',
-        'Microsoft': 'Azure and cloud infrastructure certifications.',
-        # Add other provider descriptions as needed
-    }
-    
     if page is None or per_page is None:
         providers = Provider.query.all()
         return jsonify({
             'providers': [
                 {
                     'name': provider.name,
-                    'description': provider_descriptions.get(provider.name, f"Official certification exams from {provider.name}"),
+                    'description': get_provider_description(provider.name),
                     'image': f"/api/placeholder/100/100",  # Placeholder for provider logo
                     'totalExams': stats_lookup.get(provider.id, {}).get('total_exams', 0),
                     'totalQuestions': stats_lookup.get(provider.id, {}).get('total_questions', 0),
@@ -70,7 +73,7 @@ def get_providers():
             'providers': [
                 {
                     'name': provider.name,
-                    'description': provider_descriptions.get(provider.name, f"Official certification exams from {provider.name}"),
+                    'description': get_provider_description(provider.name),
                     'image': f"/api/placeholder/100/100",  # Placeholder for provider logo
                     'totalExams': stats_lookup.get(provider.id, {}).get('total_exams', 0),
                     'totalQuestions': stats_lookup.get(provider.id, {}).get('total_questions', 0),
@@ -96,54 +99,74 @@ def get_exam(exam_id):
     if exam_id == 'undefined' or '-' not in exam_id:
         abort(400, description="Invalid exam ID")
     
-    provider_name, exam_title = exam_id.split('-', 1)
+    # Decode the URL-encoded exam_id and handle the format
+    exam_id = unquote(exam_id)
+    
+    # Split on the first hyphen only to get provider name
+    provider_name, exam_title_with_code = exam_id.split('-', 1)
+    
+    # Find the provider
     provider = Provider.query.filter_by(name=provider_name).first()
     if not provider:
         abort(404, description="Provider not found")
     
-    exam = Exam.query.filter_by(title=exam_title, provider_id=provider.id).first()
+    # Search for exam using the display title format
+    exam = Exam.query.filter_by(
+        provider_id=provider.id,
+        title=exam_title_with_code
+    ).first()
+    
+    if not exam:
+        # Try alternative format
+        exam = Exam.query.filter(
+            Exam.provider_id == provider.id,
+            Exam.id.ilike(f"{provider_name}-{exam_title_with_code}%")
+        ).first()
+    
     if not exam:
         abort(404, description="Exam not found")
     
     exam_data = {
-        'id': exam_id,
+        'id': exam.id,
         'provider': provider.name,
-        'examTitle': exam.title,
-        'examCode': '',
+        'examTitle': exam.title.split(': ')[1] if ': ' in exam.title else exam.title,
+        'examCode': exam.title.split(': ')[0] if ': ' in exam.title else '',
         'topics': {topic.number: topic.data for topic in exam.topics}
     }
     
-    exam_title_parts = exam.title.split('-code-')
-    if len(exam_title_parts) == 2:
-        exam_data['examTitle'], exam_data['examCode'] = exam_title_parts
-    
     # Track the exam visit
-    user_id = 1  # You'd get this from authentication in a real app
-    
-    # Update or create ExamVisit record
-    visit = ExamVisit.query.filter_by(
-        user_id=user_id,
-        exam_id=exam_id
-    ).first()
-    
-    if not visit:
-        visit = ExamVisit(
+    try:
+        user_id = 1  # You'd get this from authentication in a real app
+        
+        # Update or create ExamVisit record
+        visit = ExamVisit.query.filter_by(
             user_id=user_id,
-            exam_id=exam_id
-        )
-        db.session.add(visit)
-    else:
-        visit.last_visit_date = datetime.utcnow()
-    
-    # Update last_visited_exam in preferences
-    preference = UserPreference.query.filter_by(user_id=user_id).first()
-    if preference:
-        preference.last_visited_exam = exam_id
-    else:
-        preference = UserPreference(user_id=user_id, last_visited_exam=exam_id)
-        db.session.add(preference)
-    
-    db.session.commit()
+            exam_id=exam.id  # Use the actual exam.id from database
+        ).first()
+        
+        if not visit:
+            visit = ExamVisit(
+                user_id=user_id,
+                exam_id=exam.id  # Use the actual exam.id from database
+            )
+            db.session.add(visit)
+        else:
+            visit.last_visit_date = datetime.utcnow()
+        
+        # Update last_visited_exam in preferences
+        preference = UserPreference.query.filter_by(user_id=user_id).first()
+        if preference:
+            preference.last_visited_exam = exam.id  # Use the actual exam.id
+        else:
+            preference = UserPreference(user_id=user_id, last_visited_exam=exam.id)
+            db.session.add(preference)
+        
+        db.session.commit()
+        
+    except Exception as e:
+        db.session.rollback()
+        logger.error(f"Error tracking exam visit: {str(e)}")
+        # Continue with the response even if tracking fails
     
     return jsonify(exam_data)
 
@@ -689,53 +712,52 @@ def update_sidebar_state():
 
 @app.route('/api/provider-statistics', methods=['GET'])
 def get_provider_statistics():
-    """
-    Get provider statistics while maintaining existing UI structure.
-    Returns complete provider data with real exam statistics.
-    """
-    # Get real statistics from database
-    provider_stats = db.session.query(
-        Provider.name,
-        Provider.is_popular,
-        func.count(Exam.id).label('total_exams'),
-        func.sum(Exam.total_questions).label('total_questions')
-    ).join(
-        Exam, Provider.id == Exam.provider_id, isouter=True
-    ).group_by(
-        Provider.name,
-        Provider.is_popular
-    ).all()
-    
-    # Create a lookup dictionary for real stats
-    stats_lookup = {
-        name: {
-            'is_popular': is_popular,
-            'total_exams': total_exams or 0,
-            'total_questions': total_questions or 0
+    """Get provider statistics and categories."""
+    try:
+        # Get real statistics from database
+        provider_stats = db.session.query(
+            Provider.name,
+            Provider.is_popular,
+            func.count(Exam.id).label('total_exams'),
+            func.sum(Exam.total_questions).label('total_questions')
+        ).join(
+            Exam, Provider.id == Exam.provider_id, isouter=True
+        ).group_by(
+            Provider.name,
+            Provider.is_popular
+        ).all()
+
+        # Create a lookup dictionary for real stats
+        stats_lookup = {
+            name: {
+                'description': get_provider_description(name),
+                'is_popular': is_popular,
+                'total_exams': total_exams or 0,
+                'total_questions': total_questions or 0
+            }
+            for name, is_popular, total_exams, total_questions in provider_stats
         }
-        for name, is_popular, total_exams, total_questions in provider_stats
-    }
-    
-    # Get categories from the imported module
-    categories = get_provider_categories()
-    
-    # Update provider data with real statistics
-    for category in categories:
-        for provider in category["providers"]:
-            stats = stats_lookup.get(provider["name"], {
-                'total_exams': 0,
-                'total_questions': 0,
-                'is_popular': provider.get("isPopular", False)
-            })
-            
-            provider.update({
-                "totalExams": stats['total_exams'],
-                "totalQuestions": stats['total_questions'],
-                "isPopular": stats['is_popular']
-            })
-    
-    return jsonify({
-        "categories": categories,
-        "totalProviders": get_total_providers(),
-        "totalCategories": get_total_categories()
-    })
+
+        # Get categories from provider_categories
+        categories = get_provider_categories()
+
+        # Update providers with real stats while keeping original structure
+        for category in categories:
+            category['providers'] = [
+                {
+                    **provider,
+                    'totalExams': stats_lookup.get(provider['name'], {}).get('total_exams', 0),
+                    'totalQuestions': stats_lookup.get(provider['name'], {}).get('total_questions', 0),
+                    'isPopular': stats_lookup.get(provider['name'], {}).get('is_popular', provider.get('isPopular', False))
+                }
+                for provider in category['providers']
+            ]
+
+        return jsonify({
+            "categories": categories,
+            "totalProviders": get_total_providers(),
+            "totalCategories": get_total_categories()
+        })
+    except Exception as e:
+        print(f"Error in provider_statistics: {str(e)}")
+        return jsonify({"error": "Internal server error"}), 500

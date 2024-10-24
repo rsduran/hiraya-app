@@ -1,14 +1,14 @@
 # backend/main.py
 
 from app import app
-from init_db import init_db
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 if __name__ == '__main__':
     try:
-        init_db()  # Initialize the database
-        print("Database initialized successfully.")
+        logger.info("Starting Flask application...")
+        app.run(debug=True)
     except Exception as e:
-        print(f"An error occurred while initializing the database: {e}")
-        print("Continuing with application startup...")
-    
-    app.run(debug=True)
+        logger.error(f"Application startup failed: {str(e)}")

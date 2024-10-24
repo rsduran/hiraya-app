@@ -1,11 +1,5 @@
 # backend/utils.py
 
-import os
-import json
-import re
-from app import db
-from models import Provider, Exam, Topic
-
 def format_display_title(exam_title):
     """
     Formats exam title for display by removing the exam code portion.
@@ -16,83 +10,11 @@ def format_display_title(exam_title):
         return exam_title.split('-code-')[0]
     return exam_title
 
-def format_exam_title(exam_file):
-    filename = exam_file.replace('.json', '')
-    filename = re.sub(r'__topic-\d+', '', filename)
-    parts = filename.split('_')
-    if len(parts) > 1:
-        filename = '_'.join(parts[1:])
-    return filename
-
-def load_data_into_db():
-    """
-    Load new exam data while preserving existing records.
-    Only adds new exams and updates existing ones if needed.
-    Never deletes existing records.
-    """
-    root_dir = 'providers'
-    for provider_name in os.listdir(root_dir):
-        provider_path = os.path.join(root_dir, provider_name)
-        if os.path.isdir(provider_path):
-            # Get or create provider
-            provider = Provider.query.filter_by(name=provider_name).first()
-            if not provider:
-                provider = Provider(
-                    name=provider_name, 
-                    is_popular=provider_name.lower() in ['amazon', 'microsoft', 'google']
-                )
-                db.session.add(provider)
-                db.session.commit()
-
-            # Process each exam file in the provider directory
-            for exam_file in os.listdir(provider_path):
-                if exam_file.endswith('.json'):
-                    file_path = os.path.join(provider_path, exam_file)
-                    with open(file_path, 'r') as f:
-                        exam_data = json.load(f)
-                    
-                    # Get exam details
-                    exam_title = format_exam_title(exam_file)
-                    exam_id = f"{provider.name}-{exam_title}"
-
-                    # Check if exam exists
-                    exam = Exam.query.get(exam_id)
-                    if not exam:
-                        # Only create if it doesn't exist
-                        question_count = max(question['index'] for question in exam_data) if exam_data else 0
-                        exam = Exam(
-                            id=exam_id,
-                            title=exam_title,
-                            total_questions=question_count,
-                            provider_id=provider.id
-                        )
-                        db.session.add(exam)
-                        db.session.commit()
-                    
-                    # Get or create topic
-                    topic_number_match = re.search(r'__topic-(\d+)', exam_file)
-                    topic_number = int(topic_number_match.group(1)) if topic_number_match else 1
-                    
-                    topic = Topic.query.filter_by(
-                        number=topic_number,
-                        exam_id=exam_id
-                    ).first()
-                    
-                    if not topic:
-                        # Only create topic if it doesn't exist
-                        topic = Topic(
-                            number=topic_number,
-                            data=exam_data,
-                            exam_id=exam_id
-                        )
-                        db.session.add(topic)
-                    elif topic.data != exam_data:
-                        # Update topic data only if it changed
-                        topic.data = exam_data
-                    
-                    db.session.commit()
-
 def get_exam_order(exam_title, provider_name):
+    """
+    Get the display order for exams based on provider and exam title.
+    Used for consistent sorting of exams in the UI.
+    """
     if provider_name.lower() == 'amazon':
         order_map = {
             'AWS Certified Cloud Practitioner': 1,
